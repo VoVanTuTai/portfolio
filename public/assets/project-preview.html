@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        width: 1200px;
+        height: 675px;
+        overflow: hidden;
+        background: #f8fbff;
+        color: #0f172a;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      .frame {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        padding: 44px;
+        background:
+          radial-gradient(circle at 82% 18%, rgba(59, 130, 246, 0.22), transparent 28%),
+          radial-gradient(circle at 12% 86%, rgba(14, 165, 233, 0.24), transparent 34%),
+          linear-gradient(135deg, #f8fbff 0%, #eaf4ff 56%, #ffffff 100%);
+      }
+
+      .header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 28px;
+      }
+
+      .eyebrow {
+        margin: 0 0 14px;
+        color: #2563eb;
+        font-size: 21px;
+        font-weight: 900;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        max-width: 690px;
+        margin: 0;
+        font-size: 50px;
+        line-height: 0.98;
+      }
+
+      .badge {
+        padding: 14px 18px;
+        border: 1px solid rgba(37, 99, 235, 0.18);
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.78);
+        color: #1d4ed8;
+        font-size: 20px;
+        font-weight: 800;
+        white-space: nowrap;
+      }
+
+      .workspace {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 24px;
+        margin-top: 30px;
+      }
+
+      .panel {
+        min-height: 326px;
+        border: 1px solid rgba(37, 99, 235, 0.14);
+        border-radius: 24px;
+        background: rgba(255, 255, 255, 0.78);
+        box-shadow: 0 34px 90px rgba(37, 99, 235, 0.16);
+        overflow: hidden;
+      }
+
+      .sidebar {
+        padding: 28px;
+      }
+
+      .metric {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 14px;
+        padding: 18px 0;
+        border-bottom: 1px solid rgba(37, 99, 235, 0.13);
+      }
+
+      .metric:last-child {
+        border-bottom: 0;
+      }
+
+      .metric strong {
+        font-size: 44px;
+        line-height: 1;
+      }
+
+      .metric span {
+        color: #475569;
+        font-size: 18px;
+        font-weight: 700;
+        text-align: right;
+      }
+
+      .board {
+        display: grid;
+        grid-template-rows: auto 1fr;
+      }
+
+      .tabs {
+        display: flex;
+        gap: 10px;
+        padding: 22px 22px 0;
+      }
+
+      .tab {
+        padding: 11px 14px;
+        border-radius: 12px;
+        background: rgba(37, 99, 235, 0.08);
+        color: #1d4ed8;
+        font-size: 16px;
+        font-weight: 800;
+      }
+
+      .tab.active {
+        background: #2563eb;
+        color: #ffffff;
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+        padding: 22px;
+      }
+
+      .card {
+        min-height: 98px;
+        padding: 18px;
+        border: 1px solid rgba(37, 99, 235, 0.12);
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.9);
+      }
+
+      .dot {
+        width: 16px;
+        height: 16px;
+        margin-bottom: 12px;
+        border-radius: 999px;
+        background: #2563eb;
+      }
+
+      .dot.amber {
+        background: #38bdf8;
+      }
+
+      .card strong {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 22px;
+      }
+
+      .card span {
+        color: #475569;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="frame">
+      <div class="header">
+        <div>
+          <p class="eyebrow" id="kind"></p>
+          <h1 id="title"></h1>
+        </div>
+        <div class="badge" id="badge"></div>
+      </div>
+      <div class="workspace">
+        <aside class="panel sidebar" id="metrics"></aside>
+        <section class="panel board">
+          <div class="tabs" id="tabs"></div>
+          <div class="cards" id="cards"></div>
+        </section>
+      </div>
+    </div>
+    <script>
+      const data = {
+        tourist: {
+          kind: "Business Web App",
+          title: "Booking, roles, payment, and reporting in one maintainable monolith.",
+          badge: "Express / EJS / MySQL",
+          metrics: [["3", "roles"], ["VNPay", "payment"], ["PDF", "reports"], ["Excel", "exports"]],
+          tabs: ["Customer", "Provider", "Admin"],
+          cards: [["Auth", "sessions and guards"], ["Booking", "rooms and orders"], ["Payment", "QR and VNPay"], ["Reports", "commission exports"]],
+        },
+        nexus: {
+          kind: "Logistics System",
+          title: "Shipment workflows modeled through service boundaries and events.",
+          badge: "NestJS / RabbitMQ",
+          metrics: [["14", "services"], ["5", "apps"], ["BFF", "gateway"], ["COD", "settlement"]],
+          tabs: ["Merchant", "Ops", "Courier"],
+          cards: [["Pickup", "task assignment"], ["Scans", "location events"], ["Tracking", "read model"], ["Reporting", "KPI projections"]],
+        },
+        cab: {
+          kind: "Ride-Hailing System",
+          title: "Booking, ride lifecycle, pricing, and payment across domain services.",
+          badge: "Kafka / Redis",
+          metrics: [["14", "services"], ["3", "apps"], ["API", "contracts"], ["Docker", "local stack"]],
+          tabs: ["Customer", "Driver", "Admin"],
+          cards: [["Booking", "request flow"], ["Ride", "state machine"], ["Pricing", "fare logic"], ["Notify", "event updates"]],
+        },
+        ecommerce: {
+          kind: "E-commerce Microservices",
+          title: "Compact Auth, Product, and Order services behind an API Gateway.",
+          badge: "RabbitMQ / JWT",
+          metrics: [["3", "services"], ["JWT", "auth"], ["Mocha", "tests"], ["Mongo", "per service"]],
+          tabs: ["Auth", "Product", "Order"],
+          cards: [["Gateway", "routing"], ["Catalog", "product APIs"], ["Orders", "message flow"], ["Health", "Docker checks"]],
+        },
+      };
+
+      const key = new URLSearchParams(window.location.search).get("project") || "tourist";
+      const item = data[key] || data.tourist;
+      document.getElementById("kind").textContent = item.kind;
+      document.getElementById("title").textContent = item.title;
+      document.getElementById("badge").textContent = item.badge;
+      document.getElementById("metrics").innerHTML = item.metrics
+        .map(([value, label]) => `<div class="metric"><strong>${value}</strong><span>${label}</span></div>`)
+        .join("");
+      document.getElementById("tabs").innerHTML = item.tabs
+        .map((tab, index) => `<div class="tab ${index === 0 ? "active" : ""}">${tab}</div>`)
+        .join("");
+      document.getElementById("cards").innerHTML = item.cards
+        .map(([title, body], index) => `<div class="card"><div class="dot ${index % 2 ? "amber" : ""}"></div><strong>${title}</strong><span>${body}</span></div>`)
+        .join("");
+    </script>
+  </body>
+</html>

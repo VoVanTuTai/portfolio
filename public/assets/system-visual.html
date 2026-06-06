@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        width: 1200px;
+        height: 820px;
+        overflow: hidden;
+        background:
+          radial-gradient(circle at 78% 16%, rgba(59, 130, 246, 0.22), transparent 28%),
+          radial-gradient(circle at 18% 72%, rgba(14, 165, 233, 0.22), transparent 30%),
+          linear-gradient(135deg, #f8fbff 0%, #eaf4ff 52%, #ffffff 100%);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        color: #0f172a;
+      }
+
+      .frame {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        padding: 62px;
+      }
+
+      .panel {
+        position: absolute;
+        border: 1px solid rgba(37, 99, 235, 0.14);
+        border-radius: 24px;
+        background: rgba(255, 255, 255, 0.76);
+        box-shadow: 0 30px 80px rgba(37, 99, 235, 0.18);
+        backdrop-filter: blur(20px);
+      }
+
+      .main {
+        inset: 84px 92px 142px 310px;
+        padding: 38px;
+      }
+
+      .side {
+        top: 132px;
+        left: 70px;
+        width: 280px;
+        height: 520px;
+        padding: 28px;
+      }
+
+      .bottom {
+        right: 52px;
+        bottom: 54px;
+        width: 420px;
+        height: 132px;
+        padding: 24px;
+      }
+
+      .label {
+        color: #2563eb;
+        font-size: 22px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .title {
+        margin-top: 14px;
+        font-size: 46px;
+        font-weight: 900;
+        line-height: 1.02;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+        margin-top: 44px;
+      }
+
+      .service {
+        min-height: 118px;
+        padding: 20px;
+        border: 1px solid rgba(37, 99, 235, 0.14);
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.86);
+      }
+
+      .dot {
+        width: 18px;
+        height: 18px;
+        margin-bottom: 18px;
+        border-radius: 999px;
+        background: #2563eb;
+        box-shadow: 0 0 28px rgba(37, 99, 235, 0.42);
+      }
+
+      .dot.amber {
+        background: #38bdf8;
+        box-shadow: 0 0 28px rgba(14, 165, 233, 0.42);
+      }
+
+      .service strong {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 21px;
+      }
+
+      .service span,
+      .metric span {
+        color: #475569;
+        font-size: 16px;
+      }
+
+      .route {
+        position: absolute;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.55), rgba(14, 165, 233, 0.55), transparent);
+        opacity: 0.85;
+      }
+
+      .route.r1 {
+        top: 318px;
+        left: 265px;
+        width: 760px;
+        transform: rotate(3deg);
+      }
+
+      .route.r2 {
+        top: 510px;
+        left: 210px;
+        width: 870px;
+        transform: rotate(-7deg);
+      }
+
+      .route.r3 {
+        top: 642px;
+        left: 420px;
+        width: 520px;
+        transform: rotate(10deg);
+      }
+
+      .metric {
+        padding: 21px 0;
+        border-bottom: 1px solid rgba(37, 99, 235, 0.12);
+      }
+
+      .metric:last-child {
+        border-bottom: 0;
+      }
+
+      .metric strong {
+        display: block;
+        font-size: 52px;
+        line-height: 0.96;
+      }
+
+      .bars {
+        display: grid;
+        gap: 14px;
+        margin-top: 14px;
+      }
+
+      .bar {
+        height: 16px;
+        border-radius: 999px;
+        background: rgba(37, 99, 235, 0.12);
+        overflow: hidden;
+      }
+
+      .bar i {
+        display: block;
+        height: 100%;
+        border-radius: inherit;
+        background: linear-gradient(90deg, #2563eb, #38bdf8);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="frame">
+      <div class="route r1"></div>
+      <div class="route r2"></div>
+      <div class="route r3"></div>
+
+      <aside class="panel side">
+        <div class="label">System</div>
+        <div class="metric">
+          <strong>14</strong>
+          <span>backend modules</span>
+        </div>
+        <div class="metric">
+          <strong>3</strong>
+          <span>project styles</span>
+        </div>
+        <div class="metric">
+          <strong>APP</strong>
+          <span>business workflows</span>
+        </div>
+      </aside>
+
+      <section class="panel main">
+        <div class="label">Backend Portfolio</div>
+        <div class="title">Business workflows, backend systems, and service architecture.</div>
+        <div class="grid">
+          <div class="service">
+            <div class="dot"></div>
+            <strong>Monolith</strong>
+            <span>Express / MySQL</span>
+          </div>
+          <div class="service">
+            <div class="dot amber"></div>
+            <strong>Payments</strong>
+            <span>VNPay / QR / COD</span>
+          </div>
+          <div class="service">
+            <div class="dot"></div>
+            <strong>Reports</strong>
+            <span>PDF and Excel</span>
+          </div>
+          <div class="service">
+            <div class="dot amber"></div>
+            <strong>Gateway</strong>
+            <span>BFF and routing</span>
+          </div>
+          <div class="service">
+            <div class="dot"></div>
+            <strong>Events</strong>
+            <span>RabbitMQ / Kafka</span>
+          </div>
+          <div class="service">
+            <div class="dot amber"></div>
+            <strong>Contracts</strong>
+            <span>OpenAPI design</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel bottom">
+        <div class="label">Workflow Health</div>
+        <div class="bars">
+          <div class="bar"><i style="width: 86%"></i></div>
+          <div class="bar"><i style="width: 74%"></i></div>
+          <div class="bar"><i style="width: 92%"></i></div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

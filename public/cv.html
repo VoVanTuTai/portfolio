@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV — Vo Van Tu Tai</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&amp;family=DM+Sans:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: #e0e0e0;
+            color: #000;
+            line-height: 1.5;
+            font-size: 12px;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        .page {
+            max-width: 210mm;
+            min-height: 297mm;
+            background: white;
+            margin: 20px auto;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ── HEADER ── */
+        .header {
+            padding: 20px 32px 14px;
+            border-bottom: 1px solid #ccc;
+            display: grid;
+            gap: 7px;
+        }
+
+        .header .title-cell {
+            grid-column: 1 / 2;
+            grid-row: 2 / 3;
+        }
+
+        .title {
+            font-family: 'DM Mono', monospace;
+            font-size: 10px;
+            color: #000;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            line-height: 1.3;
+        }
+
+        .header .name-cell {
+            grid-column: 1 / 2;
+            grid-row: 1 / 2;
+        }
+
+        .name {
+            font-size: 30px;
+            font-weight: 700;
+            color: #000;
+            line-height: 1;
+        }
+
+        .header .contact-cell {
+            grid-column: 1 / 2;
+            grid-row: 3 / 4;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px 12px;
+            font-family: 'DM Mono', monospace;
+            font-size: 10px;
+            color: #000;
+            line-height: 1.4;
+            padding-top: 2px;
+        }
+
+        .header a {
+            color: #000;
+            text-decoration: none;
+        }
+
+        .exp-bullets a {
+            color: #000;
+            text-decoration: none;
+        }
+
+        /* ── BODY ── */
+        .body {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            padding: 12px 32px 10px;
+        }
+
+        .content {
+            width: 100%;
+        }
+
+        .top-strip {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 4px 0 7px;
+            border-bottom: 1px solid #e0e0e0;
+            margin-bottom: 9px;
+        }
+
+        .meta-line {
+            font-family: 'DM Mono', monospace;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 6px 14px;
+        }
+
+        .skill-group {
+            border-bottom: 1px solid #e8e8e8;
+            padding-bottom: 5px;
+        }
+
+        .skill-group .label {
+            font-weight: 600;
+            color: #000;
+            margin-bottom: 1px;
+            font-size: 11.5px;
+        }
+
+        .skill-text {
+            font-size: 11px;
+            color: #000;
+            line-height: 1.35;
+        }
+
+        .skill-text b {
+            color: #000;
+        }
+
+        .inline-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px 6px;
+        }
+
+        .cert-item,
+        .ref-item {
+            font-size: 10.5px;
+            color: #000;
+            border: 1px solid #ddd;
+            padding: 3px 7px;
+            line-height: 1.35;
+        }
+
+        .ref-confirmed {
+            font-weight: 500;
+            margin-top: 3px;
+            color: #000;
+        }
+
+        .section {
+            margin-bottom: 9px;
+        }
+
+        .section h3 {
+            font-family: 'DM Mono', monospace;
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #000;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 4px;
+            margin-bottom: 7px;
+        }
+
+        .obj-box {
+            background: #fafafa;
+            border-left: 2px solid #000;
+            padding: 8px 12px;
+            margin-bottom: 6px;
+        }
+
+        .obj-text {
+            font-size: 12.5px;
+            color: #000;
+            line-height: 1.45;
+            margin-bottom: 7px;
+        }
+
+        .goals {
+            display: grid;
+            grid-template-columns: 78px 1fr;
+            gap: 2px 10px;
+            font-size: 11px;
+        }
+
+        .goal-label {
+            font-family: 'DM Mono', monospace;
+            font-weight: 500;
+            color: #000;
+            text-transform: uppercase;
+            font-size: 10px;
+        }
+
+        .goal-text {
+            color: #000;
+            font-size: 11px;
+            line-height: 1.35;
+        }
+
+        .exp-entry {
+            margin-bottom: 7px;
+            padding-bottom: 7px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .exp-entry:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 2px;
+        }
+
+        .exp-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #000;
+        }
+
+        .exp-date {
+            font-family: 'DM Mono', monospace;
+            font-size: 10.5px;
+            color: #000;
+        }
+
+        .exp-company {
+            font-size: 11.5px;
+            color: #000;
+            margin-bottom: 5px;
+        }
+
+        .exp-bullets {
+            list-style: none;
+            padding: 0;
+        }
+
+        .exp-bullets li {
+            font-size: 12px;
+            color: #000;
+            line-height: 1.38;
+            padding-left: 13px;
+            position: relative;
+            margin-bottom: 2px;
+        }
+
+        .exp-bullets li::before {
+            content: '—';
+            position: absolute;
+            left: 0;
+            color: #000;
+        }
+
+        .edu-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .edu-school {
+            font-size: 13.5px;
+            font-weight: 600;
+            color: #000;
+        }
+
+        .edu-major {
+            font-size: 11px;
+            color: #000;
+            margin-top: 2px;
+        }
+
+        .edu-date {
+            font-family: 'DM Mono', monospace;
+            font-size: 10px;
+            color: #000;
+            text-align: right;
+        }
+
+        /* ── FOOTER ── */
+        .footer {
+            border-top: 1px solid #ccc;
+            padding: 7px 32px;
+            display: flex;
+            justify-content: space-between;
+            font-family: 'DM Mono', monospace;
+            font-size: 9.5px;
+            color: #000;
+        }
+
+        #print-btn {
+            position: fixed;
+            bottom: 18px;
+            right: 18px;
+            padding: 11px 16px;
+            background: #000;
+            color: #fff;
+            border: 1px solid #fff;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'DM Mono', monospace;
+            font-size: 12px;
+            font-weight: 500;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            z-index: 9999;
+            transition: all 0.3s ease;
+        }
+
+        #print-btn:hover {
+            background: #333;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .page {
+                margin: 0;
+                box-shadow: none;
+                width: 210mm;
+                min-height: 297mm;
+            }
+
+            @page {
+                size: A4;
+                margin: 0;
+            }
+
+            #print-btn {
+                display: none !important;
+            }
+        }
+
+        @media (max-width: 720px) {
+            .page {
+                margin: 0;
+                min-height: auto;
+            }
+
+            .header {
+                padding: 22px 20px 18px;
+            }
+
+            .name {
+                font-size: 28px;
+            }
+
+            .body {
+                padding: 18px 20px 16px;
+            }
+
+            .top-strip,
+            .edu-row,
+            .exp-header,
+            .footer {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .skills-grid,
+            .goals {
+                grid-template-columns: 1fr;
+            }
+
+            .edu-date,
+            .exp-date {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+
+        <!-- HEADER -->
+        <div class="header">
+            <div class="name-cell">
+                <div class="name">Vo Van Tu Tai</div>
+            </div>
+            <div class="title-cell">
+                <div class="title">Backend / Full-Stack Engineer Intern Candidate · TypeScript · Node.js · Microservices</div>
+            </div>
+            <div class="contact-cell">
+                <div>Ho Chi Minh City, Vietnam</div>
+                <div><a href="https://github.com/VoVanTuTai">github.com/VoVanTuTai</a></div>
+                <div><a href="https://www.linkedin.com/in/t%C3%BA-t%C3%A0i-v%C3%B5-v%C4%83n-2b27403b2/">linkedin.com/in/vovantutai</a></div>
+                <div>tutaivovan@gmail.com</div>
+            </div>
+        </div>
+
+        <!-- BODY -->
+        <div class="body">
+            <div class="content">
+                <div class="top-strip">
+                    <div class="meta-line">Backend Internship · TypeScript · NestJS · React · RabbitMQ/Kafka · Docker</div>
+                </div>
+
+                <div class="section">
+                    <h3>Professional Summary</h3>
+                    <div class="obj-box">
+                        <p class="obj-text">
+                            Backend-focused Information Systems student building full-stack and microservice systems
+                            with TypeScript, NestJS, React/Vite, PostgreSQL/Prisma, RabbitMQ/Kafka, Redis, and Docker.
+                            Strong at translating business workflows into service boundaries, OpenAPI contracts,
+                            event payloads, database models, and working public GitHub projects.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>Technical Skills</h3>
+                    <div class="skills-grid">
+                        <div class="skill-group">
+                            <div class="label">Languages</div>
+                            <div class="skill-text"><b>TypeScript</b>, JavaScript, Java, PHP</div>
+                        </div>
+                        <div class="skill-group">
+                            <div class="label">Frontend</div>
+                            <div class="skill-text"><b>React</b>, Vite, EJS, HTML/CSS, Bootstrap, Figma</div>
+                        </div>
+                        <div class="skill-group">
+                            <div class="label">Backend</div>
+                            <div class="skill-text"><b>Node.js</b>, NestJS, Express.js, REST APIs, API Gateway</div>
+                        </div>
+                        <div class="skill-group">
+                            <div class="label">Database</div>
+                            <div class="skill-text"><b>PostgreSQL</b>, MySQL, MongoDB, Prisma, Sequelize</div>
+                        </div>
+                        <div class="skill-group">
+                            <div class="label">DevOps &amp; Tools</div>
+                            <div class="skill-text"><b>Docker</b>, RabbitMQ, Kafka, Redis, MinIO, Git, Postman</div>
+                        </div>
+                        <div class="skill-group">
+                            <div class="label">Analysis</div>
+                            <div class="skill-text">OpenAPI, BPMN, ERD, API Design, Database Design</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>Selected Projects</h3>
+                    <div class="exp-entry">
+                        <div class="exp-header">
+                            <span class="exp-title">Full-Stack &amp; Backend Developer · Public GitHub Projects</span>
+                            <span class="exp-date">2023 – Present</span>
+                        </div>
+                        <div class="exp-company">Express/EJS/MySQL monolith, TypeScript/NestJS microservices, PostgreSQL/MongoDB, RabbitMQ/Kafka, Docker</div>
+                        <ul class="exp-bullets">
+                            <li><b><a href="https://github.com/VoVanTuTai/tourist-accommodation-management-system">Tourist Accommodation Platform:</a></b> Built a monolithic Express/EJS/MySQL booking system with customer/provider/admin roles,
+                                session-based auth, VNPay/QR payment flows, and PDF/Excel commission reports.</li>
+                            <li><b><a href="https://github.com/VoVanTuTai/logistics-management-system">Nexus Express:</a></b> Designed a logistics platform with <b>14 services</b>, <b>5 apps</b>,
+                                Gateway/BFF, database-per-service ownership, RabbitMQ events, Prisma models, and public tracking.</li>
+                            <li><b>Dispatch, Scan &amp; Tracking:</b> Implemented task assignment, scan events, current-location
+                                tracking, outbox/idempotency flows, OpenAPI contracts, and Docker-based local infrastructure.</li>
+                            <li><b><a href="https://github.com/VoVanTuTai/cab-booking-system">Cab Booking System:</a></b> Built a ride-hailing microservices platform with <b>14 services</b>,
+                                <b>3 apps</b>, REST/OpenAPI contracts, Kafka events, Redis, PostgreSQL/MongoDB, and Docker Compose.</li>
+                            <li><b><a href="https://github.com/VoVanTuTai/ecommerce-microservices-system">E-commerce Microservices:</a></b> Created Auth/Product/Order services with API Gateway,
+                                RabbitMQ pub/sub, MongoDB database-per-service, Docker Compose, JWT auth, and Mocha tests.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>Operations Experience</h3>
+                    <div class="exp-entry">
+                        <div class="exp-header">
+                            <span class="exp-title">Post Office Operations Specialist</span>
+                            <span class="exp-date">3 Months (Full-time)</span>
+                        </div>
+                        <div class="exp-company">J&amp;T Express</div>
+                        <ul class="exp-bullets">
+                            <li>Handled branch logistics, shipment processing, inventory control, and daily operations.</li>
+                            <li>Converted hands-on shipment workflows into requirements, service boundaries, and operational scenarios for <b>Nexus Express</b>.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>Education</h3>
+                    <div class="edu-row">
+                        <div>
+                            <div class="edu-school">Industrial University of Ho Chi Minh City (IUH)</div>
+                            <div class="edu-major">Bachelor of Information Systems · GPA: 3.22/4.0 · Expected Graduation 2026</div>
+                        </div>
+                        <div class="edu-date">2022 – 2026<br>HCMC, Vietnam</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>Relevant Coursework</h3>
+                    <div class="inline-list">
+                        <div class="cert-item">Data Structures &amp; Algorithms</div>
+                        <div class="cert-item">Web Application Development</div>
+                        <div class="cert-item">Service-Oriented Programming</div>
+                        <div class="cert-item">System Analysis &amp; Design</div>
+                        <div class="cert-item">Database Management Systems</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>Languages</h3>
+                    <div class="inline-list">
+                        <div class="cert-item">English: Technical reading/writing</div>
+                        <div class="cert-item">Vietnamese: Native</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <span>github.com/VoVanTuTai · Ho Chi Minh City, Vietnam</span>
+            <span>Updated June 2026</span>
+        </div>
+    </div>
+
+    <!-- Floating Print Button -->
+    <button id="print-btn" onclick="window.print()">
+        ⚡ XUẤT FILE PDF
+    </button>
+</body>
+
+</html>
