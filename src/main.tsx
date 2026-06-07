@@ -11,7 +11,6 @@ import {
   Mail,
   MapPin,
   Network,
-  ShieldCheck,
   ServerCog,
   Sparkles,
 } from "lucide-react";
@@ -87,6 +86,16 @@ const projectGroups = [
   },
 ];
 
+const projects = projectGroups.flatMap((group) =>
+  group.projects.map((project) => ({
+    ...project,
+    category: group.title,
+  })),
+);
+
+const featuredProject = projects[0];
+const supportingProjects = projects.slice(1);
+
 const skillGroups = [
   {
     icon: Code2,
@@ -129,21 +138,6 @@ const proofSignals = [
   {
     label: "Workflow",
     value: "Logistics experience translated into shipment, scan, dispatch, and tracking.",
-  },
-];
-
-const touristDeepDive = [
-  {
-    title: "Business flows",
-    body: "Customer, provider, and admin journeys cover room discovery, booking, payment, moderation, reporting, and profile management.",
-  },
-  {
-    title: "Backend foundation",
-    body: "Express controllers, Sequelize models, route guards, session-based auth, bcrypt password handling, and MySQL persistence.",
-  },
-  {
-    title: "Operational output",
-    body: "VNPay and QR payment paths, PDF commission reports, Excel exports, dashboard statistics, and email notification support.",
   },
 ];
 
@@ -253,64 +247,78 @@ function App() {
         </div>
       </section>
 
-      <section className="projects-section" id="projects">
-        <div className="section-heading">
+      <section className="projects-section compact-projects" id="projects">
+        <div className="section-heading project-heading">
           <p className="section-label">Selected Projects</p>
-          <h2>Balanced projects: business monolith first, distributed systems second.</h2>
+          <h2>Four projects, scanned fast.</h2>
+          <p>
+            The portfolio leads with one complete business app, then keeps the distributed systems work compact and
+            easy to compare.
+          </p>
         </div>
-        {projectGroups.map((group) => (
-          <div className="project-group" key={group.title}>
-            <div className="project-group-head">
-              <h3>{group.title}</h3>
-              <p>{group.description}</p>
+
+        <div className="project-showcase">
+          <article className="project-card featured-project">
+            <img className="project-image" src={featuredProject.image} alt={`${featuredProject.name} preview`} />
+            <div className="featured-project-copy">
+              <p className="project-role">{featuredProject.category}</p>
+              <div className="project-card-head">
+                <div>
+                  <h3>{featuredProject.name}</h3>
+                  <p className="compact-role">{featuredProject.role}</p>
+                </div>
+                <a
+                  className="icon-link"
+                  href={featuredProject.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`${featuredProject.name} GitHub`}
+                >
+                  <ArrowUpRight size={20} aria-hidden="true" />
+                </a>
+              </div>
+              <p className="project-summary">{featuredProject.summary}</p>
+              <div className="stack-list">
+                {featuredProject.stack.slice(0, 6).map((item) => (
+                  <span key={item}>{item}</span>
+                ))}
+              </div>
+              <div className="project-proof-list">
+                {featuredProject.highlights.slice(0, 2).map((highlight) => (
+                  <p key={highlight}>{highlight}</p>
+                ))}
+              </div>
             </div>
-            <div className="project-grid">
-              {group.projects.map((project) => (
-                <article className="project-card" key={project.name}>
-                  <img className="project-image" src={project.image} alt={`${project.name} preview`} />
+          </article>
+
+          <div className="compact-project-list" aria-label="Supporting projects">
+            {supportingProjects.map((project) => (
+              <article className="compact-project-card" key={project.name}>
+                <img className="project-thumb" src={project.image} alt={`${project.name} preview`} />
+                <div className="compact-project-copy">
                   <div className="project-card-head">
                     <div>
-                      <p className="project-role">{project.role}</p>
+                      <p className="project-role">{project.category}</p>
                       <h3>{project.name}</h3>
+                      <p className="compact-role">{project.role}</p>
                     </div>
-                    <a className="icon-link" href={project.href} target="_blank" rel="noreferrer" aria-label={`${project.name} GitHub`}>
-                      <ArrowUpRight size={20} aria-hidden="true" />
+                    <a
+                      className="icon-link"
+                      href={project.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={`${project.name} GitHub`}
+                    >
+                      <ArrowUpRight size={18} aria-hidden="true" />
                     </a>
                   </div>
                   <p className="project-summary">{project.summary}</p>
-                  <div className="stack-list">
-                    {project.stack.map((item) => (
+                  <div className="stack-list compact-stack">
+                    {project.stack.slice(0, 4).map((item) => (
                       <span key={item}>{item}</span>
                     ))}
+                    {project.stack.length > 4 ? <span>+{project.stack.length - 4}</span> : null}
                   </div>
-                  <ul>
-                    {project.highlights.map((highlight) => (
-                      <li key={highlight}>{highlight}</li>
-                    ))}
-                  </ul>
-                </article>
-              ))}
-            </div>
-          </div>
-        ))}
-      </section>
-
-      <section className="deep-dive-section">
-        <div className="section-heading">
-          <p className="section-label">Project Deep Dive</p>
-          <h2>Tourist Accommodation proves the business-app foundation behind the architecture work.</h2>
-        </div>
-        <div className="deep-dive-layout">
-          <div className="deep-dive-visual">
-            <img src="/assets/project-tourist.png" alt="Tourist Accommodation Management System workflow preview" />
-          </div>
-          <div className="deep-dive-list">
-            {touristDeepDive.map((item) => (
-              <article className="deep-dive-item" key={item.title}>
-                <ShieldCheck size={21} aria-hidden="true" />
-                <div>
-                  <h3>{item.title}</h3>
-                  <p>{item.body}</p>
                 </div>
               </article>
             ))}
