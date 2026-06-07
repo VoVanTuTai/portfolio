@@ -190,14 +190,24 @@ function App() {
           </div>
         </div>
 
-        <aside className="hero-panel" aria-label="Portfolio proof points">
-          <div className="hero-panel-head">
-            <p className="panel-label">Profile Signal</p>
-            <strong>Business apps first. Architecture with purpose.</strong>
+        <aside className="hero-visual" aria-label="Portfolio proof points">
+          <div className="visual-frame">
+            <div className="browser-bar" aria-hidden="true">
+              <span />
+              <span />
+              <span />
+              <strong>backend-portfolio/system-map</strong>
+            </div>
+            <img src="/assets/system-visual.png" alt="Backend portfolio system architecture preview" />
+            <div className="visual-footer">
+              <span>Express / MySQL</span>
+              <span>NestJS / RabbitMQ</span>
+              <span>Docker</span>
+            </div>
           </div>
-          <div className="proof-list">
+          <div className="hero-proof-grid">
             {proofSignals.map((item) => (
-              <div className="proof-row" key={item.label}>
+              <div className="proof-tile" key={item.label}>
                 <span>{item.label}</span>
                 <p>{item.value}</p>
               </div>
