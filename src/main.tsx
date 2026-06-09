@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import {
   ArrowUpRight,
@@ -64,7 +64,7 @@ const projectGroups = [
         summary:
           "A logistics system repository modeling shipment creation, pickup, hub operations, courier delivery, tracking, COD, and reporting workflows.",
         highlights: [
-          "Explored service boundaries across Gateway/BFF, domain events, and database ownership concepts.",
+          "Defined service boundaries across Gateway/BFF, domain events, and database ownership concepts.",
           "Modeled dispatch, scan, tracking, OpenAPI contracts, Prisma data models, RabbitMQ events, and Docker Compose flows.",
           "Translated hands-on J&T Express operations into realistic shipment, scan, and branch workflow requirements.",
         ],
@@ -78,8 +78,8 @@ const projectGroups = [
         summary:
           "A ride-hailing architecture repository exploring customer, driver, and admin workflows across service-style modules.",
         highlights: [
-          "Explored booking, ride lifecycle, pricing, payment, notification, review, and admin workflows.",
-          "Explored REST/OpenAPI contracts, Kafka messaging, Redis coordination ideas, and database ownership concepts.",
+          "Modeled booking, ride lifecycle, pricing, payment, notification, review, and admin workflows.",
+          "Worked with REST/OpenAPI contracts, Kafka messaging, Redis coordination, and database ownership concepts.",
           "Prepared Docker Compose infrastructure for local development across services, apps, databases, and messaging.",
         ],
       },
@@ -94,29 +94,26 @@ const projects = projectGroups.flatMap((group) =>
   })),
 );
 
-const featuredProject = projects[0];
-const supportingProjects = projects.slice(1);
-
 const skillGroups = [
   {
     icon: Code2,
     title: "Languages",
-    items: ["PHP", "JavaScript", "Java coursework", "TypeScript familiarity"],
+    items: ["PHP", "JavaScript", "TypeScript familiarity", "Java coursework"],
   },
   {
     icon: ServerCog,
     title: "Web Development",
-    items: ["HTML/CSS", "Bootstrap", "EJS", "PHP-rendered pages", "React/Vite familiarity"],
+    items: ["HTML/CSS", "Bootstrap", "EJS", "PHP-rendered pages", "React/Vite project familiarity"],
   },
   {
     icon: Database,
     title: "Data",
-    items: ["MySQL", "SQL", "Database Design", "ERD", "PostgreSQL/MongoDB exposure"],
+    items: ["MySQL", "SQL", "Database Design", "ERD", "PostgreSQL/MongoDB project exposure"],
   },
   {
     icon: Network,
-    title: "Project Exposure",
-    items: ["Node.js/Express practice", "REST APIs", "Docker Compose", "RabbitMQ/Kafka exposure"],
+    title: "Backend & Tools",
+    items: ["Node.js/Express working knowledge", "REST APIs", "Git/Postman", "Docker Compose", "RabbitMQ/Kafka exposure"],
   },
 ];
 
@@ -129,7 +126,7 @@ const stats = [
 
 const proofSignals = [
   {
-    label: "Core skills",
+    label: "Core stack & tools",
     value: "PHP, HTML/CSS, Bootstrap, JavaScript, MySQL, Git, Postman, and Docker Compose.",
   },
   {
@@ -138,11 +135,13 @@ const proofSignals = [
   },
   {
     label: "Project exposure",
-    value: "2 architecture practice repos with Node.js, React/Vite, Docker, RabbitMQ/Kafka exposure.",
+    value: "2 architecture practice repos with React/Vite, TypeScript, NestJS, Docker, and messaging exposure.",
   },
 ];
 
 function App() {
+  const [activeProjectIndex, setActiveProjectIndex] = useState(0);
+
   return (
     <main className="site-shell">
       <header className="topbar" aria-label="Primary navigation">
@@ -170,8 +169,8 @@ function App() {
           <h1>Vo Van Tu Tai</h1>
           <p className="hero-lede">
             Information Systems student building full-stack web projects with PHP, HTML/CSS, Bootstrap,
-            JavaScript, and MySQL, with additional project experience in Node.js, React/Vite, Docker, and
-            backend architecture concepts.
+            JavaScript, and MySQL, with working knowledge of Node.js/Express and project familiarity with
+            React/Vite, Docker, and broader backend architecture concepts.
           </p>
           <div className="hero-actions">
             <a className="primary-action" href="#projects">
@@ -216,14 +215,14 @@ function App() {
                 </div>
               </div>
               <div className="web-preview-side">
-                <span>Project exposure</span>
-                <p>Node.js · React/Vite · Docker · Messaging concepts</p>
+                <span>Broader project experience</span>
+                <p>Node.js/Express · React/Vite · Docker · Messaging concepts</p>
               </div>
             </div>
             <div className="visual-footer">
               <span>PHP / MySQL</span>
               <span>HTML / Bootstrap</span>
-              <span>Node exposure</span>
+              <span>Node / Express</span>
             </div>
           </div>
           <div className="hero-proof-grid">
@@ -283,72 +282,69 @@ function App() {
           </p>
         </div>
 
-        <div className="project-showcase">
-          <article className="project-card featured-project">
-            <img className="project-image" src={featuredProject.image} alt={`${featuredProject.name} preview`} />
-            <div className="featured-project-copy">
-              <p className="project-role">{featuredProject.category}</p>
-              <div className="project-card-head">
-                <div>
-                  <h3>{featuredProject.name}</h3>
-                  <p className="compact-role">{featuredProject.role}</p>
-                </div>
-                <a
-                  className="icon-link"
-                  href={featuredProject.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={`${featuredProject.name} GitHub`}
-                >
-                  <ArrowUpRight size={20} aria-hidden="true" />
-                </a>
-              </div>
-              <p className="project-summary">{featuredProject.summary}</p>
-              <div className="stack-list">
-                {featuredProject.stack.slice(0, 6).map((item) => (
-                  <span key={item}>{item}</span>
-                ))}
-              </div>
-              <div className="project-proof-list">
-                {featuredProject.highlights.slice(0, 2).map((highlight) => (
-                  <p key={highlight}>{highlight}</p>
-                ))}
-              </div>
-            </div>
-          </article>
+        <div className="project-deck" aria-label="Selected project deck">
+          {projects.map((project, index) => {
+            const isActive = index === activeProjectIndex;
+            const stackIndex = (index - activeProjectIndex + projects.length) % projects.length - 1;
 
-          <div className="compact-project-list" aria-label="Supporting projects">
-            {supportingProjects.map((project) => (
-              <article className="compact-project-card" key={project.name}>
-                <img className="project-thumb" src={project.image} alt={`${project.name} preview`} />
-                <div className="compact-project-copy">
+            return (
+              <article
+                className={`project-deck-card${isActive ? " is-active" : " is-stacked"}`}
+                key={project.name}
+                style={{ "--stack-index": Math.max(stackIndex, 0) } as React.CSSProperties}
+              >
+                {!isActive ? (
+                  <button
+                    className="deck-card-trigger"
+                    type="button"
+                    onClick={() => setActiveProjectIndex(index)}
+                    aria-label={`Show ${project.name}`}
+                  />
+                ) : null}
+
+                <div className="deck-card-media">
+                  <img src={project.image} alt={`${project.name} interface preview`} />
+                  <span className="deck-card-number">{String(index + 1).padStart(2, "0")}</span>
+                </div>
+
+                <div className="deck-card-body">
                   <div className="project-card-head">
                     <div>
                       <p className="project-role">{project.category}</p>
                       <h3>{project.name}</h3>
                       <p className="compact-role">{project.role}</p>
                     </div>
-                    <a
-                      className="icon-link"
-                      href={project.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label={`${project.name} GitHub`}
-                    >
-                      <ArrowUpRight size={18} aria-hidden="true" />
-                    </a>
+                    {isActive ? (
+                      <a
+                        className="icon-link"
+                        href={project.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label={`${project.name} GitHub`}
+                      >
+                        <ArrowUpRight size={20} aria-hidden="true" />
+                      </a>
+                    ) : null}
                   </div>
-                  <p className="project-summary">{project.summary}</p>
-                  <div className="stack-list compact-stack">
-                    {project.stack.slice(0, 4).map((item) => (
-                      <span key={item}>{item}</span>
-                    ))}
-                    {project.stack.length > 4 ? <span>+{project.stack.length - 4}</span> : null}
+
+                  <div className="deck-card-details" aria-hidden={!isActive}>
+                    <p className="project-summary">{project.summary}</p>
+                    <div className="stack-list">
+                      {project.stack.slice(0, 6).map((item) => (
+                        <span key={item}>{item}</span>
+                      ))}
+                      {project.stack.length > 6 ? <span>+{project.stack.length - 6}</span> : null}
+                    </div>
+                    <div className="project-proof-list">
+                      {project.highlights.slice(0, 3).map((highlight) => (
+                        <p key={highlight}>{highlight}</p>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </article>
-            ))}
-          </div>
+            );
+          })}
         </div>
       </section>
 
