@@ -238,7 +238,7 @@ function App() {
               <Github size={18} aria-hidden="true" />
               GitHub
             </a>
-            <a href="https://www.linkedin.com/in/t%C3%BA-t%C3%A0i-v%C3%B5-v%C4%83n-2b27403b2/" target="_blank" rel="noreferrer">
+            <a href="https://linkedin.com/in/vovantutai" target="_blank" rel="noreferrer">
               <Linkedin size={18} aria-hidden="true" />
               LinkedIn
             </a>
@@ -402,7 +402,7 @@ function App() {
             <Github size={18} aria-hidden="true" />
             github.com/VoVanTuTai
           </a>
-          <a href="https://www.linkedin.com/in/t%C3%BA-t%C3%A0i-v%C3%B5-v%C4%83n-2b27403b2/" target="_blank" rel="noreferrer">
+          <a href="https://linkedin.com/in/vovantutai" target="_blank" rel="noreferrer">
             <Linkedin size={18} aria-hidden="true" />
             linkedin.com/in/vovantutai
           </a>
