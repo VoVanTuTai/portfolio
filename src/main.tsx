@@ -19,7 +19,7 @@ import "./styles.css";
 const projectGroups = [
   {
     title: "Business Web Application",
-    description: "A monolithic full-stack app that proves CRUD, auth, role flows, payment, reporting, and maintainable MVC structure.",
+    description: "A practical business app showing CRUD workflows, roles, authentication, payment, reports, and database-backed screens.",
     projects: [
       {
         name: "Tourist Accommodation Management System",
@@ -38,8 +38,8 @@ const projectGroups = [
     ],
   },
   {
-    title: "Microservices & Distributed Systems",
-    description: "Architecture-heavy projects showing service boundaries, API contracts, messaging, and Docker-based local infrastructure.",
+    title: "Architecture Practice Projects",
+    description: "Larger project-based practice with Node.js, React/Vite, NestJS, Docker, messaging, and service-boundary concepts.",
     projects: [
       {
         name: "Nexus Express",
@@ -48,10 +48,10 @@ const projectGroups = [
         image: "/assets/project-nexus.png",
         stack: ["TypeScript", "NestJS", "React/Vite", "PostgreSQL", "Prisma", "RabbitMQ", "Docker"],
         summary:
-          "A logistics platform for shipment creation, pickup, hub operations, courier delivery, tracking, COD, and reporting.",
+          "A logistics practice project for shipment creation, pickup, hub operations, courier delivery, tracking, COD, and reporting.",
         highlights: [
-          "Designed 14 services and 5 apps around Gateway/BFF, domain events, and database-per-service boundaries.",
-          "Implemented dispatch, scan, tracking, outbox/idempotency flows, OpenAPI contracts, and RabbitMQ event payloads.",
+          "Practiced service-boundary design across Gateway/BFF, domain events, and database ownership ideas.",
+          "Built dispatch, scan, tracking, OpenAPI contract, Prisma model, RabbitMQ exposure, and Docker Compose flows.",
           "Translated hands-on J&T Express operations into realistic shipment, scan, and branch workflow requirements.",
         ],
       },
@@ -62,10 +62,10 @@ const projectGroups = [
         image: "/assets/project-cab.png",
         stack: ["Node.js", "Express.js", "Kafka", "Redis", "PostgreSQL", "MongoDB", "Docker"],
         summary:
-          "A ride-hailing system with customer, driver, and admin apps backed by independent domain services.",
+          "A ride-hailing practice system exploring customer, driver, and admin workflows across independent services.",
         highlights: [
-          "Built 14 services and 3 apps for booking, ride lifecycle, pricing, payment, notification, review, and admin workflows.",
-          "Designed REST/OpenAPI contracts, Kafka event flow, Redis-backed coordination, and database-per-service ownership.",
+          "Explored booking, ride lifecycle, pricing, payment, notification, review, and admin workflows.",
+          "Practiced REST/OpenAPI contracts, Kafka exposure, Redis coordination ideas, and database-per-service ownership.",
           "Prepared Docker Compose infrastructure for local development across services, apps, databases, and messaging.",
         ],
       },
@@ -78,8 +78,8 @@ const projectGroups = [
         summary:
           "A compact microservices e-commerce system with service isolation, API Gateway routing, and message-based integration.",
         highlights: [
-          "Created Auth, Product, and Order services with independent MongoDB databases and JWT authentication.",
-          "Added RabbitMQ pub/sub, Docker Compose, health checks, API Gateway routing, and Mocha tests.",
+          "Created Auth, Product, and Order practice services with MongoDB and JWT authentication.",
+          "Added RabbitMQ pub/sub exposure, Docker Compose, health checks, API Gateway routing, and Mocha tests.",
         ],
       },
     ],
@@ -100,44 +100,44 @@ const skillGroups = [
   {
     icon: Code2,
     title: "Languages",
-    items: ["TypeScript", "JavaScript", "Java", "PHP"],
+    items: ["PHP", "JavaScript", "Java", "basic TypeScript"],
   },
   {
     icon: ServerCog,
-    title: "Backend",
-    items: ["Node.js", "NestJS", "Express.js", "REST APIs", "API Gateway", "Microservices"],
+    title: "Web Development",
+    items: ["HTML/CSS", "Bootstrap", "PHP web basics", "EJS", "basic React/Vite"],
   },
   {
     icon: Database,
     title: "Data",
-    items: ["PostgreSQL", "MySQL", "MongoDB", "Prisma", "Sequelize", "Redis"],
+    items: ["MySQL", "SQL basics", "Database Design", "ERD", "PostgreSQL basics", "MongoDB basics"],
   },
   {
     icon: Network,
-    title: "Architecture",
-    items: ["RabbitMQ", "Kafka", "OpenAPI", "BPMN", "ERD", "Database Design"],
+    title: "Project Exposure",
+    items: ["Node.js basics", "Express.js", "REST APIs", "Docker Compose basics", "RabbitMQ/Kafka exposure"],
   },
 ];
 
 const stats = [
-  { label: "Business monolith", value: "1" },
-  { label: "Microservice systems", value: "3" },
-  { label: "Nexus Express services", value: "14" },
+  { label: "Core web focus", value: "PHP" },
+  { label: "Public projects", value: "4" },
+  { label: "Database focus", value: "SQL" },
   { label: "Expected graduation", value: "2026" },
 ];
 
 const proofSignals = [
   {
+    label: "Core skills",
+    value: "PHP, HTML/CSS, Bootstrap, JavaScript, MySQL, Git, and Postman.",
+  },
+  {
     label: "Business app",
-    value: "Express/EJS/MySQL booking system with roles, auth, payment, and reports.",
+    value: "CRUD workflows, role-based screens, auth, booking, payment, and reports.",
   },
   {
-    label: "Backend",
-    value: "TypeScript, NestJS, PostgreSQL/Prisma, RabbitMQ/Kafka, Docker.",
-  },
-  {
-    label: "Workflow",
-    value: "Logistics experience translated into shipment, scan, dispatch, and tracking.",
+    label: "Project exposure",
+    value: "Node.js, Express.js, React/Vite, Docker Compose, RabbitMQ/Kafka concepts.",
   },
 ];
 
@@ -161,16 +161,16 @@ function App() {
           <div className="profile-lockup">
             <img className="profile-avatar" src="/assets/avatar.png" alt="Vo Van Tu Tai" />
             <div>
-              <p className="profile-name">Backend Engineer Intern</p>
+              <p className="profile-name">Web Developer Intern</p>
               <p className="profile-meta">Ho Chi Minh City · Information Systems student</p>
             </div>
           </div>
           <p className="eyebrow">Portfolio</p>
           <h1>Vo Van Tu Tai</h1>
           <p className="hero-lede">
-            Information Systems student building practical business web applications and backend systems, from
-            monolithic Express/MySQL booking workflows to TypeScript microservices, API gateways, and event-driven
-            logistics platforms.
+            Information Systems student focused on practical web development with PHP, HTML/CSS, Bootstrap,
+            JavaScript, and SQL fundamentals, with project-based exposure to Node.js, React/Vite, Docker, and
+            backend architecture concepts.
           </p>
           <div className="hero-actions">
             <a className="primary-action" href="#projects">
@@ -190,13 +190,39 @@ function App() {
               <span />
               <span />
               <span />
-              <strong>backend-portfolio/system-map</strong>
+              <strong>web-portfolio/project-map</strong>
             </div>
-            <img src="/assets/system-visual.png" alt="Backend portfolio system architecture preview" />
+            <div className="web-preview" aria-label="Web developer portfolio focus preview">
+              <div className="web-preview-main">
+                <p className="panel-label">Web Developer Portfolio</p>
+                <h2>Business web apps, clean UI, and database-backed workflows.</h2>
+                <div className="preview-card-grid">
+                  <div className="preview-card">
+                    <span>Core</span>
+                    <strong>PHP</strong>
+                    <p>web fundamentals</p>
+                  </div>
+                  <div className="preview-card">
+                    <span>UI</span>
+                    <strong>Bootstrap</strong>
+                    <p>responsive screens</p>
+                  </div>
+                  <div className="preview-card">
+                    <span>Data</span>
+                    <strong>MySQL</strong>
+                    <p>CRUD & reports</p>
+                  </div>
+                </div>
+              </div>
+              <div className="web-preview-side">
+                <span>Project exposure</span>
+                <p>Node.js · React/Vite · Docker · Messaging concepts</p>
+              </div>
+            </div>
             <div className="visual-footer">
-              <span>Express / MySQL</span>
-              <span>NestJS / RabbitMQ</span>
-              <span>Docker</span>
+              <span>PHP / MySQL</span>
+              <span>HTML / Bootstrap</span>
+              <span>Node exposure</span>
             </div>
           </div>
           <div className="hero-proof-grid">
@@ -232,17 +258,16 @@ function App() {
       <section className="section-grid about-section">
         <div>
           <p className="section-label">About</p>
-          <h2>Backend-minded developer with product workflow sense.</h2>
+          <h2>Web developer intern focused on practical business workflows.</h2>
         </div>
         <div className="section-body">
           <p>
-            I study Information Systems at Industrial University of Ho Chi Minh City and focus on backend engineering,
-            full-stack business workflows, service boundaries, database ownership, API contracts, and event-driven
-            architecture.
+            I study Information Systems at Industrial University of Ho Chi Minh City and focus on building practical
+            web interfaces, CRUD workflows, relational database models, and maintainable business application flows.
           </p>
           <p>
-            My strongest projects connect business workflows to working systems: shipment operations, ride lifecycle,
-            payment flow, booking management, reporting, and public tracking.
+            My strongest work connects business workflows to usable software: booking management, role-based screens,
+            shipment operations, payment flow, reporting, and public tracking.
           </p>
         </div>
       </section>
@@ -250,10 +275,10 @@ function App() {
       <section className="projects-section compact-projects" id="projects">
         <div className="section-heading project-heading">
           <p className="section-label">Selected Projects</p>
-          <h2>Four projects, scanned fast.</h2>
+          <h2>Practical web projects first, architecture practice second.</h2>
           <p>
-            The portfolio leads with one complete business app, then keeps the distributed systems work compact and
-            easy to compare.
+            The portfolio leads with one complete business web app, then keeps the larger Node.js and microservice-style
+            practice projects compact and easy to compare.
           </p>
         </div>
 
@@ -329,7 +354,7 @@ function App() {
       <section className="section-grid" id="skills">
         <div>
           <p className="section-label">Skills</p>
-          <h2>Tools I use to move from workflow to working software.</h2>
+          <h2>Core web skills, plus project-based backend exposure.</h2>
         </div>
         <div className="skill-grid">
           {skillGroups.map((group) => {
@@ -355,7 +380,7 @@ function App() {
             <h2>J&amp;T Express - Post Office Operations Specialist</h2>
             <p>
               Handled branch logistics, shipment processing, inventory control, and daily operations for 3 months
-              full-time. That hands-on context shaped the operational scenarios, requirements, and service boundaries
+              full-time. That hands-on context shaped the shipment workflows, requirements, and operational scenarios
               in Nexus Express.
             </p>
           </div>
@@ -365,7 +390,7 @@ function App() {
       <section className="contact-section" id="contact">
         <div>
           <p className="section-label">Contact</p>
-          <h2>Open to backend and full-stack intern roles.</h2>
+          <h2>Open to web developer and full-stack intern roles.</h2>
         </div>
         <div className="contact-links">
           <a href="mailto:tutaivovan@gmail.com">
@@ -395,7 +420,7 @@ function App() {
         <span>Vo Van Tu Tai</span>
         <span>
           <Sparkles size={15} aria-hidden="true" />
-          Business Apps · Backend Systems
+          Web Apps · Business Workflows
         </span>
       </footer>
     </main>

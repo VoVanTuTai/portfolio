@@ -1,6 +1,6 @@
 # Vo Van Tu Tai Portfolio
 
-Personal portfolio for Backend / Full-Stack Engineer Intern applications.
+Personal portfolio for Web Developer Intern applications, focused on practical business web applications and project-based backend exposure.
 
 ## Stack
 
@@ -28,7 +28,7 @@ npm run build
 The portfolio highlights public GitHub projects in two groups:
 
 - Business Web Application: Tourist Accommodation Management System
-- Microservices & Distributed Systems: Nexus Express, Cab Booking System, E-commerce Microservices
+- Architecture Practice Projects: Nexus Express, Cab Booking System, E-commerce Microservices
 
 It also includes generated visual previews and a downloadable CV PDF under `public/`.
 

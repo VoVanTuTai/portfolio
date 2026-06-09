@@ -382,14 +382,6 @@ h3 {
   font-weight: 850;
 }
 
-.visual-frame img {
-  display: block;
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
-  object-position: center;
-}
-
 .visual-footer {
   justify-content: space-between;
   gap: 10px;
@@ -403,6 +395,80 @@ h3 {
   color: rgba(255, 255, 255, 0.82);
   font-size: 12px;
   font-weight: 850;
+}
+
+.web-preview {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  min-height: 390px;
+  padding: clamp(22px, 4vw, 34px);
+  background:
+    linear-gradient(135deg, rgba(239, 246, 255, 0.95), rgba(236, 253, 245, 0.82)),
+    #ffffff;
+}
+
+.web-preview-main,
+.web-preview-side,
+.preview-card {
+  border: 1px solid rgba(17, 24, 39, 0.1);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.82);
+}
+
+.web-preview-main {
+  align-self: stretch;
+  padding: clamp(20px, 3vw, 28px);
+  box-shadow: 0 24px 54px rgba(37, 99, 235, 0.12);
+}
+
+.web-preview-main h2 {
+  max-width: 560px;
+  margin-bottom: 24px;
+  font-size: clamp(25px, 3vw, 38px);
+}
+
+.preview-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.preview-card {
+  padding: 16px;
+}
+
+.preview-card span,
+.web-preview-side span {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--blue);
+  font-size: 12px;
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+.preview-card strong {
+  display: block;
+  color: var(--ink);
+  font-size: 18px;
+  line-height: 1.1;
+}
+
+.preview-card p,
+.web-preview-side p {
+  margin: 6px 0 0;
+  color: #526173;
+  font-size: 12.5px;
+  line-height: 1.45;
+}
+
+.web-preview-side {
+  align-self: stretch;
+  max-width: 100%;
+  padding: 18px;
+  border-color: rgba(16, 185, 129, 0.24);
+  background: rgba(240, 253, 250, 0.9);
 }
 
 .hero-proof-grid {
@@ -871,8 +937,13 @@ footer span:last-child {
 }
 
 @media (max-width: 720px) {
+  .web-preview,
   .hero-proof-grid {
     grid-template-columns: 1fr;
+  }
+
+  .web-preview-side {
+    align-self: stretch;
   }
 }
 
@@ -917,6 +988,15 @@ footer span:last-child {
   .visual-footer {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .web-preview {
+    min-height: auto;
+    padding: 20px;
+  }
+
+  .preview-card-grid {
+    grid-template-columns: 1fr;
   }
 
   .browser-bar strong {
