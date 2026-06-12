@@ -171,6 +171,7 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
         <nav>
           <a href="#projects">Projects</a>
           <a href="#skills">Skills</a>
+          <a href="/knowledge" onClick={(event) => navigate(event, "/knowledge")}>Knowledge</a>
           <a href="#contact">Contact</a>
         </nav>
       </header>
@@ -465,13 +466,145 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
   );
 }
 
+const learningPath = [
+  {
+    number: "01",
+    path: "/knowledge/database",
+    title: "Database Fundamentals",
+    description: "Database, SQL/NoSQL, cách tổ chức dữ liệu và lựa chọn công nghệ.",
+    meta: "Nền tảng · 25 phút",
+  },
+  {
+    number: "02",
+    path: "/knowledge/database/data-modeling",
+    title: "Data Modeling & ERD",
+    description: "Requirement, entity, relationship, relational schema và normalization.",
+    meta: "Thực hành · 35 phút",
+  },
+  {
+    number: "03",
+    path: "/knowledge/backend-api",
+    title: "Backend & REST API",
+    description: "Request lifecycle, REST contract, authentication, authorization và testing.",
+    meta: "Có hướng dẫn · 3 tiết",
+  },
+];
+
+function LearningPathNav({
+  currentPath,
+  navigate,
+}: {
+  currentPath: string;
+  navigate: NavigateHandler;
+}) {
+  return (
+    <nav className="course-progress" aria-label="Learning path">
+      <a href="/knowledge" onClick={(event) => navigate(event, "/knowledge")}>
+        <BookOpen size={16} aria-hidden="true" />
+        Lộ trình
+      </a>
+      <div>
+        {learningPath.map((lesson) => (
+          <a
+            className={lesson.path === currentPath ? "is-current" : ""}
+            href={lesson.path}
+            key={lesson.path}
+            onClick={(event) => navigate(event, lesson.path)}
+            aria-current={lesson.path === currentPath ? "page" : undefined}
+          >
+            <span>{lesson.number}</span>
+            {lesson.title}
+          </a>
+        ))}
+      </div>
+    </nav>
+  );
+}
+
+function KnowledgeHubPage({ navigate }: { navigate: NavigateHandler }) {
+  return (
+    <main className="site-shell knowledge-shell knowledge-hub">
+      <header className="topbar knowledge-topbar" aria-label="Knowledge hub navigation">
+        <a className="brand" href="/" onClick={(event) => navigate(event, "/")} aria-label="Back to portfolio">
+          <img className="brand-avatar" src="/assets/avatar.png" alt="" aria-hidden="true" />
+          <span>Vo Van Tu Tai</span>
+        </a>
+        <nav>
+          <a href="#learning-path">Lộ trình</a>
+          <a href="#study-method">Cách học</a>
+          <a href="/" onClick={(event) => navigate(event, "/")}>Portfolio</a>
+        </nav>
+      </header>
+
+      <section className="hub-hero">
+        <div>
+          <p className="eyebrow">Knowledge Portfolio</p>
+          <h1>Học lại kiến thức qua những gì tôi đã xây dựng</h1>
+          <p>
+            Một lộ trình có thứ tự, nối từ dữ liệu đến backend. Mỗi bài gồm mental model, ví dụ từ project,
+            bài tập có đáp án ẩn và câu hỏi phỏng vấn.
+          </p>
+        </div>
+        <aside>
+          <span>Tiến trình hiện tại</span>
+          <strong>3 bài học</strong>
+          <p>Database → Data Modeling → Backend/API</p>
+        </aside>
+      </section>
+
+      <section className="hub-section" id="learning-path">
+        <div className="hub-section-heading">
+          <p className="section-label">Lộ trình cốt lõi</p>
+          <h2>Học theo dependency, không học theo danh sách công nghệ</h2>
+        </div>
+        <div className="learning-path-grid">
+          {learningPath.map((lesson, index) => (
+            <a
+              href={lesson.path}
+              key={lesson.path}
+              onClick={(event) => navigate(event, lesson.path)}
+            >
+              <span className="lesson-number">{lesson.number}</span>
+              <div>
+                <small>{lesson.meta}</small>
+                <h3>{lesson.title}</h3>
+                <p>{lesson.description}</p>
+              </div>
+              <ArrowUpRight size={20} aria-hidden="true" />
+              {index < learningPath.length - 1 ? <b aria-hidden="true">→</b> : null}
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <section className="hub-section study-method-section" id="study-method">
+        <div className="hub-section-heading">
+          <p className="section-label">Phương pháp</p>
+          <h2>Mỗi bài được học theo bốn bước</h2>
+        </div>
+        <div className="hub-method-grid">
+          <div><span>01</span><strong>Hiểu</strong><p>Nắm vấn đề và mental model trước thuật ngữ.</p></div>
+          <div><span>02</span><strong>Quan sát</strong><p>Đọc sơ đồ, code và ví dụ nghiệp vụ.</p></div>
+          <div><span>03</span><strong>Thực hành</strong><p>Tự giải bài trước khi mở đáp án.</p></div>
+          <div><span>04</span><strong>Trình bày</strong><p>Trả lời thành tiếng như trong phỏng vấn.</p></div>
+        </div>
+      </section>
+
+      <footer>
+        <span>Knowledge Portfolio</span>
+        <span><Sparkles size={15} aria-hidden="true" /> Learn from projects</span>
+      </footer>
+    </main>
+  );
+}
+
 function DatabaseLessonPage({ navigate }: { navigate: NavigateHandler }) {
   return (
     <main className="site-shell knowledge-shell">
       <header className="topbar knowledge-topbar" aria-label="Knowledge navigation">
-        <a className="brand" href="/" onClick={(event) => navigate(event, "/")} aria-label="Back to portfolio">
+        <a className="brand" href="/knowledge" onClick={(event) => navigate(event, "/knowledge")} aria-label="Learning hub">
           <img className="brand-avatar" src="/assets/avatar.png" alt="" aria-hidden="true" />
-          <span>Vo Van Tu Tai</span>
+          <span>Knowledge Hub</span>
         </a>
         <nav>
           <a href="#overview">Khái niệm</a>
@@ -480,12 +613,13 @@ function DatabaseLessonPage({ navigate }: { navigate: NavigateHandler }) {
           <a href="#interview-questions">Phỏng vấn</a>
         </nav>
       </header>
+      <LearningPathNav currentPath="/knowledge/database" navigate={navigate} />
 
       <section className="knowledge-hero">
         <div>
-          <a className="back-link" href="/" onClick={(event) => navigate(event, "/")}>
+          <a className="back-link" href="/knowledge" onClick={(event) => navigate(event, "/knowledge")}>
             <ArrowLeft size={17} aria-hidden="true" />
-            Trở về portfolio
+            Trở về Learning Hub
           </a>
           <p className="eyebrow">Database Fundamentals · Bài 01</p>
           <h1>Database là gì và dữ liệu được tổ chức như thế nào?</h1>
@@ -513,18 +647,12 @@ function DatabaseLessonPage({ navigate }: { navigate: NavigateHandler }) {
 
       <div className="lesson-layout">
         <aside className="lesson-toc" aria-label="Mục lục bài học">
-          <p>Mục lục</p>
+          <p>Chương trong bài</p>
           <a href="#overview">1. Database là gì?</a>
-          <a href="#dbms">2. Database và DBMS</a>
-          <a href="#organization">3. Cách tổ chức dữ liệu</a>
-          <a href="#relational-model">4. Mô hình quan hệ</a>
-          <a href="#sql-vs-nosql">5. SQL và NoSQL</a>
-          <a href="#nosql-models">6. Các loại NoSQL</a>
-          <a href="#database-selection">7. Cách lựa chọn</a>
-          <a href="#design-principles">8. Thiết kế dữ liệu</a>
-          <a href="#project-connection">9. Liên hệ project</a>
-          <a href="#interview-questions">10. Câu hỏi phỏng vấn</a>
-          <a href="#review">11. Tự kiểm tra</a>
+          <a href="#organization">2. Dữ liệu quan hệ</a>
+          <a href="#sql-vs-nosql">3. SQL và NoSQL</a>
+          <a href="#database-selection">4. Chọn database</a>
+          <a href="#interview-questions">5. Ôn tập phỏng vấn</a>
         </aside>
 
         <article className="lesson-content">
@@ -1066,12 +1194,12 @@ WHERE o.id = 501;`}</code></pre>
 
           <div className="next-lesson">
             <span>Bài tiếp theo</span>
-            <strong>Backend &amp; REST API Fundamentals</strong>
-            <p>Đưa dữ liệu từ database ra ngoài thông qua một API có cấu trúc, validation và bảo mật.</p>
+            <strong>Data Modeling và cách đọc ERD</strong>
+            <p>Chuyển yêu cầu nghiệp vụ thành entity, relationship, schema và một mô hình dữ liệu có thể triển khai.</p>
             <a
               className="next-lesson-link"
-              href="/knowledge/backend-api"
-              onClick={(event) => navigate(event, "/knowledge/backend-api")}
+              href="/knowledge/database/data-modeling"
+              onClick={(event) => navigate(event, "/knowledge/database/data-modeling")}
             >
               Bắt đầu bài 02
               <ArrowUpRight size={17} aria-hidden="true" />
@@ -1083,6 +1211,415 @@ WHERE o.id = 501;`}</code></pre>
       <footer>
         <span>Database Fundamentals · Bài 01</span>
         <span><Sparkles size={15} aria-hidden="true" /> Learn from projects</span>
+      </footer>
+    </main>
+  );
+}
+
+function DataModelingLessonPage({ navigate }: { navigate: NavigateHandler }) {
+  return (
+    <main className="site-shell knowledge-shell modeling-lesson">
+      <header className="topbar knowledge-topbar" aria-label="Data modeling lesson navigation">
+        <a
+          className="brand"
+          href="/knowledge"
+          onClick={(event) => navigate(event, "/knowledge")}
+          aria-label="Learning hub"
+        >
+          <img className="brand-avatar" src="/assets/avatar.png" alt="" aria-hidden="true" />
+          <span>Knowledge Hub</span>
+        </a>
+        <nav>
+          <a href="#requirements">Yêu cầu</a>
+          <a href="#erd">ERD</a>
+          <a href="#normalization">Chuẩn hóa</a>
+          <a href="#practice">Bài tập</a>
+        </nav>
+      </header>
+      <LearningPathNav currentPath="/knowledge/database/data-modeling" navigate={navigate} />
+
+      <section className="knowledge-hero modeling-hero">
+        <div>
+          <a
+            className="back-link"
+            href="/knowledge/database"
+            onClick={(event) => navigate(event, "/knowledge/database")}
+          >
+            <ArrowLeft size={17} aria-hidden="true" />
+            Trở về Database Fundamentals
+          </a>
+          <p className="eyebrow">Database Fundamentals · Bài 02</p>
+          <h1>Data Modeling: từ yêu cầu nghiệp vụ đến ERD</h1>
+          <p className="knowledge-lede">
+            Học như trong một buổi phân tích hệ thống: đọc yêu cầu đặt phòng, đặt câu hỏi làm rõ, tìm entity,
+            xác định cardinality, vẽ ERD, chuyển sang relational schema và kiểm tra chuẩn hóa.
+          </p>
+          <div className="lesson-meta" aria-label="Lesson information">
+            <span><BookOpen size={16} aria-hidden="true" /> Thực hành có hướng dẫn</span>
+            <span>35 phút học</span>
+            <span>1 case study xuyên suốt</span>
+          </div>
+        </div>
+
+        <aside className="learning-outcomes">
+          <p className="panel-label">Sau bài này, bạn có thể</p>
+          <ul>
+            <li><CheckCircle2 size={18} aria-hidden="true" /> Tách entity và attribute từ requirement.</li>
+            <li><CheckCircle2 size={18} aria-hidden="true" /> Xác định quan hệ 1-1, 1-N và N-N.</li>
+            <li><CheckCircle2 size={18} aria-hidden="true" /> Đọc và giải thích một ERD bằng nghiệp vụ.</li>
+            <li><CheckCircle2 size={18} aria-hidden="true" /> Kiểm tra schema theo 1NF, 2NF và 3NF.</li>
+          </ul>
+        </aside>
+      </section>
+
+      <div className="lesson-layout">
+        <aside className="lesson-toc" aria-label="Mục lục bài Data Modeling">
+          <p>Chương trong bài</p>
+          <a href="#requirements">1. Đọc yêu cầu</a>
+          <a href="#entities">2. Entity và key</a>
+          <a href="#cardinality">3. Relationship và ERD</a>
+          <a href="#schema">4. Schema và chuẩn hóa</a>
+          <a href="#practice">5. Thực hành và ôn tập</a>
+        </aside>
+
+        <article className="lesson-content">
+          <section className="lesson-section" id="requirements">
+            <p className="section-label">01 · Bắt đầu từ nghiệp vụ</p>
+            <h2>Đừng vẽ bảng ngay khi vừa đọc đề</h2>
+            <p>
+              Giảng viên đưa cho bạn yêu cầu: “Khách hàng có thể tìm phòng và tạo booking. Một booking có thể
+              gồm nhiều phòng, có thanh toán và sau khi hoàn tất khách hàng có thể đánh giá nơi lưu trú.”
+            </p>
+
+            <div className="case-brief">
+              <span>Case study · Tourist accommodation</span>
+              <h3>Những gì đề bài chưa nói</h3>
+              <div className="clarifying-grid">
+                <div><strong>Booking nhiều phòng?</strong><p>Có. Vì vậy Booking và Room có thể là quan hệ N-N.</p></div>
+                <div><strong>Một booking nhiều payment?</strong><p>Có thể có thanh toán lại hoặc hoàn tiền, nên không vội gắn payment thành vài cột.</p></div>
+                <div><strong>Review cho room hay accommodation?</strong><p>Trong bài này review thuộc accommodation và phát sinh từ booking đã hoàn tất.</p></div>
+                <div><strong>Giá phòng có thay đổi?</strong><p>Có. Booking phải giữ giá tại thời điểm đặt, không chỉ đọc giá hiện tại của room.</p></div>
+              </div>
+            </div>
+
+            <div className="teacher-note">
+              <strong>Thầy nhắc:</strong>
+              <p>
+                Data model không chỉ phản ánh danh từ trong câu. Nó phản ánh business rule, lịch sử cần lưu và
+                những câu hỏi hệ thống phải trả lời sau này.
+              </p>
+            </div>
+          </section>
+
+          <section className="lesson-section" id="entities">
+            <p className="section-label">02 · Entity discovery</p>
+            <h2>Tìm đối tượng có danh tính và vòng đời riêng</h2>
+            <p>
+              Entity thường là đối tượng nghiệp vụ cần được tạo, thay đổi, tra cứu hoặc tham chiếu độc lập.
+              Danh từ chỉ là gợi ý; tiêu chí quan trọng là hệ thống có cần quản lý vòng đời của nó hay không.
+            </p>
+
+            <div className="entity-discovery-grid">
+              <article><span>Actor</span><h3>User</h3><p>Có tài khoản, danh tính và tạo booking.</p></article>
+              <article><span>Business object</span><h3>Accommodation</h3><p>Nơi lưu trú chứa nhiều room và nhận review.</p></article>
+              <article><span>Inventory</span><h3>Room</h3><p>Đơn vị có loại phòng, sức chứa, giá và trạng thái.</p></article>
+              <article><span>Transaction</span><h3>Booking</h3><p>Ghi nhận ý định đặt phòng, thời gian và trạng thái.</p></article>
+              <article><span>Financial record</span><h3>Payment</h3><p>Có phương thức, số tiền, trạng thái và thời điểm riêng.</p></article>
+              <article><span>Feedback</span><h3>Review</h3><p>Điểm số và nhận xét gắn với trải nghiệm đã hoàn tất.</p></article>
+            </div>
+
+            <details className="teacher-question">
+              <summary>Kiểm tra tư duy: “room price” có phải entity không?</summary>
+              <p>
+                Chưa chắc. Nếu chỉ cần giá hiện tại, <code>price</code> là attribute của Room. Nếu cần lịch sử giá,
+                giá theo ngày hoặc chính sách giá, ta có thể tách thành RatePlan hoặc RoomRate có vòng đời riêng.
+              </p>
+            </details>
+          </section>
+
+          <section className="lesson-section" id="attributes">
+            <p className="section-label">03 · Attribute và key</p>
+            <h2>Mỗi attribute phải mô tả đúng một sự thật</h2>
+            <p>
+              Attribute mô tả entity. Chọn data type, tính bắt buộc, uniqueness và default value là một phần của
+              mô hình, không phải việc để “lúc code tính sau”.
+            </p>
+
+            <div className="attribute-board">
+              <div className="attribute-entity">
+                <strong>booking</strong>
+                <span><KeyRound size={14} aria-hidden="true" /> id · PK</span>
+                <span>user_id · FK · NOT NULL</span>
+                <span>check_in · DATE</span>
+                <span>check_out · DATE</span>
+                <span>status · VARCHAR</span>
+                <span>total_amount · DECIMAL</span>
+                <span>created_at · TIMESTAMP</span>
+              </div>
+              <div className="attribute-rules">
+                <h3>Constraint kể lại business rule</h3>
+                <ul>
+                  <li><code>check_out &gt; check_in</code></li>
+                  <li><code>total_amount &gt;= 0</code></li>
+                  <li><code>user_id</code> phải tham chiếu user tồn tại</li>
+                  <li><code>status</code> chỉ nhận tập giá trị hợp lệ</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="key-comparison">
+              <div><strong>Natural key</strong><p>Có ý nghĩa nghiệp vụ như email hoặc mã vận đơn, nhưng có thể thay đổi.</p></div>
+              <div><strong>Surrogate key</strong><p>ID kỹ thuật như UUID hoặc auto-increment, ổn định cho relationship.</p></div>
+              <div><strong>Composite key</strong><p>Nhiều cột cùng định danh row, thường gặp ở bảng trung gian.</p></div>
+            </div>
+          </section>
+
+          <section className="lesson-section" id="cardinality">
+            <p className="section-label">04 · Relationship và cardinality</p>
+            <h2>Đọc quan hệ bằng hai câu hỏi</h2>
+            <p>
+              Với mỗi cặp entity, hỏi theo cả hai chiều: “Một A có tối đa bao nhiêu B?” và “Một B thuộc tối đa
+              bao nhiêu A?”. Sau đó hỏi thêm quan hệ có bắt buộc hay không.
+            </p>
+
+            <div className="cardinality-grid">
+              <article>
+                <span>1 → N</span>
+                <h3>User tạo Booking</h3>
+                <p>Một user có nhiều booking; mỗi booking thuộc đúng một user.</p>
+                <code>bookings.user_id → users.id</code>
+              </article>
+              <article>
+                <span>1 → N</span>
+                <h3>Accommodation chứa Room</h3>
+                <p>Một accommodation có nhiều room; mỗi room thuộc một accommodation.</p>
+                <code>rooms.accommodation_id</code>
+              </article>
+              <article>
+                <span>N ↔ N</span>
+                <h3>Booking gồm Room</h3>
+                <p>Một booking có nhiều room; một room xuất hiện trong nhiều booking theo thời gian.</p>
+                <code>booking_rooms</code>
+              </article>
+              <article>
+                <span>1 → 0..N</span>
+                <h3>Booking có Payment</h3>
+                <p>Booking mới tạo có thể chưa thanh toán và có thể phát sinh nhiều payment attempt.</p>
+                <code>payments.booking_id</code>
+              </article>
+            </div>
+
+            <div className="junction-explainer">
+              <div>
+                <p className="panel-label">Vì sao cần bảng trung gian?</p>
+                <h3>Quan hệ N-N thường chứa dữ liệu của chính quan hệ đó</h3>
+              </div>
+              <div className="junction-fields">
+                <span>booking_id · FK</span>
+                <span>room_id · FK</span>
+                <span>unit_price</span>
+                <span>guest_count</span>
+              </div>
+              <p>
+                <code>unit_price</code> không thuộc riêng Room hay Booking. Nó là giá của room trong booking cụ thể,
+                nên nằm ở <code>booking_rooms</code>.
+              </p>
+            </div>
+          </section>
+
+          <section className="lesson-section" id="erd">
+            <p className="section-label">05 · ERD</p>
+            <h2>Đọc ERD như một câu chuyện nghiệp vụ</h2>
+            <p>
+              ERD dưới đây không chỉ là sơ đồ kỹ thuật. Hãy đọc: user tạo booking; booking chọn room qua
+              booking_rooms; room thuộc accommodation; booking phát sinh payment; booking hoàn tất có thể tạo review.
+            </p>
+
+            <div className="booking-erd" aria-label="Booking system entity relationship diagram">
+              <div className="erd-node erd-user"><strong>users</strong><span>id · PK</span><span>email · UQ</span><span>full_name</span></div>
+              <div className="erd-node erd-booking"><strong>bookings</strong><span>id · PK</span><span>user_id · FK</span><span>check_in / check_out</span><span>status</span></div>
+              <div className="erd-node erd-booking-room"><strong>booking_rooms</strong><span>booking_id · PK/FK</span><span>room_id · PK/FK</span><span>unit_price</span></div>
+              <div className="erd-node erd-room"><strong>rooms</strong><span>id · PK</span><span>accommodation_id · FK</span><span>name / capacity</span></div>
+              <div className="erd-node erd-accommodation"><strong>accommodations</strong><span>id · PK</span><span>name / address</span><span>provider_id · FK</span></div>
+              <div className="erd-node erd-payment"><strong>payments</strong><span>id · PK</span><span>booking_id · FK</span><span>amount / status</span></div>
+              <div className="erd-node erd-review"><strong>reviews</strong><span>id · PK</span><span>booking_id · FK/UQ</span><span>rating / comment</span></div>
+              <span className="erd-edge edge-user-booking">1 — N</span>
+              <span className="erd-edge edge-booking-junction">1 — N</span>
+              <span className="erd-edge edge-room-junction">N — 1</span>
+              <span className="erd-edge edge-room-accommodation">N — 1</span>
+              <span className="erd-edge edge-booking-payment">1 — N</span>
+              <span className="erd-edge edge-booking-review">1 — 0..1</span>
+            </div>
+
+            <details className="teacher-question">
+              <summary>Thử giải thích ERD này trong 60 giây như khi phỏng vấn</summary>
+              <p>
+                “User có thể tạo nhiều booking. Booking và room là N-N nên tôi dùng booking_rooms, đồng thời lưu
+                unit_price để giữ giá tại thời điểm đặt. Mỗi room thuộc một accommodation. Booking có nhiều payment
+                attempt và tối đa một review sau khi hoàn tất. Foreign key giữ toàn vẹn, còn unique trên
+                reviews.booking_id ngăn review trùng.”
+              </p>
+            </details>
+          </section>
+
+          <section className="lesson-section" id="schema">
+            <p className="section-label">06 · Từ ERD sang relational schema</p>
+            <h2>Mỗi entity thành bảng, mỗi relationship thành constraint</h2>
+            <div className="schema-code">
+              <div className="table-caption">
+                <strong>Ví dụ DDL rút gọn</strong>
+                <span>PostgreSQL-style SQL</span>
+              </div>
+              <pre><code>{`CREATE TABLE booking_rooms (
+  booking_id BIGINT NOT NULL REFERENCES bookings(id),
+  room_id BIGINT NOT NULL REFERENCES rooms(id),
+  unit_price DECIMAL(12, 2) NOT NULL CHECK (unit_price >= 0),
+  guest_count INT NOT NULL CHECK (guest_count > 0),
+  PRIMARY KEY (booking_id, room_id)
+);
+
+CREATE TABLE reviews (
+  id BIGINT PRIMARY KEY,
+  booking_id BIGINT NOT NULL UNIQUE REFERENCES bookings(id),
+  rating INT NOT NULL CHECK (rating BETWEEN 1 AND 5),
+  comment TEXT
+);`}</code></pre>
+            </div>
+
+            <div className="schema-checklist">
+              <h3>Trước khi chấp nhận schema</h3>
+              <ul>
+                <li>PK có ổn định và duy nhất không?</li>
+                <li>FK có đúng ownership và optionality không?</li>
+                <li>Constraint nào nên được database bảo vệ?</li>
+                <li>Kiểu dữ liệu có phù hợp tiền, thời gian và Unicode không?</li>
+                <li>Query quan trọng sẽ đi qua cột nào và cần index gì?</li>
+              </ul>
+            </div>
+          </section>
+
+          <section className="lesson-section" id="normalization">
+            <p className="section-label">07 · Normalization</p>
+            <h2>Chuẩn hóa là loại bỏ sự phụ thuộc sai chỗ</h2>
+            <p>
+              Mục tiêu không phải chia càng nhiều bảng càng tốt. Mục tiêu là mỗi sự thật có một nơi chịu trách nhiệm,
+              để update không tạo ra nhiều phiên bản mâu thuẫn.
+            </p>
+
+            <div className="normalization-steps">
+              <article>
+                <span>1NF</span>
+                <div><h3>Giá trị phải atomic</h3><p>Không lưu <code>room_ids = "12,18,21"</code> trong một cột. Mỗi quan hệ booking-room là một row.</p></div>
+              </article>
+              <article>
+                <span>2NF</span>
+                <div><h3>Không phụ thuộc một phần composite key</h3><p>Trong booking_rooms, <code>room_name</code> chỉ phụ thuộc room_id nên phải nằm ở rooms.</p></div>
+              </article>
+              <article>
+                <span>3NF</span>
+                <div><h3>Không phụ thuộc bắc cầu</h3><p>Không lưu accommodation_address trong rooms nếu address phụ thuộc accommodation_id.</p></div>
+              </article>
+            </div>
+
+            <div className="before-after-model">
+              <div className="bad-model">
+                <span>Thiết kế yếu</span>
+                <code>booking(id, user_name, room_ids, room_names, hotel_address, payment_status)</code>
+                <p>Dữ liệu lặp, khó constraint, khó query và update dễ sai lệch.</p>
+              </div>
+              <div className="good-model">
+                <span>Thiết kế đã phân trách nhiệm</span>
+                <code>users → bookings → booking_rooms ← rooms → accommodations</code>
+                <p>Mỗi bảng quản lý một sự thật; relationship được thể hiện bằng key.</p>
+              </div>
+            </div>
+          </section>
+
+          <section className="lesson-section" id="mistakes">
+            <p className="section-label">08 · Lỗi thường gặp</p>
+            <h2>Năm dấu hiệu data model cần xem lại</h2>
+            <div className="modeling-mistakes">
+              <div><span>01</span><p><strong>Một cột chứa danh sách.</strong> Thường đang giấu quan hệ N-N.</p></div>
+              <div><span>02</span><p><strong>Lưu dữ liệu có thể suy ra ở khắp nơi.</strong> Dễ tạo nhiều nguồn sự thật.</p></div>
+              <div><span>03</span><p><strong>Không lưu snapshot lịch sử.</strong> Giá hiện tại thay đổi làm sai booking cũ.</p></div>
+              <div><span>04</span><p><strong>Dùng text cho mọi status.</strong> Thiếu tập giá trị và transition hợp lệ.</p></div>
+              <div><span>05</span><p><strong>ERD không trả lời nghiệp vụ.</strong> Có bảng nhưng không biết ai tạo, khi nào và vì sao.</p></div>
+            </div>
+          </section>
+
+          <section className="lesson-section" id="practice">
+            <p className="section-label">09 · Bài tập trên lớp</p>
+            <h2>Đến lượt bạn thiết kế</h2>
+            <div className="practice-assignment">
+              <div>
+                <span>Đề bài 15 phút</span>
+                <h3>Thêm dịch vụ bổ sung vào booking</h3>
+                <p>
+                  Khách có thể chọn bữa sáng, đưa đón sân bay hoặc thuê xe. Mỗi dịch vụ có giá riêng tại thời điểm
+                  đặt và một booking có thể chọn nhiều dịch vụ với số lượng khác nhau.
+                </p>
+              </div>
+              <ol>
+                <li>Xác định entity mới.</li>
+                <li>Chọn cardinality với Booking.</li>
+                <li>Quyết định nơi lưu quantity và unit_price.</li>
+                <li>Viết PK, FK và constraint cần thiết.</li>
+              </ol>
+            </div>
+
+            <details className="solution-card">
+              <summary>Mở đáp án gợi ý sau khi đã tự làm</summary>
+              <div>
+                <p>Tạo <code>services</code> và bảng trung gian <code>booking_services</code>.</p>
+                <pre><code>{`services(id PK, accommodation_id FK, name, current_price)
+
+booking_services(
+  booking_id PK/FK,
+  service_id PK/FK,
+  quantity CHECK (quantity > 0),
+  unit_price CHECK (unit_price >= 0)
+)`}</code></pre>
+                <p>
+                  <code>unit_price</code> nằm ở bảng trung gian để giữ snapshot giá tại thời điểm booking.
+                  Composite PK ngăn cùng service bị thêm lặp cho một booking.
+                </p>
+              </div>
+            </details>
+          </section>
+
+          <section className="lesson-section review-section" id="modeling-review">
+            <p className="section-label">10 · Ôn tập và phỏng vấn</p>
+            <h2>Trả lời thành tiếng trước khi mở đáp án</h2>
+            <div className="review-list">
+              <details><summary>1. Làm sao phân biệt entity và attribute?</summary><p>Entity có danh tính, vòng đời và thường được tham chiếu độc lập. Attribute chỉ mô tả một entity. Nếu “giá” cần lịch sử và quy tắc riêng, nó có thể phát triển từ attribute thành entity.</p></details>
+              <details><summary>2. Vì sao quan hệ N-N cần bảng trung gian?</summary><p>Relational database không biểu diễn trực tiếp N-N bằng một FK. Bảng trung gian tách quan hệ thành hai quan hệ 1-N và có thể chứa dữ liệu của quan hệ như quantity hoặc unit_price.</p></details>
+              <details><summary>3. Cardinality và optionality khác nhau thế nào?</summary><p>Cardinality mô tả số lượng tối đa như một hay nhiều; optionality mô tả tối thiểu là 0 hay 1. Booking có 0..N payment nghĩa là payment chưa bắt buộc khi booking mới tạo.</p></details>
+              <details><summary>4. Khi nào dùng composite key?</summary><p>Khi tổ hợp nhiều cột tự nhiên định danh duy nhất row, thường ở bảng junction. Có thể dùng surrogate ID nhưng vẫn nên đặt unique constraint trên cặp business key.</p></details>
+              <details><summary>5. 3NF giải quyết vấn đề gì?</summary><p>3NF loại bỏ phụ thuộc bắc cầu: non-key attribute không nên phụ thuộc vào non-key attribute khác. Điều này giảm lặp và update anomaly.</p></details>
+              <details><summary>6. Vì sao booking_rooms lưu unit_price?</summary><p>Vì cần snapshot giá tại thời điểm đặt. Nếu chỉ tham chiếu rooms.current_price, lịch sử booking sẽ thay đổi khi giá phòng được cập nhật.</p></details>
+              <details><summary>7. ERD có đủ để triển khai database chưa?</summary><p>Chưa. Cần thêm data type, nullability, default, check/unique constraint, index, cascade policy và các rule không thể hiện đầy đủ trên ERD.</p></details>
+            </div>
+          </section>
+
+          <div className="next-lesson">
+            <span>Bước tiếp theo</span>
+            <strong>Đưa data model ra ngoài bằng REST API</strong>
+            <p>Học request lifecycle, resource design, validation, authentication và authorization.</p>
+            <a
+              className="next-lesson-link"
+              href="/knowledge/backend-api"
+              onClick={(event) => navigate(event, "/knowledge/backend-api")}
+            >
+              Sang Backend &amp; API
+              <ArrowUpRight size={17} aria-hidden="true" />
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <footer>
+        <span>Data Modeling &amp; ERD · Bài 02</span>
+        <span><Sparkles size={15} aria-hidden="true" /> Learn by modeling</span>
       </footer>
     </main>
   );
@@ -1104,34 +1641,44 @@ function BackendApiLessonPage({ navigate }: { navigate: NavigateHandler }) {
   return (
     <main className="site-shell knowledge-shell backend-lesson">
       <header className="topbar knowledge-topbar" aria-label="Knowledge navigation">
-        <a className="brand" href="/" onClick={(event) => navigate(event, "/")} aria-label="Back to portfolio">
+        <a
+          className="brand"
+          href="/knowledge"
+          onClick={(event) => navigate(event, "/knowledge")}
+          aria-label="Learning hub"
+        >
           <img className="brand-avatar" src="/assets/avatar.png" alt="" aria-hidden="true" />
-          <span>Vo Van Tu Tai</span>
+          <span>Knowledge Hub</span>
         </a>
         <nav>
-          <a href="#self-study-guide">Cách học</a>
+          <a href="#self-study-guide">Bắt đầu</a>
           <a href="#rest-design">REST API</a>
           <a href="#auth-foundations">Authentication</a>
           <a href="#practice-project">Thực hành</a>
         </nav>
       </header>
+      <LearningPathNav currentPath="/knowledge/backend-api" navigate={navigate} />
 
       <section className="knowledge-hero backend-hero">
         <div>
-          <a className="back-link" href="/" onClick={(event) => navigate(event, "/")}>
+          <a
+            className="back-link"
+            href="/knowledge/database/data-modeling"
+            onClick={(event) => navigate(event, "/knowledge/database/data-modeling")}
+          >
             <ArrowLeft size={17} aria-hidden="true" />
-            Trở về portfolio
+            Trở về Data Modeling &amp; ERD
           </a>
-          <p className="eyebrow">Backend Engineering · Bài 02</p>
+          <p className="eyebrow">Backend Engineering · Bài 03</p>
           <h1>Từ database đến một REST API có thể sử dụng thật</h1>
           <p className="knowledge-lede">
             Tự học backend theo từng module ngắn: hiểu request lifecycle, thiết kế REST API, sau đó đi sâu vào
             authentication, session/token, authorization và cách kiểm thử một hệ thống đăng nhập an toàn.
           </p>
           <div className="lesson-meta" aria-label="Lesson information">
-            <span><BookOpen size={16} aria-hidden="true" /> Tài liệu tự học</span>
-            <span>6 module</span>
-            <span>Bài tập sau mỗi phần</span>
+            <span><BookOpen size={16} aria-hidden="true" /> Buổi học có hướng dẫn</span>
+            <span>3 tiết học</span>
+            <span>9 checkpoint thực hành</span>
           </div>
         </div>
 
@@ -1148,42 +1695,57 @@ function BackendApiLessonPage({ navigate }: { navigate: NavigateHandler }) {
 
       <div className="lesson-layout">
         <aside className="lesson-toc" aria-label="Mục lục bài học">
-          <p>Mục lục</p>
-          <a href="#self-study-guide">1. Cách tự học</a>
-          <a href="#mental-model">2. Backend làm gì?</a>
-          <a href="#request-lifecycle">3. Request lifecycle</a>
-          <a href="#rest-design">4. Thiết kế REST API</a>
-          <a href="#status-codes">5. Status code</a>
-          <a href="#validation">6. Validation và lỗi</a>
-          <a href="#auth-foundations">7. Auth căn bản</a>
-          <a href="#session-vs-token">8. Session và token</a>
-          <a href="#token-lifecycle">9. Token lifecycle</a>
-          <a href="#authorization">10. Phân quyền</a>
-          <a href="#auth-security">11. Rủi ro bảo mật</a>
-          <a href="#testing">12. Kiểm thử auth</a>
-          <a href="#practice-project">13. Bài thực hành</a>
-          <a href="#interview-backend">14. Tự kiểm tra</a>
-          <a href="#auth-resources">15. Nguồn đọc thêm</a>
+          <p>Chương trong bài</p>
+          <a href="#self-study-guide">1. Bắt đầu buổi học</a>
+          <a href="#request-lifecycle">2. Request và REST</a>
+          <a href="#auth-foundations">3. Authentication</a>
+          <a href="#authorization">4. Authorization và security</a>
+          <a href="#practice-project">5. Thực hành và ôn tập</a>
         </aside>
 
         <article className="lesson-content">
           <section className="lesson-section" id="self-study-guide">
-            <p className="section-label">01 · Hướng dẫn tự học</p>
-            <h2>Mỗi module đều có đầu ra để tự kiểm chứng</h2>
+            <p className="section-label">01 · Giáo án hôm nay</p>
+            <h2>Ta sẽ theo dấu một request từ đầu đến cuối</h2>
             <p>
-              Đọc lần lượt, tự viết lại khái niệm bằng lời của bạn rồi hoàn thành bài tập nhỏ. Chỉ chuyển phần khi
-              bạn tạo được đầu ra cụ thể thay vì chỉ cảm thấy mình đã hiểu.
+              Thầy dùng một tình huống xuyên suốt: user gửi <code>POST /api/tasks</code>. Mỗi phần sẽ trả lời một
+              câu hỏi: request đi đâu, dữ liệu được kiểm tra thế nào, danh tính được xác minh ra sao và vì sao
+              backend được phép hoặc không được phép ghi vào database.
             </p>
             <div className="study-cycle">
-              <div><span>01</span><strong>Đọc</strong><p>Nắm câu hỏi mà khái niệm đang giải quyết.</p></div>
-              <div><span>02</span><strong>Tóm tắt</strong><p>Viết 3-5 câu bằng ngôn ngữ của chính bạn.</p></div>
-              <div><span>03</span><strong>Thực hành</strong><p>Code một flow nhỏ và quan sát request thật.</p></div>
-              <div><span>04</span><strong>Tự kiểm tra</strong><p>Test trường hợp đúng, sai và bị từ chối.</p></div>
+              <div><span>01</span><strong>Quan sát</strong><p>Đọc request, response và luồng xử lý mẫu.</p></div>
+              <div><span>02</span><strong>Giải thích</strong><p>Nói lại trách nhiệm của từng lớp bằng lời của bạn.</p></div>
+              <div><span>03</span><strong>Thiết kế</strong><p>Chọn endpoint, rule, auth và error contract.</p></div>
+              <div><span>04</span><strong>Chứng minh</strong><p>Viết test cho đường thành công và đường bị từ chối.</p></div>
+            </div>
+            <div className="lecture-agenda">
+              <article>
+                <span>Tiết 1</span>
+                <h3>Request và REST contract</h3>
+                <p>Request lifecycle, resource, method, status code và validation boundary.</p>
+              </article>
+              <article>
+                <span>Tiết 2</span>
+                <h3>Danh tính và quyền truy cập</h3>
+                <p>Authentication, session/token, authorization, role và ownership.</p>
+              </article>
+              <article>
+                <span>Tiết 3</span>
+                <h3>Bảo mật và kiểm thử</h3>
+                <p>Threat model, đường từ chối, integration test và project tổng hợp.</p>
+              </article>
             </div>
             <div className="study-rule">
-              <strong>Quy tắc học</strong>
-              <p>Không học JWT trước khi giải thích được session. Không học refresh token trước khi hiểu access token hết hạn để làm gì.</p>
+              <strong>Quy tắc của lớp</strong>
+              <p>Mỗi khi gặp sơ đồ hoặc code, hãy dự đoán bước tiếp theo trước khi đọc lời giải. Không học JWT trước khi giải thích được session.</p>
             </div>
+            <details className="teacher-question">
+              <summary>Câu hỏi khởi động: backend cần làm gì trước khi INSERT task?</summary>
+              <p>
+                Tối thiểu phải parse request, xác thực danh tính, kiểm tra input, áp dụng business rule và
+                ownership, sau đó mới gọi lớp truy cập dữ liệu. Database vẫn bảo vệ constraint cuối cùng.
+              </p>
+            </details>
           </section>
 
           <section className="lesson-section" id="mental-model">
@@ -1227,6 +1789,14 @@ function BackendApiLessonPage({ navigate }: { navigate: NavigateHandler }) {
                 mọi thứ.
               </p>
             </div>
+            <details className="teacher-question">
+              <summary>Checkpoint: validation, authentication và authorization nằm ở đâu?</summary>
+              <p>
+                Validation hình dạng request thường nằm ở boundary/middleware; authentication thiết lập identity
+                trước controller hoặc service; authorization và ownership cần được kiểm tra gần business action,
+                thường trong policy/service. Database constraint bảo vệ tính toàn vẹn khi mọi lớp khác thất bại.
+              </p>
+            </details>
           </section>
 
           <section className="lesson-section" id="rest-design">
@@ -1575,6 +2145,11 @@ if (!task) throw notFound();`}</code></pre>
             <p className="section-label">15 · Nguồn đọc thêm</p>
             <h2>Đào sâu từ tài liệu tiêu chuẩn và hướng dẫn bảo mật</h2>
             <div className="resource-list">
+              <a href="https://datatracker.ietf.org/doc/html/rfc9110" target="_blank" rel="noreferrer">
+                <span>IETF · RFC 9110</span>
+                <div><strong>HTTP Semantics</strong><p>Method semantics, status code classes, request và response behavior.</p></div>
+                <ArrowUpRight size={18} aria-hidden="true" />
+              </a>
               <a href="https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html" target="_blank" rel="noreferrer">
                 <span>OWASP</span>
                 <div><strong>Authentication Cheat Sheet</strong><p>Password policy, login response, re-authentication và MFA.</p></div>
@@ -1607,8 +2182,8 @@ if (!task) throw notFound();`}</code></pre>
       </div>
 
       <footer>
-        <span>Backend &amp; Authentication · Bài 02</span>
-        <span><Sparkles size={15} aria-hidden="true" /> Self-study by building</span>
+        <span>Backend &amp; Authentication · Bài 03</span>
+        <span><Sparkles size={15} aria-hidden="true" /> Guided learning by building</span>
       </footer>
     </main>
   );
@@ -1625,7 +2200,9 @@ function App() {
 
   useEffect(() => {
     const pageTitles: Record<string, string> = {
+      "/knowledge": "Knowledge Portfolio - Vo Van Tu Tai",
       "/knowledge/database": "Database Fundamentals - Vo Van Tu Tai",
+      "/knowledge/database/data-modeling": "Data Modeling & ERD - Vo Van Tu Tai",
       "/knowledge/backend-api": "Backend & Authentication Fundamentals - Vo Van Tu Tai",
     };
     document.title = pageTitles[pathname] ?? "Vo Van Tu Tai Portfolio";
@@ -1639,7 +2216,9 @@ function App() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  if (pathname === "/knowledge") return <KnowledgeHubPage navigate={navigate} />;
   if (pathname === "/knowledge/database") return <DatabaseLessonPage navigate={navigate} />;
+  if (pathname === "/knowledge/database/data-modeling") return <DataModelingLessonPage navigate={navigate} />;
   if (pathname === "/knowledge/backend-api") return <BackendApiLessonPage navigate={navigate} />;
   return <PortfolioPage navigate={navigate} />;
 }
