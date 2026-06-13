@@ -170,7 +170,7 @@
         }
 
         .section {
-            margin-bottom: 9px;
+            margin-bottom: 7px;
         }
 
         .section h3 {
@@ -195,8 +195,8 @@
         .obj-text {
             font-size: 12.5px;
             color: #000;
-            line-height: 1.45;
-            margin-bottom: 7px;
+            line-height: 1.4;
+            margin-bottom: 5px;
         }
 
         .goals {
@@ -221,8 +221,8 @@
         }
 
         .exp-entry {
-            margin-bottom: 7px;
-            padding-bottom: 7px;
+            margin-bottom: 5px;
+            padding-bottom: 5px;
             border-bottom: 1px solid #e0e0e0;
         }
 
@@ -265,7 +265,7 @@
         .exp-bullets li {
             font-size: 12px;
             color: #000;
-            line-height: 1.38;
+            line-height: 1.34;
             padding-left: 13px;
             position: relative;
             margin-bottom: 2px;
@@ -412,6 +412,7 @@
             </div>
             <div class="contact-cell">
                 <div>Ho Chi Minh City, Vietnam</div>
+                <div><a href="tel:+84869500573">+84 869 500 573</a></div>
                 <div><a href="https://github.com/VoVanTuTai">GitHub</a></div>
                 <div><a href="https://vovantutai-portfolio.vercel.app">Portfolio</a></div>
                 <div><a href="https://linkedin.com/in/vovantutai">LinkedIn</a></div>
@@ -430,11 +431,11 @@
                     <h3>Professional Summary</h3>
                     <div class="obj-box">
                         <p class="obj-text">
-                            Information Systems student pursuing a Business Analyst internship, with project-based
-                            experience translating operational needs into workflows, use cases, business rules, data
-                            models, wireframes, API contracts, dashboards, and reports. Hands-on logistics experience
-                            strengthens domain analysis; full-stack knowledge supports clear collaboration between
-                            users, product stakeholders, designers, and developers.
+                            Information Systems student who combines hands-on operations experience with technical
+                            analysis. Translates ambiguous business problems into actors, as-is/to-be workflows,
+                            business rules, data models, acceptance-ready requirements, API contracts, dashboards,
+                            and reports. Full-stack knowledge helps surface edge cases early and communicate clearly
+                            with users, designers, and developers.
                         </p>
                     </div>
                 </div>
@@ -475,20 +476,20 @@
                         <div class="exp-header">
                             <span class="exp-title">Requirements · Process &amp; Data Modeling · Product Workflows</span>
                         </div>
-                        <div class="exp-company">Analysis artifacts supported by working applications, architecture models, and repository documentation</div>
+                        <div class="exp-company">Evidence: working applications, process/data models, OpenAPI contracts, and repository documentation</div>
                         <ul class="exp-bullets">
-                            <li><b><a href="https://github.com/VoVanTuTai/logistics-management-system">Nexus Express · Logistics Management System:</a></b>
-                                Converted branch operations into end-to-end shipment, pickup, scan, dispatch, hub, delivery, COD, tracking, and reporting
-                                flows; defined actors, status transitions, service boundaries, data ownership, OpenAPI contracts, and domain events.</li>
-                            <li><b><a href="https://github.com/VoVanTuTai/tourist-accommodation-management-system">Tourist Accommodation Platform:</a></b>
-                                Analyzed customer, provider, and administrator journeys; translated booking, payment, cancellation, review, moderation,
-                                dashboard, commission report, and Excel export needs into role-based functional flows.</li>
-                            <li><b><a href="https://github.com/VoVanTuTai/php-online-store">Song Tai Shop:</a></b>
-                                Defined customer/admin use cases and business rules for product discovery, account access, cart, checkout, order status,
-                                content, authorization, product/order management, and statistics.</li>
-                            <li><b><a href="https://github.com/VoVanTuTai/cab-booking-system">Cab Booking System:</a></b>
-                                Modeled customer, driver, and administrator use cases across booking, ride lifecycle, pricing, payment, notification,
-                                review, and support; mapped REST contracts and data ownership to domain responsibilities.</li>
+                            <li><b><a href="https://github.com/VoVanTuTai/logistics-management-system">Nexus Express · Operations-to-system case:</a></b>
+                                <b>Problem:</b> shipment status, scan location, tracking, reporting, and COD could be interpreted differently across teams.
+                                <b>Analysis:</b> mapped the as-is branch flow, actors, exception paths, state transitions, source-of-truth ownership, and event handoffs.
+                                <b>Outcome:</b> created a consistent requirement and documentation model for five client apps and 13 services, grounded in first-hand J&amp;T operations.</li>
+                            <li><b><a href="https://github.com/VoVanTuTai/tourist-accommodation-management-system">Tourist Accommodation Platform · Rule-conflict case:</a></b>
+                                <b>Problem:</b> customer, provider, and admin journeys shared booking data but required different actions and controls.
+                                <b>Analysis:</b> separated role-based use cases and defined rules for availability, booking, payment, cancellation, review, moderation, and commission reporting.
+                                <b>Outcome:</b> translated the model into working screens, dashboards, VNPay/QR pages, and PDF/Excel outputs.</li>
+                            <li><b><a href="https://github.com/VoVanTuTai/php-online-store">Song Tai Shop · Control-gap case:</a></b>
+                                <b>Problem:</b> customer and admin flows needed clearer authorization and safer destructive operations.
+                                <b>Analysis:</b> reviewed actors, permissions, checkout/order states, and admin actions; converted gaps into role checks, POST-based deletion, seed data, and local setup requirements.
+                                <b>Outcome:</b> improved both the functional specification and reviewability of the PHP/MySQL application.</li>
                         </ul>
                     </div>
                 </div>
