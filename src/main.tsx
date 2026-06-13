@@ -113,6 +113,8 @@ const skillGroups: SkillGroup[] = [
     icon: Code2,
     title: "Languages",
     items: ["PHP", "JavaScript", "TypeScript", "Java 21 / Spring Boot foundation"],
+    href: "/knowledge/programming-languages",
+    linkLabel: "Study programming language fundamentals",
   },
   {
     icon: ServerCog,
@@ -483,20 +485,27 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
 const learningPath = [
   {
     number: "01",
+    path: "/knowledge/programming-languages",
+    title: "Programming Languages",
+    description: "Cách source code được thực thi, hệ kiểu, runtime, paradigm và cách chọn ngôn ngữ.",
+    meta: "Nền móng · 40 phút",
+  },
+  {
+    number: "02",
     path: "/knowledge/database",
     title: "Database Fundamentals",
     description: "Database, SQL/NoSQL, cách tổ chức dữ liệu và lựa chọn công nghệ.",
     meta: "Nền tảng · 25 phút",
   },
   {
-    number: "02",
+    number: "03",
     path: "/knowledge/database/data-modeling",
     title: "Data Modeling & ERD",
     description: "Requirement, entity, relationship, relational schema và normalization.",
     meta: "Thực hành · 35 phút",
   },
   {
-    number: "03",
+    number: "04",
     path: "/knowledge/backend-api",
     title: "Backend & REST API",
     description: "Request lifecycle, REST contract, authentication, authorization và testing.",
@@ -555,14 +564,14 @@ function KnowledgeHubPage({ navigate }: { navigate: NavigateHandler }) {
           <p className="eyebrow">Knowledge Portfolio</p>
           <h1>Học lại kiến thức qua những gì tôi đã xây dựng</h1>
           <p>
-            Một lộ trình có thứ tự, nối từ dữ liệu đến backend. Mỗi bài gồm mental model, ví dụ từ project,
-            bài tập có đáp án ẩn và câu hỏi phỏng vấn.
+            Một lộ trình có thứ tự, nối từ cách chương trình vận hành đến dữ liệu và backend. Mỗi bài gồm mental
+            model, ví dụ từ project, bài tập có đáp án ẩn và câu hỏi phỏng vấn.
           </p>
         </div>
         <aside>
           <span>Tiến trình hiện tại</span>
-          <strong>3 bài học</strong>
-          <p>Database → Data Modeling → Backend/API</p>
+          <strong>4 bài học</strong>
+          <p>Languages → Database → Data Modeling → Backend/API</p>
         </aside>
       </section>
 
@@ -612,6 +621,436 @@ function KnowledgeHubPage({ navigate }: { navigate: NavigateHandler }) {
   );
 }
 
+function ProgrammingLanguagesLessonPage({ navigate }: { navigate: NavigateHandler }) {
+  return (
+    <main className="site-shell knowledge-shell language-lesson">
+      <header className="topbar knowledge-topbar" aria-label="Programming languages lesson navigation">
+        <a
+          className="brand"
+          href="/knowledge"
+          onClick={(event) => navigate(event, "/knowledge")}
+          aria-label="Learning hub"
+        >
+          <img className="brand-avatar" src="/assets/avatar.png" alt="" aria-hidden="true" />
+          <span>Knowledge Hub</span>
+        </a>
+        <nav>
+          <a href="#mental-model">Mental model</a>
+          <a href="#execution-pipeline">Thực thi</a>
+          <a href="#type-system">Hệ kiểu</a>
+          <a href="#language-comparison">So sánh code</a>
+          <a href="#practice-review">Thực hành</a>
+        </nav>
+      </header>
+      <LearningPathNav currentPath="/knowledge/programming-languages" navigate={navigate} />
+
+      <section className="knowledge-hero language-hero">
+        <div>
+          <a className="back-link" href="/knowledge" onClick={(event) => navigate(event, "/knowledge")}>
+            <ArrowLeft size={17} aria-hidden="true" />
+            Trở về Learning Hub
+          </a>
+          <p className="eyebrow">Programming Languages Fundamentals · Bài 01</p>
+          <h1>Hiểu ngôn ngữ lập trình trước khi học thêm framework</h1>
+          <p className="knowledge-lede">
+            Đi từ source code đến chương trình đang chạy, phân biệt compiler, interpreter và runtime, hiểu hệ kiểu,
+            scope, paradigm, rồi dùng cùng một bài toán để quan sát PHP, TypeScript và Java.
+          </p>
+          <div className="lesson-meta" aria-label="Lesson information">
+            <span><BookOpen size={16} aria-hidden="true" /> Tự học có hướng dẫn</span>
+            <span>40 phút học</span>
+            <span>6 checkpoint thực hành</span>
+          </div>
+        </div>
+
+        <aside className="learning-outcomes">
+          <p className="panel-label">Sau bài này, bạn có thể</p>
+          <ul>
+            <li><CheckCircle2 size={18} aria-hidden="true" /> Mô tả hành trình từ source code đến lúc chương trình chạy.</li>
+            <li><CheckCircle2 size={18} aria-hidden="true" /> Phân biệt hệ kiểu tĩnh, động và vai trò của runtime.</li>
+            <li><CheckCircle2 size={18} aria-hidden="true" /> Nhận ra cùng một nghiệp vụ qua PHP, TypeScript và Java.</li>
+            <li><CheckCircle2 size={18} aria-hidden="true" /> Chọn ngôn ngữ dựa trên bối cảnh thay vì bảng xếp hạng.</li>
+          </ul>
+        </aside>
+      </section>
+
+      <div className="lesson-layout">
+        <aside className="lesson-toc" aria-label="Mục lục bài Programming Languages">
+          <p>Chương trong bài</p>
+          <a href="#mental-model">1. Ngôn ngữ là gì?</a>
+          <a href="#execution-pipeline">2. Source code được chạy ra sao?</a>
+          <a href="#type-system">3. Hệ kiểu</a>
+          <a href="#program-building-blocks">4. Thành phần cốt lõi</a>
+          <a href="#paradigms">5. Paradigm</a>
+          <a href="#language-comparison">6. So sánh ba ngôn ngữ</a>
+          <a href="#language-selection">7. Cách lựa chọn</a>
+          <a href="#practice-review">8. Thực hành và ôn tập</a>
+        </aside>
+
+        <article className="lesson-content">
+          <section className="lesson-section" id="mental-model">
+            <p className="section-label">01 · Mental model</p>
+            <h2>Ngôn ngữ lập trình là cách diễn đạt chỉ dẫn một cách có quy tắc</h2>
+            <p>
+              Con người viết source code theo cú pháp và ý nghĩa mà ngôn ngữ quy định. Một implementation như
+              compiler, interpreter hoặc runtime tiếp nhận code đó và làm cho hành vi được thực hiện trên máy tính.
+              Vì vậy, học ngôn ngữ không chỉ là nhớ từ khóa.
+            </p>
+            <div className="concept-grid">
+              <div><Code2 size={20} aria-hidden="true" /><strong>Syntax</strong><span>Cách viết hợp lệ: từ khóa, dấu ngoặc và cấu trúc câu lệnh.</span></div>
+              <div><Network size={20} aria-hidden="true" /><strong>Semantics</strong><span>Đoạn code có ý nghĩa và tạo ra hành vi gì.</span></div>
+              <div><ServerCog size={20} aria-hidden="true" /><strong>Runtime</strong><span>Môi trường quản lý việc thực thi, bộ nhớ và lỗi khi chạy.</span></div>
+              <div><BriefcaseBusiness size={20} aria-hidden="true" /><strong>Ecosystem</strong><span>Thư viện, framework, tooling và cộng đồng quanh ngôn ngữ.</span></div>
+            </div>
+            <div className="definition-card">
+              <strong>Mental model cần giữ</strong>
+              <p>
+                Source code là mô tả. CPU không trực tiếp hiểu PHP, TypeScript hay Java source. Giữa source code và
+                phần cứng luôn có một chuỗi công cụ chuyển đổi, kiểm tra và thực thi.
+              </p>
+            </div>
+          </section>
+
+          <section className="lesson-section" id="execution-pipeline">
+            <p className="section-label">02 · Execution pipeline</p>
+            <h2>Từ file code đến hành vi đang chạy</h2>
+            <p>
+              Chi tiết khác nhau giữa từng implementation, nhưng pipeline khái quát dưới đây giúp ta đọc lỗi đúng
+              tầng và hiểu vì sao code hợp lệ về cú pháp vẫn có thể sai khi chạy.
+            </p>
+            <div className="language-pipeline" aria-label="Programming language execution pipeline">
+              <div><span>01</span><strong>Source</strong><small>Code do developer viết</small></div>
+              <b aria-hidden="true">→</b>
+              <div><span>02</span><strong>Parse</strong><small>Token và cấu trúc cú pháp</small></div>
+              <b aria-hidden="true">→</b>
+              <div><span>03</span><strong>Transform</strong><small>AST, bytecode hoặc code đích</small></div>
+              <b aria-hidden="true">→</b>
+              <div><span>04</span><strong>Runtime</strong><small>Nạp code, quản lý và thực thi</small></div>
+              <b aria-hidden="true">→</b>
+              <div><span>05</span><strong>Effect</strong><small>Kết quả, I/O hoặc thay đổi trạng thái</small></div>
+            </div>
+
+            <div className="language-axis-grid">
+              <article>
+                <span>Compiler</span>
+                <h3>Chuyển đổi trước hoặc trong lúc chạy</h3>
+                <p>
+                  Compiler phân tích source và tạo representation khác. Java thường được biên dịch thành bytecode;
+                  JVM sau đó có thể diễn giải hoặc biên dịch tiếp thành mã máy.
+                </p>
+              </article>
+              <article>
+                <span>Interpreter</span>
+                <h3>Thực thi thông qua một chương trình khác</h3>
+                <p>
+                  Interpreter đọc representation của chương trình và thực hiện hành vi. Một runtime hiện đại có thể
+                  kết hợp interpreter với JIT compiler để tối ưu code chạy nhiều lần.
+                </p>
+              </article>
+              <article>
+                <span>Transpiler</span>
+                <h3>Chuyển từ ngôn ngữ cấp cao này sang ngôn ngữ khác</h3>
+                <p>
+                  TypeScript được kiểm tra kiểu rồi phát sinh JavaScript. Browser hoặc Node.js chạy JavaScript đầu ra,
+                  không chạy type annotation của TypeScript.
+                </p>
+              </article>
+              <article>
+                <span>Runtime</span>
+                <h3>Cung cấp môi trường để chương trình sống</h3>
+                <p>
+                  Runtime xử lý call stack, cấp phát bộ nhớ, exception, garbage collection và giao tiếp với hệ điều
+                  hành tùy theo implementation.
+                </p>
+              </article>
+            </div>
+
+            <div className="self-check">
+              <span>Tự kiểm tra</span>
+              <p>
+                “Java là compiled còn JavaScript là interpreted” là cách nói quá đơn giản. Hãy giải thích lại dựa
+                trên pipeline và implementation cụ thể thay vì gắn một nhãn cố định cho cả ngôn ngữ.
+              </p>
+            </div>
+          </section>
+
+          <section className="lesson-section" id="type-system">
+            <p className="section-label">03 · Type system</p>
+            <h2>Kiểu dữ liệu đặt ra những phép toán nào được xem là hợp lệ</h2>
+            <p>
+              Type system giúp mô tả và kiểm tra cách value được sử dụng. Hai trục thường bị trộn lẫn là thời điểm
+              kiểm tra kiểu và mức độ chuyển đổi ngầm. “Static/dynamic” không đồng nghĩa với “strong/weak”.
+            </p>
+            <div className="comparison-grid">
+              <div>
+                <CheckCircle2 size={22} aria-hidden="true" />
+                <h3>Static typing</h3>
+                <p>Nhiều lỗi kiểu được phát hiện trước khi chương trình chạy.</p>
+                <span>Ví dụ trong bài: Java, TypeScript ở bước type-check</span>
+              </div>
+              <div>
+                <Sparkles size={22} aria-hidden="true" />
+                <h3>Dynamic typing</h3>
+                <p>Kiểu gắn với value và được kiểm tra chủ yếu trong quá trình chạy.</p>
+                <span>Ví dụ trong bài: PHP, JavaScript</span>
+              </div>
+            </div>
+
+            <div className="language-type-table">
+              <div className="table-caption">
+                <strong>Ba ngôn ngữ trong portfolio</strong>
+                <span>Quan sát khác biệt, không xếp hạng hơn kém</span>
+              </div>
+              <div className="language-type-row language-type-heading">
+                <strong>Ngôn ngữ</strong><strong>Kiểm tra kiểu</strong><strong>Khi chạy</strong>
+              </div>
+              <div className="language-type-row">
+                <strong>PHP</strong><span>Dynamic, có thể thêm type declaration</span><span>PHP runtime thực thi và kiểm tra các ràng buộc liên quan</span>
+              </div>
+              <div className="language-type-row">
+                <strong>TypeScript</strong><span>Static checker trên JavaScript</span><span>Type bị xóa; JavaScript đầu ra mới được thực thi</span>
+              </div>
+              <div className="language-type-row">
+                <strong>Java</strong><span>Static typing khi compile</span><span>Bytecode chạy trên JVM với các kiểm tra runtime cần thiết</span>
+              </div>
+            </div>
+
+            <div className="selection-rule">
+              <span>Type safety không tự động tạo ra business correctness</span>
+              <p>
+                Compiler có thể xác nhận <code>weightGrams</code> là số, nhưng không biết cân nặng âm có hợp lệ hay
+                chính sách giá có đúng không. Validation và test nghiệp vụ vẫn là trách nhiệm của ứng dụng.
+              </p>
+            </div>
+          </section>
+
+          <section className="lesson-section" id="program-building-blocks">
+            <p className="section-label">04 · Building blocks</p>
+            <h2>Mọi chương trình đều xoay quanh value, state và control flow</h2>
+            <div className="principle-list">
+              <li><span>01</span><div><strong>Value và variable</strong><p>Value là dữ liệu; variable là tên dùng để tham chiếu value. Cần phân biệt gán lại biến với thay đổi object.</p></div></li>
+              <li><span>02</span><div><strong>Scope và lifetime</strong><p>Scope quyết định nơi một tên có thể được truy cập; lifetime mô tả dữ liệu tồn tại trong bao lâu.</p></div></li>
+              <li><span>03</span><div><strong>Control flow</strong><p>Điều kiện, vòng lặp, function call, return và exception quyết định thứ tự hành vi.</p></div></li>
+              <li><span>04</span><div><strong>Function và boundary</strong><p>Function nhận input, thực hiện logic và trả output; boundary rõ giúp code dễ test và tái sử dụng.</p></div></li>
+              <li><span>05</span><div><strong>Error handling</strong><p>Lỗi dự kiến nên trở thành kết quả hoặc exception có chủ đích; lỗi không nên bị nuốt im lặng.</p></div></li>
+            </div>
+            <div className="definition-card">
+              <strong>Stack và heap là mô hình hữu ích nhưng không phải luật cú pháp</strong>
+              <p>
+                Ta thường dùng call stack để hình dung function call và heap để hình dung object sống lâu hơn một
+                frame. Tuy nhiên vị trí lưu thực tế là quyết định tối ưu của compiler/runtime, không nên suy ra chỉ từ
+                việc value là primitive hay object.
+              </p>
+            </div>
+          </section>
+
+          <section className="lesson-section" id="paradigms">
+            <p className="section-label">05 · Programming paradigms</p>
+            <h2>Paradigm là cách tổ chức suy nghĩ, không phải chiếc hộp khóa ngôn ngữ</h2>
+            <p>
+              Phần lớn ngôn ngữ hiện đại là multi-paradigm. Ta chọn cách biểu diễn phù hợp với vấn đề và quy ước của
+              codebase, thay vì cố ép toàn bộ chương trình vào một phong cách.
+            </p>
+            <div className="scenario-grid language-paradigm-grid">
+              <article><span>Procedural</span><h3>Một chuỗi bước và function</h3><p>Phù hợp với flow rõ ràng, script và logic xử lý tuần tự.</p><strong>Hỏi: dữ liệu đi qua các bước nào?</strong></article>
+              <article><span>Object-oriented</span><h3>Object giữ state và behavior</h3><p>Hữu ích khi mô hình có identity, lifecycle và invariants cần bảo vệ.</p><strong>Hỏi: trách nhiệm thuộc về object nào?</strong></article>
+              <article><span>Functional</span><h3>Biến đổi dữ liệu bằng function</h3><p>Ưu tiên pure function và hạn chế mutation để logic dễ dự đoán.</p><strong>Hỏi: input được biến đổi thành output ra sao?</strong></article>
+              <article><span>Event-driven</span><h3>Phản ứng với sự kiện</h3><p>Phù hợp UI, message broker và workflow bất đồng bộ giữa các thành phần.</p><strong>Hỏi: ai phát sự kiện và ai phản ứng?</strong></article>
+            </div>
+          </section>
+
+          <section className="lesson-section" id="language-comparison">
+            <p className="section-label">06 · One rule, three languages</p>
+            <h2>Cùng một quy tắc tính phí qua PHP, TypeScript và Java</h2>
+            <p>
+              Quy tắc: 1 kg đầu giá 15.000 VND; mỗi 500 g vượt mức thêm 4.000 VND; giao nhanh thêm 10.000 VND.
+              Tiền được giữ dưới dạng số nguyên VND để tránh sai số số thực trong ví dụ.
+            </p>
+            <div className="language-code-grid">
+              <article>
+                <span>PHP</span>
+                <pre><code>{`function shippingFee(
+  int $weightGrams,
+  bool $express
+): int {
+  $extraUnits = max(
+    0,
+    (int) ceil(
+      ($weightGrams - 1000) / 500
+    )
+  );
+
+  return 15000
+    + ($extraUnits * 4000)
+    + ($express ? 10000 : 0);
+}`}</code></pre>
+                <p>Dynamic language với type declaration tại function boundary.</p>
+              </article>
+              <article>
+                <span>TypeScript</span>
+                <pre><code>{`function shippingFee(
+  weightGrams: number,
+  express: boolean
+): number {
+  const extraUnits = Math.max(
+    0,
+    Math.ceil(
+      (weightGrams - 1000) / 500
+    )
+  );
+
+  return 15000
+    + extraUnits * 4000
+    + (express ? 10000 : 0);
+}`}</code></pre>
+                <p>Type checker xác minh shape trước khi phát sinh JavaScript.</p>
+              </article>
+              <article>
+                <span>Java</span>
+                <pre><code>{`static int shippingFee(
+  int weightGrams,
+  boolean express
+) {
+  int extraUnits = Math.max(
+    0,
+    (int) Math.ceil(
+      (weightGrams - 1000) / 500.0
+    )
+  );
+
+  return 15000
+    + extraUnits * 4000
+    + (express ? 10000 : 0);
+}`}</code></pre>
+                <p>Static typing và method nằm trong một class khi triển khai đầy đủ.</p>
+              </article>
+            </div>
+            <div className="self-check">
+              <span>Điểm quan trọng</span>
+              <p>
+                Cú pháp khác nhau nhưng domain rule giống nhau. Trước khi tranh luận ngôn ngữ nào “tốt hơn”, hãy kiểm
+                tra input âm, overflow, cách biểu diễn tiền, rounding rule và test tại các boundary 1000 g, 1001 g.
+              </p>
+            </div>
+          </section>
+
+          <section className="lesson-section" id="language-selection">
+            <p className="section-label">07 · Language selection</p>
+            <h2>Chọn ngôn ngữ từ constraint của hệ thống</h2>
+            <p>
+              Benchmark chỉ có ý nghĩa khi phản ánh workload thật. Trong đa số dự án business, tốc độ delivery, độ
+              trưởng thành của thư viện, khả năng vận hành và năng lực đội ngũ ảnh hưởng nhiều hơn một con số đơn lẻ.
+            </p>
+            <div className="decision-checklist">
+              <p className="panel-label">Checklist trước khi lựa chọn</p>
+              <ol>
+                <li><span>1</span><p><strong>Problem domain:</strong> web app, mobile, data processing, embedded hay hệ thống phân tán?</p></li>
+                <li><span>2</span><p><strong>Ecosystem:</strong> framework, driver, security update và thư viện nghiệp vụ có trưởng thành không?</p></li>
+                <li><span>3</span><p><strong>Team:</strong> đội ngũ có thể phát triển, review, debug và tuyển thêm người không?</p></li>
+                <li><span>4</span><p><strong>Runtime:</strong> latency, throughput, memory, concurrency và startup time yêu cầu mức nào?</p></li>
+                <li><span>5</span><p><strong>Operations:</strong> build, deploy, monitoring, dependency management và hosting có phù hợp không?</p></li>
+                <li><span>6</span><p><strong>Lifecycle:</strong> hệ thống cần duy trì bao lâu và mức tương thích ngược cần thiết là gì?</p></li>
+              </ol>
+            </div>
+
+            <h3 className="scenario-heading">Liên hệ với project của tôi</h3>
+            <div className="project-connection-grid">
+              <div><h3>PHP</h3><p>Song Tai Shop dùng PHP/MySQL để học request-response, session, form processing và cải thiện một codebase web truyền thống.</p><span>Ưu tiên: delivery trực tiếp và hosting đơn giản</span></div>
+              <div><h3>TypeScript</h3><p>Nexus Express dùng TypeScript với NestJS/React để chia sẻ tooling, mô hình type và contract trong hệ thống nhiều service.</p><span>Ưu tiên: maintainability và ecosystem web</span></div>
+              <div><h3>Java</h3><p>DevFlow dùng Java 21/Spring Boot để luyện static typing, layered backend, persistence và nền tảng ứng dụng doanh nghiệp.</p><span>Ưu tiên: explicit contract và ecosystem backend</span></div>
+            </div>
+          </section>
+
+          <section className="lesson-section" id="practice-review">
+            <p className="section-label">08 · Practice and review</p>
+            <h2>Biến khái niệm thành khả năng giải thích và viết code</h2>
+            <div className="practice-assignment language-practice">
+              <div>
+                <span>Bài tập 30 phút</span>
+                <h3>Viết lại một business rule bằng hai ngôn ngữ</h3>
+                <p>
+                  Chọn rule giảm giá, tính phí hoặc chuyển trạng thái từ project của bạn. Mục tiêu là giữ nguyên
+                  semantics trong khi quan sát khác biệt về type, function, error handling và test.
+                </p>
+              </div>
+              <ol>
+                <li>Viết input, output và các invariant trước khi code.</li>
+                <li>Liệt kê ít nhất ba boundary case.</li>
+                <li>Cài đặt bằng hai ngôn ngữ.</li>
+                <li>Viết test cho cùng một bộ dữ liệu.</li>
+                <li>Giải thích runtime nào thực thi mỗi phiên bản.</li>
+                <li>Ghi lại khác biệt có ảnh hưởng đến maintainability.</li>
+              </ol>
+            </div>
+
+            <div className="answer-framework">
+              <span>Khung trả lời phỏng vấn</span>
+              <ol>
+                <li><strong>Định nghĩa:</strong> nói ngắn gọn khái niệm.</li>
+                <li><strong>Cơ chế:</strong> mô tả nó hoạt động khi nào.</li>
+                <li><strong>Trade-off:</strong> nêu lợi ích và giới hạn.</li>
+                <li><strong>Ví dụ:</strong> liên hệ project đã làm.</li>
+              </ol>
+            </div>
+
+            <div className="review-list">
+              <details><summary>1. Compiler và interpreter khác nhau thế nào?</summary><p>Compiler chuyển chương trình sang representation khác; interpreter thực thi chương trình thông qua một implementation. Một runtime có thể kết hợp cả hai, nên không nên gắn nhãn cứng cho cả ngôn ngữ.</p></details>
+              <details><summary>2. TypeScript có chạy trực tiếp trên browser không?</summary><p>Không theo workflow thông thường. TypeScript kiểm tra kiểu và phát sinh JavaScript; browser chạy JavaScript đầu ra. Type annotation không tồn tại trong runtime đó.</p></details>
+              <details><summary>3. Static typing có thay thế validation không?</summary><p>Không. Type checker xác minh các ràng buộc biểu diễn được bằng type, nhưng input bên ngoài và business rule vẫn cần runtime validation cùng test.</p></details>
+              <details><summary>4. Scope và lifetime khác nhau thế nào?</summary><p>Scope nói nơi một tên được nhìn thấy; lifetime nói value hoặc object tồn tại trong bao lâu. Hai khái niệm liên quan nhưng không đồng nhất.</p></details>
+              <details><summary>5. OOP có nghĩa là mọi thứ phải là class không?</summary><p>Không. OOP là một cách tổ chức state và behavior quanh object. Ngôn ngữ multi-paradigm cho phép kết hợp class, function thuần và event tùy bài toán.</p></details>
+              <details><summary>6. Bạn chọn Java, TypeScript hay PHP cho dự án mới bằng cách nào?</summary><p>Tôi bắt đầu từ domain, ecosystem, kinh nghiệm đội ngũ, runtime constraint, cách deploy và vòng đời hệ thống. Sau đó mới làm prototype hoặc benchmark phần có rủi ro thật.</p></details>
+            </div>
+
+            <h3 className="scenario-heading">Tài liệu chính thức để học sâu hơn</h3>
+            <div className="resource-list">
+              <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Execution_model" target="_blank" rel="noreferrer">
+                <span>MDN Web Docs</span>
+                <div><strong>JavaScript execution model</strong><p>Engine, execution context, agent, job queue và event loop.</p></div>
+                <ArrowUpRight size={18} aria-hidden="true" />
+              </a>
+              <a href="https://www.typescriptlang.org/docs/handbook/typescript-from-scratch.html" target="_blank" rel="noreferrer">
+                <span>TypeScript</span>
+                <div><strong>TypeScript for the New Programmer</strong><p>Quan hệ giữa JavaScript, static type checking và TypeScript output.</p></div>
+                <ArrowUpRight size={18} aria-hidden="true" />
+              </a>
+              <a href="https://docs.oracle.com/javase/specs/jvms/se21/html/jvms-1.html" target="_blank" rel="noreferrer">
+                <span>Oracle · JVM SE 21</span>
+                <div><strong>The Java Virtual Machine</strong><p>Kiến trúc JVM, class file format và cách Java source đi vào runtime.</p></div>
+                <ArrowUpRight size={18} aria-hidden="true" />
+              </a>
+              <a href="https://www.php.net/manual/en/langref.php" target="_blank" rel="noreferrer">
+                <span>PHP Manual</span>
+                <div><strong>PHP Language Reference</strong><p>Types, variables, expressions, control structures, functions và classes.</p></div>
+                <ArrowUpRight size={18} aria-hidden="true" />
+              </a>
+            </div>
+          </section>
+
+          <div className="next-lesson">
+            <span>Bài tiếp theo</span>
+            <strong>Database Fundamentals</strong>
+            <p>Tiếp tục từ value trong chương trình đến cách hệ thống lưu trữ, liên kết và truy vấn dữ liệu lâu dài.</p>
+            <a
+              className="next-lesson-link"
+              href="/knowledge/database"
+              onClick={(event) => navigate(event, "/knowledge/database")}
+            >
+              Bắt đầu bài 02
+              <ArrowUpRight size={17} aria-hidden="true" />
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <footer>
+        <span>Programming Languages Fundamentals · Bài 01</span>
+        <span><Sparkles size={15} aria-hidden="true" /> Learn the model behind the syntax</span>
+      </footer>
+    </main>
+  );
+}
+
 function DatabaseLessonPage({ navigate }: { navigate: NavigateHandler }) {
   return (
     <main className="site-shell knowledge-shell">
@@ -631,11 +1070,15 @@ function DatabaseLessonPage({ navigate }: { navigate: NavigateHandler }) {
 
       <section className="knowledge-hero">
         <div>
-          <a className="back-link" href="/knowledge" onClick={(event) => navigate(event, "/knowledge")}>
+          <a
+            className="back-link"
+            href="/knowledge/programming-languages"
+            onClick={(event) => navigate(event, "/knowledge/programming-languages")}
+          >
             <ArrowLeft size={17} aria-hidden="true" />
-            Trở về Learning Hub
+            Trở về Programming Languages
           </a>
-          <p className="eyebrow">Database Fundamentals · Bài 01</p>
+          <p className="eyebrow">Database Fundamentals · Bài 02</p>
           <h1>Database là gì và dữ liệu được tổ chức như thế nào?</h1>
           <p className="knowledge-lede">
             Hiểu cách hệ thống tổ chức dữ liệu, SQL và NoSQL giải quyết những bài toán khác nhau ra sao, và cách
@@ -1215,7 +1658,7 @@ WHERE o.id = 501;`}</code></pre>
               href="/knowledge/database/data-modeling"
               onClick={(event) => navigate(event, "/knowledge/database/data-modeling")}
             >
-              Bắt đầu bài 02
+              Bắt đầu bài 03
               <ArrowUpRight size={17} aria-hidden="true" />
             </a>
           </div>
@@ -1223,7 +1666,7 @@ WHERE o.id = 501;`}</code></pre>
       </div>
 
       <footer>
-        <span>Database Fundamentals · Bài 01</span>
+        <span>Database Fundamentals · Bài 02</span>
         <span><Sparkles size={15} aria-hidden="true" /> Learn from projects</span>
       </footer>
     </main>
@@ -1262,7 +1705,7 @@ function DataModelingLessonPage({ navigate }: { navigate: NavigateHandler }) {
             <ArrowLeft size={17} aria-hidden="true" />
             Trở về Database Fundamentals
           </a>
-          <p className="eyebrow">Database Fundamentals · Bài 02</p>
+          <p className="eyebrow">Database Fundamentals · Bài 03</p>
           <h1>Data Modeling: từ yêu cầu nghiệp vụ đến ERD</h1>
           <p className="knowledge-lede">
             Học như trong một buổi phân tích hệ thống: đọc yêu cầu đặt phòng, đặt câu hỏi làm rõ, tìm entity,
@@ -1632,7 +2075,7 @@ booking_services(
       </div>
 
       <footer>
-        <span>Data Modeling &amp; ERD · Bài 02</span>
+        <span>Data Modeling &amp; ERD · Bài 03</span>
         <span><Sparkles size={15} aria-hidden="true" /> Learn by modeling</span>
       </footer>
     </main>
@@ -1683,7 +2126,7 @@ function BackendApiLessonPage({ navigate }: { navigate: NavigateHandler }) {
             <ArrowLeft size={17} aria-hidden="true" />
             Trở về Data Modeling &amp; ERD
           </a>
-          <p className="eyebrow">Backend Engineering · Bài 03</p>
+          <p className="eyebrow">Backend Engineering · Bài 04</p>
           <h1>Từ database đến một REST API có thể sử dụng thật</h1>
           <p className="knowledge-lede">
             Tự học backend theo từng module ngắn: hiểu request lifecycle, thiết kế REST API, sau đó đi sâu vào
@@ -2196,7 +2639,7 @@ if (!task) throw notFound();`}</code></pre>
       </div>
 
       <footer>
-        <span>Backend &amp; Authentication · Bài 03</span>
+        <span>Backend &amp; Authentication · Bài 04</span>
         <span><Sparkles size={15} aria-hidden="true" /> Guided learning by building</span>
       </footer>
     </main>
@@ -2215,6 +2658,7 @@ function App() {
   useEffect(() => {
     const pageTitles: Record<string, string> = {
       "/knowledge": "Knowledge Portfolio - Vo Van Tu Tai",
+      "/knowledge/programming-languages": "Programming Languages Fundamentals - Vo Van Tu Tai",
       "/knowledge/database": "Database Fundamentals - Vo Van Tu Tai",
       "/knowledge/database/data-modeling": "Data Modeling & ERD - Vo Van Tu Tai",
       "/knowledge/backend-api": "Backend & Authentication Fundamentals - Vo Van Tu Tai",
@@ -2231,6 +2675,7 @@ function App() {
   };
 
   if (pathname === "/knowledge") return <KnowledgeHubPage navigate={navigate} />;
+  if (pathname === "/knowledge/programming-languages") return <ProgrammingLanguagesLessonPage navigate={navigate} />;
   if (pathname === "/knowledge/database") return <DatabaseLessonPage navigate={navigate} />;
   if (pathname === "/knowledge/database/data-modeling") return <DataModelingLessonPage navigate={navigate} />;
   if (pathname === "/knowledge/backend-api") return <BackendApiLessonPage navigate={navigate} />;
