@@ -15,6 +15,7 @@ import {
   Mail,
   MapPin,
   Network,
+  Phone,
   ServerCog,
   Sparkles,
   Table2,
@@ -24,7 +25,7 @@ import "./styles.css";
 const projectGroups = [
   {
     title: "Monolithic Business Web Applications",
-    description: "Two full-stack web applications covering interfaces, CRUD workflows, authentication, roles, reports, databases, and local setup.",
+    description: "Two working business applications showing how requirements become role-based screens, backend rules, relational data, and reports.",
     projects: [
       {
         name: "php-online-store",
@@ -33,11 +34,11 @@ const projectGroups = [
         image: "/assets/project-songtai.png",
         stack: ["PHP", "MySQL", "Bootstrap", "JavaScript", "jQuery", "Docker", "phpMyAdmin"],
         summary:
-          "A PHP/MySQL online store with customer and admin workflows, later improved with Docker, seed data, demo accounts, and clearer documentation.",
+          "A legacy PHP/MySQL learning project improved into a reproducible portfolio application with clearer security and review workflows.",
         highlights: [
-          "Developed product browsing, search, registration/login, cart, checkout, order status, and article pages.",
-          "Improved admin product/order screens, statistics, role checks, auth handling, and POST-based delete flow.",
-          "Added Docker Compose setup with PHP Apache, MySQL, phpMyAdmin, seed SQL, screenshots, and clearer README notes.",
+          "Challenge: customer and admin flows needed clearer authorization and safer destructive operations.",
+          "Action: added role checks, password hashing, safer output/database handling, and POST-based deletion.",
+          "Outcome: Docker Compose, seed data, demo accounts, and documentation made the project reproducible for review.",
         ],
       },
       {
@@ -47,18 +48,18 @@ const projectGroups = [
         image: "/assets/project-tourist.png",
         stack: ["Express.js", "EJS", "MySQL", "Sequelize", "Sessions", "VNPay", "PDF/Excel"],
         summary:
-          "A server-rendered full-stack booking application covering customer, provider, admin, payment, and reporting workflows.",
+          "A multi-role booking system translating shared room and booking data into controlled customer, provider, and admin workflows.",
         highlights: [
-          "Developed customer registration/login, room search, booking, payment, booking history, cancellation, profile, and review flows.",
-          "Implemented provider room CRUD, booking management, dashboard statistics, admin moderation, and role-based route guards.",
-          "Added VNPay/QR payment pages, email notification support, PDF commission reports, and Excel exports.",
+          "Challenge: three user roles needed different actions while sharing booking and accommodation data.",
+          "Action: separated role guards and rules for availability, booking, cancellation, moderation, and reporting.",
+          "Outcome: delivered working screens, VNPay/QR pages, email support, dashboards, and PDF/Excel exports.",
         ],
       },
     ],
   },
   {
     title: "Architecture Practice Projects",
-    description: "Two architecture-focused repositories exploring Node.js, React/Vite, NestJS, Docker, messaging, and service-boundary concepts.",
+    description: "Two architecture projects exploring service ownership, contracts, messaging, reliability patterns, and Docker-based infrastructure.",
     projects: [
       {
         name: "logistics-management-system",
@@ -67,11 +68,11 @@ const projectGroups = [
         image: "/assets/project-nexus.png",
         stack: ["TypeScript", "NestJS", "React/Vite", "PostgreSQL", "Prisma", "RabbitMQ", "Docker"],
         summary:
-          "A logistics system repository modeling shipment creation, pickup, hub operations, courier delivery, tracking, COD, and reporting workflows.",
+          "A logistics system turning first-hand branch operations into explicit service ownership, event handoffs, and end-to-end shipment workflows.",
         highlights: [
-          "Defined service boundaries across Gateway/BFF, domain events, and database ownership concepts.",
-          "Modeled dispatch, scan, tracking, OpenAPI contracts, Prisma data models, RabbitMQ events, and Docker Compose flows.",
-          "Translated hands-on J&T Express operations into realistic shipment, scan, and branch workflow requirements.",
+          "Challenge: shipment status, scan location, tracking, reporting, and COD had overlapping responsibilities.",
+          "Action: mapped actors and exceptions, then separated 12 domain services behind a Gateway/BFF with owned data.",
+          "Outcome: documented a traceable flow using OpenAPI, Prisma, RabbitMQ events, outbox/idempotency, and Docker.",
         ],
       },
       {
@@ -81,11 +82,11 @@ const projectGroups = [
         image: "/assets/project-cab.png",
         stack: ["Node.js", "Express.js", "Kafka", "Redis", "PostgreSQL", "MongoDB", "Docker"],
         summary:
-          "A ride-hailing architecture repository exploring customer, driver, and admin workflows across service-style modules.",
+          "A ride-hailing architecture project examining distributed booking, ride, payment, driver, and operations workflows.",
         highlights: [
-          "Modeled booking, ride lifecycle, pricing, payment, notification, review, and admin workflows.",
-          "Worked with REST/OpenAPI contracts, Kafka messaging, Redis coordination, and database ownership concepts.",
-          "Prepared Docker Compose infrastructure for local development across services, apps, databases, and messaging.",
+          "Challenge: booking, ride, driver, and payment state must remain understandable across multiple services.",
+          "Action: defined REST/event contracts, state ownership, Kafka workflows, Redis coordination, and compensation paths.",
+          "Outcome: prepared a Docker Compose environment with multiple data stores, contract checks, and observability tooling.",
         ],
       },
     ],
@@ -111,48 +112,48 @@ const skillGroups: SkillGroup[] = [
   {
     icon: Code2,
     title: "Languages",
-    items: ["PHP", "JavaScript", "TypeScript familiarity", "Java coursework"],
+    items: ["PHP", "JavaScript", "TypeScript", "Java 21 / Spring Boot foundation"],
   },
   {
     icon: ServerCog,
     title: "Web Development",
-    items: ["HTML/CSS", "Bootstrap", "EJS", "PHP-rendered pages", "React/Vite project familiarity"],
+    items: ["HTML/CSS", "Bootstrap", "EJS", "PHP-rendered pages", "React/Vite project work"],
   },
   {
     icon: Database,
     title: "Data",
-    items: ["MySQL", "SQL", "Database Design", "ERD", "PostgreSQL/MongoDB project exposure"],
+    items: ["MySQL", "SQL", "Database Design", "ERD", "PostgreSQL/Prisma", "MongoDB exposure"],
     href: "/knowledge/database",
     linkLabel: "Study database fundamentals",
   },
   {
     icon: Network,
     title: "Backend & Tools",
-    items: ["Node.js/Express working knowledge", "REST APIs", "Git/Postman", "Docker Compose", "RabbitMQ/Kafka exposure"],
+    items: ["Node.js/Express", "REST APIs", "Git/Postman", "Docker Compose", "RabbitMQ/Kafka concepts"],
     href: "/knowledge/backend-api",
     linkLabel: "Study backend & REST APIs",
   },
 ];
 
 const stats = [
-  { label: "Monolith apps", value: "2" },
-  { label: "Architecture practice", value: "2" },
-  { label: "Core web stack", value: "PHP" },
-  { label: "Expected graduation", value: "2026" },
+  { label: "Working business apps", value: "2" },
+  { label: "Architecture systems", value: "2" },
+  { label: "Domain experience", value: "J&T" },
+  { label: "Expected graduation", value: "2027" },
 ];
 
 const proofSignals = [
   {
-    label: "Core stack & tools",
-    value: "PHP, HTML/CSS, Bootstrap, JavaScript, MySQL, Git, Postman, and Docker Compose.",
+    label: "Software delivery",
+    value: "Working web apps across UI, backend, relational data, authentication, roles, and reporting.",
   },
   {
-    label: "Business app",
-    value: "2 full-stack monolithic apps covering CRUD, auth, roles, booking, checkout, reports, and admin flows.",
+    label: "Analysis advantage",
+    value: "Requirements, workflows, business rules, ERD, API contracts, and edge-case thinking.",
   },
   {
-    label: "Project exposure",
-    value: "2 architecture practice repos with React/Vite, TypeScript, NestJS, Docker, and messaging exposure.",
+    label: "Domain grounding",
+    value: "Hands-on J&T Express operations applied to shipment, scan, tracking, exception, and COD flows.",
   },
 ];
 
@@ -181,25 +182,29 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
           <div className="profile-lockup">
             <img className="profile-avatar" src="/assets/avatar.png" alt="Vo Van Tu Tai" />
             <div>
-              <p className="profile-name">Full-stack Web Developer Intern</p>
+              <p className="profile-name">Backend / Full-stack Developer · Technical BA</p>
               <p className="profile-meta">Ho Chi Minh City · Information Systems student</p>
             </div>
           </div>
           <p className="eyebrow">Portfolio</p>
           <h1>Vo Van Tu Tai</h1>
           <p className="hero-lede">
-            Information Systems student building full-stack web projects with PHP, HTML/CSS, Bootstrap,
-            JavaScript, and MySQL, with working knowledge of Node.js/Express and project familiarity with
-            React/Vite, Docker, and broader backend architecture concepts.
+            Information Systems student building business systems across backend, web, API, and data layers.
+            I combine software implementation with process and data analysis, strengthened by hands-on logistics
+            operations experience.
           </p>
           <div className="hero-actions">
             <a className="primary-action" href="#projects">
               <ArrowUpRight size={18} aria-hidden="true" />
-              View projects
+              View case studies
             </a>
-            <a className="secondary-action" href="/VoVanTuTai_CV.pdf" download>
+            <a className="secondary-action" href="/VoVanTuTai_Backend_Fullstack_Intern_CV.pdf" download>
               <Download size={18} aria-hidden="true" />
-              Download CV
+              Developer CV
+            </a>
+            <a className="secondary-action" href="/VoVanTuTai_Business_Analyst_Intern_CV.pdf" download>
+              <Download size={18} aria-hidden="true" />
+              BA CV
             </a>
           </div>
         </div>
@@ -214,35 +219,35 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
             </div>
             <div className="web-preview" aria-label="Web developer portfolio focus preview">
               <div className="web-preview-main">
-                <p className="panel-label">Full-stack Web Portfolio</p>
-                <h2>Business web apps, clean UI, and database-backed workflows.</h2>
+                <p className="panel-label">Business Systems Portfolio</p>
+                <h2>Software delivery grounded in workflows, data, and domain context.</h2>
                 <div className="preview-card-grid">
                   <div className="preview-card">
-                    <span>Core</span>
-                    <strong>PHP</strong>
-                    <p>web fundamentals</p>
+                    <span>Build</span>
+                    <strong>Web + API</strong>
+                    <p>working systems</p>
                   </div>
                   <div className="preview-card">
-                    <span>UI</span>
-                    <strong>Bootstrap</strong>
-                    <p>responsive screens</p>
+                    <span>Analyze</span>
+                    <strong>Process + Data</strong>
+                    <p>clear requirements</p>
                   </div>
                   <div className="preview-card">
-                    <span>Data</span>
-                    <strong>MySQL</strong>
-                    <p>CRUD & reports</p>
+                    <span>Ground</span>
+                    <strong>Logistics</strong>
+                    <p>real operations</p>
                   </div>
                 </div>
               </div>
               <div className="web-preview-side">
-                <span>Broader project experience</span>
-                <p>Node.js/Express · React/Vite · Docker · Messaging concepts</p>
+                <span>Two application tracks</span>
+                <p>Backend / Full-stack Developer Intern · Technical Business Analyst Intern</p>
               </div>
             </div>
             <div className="visual-footer">
-              <span>PHP / MySQL</span>
-              <span>HTML / Bootstrap</span>
-              <span>Node / Express</span>
+              <span>Backend / Full-stack</span>
+              <span>Technical Analysis</span>
+              <span>Business Workflows</span>
             </div>
           </div>
           <div className="hero-proof-grid">
@@ -278,16 +283,17 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
       <section className="section-grid about-section">
         <div>
           <p className="section-label">About</p>
-          <h2>Full-stack developer focused on practical business workflows.</h2>
+          <h2>A business-system builder with both implementation and analysis depth.</h2>
         </div>
         <div className="section-body">
           <p>
-            I study Information Systems at Industrial University of Ho Chi Minh City and build practical web
-            interfaces, backend workflows, relational database models, and maintainable business application flows.
+            I study Information Systems at Industrial University of Ho Chi Minh City and build practical software
+            across interfaces, backend workflows, REST contracts, relational data, and local infrastructure.
           </p>
           <p>
-            My strongest work connects business workflows to usable software: booking management, role-based screens,
-            shipment operations, payment flow, reporting, and public tracking.
+            My advantage is connecting operational problems to technical decisions: defining actors and rules,
+            tracing edge cases, assigning data ownership, and turning that analysis into working applications or
+            reviewable system documentation.
           </p>
         </div>
       </section>
@@ -295,10 +301,10 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
       <section className="projects-section compact-projects" id="projects">
         <div className="section-heading project-heading">
           <p className="section-label">Selected Projects</p>
-          <h2>Practical web projects first, architecture practice second.</h2>
+          <h2>Cases that show the problem, the decision, and the resulting evidence.</h2>
           <p>
-            The portfolio balances two functional monolithic business applications with two architecture-focused repos,
-            showing practical full-stack delivery alongside broader backend exploration.
+            Each case is grounded in repository evidence: working screens, source code, data models, API/event
+            contracts, Docker setup, or documentation that explains the tradeoffs.
           </p>
         </div>
 
@@ -371,7 +377,7 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
       <section className="section-grid" id="skills">
         <div>
           <p className="section-label">Skills</p>
-          <h2>Frontend, backend, and database skills built through projects.</h2>
+          <h2>Implementation skills supported by process, data, and domain analysis.</h2>
         </div>
         <div className="skill-grid">
           {skillGroups.map((group) => {
@@ -429,16 +435,24 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
       <section className="contact-section" id="contact">
         <div>
           <p className="section-label">Contact</p>
-          <h2>Open to full-stack and web developer intern roles.</h2>
+          <h2>Open to backend/full-stack developer and technical BA intern roles.</h2>
         </div>
         <div className="contact-links">
+          <a href="tel:+84869500573">
+            <Phone size={18} aria-hidden="true" />
+            +84 869 500 573
+          </a>
           <a href="mailto:tutaivovan@gmail.com">
             <Mail size={18} aria-hidden="true" />
             tutaivovan@gmail.com
           </a>
-          <a href="/VoVanTuTai_CV.pdf" download>
+          <a href="/VoVanTuTai_Backend_Fullstack_Intern_CV.pdf" download>
             <Download size={18} aria-hidden="true" />
-            Download CV PDF
+            Developer CV PDF
+          </a>
+          <a href="/VoVanTuTai_Business_Analyst_Intern_CV.pdf" download>
+            <Download size={18} aria-hidden="true" />
+            Business Analyst CV PDF
           </a>
           <a href="https://github.com/VoVanTuTai" target="_blank" rel="noreferrer">
             <Github size={18} aria-hidden="true" />
@@ -459,7 +473,7 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
         <span>Vo Van Tu Tai</span>
         <span>
           <Sparkles size={15} aria-hidden="true" />
-          Web Apps · Business Workflows
+          Business Systems · Software + Analysis
         </span>
       </footer>
     </main>
