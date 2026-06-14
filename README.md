@@ -33,4 +33,8 @@ The portfolio highlights four public GitHub projects in two groups:
 It also includes generated visual previews and a downloadable CV PDF under `public/`.
 Both Developer and Business Analyst CV PDFs are available under `public/`.
 
+The knowledge hub includes an applied Business Analysis knowledge note at
+`/knowledge/business-analysis`, grounded in relevant coursework, competency mapping, project evidence, and a
+logistics case analysis.
+
 Update project data in `src/main.tsx`.

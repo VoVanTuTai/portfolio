@@ -110,6 +110,13 @@ type SkillGroup = {
 
 const skillGroups: SkillGroup[] = [
   {
+    icon: BriefcaseBusiness,
+    title: "Business Analysis",
+    items: ["Requirements", "As-is/To-be", "BPMN/UML familiarity", "User stories", "Acceptance criteria", "UAT"],
+    href: "/knowledge/business-analysis",
+    linkLabel: "Explore BA knowledge & project evidence",
+  },
+  {
     icon: Code2,
     title: "Languages",
     items: ["PHP", "JavaScript", "TypeScript", "Java 21 / Spring Boot foundation"],
@@ -174,6 +181,7 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
         <nav>
           <a href="#projects">Projects</a>
           <a href="#skills">Skills</a>
+          <a href="/knowledge/business-analysis" onClick={(event) => navigate(event, "/knowledge/business-analysis")}>BA Knowledge</a>
           <a href="/knowledge" onClick={(event) => navigate(event, "/knowledge")}>Knowledge</a>
           <a href="#contact">Contact</a>
         </nav>
@@ -401,7 +409,7 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
 
             return href ? (
               <a
-                className="skill-card skill-card-clickable"
+                className={`skill-card skill-card-clickable${group.title === "Business Analysis" ? " skill-card-featured" : ""}`}
                 href={href}
                 key={group.title}
                 onClick={(event) => navigate(event, href)}
@@ -511,6 +519,13 @@ const learningPath = [
     description: "Request lifecycle, REST contract, authentication, authorization và testing.",
     meta: "Có hướng dẫn · 3 tiết",
   },
+  {
+    number: "05",
+    path: "/knowledge/business-analysis",
+    title: "Business Analysis",
+    description: "Nền tảng BA, competency mapping, project evidence và phân tích tình huống nghiệp vụ.",
+    meta: "Chuyên đề ứng dụng · 60 phút",
+  },
 ];
 
 function LearningPathNav({
@@ -570,8 +585,8 @@ function KnowledgeHubPage({ navigate }: { navigate: NavigateHandler }) {
         </div>
         <aside>
           <span>Tiến trình hiện tại</span>
-          <strong>4 bài học</strong>
-          <p>Languages → Database → Data Modeling → Backend/API</p>
+          <strong>5 bài học</strong>
+          <p>Languages → Database → Data Modeling → Backend/API → Business Analysis</p>
         </aside>
       </section>
 
@@ -2646,6 +2661,372 @@ if (!task) throw notFound();`}</code></pre>
   );
 }
 
+function BusinessAnalysisLessonPage({ navigate }: { navigate: NavigateHandler }) {
+  const coreConcepts = [
+    {
+      question: "1. Vai trò cốt lõi của Business Analyst là gì?",
+      answer:
+        "Business Analyst tạo sự hiểu chung giữa business stakeholders và delivery team. Phạm vi thường bao gồm làm rõ mục tiêu, stakeholder, quy trình hiện tại, business rule, dữ liệu, yêu cầu, acceptance criteria và duy trì tính nhất quán của yêu cầu trong suốt vòng đời giải pháp.",
+    },
+    {
+      question: "2. Requirement elicitation và requirement analysis khác nhau thế nào?",
+      answer:
+        "Elicitation tập trung khám phá thông tin qua phỏng vấn, quan sát, workshop, khảo sát hoặc phân tích tài liệu. Analysis tổ chức và kiểm tra thông tin đó để xác định phạm vi, rule, dependency, dữ liệu, conflict, exception và mô hình yêu cầu phù hợp.",
+    },
+    {
+      question: "3. Functional và non-functional requirement khác nhau thế nào?",
+      answer:
+        "Functional requirement mô tả hệ thống phải làm gì, ví dụ nhân viên được quét mã để cập nhật trạng thái kiện hàng. Non-functional requirement mô tả hệ thống phải vận hành tốt đến mức nào, ví dụ thời gian phản hồi, bảo mật, khả năng chịu tải, audit log và tính sẵn sàng.",
+    },
+    {
+      question: "4. Một user story có chất lượng cần những thành phần nào?",
+      answer:
+        "User story cần thể hiện actor, nhu cầu và giá trị theo cấu trúc As a, I want, so that. Story cần được bổ sung context, business rule, dependency, mockup hoặc process flow và acceptance criteria có thể kiểm thử.",
+    },
+    {
+      question: "5. Requirement conflict nên được xử lý theo nguyên tắc nào?",
+      answer:
+        "Mâu thuẫn cần được đặt trong cùng business goal, workflow, dữ liệu và constraint để so sánh. BA làm rõ tác động, trình bày phương án cùng trade-off, xác định decision owner và ghi nhận quyết định để duy trì traceability.",
+    },
+    {
+      question: "6. Acceptance criteria và UAT có vai trò gì?",
+      answer:
+        "Acceptance criteria biến yêu cầu thành điều kiện pass/fail rõ cho từng story. UAT xác nhận giải pháp đáp ứng nhu cầu nghiệp vụ trong các scenario thực tế. BA hỗ trợ chuẩn bị scenario, dữ liệu test, expected result, theo dõi issue và xác nhận lại sau khi sửa.",
+    },
+    {
+      question: "7. Technical literacy hỗ trợ Business Analysis như thế nào?",
+      answer:
+        "Technical literacy giúp BA đặt câu hỏi chính xác về dữ liệu, integration và edge case mà không thay thế vai trò developer. ERD hỗ trợ kiểm tra entity, relationship và source of truth; kiến thức API hỗ trợ phân tích request, response, validation, error và dependency giữa các hệ thống.",
+    },
+    {
+      question: "8. Những bằng chứng nào phù hợp với năng lực BA ở cấp độ Intern?",
+      answer:
+        "Bằng chứng phù hợp gồm nền tảng Information Systems, khả năng mô hình hóa workflow và dữ liệu, project có role và business rule rõ, tài liệu có traceability, cùng trải nghiệm domain cho thấy khả năng quan sát quy trình, trạng thái và exception.",
+    },
+  ];
+
+  return (
+    <main className="site-shell knowledge-shell ba-lesson">
+      <header className="topbar knowledge-topbar" aria-label="Business analysis lesson navigation">
+        <a
+          className="brand"
+          href="/knowledge"
+          onClick={(event) => navigate(event, "/knowledge")}
+          aria-label="Learning hub"
+        >
+          <img className="brand-avatar" src="/assets/avatar.png" alt="" aria-hidden="true" />
+          <span>Knowledge Hub</span>
+        </a>
+        <nav>
+          <a href="#competency-map">Năng lực</a>
+          <a href="#project-evidence">Dự án</a>
+          <a href="#professional-communication">Ứng dụng</a>
+          <a href="#mock-case">Case study</a>
+        </nav>
+      </header>
+      <LearningPathNav currentPath="/knowledge/business-analysis" navigate={navigate} />
+
+      <section className="knowledge-hero ba-hero">
+        <div>
+          <a
+            className="back-link"
+            href="/knowledge/backend-api"
+            onClick={(event) => navigate(event, "/knowledge/backend-api")}
+          >
+            <ArrowLeft size={17} aria-hidden="true" />
+            Trở về Backend &amp; REST API
+          </a>
+          <p className="eyebrow">Business Analysis · Chuyên đề 05</p>
+          <h1>Business Analysis từ nền tảng học thuật đến bằng chứng dự án</h1>
+          <p className="knowledge-lede">
+            Chuyên đề hệ thống hóa vai trò, competency framework và analysis lifecycle của Business Analyst,
+            đồng thời liên hệ các khái niệm với học phần Information Systems, project evidence và một tình huống
+            logistics ứng dụng.
+          </p>
+          <div className="lesson-meta" aria-label="Lesson information">
+            <span><BookOpen size={16} aria-hidden="true" /> Academic knowledge note</span>
+            <span>5 competency areas</span>
+            <span>1 applied logistics case</span>
+          </div>
+        </div>
+
+        <aside className="learning-outcomes">
+          <p className="panel-label">Phạm vi chuyên đề</p>
+          <ul>
+            <li><CheckCircle2 size={18} aria-hidden="true" /> Vai trò và ranh giới trách nhiệm của Business Analyst.</li>
+            <li><CheckCircle2 size={18} aria-hidden="true" /> Liên hệ giữa học phần, competency và project evidence.</li>
+            <li><CheckCircle2 size={18} aria-hidden="true" /> Requirement, process, data, acceptance và UAT.</li>
+            <li><CheckCircle2 size={18} aria-hidden="true" /> Phân tích tình huống qua goal, actor, flow, rule và exception.</li>
+          </ul>
+        </aside>
+      </section>
+
+      <div className="lesson-layout">
+        <aside className="lesson-toc" aria-label="Mục lục bài Business Analysis">
+          <p>Nội dung chuyên đề</p>
+          <a href="#positioning">1. Khung năng lực</a>
+          <a href="#competency-map">2. Liên hệ học phần</a>
+          <a href="#ba-workflow">3. Analysis lifecycle</a>
+          <a href="#project-evidence">4. Project evidence</a>
+          <a href="#professional-communication">5. Professional communication</a>
+          <a href="#mock-case">6. Logistics case</a>
+          <a href="#final-checklist">7. Tổng hợp</a>
+        </aside>
+
+        <article className="lesson-content">
+          <section className="lesson-section" id="positioning">
+            <p className="section-label">01 · Competency positioning</p>
+            <h2>Năng lực BA được hình thành qua kiến thức, thực hành và bối cảnh chuyên môn</h2>
+            <p>
+              Ở cấp độ Intern, năng lực BA có thể được đánh giá qua ba lớp:
+              <strong> nền tảng học thuật, khả năng áp dụng trong project và mức độ sẵn sàng phát triển trong môi
+              trường chuyên nghiệp</strong>. Cách phân lớp này giúp phân biệt kiến thức khái niệm với bằng chứng
+              thực hành và kinh nghiệm doanh nghiệp.
+            </p>
+            <div className="ba-position-grid">
+              <article>
+                <span>Academic foundation</span>
+                <h3>Knowledge</h3>
+                <p>System Analysis &amp; Design, DBMS, web application, service-oriented programming.</p>
+              </article>
+              <article>
+                <span>Applied evidence</span>
+                <h3>Practice</h3>
+                <p>Actor, workflow, business rule, ERD, role, API contract, report và exception path.</p>
+              </article>
+              <article>
+                <span>Professional development</span>
+                <h3>Growth</h3>
+                <p>Elicitation thực tế, stakeholder facilitation, formal BPMN, backlog và UAT ở môi trường doanh nghiệp.</p>
+              </article>
+            </div>
+            <p className="lesson-note">
+              <strong>Nguyên tắc mô tả năng lực:</strong> mức độ proficiency nên đi kèm phạm vi và bằng chứng cụ
+              thể, chẳng hạn academic foundation, project-level application hoặc professional experience.
+            </p>
+          </section>
+
+          <section className="lesson-section" id="competency-map">
+            <p className="section-label">02 · Competency map</p>
+            <h2>Các học phần Information Systems tạo nên những nhóm năng lực BA bổ trợ</h2>
+            <div className="coursework-map">
+              <article>
+                <span>System Analysis &amp; Design</span>
+                <h3>Requirement &amp; Process</h3>
+                <p>Stakeholder, actor, use case, as-is/to-be, business rule, system boundary và UML/BPMN familiarity.</p>
+                <strong>Bằng chứng: flow và state transition trong Nexus Express.</strong>
+              </article>
+              <article>
+                <span>Database Management Systems</span>
+                <h3>Data Analysis</h3>
+                <p>Entity, attribute, relationship, cardinality, normalization, SQL và source-of-truth thinking.</p>
+                <strong>Bằng chứng: booking, shipment, payment và role data models.</strong>
+              </article>
+              <article>
+                <span>Service-Oriented Programming</span>
+                <h3>Integration Analysis</h3>
+                <p>Service responsibility, REST contract, request/response, event handoff, dependency và error scenario.</p>
+                <strong>Bằng chứng: OpenAPI và event flows trong architecture projects.</strong>
+              </article>
+              <article>
+                <span>Web Application Development</span>
+                <h3>User Flow &amp; Feasibility</h3>
+                <p>Screen flow, form validation, role-based action, session, report và cách requirement đi vào implementation.</p>
+                <strong>Bằng chứng: ba web application có working screens.</strong>
+              </article>
+              <article>
+                <span>Data Structures &amp; Algorithms</span>
+                <h3>Structured Problem Solving</h3>
+                <p>Chia nhỏ vấn đề, nhận diện state, condition, dependency và phân tích trade-off có thứ tự.</p>
+                <strong>Bằng chứng: xử lý rule và edge case thay vì chỉ mô tả happy path.</strong>
+              </article>
+            </div>
+            <div className="self-check">
+              <span>Portfolio linkage</span>
+              <p>Một competency statement có giá trị khi liên kết được khái niệm học thuật, bối cảnh áp dụng, artifact tạo ra và giới hạn của bằng chứng hiện có.</p>
+            </div>
+          </section>
+
+          <section className="lesson-section" id="ba-workflow">
+            <p className="section-label">03 · Mental model</p>
+            <h2>Business Analysis chuyển thông tin phân tán thành sự hiểu chung có thể kiểm chứng</h2>
+            <div className="ba-workflow" aria-label="Business analysis workflow">
+              <div><span>1</span><strong>Goal</strong><small>Vấn đề và kết quả kinh doanh</small></div>
+              <b>→</b>
+              <div><span>2</span><strong>Stakeholder</strong><small>Ai dùng, ai quyết định, ai bị ảnh hưởng</small></div>
+              <b>→</b>
+              <div><span>3</span><strong>As-is</strong><small>Quy trình hiện tại và pain point</small></div>
+              <b>→</b>
+              <div><span>4</span><strong>To-be</strong><small>Luồng đề xuất và phạm vi</small></div>
+              <b>→</b>
+              <div><span>5</span><strong>Specification</strong><small>Rule, data, story, acceptance criteria</small></div>
+              <b>→</b>
+              <div><span>6</span><strong>Validation</strong><small>Review, prototype, test và UAT</small></div>
+            </div>
+            <div className="ba-question-grid">
+              <article><strong>Goal</strong><p>Vì sao cần thay đổi? Chỉ số nào cho thấy thành công?</p></article>
+              <article><strong>Actor</strong><p>Ai khởi tạo, ai phê duyệt, ai nhận kết quả?</p></article>
+              <article><strong>Rule</strong><p>Điều kiện nào cho phép hoặc từ chối thao tác?</p></article>
+              <article><strong>Data</strong><p>Dữ liệu đến từ đâu, ai sở hữu và cần lưu lịch sử gì?</p></article>
+              <article><strong>Exception</strong><p>Nếu thiếu dữ liệu, trùng thao tác hoặc hệ thống khác lỗi thì sao?</p></article>
+              <article><strong>Acceptance</strong><p>Làm sao chứng minh requirement đã được đáp ứng?</p></article>
+            </div>
+          </section>
+
+          <section className="lesson-section" id="project-evidence">
+            <p className="section-label">04 · Project evidence</p>
+            <h2>Ba dự án minh họa ba dạng vấn đề phân tích nghiệp vụ</h2>
+            <div className="ba-project-list">
+              <article>
+                <div>
+                  <span>Operations-to-system</span>
+                  <h3>Nexus Express</h3>
+                </div>
+                <p><strong>Problem:</strong> status, scan location, tracking, reporting và COD có thể bị hiểu khác nhau giữa các bên.</p>
+                <p><strong>Analysis:</strong> dùng trải nghiệm J&amp;T để xác định actor, as-is flow, trạng thái, exception, source of truth và service handoff.</p>
+                <p><strong>Evidence:</strong> workflow xuyên nhiều client/service, OpenAPI, data ownership, event và tài liệu hệ thống.</p>
+              </article>
+              <article>
+                <div>
+                  <span>Rule-conflict</span>
+                  <h3>Tourist Accommodation Platform</h3>
+                </div>
+                <p><strong>Problem:</strong> customer, provider và admin cùng dùng booking data nhưng có quyền và mục tiêu khác nhau.</p>
+                <p><strong>Analysis:</strong> tách use case theo role; làm rõ availability, booking, payment, cancellation, review, moderation và commission.</p>
+                <p><strong>Evidence:</strong> working screens, dashboards, VNPay/QR flow và PDF/Excel reports.</p>
+              </article>
+              <article>
+                <div>
+                  <span>Control-gap</span>
+                  <h3>Song Tai Shop</h3>
+                </div>
+                <p><strong>Problem:</strong> customer/admin flow cần authorization rõ hơn và thao tác xóa an toàn hơn.</p>
+                <p><strong>Analysis:</strong> review actor, permission, checkout/order state và admin action; chuyển gap thành rule cụ thể.</p>
+                <p><strong>Evidence:</strong> role checks, password hashing, POST-based deletion, seed data và reproducible setup.</p>
+              </article>
+            </div>
+            <div className="self-check">
+              <span>Evidence structure</span>
+              <p>Project evidence có thể được trình bày theo chuỗi Problem → Analysis → Decision → Evidence → Lesson learned để duy trì tính traceable và tránh mô tả chung chung.</p>
+            </div>
+          </section>
+
+          <section className="lesson-section" id="professional-communication">
+            <p className="section-label">05 · Professional communication</p>
+            <h2>Professional profile cần kết nối định hướng với bằng chứng có thể kiểm tra</h2>
+            <div className="intro-script">
+              <span>Portfolio positioning statement</span>
+              <p>
+                “Tôi là Võ Văn Tú Tài, sinh viên ngành Hệ thống Thông tin tại IUH, định hướng Business Analysis
+                với thế mạnh kết nối quy trình, business rule và dữ liệu với giải pháp kỹ thuật. Nền tảng System
+                Analysis &amp; Design, Database và Web Application đã được áp dụng qua use case, ERD, workflow và
+                các hệ thống đa vai trò. Trong Nexus Express, trải nghiệm vận hành tại J&amp;T được sử dụng để phân
+                tích actor, trạng thái kiện hàng, exception và luồng bàn giao giữa các thành phần. Mục tiêu phát
+                triển tiếp theo là mở rộng kinh nghiệm elicitation, documentation và UAT trong môi trường dự án
+                chuyên nghiệp.”
+              </p>
+            </div>
+
+            <h3 className="ba-subheading">STAR framework cho project evidence</h3>
+            <div className="star-grid">
+              <article>
+                <span>Nexus Express</span>
+                <p><strong>S:</strong> Nhiều khái niệm logistics dễ mơ hồ khi chuyển thành phần mềm.</p>
+                <p><strong>T:</strong> Tạo mô hình nhất quán cho shipment workflow.</p>
+                <p><strong>A:</strong> Dùng trải nghiệm vận hành để map actor, scan point, status, exception và ownership.</p>
+                <p><strong>R:</strong> Tạo tài liệu và contract có thể trace xuyên client, service và dữ liệu.</p>
+              </article>
+              <article>
+                <span>Tourist Platform</span>
+                <p><strong>S:</strong> Ba role dùng chung booking nhưng cần hành động khác nhau.</p>
+                <p><strong>T:</strong> Tránh rule chồng chéo và sai quyền.</p>
+                <p><strong>A:</strong> Tách journey/use case, xác định rule availability, cancellation, payment và moderation.</p>
+                <p><strong>R:</strong> Chuyển thành working flow, dashboard và report cho từng role.</p>
+              </article>
+            </div>
+
+            <h3 className="ba-subheading">Các khái niệm BA cốt lõi</h3>
+            <div className="review-list ba-review-list">
+              {coreConcepts.map((item) => (
+                <details key={item.question}>
+                  <summary>{item.question}</summary>
+                  <p>{item.answer}</p>
+                </details>
+              ))}
+            </div>
+          </section>
+
+          <section className="lesson-section" id="mock-case">
+            <p className="section-label">06 · Applied logistics case</p>
+            <h2>Phân tích tình huống tỷ lệ giao thất bại gia tăng</h2>
+            <div className="case-brief">
+              <strong>Tình huống</strong>
+              <p>
+                Một bưu cục phản ánh tỷ lệ giao thất bại tăng nhưng dashboard chỉ hiển thị trạng thái
+                “Delivery Failed”, chưa cho biết nguyên nhân đủ rõ để quản lý hành động.
+              </p>
+            </div>
+            <ol className="case-analysis-list">
+              <li><span>01</span><div><strong>Làm rõ mục tiêu</strong><p>Giảm failed-delivery rate, rút ngắn thời gian xử lý lại hay cải thiện độ chính xác báo cáo?</p></div></li>
+              <li><span>02</span><div><strong>Xác định stakeholder</strong><p>Courier, branch operator, hub manager, customer service, reporting và người nhận hàng.</p></div></li>
+              <li><span>03</span><div><strong>Khảo sát as-is</strong><p>Courier chọn reason lúc nào? Có bắt buộc bằng chứng? Có thể sửa reason? Dữ liệu đi qua app/service nào?</p></div></li>
+              <li><span>04</span><div><strong>Phân loại dữ liệu</strong><p>Reason code, note, timestamp, location, attempt number, evidence, next action và người cập nhật.</p></div></li>
+              <li><span>05</span><div><strong>Đề xuất to-be</strong><p>Reason chuẩn hóa, rule bắt buộc theo loại lỗi, luồng reattempt/return và dashboard drill-down.</p></div></li>
+              <li><span>06</span><div><strong>Đặt acceptance criteria</strong><p>Không hoàn tất failed scan nếu thiếu reason; report lọc theo hub/courier/reason/date; mọi thay đổi có audit trail.</p></div></li>
+              <li><span>07</span><div><strong>Đo kết quả</strong><p>Độ đầy đủ reason, tỷ lệ reattempt thành công, thời gian xử lý exception và failed rate theo nguyên nhân.</p></div></li>
+            </ol>
+            <div className="case-deliverables">
+              <article><Table2 size={21} aria-hidden="true" /><strong>Artifacts</strong><p>As-is/to-be flow, data dictionary, user stories, acceptance criteria và report mockup.</p></article>
+              <article><Network size={21} aria-hidden="true" /><strong>Questions</strong><p>Source of truth ở đâu? Offline scan xử lý sao? Ai được sửa reason? Có integration dependency nào?</p></article>
+            </div>
+            <div className="self-check">
+              <span>Analysis sequence</span>
+              <p>Trình tự phân tích ưu tiên problem framing và clarifying questions trước solution design, qua đó hạn chế việc chọn màn hình hoặc công nghệ khi business need chưa rõ.</p>
+            </div>
+          </section>
+
+          <section className="lesson-section" id="final-checklist">
+            <p className="section-label">07 · Competency synthesis</p>
+            <h2>Năng lực BA được củng cố bằng sự rõ ràng, traceability và bằng chứng</h2>
+            <div className="prep-timeline">
+              <article><span>Role clarity</span><strong>Business objective</strong><p>Phân biệt business problem, stakeholder need và feature request.</p></article>
+              <article><span>Requirement discipline</span><strong>Structured analysis</strong><p>Goal, actor, process, rule, data, exception và acceptance được mô tả nhất quán.</p></article>
+              <article><span>Traceability</span><strong>Project evidence</strong><p>Requirement được liên kết với decision, artifact, implementation hoặc validation result.</p></article>
+              <article><span>Collaboration</span><strong>Shared understanding</strong><p>Ngôn ngữ và mô hình đủ rõ để business, design, development và QA cùng review.</p></article>
+            </div>
+            <div className="interview-checklist">
+              <p className="panel-label">Competency evidence checklist</p>
+              <label><input type="checkbox" /> Vai trò BA được mô tả qua business outcome và shared understanding.</label>
+              <label><input type="checkbox" /> Project evidence thể hiện problem, analysis, decision và result.</label>
+              <label><input type="checkbox" /> User story, use case và acceptance criteria được phân biệt rõ.</label>
+              <label><input type="checkbox" /> As-is/to-be, functional/non-functional requirement và UAT có ví dụ cụ thể.</label>
+              <label><input type="checkbox" /> Process, business rule, ERD, API và exception được liên kết trong cùng context.</label>
+              <label><input type="checkbox" /> Giới hạn giữa academic foundation, project practice và professional experience được thể hiện minh bạch.</label>
+            </div>
+            <div className="questions-for-interviewer">
+              <strong>Professional discussion prompts</strong>
+              <p>“BA Intern sẽ tham gia những giai đoạn nào của dự án?”</p>
+              <p>“Team đang quản lý requirement, change và UAT bằng quy trình hoặc công cụ nào?”</p>
+              <p>“Trong ba tháng đầu, kết quả nào cho thấy một BA Intern đang tiến bộ tốt?”</p>
+            </div>
+          </section>
+
+          <div className="next-lesson ba-next-step">
+            <span>Key takeaway</span>
+            <strong>Business Analysis biến sự mơ hồ thành quyết định có thể truy vết</strong>
+            <p>Giá trị của artifact không nằm ở số lượng tài liệu, mà ở khả năng làm rõ business need, giảm ambiguity và tạo cơ sở chung cho thiết kế, phát triển, kiểm thử và nghiệm thu.</p>
+          </div>
+        </article>
+      </div>
+
+      <footer>
+        <span>Business Analysis · Knowledge Note 05</span>
+        <span><Sparkles size={15} aria-hidden="true" /> Coursework to project evidence</span>
+      </footer>
+    </main>
+  );
+}
+
 function App() {
   const [pathname, setPathname] = useState(window.location.pathname);
 
@@ -2662,6 +3043,7 @@ function App() {
       "/knowledge/database": "Database Fundamentals - Vo Van Tu Tai",
       "/knowledge/database/data-modeling": "Data Modeling & ERD - Vo Van Tu Tai",
       "/knowledge/backend-api": "Backend & Authentication Fundamentals - Vo Van Tu Tai",
+      "/knowledge/business-analysis": "Business Analysis Knowledge - Vo Van Tu Tai",
     };
     document.title = pageTitles[pathname] ?? "Vo Van Tu Tai Portfolio";
   }, [pathname]);
@@ -2679,6 +3061,7 @@ function App() {
   if (pathname === "/knowledge/database") return <DatabaseLessonPage navigate={navigate} />;
   if (pathname === "/knowledge/database/data-modeling") return <DataModelingLessonPage navigate={navigate} />;
   if (pathname === "/knowledge/backend-api") return <BackendApiLessonPage navigate={navigate} />;
+  if (pathname === "/knowledge/business-analysis") return <BusinessAnalysisLessonPage navigate={navigate} />;
   return <PortfolioPage navigate={navigate} />;
 }
 
