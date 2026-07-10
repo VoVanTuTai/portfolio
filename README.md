@@ -1,6 +1,6 @@
 # Vo Van Tu Tai Portfolio
 
-Personal portfolio for Full-stack Web Developer Intern applications, focused on practical frontend, backend, database, and business workflow experience.
+Personal portfolio for Backend / Full-stack Developer Intern and Technical Business Analyst Intern applications. It presents working business applications, architecture practice, logistics domain experience, project case studies, and two role-specific CVs.
 
 ## Stack
 
@@ -31,5 +31,10 @@ The portfolio highlights four public GitHub projects in two groups:
 - Architecture practice repositories: Logistics Management System and Cab Booking System
 
 It also includes generated visual previews and a downloadable CV PDF under `public/`.
+Both Developer and Business Analyst CV PDFs are available under `public/`.
+
+The knowledge hub includes an applied Business Analysis knowledge note at
+`/knowledge/business-analysis`, grounded in relevant coursework, competency mapping, project evidence, and a
+logistics case analysis.
 
 Update project data in `src/main.tsx`.
