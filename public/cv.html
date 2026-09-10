@@ -4,10 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV — Vo Van Tu Tai</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&amp;family=DM+Sans:wght@300;400;500;600;700&amp;display=swap"
-        rel="stylesheet">
+    <title>Vo Van Tu Tai — Business Analyst Resume</title>
+    <!-- Charter & Charis SIL Font Support (Exact Match to Jake's Resume / LaTeX) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Charis+SIL:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -16,326 +17,256 @@
         }
 
         body {
-            font-family: 'DM Sans', sans-serif;
-            background: #e0e0e0;
+            font-family: 'Charter', 'Bitstream Charter', 'Charis SIL', Georgia, 'Times New Roman', serif;
+            background: #e8e8e8;
             color: #000;
-            line-height: 1.5;
+            line-height: 1.25;
             font-size: 12px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
             -webkit-print-color-adjust: exact;
             print-color-adjust: exact;
         }
 
+        a, a:visited, a:hover, a:active {
+            color: #000 !important;
+            text-decoration: none !important;
+        }
+
         .page {
-            max-width: 210mm;
+            width: 210mm;
             min-height: 297mm;
-            background: white;
-            margin: 20px auto;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            max-height: 297mm;
+            height: 297mm;
+            background: #fff;
+            margin: 15px auto;
+            padding: 6.5mm 14mm 5.5mm 14mm;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
             display: flex;
             flex-direction: column;
+            justify-content: flex-start;
+            overflow: hidden;
+            color: #000;
         }
 
         /* ── HEADER ── */
         .header {
-            padding: 20px 32px 14px;
-            border-bottom: 1px solid #ccc;
-            display: grid;
-            gap: 7px;
-        }
-
-        .header .title-cell {
-            grid-column: 1 / 2;
-            grid-row: 2 / 3;
-        }
-
-        .title {
-            font-family: 'DM Mono', monospace;
-            font-size: 10px;
-            color: #000;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            line-height: 1.3;
-        }
-
-        .header .name-cell {
-            grid-column: 1 / 2;
-            grid-row: 1 / 2;
+            text-align: center;
+            margin-bottom: 2px;
         }
 
         .name {
-            font-size: 30px;
+            font-size: 22pt;
             font-weight: 700;
+            letter-spacing: -0.2px;
             color: #000;
-            line-height: 1;
+            line-height: 1.1;
+            margin-bottom: 1.5px;
         }
 
-        .header .contact-cell {
-            grid-column: 1 / 2;
-            grid-row: 3 / 4;
+        .subtitle {
+            font-size: 10.2pt;
+            font-weight: 400;
+            color: #000;
+            margin-bottom: 2px;
+        }
+
+        .contact-row {
             display: flex;
-            flex-wrap: wrap;
-            gap: 4px 12px;
-            font-family: 'DM Mono', monospace;
-            font-size: 10px;
-            color: #000;
-            line-height: 1.4;
-            padding-top: 2px;
-        }
-
-        .header a {
-            color: #000;
-            text-decoration: none;
-        }
-
-        .exp-bullets a {
-            color: #000;
-            text-decoration: none;
-        }
-
-        /* ── BODY ── */
-        .body {
-            display: flex;
-            flex-direction: column;
-            flex: 1;
-            padding: 12px 32px 10px;
-        }
-
-        .content {
-            width: 100%;
-        }
-
-        .top-strip {
-            display: flex;
-            justify-content: flex-start;
+            justify-content: center;
             align-items: center;
-            padding: 4px 0 7px;
-            border-bottom: 1px solid #e0e0e0;
-            margin-bottom: 9px;
-        }
-
-        .meta-line {
-            font-family: 'DM Mono', monospace;
-            font-size: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 6px 14px;
-        }
-
-        .skill-group {
-            border-bottom: 1px solid #e8e8e8;
-            padding-bottom: 5px;
-        }
-
-        .skill-group .label {
-            font-weight: 600;
+            flex-wrap: nowrap;
+            gap: 0 7px;
+            font-size: 8.5pt;
             color: #000;
-            margin-bottom: 1px;
-            font-size: 11.5px;
+            max-width: 100%;
+            margin: 0 auto;
+            white-space: nowrap;
         }
 
-        .skill-text {
-            font-size: 11px;
+        .contact-row a,
+        .contact-row span {
+            color: #000 !important;
+            text-decoration: none !important;
+            display: inline-flex;
+            align-items: center;
+            gap: 2.5px;
+            line-height: 1;
+            vertical-align: middle;
+        }
+
+        .contact-icon {
+            width: 9.5px;
+            height: 9.5px;
+            fill: #000;
+            flex-shrink: 0;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .separator {
             color: #000;
-            line-height: 1.35;
+            font-size: 7.5pt;
+            user-select: none;
         }
 
-        .skill-text b {
-            color: #000;
-        }
-
-        .inline-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 5px 6px;
-        }
-
-        .cert-item,
-        .ref-item {
-            font-size: 10.5px;
-            color: #000;
-            border: 1px solid #ddd;
-            padding: 3px 7px;
-            line-height: 1.35;
-        }
-
-        .ref-confirmed {
-            font-weight: 500;
-            margin-top: 3px;
-            color: #000;
-        }
-
+        /* ── SECTIONS ── */
         .section {
-            margin-bottom: 9px;
-        }
-
-        .section h3 {
-            font-family: 'DM Mono', monospace;
-            font-size: 10px;
-            font-weight: 500;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: #000;
-            border-bottom: 1px solid #ccc;
-            padding-bottom: 4px;
-            margin-bottom: 7px;
-        }
-
-        .obj-box {
-            background: #fafafa;
-            border-left: 2px solid #000;
-            padding: 8px 12px;
-            margin-bottom: 6px;
-        }
-
-        .obj-text {
-            font-size: 12.5px;
-            color: #000;
-            line-height: 1.45;
-            margin-bottom: 7px;
-        }
-
-        .goals {
-            display: grid;
-            grid-template-columns: 78px 1fr;
-            gap: 2px 10px;
-            font-size: 11px;
-        }
-
-        .goal-label {
-            font-family: 'DM Mono', monospace;
-            font-weight: 500;
-            color: #000;
-            text-transform: uppercase;
-            font-size: 10px;
-        }
-
-        .goal-text {
-            color: #000;
-            font-size: 11px;
-            line-height: 1.35;
-        }
-
-        .exp-entry {
-            margin-bottom: 7px;
-            padding-bottom: 7px;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        .exp-entry:last-child {
-            margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: none;
-        }
-
-        .exp-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 2px;
-        }
-
-        .exp-title {
-            font-size: 14px;
-            font-weight: 600;
-            color: #000;
-        }
-
-        .exp-date {
-            font-family: 'DM Mono', monospace;
-            font-size: 10.5px;
-            color: #000;
-        }
-
-        .exp-company {
-            font-size: 11.5px;
-            color: #000;
-            margin-bottom: 5px;
-        }
-
-        .exp-bullets {
-            list-style: none;
-            padding: 0;
-        }
-
-        .exp-bullets li {
-            font-size: 12px;
-            color: #000;
-            line-height: 1.38;
-            padding-left: 13px;
-            position: relative;
-            margin-bottom: 2px;
-        }
-
-        .exp-bullets li::before {
-            content: '—';
-            position: absolute;
-            left: 0;
-            color: #000;
-        }
-
-        .edu-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-        }
-
-        .edu-school {
-            font-size: 13.5px;
-            font-weight: 600;
-            color: #000;
-        }
-
-        .edu-major {
-            font-size: 11px;
-            color: #000;
             margin-top: 2px;
         }
 
-        .edu-date {
-            font-family: 'DM Mono', monospace;
-            font-size: 10px;
+        .section-title {
+            font-size: 9.5pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
             color: #000;
-            text-align: right;
+            border-bottom: 0.8px solid #000;
+            padding-bottom: 0.5px;
+            margin-bottom: 1.5px;
         }
 
-        /* ── FOOTER ── */
-        .footer {
-            border-top: 1px solid #ccc;
-            padding: 7px 32px;
+        /* ── SUMMARY ── */
+        .summary-text {
+            font-size: 8.6pt;
+            line-height: 1.20;
+            color: #000;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        /* ── ENTRIES ── */
+        .entry {
+            margin-bottom: 1.5px;
+        }
+
+        .entry:last-child {
+            margin-bottom: 0;
+        }
+
+        .entry-header {
             display: flex;
             justify-content: space-between;
-            font-family: 'DM Mono', monospace;
-            font-size: 9.5px;
+            align-items: baseline;
+            font-size: 9.2pt;
             color: #000;
         }
 
+        .entry-title {
+            font-weight: 700;
+            color: #000;
+        }
+
+        .entry-title a {
+            font-weight: 700;
+            color: #000 !important;
+            text-decoration: none !important;
+        }
+
+        .entry-location {
+            font-weight: 400;
+            color: #000;
+            font-size: 8.5pt;
+        }
+
+        .entry-sub {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-style: italic;
+            font-size: 8.5pt;
+            color: #000;
+            margin-bottom: 0.6px;
+        }
+
+        .entry-role {
+            font-style: italic;
+            color: #000;
+        }
+
+        .entry-tech {
+            font-style: italic;
+            font-size: 8.4pt;
+            color: #000;
+        }
+
+        .entry-date {
+            font-style: italic;
+            font-size: 8.5pt;
+            color: #000;
+            white-space: nowrap;
+        }
+
+        /* ── BULLETS ── */
+        .bullet-list {
+            list-style-type: disc;
+            padding-left: 13px;
+            margin: 0;
+        }
+
+        .bullet-list li {
+            font-size: 8.45pt;
+            line-height: 1.19;
+            color: #000;
+            margin-bottom: 0.6px;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        .bullet-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .bullet-list b {
+            font-weight: 700;
+            color: #000;
+        }
+
+        /* ── SKILLS TABLE (LISTING FORMAT) ── */
+        .skills-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .skills-list li {
+            font-size: 8.45pt;
+            line-height: 1.20;
+            margin-bottom: 0.6px;
+            color: #000;
+        }
+
+        .skills-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .skills-list b {
+            font-weight: 700;
+            color: #000;
+        }
+
+        /* ── PRINT BUTTON ── */
         #print-btn {
             position: fixed;
-            bottom: 18px;
-            right: 18px;
-            padding: 11px 16px;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 18px;
             background: #000;
             color: #fff;
             border: 1px solid #fff;
-            border-radius: 8px;
+            border-radius: 6px;
             cursor: pointer;
-            font-family: 'DM Mono', monospace;
-            font-size: 12px;
-            font-weight: 500;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 600;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
             z-index: 9999;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
         }
 
         #print-btn:hover {
             background: #333;
             transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
         }
 
         @media print {
@@ -345,13 +276,17 @@
 
             .page {
                 margin: 0;
+                padding: 8.5mm 15mm 6.5mm 15mm;
                 box-shadow: none;
                 width: 210mm;
-                min-height: 297mm;
+                height: 297mm;
+                max-height: 297mm;
+                page-break-after: avoid;
+                page-break-inside: avoid;
             }
 
             @page {
-                size: A4;
+                size: A4 portrait;
                 margin: 0;
             }
 
@@ -359,193 +294,160 @@
                 display: none !important;
             }
         }
-
-        @media (max-width: 720px) {
-            .page {
-                margin: 0;
-                min-height: auto;
-            }
-
-            .header {
-                padding: 22px 20px 18px;
-            }
-
-            .name {
-                font-size: 28px;
-            }
-
-            .body {
-                padding: 18px 20px 16px;
-            }
-
-            .top-strip,
-            .edu-row,
-            .exp-header,
-            .footer {
-                align-items: flex-start;
-                flex-direction: column;
-            }
-
-            .skills-grid,
-            .goals {
-                grid-template-columns: 1fr;
-            }
-
-            .edu-date,
-            .exp-date {
-                text-align: left;
-            }
-        }
     </style>
 </head>
 
 <body>
     <div class="page">
-
         <!-- HEADER -->
-        <div class="header">
-            <div class="name-cell">
-                <div class="name">Vo Van Tu Tai</div>
+        <header class="header">
+            <h1 class="name">Vo Van Tu Tai</h1>
+            <div class="subtitle">Business Analyst · Systems Analyst</div>
+            <div class="contact-row">
+                <a href="tel:+84869500573">
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                    (+84) 869 500 573
+                </a>
+                <span class="separator">|</span>
+                <a href="mailto:tutaivovan@gmail.com">
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    tutaivovan@gmail.com
+                </a>
+                <span class="separator">|</span>
+                <a href="https://linkedin.com/in/vovantutai" target="_blank">
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.25c-.95 0-1.72.78-1.72 1.73s.77 1.73 1.72 1.73 1.73-.78 1.73-1.73-.78-1.73-1.73-1.73z"/></svg>
+                    linkedin.com/in/vovantutai
+                </a>
+                <span class="separator">|</span>
+                <a href="https://github.com/VoVanTuTai" target="_blank">
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+                    github.com/VoVanTuTai
+                </a>
+                <span class="separator">|</span>
+                <a href="https://vovantutai-portfolio.vercel.app" target="_blank">
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                    Portfolio
+                </a>
             </div>
-            <div class="title-cell">
-                <div class="title">Backend / Full-stack Developer Intern · Business Systems</div>
+        </header>
+
+        <!-- SUMMARY -->
+        <section class="section">
+            <div class="section-title">Summary</div>
+            <p class="summary-text">
+                Final-year Information Systems student with a solution-oriented analytical mindset, combining hands-on BA experience at <b>HomeNest Software</b> with frontline operational problem-solving at <b>J&amp;T Express</b>. Proven strength in untangling ambiguous requirements, designing concurrency/overbooking controls, and formalizing workflows via <b>BPMN 2.0 (Camunda)</b>. Proficient in translating complex business logic into clear <b>PRD/SRS</b>, testable <b>User Stories (Given-When-Then)</b>, and data schemas for Dev/QA teams. Seeking the <b>Business Analyst (Fresher)</b> role at <b>Bizitrip</b> to solve real product challenges and bridge business stakeholders with engineering.
+            </p>
+        </section>
+
+        <!-- EDUCATION -->
+        <section class="section">
+            <div class="section-title">Education</div>
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">Industrial University of Ho Chi Minh City (IUH)</span>
+                    <span class="entry-location">Ho Chi Minh City, Vietnam</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-role">Bachelor of Science in Information Systems · GPA: 3.26 / 4.0</span>
+                    <span class="entry-date">Sep 2022 – Present (Exp. 2027)</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Supporting Technical Foundations:</b> Systems Analysis &amp; Design, Database Systems, Software Engineering, Web Development, Data Structures &amp; Algorithms, Service-Oriented Architecture.</li>
+                </ul>
             </div>
-            <div class="contact-cell">
-                <div>Ho Chi Minh City, Vietnam</div>
-                <div><a href="tel:+84869500573">+84 869 500 573</a></div>
-                <div><a href="https://github.com/VoVanTuTai">GitHub</a></div>
-                <div><a href="https://vovantutai-portfolio.vercel.app">Portfolio</a></div>
-                <div><a href="https://linkedin.com/in/vovantutai">LinkedIn</a></div>
-                <div><a href="mailto:tutaivovan@gmail.com">tutaivovan@gmail.com</a></div>
+        </section>
+
+        <!-- WORK EXPERIENCE -->
+        <section class="section">
+            <div class="section-title">Work Experience</div>
+
+            <!-- HomeNest Software -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">HomeNest Software</span>
+                    <span class="entry-location">Ho Chi Minh City, Vietnam</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-role">Business Analyst Intern · PM Assistant</span>
+                    <span class="entry-date">Jun 2026 – Sep 2026</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Scope Creep &amp; Shifting Requirement Resolution:</b> Non-technical client requests created frequent mid-sprint changes; proactively led discovery workshops, used wireframes and visual process flows to align expectations, formalized Meeting Minutes (MoM), and instituted Scope Freeze baselines before sprint planning.</li>
+                    <li><b>Edge-Case Logic Discrepancy Elimination:</b> Dev and QA teams held conflicting interpretations of boundary-case error handling; standardized User Stories with <b>Given-When-Then</b> acceptance criteria and defined a shared Data Dictionary, ensuring engineering alignment before coding.</li>
+                    <li><b>Resource-Constrained Backlog Prioritization:</b> Faced a bloated feature backlog under tight sprint deadlines; collaborated with the PM to score user stories by business value versus technical complexity, trimming non-essential scope to maintain on-time feature release cadences.</li>
+                    <li><b>Handoff Bottlenecks &amp; User Adoption Support:</b> Users faced onboarding friction with newly released features; constructed role-based UAT verification matrices, pre-tested flows to eliminate blockers, authored quick-reference SOPs, and delivered interactive training sessions.</li>
+                </ul>
             </div>
-        </div>
 
-        <!-- BODY -->
-        <div class="body">
-            <div class="content">
-                <div class="top-strip">
-                    <div class="meta-line">Backend · Full-stack · REST APIs · Databases · Business Workflows</div>
+            <!-- J&T Express -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">J&amp;T Express</span>
+                    <span class="entry-location">Ho Chi Minh City, Vietnam</span>
                 </div>
-
-                <div class="section">
-                    <h3>Professional Summary</h3>
-                    <div class="obj-box">
-                        <p class="obj-text">
-                            Information Systems student building backend-oriented business systems across web, API,
-                            and database layers. Built PHP/Express applications and architecture-focused
-                            TypeScript/NestJS projects; currently strengthening Java/Spring Boot through DevFlow.
-                            Strongest in tracing a workflow across UI, API, and data, then turning it into a practical,
-                            documented implementation.
-                        </p>
-                    </div>
+                <div class="entry-sub">
+                    <span class="entry-role">Logistics Operations Staff (Full-time)</span>
+                    <span class="entry-date">Sep 2025 – Feb 2026</span>
                 </div>
-
-                <div class="section">
-                    <h3>Technical Skills</h3>
-                    <div class="skills-grid">
-                        <div class="skill-group">
-                            <div class="label">Languages</div>
-                            <div class="skill-text"><b>PHP</b>, JavaScript, TypeScript; Java 21/Spring Boot foundation</div>
-                        </div>
-                        <div class="skill-group">
-                            <div class="label">Frontend</div>
-                            <div class="skill-text"><b>HTML/CSS</b>, <b>Bootstrap</b>, EJS; React/Vite project work</div>
-                        </div>
-                        <div class="skill-group">
-                            <div class="label">Backend</div>
-                            <div class="skill-text"><b>PHP/MySQL</b>, Node.js/Express, REST APIs, session auth; NestJS and Spring Boot project work</div>
-                        </div>
-                        <div class="skill-group">
-                            <div class="label">Database</div>
-                            <div class="skill-text"><b>MySQL</b>, SQL, ERD; PostgreSQL/Prisma and MongoDB project work</div>
-                        </div>
-                        <div class="skill-group">
-                            <div class="label">DevOps &amp; Tools</div>
-                            <div class="skill-text"><b>Git</b>, GitHub, Postman, Docker Compose; RabbitMQ/Kafka/Redis project exposure</div>
-                        </div>
-                        <div class="skill-group">
-                            <div class="label">Analysis</div>
-                            <div class="skill-text">ERD, database design, BPMN, OpenAPI reading, and API concepts</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="section">
-                    <h3>Selected Projects</h3>
-                    <div class="exp-entry">
-                        <div class="exp-header">
-                            <span class="exp-title">Selected Projects · Business Applications + Backend Architecture</span>
-                        </div>
-                        <div class="exp-company">PHP/MySQL · Express/EJS/MySQL · TypeScript/NestJS · REST/OpenAPI · Git · Docker</div>
-                        <ul class="exp-bullets">
-                            <li><b><a href="https://github.com/VoVanTuTai/logistics-management-system">Nexus Express · Reliability case:</a></b>
-                                <b>Challenge:</b> one shipment crosses merchant, ops, hub, courier, tracking, and COD flows, creating unclear ownership and duplicate-processing risk.
-                                <b>Action:</b> organized 12 domain services behind a Gateway/BFF, assigned database ownership, and applied RabbitMQ events, outbox, and idempotency patterns.
-                                <b>Outcome:</b> produced a traceable end-to-end workflow across five client apps with OpenAPI contracts and Docker-based local infrastructure.</li>
-                            <li><b><a href="https://github.com/VoVanTuTai/tourist-accommodation-management-system">Tourist Accommodation Platform · Multi-role case:</a></b>
-                                <b>Challenge:</b> customer booking, provider inventory, and admin moderation required different permissions while sharing room and booking data.
-                                <b>Action:</b> designed session-based role guards and separated search, booking, cancellation, room CRUD, moderation, payment, and reporting flows.
-                                <b>Outcome:</b> delivered an Express/EJS/MySQL application with VNPay/QR pages, email support, and PDF/Excel exports.</li>
-                            <li><b><a href="https://github.com/VoVanTuTai/php-online-store">Song Tai Shop · Maintainability case:</a></b>
-                                <b>Challenge:</b> the original student project was difficult to run consistently and needed stronger admin authorization and destructive-action handling.
-                                <b>Action:</b> added role checks, improved authentication and database operations, moved deletion to POST flows, and created Docker Compose, seed data, and demo documentation.
-                                <b>Outcome:</b> made the PHP/MySQL shop easier to review locally while preserving customer checkout and admin product/order workflows.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="section">
-                    <h3>Operations Experience</h3>
-                    <div class="exp-entry">
-                        <div class="exp-header">
-                            <span class="exp-title">Post Office Operations Staff</span>
-                            <span class="exp-date">Dec 2025 – Mar 2026 · Full-time</span>
-                        </div>
-                        <div class="exp-company">J&amp;T Express</div>
-                        <ul class="exp-bullets">
-                            <li>Handled branch logistics, shipment processing, inventory control, and daily operations.</li>
-                            <li>Applied hands-on shipment knowledge when modeling workflows for <b>logistics-management-system</b>.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="section">
-                    <h3>Education</h3>
-                    <div class="edu-row">
-                        <div>
-                            <div class="edu-school">Industrial University of Ho Chi Minh City (IUH)</div>
-                            <div class="edu-major">Bachelor of Information Systems · GPA: 3.22/4.0 · Expected Graduation 2027</div>
-                        </div>
-                        <div class="edu-date">2022 – Present<br>HCMC, Vietnam</div>
-                    </div>
-                </div>
-
-                <div class="section">
-                    <h3>Relevant Coursework</h3>
-                    <div class="inline-list">
-                        <div class="cert-item">Data Structures &amp; Algorithms</div>
-                        <div class="cert-item">Web Application Development</div>
-                        <div class="cert-item">Service-Oriented Programming</div>
-                        <div class="cert-item">System Analysis &amp; Design</div>
-                        <div class="cert-item">Database Management Systems</div>
-                    </div>
-                </div>
-
-                <div class="section">
-                    <h3>Languages</h3>
-                    <div class="inline-list">
-                        <div class="cert-item">English: Technical reading/writing</div>
-                        <div class="cert-item">Vietnamese: Native</div>
-                    </div>
-                </div>
+                <ul class="bullet-list">
+                    <li><b>Peak-Hour Staging Bottleneck Elimination:</b> Heavy parcel volume (&gt;300 parcels/day) caused severe sorting congestion; observed physical movements and redesigned branch staging into a unidirectional flow (Intake &rarr; Weighing &rarr; Scan Checkpoints &rarr; Route Staging), noticeably cutting courier dispatch turnaround.</li>
+                    <li><b>Operational Exception Handling (Misroutes, Damage, RTO):</b> Operational failure parcels accumulated due to unclear ownership; formulated standardized error-coded SOPs with defined per-shift resolution windows, preventing parcel stagnation and customer complaints.</li>
+                    <li><b>Physical-to-Digital Status Reconciliation:</b> Prevented tracking blind spots between signed paper delivery sheets and software logs by instituting an end-of-shift cross-verification routine, ensuring all parcel statuses remained synchronized and auditable.</li>
+                    <li><b>Ground-Truth Operational Insights to System Specs:</b> Leveraged first-hand operational friction points, scan validation rules, and parcel state transitions into formalized State Machines and realistic data schemas for order management software.</li>
+                </ul>
             </div>
-        </div>
+        </section>
 
-        <!-- FOOTER -->
-        <div class="footer">
-            <span>github.com/VoVanTuTai · Ho Chi Minh City, Vietnam</span>
-            <span>Updated June 2026</span>
-        </div>
+        <!-- PROJECTS -->
+        <section class="section">
+            <div class="section-title">Selected Projects</div>
+
+            <!-- Tourist Accommodation Platform -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title"><a href="https://github.com/VoVanTuTai/tourist-accommodation-management-system" target="_blank">Tourist Accommodation Platform — Multi-Role Travel Booking System</a></span>
+                    <span class="entry-location">Course Project</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-tech">Role Permission Matrix (RBAC), Real-Time Booking State Machine, VNPay API, Express.js, MySQL</span>
+                    <span class="entry-date">Oct 2025 – Dec 2025</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Overbooking &amp; Race Condition Prevention:</b> Multiple guests attempting to book the same room during high-demand periods risked double-booking; designed a 2-tier validation mechanism with temporary lock states (Held/Pending with TTL timeouts) before confirmation, preventing overbooking.</li>
+                    <li><b>Host-Guest Conflict Resolution on Cancellations:</b> Balanced guest cancellation flexibility with host inventory protection by modeling a tiered cancellation policy that automatically releases room availability back to the public calendar upon cancellation.</li>
+                    <li><b>Multi-Role Access Control (RBAC):</b> Guests, Hosts, and Admins accessed shared room data with conflicting privileges; drafted a strict Role-Based Access Control matrix ensuring host inventory data remained completely isolated from other providers.</li>
+                    <li><b>Asynchronous Payment Webhook Resilience:</b> Addressed network dropouts where users paid but browser redirects failed; specified asynchronous <b>VNPay IPN webhook</b> listeners with checksum verification, ensuring order statuses updated reliably regardless of browser state.</li>
+                </ul>
+            </div>
+
+            <!-- Nexus Express -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title"><a href="https://github.com/VoVanTuTai/logistics-management-system" target="_blank">Nexus Express — Logistics &amp; Order Management System (OMS)</a></span>
+                    <span class="entry-location">Academic &amp; Applied Case</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-tech">BPMN 2.0 (Camunda), Relational Data Modeling (ERD), OpenAPI 3.0 Specs, PostgreSQL, NestJS, RabbitMQ</span>
+                    <span class="entry-date">Sep 2025 – Feb 2026</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Tracking Gap Elimination Across Hubs:</b> Prevented parcel tracking inconsistencies across multi-party handoffs by modeling strict <b>BPMN 2.0 State Machines in Camunda</b>, restricting state transitions only to verified barcode scan events at designated checkpoints.</li>
+                    <li><b>Cross-Service Data Consistency:</b> Prevented duplicated status updates across 12 microservices during network retries by authoring <b>OpenAPI 3.0</b> contracts and specifying idempotency keys for scan event payloads.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- TECHNICAL SKILLS & LANGUAGES -->
+        <section class="section">
+            <div class="section-title">Technical Skills &amp; Languages</div>
+            <ul class="skills-list">
+                <li><b>Analysis &amp; Problem Solving:</b> Requirement Elicitation, Scope Creep Control, PRD &amp; SRS Authoring, User Stories (Given-When-Then), BPMN 2.0, UAT Test Planning, Backlog Prioritization, Exception Flow Modeling.</li>
+                <li><b>Domain Knowledge:</b> Travel Tech &amp; Booking Platforms (Dynamic Room Inventory, Overbooking Prevention, Cancellation Rules, RBAC), Online Payment Integration (VNPay API, Webhook IPN), Order Management Systems (OMS, State Machines).</li>
+                <li><b>Tools &amp; Platforms:</b> Notion, Jira, ClickUp, Camunda Modeler, Draw.io, Figma, Postman, Git, GitHub, Agile/Scrum.</li>
+                <li><b>Technical Foundations:</b> Relational ERD Modeling (3NF), SQL Queries (MySQL, PostgreSQL), RESTful API Specs (OpenAPI 3.0), Microservices Concepts.</li>
+                <li><b>Languages:</b> English (Professional Working Proficiency), Vietnamese (Native).</li>
+            </ul>
+        </section>
     </div>
 
     <!-- Floating Print Button -->
