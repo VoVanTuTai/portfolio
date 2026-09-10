@@ -1,8 +1,8 @@
-# Vo Van Tu Tai Portfolio
+# Vo Van Tu Tai — Portfolio
 
-Personal portfolio for Backend / Full-stack Developer Intern and Technical Business Analyst Intern applications. It presents working business applications, architecture practice, logistics domain experience, project case studies, and two role-specific CVs.
+Personal portfolio web application showcasing projects, domain experience, case studies, and curriculum vitae for Business Analyst and Software Engineer applications.
 
-## Stack
+## Tech Stack
 
 - React
 - TypeScript
@@ -10,31 +10,23 @@ Personal portfolio for Backend / Full-stack Developer Intern and Technical Busin
 - Lucide React
 - CSS
 
-## Run Locally
+## Getting Started
+
+### Development
 
 ```bash
 npm install
 npm run dev
 ```
 
-## Build
+### Production Build
 
 ```bash
 npm run build
 ```
 
-## Content
+## Structure & Features
 
-The portfolio highlights four public GitHub projects in two groups:
-
-- Full-stack monolithic apps: PHP Online Store and Tourist Accommodation Management System
-- Architecture practice repositories: Logistics Management System and Cab Booking System
-
-It also includes generated visual previews and a downloadable CV PDF under `public/`.
-Both Developer and Business Analyst CV PDFs are available under `public/`.
-
-The knowledge hub includes an applied Business Analysis knowledge note at
-`/knowledge/business-analysis`, grounded in relevant coursework, competency mapping, project evidence, and a
-logistics case analysis.
-
-Update project data in `src/main.tsx`.
+- **Project Case Studies:** Showcases full-stack applications and distributed architecture projects (Accommodation Booking, Logistics OMS, Cab Booking).
+- **Curriculum Vitae:** Role-focused HTML and printable A4 PDF resumes located in `public/` (English and Vietnamese).
+- **Knowledge Hub:** Applied Business Analysis documentation at `/knowledge/business-analysis` covering process modeling, competency mapping, and operational logistics analysis.
