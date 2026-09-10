@@ -48,11 +48,11 @@ const projectGroups = [
         image: "/assets/project-tourist.png",
         stack: ["Express.js", "EJS", "MySQL", "Sequelize", "Sessions", "VNPay", "PDF/Excel"],
         summary:
-          "A multi-role booking system translating shared room and booking data into controlled customer, provider, and admin workflows.",
+          "A multi-role travel booking platform resolving concurrency, dynamic room inventory, tiered cancellation, and payment workflows.",
         highlights: [
-          "Challenge: three user roles needed different actions while sharing booking and accommodation data.",
-          "Action: separated role guards and rules for availability, booking, cancellation, moderation, and reporting.",
-          "Outcome: delivered working screens, VNPay/QR pages, email support, dashboards, and PDF/Excel exports.",
+          "Challenge: multi-role conflicts (Guests/Hosts/Admins), room overbooking race conditions, and tiered refund settlements.",
+          "Action: designed atomic availability checks, dynamic room calendar states, tiered refund rules, RBAC, and VNPay IPN integration.",
+          "Outcome: delivered a production-ready booking platform with real-time confirmations, QR payments, and automated invoices.",
         ],
       },
     ],
@@ -147,7 +147,7 @@ const skillGroups: SkillGroup[] = [
 const stats = [
   { label: "Working business apps", value: "2" },
   { label: "Architecture systems", value: "2" },
-  { label: "Domain experience", value: "J&T" },
+  { label: "Industry experience", value: "HomeNest & J&T" },
   { label: "Expected graduation", value: "2027" },
 ];
 
@@ -157,12 +157,12 @@ const proofSignals = [
     value: "Working web apps across UI, backend, relational data, authentication, roles, and reporting.",
   },
   {
-    label: "Analysis advantage",
-    value: "Requirements, workflows, business rules, ERD, API contracts, and edge-case thinking.",
+    label: "Analysis & PM assistance",
+    value: "HomeNest Software client elicitation, user stories, AC, BPMN workflows, and Figma wireframes.",
   },
   {
     label: "Domain grounding",
-    value: "Hands-on J&T Express operations applied to shipment, scan, tracking, exception, and COD flows.",
+    value: "6 months hands-on J&T Express ops applied to shipment, scan, tracking, exception, and COD flows.",
   },
 ];
 
@@ -192,29 +192,29 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
           <div className="profile-lockup">
             <img className="profile-avatar" src="/assets/avatar.png" alt="Vo Van Tu Tai" />
             <div>
-              <p className="profile-name">Backend / Full-stack Developer · Technical BA</p>
+              <p className="profile-name">Business Analyst · Systems Analyst</p>
               <p className="profile-meta">Ho Chi Minh City · Information Systems student</p>
             </div>
           </div>
           <p className="eyebrow">Portfolio</p>
           <h1>Vo Van Tu Tai</h1>
           <p className="hero-lede">
-            Information Systems student building business systems across backend, web, API, and data layers.
-            I combine software implementation with process and data analysis, strengthened by hands-on logistics
-            operations experience.
+            Final-year Information Systems student specializing in Business Analysis, Workflow Modeling (BPMN 2.0),
+            and Travel &amp; Booking Platforms. Experienced in bridging business stakeholders and engineering teams
+            through PRD/SRS documentation, User Stories (Given-When-Then), and API contract specifications.
           </p>
           <div className="hero-actions">
             <a className="primary-action" href="#projects">
               <ArrowUpRight size={18} aria-hidden="true" />
               View case studies
             </a>
-            <a className="secondary-action" href="/VoVanTuTai_Backend_Fullstack_Intern_CV.pdf" download>
-              <Download size={18} aria-hidden="true" />
-              Developer CV
-            </a>
             <a className="secondary-action" href="/VoVanTuTai_Business_Analyst_Intern_CV.pdf" download>
               <Download size={18} aria-hidden="true" />
-              BA CV
+              Download BA CV (PDF)
+            </a>
+            <a className="secondary-action" href="/po-ba-intern-cv.html" target="_blank" rel="noreferrer">
+              <ArrowUpRight size={18} aria-hidden="true" />
+              View CV (Web)
             </a>
           </div>
         </div>
@@ -250,14 +250,14 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
                 </div>
               </div>
               <div className="web-preview-side">
-                <span>Two application tracks</span>
-                <p>Backend / Full-stack Developer Intern · Technical Business Analyst Intern</p>
+                <span>Target Focus</span>
+                <p>Business Analyst (Fresher) · Systems Analyst</p>
               </div>
             </div>
             <div className="visual-footer">
-              <span>Backend / Full-stack</span>
-              <span>Technical Analysis</span>
-              <span>Business Workflows</span>
+              <span>Business Analysis</span>
+              <span>Process Modeling</span>
+              <span>Booking &amp; OMS</span>
             </div>
           </div>
           <div className="hero-proof-grid">
@@ -445,7 +445,7 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
       <section className="contact-section" id="contact">
         <div>
           <p className="section-label">Contact</p>
-          <h2>Open to backend/full-stack developer and technical BA intern roles.</h2>
+          <h2>Open to Business Analyst (Fresher) and Systems Analyst roles.</h2>
         </div>
         <div className="contact-links">
           <a href="tel:+84869500573">
@@ -456,13 +456,13 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
             <Mail size={18} aria-hidden="true" />
             tutaivovan@gmail.com
           </a>
-          <a href="/VoVanTuTai_Backend_Fullstack_Intern_CV.pdf" download>
-            <Download size={18} aria-hidden="true" />
-            Developer CV PDF
-          </a>
           <a href="/VoVanTuTai_Business_Analyst_Intern_CV.pdf" download>
             <Download size={18} aria-hidden="true" />
-            Business Analyst CV PDF
+            Business Analyst CV (PDF)
+          </a>
+          <a href="/po-ba-intern-cv.html" target="_blank" rel="noreferrer">
+            <ArrowUpRight size={18} aria-hidden="true" />
+            Business Analyst CV (Web)
           </a>
           <a href="https://github.com/VoVanTuTai" target="_blank" rel="noreferrer">
             <Github size={18} aria-hidden="true" />
