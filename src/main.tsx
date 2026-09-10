@@ -24,69 +24,69 @@ import "./styles.css";
 
 const projectGroups = [
   {
-    title: "Monolithic Business Web Applications",
-    description: "Two working business applications showing how requirements become role-based screens, backend rules, relational data, and reports.",
+    title: "Business Platforms & Reservation Systems",
+    description: "Production-grade business systems demonstrating how business requirements become structured workflows, concurrency controls, and role-based portals.",
     projects: [
       {
-        name: "php-online-store",
-        role: "Song Tai Shop · PHP/MySQL Online Store",
-        href: "https://github.com/VoVanTuTai/php-online-store",
-        image: "/assets/project-songtai.png",
-        stack: ["PHP", "MySQL", "Bootstrap", "JavaScript", "jQuery", "Docker", "phpMyAdmin"],
+        name: "tourist-accommodation-management-system",
+        role: "Accommodation & Booking Platform · Multi-Role System",
+        href: "https://github.com/VoVanTuTai/tourist-accommodation-management-system",
+        image: "/assets/project-tourist.png",
+        stack: ["Express.js", "MySQL", "Sequelize", "VNPay API", "BPMN", "RBAC", "EJS"],
         summary:
-          "A legacy PHP/MySQL learning project improved into a reproducible portfolio application with clearer security and review workflows.",
+          "A multi-role booking platform resolving concurrency, dynamic inventory calendars, tiered cancellations, and online payment workflows.",
         highlights: [
-          "Challenge: customer and admin flows needed clearer authorization and safer destructive operations.",
-          "Action: added role checks, password hashing, safer output/database handling, and POST-based deletion.",
-          "Outcome: Docker Compose, seed data, demo accounts, and documentation made the project reproducible for review.",
+          "Challenge: Room overbooking race conditions during peak traffic, multi-role data isolation (Guests/Hosts/Admins), and payment network drops.",
+          "BA Analysis & Solution: Designed temporary holds (Held/Pending with TTL), strict RBAC permissions, tiered cancellation rules, and VNPay IPN webhook specs.",
+          "Evidence & Outcome: Deployed an interactive multi-role booking portal with real-time room availability, QR payments, and automated digital receipts.",
         ],
       },
       {
-        name: "tourist-accommodation-management-system",
-        role: "Tourist Accommodation Platform · Express/EJS/MySQL",
-        href: "https://github.com/VoVanTuTai/tourist-accommodation-management-system",
-        image: "/assets/project-tourist.png",
-        stack: ["Express.js", "EJS", "MySQL", "Sequelize", "Sessions", "VNPay", "PDF/Excel"],
+        name: "php-online-store",
+        role: "Song Tai Shop · E-Commerce Retail Store",
+        href: "https://github.com/VoVanTuTai/php-online-store",
+        image: "/assets/project-songtai.png",
+        stack: ["PHP", "MySQL", "Bootstrap", "JavaScript", "Docker", "phpMyAdmin"],
         summary:
-          "A multi-role travel booking platform resolving concurrency, dynamic room inventory, tiered cancellation, and payment workflows.",
+          "An e-commerce retail system modeling product catalog hierarchies, customer checkout, role-based order management, and administrative audit trails.",
         highlights: [
-          "Challenge: multi-role conflicts (Guests/Hosts/Admins), room overbooking race conditions, and tiered refund settlements.",
-          "Action: designed atomic availability checks, dynamic room calendar states, tiered refund rules, RBAC, and VNPay IPN integration.",
-          "Outcome: delivered a production-ready booking platform with real-time confirmations, QR payments, and automated invoices.",
+          "Challenge: Customer and admin workflows required strict role separation, data protection, and transparent order statuses.",
+          "Action: Implemented role-based authorization, secure checkout handling, and administrative inventory controls.",
+          "Outcome: Configured Docker Compose environment with seed data, demo accounts, and end-to-end purchasing workflow documentation.",
         ],
       },
     ],
   },
   {
-    title: "Architecture Practice Projects",
-    description: "Two architecture projects exploring service ownership, contracts, messaging, reliability patterns, and Docker-based infrastructure.",
+    title: "Logistics & Order Management Systems (OMS)",
+    description: "Enterprise systems translating frontline operations into formal BPMN 2.0 state machines, scan checkpoints, and API contracts.",
     projects: [
       {
         name: "logistics-management-system",
-        role: "Nexus Express · Logistics Management System",
+        role: "Nexus Express · Logistics & Order Management System (OMS)",
         href: "https://github.com/VoVanTuTai/logistics-management-system",
         image: "/assets/project-nexus.png",
-        stack: ["TypeScript", "NestJS", "React/Vite", "PostgreSQL", "Prisma", "RabbitMQ", "Docker"],
+        stack: ["BPMN 2.0", "OpenAPI 3.0", "NestJS", "TypeScript", "PostgreSQL", "RabbitMQ", "Docker"],
         summary:
-          "A logistics system turning first-hand branch operations into explicit service ownership, event handoffs, and end-to-end shipment workflows.",
+          "An end-to-end logistics platform turning first-hand branch operations into explicit service ownership, event handoffs, and shipment workflows.",
         highlights: [
-          "Challenge: shipment status, scan location, tracking, reporting, and COD had overlapping responsibilities.",
-          "Action: mapped actors and exceptions, then separated 12 domain services behind a Gateway/BFF with owned data.",
-          "Outcome: documented a traceable flow using OpenAPI, Prisma, RabbitMQ events, outbox/idempotency, and Docker.",
+          "Challenge: Parcel tracking inconsistencies across multi-party handoffs and overlapping service responsibilities across 12 microservices.",
+          "BA Analysis & Solution: Formalized parcel lifecycles using BPMN 2.0 in Camunda, authored OpenAPI 3.0 contracts, and specified event idempotency keys.",
+          "Outcome: Documented a traceable flow using OpenAPI, Prisma, RabbitMQ events, outbox/idempotency, and Docker.",
         ],
       },
       {
         name: "cab-booking-system",
-        role: "Ride-Hailing Architecture Practice",
+        role: "Ride-Hailing & Dispatch Management System",
         href: "https://github.com/VoVanTuTai/cab-booking-system",
         image: "/assets/project-cab.png",
         stack: ["Node.js", "Express.js", "Kafka", "Redis", "PostgreSQL", "MongoDB", "Docker"],
         summary:
-          "A ride-hailing architecture project examining distributed booking, ride, payment, driver, and operations workflows.",
+          "A ride-hailing architecture project examining distributed booking, ride lifecycle, driver matching, and operational workflows.",
         highlights: [
-          "Challenge: booking, ride, driver, and payment state must remain understandable across multiple services.",
-          "Action: defined REST/event contracts, state ownership, Kafka workflows, Redis coordination, and compensation paths.",
-          "Outcome: prepared a Docker Compose environment with multiple data stores, contract checks, and observability tooling.",
+          "Challenge: Booking, ride, driver, and payment states must remain consistent and auditable across multiple services.",
+          "BA Analysis & Solution: Defined REST/event contracts, state ownership models, Kafka workflows, Redis coordination, and compensation paths.",
+          "Outcome: Prepared a Docker Compose environment with multiple data stores, contract checks, and observability tooling.",
         ],
       },
     ],
@@ -112,57 +112,89 @@ const skillGroups: SkillGroup[] = [
   {
     icon: BriefcaseBusiness,
     title: "Business Analysis",
-    items: ["Requirements", "As-is/To-be", "BPMN/UML familiarity", "User stories", "Acceptance criteria", "UAT"],
+    items: [
+      "Requirement Elicitation",
+      "PRD & SRS Documentation",
+      "BPMN 2.0 (Camunda)",
+      "User Stories (Given-When-Then)",
+      "UAT Test Planning",
+      "Backlog Refinement",
+    ],
     href: "/knowledge/business-analysis",
     linkLabel: "Explore BA knowledge & project evidence",
   },
   {
-    icon: Code2,
-    title: "Languages",
-    items: ["PHP", "JavaScript", "TypeScript", "Java 21 / Spring Boot foundation"],
-    href: "/knowledge/programming-languages",
-    linkLabel: "Study programming language fundamentals",
-  },
-  {
-    icon: ServerCog,
-    title: "Web Development",
-    items: ["HTML/CSS", "Bootstrap", "EJS", "PHP-rendered pages", "React/Vite project work"],
+    icon: Network,
+    title: "Domain Exposure",
+    items: [
+      "Order Management Systems (OMS)",
+      "Logistics & Tracking Checkpoints",
+      "Reservation & Inventory Calendars",
+      "Digital Payments (VNPay IPN)",
+      "RBAC Access Control",
+    ],
   },
   {
     icon: Database,
-    title: "Data",
-    items: ["MySQL", "SQL", "Database Design", "ERD", "PostgreSQL/Prisma", "MongoDB exposure"],
+    title: "Data & Systems Modeling",
+    items: [
+      "Relational ERD (3NF)",
+      "SQL Querying (MySQL, PostgreSQL)",
+      "State Machines",
+      "Database Normalization",
+      "Data Dictionaries",
+    ],
     href: "/knowledge/database",
-    linkLabel: "Study database fundamentals",
+    linkLabel: "Study data modeling fundamentals",
   },
   {
-    icon: Network,
-    title: "Backend & Tools",
-    items: ["Node.js/Express", "REST APIs", "Git/Postman", "Docker Compose", "RabbitMQ/Kafka concepts"],
+    icon: ServerCog,
+    title: "Technical Literacy & APIs",
+    items: [
+      "RESTful API Contracts (OpenAPI 3.0)",
+      "Asynchronous Webhooks (IPN)",
+      "Idempotency & Concurrency Rules",
+      "Service-Oriented Concepts",
+      "Postman Testing",
+    ],
     href: "/knowledge/backend-api",
     linkLabel: "Study backend & REST APIs",
+  },
+  {
+    icon: Code2,
+    title: "Tools & Methodologies",
+    items: [
+      "Notion",
+      "Jira",
+      "ClickUp",
+      "Figma Wireframing",
+      "Camunda Modeler",
+      "Draw.io",
+      "Git / GitHub",
+      "Agile / Scrum",
+    ],
   },
 ];
 
 const stats = [
-  { label: "Working business apps", value: "2" },
-  { label: "Architecture systems", value: "2" },
-  { label: "Industry experience", value: "HomeNest & J&T" },
-  { label: "Expected graduation", value: "2027" },
+  { label: "Target Role", value: "Business Analyst (Fresher)" },
+  { label: "Core Deliverables", value: "PRD · BPMN · User Stories · UAT" },
+  { label: "Industry Experience", value: "HomeNest (BA) & J&T (Ops)" },
+  { label: "Technical Degree", value: "IUH Information Systems (2027)" },
 ];
 
 const proofSignals = [
   {
-    label: "Software delivery",
-    value: "Working web apps across UI, backend, relational data, authentication, roles, and reporting.",
+    label: "Requirements & Specs",
+    value: "Translating ambiguous business needs into PRDs, BPMN 2.0 workflows, and testable Given-When-Then criteria.",
   },
   {
     label: "Analysis & PM assistance",
-    value: "HomeNest Software client elicitation, user stories, AC, BPMN workflows, and Figma wireframes.",
+    value: "HomeNest discovery workshops, Scope Freeze baselines, UAT verification checklists, and Jira backlog grooming.",
   },
   {
-    label: "Domain grounding",
-    value: "6 months hands-on J&T Express ops applied to shipment, scan, tracking, exception, and COD flows.",
+    label: "Operational Grounding",
+    value: "Frontline J&T Express logistics operations applied to shipment lifecycles, scan rules, and exception SOPs.",
   },
 ];
 
@@ -199,9 +231,10 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
           <p className="eyebrow">Portfolio</p>
           <h1>Vo Van Tu Tai</h1>
           <p className="hero-lede">
-            Final-year Information Systems student specializing in Business Analysis, Workflow Modeling (BPMN 2.0),
-            and Travel &amp; Booking Platforms. Experienced in bridging business stakeholders and engineering teams
-            through PRD/SRS documentation, User Stories (Given-When-Then), and API contract specifications.
+            Final-year Information Systems student specializing in Business Analysis, Process Modeling (BPMN 2.0),
+            and Systems Specification. Experienced in bridging business stakeholders and engineering teams
+            through PRD/SRS documentation, testable User Stories (Given-When-Then), and data contract specifications
+            across Order Management (OMS), Reservation Platforms, and Digital Payment integrations.
           </p>
           <div className="hero-actions">
             <a className="primary-action" href="#projects">
@@ -229,26 +262,26 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
               <span />
               <span />
               <span />
-              <strong>web-portfolio/project-map</strong>
+              <strong>business-analysis/domain-map</strong>
             </div>
-            <div className="web-preview" aria-label="Web developer portfolio focus preview">
+            <div className="web-preview" aria-label="Business Analyst portfolio focus preview">
               <div className="web-preview-main">
-                <p className="panel-label">Business Systems Portfolio</p>
-                <h2>Software delivery grounded in workflows, data, and domain context.</h2>
+                <p className="panel-label">Business Analysis Portfolio</p>
+                <h2>Bridging business workflows, relational data, and engineering execution.</h2>
                 <div className="preview-card-grid">
                   <div className="preview-card">
-                    <span>Build</span>
-                    <strong>Web + API</strong>
-                    <p>working systems</p>
-                  </div>
-                  <div className="preview-card">
-                    <span>Analyze</span>
-                    <strong>Process + Data</strong>
+                    <span>Elicit</span>
+                    <strong>PRD &amp; SRS</strong>
                     <p>clear requirements</p>
                   </div>
                   <div className="preview-card">
+                    <span>Model</span>
+                    <strong>BPMN 2.0</strong>
+                    <p>process workflows</p>
+                  </div>
+                  <div className="preview-card">
                     <span>Ground</span>
-                    <strong>Logistics</strong>
+                    <strong>OMS &amp; Ops</strong>
                     <p>real operations</p>
                   </div>
                 </div>
@@ -297,28 +330,29 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
       <section className="section-grid about-section">
         <div>
           <p className="section-label">About</p>
-          <h2>A business-system builder with both implementation and analysis depth.</h2>
+          <h2>A Business Analyst with solid technical literacy and operational grounding.</h2>
         </div>
         <div className="section-body">
           <p>
-            I study Information Systems at Industrial University of Ho Chi Minh City and build practical software
-            across interfaces, backend workflows, REST contracts, relational data, and local infrastructure.
+            I am a final-year Information Systems student at Industrial University of Ho Chi Minh City, combining
+            hands-on Business Analyst internship experience at <b>HomeNest Software</b> with frontline logistics operations
+            at <b>J&amp;T Express</b>.
           </p>
           <p>
-            My advantage is connecting operational problems to technical decisions: defining actors and rules,
-            tracing edge cases, assigning data ownership, and turning that analysis into working applications or
-            reviewable system documentation.
+            My core strength is bridging non-technical stakeholder needs with engineering reality: clarifying requirements,
+            modeling end-to-end workflows with <b>BPMN 2.0</b>, authoring testable <b>Given-When-Then</b> User Stories, defining
+            relational schemas (ERD 3NF) and API contracts, and planning role-based UAT verification.
           </p>
         </div>
       </section>
 
       <section className="projects-section compact-projects" id="projects">
         <div className="section-heading project-heading">
-          <p className="section-label">Selected Projects</p>
-          <h2>Cases that show the problem, the decision, and the resulting evidence.</h2>
+          <p className="section-label">Featured Case Studies &amp; Systems</p>
+          <h2>Business systems analyzed from domain friction to technical specification.</h2>
           <p>
-            Each case is grounded in repository evidence: working screens, source code, data models, API/event
-            contracts, Docker setup, or documentation that explains the tradeoffs.
+            Each case demonstrates end-to-end business problem solving: workflow diagrams, relational schemas,
+            concurrency controls, API contracts, and working system interfaces.
           </p>
         </div>
 
@@ -435,12 +469,31 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
             <BriefcaseBusiness size={22} aria-hidden="true" />
           </div>
           <div>
-            <p className="section-label">Operations Experience</p>
-            <h2>J&amp;T Express - Post Office Operations Staff</h2>
+            <p className="section-label">Business Analyst Experience</p>
+            <h2>HomeNest Software — Business Analyst Intern · PM Assistant</h2>
+            <p className="experience-meta">Jun 2026 – Sep 2026 · Ho Chi Minh City, Vietnam</p>
             <p>
-              Worked full-time from Dec 29, 2025 to Mar 31, 2026, handling branch logistics, shipment processing,
-              inventory control, and daily operations. That hands-on context shaped the shipment workflows,
-              requirements, and operational scenarios in Nexus Express.
+              Engaged in client discovery workshops to clarify business needs and established Scope Freeze baselines before sprint planning.
+              Standardized User Stories using <b>Given-When-Then</b> acceptance criteria and defined shared Data Dictionaries to eliminate
+              Dev/QA misunderstandings on edge-case error handling. Assisted the Product Manager in Jira backlog grooming, and authored
+              role-based UAT verification checklists and quick-reference user manuals.
+            </p>
+          </div>
+        </div>
+
+        <div className="experience-card">
+          <div className="experience-icon">
+            <BriefcaseBusiness size={22} aria-hidden="true" />
+          </div>
+          <div>
+            <p className="section-label">Operations Experience</p>
+            <h2>J&amp;T Express — Logistics Operations Staff</h2>
+            <p className="experience-meta">Sep 2025 – Feb 2026 · Ho Chi Minh City, Vietnam</p>
+            <p>
+              Worked full-time handling high-volume branch logistics (&gt;300 parcels/day). Proposed rearranging the physical
+              layout into a unidirectional processing flow (Intake &rarr; Weighing &rarr; Scanning &rarr; Dispatch) to relieve sorting bottlenecks.
+              Authored SOPs for operational exception parcels (misroutes, damage, RTO) and established end-of-shift cross-verification
+              routines between signed paper receipts and software logs.
             </p>
           </div>
         </div>

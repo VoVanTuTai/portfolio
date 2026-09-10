@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vo Van Tu Tai — Business Analyst Resume</title>
-    <!-- Charter & Charis SIL Font Support (Exact Match to Jake's Resume / LaTeX) -->
+    <!-- Inter Font Support (Modern, Crisp, Ultra-readable) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Charis+SIL:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -17,11 +17,11 @@
         }
 
         body {
-            font-family: 'Charter', 'Bitstream Charter', 'Charis SIL', Georgia, 'Times New Roman', serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             background: #e8e8e8;
-            color: #000;
-            line-height: 1.25;
-            font-size: 12px;
+            color: #111;
+            line-height: 1.26;
+            font-size: 13px;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             -webkit-print-color-adjust: exact;
@@ -29,7 +29,7 @@
         }
 
         a, a:visited, a:hover, a:active {
-            color: #000 !important;
+            color: #111 !important;
             text-decoration: none !important;
         }
 
@@ -40,13 +40,13 @@
             height: 297mm;
             background: #fff;
             margin: 15px auto;
-            padding: 6.5mm 14mm 5.5mm 14mm;
+            padding: 5.5mm 12.5mm 4.5mm 12.5mm;
             box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
             overflow: hidden;
-            color: #000;
+            color: #111;
         }
 
         /* ── HEADER ── */
@@ -56,19 +56,19 @@
         }
 
         .name {
-            font-size: 22pt;
+            font-size: 20pt;
             font-weight: 700;
-            letter-spacing: -0.2px;
-            color: #000;
+            letter-spacing: -0.3px;
+            color: #111;
             line-height: 1.1;
             margin-bottom: 1.5px;
         }
 
         .subtitle {
-            font-size: 10.2pt;
-            font-weight: 400;
-            color: #000;
-            margin-bottom: 2px;
+            font-size: 9.8pt;
+            font-weight: 500;
+            color: #222;
+            margin-bottom: 2.5px;
         }
 
         .contact-row {
@@ -76,9 +76,9 @@
             justify-content: center;
             align-items: center;
             flex-wrap: nowrap;
-            gap: 0 7px;
-            font-size: 8.5pt;
-            color: #000;
+            gap: 0 8px;
+            font-size: 8.7pt;
+            color: #111;
             max-width: 100%;
             margin: 0 auto;
             white-space: nowrap;
@@ -86,27 +86,27 @@
 
         .contact-row a,
         .contact-row span {
-            color: #000 !important;
+            color: #111 !important;
             text-decoration: none !important;
             display: inline-flex;
             align-items: center;
-            gap: 2.5px;
+            gap: 3px;
             line-height: 1;
             vertical-align: middle;
         }
 
         .contact-icon {
-            width: 9.5px;
-            height: 9.5px;
-            fill: #000;
+            width: 10px;
+            height: 10px;
+            fill: #111;
             flex-shrink: 0;
             display: inline-block;
             vertical-align: middle;
         }
 
         .separator {
-            color: #000;
-            font-size: 7.5pt;
+            color: #555;
+            font-size: 8pt;
             user-select: none;
         }
 
@@ -116,21 +116,21 @@
         }
 
         .section-title {
-            font-size: 9.5pt;
+            font-size: 9.8pt;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: #000;
-            border-bottom: 0.8px solid #000;
+            letter-spacing: 0.6px;
+            color: #111;
+            border-bottom: 1px solid #111;
             padding-bottom: 0.5px;
             margin-bottom: 1.5px;
         }
 
         /* ── SUMMARY ── */
         .summary-text {
-            font-size: 8.6pt;
-            line-height: 1.20;
-            color: #000;
+            font-size: 8.95pt;
+            line-height: 1.25;
+            color: #222;
             text-align: justify;
             text-justify: inter-word;
         }
@@ -148,67 +148,75 @@
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            font-size: 9.2pt;
-            color: #000;
+            font-size: 9.3pt;
+            color: #111;
         }
 
         .entry-title {
             font-weight: 700;
-            color: #000;
+            color: #111;
         }
 
         .entry-title a {
             font-weight: 700;
-            color: #000 !important;
+            color: #111 !important;
             text-decoration: none !important;
+        }
+
+        .project-link {
+            font-size: 8.3pt !important;
+            font-weight: 600 !important;
+            color: #0949b8 !important;
+            text-decoration: underline !important;
+            margin-left: 4px;
+            white-space: nowrap;
         }
 
         .entry-location {
             font-weight: 400;
-            color: #000;
-            font-size: 8.5pt;
+            color: #222;
+            font-size: 8.7pt;
         }
 
         .entry-sub {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            font-style: italic;
-            font-size: 8.5pt;
-            color: #000;
-            margin-bottom: 0.6px;
+            font-size: 8.6pt;
+            color: #333;
+            margin-bottom: 0.8px;
         }
 
         .entry-role {
-            font-style: italic;
-            color: #000;
+            font-weight: 600;
+            color: #222;
         }
 
         .entry-tech {
             font-style: italic;
-            font-size: 8.4pt;
-            color: #000;
+            font-size: 8.5pt;
+            color: #333;
         }
 
         .entry-date {
             font-style: italic;
-            font-size: 8.5pt;
-            color: #000;
+            font-size: 8.6pt;
+            color: #333;
             white-space: nowrap;
         }
 
         /* ── BULLETS ── */
         .bullet-list {
             list-style-type: disc;
-            padding-left: 13px;
+            padding-left: 14px;
             margin: 0;
         }
 
         .bullet-list li {
-            font-size: 8.45pt;
-            line-height: 1.19;
-            color: #000;
-            margin-bottom: 0.6px;
+            font-size: 8.85pt;
+            line-height: 1.23;
+            color: #222;
+            margin-bottom: 0.8px;
             text-align: justify;
             text-justify: inter-word;
         }
@@ -218,8 +226,8 @@
         }
 
         .bullet-list b {
-            font-weight: 700;
-            color: #000;
+            font-weight: 600;
+            color: #111;
         }
 
         /* ── SKILLS TABLE (LISTING FORMAT) ── */
@@ -230,10 +238,10 @@
         }
 
         .skills-list li {
-            font-size: 8.45pt;
-            line-height: 1.20;
-            margin-bottom: 0.6px;
-            color: #000;
+            font-size: 8.85pt;
+            line-height: 1.25;
+            margin-bottom: 0.8px;
+            color: #222;
         }
 
         .skills-list li:last-child {
@@ -241,8 +249,8 @@
         }
 
         .skills-list b {
-            font-weight: 700;
-            color: #000;
+            font-weight: 600;
+            color: #111;
         }
 
         /* ── PRINT BUTTON ── */
@@ -335,7 +343,7 @@
         <section class="section">
             <div class="section-title">Summary</div>
             <p class="summary-text">
-                Final-year Information Systems student with a solution-oriented analytical mindset, combining hands-on BA experience at <b>HomeNest Software</b> with frontline operational problem-solving at <b>J&amp;T Express</b>. Proven strength in untangling ambiguous requirements, designing concurrency/overbooking controls, and formalizing workflows via <b>BPMN 2.0 (Camunda)</b>. Proficient in translating complex business logic into clear <b>PRD/SRS</b>, testable <b>User Stories (Given-When-Then)</b>, and data schemas for Dev/QA teams. Seeking the <b>Business Analyst (Fresher)</b> role at <b>Bizitrip</b> to solve real product challenges and bridge business stakeholders with engineering.
+                Final-year Information Systems student with a grounded analytical mindset and solid technical foundation, combining BA internship experience at <b>HomeNest Software</b> with hands-on logistics operational problem-solving at <b>J&amp;T Express</b>. Strong aptitude in clarifying business requirements, modeling workflows with <b>BPMN 2.0</b>, designing data flows, and authoring detailed <b>PRD/SRS</b> and testable <b>User Stories (Given-When-Then)</b> for engineering teams. Practical exposure to Order Management Systems (OMS), reservation platforms, and digital payment integrations. Proactive, eager to learn, and seeking a <b>Business Analyst (Fresher)</b> role to deliver practical value to products and business teams.
             </p>
         </section>
 
@@ -372,10 +380,10 @@
                     <span class="entry-date">Jun 2026 – Sep 2026</span>
                 </div>
                 <ul class="bullet-list">
-                    <li><b>Scope Creep &amp; Shifting Requirement Resolution:</b> Non-technical client requests created frequent mid-sprint changes; proactively led discovery workshops, used wireframes and visual process flows to align expectations, formalized Meeting Minutes (MoM), and instituted Scope Freeze baselines before sprint planning.</li>
-                    <li><b>Edge-Case Logic Discrepancy Elimination:</b> Dev and QA teams held conflicting interpretations of boundary-case error handling; standardized User Stories with <b>Given-When-Then</b> acceptance criteria and defined a shared Data Dictionary, ensuring engineering alignment before coding.</li>
-                    <li><b>Resource-Constrained Backlog Prioritization:</b> Faced a bloated feature backlog under tight sprint deadlines; collaborated with the PM to score user stories by business value versus technical complexity, trimming non-essential scope to maintain on-time feature release cadences.</li>
-                    <li><b>Handoff Bottlenecks &amp; User Adoption Support:</b> Users faced onboarding friction with newly released features; constructed role-based UAT verification matrices, pre-tested flows to eliminate blockers, authored quick-reference SOPs, and delivered interactive training sessions.</li>
+                    <li><b>Scope Management &amp; Requirement Clarification:</b> Engaged in stakeholder sessions, utilizing wireframes and process flowcharts to visualize business needs; formalized Meeting Minutes (MoM) and assisted the PM in locking prioritized sprint scopes.</li>
+                    <li><b>Engineering-Ready Specifications:</b> Translated business needs into structured User Stories using <b>Given-When-Then</b>, defining boundary conditions (Edge Cases) and a shared Data Dictionary to align Dev and QA on error handling.</li>
+                    <li><b>Backlog Refinement &amp; Prioritization Support:</b> Collaborated with the PM to evaluate and prioritize Jira backlog items based on user value and technical feasibility, supporting on-time release milestones.</li>
+                    <li><b>UAT Support &amp; User Onboarding:</b> Built role-based UAT checklists, verified core workflows prior to release, and authored quick-reference user manuals to facilitate smooth user adoption.</li>
                 </ul>
             </div>
 
@@ -390,10 +398,10 @@
                     <span class="entry-date">Sep 2025 – Feb 2026</span>
                 </div>
                 <ul class="bullet-list">
-                    <li><b>Peak-Hour Staging Bottleneck Elimination:</b> Heavy parcel volume (&gt;300 parcels/day) caused severe sorting congestion; observed physical movements and redesigned branch staging into a unidirectional flow (Intake &rarr; Weighing &rarr; Scan Checkpoints &rarr; Route Staging), noticeably cutting courier dispatch turnaround.</li>
-                    <li><b>Operational Exception Handling (Misroutes, Damage, RTO):</b> Operational failure parcels accumulated due to unclear ownership; formulated standardized error-coded SOPs with defined per-shift resolution windows, preventing parcel stagnation and customer complaints.</li>
-                    <li><b>Physical-to-Digital Status Reconciliation:</b> Prevented tracking blind spots between signed paper delivery sheets and software logs by instituting an end-of-shift cross-verification routine, ensuring all parcel statuses remained synchronized and auditable.</li>
-                    <li><b>Ground-Truth Operational Insights to System Specs:</b> Leveraged first-hand operational friction points, scan validation rules, and parcel state transitions into formalized State Machines and realistic data schemas for order management software.</li>
+                    <li><b>Logistics Flow &amp; Staging Optimization:</b> Participated in processing and sorting high parcel volumes (&gt;300 parcels/day); proposed rearranging branch staging into a unidirectional flow (Intake &rarr; Weighing &rarr; Checkpoint Scanning &rarr; Route Staging), reducing dispatch congestion.</li>
+                    <li><b>Operational Exception Handling (SOP):</b> Assisted in drafting standard operating procedures (SOP) classifying delivery failures, misroutes, and return-to-origin (RTO) parcels, clarifying shift-based ownership to prevent parcel backlog.</li>
+                    <li><b>Physical-to-Digital Status Consistency:</b> Conducted daily cross-checks between signed physical delivery sheets and software logs, quickly identifying and updating delayed statuses to maintain transparent parcel tracking.</li>
+                    <li><b>Ground-Truth Insights for System Design:</b> Leveraged practical operational friction points and frontline user behaviors to support parcel state modeling and realistic data schemas for order management systems.</li>
                 </ul>
             </div>
         </section>
@@ -405,25 +413,31 @@
             <!-- Tourist Accommodation Platform -->
             <div class="entry">
                 <div class="entry-header">
-                    <span class="entry-title"><a href="https://github.com/VoVanTuTai/tourist-accommodation-management-system" target="_blank">Tourist Accommodation Platform — Multi-Role Travel Booking System</a></span>
+                    <span class="entry-title">
+                        <a href="https://github.com/VoVanTuTai/tourist-accommodation-management-system" target="_blank">Accommodation &amp; Booking Management System</a>
+                        <a href="https://github.com/VoVanTuTai/tourist-accommodation-management-system" target="_blank" class="project-link">[GitHub ↗]</a>
+                    </span>
                     <span class="entry-location">Course Project</span>
                 </div>
                 <div class="entry-sub">
-                    <span class="entry-tech">Role Permission Matrix (RBAC), Real-Time Booking State Machine, VNPay API, Express.js, MySQL</span>
+                    <span class="entry-tech">Role Permission Matrix (RBAC), Reservation Concurrency Control, VNPay API, Express.js, MySQL</span>
                     <span class="entry-date">Oct 2025 – Dec 2025</span>
                 </div>
                 <ul class="bullet-list">
-                    <li><b>Overbooking &amp; Race Condition Prevention:</b> Multiple guests attempting to book the same room during high-demand periods risked double-booking; designed a 2-tier validation mechanism with temporary lock states (Held/Pending with TTL timeouts) before confirmation, preventing overbooking.</li>
-                    <li><b>Host-Guest Conflict Resolution on Cancellations:</b> Balanced guest cancellation flexibility with host inventory protection by modeling a tiered cancellation policy that automatically releases room availability back to the public calendar upon cancellation.</li>
-                    <li><b>Multi-Role Access Control (RBAC):</b> Guests, Hosts, and Admins accessed shared room data with conflicting privileges; drafted a strict Role-Based Access Control matrix ensuring host inventory data remained completely isolated from other providers.</li>
-                    <li><b>Asynchronous Payment Webhook Resilience:</b> Addressed network dropouts where users paid but browser redirects failed; specified asynchronous <b>VNPay IPN webhook</b> listeners with checksum verification, ensuring order statuses updated reliably regardless of browser state.</li>
+                    <li><b>Reservation Concurrency Control:</b> Addressed simultaneous booking attempts on single inventory units by designing temporary reservation holds (Held/Pending with TTL timeout) prior to payment confirmation, preventing double-booking.</li>
+                    <li><b>Flexible Cancellation Policy Modeling:</b> Modeled tiered cancellation timeframes that automatically release room availability back to the public calendar upon booking termination, helping hosts optimize occupancy.</li>
+                    <li><b>Role-Based Access Control (RBAC):</b> Drafted a strict permission matrix separating Guests, Property Hosts, and Admins, ensuring operational privacy and independent host data management.</li>
+                    <li><b>Payment Gateway Synchronization:</b> Specified asynchronous integration via <b>VNPay IPN Webhook</b> with cryptographic signature verification, ensuring order status updates remain reliable despite user browser drops.</li>
                 </ul>
             </div>
 
             <!-- Nexus Express -->
             <div class="entry">
                 <div class="entry-header">
-                    <span class="entry-title"><a href="https://github.com/VoVanTuTai/logistics-management-system" target="_blank">Nexus Express — Logistics &amp; Order Management System (OMS)</a></span>
+                    <span class="entry-title">
+                        <a href="https://github.com/VoVanTuTai/logistics-management-system" target="_blank">Nexus Express — Logistics &amp; Order Management System (OMS)</a>
+                        <a href="https://github.com/VoVanTuTai/logistics-management-system" target="_blank" class="project-link">[GitHub ↗]</a>
+                    </span>
                     <span class="entry-location">Academic &amp; Applied Case</span>
                 </div>
                 <div class="entry-sub">
@@ -431,8 +445,8 @@
                     <span class="entry-date">Sep 2025 – Feb 2026</span>
                 </div>
                 <ul class="bullet-list">
-                    <li><b>Tracking Gap Elimination Across Hubs:</b> Prevented parcel tracking inconsistencies across multi-party handoffs by modeling strict <b>BPMN 2.0 State Machines in Camunda</b>, restricting state transitions only to verified barcode scan events at designated checkpoints.</li>
-                    <li><b>Cross-Service Data Consistency:</b> Prevented duplicated status updates across 12 microservices during network retries by authoring <b>OpenAPI 3.0</b> contracts and specifying idempotency keys for scan event payloads.</li>
+                    <li><b>Parcel Lifecycle Modeling (BPMN 2.0):</b> Modeled transit checkpoint workflows using <b>Camunda BPMN 2.0</b>, enforcing state transitions based on verified physical scan events.</li>
+                    <li><b>Cross-Service API Contracts:</b> Authored <b>OpenAPI 3.0</b> contracts for order generation and status syncing across services, incorporating idempotency keys to prevent duplicate event processing.</li>
                 </ul>
             </div>
         </section>
@@ -441,10 +455,10 @@
         <section class="section">
             <div class="section-title">Technical Skills &amp; Languages</div>
             <ul class="skills-list">
-                <li><b>Analysis &amp; Problem Solving:</b> Requirement Elicitation, Scope Creep Control, PRD &amp; SRS Authoring, User Stories (Given-When-Then), BPMN 2.0, UAT Test Planning, Backlog Prioritization, Exception Flow Modeling.</li>
-                <li><b>Domain Knowledge:</b> Travel Tech &amp; Booking Platforms (Dynamic Room Inventory, Overbooking Prevention, Cancellation Rules, RBAC), Online Payment Integration (VNPay API, Webhook IPN), Order Management Systems (OMS, State Machines).</li>
+                <li><b>BA &amp; Analytical Skills:</b> Requirement Clarification, PRD &amp; SRS Authoring, User Stories (Given-When-Then), BPMN 2.0 Process Modeling, UAT Test Planning, Backlog Prioritization, Exception Flow Modeling.</li>
+                <li><b>Domain Exposure:</b> Order Management &amp; Logistics (OMS), Reservation &amp; Booking Services (Inventory calendar, RBAC, cancellations), Digital Payment Integration (Payment flows, Webhook IPN).</li>
                 <li><b>Tools &amp; Platforms:</b> Notion, Jira, ClickUp, Camunda Modeler, Draw.io, Figma, Postman, Git, GitHub, Agile/Scrum.</li>
-                <li><b>Technical Foundations:</b> Relational ERD Modeling (3NF), SQL Queries (MySQL, PostgreSQL), RESTful API Specs (OpenAPI 3.0), Microservices Concepts.</li>
+                <li><b>Technical Foundations:</b> Relational ERD Modeling (3NF), SQL Queries (MySQL, PostgreSQL), RESTful API Specs (OpenAPI 3.0), Service-Oriented Concepts.</li>
                 <li><b>Languages:</b> English (Professional Working Proficiency), Vietnamese (Native).</li>
             </ul>
         </section>
