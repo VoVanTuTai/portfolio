@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Võ Văn Tứ Tài — CV Business Analyst (Tiếng Việt)</title>
+    <!-- Charter & Charis SIL Font Support (Chuẩn định dạng Jake's Resume / LaTeX) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Charis+SIL:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Charter', 'Bitstream Charter', 'Charis SIL', Georgia, 'Times New Roman', serif;
+            background: #e8e8e8;
+            color: #000;
+            line-height: 1.22;
+            font-size: 12px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        a, a:visited, a:hover, a:active {
+            color: #000 !important;
+            text-decoration: none !important;
+        }
+
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            max-height: 297mm;
+            height: 297mm;
+            background: #fff;
+            margin: 15px auto;
+            padding: 6mm 14mm 5mm 14mm;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            overflow: hidden;
+            color: #000;
+        }
+
+        /* ── HEADER ── */
+        .header {
+            text-align: center;
+            margin-bottom: 2px;
+        }
+
+        .name {
+            font-size: 21.5pt;
+            font-weight: 700;
+            letter-spacing: -0.2px;
+            color: #000;
+            line-height: 1.1;
+            margin-bottom: 1.5px;
+        }
+
+        .subtitle {
+            font-size: 10pt;
+            font-weight: 400;
+            color: #000;
+            margin-bottom: 2px;
+        }
+
+        .contact-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: nowrap;
+            gap: 0 7px;
+            font-size: 8.5pt;
+            color: #000;
+            max-width: 100%;
+            margin: 0 auto;
+            white-space: nowrap;
+        }
+
+        .contact-row a,
+        .contact-row span {
+            color: #000 !important;
+            text-decoration: none !important;
+            display: inline-flex;
+            align-items: center;
+            gap: 2.5px;
+            line-height: 1;
+            vertical-align: middle;
+        }
+
+        .contact-icon {
+            width: 9.5px;
+            height: 9.5px;
+            fill: #000;
+            flex-shrink: 0;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .separator {
+            color: #000;
+            font-size: 7.5pt;
+            user-select: none;
+        }
+
+        /* ── SECTIONS ── */
+        .section {
+            margin-top: 1.8px;
+        }
+
+        .section-title {
+            font-size: 9.3pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #000;
+            border-bottom: 0.8px solid #000;
+            padding-bottom: 0.4px;
+            margin-bottom: 1.2px;
+        }
+
+        /* ── SUMMARY ── */
+        .summary-text {
+            font-size: 8.45pt;
+            line-height: 1.18;
+            color: #000;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        /* ── ENTRIES ── */
+        .entry {
+            margin-bottom: 1.2px;
+        }
+
+        .entry:last-child {
+            margin-bottom: 0;
+        }
+
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-size: 9.1pt;
+            color: #000;
+        }
+
+        .entry-title {
+            font-weight: 700;
+            color: #000;
+        }
+
+        .entry-title a {
+            font-weight: 700;
+            color: #000 !important;
+            text-decoration: none !important;
+        }
+
+        .entry-location {
+            font-weight: 400;
+            color: #000;
+            font-size: 8.4pt;
+        }
+
+        .entry-sub {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-style: italic;
+            font-size: 8.4pt;
+            color: #000;
+            margin-bottom: 0.5px;
+        }
+
+        .entry-role {
+            font-style: italic;
+            color: #000;
+        }
+
+        .entry-tech {
+            font-style: italic;
+            font-size: 8.3pt;
+            color: #000;
+        }
+
+        .entry-date {
+            font-style: italic;
+            font-size: 8.4pt;
+            color: #000;
+            white-space: nowrap;
+        }
+
+        /* ── BULLETS ── */
+        .bullet-list {
+            list-style-type: disc;
+            padding-left: 13px;
+            margin: 0;
+        }
+
+        .bullet-list li {
+            font-size: 8.35pt;
+            line-height: 1.17;
+            color: #000;
+            margin-bottom: 0.4px;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        .bullet-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .bullet-list b {
+            font-weight: 700;
+            color: #000;
+        }
+
+        /* ── SKILLS TABLE (LISTING FORMAT) ── */
+        .skills-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .skills-list li {
+            font-size: 8.35pt;
+            line-height: 1.18;
+            margin-bottom: 0.4px;
+            color: #000;
+        }
+
+        .skills-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .skills-list b {
+            font-weight: 700;
+            color: #000;
+        }
+
+        /* ── PRINT BUTTON ── */
+        #print-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 18px;
+            background: #000;
+            color: #fff;
+            border: 1px solid #fff;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 600;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+            z-index: 9999;
+            transition: all 0.2s ease;
+        }
+
+        #print-btn:hover {
+            background: #333;
+            transform: translateY(-2px);
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .page {
+                margin: 0;
+                padding: 6mm 14mm 5mm 14mm;
+                box-shadow: none;
+                width: 210mm;
+                height: 297mm;
+                max-height: 297mm;
+                page-break-after: avoid;
+                page-break-inside: avoid;
+            }
+
+            @page {
+                size: A4 portrait;
+                margin: 0;
+            }
+
+            #print-btn {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <!-- HEADER -->
+        <header class="header">
+            <h1 class="name">Võ Văn Tứ Tài</h1>
+            <div class="subtitle">Chuyên Viên Phân Tích Nghiệp Vụ · Business Analyst (Fresher)</div>
+            <div class="contact-row">
+                <a href="tel:+84869500573">
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                    (+84) 869 500 573
+                </a>
+                <span class="separator">|</span>
+                <a href="mailto:tutaivovan@gmail.com">
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    tutaivovan@gmail.com
+                </a>
+                <span class="separator">|</span>
+                <a href="https://linkedin.com/in/vovantutai" target="_blank">
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.25c-.95 0-1.72.78-1.72 1.73s.77 1.73 1.72 1.73 1.73-.78 1.73-1.73-.78-1.73-1.73-1.73z"/></svg>
+                    linkedin.com/in/vovantutai
+                </a>
+                <span class="separator">|</span>
+                <a href="https://github.com/VoVanTuTai" target="_blank">
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+                    github.com/VoVanTuTai
+                </a>
+                <span class="separator">|</span>
+                <a href="https://vovantutai-portfolio.vercel.app" target="_blank">
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                    Portfolio
+                </a>
+            </div>
+        </header>
+
+        <!-- TÓM TẮT CHUYÊN MÔN -->
+        <section class="section">
+            <div class="section-title">Tóm Tắt Chuyên Môn</div>
+            <p class="summary-text">
+                Sinh viên năm cuối ngành Hệ thống Thông tin (IUH) với kinh nghiệm thực chiến Business Analyst tại <b>HomeNest Software</b> và phân tích quy trình, đối soát tài chính thực địa tại <b>J&amp;T Express</b>. Có năng lực thiết kế &amp; mô hình hóa nền tảng đặt phòng du lịch (<b>Tourist Accommodation Platform</b>) với tính năng chống overbooking, quản lý phòng trống thời gian thực, chính sách hoàn hủy linh hoạt và tích hợp cổng thanh toán <b>VNPay</b>. Thành thạo soạn thảo <b>PRD/SRS</b>, vẽ quy trình <b>BPMN 2.0 (Camunda)</b>, viết <b>User Stories (Given-When-Then)</b> và quản trị backlog cùng PM. Hướng đến vị trí <b>Business Analyst (Fresher)</b> tại <b>Bizitrip</b> để phát triển các giải pháp du lịch &amp; đặt chỗ chất lượng cao.
+            </p>
+        </section>
+
+        <!-- HỌC VẤN -->
+        <section class="section">
+            <div class="section-title">Học Vấn</div>
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">Trường Đại học Công nghiệp TP. Hồ Chí Minh (IUH)</span>
+                    <span class="entry-location">TP. Hồ Chí Minh, Việt Nam</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-role">Cử nhân Khoa học ngành Hệ thống Thông tin · GPA: 3.26 / 4.0</span>
+                    <span class="entry-date">09/2022 – Hiện tại (Dự kiến 2027)</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Môn học tiêu biểu:</b> Phân tích &amp; Thiết kế Hệ thống, Cơ sở Dữ liệu, Công nghệ Phần mềm, Phát triển Ứng dụng Web, Cấu trúc Dữ liệu &amp; Giải thuật, Kiến trúc Hướng Dịch vụ.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- KINH NGHIỆM LÀM VIỆC -->
+        <section class="section">
+            <div class="section-title">Kinh Nghiệm Làm Việc</div>
+
+            <!-- HomeNest Software -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">HomeNest Software</span>
+                    <span class="entry-location">TP. Hồ Chí Minh, Việt Nam</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-role">Thực tập sinh Business Analyst · Trợ lý Product Manager</span>
+                    <span class="entry-date">06/2026 – 09/2026</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Thu thập yêu cầu &amp; Soạn thảo PRD/SRS:</b> Điều phối các buổi discovery workshops với nội bộ và đối tác; phân tích bài toán nghiệp vụ, tổng hợp MoM và biên soạn tài liệu đặc tả PRD/SRS chi tiết về luồng chức năng, quy tắc nghiệp vụ.</li>
+                    <li><b>User Stories &amp; Tiêu chuẩn nghiệm thu (Gherkin):</b> Phân rã nhu cầu sản phẩm thành các Epic và User Stories chi tiết kèm tiêu chí nghiệm thu <b>Given-When-Then</b> kiểm thử được, đảm bảo Dev hiểu rõ cả "Làm gì" và "Tại sao".</li>
+                    <li><b>Phối hợp cùng PM &amp; Quản trị Backlog:</b> Quản lý và tinh chỉnh (grooming) Product Backlog trên <b>Notion / Jira</b>, đánh giá tính sẵn sàng phát hành tính năng và trực tiếp tham gia tổ chức các buổi Sprint Demo cho stakeholders.</li>
+                    <li><b>Hỗ trợ Dev/QA &amp; Nghiệm thu UAT:</b> Là đầu mối chính giải đáp thắc mắc logic nghiệp vụ cho Dev và QA; định nghĩa lược đồ dữ liệu (ERD/API contracts), xây dựng ma trận kịch bản nghiệm thu <b>UAT</b> và tháo gỡ blocker kỹ thuật.</li>
+                    <li><b>Biên soạn tài liệu &amp; Đào tạo người dùng:</b> Soạn thảo tài liệu hướng dẫn sử dụng và quy trình thao tác chuẩn (SOP), trực tiếp hướng dẫn và đào tạo người dùng nội bộ cũng như khách hàng khi bàn giao sản phẩm.</li>
+                </ul>
+            </div>
+
+            <!-- J&T Express -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">J&amp;T Express</span>
+                    <span class="entry-location">TP. Hồ Chí Minh, Việt Nam</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-role">Nhân viên Vận hành Bưu cục (Toàn thời gian)</span>
+                    <span class="entry-date">09/2025 – 02/2026</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Phân tích quy trình &amp; Tối ưu luồng vận hành:</b> Vận hành và phân tích luồng xử lý 300+ bưu kiện/ngày (tiếp nhận, cân đo, trạm quét barcode, phân tuyến shipper), phát hiện điểm nghẽn để tối ưu tốc độ luân chuyển.</li>
+                    <li><b>Xử lý luồng ngoại lệ &amp; Phân tích nguyên nhân gốc (RCA):</b> Chuẩn hóa SOP xử lý các sự cố vận hành: bưu kiện giao sai tuyến (misroutes), chậm trễ giao hàng, khiếu nại bưu gửi hư hỏng, cập nhật địa chỉ và hoàn trả (RTO).</li>
+                    <li><b>Đối soát tài chính COD 3 bên:</b> Quản lý đối soát tài chính hàng ngày giữa tiền mặt thu thực tế, phiếu ký nhận bưu tá và sổ cái hệ thống số hóa với độ chính xác 100% không lệch đồng nào — nền tảng vững chắc cho luồng thanh toán.</li>
+                    <li><b>Chuyển hóa nghiệp vụ thành đặc tả hệ thống:</b> Chuyển hóa bài toán vận hành hiện trường, quy tắc quét mã và vòng đời trạng thái bưu kiện (Pending &rarr; In Transit &rarr; Out for Delivery &rarr; Delivered/RTO) thành tài liệu yêu cầu và ERD cho phần mềm quản lý đơn hàng.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- DỰ ÁN TIÊU BIỂU -->
+        <section class="section">
+            <div class="section-title">Dự Án Tiêu Biểu</div>
+
+            <!-- Tourist Accommodation Platform -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title"><a href="https://github.com/VoVanTuTai/tourist-accommodation-management-system" target="_blank">Nền tảng Đặt phòng Du lịch — Multi-Role Travel Booking System</a></span>
+                    <span class="entry-location">Đồ án Môn học</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-tech">Ma trận phân quyền RBAC, State Machine Booking thời gian thực, VNPay API, MySQL, Express.js</span>
+                    <span class="entry-date">10/2025 – 12/2025</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Xử lý xung đột vai trò &amp; Phân quyền RBAC:</b> Vẽ hành trình người dùng và giải quyết nhu cầu nghiệp vụ chồng chéo giữa Khách hàng, Chủ phòng và Quản trị viên qua ma trận RBAC chặt chẽ.</li>
+                    <li><b>Chống Overbooking &amp; Kiểm soát đồng thời:</b> Thiết kế logic kiểm tra tính sẵn sàng và cơ chế khóa phòng tạm thời (Available, Held/Pending Payment, Booked, Blocked) để triệt tiêu hoàn toàn race condition trong giờ cao điểm.</li>
+                    <li><b>Mô hình hóa State Machine &amp; Chính sách hoàn tiền:</b> Chuẩn hóa vòng đời đơn đặt phòng (Pending Payment &rarr; Confirmed &rarr; Checked-in &rarr; Completed / Cancelled) kèm cơ chế tự động tính tiền hoàn theo bậc thời gian (100% &gt; 7 ngày, 50% 3–7 ngày).</li>
+                    <li><b>Tích hợp Cổng thanh toán &amp; Đối soát đơn hàng:</b> Đặc tả luồng tích hợp <b>VNPay API</b> (sinh URL thanh toán, xác thực webhook IPN bất đồng bộ, kiểm tra callback), xử lý timeout giao dịch và tự động phát hành hóa đơn điện tử.</li>
+                </ul>
+            </div>
+
+            <!-- Nexus Express -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title"><a href="https://github.com/VoVanTuTai/logistics-management-system" target="_blank">Nexus Express — Hệ thống Quản lý Vận hành &amp; Đơn hàng (Logistics &amp; OMS)</a></span>
+                    <span class="entry-location">Dự án Học thuật &amp; Ứng dụng</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-tech">BPMN 2.0 (Camunda), Mô hình dữ liệu quan hệ (ERD), Đặc tả OpenAPI 3.0, PostgreSQL, NestJS, RabbitMQ</span>
+                    <span class="entry-date">09/2025 – 02/2026</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Quản lý vòng đời đơn hàng &amp; State Machine:</b> Mô hình hóa chu trình xử lý đơn hàng, trạm quét mã vạch và điều phối giao nhận trên 12 microservices sau API Gateway, thiết lập quy tắc chuyển đổi trạng thái hướng sự kiện và cơ chế idempotency.</li>
+                    <li><b>Quy trình chuẩn BPMN 2.0 &amp; Đặc tả API Contracts:</b> Biên soạn tài liệu OpenAPI 3.0 và thiết kế sơ đồ quy trình chi tiết bằng Camunda BPMN 2.0 cho luồng giao tiếp giữa các dịch vụ (tạo đơn, xử lý kho, điều phối bưu tá và đối soát COD).</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- KỸ NĂNG CHUYÊN MÔN & NGÔN NGỮ -->
+        <section class="section">
+            <div class="section-title">Kỹ Năng Chuyên Môn &amp; Ngôn Ngữ</div>
+            <ul class="skills-list">
+                <li><b>Phân tích &amp; Mô hình hóa:</b> Thu thập yêu cầu (Elicitation), Soạn thảo PRD &amp; SRS, User Stories &amp; Acceptance Criteria (Given-When-Then), BPMN 2.0, Use Case Specs, Nghiệm thu UAT, Quản trị Backlog, Đào tạo người dùng.</li>
+                <li><b>Hiểu biết Nghiệp vụ:</b> Nền tảng Đặt chỗ &amp; Du lịch (Quản lý tồn kho phòng, Lịch phòng trống thời gian thực, Chính sách hoàn hủy, RBAC), Cổng thanh toán (VNPay API, Webhook IPN), Quản lý Đơn hàng (OMS, State Machines).</li>
+                <li><b>Công cụ &amp; Phương pháp:</b> Notion, Jira, ClickUp, Camunda Modeler, Draw.io, Figma, Postman, Git, GitHub, Agile/Scrum.</li>
+                <li><b>Dữ liệu &amp; Kỹ thuật:</b> Mô hình hóa ERD (Chuẩn 3NF), Truy vấn SQL (MySQL, PostgreSQL), Đặc tả RESTful API (OpenAPI 3.0), Khái niệm Microservices.</li>
+                <li><b>Ngoại ngữ:</b> Tiếng Anh (Đọc hiểu và viết tài liệu kỹ thuật/nghiệp vụ chuyên nghiệp), Tiếng Việt (Bản ngữ).</li>
+            </ul>
+        </section>
+    </div>
+
+    <!-- Nút Xuất PDF Nổi -->
+    <button id="print-btn" onclick="window.print()">
+        ⚡ XUẤT FILE PDF
+    </button>
+</body>
+
+</html>

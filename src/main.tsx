@@ -210,11 +210,15 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
             </a>
             <a className="secondary-action" href="/VoVanTuTai_Business_Analyst_Intern_CV.pdf" download>
               <Download size={18} aria-hidden="true" />
-              Download BA CV (PDF)
+              CV (English)
             </a>
-            <a className="secondary-action" href="/po-ba-intern-cv.html" target="_blank" rel="noreferrer">
+            <a className="secondary-action" href="/VoVanTuTai_Business_Analyst_CV_Tieng_Viet.pdf" download>
+              <Download size={18} aria-hidden="true" />
+              CV (Tiếng Việt)
+            </a>
+            <a className="secondary-action" href="/po-ba-cv-vi.html" target="_blank" rel="noreferrer">
               <ArrowUpRight size={18} aria-hidden="true" />
-              View CV (Web)
+              Xem CV Web
             </a>
           </div>
         </div>
@@ -458,11 +462,15 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
           </a>
           <a href="/VoVanTuTai_Business_Analyst_Intern_CV.pdf" download>
             <Download size={18} aria-hidden="true" />
-            Business Analyst CV (PDF)
+            BA CV (English PDF)
           </a>
-          <a href="/po-ba-intern-cv.html" target="_blank" rel="noreferrer">
+          <a href="/VoVanTuTai_Business_Analyst_CV_Tieng_Viet.pdf" download>
+            <Download size={18} aria-hidden="true" />
+            BA CV (Tiếng Việt PDF)
+          </a>
+          <a href="/po-ba-cv-vi.html" target="_blank" rel="noreferrer">
             <ArrowUpRight size={18} aria-hidden="true" />
-            Business Analyst CV (Web)
+            CV Bản Web (Tiếng Việt)
           </a>
           <a href="https://github.com/VoVanTuTai" target="_blank" rel="noreferrer">
             <Github size={18} aria-hidden="true" />
