@@ -4056,6 +4056,8 @@ h3 {
 
 .experience-section {
   padding-top: 0;
+  display: grid;
+  gap: 20px;
 }
 
 .experience-card {
@@ -4072,6 +4074,14 @@ h3 {
 .experience-card p,
 .experience-card .section-label {
   color: #ffffff;
+}
+
+.experience-card .experience-meta {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 4px;
+  margin-bottom: 8px;
 }
 
 .experience-card p {
