@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vo Van Tu Tai — Business Analyst Resume</title>
-    <!-- Charter & Charis SIL Font Support (Exact Match to Jake's Resume / LaTeX) -->
+    <!-- Inter Font Support (Modern, Crisp, Ultra-readable) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Charis+SIL:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -17,11 +17,11 @@
         }
 
         body {
-            font-family: 'Charter', 'Bitstream Charter', 'Charis SIL', Georgia, 'Times New Roman', serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             background: #e8e8e8;
-            color: #000;
-            line-height: 1.25;
-            font-size: 12px;
+            color: #111;
+            line-height: 1.26;
+            font-size: 13px;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             -webkit-print-color-adjust: exact;
@@ -29,7 +29,7 @@
         }
 
         a, a:visited, a:hover, a:active {
-            color: #000 !important;
+            color: #111 !important;
             text-decoration: none !important;
         }
 
@@ -40,13 +40,13 @@
             height: 297mm;
             background: #fff;
             margin: 15px auto;
-            padding: 6.5mm 14mm 5.5mm 14mm;
+            padding: 5.5mm 12.5mm 4.5mm 12.5mm;
             box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
             overflow: hidden;
-            color: #000;
+            color: #111;
         }
 
         /* ── HEADER ── */
@@ -56,19 +56,19 @@
         }
 
         .name {
-            font-size: 22pt;
+            font-size: 20pt;
             font-weight: 700;
-            letter-spacing: -0.2px;
-            color: #000;
+            letter-spacing: -0.3px;
+            color: #111;
             line-height: 1.1;
             margin-bottom: 1.5px;
         }
 
         .subtitle {
-            font-size: 10.2pt;
-            font-weight: 400;
-            color: #000;
-            margin-bottom: 2px;
+            font-size: 9.8pt;
+            font-weight: 500;
+            color: #222;
+            margin-bottom: 2.5px;
         }
 
         .contact-row {
@@ -76,9 +76,9 @@
             justify-content: center;
             align-items: center;
             flex-wrap: nowrap;
-            gap: 0 7px;
-            font-size: 8.5pt;
-            color: #000;
+            gap: 0 8px;
+            font-size: 8.7pt;
+            color: #111;
             max-width: 100%;
             margin: 0 auto;
             white-space: nowrap;
@@ -86,27 +86,27 @@
 
         .contact-row a,
         .contact-row span {
-            color: #000 !important;
+            color: #111 !important;
             text-decoration: none !important;
             display: inline-flex;
             align-items: center;
-            gap: 2.5px;
+            gap: 3px;
             line-height: 1;
             vertical-align: middle;
         }
 
         .contact-icon {
-            width: 9.5px;
-            height: 9.5px;
-            fill: #000;
+            width: 10px;
+            height: 10px;
+            fill: #111;
             flex-shrink: 0;
             display: inline-block;
             vertical-align: middle;
         }
 
         .separator {
-            color: #000;
-            font-size: 7.5pt;
+            color: #555;
+            font-size: 8pt;
             user-select: none;
         }
 
@@ -116,21 +116,21 @@
         }
 
         .section-title {
-            font-size: 9.5pt;
+            font-size: 9.8pt;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: #000;
-            border-bottom: 0.8px solid #000;
+            letter-spacing: 0.6px;
+            color: #111;
+            border-bottom: 1px solid #111;
             padding-bottom: 0.5px;
             margin-bottom: 1.5px;
         }
 
         /* ── SUMMARY ── */
         .summary-text {
-            font-size: 8.6pt;
-            line-height: 1.20;
-            color: #000;
+            font-size: 8.95pt;
+            line-height: 1.25;
+            color: #222;
             text-align: justify;
             text-justify: inter-word;
         }
@@ -148,23 +148,23 @@
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            font-size: 9.2pt;
-            color: #000;
+            font-size: 9.3pt;
+            color: #111;
         }
 
         .entry-title {
             font-weight: 700;
-            color: #000;
+            color: #111;
         }
 
         .entry-title a {
             font-weight: 700;
-            color: #000 !important;
+            color: #111 !important;
             text-decoration: none !important;
         }
 
         .project-link {
-            font-size: 7.9pt !important;
+            font-size: 8.3pt !important;
             font-weight: 600 !important;
             color: #0949b8 !important;
             text-decoration: underline !important;
@@ -174,50 +174,49 @@
 
         .entry-location {
             font-weight: 400;
-            color: #000;
-            font-size: 8.5pt;
+            color: #222;
+            font-size: 8.7pt;
         }
 
         .entry-sub {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            font-style: italic;
-            font-size: 8.5pt;
-            color: #000;
-            margin-bottom: 0.6px;
+            font-size: 8.6pt;
+            color: #333;
+            margin-bottom: 0.8px;
         }
 
         .entry-role {
-            font-style: italic;
-            color: #000;
+            font-weight: 600;
+            color: #222;
         }
 
         .entry-tech {
             font-style: italic;
-            font-size: 8.4pt;
-            color: #000;
+            font-size: 8.5pt;
+            color: #333;
         }
 
         .entry-date {
             font-style: italic;
-            font-size: 8.5pt;
-            color: #000;
+            font-size: 8.6pt;
+            color: #333;
             white-space: nowrap;
         }
 
         /* ── BULLETS ── */
         .bullet-list {
             list-style-type: disc;
-            padding-left: 13px;
+            padding-left: 14px;
             margin: 0;
         }
 
         .bullet-list li {
-            font-size: 8.45pt;
-            line-height: 1.19;
-            color: #000;
-            margin-bottom: 0.6px;
+            font-size: 8.85pt;
+            line-height: 1.23;
+            color: #222;
+            margin-bottom: 0.8px;
             text-align: justify;
             text-justify: inter-word;
         }
@@ -227,8 +226,8 @@
         }
 
         .bullet-list b {
-            font-weight: 700;
-            color: #000;
+            font-weight: 600;
+            color: #111;
         }
 
         /* ── SKILLS TABLE (LISTING FORMAT) ── */
@@ -239,10 +238,10 @@
         }
 
         .skills-list li {
-            font-size: 8.45pt;
-            line-height: 1.20;
-            margin-bottom: 0.6px;
-            color: #000;
+            font-size: 8.85pt;
+            line-height: 1.25;
+            margin-bottom: 0.8px;
+            color: #222;
         }
 
         .skills-list li:last-child {
@@ -250,8 +249,8 @@
         }
 
         .skills-list b {
-            font-weight: 700;
-            color: #000;
+            font-weight: 600;
+            color: #111;
         }
 
         /* ── PRINT BUTTON ── */
