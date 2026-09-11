@@ -241,13 +241,21 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
               <ArrowUpRight size={18} aria-hidden="true" />
               View case studies
             </a>
-            <a className="secondary-action" href="/VoVanTuTai_Business_Analyst_Intern_CV.pdf" download>
+            <a className="secondary-action" href="/VoVanTuTai_Business_Analyst_CV.pdf" download>
               <Download size={18} aria-hidden="true" />
               CV (English)
             </a>
             <a className="secondary-action" href="/VoVanTuTai_Business_Analyst_CV_Tieng_Viet.pdf" download>
               <Download size={18} aria-hidden="true" />
               CV (Tiếng Việt)
+            </a>
+            <a className="secondary-action" href="/VoVanTuTai_IT_Business_Analyst_CV_Tong_Quat.pdf" download>
+              <Download size={18} aria-hidden="true" />
+              CV Tổng Quát (PDF)
+            </a>
+            <a className="secondary-action" href="/cv-general.html" target="_blank" rel="noreferrer">
+              <ArrowUpRight size={18} aria-hidden="true" />
+              CV Tổng Quát (Web)
             </a>
             <a className="secondary-action" href="/po-ba-cv-vi.html" target="_blank" rel="noreferrer">
               <ArrowUpRight size={18} aria-hidden="true" />
@@ -513,13 +521,21 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
             <Mail size={18} aria-hidden="true" />
             tutaivovan@gmail.com
           </a>
-          <a href="/VoVanTuTai_Business_Analyst_Intern_CV.pdf" download>
+          <a href="/VoVanTuTai_Business_Analyst_CV.pdf" download>
             <Download size={18} aria-hidden="true" />
             BA CV (English PDF)
           </a>
           <a href="/VoVanTuTai_Business_Analyst_CV_Tieng_Viet.pdf" download>
             <Download size={18} aria-hidden="true" />
             BA CV (Tiếng Việt PDF)
+          </a>
+          <a href="/VoVanTuTai_IT_Business_Analyst_CV_Tong_Quat.pdf" download>
+            <Download size={18} aria-hidden="true" />
+            CV Tổng Quát (PDF)
+          </a>
+          <a href="/cv-general.html" target="_blank" rel="noreferrer">
+            <ArrowUpRight size={18} aria-hidden="true" />
+            CV Tổng Quát (Bản Web)
           </a>
           <a href="/po-ba-cv-vi.html" target="_blank" rel="noreferrer">
             <ArrowUpRight size={18} aria-hidden="true" />
