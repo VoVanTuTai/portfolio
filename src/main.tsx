@@ -137,12 +137,12 @@ const portfolioDataVi: PortfolioLocaleData = {
     contact: "Liên hệ",
   },
   hero: {
-    profileMeta: "TP. Hồ Chí Minh, Việt Nam · Cử nhân Hệ thống Thông tin (IUH)",
+    profileMeta: "TP. Hồ Chí Minh, Việt Nam · Kỹ sư Hệ thống Thông tin (IUH)",
     eyebrow: "Hồ sơ Năng lực IT Business Analyst",
     heading: "Cầu Nối Vững Chắc Giữa Bài Toán Kinh Doanh và Giải Pháp Kỹ Thuật",
     lede: (
       <>
-        Tốt nghiệp chuyên ngành <b>Hệ thống Thông tin (IUH - GPA 3.26/4.0)</b>, sở hữu thế mạnh kép về <b>Phân tích Nghiệp vụ</b> và <b>Tư duy Kỹ thuật Hệ thống</b>.
+        Tốt nghiệp chương trình Kỹ sư <b>Hệ thống Thông tin (IUH - GPA 3.26/4.0)</b>, sở hữu thế mạnh kép về <b>Phân tích Nghiệp vụ</b> và <b>Tư duy Kỹ thuật Hệ thống</b>.
         Tích lũy 6+ tháng kinh nghiệm Associate BA tại <b>HomeNest Software</b> (được cất nhắc từ Thực tập sinh) cùng nền tảng vận hành hiện trường tại <b>J&amp;T Express</b>.
         Thành thạo xây dựng tài liệu <b>PRD/SRS</b> chuẩn kỹ thuật cho Dev, mô hình hóa quy trình <b>BPMN 2.0</b>, viết <b>User Stories (Given-When-Then)</b>,
         thiết kế wireframe <b>Figma</b>, và điều phối <b>UAT</b> xuyên suốt 2+ chu kỳ phát hành sản phẩm.
@@ -189,14 +189,14 @@ const portfolioDataVi: PortfolioLocaleData = {
     { label: "Vị trí Ứng tuyển", value: "IT Business Analyst (Fresher / Junior)" },
     { label: "Sản phẩm Chuyên môn", value: "PRD/SRS · BPMN · User Stories · UAT" },
     { label: "Kinh nghiệm Thực chiến", value: "HomeNest (Associate BA) & J&T (Vận hành)" },
-    { label: "Học vấn & Bằng cấp", value: "ĐH Công nghiệp TP.HCM (IUH) · GPA 3.26" },
+    { label: "Học vấn & Bằng cấp", value: "Kỹ sư HTTT (IUH) · GPA 3.26" },
   ],
   about: {
     label: "Giới thiệu bản thân",
     heading: "Một Business Analyst với tư duy kỹ thuật vững vàng và kinh nghiệm thực tế hiện trường.",
     p1: (
       <>
-        Tôi tốt nghiệp Cử nhân Hệ thống Thông tin tại Trường Đại học Công nghiệp TP.HCM (IUH, GPA 3.26/4.0),
+        Tôi tốt nghiệp chương trình đào tạo Kỹ sư Hệ thống Thông tin tại Trường Đại học Công nghiệp TP.HCM (IUH, GPA 3.26/4.0),
         kết hợp kinh nghiệm thực chiến Associate Business Analyst tại <b>HomeNest Software</b> với nền tảng
         giải quyết bài toán vận hành thực địa tại <b>J&amp;T Express</b>.
       </>
@@ -401,12 +401,12 @@ const portfolioDataEn: PortfolioLocaleData = {
     contact: "Contact",
   },
   hero: {
-    profileMeta: "Ho Chi Minh City, Vietnam · Bachelor of Information Systems (IUH)",
+    profileMeta: "Ho Chi Minh City, Vietnam · Information Systems Engineer (IUH)",
     eyebrow: "IT Business Analyst Portfolio",
     heading: "Bridging Business Needs with Engineering Execution",
     lede: (
       <>
-        Information Systems graduate from IUH (GPA 3.26/4.0) with a dual edge in <b>Business Analysis</b> and <b>Technical Systems Design</b>.
+        Information Systems Engineering graduate from IUH (GPA 3.26/4.0) with a dual edge in <b>Business Analysis</b> and <b>Technical Systems Design</b>.
         Equipped with 6+ months of hands-on Associate BA experience at <b>HomeNest Software</b> (promoted from Intern) and frontline operational grounding at <b>J&amp;T Express</b>.
         Proven track record in authoring engineering-ready <b>PRD/SRS</b>, modeling <b>BPMN 2.0</b> workflows, crafting testable <b>Given-When-Then</b> User Stories,
         designing <b>Figma wireframes</b>, and coordinating end-to-end <b>UAT</b> across 2+ release cycles.
@@ -453,14 +453,14 @@ const portfolioDataEn: PortfolioLocaleData = {
     { label: "Target Role", value: "IT Business Analyst (Fresher / Junior)" },
     { label: "Core Deliverables", value: "PRD/SRS · BPMN · User Stories · UAT" },
     { label: "Proven Experience", value: "HomeNest (Associate BA) & J&T (Ops)" },
-    { label: "Education & Degree", value: "IUH Information Systems · GPA 3.26" },
+    { label: "Education & Degree", value: "IUH Systems Engineer · GPA 3.26" },
   ],
   about: {
     label: "About Me",
     heading: "A Business Analyst with strong technical literacy and real-world operational grounding.",
     p1: (
       <>
-        I hold a Bachelor’s in Information Systems from Industrial University of Ho Chi Minh City (IUH, GPA 3.26/4.0),
+        I hold an Engineer's Degree (B.Eng.) in Information Systems from Industrial University of Ho Chi Minh City (IUH, GPA 3.26/4.0),
         combining hands-on Associate Business Analyst experience at <b>HomeNest Software</b> with frontline operational
         problem-solving at <b>J&amp;T Express</b>.
       </>
@@ -3467,7 +3467,7 @@ function BusinessAnalysisLessonPage({ navigate }: { navigate: NavigateHandler })
             <div className="intro-script">
               <span>Portfolio positioning statement</span>
               <p>
-                “Tôi là Võ Văn Tú Tài, sinh viên ngành Hệ thống Thông tin tại IUH, định hướng Business Analysis
+                “Tôi là Võ Văn Tú Tài, theo học chương trình đào tạo Kỹ sư Hệ thống Thông tin tại IUH, định hướng Business Analysis
                 với thế mạnh kết nối quy trình, business rule và dữ liệu với giải pháp kỹ thuật. Nền tảng System
                 Analysis &amp; Design, Database và Web Application đã được áp dụng qua use case, ERD, workflow và
                 các hệ thống đa vai trò. Trong Nexus Express, trải nghiệm vận hành tại J&amp;T được sử dụng để phân
