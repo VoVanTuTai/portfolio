@@ -22,184 +22,673 @@ import {
 } from "lucide-react";
 import "./styles.css";
 
-const projectGroups = [
-  {
-    title: "Business Platforms & Reservation Systems",
-    description: "Production-grade business systems demonstrating how business requirements become structured workflows, concurrency controls, and role-based portals.",
-    projects: [
-      {
-        name: "tourist-accommodation-management-system",
-        role: "Accommodation & Booking Platform · Multi-Role System",
-        href: "https://github.com/VoVanTuTai/tourist-accommodation-management-system",
-        image: "/assets/project-tourist.png",
-        stack: ["BPMN 2.0", "PRD/SRS", "RBAC Matrix", "VNPay IPN", "MySQL", "Express.js"],
-        summary:
-          "A multi-role booking platform resolving room overbooking race conditions, dynamic inventory calendars, tiered cancellations, and online payment workflows.",
-        highlights: [
-          "Business Challenge: Eliminating room overbooking race conditions during peak traffic, isolating 3-tier user roles (Guest/Host/Admin), and handling network drops during online payment.",
-          "BA Analysis & Solution: Authored PRD/SRS with Given-When-Then criteria; modeled temporary holds (Held/Pending with TTL), strict RBAC permissions, tiered cancellation policies, and VNPay IPN webhook contracts.",
-          "Outcome & Deliverables: Interactive multi-role portal featuring real-time room availability, secure QR payments, automated digital invoices, and verified UAT test suite.",
-        ],
-      },
-      {
-        name: "php-online-store",
-        role: "Song Tai Shop · E-Commerce & Retail Order Management",
-        href: "https://github.com/VoVanTuTai/php-online-store",
-        image: "/assets/project-songtai.png",
-        stack: ["Process Flow", "User Stories", "RBAC Matrix", "MySQL 3NF", "PHP", "Bootstrap"],
-        summary:
-          "An e-commerce retail system modeling product catalog hierarchies, customer checkout lifecycles, role-based order management, and administrative audit trails.",
-        highlights: [
-          "Business Challenge: Customer and admin workflows required strict role separation, secure checkout integrity, and auditable order state transitions (Pending/Paid/Shipped/Completed).",
-          "BA Analysis & Solution: Formulated functional requirements (SRS), modeled checkout user journeys, designed normalized relational schema, and defined administrative inventory controls.",
-          "Outcome & Deliverables: Complete Dockerized retail environment with seed catalogs, demo test accounts, and end-to-end purchasing workflow documentation.",
-        ],
-      },
-    ],
-  },
-  {
-    title: "Logistics & Order Management Systems (OMS)",
-    description: "Enterprise systems translating frontline operations into formal BPMN 2.0 state machines, scan checkpoints, and API contracts.",
-    projects: [
-      {
-        name: "logistics-management-system",
-        role: "Nexus Express · Logistics & Order Management System (OMS)",
-        href: "https://github.com/VoVanTuTai/logistics-management-system",
-        image: "/assets/project-nexus.png",
-        stack: ["BPMN 2.0 (Camunda)", "OpenAPI 3.0", "ERD 3NF", "PostgreSQL", "NestJS", "RabbitMQ"],
-        summary:
-          "An end-to-end logistics platform turning first-hand branch operations into explicit service ownership, event handoffs, and shipment workflows.",
-        highlights: [
-          "Business Challenge: Tracking status inconsistencies across multi-party carrier handoffs and ambiguous service boundaries across distributed microservices.",
-          "BA Analysis & Solution: Formalized parcel lifecycles using BPMN 2.0 in Camunda; authored OpenAPI 3.0 contracts with Idempotency keys; drafted normalized 3NF relational data dictionary.",
-          "Outcome & Deliverables: Documented traceable parcel state engine, RabbitMQ asynchronous event workflows, and exception handling SOPs (RTO, damaged parcels, routing errors).",
-        ],
-      },
-      {
-        name: "cab-booking-system",
-        role: "Ride-Hailing & Driver Dispatch Management System",
-        href: "https://github.com/VoVanTuTai/cab-booking-system",
-        image: "/assets/project-cab.png",
-        stack: ["State Machine", "Event Contracts", "BPMN", "Node.js", "Redis", "Kafka"],
-        summary:
-          "A ride-hailing architecture project examining distributed booking lifecycles, driver-passenger matching rules, and operational settlement workflows.",
-        highlights: [
-          "Business Challenge: High-concurrency ride dispatching, fare calculation states, and driver-passenger matching under unstable network connections.",
-          "BA Analysis & Solution: Formulated ride status state machines, asynchronous event contracts, surge pricing business rules, and compensation/rollback flows.",
-          "Outcome & Deliverables: Docker Compose multi-service architecture with contract verification checks, distributed event logs, and operational test scenarios.",
-        ],
-      },
-    ],
-  },
-];
+type Language = "vi" | "en";
 
-const projects = projectGroups.flatMap((group) =>
-  group.projects.map((project) => ({
-    ...project,
-    category: group.title,
-  })),
-);
+interface ProjectItem {
+  name: string;
+  role: string;
+  href: string;
+  image: string;
+  stack: string[];
+  summary: string;
+  highlights: string[];
+}
 
-type SkillGroup = {
+interface ProjectGroup {
+  title: string;
+  description: string;
+  projects: ProjectItem[];
+}
+
+interface SkillGroup {
   icon: React.ComponentType<{ size?: number; "aria-hidden"?: boolean | "true" | "false" }>;
   title: string;
   items: string[];
   href?: string;
   linkLabel?: string;
+}
+
+interface PortfolioLocaleData {
+  nav: {
+    projects: string;
+    skills: string;
+    baKnowledge: string;
+    knowledge: string;
+    contact: string;
+  };
+  hero: {
+    profileMeta: string;
+    eyebrow: string;
+    heading: string;
+    lede: React.ReactNode;
+    actions: {
+      explore: string;
+      webGeneralCv: string;
+      webGeneralCvHref: string;
+      webBaCv: string;
+      webBaCvHref: string;
+      pdfGeneralCv: string;
+      pdfGeneralCvHref: string;
+    };
+  };
+  preview: {
+    browserLabel: string;
+    panelLabel: string;
+    panelTitle: string;
+    cards: { top: string; strong: string; bottom: string }[];
+    targetLabel: string;
+    targetValue: string;
+    tags: string[];
+  };
+  proofSignals: { label: string; value: string }[];
+  stats: { label: string; value: string }[];
+  about: {
+    label: string;
+    heading: string;
+    p1: React.ReactNode;
+    p2: React.ReactNode;
+  };
+  projectsSection: {
+    label: string;
+    heading: string;
+    subtitle: string;
+  };
+  projectGroups: ProjectGroup[];
+  skillsSection: {
+    label: string;
+    heading: string;
+    groups: SkillGroup[];
+  };
+  experienceSection: {
+    homeNest: {
+      label: string;
+      title: string;
+      meta: string;
+      text: React.ReactNode;
+    };
+    jnt: {
+      label: string;
+      title: string;
+      meta: string;
+      text: React.ReactNode;
+    };
+  };
+  contactSection: {
+    label: string;
+    heading: string;
+    subtitle: string;
+    pdfGeneral: { label: string; href: string };
+    pdfBa: { label: string; href: string };
+    webGeneral: { label: string; href: string };
+    webBa: { label: string; href: string };
+    location: string;
+  };
+  footer: {
+    caption: string;
+  };
+}
+
+const portfolioDataVi: PortfolioLocaleData = {
+  nav: {
+    projects: "Dự án",
+    skills: "Kỹ năng",
+    baKnowledge: "Kiến thức BA",
+    knowledge: "Sổ tay IT",
+    contact: "Liên hệ",
+  },
+  hero: {
+    profileMeta: "TP. Hồ Chí Minh, Việt Nam · Kỹ sư Hệ thống Thông tin (IUH · Sẵn sàng làm Full-time)",
+    eyebrow: "Hồ sơ Năng lực IT Business Analyst",
+    heading: "Cầu Nối Vững Chắc Giữa Bài Toán Kinh Doanh và Giải Pháp Kỹ Thuật",
+    lede: (
+      <>
+        Đã hoàn thành chương trình đào tạo Kỹ sư <b>Hệ thống Thông tin (IUH - GPA 3.26/4.0 · Sẵn sàng làm việc Full-time)</b>, sở hữu thế mạnh kép về <b>Phân tích Nghiệp vụ</b> và <b>Tư duy Kỹ thuật Hệ thống</b>.
+        Tích lũy 6+ tháng kinh nghiệm Associate BA tại <b>HomeNest Software</b> (được cất nhắc từ Thực tập sinh) cùng nền tảng vận hành hiện trường tại <b>J&amp;T Express</b>.
+        Thành thạo xây dựng tài liệu <b>PRD/SRS</b> chuẩn kỹ thuật cho Dev, mô hình hóa quy trình <b>BPMN 2.0</b>, viết <b>User Stories (Given-When-Then)</b>,
+        thiết kế wireframe <b>Figma</b>, và điều phối <b>UAT</b> xuyên suốt 2+ chu kỳ phát hành sản phẩm.
+      </>
+    ),
+    actions: {
+      explore: "Khám phá Case Studies",
+      webGeneralCv: "Xem CV Tổng Quát (Web)",
+      webGeneralCvHref: "/cv-general.html",
+      webBaCv: "Xem CV Chuyên Sâu BA (Web)",
+      webBaCvHref: "/po-ba-cv-vi.html",
+      pdfGeneralCv: "Tải CV (PDF Tiếng Việt)",
+      pdfGeneralCvHref: "/VoVanTuTai_IT_Business_Analyst_CV_Tong_Quat.pdf",
+    },
+  },
+  preview: {
+    browserLabel: "business-analysis/domain-map",
+    panelLabel: "Hồ sơ Năng lực Business Analyst",
+    panelTitle: "Nhân sự Business Analyst sẵn sàng hòa nhập dự án Outsource & Product.",
+    cards: [
+      { top: "Khơi gợi & Đặc tả", strong: "PRD & SRS", bottom: "chuẩn kỹ thuật Dev" },
+      { top: "Quy trình", strong: "BPMN 2.0", bottom: "luồng Camunda" },
+      { top: "Bàn giao", strong: "UAT & Agile", bottom: "đúng tiến độ Release" },
+    ],
+    targetLabel: "Vị trí mục tiêu",
+    targetValue: "IT Business Analyst (Fresher / Junior) · Associate BA",
+    tags: ["Phân tích Nghiệp vụ", "Mô hình hóa Quy trình", "Hệ thống Booking & OMS"],
+  },
+  proofSignals: [
+    {
+      label: "Đặc tả & Yêu cầu",
+      value: "Chuyển hóa bài toán kinh doanh phức tạp thành tài liệu PRD/SRS chi tiết, sơ đồ BPMN 2.0, wireframe Figma và tiêu chí Given-When-Then rõ ràng.",
+    },
+    {
+      label: "Vận hành Sprint & Scope",
+      value: "Được cất nhắc từ Intern lên Associate BA tại HomeNest; kinh nghiệm bảo vệ Scope Freeze, quản lý backlog Jira và nghiệm thu UAT qua 2+ đợt release.",
+    },
+    {
+      label: "Thực tế Hiện trường",
+      value: "Kinh nghiệm điều phối bưu cục tại J&T Express được áp dụng trực tiếp vào tối ưu hóa vòng đời đơn hàng, quy tắc quét mã và chuẩn hóa SOP.",
+    },
+  ],
+  stats: [
+    { label: "Vị trí Ứng tuyển", value: "IT Business Analyst (Fresher / Junior)" },
+    { label: "Sản phẩm Chuyên môn", value: "PRD/SRS · BPMN · User Stories · UAT" },
+    { label: "Kinh nghiệm Thực chiến", value: "HomeNest (Associate BA) & J&T (Vận hành)" },
+    { label: "Học vấn & Đào tạo", value: "Chương trình Kỹ sư HTTT (IUH) · GPA 3.26" },
+  ],
+  about: {
+    label: "Giới thiệu bản thân",
+    heading: "Một Business Analyst với tư duy kỹ thuật vững vàng và kinh nghiệm thực tế hiện trường.",
+    p1: (
+      <>
+        Tôi đã hoàn thành chương trình đào tạo Kỹ sư Hệ thống Thông tin tại Trường Đại học Công nghiệp TP.HCM (IUH, GPA 3.26/4.0, tốt nghiệp 2026 và sẵn sàng làm việc Full-time),
+        kết hợp kinh nghiệm thực chiến Associate Business Analyst tại <b>HomeNest Software</b> với nền tảng
+        giải quyết bài toán vận hành thực địa tại <b>J&amp;T Express</b>.
+      </>
+    ),
+    p2: (
+      <>
+        Thế mạnh cốt lõi của tôi là làm cầu nối hiệu quả giữa các bên liên quan phi kỹ thuật và đội ngũ kỹ sư phần mềm:
+        làm sáng tỏ các yêu cầu mơ hồ thành tài liệu <b>PRD/SRS</b> chuẩn mực, mô hình hóa quy trình xuyên suốt với <b>BPMN 2.0</b>,
+        viết User Stories theo tiêu chí <b>Given-When-Then</b> dễ kiểm thử, thiết kế wireframe <b>Figma</b> trực quan,
+        đặc tả cấu trúc dữ liệu quan hệ (<b>ERD 3NF</b>) và <b>REST API contracts</b>, cùng điều phối nghiệm thu <b>UAT</b> phân quyền chặt chẽ.
+        Với thái độ cầu tiến, kỹ năng giao tiếp khéo léo và khả năng nhận việc ngay lập tức (Full-time), tôi sẵn sàng đóng góp giá trị thiết thực cho cả dự án Product lẫn Outsource.
+      </>
+    ),
+  },
+  projectsSection: {
+    label: "Dự án & Case Studies Nổi bật",
+    heading: "Hệ thống nghiệp vụ được phân tích từ bài toán thực tế đến đặc tả kỹ thuật hoàn chỉnh.",
+    subtitle: "Mỗi dự án phản ánh trọn vẹn quy trình giải quyết bài toán nghiệp vụ: sơ đồ luồng quy trình, thiết kế cơ sở dữ liệu, kiểm soát đồng thời (concurrency), hợp đồng API và giao diện hoạt động thực tế.",
+  },
+  projectGroups: [
+    {
+      title: "Nền tảng Quản lý Đặt phòng & Lưu trú Doanh nghiệp",
+      description: "Hệ thống thực tế minh chứng cách chuyển hóa yêu cầu nghiệp vụ phức tạp thành luồng xử lý chặt chẽ, kiểm soát đồng thời (race condition) và cổng thông tin phân quyền đa vai trò.",
+      projects: [
+        {
+          name: "tourist-accommodation-management-system",
+          role: "Nền tảng Đặt phòng & Quản lý Lưu trú · Hệ thống Đa Phân quyền",
+          href: "https://github.com/VoVanTuTai/tourist-accommodation-management-system",
+          image: "/assets/project-tourist.png",
+          stack: ["BPMN 2.0", "PRD/SRS", "RBAC Matrix", "VNPay IPN", "MySQL", "Express.js"],
+          summary: "Nền tảng quản lý lưu trú kiểm soát hiệu quả tranh chấp giữ phòng đồng thời (race condition), lịch phòng theo thời gian thực, chính sách hủy phòng phân tầng và quy trình thanh toán trực tuyến.",
+          highlights: [
+            "Thách thức Nghiệp vụ: Phòng ngừa rủi ro trùng lịch phòng (overbooking race condition) vào giờ cao điểm, phân quyền độc lập 3 nhóm người dùng (Khách/Chủ nhà/Quản trị) và xử lý sự cố rớt mạng khi thanh toán trực tuyến.",
+            "Phân tích BA & Giải pháp: Soạn thảo PRD/SRS với tiêu chí Given-When-Then; thiết kế cơ chế giữ phòng tạm thời (Held/Pending kèm TTL), ma trận phân quyền RBAC nghiêm ngặt, chính sách hủy phạt linh hoạt và hợp đồng Webhook VNPay IPN.",
+            "Kết quả & Bàn giao: Cổng thông tin tương tác đa phân quyền hiển thị tình trạng phòng thời gian thực, thanh toán mã QR an toàn, xuất hóa đơn điện tử tự động và bộ kịch bản kiểm thử UAT hoàn chỉnh.",
+          ],
+        },
+        {
+          name: "php-online-store",
+          role: "Song Tai Shop · Hệ thống Thương mại Điện tử & Bán lẻ Trực tuyến",
+          href: "https://github.com/VoVanTuTai/php-online-store",
+          image: "/assets/project-songtai.png",
+          stack: ["Process Flow", "User Stories", "RBAC Matrix", "MySQL 3NF", "PHP", "Bootstrap"],
+          summary: "Hệ thống bán lẻ thương mại điện tử chuẩn hóa danh mục sản phẩm đa cấp, hành trình thanh toán của khách hàng, quản lý đơn hàng phân quyền và nhật ký kiểm toán quản trị viên.",
+          highlights: [
+            "Thách thức Nghiệp vụ: Phân định ranh giới chặt chẽ giữa luồng người mua và quản trị, bảo toàn tính toàn vẹn khi thanh toán giỏ hàng và theo dõi chuyển đổi trạng thái đơn hàng (Chờ xử lý/Đã thanh toán/Đang giao/Hoàn tất).",
+            "Phân tích BA & Giải pháp: Xây dựng đặc tả yêu cầu chức năng (SRS), mô hình hóa hành trình thanh toán người dùng, thiết kế CSDL quan hệ chuẩn hóa 3NF và quy định cơ chế kiểm soát tồn kho cho admin.",
+            "Kết quả & Bàn giao: Môi trường Docker hóa hoàn chỉnh kèm dữ liệu mẫu, tài khoản demo kiểm thử và tài liệu quy trình mua hàng khép kín.",
+          ],
+        },
+      ],
+    },
+    {
+      title: "Hệ thống Vận tải & Quản lý Đơn hàng (OMS)",
+      description: "Các hệ thống cấp doanh nghiệp chuyển đổi kinh nghiệm vận hành thực tế thành máy trạng thái BPMN 2.0, trạm quét mã kiểm soát và hợp đồng API chuẩn mực.",
+      projects: [
+        {
+          name: "logistics-management-system",
+          role: "Nexus Express · Hệ thống Quản lý Logistics & Đơn hàng (OMS)",
+          href: "https://github.com/VoVanTuTai/logistics-management-system",
+          image: "/assets/project-nexus.png",
+          stack: ["BPMN 2.0 (Camunda)", "OpenAPI 3.0", "ERD 3NF", "PostgreSQL", "NestJS", "RabbitMQ"],
+          summary: "Nền tảng logistics toàn diện chuyển hóa kinh nghiệm điều phối bưu cục thực tế thành phân định ranh giới dịch vụ, luồng sự kiện bất đồng bộ và kiểm soát luồng bưu kiện.",
+          highlights: [
+            "Thách thức Nghiệp vụ: Trạng thái theo dõi đơn hàng không nhất quán giữa các trạm trung chuyển và ranh giới dịch vụ mơ hồ giữa các microservice phân tán.",
+            "Phân tích BA & Giải pháp: Chuẩn hóa vòng đời bưu kiện bằng BPMN 2.0 trên Camunda; thiết kế hợp đồng OpenAPI 3.0 với Idempotency Key; xây dựng từ điển dữ liệu 3NF chuẩn hóa.",
+            "Kết quả & Bàn giao: Động cơ trạng thái bưu kiện minh bạch, luồng sự kiện bất đồng bộ RabbitMQ và quy trình xử lý ngoại lệ SOP (chuyển hoàn RTO, hư hỏng, sai tuyến).",
+          ],
+        },
+        {
+          name: "cab-booking-system",
+          role: "Hệ thống Điều phối Tài xế & Đặt xe Trực tuyến",
+          href: "https://github.com/VoVanTuTai/cab-booking-system",
+          image: "/assets/project-cab.png",
+          stack: ["State Machine", "Event Contracts", "BPMN", "Node.js", "Redis", "Kafka"],
+          summary: "Dự án kiến trúc đặt xe phân tán nghiên cứu vòng đời cuốc xe, thuật toán điều phối tài xế - hành khách và quy trình đối soát quyết toán chuyến đi.",
+          highlights: [
+            "Thách thức Nghiệp vụ: Điều phối tài xế thời gian thực với tải cao, tính toán cước phí nhiều bước và xử lý kết nối mạng chập chờn giữa khách và tài xế.",
+            "Phân tích BA & Giải pháp: Thiết kế máy trạng thái cuốc xe, hợp đồng sự kiện bất đồng bộ, quy tắc định giá linh hoạt theo cung cầu và luồng hoàn tác (rollback) khi hủy chuyến.",
+            "Kết quả & Bàn giao: Cấu trúc đa dịch vụ Docker Compose kèm cơ chế kiểm tra hợp đồng API, nhật ký sự kiện phân tán và kịch bản kiểm thử nghiệp vụ.",
+          ],
+        },
+      ],
+    },
+  ],
+  skillsSection: {
+    label: "Kỹ năng Chuyên môn",
+    heading: "Năng lực thực thi dựa trên nền tảng phân tích quy trình, dữ liệu và nghiệp vụ thực tế.",
+    groups: [
+      {
+        icon: BriefcaseBusiness,
+        title: "Phân tích Nghiệp vụ & Đặc tả",
+        items: [
+          "Khơi gợi Yêu cầu (Elicitation)",
+          "Tài liệu BRD, PRD & SRS",
+          "Mô hình hóa Quy trình BPMN 2.0",
+          "User Stories (Given-When-Then)",
+          "Thiết kế Wireframe (Figma)",
+          "Lập kế hoạch & Nghiệm thu UAT",
+        ],
+        href: "/knowledge/business-analysis",
+        linkLabel: "Khám phá kiến thức BA & minh chứng dự án",
+      },
+      {
+        icon: Network,
+        title: "Hiểu biết Miền Nghiệp vụ",
+        items: [
+          "Hệ thống Quản lý Đơn hàng (OMS)",
+          "Logistics & Trạm quét theo dõi",
+          "Lịch Đặt phòng & Tồn kho Thời gian thực",
+          "Cổng Thanh toán Trực tuyến (VNPay IPN)",
+          "Ma trận Phân quyền Truy cập (RBAC)",
+        ],
+      },
+      {
+        icon: Database,
+        title: "Mô hình hóa Dữ liệu & Hệ thống",
+        items: [
+          "Thiết kế CSDL Quan hệ (ERD 3NF)",
+          "Truy vấn SQL (MySQL, PostgreSQL)",
+          "Sơ đồ Máy trạng thái & Hoạt động",
+          "Chuẩn hóa Dữ liệu (Normalization)",
+          "Từ điển Dữ liệu & Danh mục Thực thể",
+        ],
+        href: "/knowledge/database",
+        linkLabel: "Tìm hiểu kiến thức mô hình hóa dữ liệu",
+      },
+      {
+        icon: ServerCog,
+        title: "Tư duy Kỹ thuật & Tích hợp API",
+        items: [
+          "Hợp đồng RESTful API (OpenAPI 3.0)",
+          "Webhook Bất đồng bộ (IPN)",
+          "Nguyên tắc Idempotency & Concurrency",
+          "Kiểm thử API với Postman",
+          "Kiến trúc Microservices & Events",
+        ],
+        href: "/knowledge/backend-api",
+        linkLabel: "Tìm hiểu kiến thức Backend & REST API",
+      },
+      {
+        icon: Code2,
+        title: "Công cụ & Phương pháp Agile",
+        items: [
+          "Jira & Confluence",
+          "Figma (Wireframing)",
+          "Camunda Modeler & Draw.io",
+          "Lập kế hoạch Sprint & Phân rã WBS",
+          "Bảo vệ Baseline & Scope Freeze",
+          "Các nghi thức Agile / Scrum",
+        ],
+      },
+    ],
+  },
+  experienceSection: {
+    homeNest: {
+      label: "Kinh nghiệm Phân tích Nghiệp vụ",
+      title: "HomeNest Software — Associate Business Analyst (Cất nhắc từ Thực tập sinh) · Trợ lý PM",
+      meta: "03/2026 – Hiện tại · TP. Hồ Chí Minh, Việt Nam",
+      text: (
+        <>
+          Được cất nhắc từ Thực tập sinh lên Associate BA chính thức sau những đóng góp rõ nét vào tốc độ triển khai sprint và sự đồng thuận giữa các bên liên quan.
+          Đóng vai trò cầu nối khéo léo trong giai đoạn khơi gợi yêu cầu, chủ động thương lượng các phương án kỹ thuật thay thế để bảo vệ mốc Scope Freeze của sprint mà vẫn duy trì sự tin cậy từ khách hàng.
+          Chuẩn hóa hệ thống User Stories kèm tiêu chí nghiệm thu <b>Given-When-Then</b> và từ điển dữ liệu rõ ràng, giúp hạn chế tối đa hiểu nhầm về edge-case giữa đội Dev và QA.
+          Đồng hành cùng PM trong các buổi Backlog Grooming trên Jira và trực tiếp điều phối kiểm thử UAT phân quyền xuyên suốt 2+ chu kỳ phát hành sản phẩm.
+        </>
+      ),
+    },
+    jnt: {
+      label: "Kinh nghiệm Vận hành Hiện trường",
+      title: "J&T Express — Điều phối viên Quy trình Vận hành (Chính thức)",
+      meta: "09/2025 – 02/2026 · TP. Hồ Chí Minh, Việt Nam",
+      text: (
+        <>
+          Điều phối hoạt động logistics bưu cục với sản lượng &gt;300 đơn hàng/ngày. Khéo léo thuyết phục và hướng dẫn đội ngũ nhân viên ca áp dụng quy trình xử lý đơn hàng một chiều khép kín (Nhập kiện &rarr; Cân đo &rarr; Quét mã &rarr; Xuất bưu cục), giải tỏa tình trạng nghẽn hàng và rút ngắn 25% thời gian xử lý.
+          Biên soạn quy trình thao tác chuẩn (SOP) xử lý ngoại lệ nhằm giảm thiểu tranh cãi giao nhận giữa các ca, đồng thời thiết lập thói quen đối soát dữ liệu thực tế và hệ thống mỗi ngày để nâng cao tính toàn vẹn và chuẩn xác của dữ liệu bưu gửi.
+        </>
+      ),
+    },
+  },
+  contactSection: {
+    label: "Sẵn sàng Hợp tác",
+    heading: "Chào đón cơ hội việc làm vị trí IT Business Analyst (Fresher / Junior) và Associate PM.",
+    subtitle: "Sẵn sàng nhận việc toàn thời gian (On-site hoặc Hybrid) ngay lập tức tại TP. Hồ Chí Minh.",
+    pdfGeneral: { label: "CV Tổng Quát (PDF Tiếng Việt)", href: "/VoVanTuTai_IT_Business_Analyst_CV_Tong_Quat.pdf" },
+    pdfBa: { label: "CV Chuyên Sâu BA (PDF Tiếng Việt)", href: "/VoVanTuTai_Business_Analyst_CV_Tieng_Viet.pdf" },
+    webGeneral: { label: "Xem CV Tổng Quát (Bản Web)", href: "/cv-general.html" },
+    webBa: { label: "Xem CV Chuyên Sâu BA (Web)", href: "/po-ba-cv-vi.html" },
+    location: "TP. Hồ Chí Minh, Việt Nam (Sẵn sàng làm việc ngay)",
+  },
+  footer: {
+    caption: "Hệ thống Nghiệp vụ · Phân tích & Phần mềm",
+  },
 };
 
-const skillGroups: SkillGroup[] = [
-  {
-    icon: BriefcaseBusiness,
-    title: "Business Analysis & Specs",
-    items: [
-      "Requirements Elicitation",
-      "BRD, PRD & SRS Documentation",
-      "BPMN 2.0 Process Modeling",
-      "User Stories (Given-When-Then)",
-      "Wireframing (Figma)",
-      "UAT Test Planning & Execution",
+const portfolioDataEn: PortfolioLocaleData = {
+  nav: {
+    projects: "Projects",
+    skills: "Skills",
+    baKnowledge: "BA Knowledge",
+    knowledge: "Knowledge",
+    contact: "Contact",
+  },
+  hero: {
+    profileMeta: "Ho Chi Minh City, Vietnam · Information Systems Engineer (IUH · Available Full-time)",
+    eyebrow: "IT Business Analyst Portfolio",
+    heading: "Bridging Business Needs with Engineering Execution",
+    lede: (
+      <>
+        Completed Information Systems Engineering degree requirements from <b>IUH (GPA 3.26/4.0 · Available Full-time)</b> with a dual edge in <b>Business Analysis</b> and <b>Technical Systems Design</b>.
+        Equipped with 6+ months of hands-on Associate BA experience at <b>HomeNest Software</b> (promoted from Intern) and frontline operational grounding at <b>J&amp;T Express</b>.
+        Proven track record in authoring engineering-ready <b>PRD/SRS</b>, modeling <b>BPMN 2.0</b> workflows, crafting testable <b>Given-When-Then</b> User Stories,
+        designing <b>Figma wireframes</b>, and coordinating end-to-end <b>UAT</b> across 2+ release cycles.
+      </>
+    ),
+    actions: {
+      explore: "Explore Case Studies",
+      webGeneralCv: "View General Resume (Web)",
+      webGeneralCvHref: "/cv-general-en.html",
+      webBaCv: "View Deep BA Resume (Web)",
+      webBaCvHref: "/cv.html",
+      pdfGeneralCv: "Download Resume (English PDF)",
+      pdfGeneralCvHref: "/VoVanTuTai_IT_Business_Analyst_Resume_General.pdf",
+    },
+  },
+  preview: {
+    browserLabel: "business-analysis/domain-map",
+    panelLabel: "Business Analyst Competency Profile",
+    panelTitle: "Ready-to-deploy Business Analyst for Outsource & Product teams.",
+    cards: [
+      { top: "Elicit & Spec", strong: "PRD & SRS", bottom: "engineering-ready" },
+      { top: "Process", strong: "BPMN 2.0", bottom: "Camunda workflows" },
+      { top: "Delivery", strong: "UAT & Agile", bottom: "on-time releases" },
     ],
-    href: "/knowledge/business-analysis",
-    linkLabel: "Explore BA knowledge & project evidence",
+    targetLabel: "Target Level",
+    targetValue: "IT Business Analyst (Fresher / Junior) · Associate BA",
+    tags: ["Business Analysis", "Process Modeling", "Booking & OMS Systems"],
   },
-  {
-    icon: Network,
-    title: "Domain Exposure",
-    items: [
-      "Order Management Systems (OMS)",
-      "Logistics & Tracking Checkpoints",
-      "Reservation & Inventory Calendars",
-      "Digital Payments (VNPay IPN)",
-      "RBAC Access Control Matrix",
+  proofSignals: [
+    {
+      label: "Requirements & Specs",
+      value: "Translating ambiguous business needs into PRD/SRS documents, BPMN 2.0 workflows, Figma wireframes, and testable Given-When-Then criteria.",
+    },
+    {
+      label: "Sprint & Scope Delivery",
+      value: "Promoted from Intern to Associate BA at HomeNest; experienced in Scope Freeze defense, Jira backlog grooming, and UAT across 2+ release cycles.",
+    },
+    {
+      label: "Operational Grounding",
+      value: "Frontline J&T Express logistics operations applied to shipment lifecycles, scan rules, and SOP standardization.",
+    },
+  ],
+  stats: [
+    { label: "Target Role", value: "IT Business Analyst (Fresher / Junior)" },
+    { label: "Core Deliverables", value: "PRD/SRS · BPMN · User Stories · UAT" },
+    { label: "Proven Experience", value: "HomeNest (Associate BA) & J&T (Ops)" },
+    { label: "Education & Degree", value: "B.Eng. Information Systems (IUH) · GPA 3.26" },
+  ],
+  about: {
+    label: "About Me",
+    heading: "A Business Analyst with strong technical literacy and real-world operational grounding.",
+    p1: (
+      <>
+        I have completed the curriculum for the Engineer's Degree / Bachelor of Engineering (B.Eng.) in Information Systems at Industrial University of Ho Chi Minh City (IUH, GPA 3.26/4.0, available immediately for full-time roles),
+        combining hands-on Associate Business Analyst experience at <b>HomeNest Software</b> with frontline operational
+        problem-solving at <b>J&amp;T Express</b>.
+      </>
+    ),
+    p2: (
+      <>
+        My core strength is bridging the gap between non-technical stakeholders and engineering teams: clarifying ambiguous
+        business needs into structured <b>PRD/SRS</b>, modeling end-to-end workflows with <b>BPMN 2.0</b>, drafting testable <b>Given-When-Then</b> User Stories,
+        wireframing with <b>Figma</b>, specifying relational schemas (<b>ERD 3NF</b>) and <b>REST API contracts</b>, and coordinating role-based <b>UAT</b>.
+        With a proactive mindset, strong negotiation skills, and immediate availability for full-time work, I am ready to deliver tangible value to both product teams and software outsource projects.
+      </>
+    ),
+  },
+  projectsSection: {
+    label: "Featured Case Studies & Systems",
+    heading: "Business systems analyzed from domain friction to technical specification.",
+    subtitle: "Each case demonstrates end-to-end business problem solving: workflow diagrams, relational schemas, concurrency controls, API contracts, and working system interfaces.",
+  },
+  projectGroups: [
+    {
+      title: "Business Platforms & Reservation Systems",
+      description: "Production-grade business systems demonstrating how business requirements become structured workflows, concurrency controls, and role-based portals.",
+      projects: [
+        {
+          name: "tourist-accommodation-management-system",
+          role: "Accommodation & Booking Platform · Multi-Role System",
+          href: "https://github.com/VoVanTuTai/tourist-accommodation-management-system",
+          image: "/assets/project-tourist.png",
+          stack: ["BPMN 2.0", "PRD/SRS", "RBAC Matrix", "VNPay IPN", "MySQL", "Express.js"],
+          summary: "A multi-role booking platform resolving room overbooking race conditions, dynamic inventory calendars, tiered cancellations, and online payment workflows.",
+          highlights: [
+            "Business Challenge: Preventing room overbooking race conditions during peak traffic, isolating 3-tier user roles (Guest/Host/Admin), and handling network drops during online payment.",
+            "BA Analysis & Solution: Authored PRD/SRS with Given-When-Then criteria; modeled temporary holds (Held/Pending with TTL), strict RBAC permissions, tiered cancellation policies, and VNPay IPN webhook contracts.",
+            "Outcome & Deliverables: Interactive multi-role portal featuring real-time room availability, secure QR payments, automated digital invoices, and verified UAT test suite.",
+          ],
+        },
+        {
+          name: "php-online-store",
+          role: "Song Tai Shop · E-Commerce & Retail Order Management",
+          href: "https://github.com/VoVanTuTai/php-online-store",
+          image: "/assets/project-songtai.png",
+          stack: ["Process Flow", "User Stories", "RBAC Matrix", "MySQL 3NF", "PHP", "Bootstrap"],
+          summary: "An e-commerce retail system modeling product catalog hierarchies, customer checkout lifecycles, role-based order management, and administrative audit trails.",
+          highlights: [
+            "Business Challenge: Customer and admin workflows required strict role separation, secure checkout integrity, and auditable order state transitions (Pending/Paid/Shipped/Completed).",
+            "BA Analysis & Solution: Formulated functional requirements (SRS), modeled checkout user journeys, designed normalized relational schema, and defined administrative inventory controls.",
+            "Outcome & Deliverables: Complete Dockerized retail environment with seed catalogs, demo test accounts, and end-to-end purchasing workflow documentation.",
+          ],
+        },
+      ],
+    },
+    {
+      title: "Logistics & Order Management Systems (OMS)",
+      description: "Enterprise systems translating frontline operations into formal BPMN 2.0 state machines, scan checkpoints, and API contracts.",
+      projects: [
+        {
+          name: "logistics-management-system",
+          role: "Nexus Express · Logistics & Order Management System (OMS)",
+          href: "https://github.com/VoVanTuTai/logistics-management-system",
+          image: "/assets/project-nexus.png",
+          stack: ["BPMN 2.0 (Camunda)", "OpenAPI 3.0", "ERD 3NF", "PostgreSQL", "NestJS", "RabbitMQ"],
+          summary: "An end-to-end logistics platform turning first-hand branch operations into explicit service ownership, event handoffs, and shipment workflows.",
+          highlights: [
+            "Business Challenge: Tracking status inconsistencies across multi-party carrier handoffs and ambiguous service boundaries across distributed microservices.",
+            "BA Analysis & Solution: Formalized parcel lifecycles using BPMN 2.0 in Camunda; authored OpenAPI 3.0 contracts with Idempotency keys; drafted normalized 3NF relational data dictionary.",
+            "Outcome & Deliverables: Documented traceable parcel state engine, RabbitMQ asynchronous event workflows, and exception handling SOPs (RTO, damaged parcels, routing errors).",
+          ],
+        },
+        {
+          name: "cab-booking-system",
+          role: "Ride-Hailing & Driver Dispatch Management System",
+          href: "https://github.com/VoVanTuTai/cab-booking-system",
+          image: "/assets/project-cab.png",
+          stack: ["State Machine", "Event Contracts", "BPMN", "Node.js", "Redis", "Kafka"],
+          summary: "A ride-hailing architecture project examining distributed booking lifecycles, driver-passenger matching rules, and operational settlement workflows.",
+          highlights: [
+            "Business Challenge: High-concurrency ride dispatching, fare calculation states, and driver-passenger matching under unstable network connections.",
+            "BA Analysis & Solution: Formulated ride status state machines, asynchronous event contracts, surge pricing business rules, and compensation/rollback flows.",
+            "Outcome & Deliverables: Docker Compose multi-service architecture with contract verification checks, distributed event logs, and operational test scenarios.",
+          ],
+        },
+      ],
+    },
+  ],
+  skillsSection: {
+    label: "Skills",
+    heading: "Implementation skills supported by process, data, and domain analysis.",
+    groups: [
+      {
+        icon: BriefcaseBusiness,
+        title: "Business Analysis & Specs",
+        items: [
+          "Requirements Elicitation",
+          "BRD, PRD & SRS Documentation",
+          "BPMN 2.0 Process Modeling",
+          "User Stories (Given-When-Then)",
+          "Wireframing (Figma)",
+          "UAT Test Planning & Execution",
+        ],
+        href: "/knowledge/business-analysis",
+        linkLabel: "Explore BA knowledge & project evidence",
+      },
+      {
+        icon: Network,
+        title: "Domain Exposure",
+        items: [
+          "Order Management Systems (OMS)",
+          "Logistics & Tracking Checkpoints",
+          "Reservation & Inventory Calendars",
+          "Digital Payments (VNPay IPN)",
+          "RBAC Access Control Matrix",
+        ],
+      },
+      {
+        icon: Database,
+        title: "Data & Systems Modeling",
+        items: [
+          "Relational Schema Design (ERD 3NF)",
+          "SQL Querying (MySQL, PostgreSQL)",
+          "State Machine & Activity Diagrams",
+          "Database Normalization",
+          "Data Dictionaries & Catalogs",
+        ],
+        href: "/knowledge/database",
+        linkLabel: "Study data modeling fundamentals",
+      },
+      {
+        icon: ServerCog,
+        title: "Technical Literacy & APIs",
+        items: [
+          "RESTful API Contracts (OpenAPI 3.0)",
+          "Asynchronous Webhooks (IPN)",
+          "Idempotency & Concurrency Rules",
+          "Postman API Testing",
+          "Microservices & Events Overview",
+        ],
+        href: "/knowledge/backend-api",
+        linkLabel: "Study backend & REST APIs",
+      },
+      {
+        icon: Code2,
+        title: "Agile Tools & Methodologies",
+        items: [
+          "Jira & Confluence",
+          "Figma (Wireframing)",
+          "Camunda Modeler & Draw.io",
+          "Sprint Planning & WBS Breakdown",
+          "Scope Baseline & Scope Freeze",
+          "Agile / Scrum Rituals",
+        ],
+      },
     ],
   },
-  {
-    icon: Database,
-    title: "Data & Systems Modeling",
-    items: [
-      "Relational Schema Design (ERD 3NF)",
-      "SQL Querying (MySQL, PostgreSQL)",
-      "State Machine & Activity Diagrams",
-      "Database Normalization",
-      "Data Dictionaries & Catalogs",
-    ],
-    href: "/knowledge/database",
-    linkLabel: "Study data modeling fundamentals",
+  experienceSection: {
+    homeNest: {
+      label: "Business Analyst Experience",
+      title: "HomeNest Software — Associate Business Analyst (Promoted from Intern) · PM Assistant",
+      meta: "Mar 2026 – Present · Ho Chi Minh City, Vietnam",
+      text: (
+        <>
+          Promoted from Intern to official Associate BA following impactful contributions to sprint velocity and stakeholder alignment.
+          Acted as a diplomatic bridge during requirements discovery, tactfully negotiating technical workarounds to defend Scope Freeze baselines
+          while sustaining client trust. Standardized engineering-ready User Stories with <b>Given-When-Then</b> acceptance criteria and data dictionaries
+          to minimize edge-case friction between Dev and QA. Partnered with the PM in Jira backlog grooming, and facilitated role-based UAT verification across 2+ release cycles.
+        </>
+      ),
+    },
+    jnt: {
+      label: "Operations Experience",
+      title: "J&T Express — Operations Process Coordinator (Full-time)",
+      meta: "Sep 2025 – Feb 2026 · Ho Chi Minh City, Vietnam",
+      text: (
+        <>
+          Coordinated branch logistics handling &gt;300 shipments/day. Tactfully engaged frontline shift crews to adopt a closed-loop unidirectional
+          processing flow (Intake &rarr; Weighing &rarr; Scanning &rarr; Dispatch), relieving sorting bottlenecks and cutting turnaround time by 25%.
+          Authored exception SOPs to resolve shift-to-shift disputes, and instituted daily physical-to-digital reconciliation routines to ensure cross-shift supply chain data integrity.
+        </>
+      ),
+    },
   },
-  {
-    icon: ServerCog,
-    title: "Technical Literacy & APIs",
-    items: [
-      "RESTful API Contracts (OpenAPI 3.0)",
-      "Asynchronous Webhooks (IPN)",
-      "Idempotency & Concurrency Rules",
-      "Postman API Testing",
-      "Microservices & Events Overview",
-    ],
-    href: "/knowledge/backend-api",
-    linkLabel: "Study backend & REST APIs",
+  contactSection: {
+    label: "Ready to Connect",
+    heading: "Open to IT Business Analyst (Fresher / Junior) and Associate PM roles.",
+    subtitle: "Available immediately for Full-time on-site or hybrid roles in Ho Chi Minh City.",
+    pdfGeneral: { label: "General Resume (English PDF)", href: "/VoVanTuTai_IT_Business_Analyst_Resume_General.pdf" },
+    pdfBa: { label: "Deep BA Resume (English PDF)", href: "/VoVanTuTai_Business_Analyst_CV.pdf" },
+    webGeneral: { label: "View General Resume (Web)", href: "/cv-general-en.html" },
+    webBa: { label: "View Deep BA Resume (Web)", href: "/cv.html" },
+    location: "Ho Chi Minh City, Vietnam (Available Immediately)",
   },
-  {
-    icon: Code2,
-    title: "Agile Tools & Methodologies",
-    items: [
-      "Jira & Confluence",
-      "Figma (Wireframing)",
-      "Camunda Modeler & Draw.io",
-      "Sprint Planning & WBS Breakdown",
-      "Scope Baseline & Scope Freeze",
-      "Agile / Scrum Rituals",
-    ],
+  footer: {
+    caption: "Business Systems · Software + Analysis",
   },
-];
-
-const stats = [
-  { label: "Target Role", value: "IT Business Analyst (Fresher / Junior)" },
-  { label: "Core Deliverables", value: "PRD/SRS · BPMN · User Stories · UAT" },
-  { label: "Proven Experience", value: "HomeNest (Associate BA) & J&T (Ops)" },
-  { label: "Education & Degree", value: "IUH Information Systems · GPA 3.26" },
-];
-
-const proofSignals = [
-  {
-    label: "Requirements & Specs",
-    value: "Translating ambiguous business needs into PRD/SRS documents, BPMN 2.0 workflows, Figma wireframes, and testable Given-When-Then criteria.",
-  },
-  {
-    label: "Sprint & Scope Delivery",
-    value: "Promoted from Intern to Associate BA at HomeNest; experienced in Scope Freeze defense, Jira backlog grooming, and UAT across 2+ release cycles.",
-  },
-  {
-    label: "Operational Grounding",
-    value: "Frontline J&T Express logistics operations applied to shipment lifecycles, scan rules, and SOP standardization.",
-  },
-];
+};
 
 type NavigateHandler = (event: React.MouseEvent<HTMLAnchorElement>, path: string) => void;
 
 function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
+  const [lang, setLangState] = useState<Language>(() => {
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem("portfolio_lang");
+      if (saved === "en" || saved === "vi") return saved;
+    }
+    return "vi";
+  });
   const [activeProjectIndex, setActiveProjectIndex] = useState(0);
+
+  const t = lang === "vi" ? portfolioDataVi : portfolioDataEn;
+  const projects = t.projectGroups.flatMap((group) =>
+    group.projects.map((project) => ({
+      ...project,
+      category: group.title,
+    })),
+  );
+
+  const handleLangChange = (newLang: Language) => {
+    setLangState(newLang);
+    if (typeof window !== "undefined") {
+      localStorage.setItem("portfolio_lang", newLang);
+      document.documentElement.lang = newLang;
+    }
+  };
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      document.documentElement.lang = lang;
+    }
+  }, [lang]);
 
   return (
     <main className="site-shell">
@@ -208,13 +697,42 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
           <img className="brand-avatar" src="/assets/avatar.png" alt="" aria-hidden="true" />
           <span>Vo Van Tu Tai</span>
         </a>
-        <nav>
-          <a href="#projects">Projects</a>
-          <a href="#skills">Skills</a>
-          <a href="/knowledge/business-analysis" onClick={(event) => navigate(event, "/knowledge/business-analysis")}>BA Knowledge</a>
-          <a href="/knowledge" onClick={(event) => navigate(event, "/knowledge")}>Knowledge</a>
-          <a href="#contact">Contact</a>
-        </nav>
+
+        <div className="topbar-right">
+          <nav>
+            <a href="#projects">{t.nav.projects}</a>
+            <a href="#skills">{t.nav.skills}</a>
+            <a href="/knowledge/business-analysis" onClick={(event) => navigate(event, "/knowledge/business-analysis")}>
+              {t.nav.baKnowledge}
+            </a>
+            <a href="/knowledge" onClick={(event) => navigate(event, "/knowledge")}>
+              {t.nav.knowledge}
+            </a>
+            <a href="#contact">{t.nav.contact}</a>
+          </nav>
+
+          <div className="lang-switcher" role="group" aria-label="Language selection">
+            <button
+              type="button"
+              className={`lang-btn${lang === "vi" ? " is-active" : ""}`}
+              onClick={() => handleLangChange("vi")}
+              aria-pressed={lang === "vi"}
+              title="Tiếng Việt"
+            >
+              VIE
+            </button>
+            <span className="lang-divider" aria-hidden="true">/</span>
+            <button
+              type="button"
+              className={`lang-btn${lang === "en" ? " is-active" : ""}`}
+              onClick={() => handleLangChange("en")}
+              aria-pressed={lang === "en"}
+              title="English"
+            >
+              ENG
+            </button>
+          </div>
+        </div>
       </header>
 
       <section className="hero" id="top">
@@ -223,33 +741,28 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
             <img className="profile-avatar" src="/assets/avatar.png" alt="Vo Van Tu Tai" />
             <div>
               <p className="profile-name">Vo Van Tu Tai</p>
-              <p className="profile-meta">Ho Chi Minh City, Vietnam · Bachelor of Information Systems (IUH)</p>
+              <p className="profile-meta">{t.hero.profileMeta}</p>
             </div>
           </div>
-          <p className="eyebrow">IT Business Analyst Portfolio</p>
-          <h1>Bridging Business Needs with Engineering Execution</h1>
-          <p className="hero-lede">
-            Information Systems graduate from IUH (GPA 3.26/4.0) with a dual edge in <b>Business Analysis</b> and <b>Technical Systems Design</b>.
-            Equipped with 6+ months of hands-on Associate BA experience at <b>HomeNest Software</b> (promoted from Intern) and frontline operational grounding at <b>J&amp;T Express</b>.
-            Proven track record in authoring engineering-ready <b>PRD/SRS</b>, modeling <b>BPMN 2.0</b> workflows, crafting testable <b>Given-When-Then</b> User Stories,
-            designing <b>Figma wireframes</b>, and coordinating end-to-end <b>UAT</b> across 2+ release cycles.
-          </p>
+          <p className="eyebrow">{t.hero.eyebrow}</p>
+          <h1>{t.hero.heading}</h1>
+          <p className="hero-lede">{t.hero.lede}</p>
           <div className="hero-actions">
             <a className="primary-action" href="#projects">
               <ArrowUpRight size={18} aria-hidden="true" />
-              Khám phá Case Studies
+              {t.hero.actions.explore}
             </a>
-            <a className="secondary-action" href="/cv-general.html" target="_blank" rel="noreferrer">
+            <a className="secondary-action" href={t.hero.actions.webGeneralCvHref} target="_blank" rel="noreferrer">
               <ArrowUpRight size={18} aria-hidden="true" />
-              Xem CV Tổng Quát (Web)
+              {t.hero.actions.webGeneralCv}
             </a>
-            <a className="secondary-action" href="/VoVanTuTai_IT_Business_Analyst_CV_Tong_Quat.pdf" download>
-              <Download size={18} aria-hidden="true" />
-              Tải CV (Tiếng Việt PDF)
+            <a className="secondary-action" href={t.hero.actions.webBaCvHref} target="_blank" rel="noreferrer">
+              <ArrowUpRight size={18} aria-hidden="true" />
+              {t.hero.actions.webBaCv}
             </a>
-            <a className="secondary-action" href="/VoVanTuTai_Business_Analyst_CV.pdf" download>
+            <a className="secondary-action" href={t.hero.actions.pdfGeneralCvHref} download>
               <Download size={18} aria-hidden="true" />
-              Download Resume (English)
+              {t.hero.actions.pdfGeneralCv}
             </a>
           </div>
         </div>
@@ -260,43 +773,35 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
               <span />
               <span />
               <span />
-              <strong>business-analysis/domain-map</strong>
+              <strong>{t.preview.browserLabel}</strong>
             </div>
             <div className="web-preview" aria-label="Business Analyst portfolio focus preview">
               <div className="web-preview-main">
-                <p className="panel-label">Business Analyst Competency Profile</p>
-                <h2>Ready-to-deploy Business Analyst for Outsource &amp; Product teams.</h2>
+                <p className="panel-label">{t.preview.panelLabel}</p>
+                <h2>{t.preview.panelTitle}</h2>
                 <div className="preview-card-grid">
-                  <div className="preview-card">
-                    <span>Elicit &amp; Spec</span>
-                    <strong>PRD &amp; SRS</strong>
-                    <p>engineering-ready</p>
-                  </div>
-                  <div className="preview-card">
-                    <span>Process</span>
-                    <strong>BPMN 2.0</strong>
-                    <p>Camunda workflows</p>
-                  </div>
-                  <div className="preview-card">
-                    <span>Delivery</span>
-                    <strong>UAT &amp; Agile</strong>
-                    <p>on-time releases</p>
-                  </div>
+                  {t.preview.cards.map((c) => (
+                    <div className="preview-card" key={c.top}>
+                      <span>{c.top}</span>
+                      <strong>{c.strong}</strong>
+                      <p>{c.bottom}</p>
+                    </div>
+                  ))}
                 </div>
               </div>
               <div className="web-preview-side">
-                <span>Target Level</span>
-                <p>IT Business Analyst (Fresher / Junior) · Associate BA</p>
+                <span>{t.preview.targetLabel}</span>
+                <p>{t.preview.targetValue}</p>
               </div>
             </div>
             <div className="visual-footer">
-              <span>Business Analysis</span>
-              <span>Process Modeling</span>
-              <span>Booking &amp; OMS</span>
+              {t.preview.tags.map((tag) => (
+                <span key={tag}>{tag}</span>
+              ))}
             </div>
           </div>
           <div className="hero-proof-grid">
-            {proofSignals.map((item) => (
+            {t.proofSignals.map((item) => (
               <div className="proof-tile" key={item.label}>
                 <span>{item.label}</span>
                 <p>{item.value}</p>
@@ -317,7 +822,7 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
       </section>
 
       <section className="stats-band" aria-label="Profile statistics">
-        {stats.map((stat) => (
+        {t.stats.map((stat) => (
           <div className="stat-item" key={stat.label}>
             <strong>{stat.value}</strong>
             <span>{stat.label}</span>
@@ -327,32 +832,20 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
 
       <section className="section-grid about-section">
         <div>
-          <p className="section-label">About Me</p>
-          <h2>A Business Analyst with strong technical literacy and real-world operational grounding.</h2>
+          <p className="section-label">{t.about.label}</p>
+          <h2>{t.about.heading}</h2>
         </div>
         <div className="section-body">
-          <p>
-            I hold a Bachelor’s in Information Systems from Industrial University of Ho Chi Minh City (IUH, GPA 3.26/4.0),
-            combining hands-on Associate Business Analyst experience at <b>HomeNest Software</b> with frontline operational
-            problem-solving at <b>J&amp;T Express</b>.
-          </p>
-          <p>
-            My core strength is bridging the gap between non-technical stakeholders and engineering teams: clarifying ambiguous
-            business needs into structured <b>PRD/SRS</b>, modeling end-to-end workflows with <b>BPMN 2.0</b>, drafting testable <b>Given-When-Then</b> User Stories,
-            wireframing with <b>Figma</b>, specifying relational schemas (<b>ERD 3NF</b>) and <b>REST API contracts</b>, and coordinating role-based <b>UAT</b>.
-            With a proactive mindset, strong negotiation skills, and immediate availability for full-time work, I am ready to deliver tangible value to both product teams and software outsource projects.
-          </p>
+          <p>{t.about.p1}</p>
+          <p>{t.about.p2}</p>
         </div>
       </section>
 
       <section className="projects-section compact-projects" id="projects">
         <div className="section-heading project-heading">
-          <p className="section-label">Featured Case Studies &amp; Systems</p>
-          <h2>Business systems analyzed from domain friction to technical specification.</h2>
-          <p>
-            Each case demonstrates end-to-end business problem solving: workflow diagrams, relational schemas,
-            concurrency controls, API contracts, and working system interfaces.
-          </p>
+          <p className="section-label">{t.projectsSection.label}</p>
+          <h2>{t.projectsSection.heading}</h2>
+          <p>{t.projectsSection.subtitle}</p>
         </div>
 
         <div className="project-deck" aria-label="Selected project deck">
@@ -423,11 +916,11 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
 
       <section className="section-grid" id="skills">
         <div>
-          <p className="section-label">Skills</p>
-          <h2>Implementation skills supported by process, data, and domain analysis.</h2>
+          <p className="section-label">{t.skillsSection.label}</p>
+          <h2>{t.skillsSection.heading}</h2>
         </div>
         <div className="skill-grid">
-          {skillGroups.map((group) => {
+          {t.skillsSection.groups.map((group) => {
             const Icon = group.icon;
             const href = group.href;
             const content = (
@@ -446,7 +939,7 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
 
             return href ? (
               <a
-                className={`skill-card skill-card-clickable${group.title === "Business Analysis" ? " skill-card-featured" : ""}`}
+                className={`skill-card skill-card-clickable${group.title === "Phân tích Nghiệp vụ & Đặc tả" || group.title === "Business Analysis & Specs" ? " skill-card-featured" : ""}`}
                 href={href}
                 key={group.title}
                 onClick={(event) => navigate(event, href)}
@@ -468,15 +961,10 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
             <BriefcaseBusiness size={22} aria-hidden="true" />
           </div>
           <div>
-            <p className="section-label">Business Analyst Experience</p>
-            <h2>HomeNest Software — Associate Business Analyst (Promoted from Intern) · PM Assistant</h2>
-            <p className="experience-meta">Mar 2026 – Present · Ho Chi Minh City, Vietnam</p>
-            <p>
-              Promoted from Intern to official Associate BA following impactful contributions to sprint velocity and stakeholder alignment.
-              Acted as a diplomatic bridge during requirements discovery, tactfully negotiating technical workarounds to defend Scope Freeze baselines
-              while sustaining client trust. Standardized engineering-ready User Stories with <b>Given-When-Then</b> acceptance criteria and data dictionaries
-              to eliminate edge-case friction between Dev and QA. Partnered with the PM in Jira backlog grooming, and facilitated role-based UAT verification across 2+ release cycles.
-            </p>
+            <p className="section-label">{t.experienceSection.homeNest.label}</p>
+            <h2>{t.experienceSection.homeNest.title}</h2>
+            <p className="experience-meta">{t.experienceSection.homeNest.meta}</p>
+            <p>{t.experienceSection.homeNest.text}</p>
           </div>
         </div>
 
@@ -485,24 +973,20 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
             <BriefcaseBusiness size={22} aria-hidden="true" />
           </div>
           <div>
-            <p className="section-label">Operations Experience</p>
-            <h2>J&amp;T Express — Operations Process Coordinator (Full-time)</h2>
-            <p className="experience-meta">Sep 2025 – Feb 2026 · Ho Chi Minh City, Vietnam</p>
-            <p>
-              Coordinated branch logistics handling &gt;300 shipments/day. Tactfully engaged frontline shift crews to adopt a closed-loop unidirectional
-              processing flow (Intake &rarr; Weighing &rarr; Scanning &rarr; Dispatch), relieving sorting bottlenecks and cutting turnaround time by 25%.
-              Authored exception SOPs to eliminate shift-to-shift disputes, and instituted daily physical-to-digital reconciliation routines to ensure 100% supply chain data integrity.
-            </p>
+            <p className="section-label">{t.experienceSection.jnt.label}</p>
+            <h2>{t.experienceSection.jnt.title}</h2>
+            <p className="experience-meta">{t.experienceSection.jnt.meta}</p>
+            <p>{t.experienceSection.jnt.text}</p>
           </div>
         </div>
       </section>
 
       <section className="contact-section" id="contact">
         <div>
-          <p className="section-label">Ready to Connect</p>
-          <h2>Open to IT Business Analyst (Fresher / Junior) and Associate PM roles.</h2>
+          <p className="section-label">{t.contactSection.label}</p>
+          <h2>{t.contactSection.heading}</h2>
           <p style={{ marginTop: "8px", color: "var(--muted)", fontSize: "14px" }}>
-            Available immediately for Full-time on-site or hybrid roles in Ho Chi Minh City.
+            {t.contactSection.subtitle}
           </p>
         </div>
         <div className="contact-links">
@@ -514,21 +998,21 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
             <Mail size={18} aria-hidden="true" />
             tutaivovan@gmail.com
           </a>
-          <a href="/VoVanTuTai_IT_Business_Analyst_CV_Tong_Quat.pdf" download>
+          <a href={t.contactSection.pdfGeneral.href} download>
             <Download size={18} aria-hidden="true" />
-            CV Tổng Quát (PDF Tiếng Việt)
+            {t.contactSection.pdfGeneral.label}
           </a>
-          <a href="/VoVanTuTai_Business_Analyst_CV.pdf" download>
+          <a href={t.contactSection.pdfBa.href} download>
             <Download size={18} aria-hidden="true" />
-            Resume (English PDF)
+            {t.contactSection.pdfBa.label}
           </a>
-          <a href="/cv-general.html" target="_blank" rel="noreferrer">
+          <a href={t.contactSection.webGeneral.href} target="_blank" rel="noreferrer">
             <ArrowUpRight size={18} aria-hidden="true" />
-            Xem CV Tổng Quát (Bản Web)
+            {t.contactSection.webGeneral.label}
           </a>
-          <a href="/po-ba-cv-vi.html" target="_blank" rel="noreferrer">
+          <a href={t.contactSection.webBa.href} target="_blank" rel="noreferrer">
             <ArrowUpRight size={18} aria-hidden="true" />
-            Xem CV Chuyên Sâu BA (Web)
+            {t.contactSection.webBa.label}
           </a>
           <a href="https://github.com/VoVanTuTai" target="_blank" rel="noreferrer">
             <Github size={18} aria-hidden="true" />
@@ -540,7 +1024,7 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
           </a>
           <span>
             <MapPin size={18} aria-hidden="true" />
-            TP. Hồ Chí Minh, Việt Nam (Sẵn sàng làm việc ngay)
+            {t.contactSection.location}
           </span>
         </div>
       </section>
@@ -549,7 +1033,7 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
         <span>Vo Van Tu Tai</span>
         <span>
           <Sparkles size={15} aria-hidden="true" />
-          Business Systems · Software + Analysis
+          {t.footer.caption}
         </span>
       </footer>
     </main>
@@ -2983,7 +3467,7 @@ function BusinessAnalysisLessonPage({ navigate }: { navigate: NavigateHandler })
             <div className="intro-script">
               <span>Portfolio positioning statement</span>
               <p>
-                “Tôi là Võ Văn Tú Tài, sinh viên ngành Hệ thống Thông tin tại IUH, định hướng Business Analysis
+                “Tôi là Võ Văn Tú Tài, đã hoàn thành chương trình đào tạo Kỹ sư Hệ thống Thông tin tại IUH (sẵn sàng làm việc Full-time), định hướng Business Analysis
                 với thế mạnh kết nối quy trình, business rule và dữ liệu với giải pháp kỹ thuật. Nền tảng System
                 Analysis &amp; Design, Database và Web Application đã được áp dụng qua use case, ERD, workflow và
                 các hệ thống đa vai trò. Trong Nexus Express, trải nghiệm vận hành tại J&amp;T được sử dụng để phân
