@@ -142,7 +142,7 @@ const portfolioDataVi: PortfolioLocaleData = {
     heading: "Cầu Nối Vững Chắc Giữa Bài Toán Kinh Doanh và Giải Pháp Kỹ Thuật",
     lede: (
       <>
-        Đã hoàn thành 100% chương trình đào tạo Kỹ sư <b>Hệ thống Thông tin (IUH - GPA 3.26/4.0 · Sẵn sàng làm việc Full-time)</b>, sở hữu thế mạnh kép về <b>Phân tích Nghiệp vụ</b> và <b>Tư duy Kỹ thuật Hệ thống</b>.
+        Đã hoàn thành chương trình đào tạo Kỹ sư <b>Hệ thống Thông tin (IUH - GPA 3.26/4.0 · Sẵn sàng làm việc Full-time)</b>, sở hữu thế mạnh kép về <b>Phân tích Nghiệp vụ</b> và <b>Tư duy Kỹ thuật Hệ thống</b>.
         Tích lũy 6+ tháng kinh nghiệm Associate BA tại <b>HomeNest Software</b> (được cất nhắc từ Thực tập sinh) cùng nền tảng vận hành hiện trường tại <b>J&amp;T Express</b>.
         Thành thạo xây dựng tài liệu <b>PRD/SRS</b> chuẩn kỹ thuật cho Dev, mô hình hóa quy trình <b>BPMN 2.0</b>, viết <b>User Stories (Given-When-Then)</b>,
         thiết kế wireframe <b>Figma</b>, và điều phối <b>UAT</b> xuyên suốt 2+ chu kỳ phát hành sản phẩm.
@@ -196,7 +196,7 @@ const portfolioDataVi: PortfolioLocaleData = {
     heading: "Một Business Analyst với tư duy kỹ thuật vững vàng và kinh nghiệm thực tế hiện trường.",
     p1: (
       <>
-        Tôi đã hoàn thành 100% chương trình đào tạo Kỹ sư Hệ thống Thông tin tại Trường Đại học Công nghiệp TP.HCM (IUH, GPA 3.26/4.0, tốt nghiệp 2026 và sẵn sàng nhận việc Full-time ngay lập tức),
+        Tôi đã hoàn thành chương trình đào tạo Kỹ sư Hệ thống Thông tin tại Trường Đại học Công nghiệp TP.HCM (IUH, GPA 3.26/4.0, tốt nghiệp 2026 và sẵn sàng làm việc Full-time),
         kết hợp kinh nghiệm thực chiến Associate Business Analyst tại <b>HomeNest Software</b> với nền tảng
         giải quyết bài toán vận hành thực địa tại <b>J&amp;T Express</b>.
       </>
@@ -227,9 +227,9 @@ const portfolioDataVi: PortfolioLocaleData = {
           href: "https://github.com/VoVanTuTai/tourist-accommodation-management-system",
           image: "/assets/project-tourist.png",
           stack: ["BPMN 2.0", "PRD/SRS", "RBAC Matrix", "VNPay IPN", "MySQL", "Express.js"],
-          summary: "Nền tảng quản lý lưu trú giải quyết triệt để tranh chấp giữ phòng đồng thời (race condition), lịch phòng theo thời gian thực, chính sách hủy phòng phân tầng và quy trình thanh toán trực tuyến.",
+          summary: "Nền tảng quản lý lưu trú kiểm soát hiệu quả tranh chấp giữ phòng đồng thời (race condition), lịch phòng theo thời gian thực, chính sách hủy phòng phân tầng và quy trình thanh toán trực tuyến.",
           highlights: [
-            "Thách thức Nghiệp vụ: Triệt tiêu rủi ro trùng lịch phòng (overbooking race condition) vào giờ cao điểm, phân quyền độc lập 3 nhóm người dùng (Khách/Chủ nhà/Quản trị) và xử lý sự cố rớt mạng khi thanh toán trực tuyến.",
+            "Thách thức Nghiệp vụ: Phòng ngừa rủi ro trùng lịch phòng (overbooking race condition) vào giờ cao điểm, phân quyền độc lập 3 nhóm người dùng (Khách/Chủ nhà/Quản trị) và xử lý sự cố rớt mạng khi thanh toán trực tuyến.",
             "Phân tích BA & Giải pháp: Soạn thảo PRD/SRS với tiêu chí Given-When-Then; thiết kế cơ chế giữ phòng tạm thời (Held/Pending kèm TTL), ma trận phân quyền RBAC nghiêm ngặt, chính sách hủy phạt linh hoạt và hợp đồng Webhook VNPay IPN.",
             "Kết quả & Bàn giao: Cổng thông tin tương tác đa phân quyền hiển thị tình trạng phòng thời gian thực, thanh toán mã QR an toàn, xuất hóa đơn điện tử tự động và bộ kịch bản kiểm thử UAT hoàn chỉnh.",
           ],
@@ -360,7 +360,7 @@ const portfolioDataVi: PortfolioLocaleData = {
         <>
           Được cất nhắc từ Thực tập sinh lên Associate BA chính thức sau những đóng góp rõ nét vào tốc độ triển khai sprint và sự đồng thuận giữa các bên liên quan.
           Đóng vai trò cầu nối khéo léo trong giai đoạn khơi gợi yêu cầu, chủ động thương lượng các phương án kỹ thuật thay thế để bảo vệ mốc Scope Freeze của sprint mà vẫn duy trì sự tin cậy từ khách hàng.
-          Chuẩn hóa hệ thống User Stories kèm tiêu chí nghiệm thu <b>Given-When-Then</b> và từ điển dữ liệu rõ ràng, giúp xóa bỏ hiểu nhầm về edge-case giữa đội Dev và QA.
+          Chuẩn hóa hệ thống User Stories kèm tiêu chí nghiệm thu <b>Given-When-Then</b> và từ điển dữ liệu rõ ràng, giúp hạn chế tối đa hiểu nhầm về edge-case giữa đội Dev và QA.
           Đồng hành cùng PM trong các buổi Backlog Grooming trên Jira và trực tiếp điều phối kiểm thử UAT phân quyền xuyên suốt 2+ chu kỳ phát hành sản phẩm.
         </>
       ),
@@ -371,8 +371,8 @@ const portfolioDataVi: PortfolioLocaleData = {
       meta: "09/2025 – 02/2026 · TP. Hồ Chí Minh, Việt Nam",
       text: (
         <>
-          Điều phối hoạt động logistics bưu cục với sản lượng &gt;300 đơn hàng/ngày. Khéo léo thuyết phục và hướng dẫn đội ngũ nhân viên ca áp dụng quy trình xử lý đơn hàng một chiều khép kín (Nhập kiện &rarr; Cân đo &rarr; Quét mã &rarr; Xuất bưu cục), giải tỏa dứt điểm tình trạng nghẽn hàng và rút ngắn 25% thời gian xử lý.
-          Biên soạn quy trình thao tác chuẩn (SOP) xử lý ngoại lệ nhằm triệt tiêu tranh cãi giao nhận giữa các ca, đồng thời thiết lập thói quen đối soát dữ liệu thực tế và hệ thống mỗi ngày để đảm bảo tính toàn vẹn 100% của chuỗi dữ liệu bưu gửi.
+          Điều phối hoạt động logistics bưu cục với sản lượng &gt;300 đơn hàng/ngày. Khéo léo thuyết phục và hướng dẫn đội ngũ nhân viên ca áp dụng quy trình xử lý đơn hàng một chiều khép kín (Nhập kiện &rarr; Cân đo &rarr; Quét mã &rarr; Xuất bưu cục), giải tỏa tình trạng nghẽn hàng và rút ngắn 25% thời gian xử lý.
+          Biên soạn quy trình thao tác chuẩn (SOP) xử lý ngoại lệ nhằm giảm thiểu tranh cãi giao nhận giữa các ca, đồng thời thiết lập thói quen đối soát dữ liệu thực tế và hệ thống mỗi ngày để nâng cao tính toàn vẹn và chuẩn xác của dữ liệu bưu gửi.
         </>
       ),
     },
@@ -406,7 +406,7 @@ const portfolioDataEn: PortfolioLocaleData = {
     heading: "Bridging Business Needs with Engineering Execution",
     lede: (
       <>
-        Completed 100% of the Information Systems Engineering degree requirements from <b>IUH (GPA 3.26/4.0 · Available Full-time)</b> with a dual edge in <b>Business Analysis</b> and <b>Technical Systems Design</b>.
+        Completed Information Systems Engineering degree requirements from <b>IUH (GPA 3.26/4.0 · Available Full-time)</b> with a dual edge in <b>Business Analysis</b> and <b>Technical Systems Design</b>.
         Equipped with 6+ months of hands-on Associate BA experience at <b>HomeNest Software</b> (promoted from Intern) and frontline operational grounding at <b>J&amp;T Express</b>.
         Proven track record in authoring engineering-ready <b>PRD/SRS</b>, modeling <b>BPMN 2.0</b> workflows, crafting testable <b>Given-When-Then</b> User Stories,
         designing <b>Figma wireframes</b>, and coordinating end-to-end <b>UAT</b> across 2+ release cycles.
@@ -460,7 +460,7 @@ const portfolioDataEn: PortfolioLocaleData = {
     heading: "A Business Analyst with strong technical literacy and real-world operational grounding.",
     p1: (
       <>
-        I have completed 100% of the curriculum for the Engineer's Degree / Bachelor of Engineering (B.Eng.) in Information Systems at Industrial University of Ho Chi Minh City (IUH, GPA 3.26/4.0, available immediately for full-time roles),
+        I have completed the curriculum for the Engineer's Degree / Bachelor of Engineering (B.Eng.) in Information Systems at Industrial University of Ho Chi Minh City (IUH, GPA 3.26/4.0, available immediately for full-time roles),
         combining hands-on Associate Business Analyst experience at <b>HomeNest Software</b> with frontline operational
         problem-solving at <b>J&amp;T Express</b>.
       </>
@@ -492,7 +492,7 @@ const portfolioDataEn: PortfolioLocaleData = {
           stack: ["BPMN 2.0", "PRD/SRS", "RBAC Matrix", "VNPay IPN", "MySQL", "Express.js"],
           summary: "A multi-role booking platform resolving room overbooking race conditions, dynamic inventory calendars, tiered cancellations, and online payment workflows.",
           highlights: [
-            "Business Challenge: Eliminating room overbooking race conditions during peak traffic, isolating 3-tier user roles (Guest/Host/Admin), and handling network drops during online payment.",
+            "Business Challenge: Preventing room overbooking race conditions during peak traffic, isolating 3-tier user roles (Guest/Host/Admin), and handling network drops during online payment.",
             "BA Analysis & Solution: Authored PRD/SRS with Given-When-Then criteria; modeled temporary holds (Held/Pending with TTL), strict RBAC permissions, tiered cancellation policies, and VNPay IPN webhook contracts.",
             "Outcome & Deliverables: Interactive multi-role portal featuring real-time room availability, secure QR payments, automated digital invoices, and verified UAT test suite.",
           ],
@@ -624,7 +624,7 @@ const portfolioDataEn: PortfolioLocaleData = {
           Promoted from Intern to official Associate BA following impactful contributions to sprint velocity and stakeholder alignment.
           Acted as a diplomatic bridge during requirements discovery, tactfully negotiating technical workarounds to defend Scope Freeze baselines
           while sustaining client trust. Standardized engineering-ready User Stories with <b>Given-When-Then</b> acceptance criteria and data dictionaries
-          to eliminate edge-case friction between Dev and QA. Partnered with the PM in Jira backlog grooming, and facilitated role-based UAT verification across 2+ release cycles.
+          to minimize edge-case friction between Dev and QA. Partnered with the PM in Jira backlog grooming, and facilitated role-based UAT verification across 2+ release cycles.
         </>
       ),
     },
@@ -636,7 +636,7 @@ const portfolioDataEn: PortfolioLocaleData = {
         <>
           Coordinated branch logistics handling &gt;300 shipments/day. Tactfully engaged frontline shift crews to adopt a closed-loop unidirectional
           processing flow (Intake &rarr; Weighing &rarr; Scanning &rarr; Dispatch), relieving sorting bottlenecks and cutting turnaround time by 25%.
-          Authored exception SOPs to eliminate shift-to-shift disputes, and instituted daily physical-to-digital reconciliation routines to ensure 100% supply chain data integrity.
+          Authored exception SOPs to resolve shift-to-shift disputes, and instituted daily physical-to-digital reconciliation routines to ensure cross-shift supply chain data integrity.
         </>
       ),
     },
@@ -3467,7 +3467,7 @@ function BusinessAnalysisLessonPage({ navigate }: { navigate: NavigateHandler })
             <div className="intro-script">
               <span>Portfolio positioning statement</span>
               <p>
-                “Tôi là Võ Văn Tú Tài, đã hoàn thành 100% chương trình đào tạo Kỹ sư Hệ thống Thông tin tại IUH (sẵn sàng làm việc Full-time), định hướng Business Analysis
+                “Tôi là Võ Văn Tú Tài, đã hoàn thành chương trình đào tạo Kỹ sư Hệ thống Thông tin tại IUH (sẵn sàng làm việc Full-time), định hướng Business Analysis
                 với thế mạnh kết nối quy trình, business rule và dữ liệu với giải pháp kỹ thuật. Nền tảng System
                 Analysis &amp; Design, Database và Web Application đã được áp dụng qua use case, ERD, workflow và
                 các hệ thống đa vai trò. Trong Nexus Express, trải nghiệm vận hành tại J&amp;T được sử dụng để phân
