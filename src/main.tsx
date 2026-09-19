@@ -355,7 +355,7 @@ const portfolioDataVi: PortfolioLocaleData = {
     homeNest: {
       label: "Kinh nghiệm Phân tích Nghiệp vụ",
       title: "HomeNest Software — Associate Business Analyst (Cất nhắc từ Thực tập sinh) · Trợ lý PM",
-      meta: "03/2026 – Hiện tại · TP. Hồ Chí Minh, Việt Nam",
+      meta: "03/2026 – 09/2026 · TP. Hồ Chí Minh, Việt Nam",
       text: (
         <>
           Được cất nhắc từ Thực tập sinh lên Associate BA chính thức sau những đóng góp rõ nét vào tốc độ triển khai sprint và sự đồng thuận giữa các bên liên quan.
@@ -618,7 +618,7 @@ const portfolioDataEn: PortfolioLocaleData = {
     homeNest: {
       label: "Business Analyst Experience",
       title: "HomeNest Software — Associate Business Analyst (Promoted from Intern) · PM Assistant",
-      meta: "Mar 2026 – Present · Ho Chi Minh City, Vietnam",
+      meta: "Mar 2026 – Sep 2026 · Ho Chi Minh City, Vietnam",
       text: (
         <>
           Promoted from Intern to official Associate BA following impactful contributions to sprint velocity and stakeholder alignment.
