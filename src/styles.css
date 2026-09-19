@@ -120,8 +120,14 @@ footer span:last-child,
   box-shadow: 0 8px 24px rgba(17, 24, 39, 0.12);
 }
 
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 2.5vw, 32px);
+}
+
 .topbar nav {
-  gap: clamp(12px, 3vw, 28px);
+  gap: clamp(12px, 2.5vw, 24px);
   color: #3f4b5b;
   font-size: 14px;
   font-weight: 800;
@@ -151,6 +157,46 @@ footer span:last-child,
 
 .topbar nav a:hover::after {
   transform: scaleX(1);
+}
+
+.lang-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px 4px;
+  background: rgba(17, 24, 39, 0.06);
+  border: 1px solid rgba(17, 24, 39, 0.08);
+  border-radius: 999px;
+}
+
+.lang-btn {
+  border: none;
+  background: transparent;
+  padding: 5px 11px;
+  border-radius: 999px;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.18s ease;
+  line-height: 1;
+}
+
+.lang-btn:hover {
+  color: var(--ink);
+}
+
+.lang-btn.is-active {
+  background: #ffffff;
+  color: var(--blue);
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.16);
+}
+
+.lang-divider {
+  color: rgba(17, 24, 39, 0.22);
+  font-size: 11px;
+  user-select: none;
 }
 
 .hero {
@@ -4279,13 +4325,23 @@ footer span:last-child {
   .topbar {
     align-items: flex-start;
     flex-direction: column;
+    gap: 14px;
+  }
+
+  .topbar-right {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 14px;
   }
 
   .topbar nav {
-    width: 100%;
+    width: auto;
     flex-wrap: wrap;
     justify-content: flex-start;
-    gap: 18px 32px;
+    gap: 14px 24px;
   }
 
   h1 {
