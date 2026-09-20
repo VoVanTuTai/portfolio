@@ -358,10 +358,9 @@ const portfolioDataVi: PortfolioLocaleData = {
       meta: "03/2026 – 09/2026 · TP. Hồ Chí Minh, Việt Nam",
       text: (
         <>
-          Được cất nhắc từ Thực tập sinh lên Associate BA chính thức sau những đóng góp rõ nét vào tốc độ triển khai sprint và sự đồng thuận giữa các bên liên quan.
-          Đóng vai trò cầu nối khéo léo trong giai đoạn khơi gợi yêu cầu, chủ động thương lượng các phương án kỹ thuật thay thế để bảo vệ mốc Scope Freeze của sprint mà vẫn duy trì sự tin cậy từ khách hàng.
-          Chuẩn hóa hệ thống User Stories kèm tiêu chí nghiệm thu <b>Given-When-Then</b> và từ điển dữ liệu rõ ràng, giúp hạn chế tối đa hiểu nhầm về edge-case giữa đội Dev và QA.
-          Đồng hành cùng PM trong các buổi Backlog Grooming trên Jira và trực tiếp điều phối kiểm thử UAT phân quyền xuyên suốt 2+ chu kỳ phát hành sản phẩm.
+          Được cất nhắc từ Thực tập sinh lên Associate BA chính thức; trực tiếp phân tích nghiệp vụ và điều phối triển khai 2 nền tảng trọng điểm: <b>"Hỗ Trợ Cuộc Sống"</b> (Hệ sinh thái tiện ích: Thợ sửa chữa theo yêu cầu, Chuyến xe ngắn tức thời, Xe ghép, Việc làm &amp; Admin tổng) và <b>"VietPlus"</b> (Nền tảng đăng tin rao vặt mua bán &amp; kết nối chuyến xe ghép cho cộng đồng tại thị trường Hàn Quốc).
+          Thiết kế luồng máy trạng thái cho <b>Module Thương lượng giá dịch vụ</b> (trả giá hai chiều giữa khách và thợ/tài xế) cùng <b>cơ chế làm mới GPS theo sự kiện</b> (chỉ refresh khi nhận đơn/hoàn tất) giúp tiết kiệm tối đa chi phí gọi API bản đồ.
+          Gia nhập VietPlus giữa chừng, nhanh chóng kiểm soát nghiệp vụ; trực tiếp làm việc với khách hàng xử lý Change Requests về luồng <b>giao nhận, hủy đơn, hoàn hàng</b> và đề xuất giải pháp tinh gọn cho <b>Module Giao hàng Việt - Hàn</b> (Form tiếp nhận nhu cầu) bảo vệ Scope Freeze; soạn thảo biên bản cuộc họp, lập Go-Live Checklist (tư vấn tài khoản App Store / Google Play) và điều phối UAT xuyên suốt 2+ chu kỳ phát hành sản phẩm.
         </>
       ),
     },
@@ -371,8 +370,8 @@ const portfolioDataVi: PortfolioLocaleData = {
       meta: "09/2025 – 02/2026 · TP. Hồ Chí Minh, Việt Nam",
       text: (
         <>
-          Điều phối hoạt động logistics bưu cục với sản lượng &gt;300 đơn hàng/ngày. Khéo léo thuyết phục và hướng dẫn đội ngũ nhân viên ca áp dụng quy trình xử lý đơn hàng một chiều khép kín (Nhập kiện &rarr; Cân đo &rarr; Quét mã &rarr; Xuất bưu cục), giải tỏa tình trạng nghẽn hàng và rút ngắn 25% thời gian xử lý.
-          Biên soạn quy trình thao tác chuẩn (SOP) xử lý ngoại lệ nhằm giảm thiểu tranh cãi giao nhận giữa các ca, đồng thời thiết lập thói quen đối soát dữ liệu thực tế và hệ thống mỗi ngày để nâng cao tính toàn vẹn và chuẩn xác của dữ liệu bưu gửi.
+          Điều phối hoạt động logistics bưu cục với sản lượng lớn mỗi ngày. Khéo léo thuyết phục và hướng dẫn đội ngũ nhân viên ca áp dụng quy trình xử lý đơn hàng một chiều khép kín (Nhập kiện &rarr; Cân đo &rarr; Quét mã &rarr; Xuất bưu cục), giải tỏa tình trạng nghẽn hàng và rút ngắn đáng kể thời gian xử lý đơn.
+          Biên soạn quy trình thao tác chuẩn (SOP) xử lý ngoại lệ nhằm giảm thiểu tranh cãi giao nhận giữa các ca, đồng thời thiết lập thói quen đối soát dữ liệu thực tế và hệ thống mỗi ngày để bảo đảm tính toàn vẹn và chuẩn xác của dữ liệu bưu gửi.
         </>
       ),
     },
@@ -621,10 +620,9 @@ const portfolioDataEn: PortfolioLocaleData = {
       meta: "Mar 2026 – Sep 2026 · Ho Chi Minh City, Vietnam",
       text: (
         <>
-          Promoted from Intern to official Associate BA following impactful contributions to sprint velocity and stakeholder alignment.
-          Acted as a diplomatic bridge during requirements discovery, tactfully negotiating technical workarounds to defend Scope Freeze baselines
-          while sustaining client trust. Standardized engineering-ready User Stories with <b>Given-When-Then</b> acceptance criteria and data dictionaries
-          to minimize edge-case friction between Dev and QA. Partnered with the PM in Jira backlog grooming, and facilitated role-based UAT verification across 2+ release cycles.
+          Promoted from Intern to official Associate BA; directly analyzed requirements and coordinated delivery for 2 key platforms: <b>"Hỗ Trợ Cuộc Sống"</b> (Multi-service ecosystem: On-demand Home Repair, Short-trip Ride-hailing, Carpooling, Job Matching &amp; Admin portal) and <b>"VietPlus"</b> (Classified marketplace &amp; community carpooling platform for the South Korea market).
+          Modeled state-driven workflows for the <b>Interactive Price Negotiation module</b> (bid/counter-offer rules) and specified an <b>event-driven GPS refresh mechanism</b> (refreshing coordinates upon pickup/completion instead of continuous polling) to slash third-party map API costs.
+          Joined VietPlus mid-stream, rapidly establishing domain control; directly interfaced with clients on Change Requests for marketplace fulfillment, cancellations, returns (hoàn hàng), and innovated a lean inquiry-form MVP for Vietnam–Korea shipping to defend Scope Freeze; authored Meeting Minutes, curated commercial Go-Live checklists (App Store / Google Play accounts), and facilitated client UAT across 2+ release cycles.
         </>
       ),
     },
@@ -634,8 +632,8 @@ const portfolioDataEn: PortfolioLocaleData = {
       meta: "Sep 2025 – Feb 2026 · Ho Chi Minh City, Vietnam",
       text: (
         <>
-          Coordinated branch logistics handling &gt;300 shipments/day. Tactfully engaged frontline shift crews to adopt a closed-loop unidirectional
-          processing flow (Intake &rarr; Weighing &rarr; Scanning &rarr; Dispatch), relieving sorting bottlenecks and cutting turnaround time by 25%.
+          Coordinated branch logistics handling high-volume daily shipments. Tactfully engaged frontline shift crews to adopt a closed-loop unidirectional
+          processing flow (Intake &rarr; Weighing &rarr; Scanning &rarr; Dispatch), relieving sorting bottlenecks and substantially accelerating shipment turnaround times.
           Authored exception SOPs to resolve shift-to-shift disputes, and instituted daily physical-to-digital reconciliation routines to ensure cross-shift supply chain data integrity.
         </>
       ),

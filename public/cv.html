@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vo Van Tu Tai — Business Analyst Resume</title>
-    <!-- Inter Font Support (Modern, Crisp, Ultra-readable) -->
+    <!-- Inter Font Support (Modern, Crisp, Ultra-readable, ATS Standard) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -18,9 +18,9 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: #e8e8e8;
-            color: #111;
-            line-height: 1.26;
+            background: #e4e7eb;
+            color: #1a1a1a;
+            line-height: 1.35;
             font-size: 13px;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
@@ -33,42 +33,46 @@
             text-decoration: none !important;
         }
 
+        /* ── 2-PAGE A4 CONTAINER ── */
         .page {
             width: 210mm;
             min-height: 297mm;
-            max-height: 297mm;
             height: 297mm;
+            max-height: 297mm;
             background: #fff;
-            margin: 15px auto;
-            padding: 5.5mm 12.5mm 4.5mm 12.5mm;
-            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+            margin: 20px auto;
+            padding: 7.5mm 14mm 6.5mm 14mm;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
             overflow: hidden;
-            color: #111;
+            box-sizing: border-box;
+            position: relative;
         }
 
         /* ── HEADER ── */
         .header {
             text-align: center;
-            margin-bottom: 2px;
+            margin-bottom: 5px;
+            padding-bottom: 3px;
         }
 
         .name {
-            font-size: 20pt;
+            font-size: 21pt;
             font-weight: 700;
-            letter-spacing: -0.3px;
+            letter-spacing: -0.4px;
             color: #111;
             line-height: 1.1;
-            margin-bottom: 1.5px;
+            margin-bottom: 3px;
         }
 
         .subtitle {
-            font-size: 9.8pt;
-            font-weight: 500;
-            color: #222;
-            margin-bottom: 2.5px;
+            font-size: 10pt;
+            font-weight: 600;
+            color: #2b3648;
+            margin-bottom: 5px;
+            letter-spacing: 0.1px;
         }
 
         .contact-row {
@@ -77,8 +81,8 @@
             align-items: center;
             flex-wrap: nowrap;
             gap: 0 8px;
-            font-size: 8.7pt;
-            color: #111;
+            font-size: 8.15pt;
+            color: #333;
             max-width: 100%;
             margin: 0 auto;
             white-space: nowrap;
@@ -86,58 +90,59 @@
 
         .contact-row a,
         .contact-row span {
-            color: #111 !important;
+            color: #222 !important;
             text-decoration: none !important;
             display: inline-flex;
             align-items: center;
-            gap: 3px;
+            gap: 4px;
             line-height: 1;
             vertical-align: middle;
         }
 
         .contact-icon {
-            width: 10px;
-            height: 10px;
-            fill: #111;
+            width: 11px;
+            height: 11px;
+            fill: #333;
             flex-shrink: 0;
             display: inline-block;
             vertical-align: middle;
         }
 
         .separator {
-            color: #555;
-            font-size: 8pt;
+            color: #888;
+            font-size: 8.5pt;
             user-select: none;
         }
 
         /* ── SECTIONS ── */
         .section {
-            margin-top: 2px;
+            margin-top: 5px;
+            margin-bottom: 3px;
         }
 
         .section-title {
-            font-size: 9.8pt;
+            font-size: 10pt;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.6px;
-            color: #111;
-            border-bottom: 1px solid #111;
-            padding-bottom: 0.5px;
-            margin-bottom: 1.5px;
+            color: #0f2744;
+            border-bottom: 1.5px solid #0f2744;
+            padding-bottom: 2px;
+            margin-bottom: 4px;
         }
 
         /* ── SUMMARY ── */
         .summary-text {
-            font-size: 8.95pt;
-            line-height: 1.25;
-            color: #222;
+            font-size: 9.1pt;
+            line-height: 1.34;
+            color: #262626;
             text-align: justify;
             text-justify: inter-word;
         }
 
         /* ── ENTRIES ── */
         .entry {
-            margin-bottom: 1.5px;
+            margin-bottom: 5px;
         }
 
         .entry:last-child {
@@ -148,7 +153,7 @@
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            font-size: 9.3pt;
+            font-size: 9.7pt;
             color: #111;
         }
 
@@ -164,45 +169,63 @@
         }
 
         .project-link {
-            font-size: 8.3pt !important;
+            font-size: 8.5pt !important;
             font-weight: 600 !important;
             color: #0949b8 !important;
             text-decoration: underline !important;
-            margin-left: 4px;
+            margin-left: 5px;
             white-space: nowrap;
         }
 
         .entry-location {
-            font-weight: 400;
-            color: #222;
-            font-size: 8.7pt;
+            font-weight: 500;
+            color: #444;
+            font-size: 8.9pt;
         }
 
         .entry-sub {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            font-size: 8.6pt;
+            font-size: 9pt;
             color: #333;
-            margin-bottom: 0.8px;
+            margin-bottom: 2.5px;
         }
 
         .entry-role {
             font-weight: 600;
-            color: #222;
+            color: #1a365d;
         }
 
         .entry-tech {
             font-style: italic;
-            font-size: 8.5pt;
-            color: #333;
+            font-size: 8.7pt;
+            color: #444;
         }
 
         .entry-date {
             font-style: italic;
-            font-size: 8.6pt;
-            color: #333;
+            font-size: 8.9pt;
+            color: #444;
             white-space: nowrap;
+        }
+
+        /* Sub-project header */
+        .sub-project-header {
+            font-size: 9.2pt;
+            font-weight: 700;
+            color: #2b3648;
+            margin-top: 3.5px;
+            margin-bottom: 2px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .sub-project-header::before {
+            content: "▸";
+            color: #0949b8;
+            font-weight: bold;
         }
 
         /* ── BULLETS ── */
@@ -213,10 +236,10 @@
         }
 
         .bullet-list li {
-            font-size: 8.85pt;
-            line-height: 1.23;
-            color: #222;
-            margin-bottom: 0.8px;
+            font-size: 9.05pt;
+            line-height: 1.30;
+            color: #262626;
+            margin-bottom: 2.2px;
             text-align: justify;
             text-justify: inter-word;
         }
@@ -238,10 +261,11 @@
         }
 
         .skills-list li {
-            font-size: 8.85pt;
-            line-height: 1.25;
-            margin-bottom: 0.8px;
-            color: #222;
+            font-size: 8.95pt;
+            line-height: 1.32;
+            color: #262626;
+            margin-bottom: 3.5px;
+            text-align: justify;
         }
 
         .skills-list li:last-child {
@@ -250,31 +274,65 @@
 
         .skills-list b {
             font-weight: 600;
-            color: #111;
+            color: #0f2744;
         }
 
-        /* ── PRINT BUTTON ── */
-        #print-btn {
+        /* ── PAGE NUMBER ── */
+        .page-number {
+            position: absolute;
+            bottom: 4mm;
+            right: 14mm;
+            font-size: 8pt;
+            color: #888;
+            font-weight: 500;
+        }
+
+        /* ── ACTION BAR ── */
+        .action-bar {
             position: fixed;
             bottom: 20px;
-            right: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
             padding: 10px 18px;
-            background: #000;
-            color: #fff;
-            border: 1px solid #fff;
-            border-radius: 6px;
-            cursor: pointer;
-            font-family: inherit;
+            border-radius: 30px;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            z-index: 1000;
+        }
+
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #0f2744;
+            color: #fff !important;
+            padding: 8px 16px;
+            border-radius: 20px;
             font-size: 13px;
             font-weight: 600;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-            z-index: 9999;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
             transition: all 0.2s ease;
         }
 
-        #print-btn:hover {
-            background: #333;
-            transform: translateY(-2px);
+        .action-btn:hover {
+            background: #1a4275;
+            transform: translateY(-1px);
+        }
+
+        .action-btn.secondary {
+            background: #fff;
+            color: #111 !important;
+            border: 1px solid #ccc;
+        }
+
+        .action-btn.secondary:hover {
+            background: #f0f0f0;
         }
 
         @media print {
@@ -284,13 +342,19 @@
 
             .page {
                 margin: 0;
-                padding: 8.5mm 15mm 6.5mm 15mm;
+                padding: 7.5mm 14mm 6.5mm 14mm;
                 box-shadow: none;
                 width: 210mm;
                 height: 297mm;
+                min-height: 297mm;
                 max-height: 297mm;
+                page-break-after: always;
+                break-after: page;
+            }
+
+            .page:last-child {
                 page-break-after: avoid;
-                page-break-inside: avoid;
+                break-after: avoid;
             }
 
             @page {
@@ -298,7 +362,7 @@
                 margin: 0;
             }
 
-            #print-btn {
+            .action-bar {
                 display: none !important;
             }
         }
@@ -306,11 +370,12 @@
 </head>
 
 <body>
+    <!-- ════════════════════ PAGE 1 ════════════════════ -->
     <div class="page">
         <!-- HEADER -->
         <header class="header">
             <h1 class="name">Vo Van Tu Tai</h1>
-            <div class="subtitle">Associate Business Analyst · Systems Analyst</div>
+            <div class="subtitle">Associate Business Analyst · Product Owner Trainee · SDLC Implementation &amp; Delivery</div>
             <div class="contact-row">
                 <a href="tel:+84869500573">
                     <svg class="contact-icon" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
@@ -332,37 +397,19 @@
                     github.com/VoVanTuTai
                 </a>
                 <span class="separator">|</span>
-                <a href="https://vovantutai-portfolio.vercel.app" target="_blank">
+                <a href="https://vovantutai.is-a.dev" target="_blank">
                     <svg class="contact-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
                     Portfolio
                 </a>
             </div>
         </header>
 
-        <!-- SUMMARY -->
+        <!-- PROFESSIONAL SUMMARY -->
         <section class="section">
-            <div class="section-title">Summary</div>
+            <div class="section-title">Professional Summary</div>
             <p class="summary-text">
-                Information Systems Engineer (IUH) having completed all degree requirements with a grounded analytical mindset, solid technical foundation, immediate full-time availability, and dual competence across <b>IT Business Analysis &amp; Project Coordination</b>. Hands-on experience across 6 months at <b>HomeNest Software</b> and practical logistics operational problem-solving at <b>J&amp;T Express</b>. Strong aptitude in clarifying business requirements, modeling workflows with <b>BPMN 2.0</b>, designing data flows, and authoring detailed <b>PRD/SRS</b> and testable <b>User Stories (Given-When-Then)</b> for engineering teams. Practical exposure to Order Management Systems (OMS), reservation platforms, and digital payment integrations. Dedicated to delivering high-impact, engineering-ready product outcomes.
+                Information Systems Engineer (IUH) bridging business strategy and software delivery across <b>IT Business Analysis &amp; Associate Product Ownership (PO Assistant)</b>. Proven track record in gathering stakeholder requirements, negotiating workarounds for Change Requests to defend <b>Scope Freeze</b>, and authoring rigorous technical specifications (<b>PRD, User Stories Given-When-Then, UAT Scenarios</b>). Strong technical foundation in <b>SQL database querying, RESTful APIs, and process automation (BPMN 2.0 / Webhooks)</b>. Available for immediate full-time employment.
             </p>
-        </section>
-
-        <!-- EDUCATION -->
-        <section class="section">
-            <div class="section-title">Education</div>
-            <div class="entry">
-                <div class="entry-header">
-                    <span class="entry-title">Industrial University of Ho Chi Minh City (IUH)</span>
-                    <span class="entry-location">Ho Chi Minh City, Vietnam</span>
-                </div>
-                <div class="entry-sub">
-                    <span class="entry-role">Bachelor of Engineering (B.Eng.) in Information Systems · GPA: 3.26 / 4.0</span>
-                    <span class="entry-date">Sep 2022 – 2026 (Completed All Degree Requirements · Available Full-time)</span>
-                </div>
-                <ul class="bullet-list">
-                    <li><b>Supporting Technical Foundations:</b> Systems Analysis &amp; Design, Database Systems, Software Engineering, Web Development, Data Structures &amp; Algorithms, Service-Oriented Architecture.</li>
-                </ul>
-            </div>
         </section>
 
         <!-- WORK EXPERIENCE -->
@@ -379,11 +426,23 @@
                     <span class="entry-role">Associate Business Analyst (Promoted from Intern) · PM Assistant</span>
                     <span class="entry-date">Mar 2026 – Sep 2026</span>
                 </div>
+
+                <!-- Sub-project 1: Hỗ Trợ Cuộc Sống -->
+                <div class="sub-project-header">Project 1: "Hỗ Trợ Cuộc Sống" — Multi-Service On-Demand Community Platform</div>
                 <ul class="bullet-list">
-                    <li><b>FTE Promotion &amp; Sprint Velocity:</b> Promoted to official Associate BA following impactful internship contributions; partnered with PM in WBS breakdown and Jira Burndown tracking, tactfully balancing workload allocations to sustain velocity without engineer burnout.</li>
-                    <li><b>Scope Negotiation &amp; Conflict Resolution:</b> Acted as a diplomatic bridge between aggressive stakeholder demands and engineering constraints; negotiated viable technical workarounds to defend Scope Freeze baselines while maintaining high client trust.</li>
-                    <li><b>Engineering Alignment &amp; Edge Cases:</b> Translated business workflows into testable User Stories (Given-When-Then) with clear data dictionaries; proactively surfaced boundary exceptions early to minimize cross-functional logic friction between Dev and QA.</li>
-                    <li><b>UAT Facilitation &amp; Release Handover:</b> Established Definition of Done (DoD) and facilitated client UAT sessions; tactfully triaged defect severity (Blocker vs. Deferred) to drive 2+ release cycles to on-time commercial delivery.</li>
+                    <li><b>Multi-Service Architecture &amp; Scope Modeling:</b> Analyzed business requirements for a comprehensive community lifestyle ecosystem encompassing on-demand Home Repair (Thợ sửa chữa), Short-trip Ride-hailing (Chuyến xe ngắn tức thời), Carpooling (Xe ghép), Job Matching (Việc làm), and a centralized Super Admin portal; coordinated delivery alongside <b>"VietPlus"</b> (Classified marketplace &amp; community carpooling platform for the South Korea market).</li>
+                    <li><b>State-Driven Price Negotiation (Dynamic Bidding Acumen):</b> Solved transaction deadlocks and customer-provider pricing disputes by architecting a <b>state-driven counter-offer negotiation engine</b> (propose &harr; counter-bid &harr; accept/reject with automated TTL expiration); specified strict race-condition guards and status locking that eliminated requirement ambiguity for engineering.</li>
+                    <li><b>Event-Driven GPS Cost Optimization:</b> Addressed severe third-party map API budget overhead and driver device battery drain by replacing continuous high-frequency GPS polling with an <b>event-driven checkpoint refresh mechanism</b> (capturing location strictly upon order pickup and completion triggers); substantially reduced third-party map API consumption and eliminated driver device battery drain while preserving legally defensible proof-of-service records.</li>
+                    <li><b>Engineering Specifications &amp; Edge-Case Defense:</b> Authored comprehensive PRD, Use Case specifications, and testable User Stories (Given-When-Then) with complete data dictionaries; conducted 3-way alignment sessions (BA, UI/UX, Lead Dev) to validate Figma prototypes against relational schemas, preventing edge-case logic defects before sprint execution.</li>
+                </ul>
+
+                <!-- Sub-project 2: VietPlus -->
+                <div class="sub-project-header">Project 2: "VietPlus" — Classified Marketplace &amp; Community Carpooling Platform (South Korea Market)</div>
+                <ul class="bullet-list">
+                    <li><b>Mid-stream Onboarding &amp; Domain Control:</b> Onboarded mid-project into an active delivery cycle; rapidly audited backlog items, architecture, and localized business rules to establish complete BA ownership over ad listing lifecycles, content moderation, and carpooling coordination without onboarding disruption.</li>
+                    <li><b>Fulfillment, Cancellation &amp; Return Re-engineering:</b> Directly engaged clients to capture critical Change Requests (CRs); designed state-machine specifications and dispute protocols for <b>order fulfillment, automated cancellation triggers, and return/refund workflows (hoàn hàng)</b> between buyers and sellers.</li>
+                    <li><b>Lean MVP Solutioning (Vietnam–Korea Shipping Module):</b> Evaluated client request for a cross-border logistics service; diplomatically proposed and specified a <b>concierge Service Intake / Lead Form</b> (enabling platform staff to manually coordinate and fulfill orders) instead of over-engineering an automated logistics engine, protecting <b>Scope Freeze</b> and delivery deadlines.</li>
+                    <li><b>Go-Live Advisory, Functional QA &amp; UAT:</b> Formulated formal Meeting Minutes and a <b>Commercial Launch Checklist</b> (App Store, Google Play, credentials, policies); performed hands-on <b>functional &amp; smoke testing</b> on dev builds against User Stories, managing defect triage to secure smooth UAT client sign-off.</li>
                 </ul>
             </div>
 
@@ -398,35 +457,40 @@
                     <span class="entry-date">Sep 2025 – Feb 2026</span>
                 </div>
                 <ul class="bullet-list">
-                    <li><b>Field Collaboration &amp; Process Re-engineering:</b> Identified warehouse bottleneck patterns; tactfully engaged shift crews to adopt a closed-loop unidirectional sorting flow, cutting staging turnaround by 25% with full frontline team buy-in.</li>
-                    <li><b>SOP Standardization &amp; Dispute Prevention:</b> Authored standard operating procedures (SOP) categorizing anomalies (misroutes, delivery failures, RTOs); instituted clear yet fair operational boundaries to resolve shift-to-shift disputes and minimize friction.</li>
-                    <li><b>Data Reconciliation &amp; Integrity Control:</b> Established daily cross-verification routines between physical manifests and system logs; diplomatically resolved driver status mismatches before shift close to protect supply chain data integrity.</li>
+                    <li><b>Field Process Re-engineering &amp; Throughput Optimization:</b> Observed sorting floor bottlenecks handling high-volume daily shipments; engaged frontline crews to replace chaotic multidirectional handling with a streamlined closed-loop unidirectional sorting flow (Intake &rarr; Weigh &rarr; Scan &rarr; Dispatch), substantially accelerating turnaround times and eliminating floor bottlenecks with full team buy-in.</li>
+                    <li><b>Standardized Exception SOPs &amp; Dispute Prevention:</b> Authored standard operating procedures (SOP) categorizing operational anomalies (misroutes, delivery failures, RTOs); established equitable accountability boundaries that eliminated inter-shift friction and blame-shifting.</li>
+                    <li><b>Data Reconciliation &amp; Database Integrity Reporting:</b> Instituted daily cross-verification protocols between physical delivery manifests and logistics system logs; delivered daily SQL discrepancy reports to senior management, guaranteeing end-to-end supply chain data integrity and cross-shift reconciliation accuracy.</li>
                 </ul>
             </div>
         </section>
 
-        <!-- PROJECTS -->
-        <section class="section">
-            <div class="section-title">Selected Projects</div>
+        <div class="page-number">Page 1 of 2</div>
+    </div>
 
-            <!-- Tourist Accommodation Platform -->
+    <!-- ════════════════════ PAGE 2 ════════════════════ -->
+    <div class="page">
+        <!-- SELECTED TECHNICAL PROJECTS -->
+        <section class="section">
+            <div class="section-title">Selected Technical Projects</div>
+
+            <!-- Accommodation & Booking Platform -->
             <div class="entry">
                 <div class="entry-header">
                     <span class="entry-title">
-                        <a href="https://github.com/VoVanTuTai/tourist-accommodation-management-system" target="_blank">Accommodation &amp; Booking Management System</a>
+                        <a href="https://github.com/VoVanTuTai/tourist-accommodation-management-system" target="_blank">Multi-Role Service &amp; Online Booking Platform</a>
                         <a href="https://github.com/VoVanTuTai/tourist-accommodation-management-system" target="_blank" class="project-link">[GitHub ↗]</a>
                     </span>
-                    <span class="entry-location">Course Project</span>
+                    <span class="entry-location">Software Application Project</span>
                 </div>
                 <div class="entry-sub">
-                    <span class="entry-tech">Role Permission Matrix (RBAC), Reservation Concurrency Control, VNPay API, Express.js, MySQL</span>
+                    <span class="entry-tech">Concurrency Control, Role-Based Access Control (RBAC), VNPay API, MySQL, Express.js</span>
                     <span class="entry-date">Oct 2025 – Dec 2025</span>
                 </div>
                 <ul class="bullet-list">
-                    <li><b>Reservation Concurrency Control:</b> Addressed simultaneous booking attempts on single inventory units by designing temporary reservation holds (Held/Pending with TTL timeout) prior to payment confirmation, preventing double-booking.</li>
-                    <li><b>Flexible Cancellation Policy Modeling:</b> Modeled tiered cancellation timeframes that automatically release room availability back to the public calendar upon booking termination, helping hosts optimize occupancy.</li>
-                    <li><b>Role-Based Access Control (RBAC):</b> Drafted a strict permission matrix separating Guests, Property Hosts, and Admins, ensuring operational privacy and independent host data management.</li>
-                    <li><b>Payment Gateway Synchronization:</b> Specified asynchronous integration via <b>VNPay IPN Webhook</b> with cryptographic signature verification, ensuring order status updates remain reliable despite user browser drops.</li>
+                    <li><b>Milestone Management &amp; Concurrency Control:</b> Planned feature deliveries across sprints; engineered temporary reservation holds (Held/Pending with TTL expiration), preventing duplicate bookings before checkout completion.</li>
+                    <li><b>Role-Based Access Control (RBAC):</b> Architected a secure permission matrix across 3 stakeholder groups (Customers, Service Hosts, System Admins), guaranteeing privacy and independent partner business data segregation.</li>
+                    <li><b>Payment Gateway Integration &amp; Webhooks:</b> Specified asynchronous payment flows via <b>VNPay IPN Webhook</b> with cryptographic checksum hashing; designed automated reconciliation logic to guarantee transaction reliability despite browser interruptions.</li>
+                    <li><b>Automated Availability Modeling:</b> Formulated automated time-bracketed cancellation rules, automatically releasing reserved availability back to the public calendar in real time to optimize partner revenue.</li>
                 </ul>
             </div>
 
@@ -434,39 +498,68 @@
             <div class="entry">
                 <div class="entry-header">
                     <span class="entry-title">
-                        <a href="https://github.com/VoVanTuTai/logistics-management-system" target="_blank">Nexus Express — Logistics &amp; Order Management System (OMS)</a>
+                        <a href="https://github.com/VoVanTuTai/logistics-management-system" target="_blank">Nexus Express — Logistics Order Management &amp; Workflow Engine (OMS)</a>
                         <a href="https://github.com/VoVanTuTai/logistics-management-system" target="_blank" class="project-link">[GitHub ↗]</a>
                     </span>
-                    <span class="entry-location">Academic &amp; Applied Case</span>
+                    <span class="entry-location">Distributed Architecture Project</span>
                 </div>
                 <div class="entry-sub">
-                    <span class="entry-tech">BPMN 2.0 (Camunda), Relational Data Modeling (ERD), OpenAPI 3.0 Specs, PostgreSQL, NestJS, RabbitMQ</span>
+                    <span class="entry-tech">BPMN 2.0 (Camunda), 3NF Relational Data Modeling, OpenAPI 3.0, PostgreSQL, NestJS, RabbitMQ</span>
                     <span class="entry-date">Sep 2025 – Feb 2026</span>
                 </div>
                 <ul class="bullet-list">
-                    <li><b>Parcel Lifecycle Modeling (BPMN 2.0):</b> Modeled transit checkpoint workflows using <b>Camunda BPMN 2.0</b>, enforcing state transitions based on verified physical scan events.</li>
-                    <li><b>Cross-Service API Contracts:</b> Authored <b>OpenAPI 3.0</b> contracts for order generation and status syncing across services, incorporating idempotency keys to prevent duplicate event processing.</li>
+                    <li><b>Automated Process Modeling (BPMN 2.0):</b> Modeled end-to-end parcel state transitions across transit checkpoints using <b>Camunda BPMN 2.0</b>, enforcing automated transition gates triggered by physical barcode scans.</li>
+                    <li><b>Inter-Service API Specifications:</b> Authored comprehensive <b>OpenAPI 3.0</b> contracts for order dispatch and cross-service status sync; incorporated idempotency key mechanisms to prevent duplicate payload processing during network anomalies.</li>
+                    <li><b>State Consistency &amp; Auditing:</b> Designed event-driven state logging with RabbitMQ, maintaining an immutable history of transit status changes for tracking accuracy.</li>
                 </ul>
             </div>
         </section>
 
-        <!-- TECHNICAL SKILLS & LANGUAGES -->
+        <!-- CORE COMPETENCIES & TECHNICAL SKILLS -->
         <section class="section">
-            <div class="section-title">Technical Skills &amp; Languages</div>
+            <div class="section-title">Core Competencies &amp; Technical Skills</div>
             <ul class="skills-list">
-                <li><b>BA &amp; Analytical Skills:</b> Requirement Clarification, PRD &amp; SRS Authoring, User Stories (Given-When-Then), BPMN 2.0 Process Modeling, UAT Test Planning, Backlog Prioritization, Exception Flow Modeling.</li>
-                <li><b>Domain Exposure:</b> Order Management &amp; Logistics (OMS), Reservation &amp; Booking Services (Inventory calendar, RBAC, cancellations), Digital Payment Integration (Payment flows, Webhook IPN).</li>
-                <li><b>Tools &amp; Platforms:</b> Notion, Jira, ClickUp, Camunda Modeler, Draw.io, Figma, Postman, Git, GitHub, Agile/Scrum.</li>
-                <li><b>Technical Foundations:</b> Relational ERD Modeling (3NF), SQL Queries (MySQL, PostgreSQL), RESTful API Specs (OpenAPI 3.0), Service-Oriented Concepts.</li>
-                <li><b>Languages:</b> English (Professional Working Proficiency), Vietnamese (Native).</li>
+                <li><b>Business Analysis &amp; Functional QA:</b> Requirements Elicitation, Technical Specs (PRD, SRS, BRD), User Stories (Given-When-Then), Functional &amp; Smoke Testing, Defect Triage (Jira), Scenario-based UAT.</li>
+                <li><b>Product &amp; Project Delivery:</b> Agile / Scrum Delivery, Backlog Refinement, Scope &amp; Change Request (CR) Management, Blocker Removal, Commercial Go-Live Checklists.</li>
+                <li><b>Technical &amp; Data:</b> Relational Database Design (ERD 3NF), <b>SQL Queries &amp; Data Reconciliation (PostgreSQL, MySQL)</b>, RESTful API Contracts (OpenAPI 3.0, Postman), Webhooks &amp; Event Handoffs.</li>
+                <li><b>Tools &amp; Platforms:</b> Jira, Confluence, ClickUp, Figma, Camunda Modeler, Draw.io, Postman, Git / GitHub, MS Excel.</li>
+                <li><b>Languages &amp; Communication:</b> English (Professional Working Proficiency — Technical specs &amp; stakeholder collaboration), Vietnamese (Native).</li>
             </ul>
         </section>
+
+        <!-- EDUCATION -->
+        <section class="section">
+            <div class="section-title">Education</div>
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">Industrial University of Ho Chi Minh City (IUH)</span>
+                    <span class="entry-location">Ho Chi Minh City, Vietnam</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-role">Bachelor of Engineering (B.Eng.) in Information Systems · GPA: 3.26 / 4.0</span>
+                    <span class="entry-date">Sep 2022 – 2026 (Completed All Degree Requirements · Available Full-time)</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Relevant Technical &amp; Management Coursework:</b> IT Project Management, Systems Analysis &amp; Design, Database Systems (Advanced SQL Queries &amp; Reporting), Software Engineering, Data Structures &amp; Algorithms, Artificial Intelligence &amp; Intelligent Systems Concepts, Service-Oriented Architecture (SOA).</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="page-number">Page 2 of 2</div>
     </div>
 
-    <!-- Floating Print Button -->
-    <button id="print-btn" onclick="window.print()">
-        ⚡ XUẤT FILE PDF
-    </button>
+    <!-- Floating Action Controls (Download PDF, Print) -->
+    <div class="action-bar">
+        <a href="/po-ba-cv-vi.html" class="action-btn secondary">
+            🌐 Bản Tiếng Việt
+        </a>
+        <a href="/VoVanTuTai_Business_Analyst_CV.pdf" download="VoVanTuTai_Business_Analyst_CV.pdf" class="action-btn">
+            📥 DOWNLOAD RESUME (2 Pages A4)
+        </a>
+        <button class="action-btn secondary" onclick="window.print()">
+            🖨️ Print
+        </button>
+    </div>
 </body>
 
 </html>
