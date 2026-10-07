@@ -318,6 +318,7 @@ const portfolioDataVi: PortfolioLocaleData = {
         items: [
           "Thiết kế CSDL Quan hệ (ERD 3NF)",
           "Truy vấn SQL (MySQL, PostgreSQL)",
+          "Dashboard & Báo cáo Dữ liệu (Power BI)",
           "Sơ đồ Máy trạng thái & Hoạt động",
           "Chuẩn hóa Dữ liệu (Normalization)",
           "Từ điển Dữ liệu & Danh mục Thực thể",
@@ -343,7 +344,7 @@ const portfolioDataVi: PortfolioLocaleData = {
         title: "Công cụ & Phương pháp Agile",
         items: [
           "Jira & Confluence",
-          "Odoo ERP (Bán hàng, Mua hàng, Quản lý Kho)",
+          "Odoo ERP & Power BI",
           "Figma (Wireframing)",
           "Camunda Modeler & Draw.io",
           "Lập kế hoạch Sprint & Phân rã WBS",
@@ -582,6 +583,7 @@ const portfolioDataEn: PortfolioLocaleData = {
         items: [
           "Relational Schema Design (ERD 3NF)",
           "SQL Querying (MySQL, PostgreSQL)",
+          "Data Dashboards & Reporting (Power BI)",
           "State Machine & Activity Diagrams",
           "Database Normalization",
           "Data Dictionaries & Catalogs",
@@ -607,7 +609,7 @@ const portfolioDataEn: PortfolioLocaleData = {
         title: "Agile Tools & Methodologies",
         items: [
           "Jira & Confluence",
-          "Odoo ERP (Sales, Purchase, Inventory)",
+          "Odoo ERP & Power BI",
           "Figma (Wireframing)",
           "Camunda Modeler & Draw.io",
           "Sprint Planning & WBS Breakdown",

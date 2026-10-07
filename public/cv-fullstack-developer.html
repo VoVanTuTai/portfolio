@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vo Van Tu Tai — IT Business Analyst & Project Coordinator Resume</title>
+    <title>Vo Van Tu Tai — Full-Stack Developer Resume</title>
     <!-- Inter Font Support (Modern, Crisp, Ultra-readable, ATS Standard) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -59,7 +59,7 @@
         }
 
         .name {
-            font-size: 21pt;
+            font-size: 22pt;
             font-weight: 700;
             letter-spacing: -0.4px;
             color: #111;
@@ -70,8 +70,8 @@
         .subtitle {
             font-size: 10pt;
             font-weight: 600;
-            color: #2b3648;
-            margin-bottom: 5px;
+            color: #1a365d;
+            margin-bottom: 4px;
             letter-spacing: 0.1px;
         }
 
@@ -117,14 +117,14 @@
         /* ── SECTIONS ── */
         .section {
             margin-top: 5px;
-            margin-bottom: 3px;
+            margin-bottom: 4px;
         }
 
         .section-title {
             font-size: 10pt;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.6px;
+            letter-spacing: 0.7px;
             color: #0f2744;
             border-bottom: 1.5px solid #0f2744;
             padding-bottom: 2px;
@@ -133,7 +133,7 @@
 
         /* ── SUMMARY ── */
         .summary-text {
-            font-size: 9.1pt;
+            font-size: 9.15pt;
             line-height: 1.34;
             color: #262626;
             text-align: justify;
@@ -153,7 +153,7 @@
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            font-size: 9.7pt;
+            font-size: 9.6pt;
             color: #111;
         }
 
@@ -189,7 +189,7 @@
             align-items: baseline;
             font-size: 9pt;
             color: #333;
-            margin-bottom: 2.5px;
+            margin-bottom: 2px;
         }
 
         .entry-role {
@@ -199,7 +199,7 @@
 
         .entry-tech {
             font-style: italic;
-            font-size: 8.7pt;
+            font-size: 8.6pt;
             color: #444;
         }
 
@@ -212,14 +212,14 @@
 
         /* Sub-project header */
         .sub-project-header {
-            font-size: 9.2pt;
+            font-size: 9.1pt;
             font-weight: 700;
             color: #2b3648;
-            margin-top: 3.5px;
+            margin-top: 3px;
             margin-bottom: 2px;
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 6px;
         }
 
         .sub-project-header::before {
@@ -231,15 +231,15 @@
         /* ── BULLETS ── */
         .bullet-list {
             list-style-type: disc;
-            padding-left: 14px;
+            padding-left: 15px;
             margin: 0;
         }
 
         .bullet-list li {
-            font-size: 9.05pt;
-            line-height: 1.30;
+            font-size: 8.95pt;
+            line-height: 1.29;
             color: #262626;
-            margin-bottom: 2.2px;
+            margin-bottom: 2px;
             text-align: justify;
             text-justify: inter-word;
         }
@@ -261,11 +261,10 @@
         }
 
         .skills-list li {
-            font-size: 8.95pt;
+            font-size: 9pt;
             line-height: 1.32;
+            margin-bottom: 3px;
             color: #262626;
-            margin-bottom: 3.5px;
-            text-align: justify;
         }
 
         .skills-list li:last-child {
@@ -277,52 +276,46 @@
             color: #0f2744;
         }
 
-        /* ── PAGE NUMBER ── */
         .page-number {
             position: absolute;
-            bottom: 4mm;
+            bottom: 5mm;
             right: 14mm;
-            font-size: 8pt;
+            font-size: 8.5pt;
             color: #888;
             font-weight: 500;
         }
 
-        /* ── ACTION BAR ── */
+        /* ── ACTION CONTROLS ── */
         .action-bar {
             position: fixed;
             bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
+            right: 20px;
             display: flex;
-            gap: 12px;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 10px 18px;
-            border-radius: 30px;
-            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
-            border: 1px solid rgba(0, 0, 0, 0.08);
-            z-index: 1000;
+            gap: 10px;
+            z-index: 9999;
         }
 
         .action-btn {
+            padding: 11px 20px;
+            background: #0f2744;
+            color: #fff !important;
+            border: 1px solid #0f2744;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 600;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+            transition: all 0.2s ease;
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            background: #0f2744;
-            color: #fff !important;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 600;
-            text-decoration: none;
-            border: none;
-            cursor: pointer;
-            transition: all 0.2s ease;
+            text-decoration: none !important;
         }
 
         .action-btn:hover {
-            background: #1a4275;
-            transform: translateY(-1px);
+            background: #1a365d;
+            transform: translateY(-2px);
         }
 
         .action-btn.secondary {
@@ -375,7 +368,7 @@
         <!-- HEADER -->
         <header class="header">
             <h1 class="name">Vo Van Tu Tai</h1>
-            <div class="subtitle">IT Business Analyst · Project Coordinator · Process Optimization &amp; Digital Transformation</div>
+            <div class="subtitle">Full-Stack Developer · PHP &amp; Modern Web Systems · AI-Driven Engineering</div>
             <div class="contact-row">
                 <a href="tel:+84869500573">
                     <svg class="contact-icon" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
@@ -408,8 +401,22 @@
         <section class="section">
             <div class="section-title">Professional Summary</div>
             <p class="summary-text">
-                Information Systems Engineer (IUH) bridging business strategy and engineering delivery across <b>IT Business Analysis &amp; Project Coordination</b>. Proven track record in gathering stakeholder requirements, managing Change Requests (CR) to safeguard <b>Scope Freeze</b>, and authoring clear technical specifications (<b>PRD, User Stories Given-When-Then, UAT Scenarios</b>). Strong technical foundation in <b>SQL database querying, ERP systems (Odoo), RESTful APIs, and process automation (BPMN 2.0 / Webhooks)</b>. Available for immediate full-time employment.
+                Information Systems Engineer (IUH, GPA 3.26/4.0 · Completed all degree requirements · Available immediately for full-time) with hands-on full-stack development experience spanning <b>PHP (OOP &amp; MVC), JavaScript/TypeScript, Node.js (Express, NestJS), and React</b>. Proficient in relational data modeling (<b>MySQL, PostgreSQL 3NF</b>), RESTful API contracts (OpenAPI 3.0), and Docker containerization. Active practitioner of <b>AI-Driven Development</b>, effectively leveraging <b>Claude Code, Cursor, and GitHub Copilot</b> to accelerate feature delivery, refactor clean code, and author test suites. Possesses strong analytical thinking, structured problem-solving skills, and high motivation to master scalable web architectures under Japanese engineering quality standards.
             </p>
+        </section>
+
+        <!-- CORE TECHNICAL COMPETENCIES -->
+        <section class="section">
+            <div class="section-title">Core Technical Competencies</div>
+            <ul class="skills-list">
+                <li><b>Programming Languages:</b> JavaScript (ES6+), TypeScript, PHP (OOP, MVC), Python, Java (Core OOP), SQL, HTML5, CSS3.</li>
+                <li><b>Frontend Technologies:</b> React.js, Responsive Web Design, Modern Vanilla CSS, Bootstrap, DOM Manipulation, Single Page Applications (SPA).</li>
+                <li><b>Backend &amp; API Design:</b> Node.js (Express.js, NestJS), PHP (Custom MVC Architecture), RESTful API Design (OpenAPI 3.0, Postman), Asynchronous Webhooks, RabbitMQ Message Broker, Concurrency Control.</li>
+                <li><b>Databases &amp; Storage:</b> MySQL, PostgreSQL, MongoDB, Redis (In-memory caching &amp; locks), Relational Database Design (ERD 3NF), SQL Query Optimization.</li>
+                <li><b>AI-Driven Development:</b> Claude Code, GitHub Copilot, Cursor, ChatGPT (AI-assisted rapid prototyping, code refactoring, test case generation, API contract synthesis).</li>
+                <li><b>DevOps, Cloud &amp; Tools:</b> Docker, Docker Compose, Git / GitHub, Postman, Linux / Bash fundamentals, Cloud Exposure (AWS / GCP basics), Jira, Figma.</li>
+                <li><b>Engineering Practices:</b> MVC &amp; OOP Design Patterns, Data Structures &amp; Algorithms, Clean Code, Agile / Scrum Methodology, Cross-functional Collaboration.</li>
+            </ul>
         </section>
 
         <!-- WORK EXPERIENCE -->
@@ -423,26 +430,14 @@
                     <span class="entry-location">Ho Chi Minh City, Vietnam</span>
                 </div>
                 <div class="entry-sub">
-                    <span class="entry-role">Business Analyst · PM Assistant</span>
+                    <span class="entry-role">Business Analyst · PM Assistant (Engineering Liaison)</span>
                     <span class="entry-date">Mar 2026 – Sep 2026</span>
                 </div>
-
-                <!-- Sub-project 1: Hỗ Trợ Cuộc Sống -->
-                <div class="sub-project-header">Project 1: "Hỗ Trợ Cuộc Sống" — Multi-Service On-Demand Community Platform</div>
                 <ul class="bullet-list">
-                    <li><b>Multi-Service Architecture &amp; Scope Modeling:</b> Analyzed business requirements for a comprehensive community lifestyle ecosystem encompassing on-demand Home Repair (Thợ sửa chữa), Short-trip Ride-hailing (Chuyến xe ngắn tức thời), Carpooling (Xe ghép), Job Matching (Việc làm), and a centralized Super Admin portal; coordinated delivery alongside <b>"VietPlus"</b> (Classified marketplace &amp; community carpooling platform for the South Korea market).</li>
-                    <li><b>State-Driven Price Negotiation (Dynamic Bidding Acumen):</b> Solved transaction deadlocks and customer-provider pricing disputes by architecting a <b>state-driven counter-offer negotiation engine</b> (propose &harr; counter-bid &harr; accept/reject with automated TTL expiration); specified strict race-condition guards and status locking that eliminated requirement ambiguity for engineering.</li>
-                    <li><b>Event-Driven GPS Cost Optimization:</b> Addressed severe third-party map API budget overhead and driver device battery drain by replacing continuous high-frequency GPS polling with an <b>event-driven checkpoint refresh mechanism</b> (capturing location strictly upon order pickup and completion triggers); substantially reduced third-party map API consumption and eliminated driver device battery drain while preserving legally defensible proof-of-service records.</li>
-                    <li><b>Engineering Specifications &amp; Edge-Case Defense:</b> Authored comprehensive PRD, Use Case specifications, and testable User Stories (Given-When-Then) with complete data dictionaries; conducted 3-way alignment sessions (BA, UI/UX, Lead Dev) to validate Figma prototypes against relational schemas, preventing edge-case logic defects before sprint execution.</li>
-                </ul>
-
-                <!-- Sub-project 2: VietPlus -->
-                <div class="sub-project-header">Project 2: "VietPlus" — Classified Marketplace &amp; Community Carpooling Platform (South Korea Market)</div>
-                <ul class="bullet-list">
-                    <li><b>Mid-stream Onboarding &amp; Domain Control:</b> Onboarded mid-project into an active delivery cycle; rapidly audited backlog items, architecture, and localized business rules to establish complete BA ownership over ad listing lifecycles, content moderation, and carpooling coordination without onboarding disruption.</li>
-                    <li><b>Fulfillment, Cancellation &amp; Return Re-engineering:</b> Directly engaged clients to capture critical Change Requests (CRs); designed state-machine specifications and dispute protocols for <b>order fulfillment, automated cancellation triggers, and return/refund workflows (hoàn hàng)</b> between buyers and sellers.</li>
-                    <li><b>Lean MVP Solutioning (Vietnam–Korea Shipping Module):</b> Evaluated client request for a cross-border logistics service; diplomatically proposed and specified a <b>concierge Service Intake / Lead Form</b> (enabling platform staff to manually coordinate and fulfill orders) instead of over-engineering an automated logistics engine, protecting <b>Scope Freeze</b> and delivery deadlines.</li>
-                    <li><b>Go-Live Advisory, Functional QA &amp; UAT:</b> Formulated formal Meeting Minutes and a <b>Commercial Launch Checklist</b> (App Store, Google Play, credentials, policies); performed hands-on <b>functional &amp; smoke testing</b> on dev builds against User Stories, managing defect triage to secure smooth UAT client sign-off.</li>
+                    <li><b>Technical Specification &amp; Schema Alignment:</b> Collaborated closely with Lead Dev and UI/UX to translate multi-service business logic (On-demand home repair, carpooling, marketplace) into precise technical specifications, JSON data models, and testable acceptance criteria (Given-When-Then), preventing schema mismatches before sprint kickoff.</li>
+                    <li><b>State-Machine Architecture (Interactive Bidding):</b> Architected a state-driven price negotiation module (propose &harr; counter-bid &harr; accept/reject with TTL expiration); specified strict status locking and race-condition guards to guide backend developers in implementation.</li>
+                    <li><b>API &amp; Performance Cost Optimization:</b> Resolved high third-party map API budget consumption and mobile battery drain by specifying an event-driven GPS refresh checkpoint mechanism (triggered strictly on order pickup/completion instead of continuous polling), drastically saving external API invocation costs while ensuring defensible audit trails.</li>
+                    <li><b>QA Testing &amp; UAT Coordination:</b> Executed hands-on functional and smoke testing on staging builds using Postman and web clients; conducted defect triage in Jira, coordinating rapid bug resolution with developers across 2+ release cycles.</li>
                 </ul>
             </div>
 
@@ -457,9 +452,9 @@
                     <span class="entry-date">Sep 2025 – Feb 2026</span>
                 </div>
                 <ul class="bullet-list">
-                    <li><b>Field Process Re-engineering &amp; Throughput Optimization:</b> Observed sorting floor bottlenecks handling high-volume daily shipments; engaged frontline crews to replace chaotic multidirectional handling with a streamlined closed-loop unidirectional sorting flow (Intake &rarr; Weigh &rarr; Scan &rarr; Dispatch), substantially accelerating turnaround times and eliminating floor bottlenecks with full team buy-in.</li>
-                    <li><b>Standardized Exception SOPs &amp; Dispute Prevention:</b> Authored standard operating procedures (SOP) categorizing operational anomalies (misroutes, delivery failures, RTOs); established equitable accountability boundaries that eliminated inter-shift friction and blame-shifting.</li>
-                    <li><b>Data Reconciliation &amp; Database Integrity Reporting:</b> Instituted daily cross-verification protocols between physical delivery manifests and logistics system logs; delivered daily SQL discrepancy reports to senior management, guaranteeing end-to-end supply chain data integrity and cross-shift reconciliation accuracy.</li>
+                    <li><b>SQL Data Reconciliation &amp; System Integrity:</b> Formulated daily SQL queries to cross-verify discrepancies between physical branch delivery manifests and enterprise logistics system logs; prepared daily SQL data integrity reports for management.</li>
+                    <li><b>Pipeline Throughput Optimization:</b> Identified throughput bottlenecks handling high-volume daily shipments; restructured shift processing into a closed-loop unidirectional sorting flow (Intake &rarr; Weigh &rarr; Scan &rarr; Dispatch), substantially accelerating turnaround times.</li>
+                    <li><b>Standard Operating Procedures (SOP):</b> Authored standard operational exception procedures categorizing delivery anomalies, establishing clear boundary checks and cross-shift operational accountability.</li>
                 </ul>
             </div>
         </section>
@@ -469,62 +464,89 @@
 
     <!-- ════════════════════ PAGE 2 ════════════════════ -->
     <div class="page">
-        <!-- SELECTED TECHNICAL PROJECTS -->
+        <!-- FEATURED TECHNICAL PROJECTS -->
         <section class="section">
-            <div class="section-title">Selected Technical Projects</div>
+            <div class="section-title">Featured Technical Projects</div>
 
-            <!-- Accommodation & Booking Platform -->
+            <!-- Project 1: Song Tai Shop (PHP MVC) -->
             <div class="entry">
                 <div class="entry-header">
                     <span class="entry-title">
-                        <a href="https://github.com/VoVanTuTai/tourist-accommodation-management-system" target="_blank">Multi-Role Service &amp; Online Booking Platform</a>
-                        <a href="https://github.com/VoVanTuTai/tourist-accommodation-management-system" target="_blank" class="project-link">[GitHub ↗]</a>
+                        <a href="https://github.com/VoVanTuTai/php-online-store" target="_blank">Song Tai Shop — Full-Stack E-Commerce Platform</a>
+                        <a href="https://github.com/VoVanTuTai/php-online-store" target="_blank" class="project-link">[GitHub ↗]</a>
                     </span>
-                    <span class="entry-location">Software Application Project</span>
+                    <span class="entry-location">Web Application Project</span>
                 </div>
                 <div class="entry-sub">
-                    <span class="entry-tech">Concurrency Control, Role-Based Access Control (RBAC), VNPay API, MySQL, Express.js</span>
-                    <span class="entry-date">Oct 2025 – Dec 2025</span>
+                    <span class="entry-tech">PHP (OOP, Custom MVC Framework), MySQL (3NF &amp; ACID), JavaScript (Fetch API/AJAX), Docker Compose</span>
+                    <span class="entry-date">Nov 2025 – Jan 2026</span>
                 </div>
                 <ul class="bullet-list">
-                    <li><b>Milestone Management &amp; Concurrency Control:</b> Planned feature deliveries across sprints; engineered temporary reservation holds (Held/Pending with TTL expiration), preventing duplicate bookings before checkout completion.</li>
-                    <li><b>Role-Based Access Control (RBAC):</b> Architected a secure permission matrix across 3 stakeholder groups (Customers, Service Hosts, System Admins), guaranteeing privacy and independent partner business data segregation.</li>
-                    <li><b>Payment Gateway Integration &amp; Webhooks:</b> Specified asynchronous payment flows via <b>VNPay IPN Webhook</b> with cryptographic checksum hashing; designed automated reconciliation logic to guarantee transaction reliability despite browser interruptions.</li>
-                    <li><b>Automated Availability Modeling:</b> Formulated automated time-bracketed cancellation rules, automatically releasing reserved availability back to the public calendar in real time to optimize partner revenue.</li>
+                    <li><b>Custom MVC Architecture &amp; Security:</b> Engineered a native PHP MVC framework from scratch utilizing a Front-Controller (<code>index.php</code>), custom regex routing for REST-like methods, PDO prepared statements eliminating SQL injection, CSRF token validation, XSS sanitization, and session-based RBAC.</li>
+                    <li><b>ACID Transactional Cart &amp; Concurrency:</b> Protected inventory integrity during simultaneous checkouts by wrapping order placement and stock deduction in strict MySQL ACID transactions (<code>START TRANSACTION</code>, <code>COMMIT</code>, <code>ROLLBACK</code>) with pessimistic row locking (<code>SELECT ... FOR UPDATE</code>).</li>
+                    <li><b>Dynamic Client UI &amp; Containerization:</b> Developed dynamic shopping cart interactions using JavaScript Fetch API for real-time quantity recalculation without page reloads; packaged the full LAMP stack (PHP-FPM, Apache, MySQL) into <b>Docker Compose</b> for reproducible zero-friction local deployments.</li>
                 </ul>
             </div>
 
-            <!-- Nexus Express -->
+            <!-- Project 2: Tourist Accommodation Management System (PHP OOP & MVC) -->
             <div class="entry">
                 <div class="entry-header">
                     <span class="entry-title">
-                        <a href="https://github.com/VoVanTuTai/logistics-management-system" target="_blank">Nexus Express — Logistics Order Management &amp; Workflow Engine (OMS)</a>
+                        <a href="https://github.com/VoVanTuTai/tourist-accommodation-management-system" target="_blank">Tourist Accommodation Booking &amp; Hospitality Platform</a>
+                        <a href="https://github.com/VoVanTuTai/tourist-accommodation-management-system" target="_blank" class="project-link">[GitHub ↗]</a>
+                    </span>
+                    <span class="entry-location">Web Application Project</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-tech">PHP (OOP &amp; MVC Architecture), MySQL (3NF &amp; Indexing), JavaScript, VNPay IPN Webhook, RESTful APIs, Docker</span>
+                    <span class="entry-date">Oct 2025 – Dec 2025</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Full-Stack PHP Booking Engine &amp; RBAC:</b> Architected an end-to-end multi-tenant booking platform in <b>PHP OOP &amp; MVC</b> with RESTful APIs for catalog search, date-range availability checks, and multi-tier pricing; enforced granular RBAC isolating Guests, Hosts, and Super-Admins.</li>
+                    <li><b>Concurrency Defense &amp; Overbooking Lock (TTL Hold):</b> Solved critical room reservation race conditions during peak traffic spikes through a stateful two-phase booking hold: temporarily locks rooms in <code>Pending</code> state with a 15-minute TTL hold, auto-releasing inventory via timeout daemon if unconfirmed.</li>
+                    <li><b>Cryptographic Payment Gateway &amp; Indexing:</b> Integrated VNPay payment gateway using HMAC-SHA512 checksum validation with idempotent IPN webhook processing; optimized MySQL 3NF database with composite indexes on <code>(property_id, check_in, check_out, status)</code> for sub-second query latency.</li>
+                </ul>
+            </div>
+
+            <!-- Project 3: Nexus Express -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">
+                        <a href="https://github.com/VoVanTuTai/logistics-management-system" target="_blank">Nexus Express — Logistics OMS &amp; Distributed Workflow Engine</a>
                         <a href="https://github.com/VoVanTuTai/logistics-management-system" target="_blank" class="project-link">[GitHub ↗]</a>
                     </span>
                     <span class="entry-location">Distributed Architecture Project</span>
                 </div>
                 <div class="entry-sub">
-                    <span class="entry-tech">BPMN 2.0 (Camunda), 3NF Relational Data Modeling, OpenAPI 3.0, PostgreSQL, NestJS, RabbitMQ</span>
+                    <span class="entry-tech">NestJS, TypeScript, PostgreSQL (3NF), RabbitMQ, React, OpenAPI 3.0, Camunda BPMN 2.0, Docker</span>
                     <span class="entry-date">Sep 2025 – Feb 2026</span>
                 </div>
                 <ul class="bullet-list">
-                    <li><b>Automated Process Modeling (BPMN 2.0):</b> Modeled end-to-end parcel state transitions across transit checkpoints using <b>Camunda BPMN 2.0</b>, enforcing automated transition gates triggered by physical barcode scans.</li>
-                    <li><b>Inter-Service API Specifications:</b> Authored comprehensive <b>OpenAPI 3.0</b> contracts for order dispatch and cross-service status sync; incorporated idempotency key mechanisms to prevent duplicate payload processing during network anomalies.</li>
-                    <li><b>State Consistency &amp; Auditing:</b> Designed event-driven state logging with RabbitMQ, maintaining an immutable history of transit status changes for tracking accuracy.</li>
+                    <li><b>Asynchronous Event-Driven Microservices:</b> Built an enterprise Order Management System using <b>NestJS (TypeScript)</b> and <b>RabbitMQ</b>, establishing decoupled message queues for dispatch and waypoint tracking to absorb high burst traffic without dropped messages.</li>
+                    <li><b>Idempotent API Contracts &amp; Camunda BPMN:</b> Designed OpenAPI 3.0 specifications enforcing <code>Idempotency-Key</code> headers on scan endpoints to prevent duplicate records upon retries; modeled parcel lifecycles with Camunda BPMN 2.0 to enforce strict transition validation gates.</li>
+                    <li><b>PostgreSQL 3NF Data Modeling &amp; Audit Trails:</b> Designed normalized schema with composite B-Tree indexes on tracking codes and timestamps; maintained tamper-proof event audit logs enabling 100% discrepancy reconciliation during transit audits.</li>
                 </ul>
             </div>
-        </section>
 
-        <!-- CORE COMPETENCIES & TECHNICAL SKILLS -->
-        <section class="section">
-            <div class="section-title">Core Competencies &amp; Technical Skills</div>
-            <ul class="skills-list">
-                <li><b>Business Analysis &amp; ERP Functional:</b> Requirements Elicitation, Technical Specs (PRD, SRS, BRD), User Stories (Given-When-Then), ERP Workflows (Odoo: Sales, Purchase, Inventory), Defect Triage, Scenario-based UAT.</li>
-                <li><b>Project Coordination:</b> Agile / Scrum Delivery, WBS Breakdown &amp; Sprint Tracking, Scope &amp; Change Request (CR) Management, Blocker Removal, Commercial Go-Live Checklists.</li>
-                <li><b>Technical &amp; Data:</b> Relational Database Design (ERD 3NF), <b>SQL Queries &amp; Data Reconciliation (PostgreSQL, MySQL)</b>, Power BI (Dashboards), RESTful API Contracts (OpenAPI 3.0, Postman), Webhooks.</li>
-                <li><b>Tools &amp; Platforms:</b> Jira, Confluence, ClickUp, Figma, Camunda Modeler, Draw.io, Postman, Odoo ERP, Power BI, Git / GitHub, MS Excel.</li>
-                <li><b>Languages &amp; Communication:</b> English (Professional Working Proficiency — Technical specs &amp; stakeholder collaboration), Vietnamese (Native).</li>
-            </ul>
+            <!-- Project 4: Cab Booking & Real-Time Dispatch System -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">
+                        <a href="https://github.com/VoVanTuTai/cab-booking-system" target="_blank">Cab Booking &amp; Real-Time Dispatch Platform</a>
+                        <a href="https://github.com/VoVanTuTai/cab-booking-system" target="_blank" class="project-link">[GitHub ↗]</a>
+                    </span>
+                    <span class="entry-location">High-Concurrency Distributed Project</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-tech">Node.js, Express.js, Redis (In-Memory Caching &amp; Distributed Locks), Leaflet / Geolocation, Docker Compose</span>
+                    <span class="entry-date">Dec 2025 – Jan 2026</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>High-Concurrency Dispatch with Redis Locks:</b> Engineered driver-rider matching backend utilizing <b>Redis distributed locks (<code>SETNX</code> with TTL)</b>, completely eliminating simultaneous ride acceptance race conditions when multiple drivers accept the same trip.</li>
+                    <li><b>In-Memory Caching &amp; Geospatial Queries:</b> Leveraged Redis geospatial indexes (<code>GEOADD</code>, <code>GEORADIUS</code>) to track real-time driver coordinates and calculate proximity in sub-milliseconds, bypassing expensive disk-based database lookups.</li>
+                    <li><b>State Machine Resiliency &amp; Containerization:</b> Modeled resilient ride state machine (<code>Requested &rarr; Accepted &rarr; Arrived &rarr; In-Trip &rarr; Completed / Cancelled</code>) with dynamic surge pricing; containerized services, Redis cache, and databases into Docker Compose with health checks.</li>
+                </ul>
+            </div>
         </section>
 
         <!-- EDUCATION -->
@@ -540,7 +562,8 @@
                     <span class="entry-date">Sep 2022 – 2026 (Completed All Degree Requirements · Available Full-time)</span>
                 </div>
                 <ul class="bullet-list">
-                    <li><b>Relevant Technical &amp; Management Coursework:</b> Enterprise Resource Planning (ERP - Odoo), IT Project Management, Systems Analysis &amp; Design, Database Systems (Advanced SQL Queries &amp; Reporting), Software Engineering, Data Structures &amp; Algorithms, Service-Oriented Architecture (SOA).</li>
+                    <li><b>Relevant Coursework:</b> Software Engineering, Object-Oriented Programming (OOP), Data Structures &amp; Algorithms, Systems Analysis &amp; Design, Database Management Systems (Advanced SQL Queries &amp; Indexing), Web Application Development, Service-Oriented Architecture (SOA), Enterprise Resource Planning (ERP - Odoo), Artificial Intelligence &amp; Intelligent Systems Concepts.</li>
+                    <li><b>Languages &amp; Professional Traits:</b> English (Professional Working Proficiency — self-learning from English technical documentation, API specifications &amp; developer forums), Vietnamese (Native), high motivation to learn Japanese and adapt to Japanese corporate engineering culture.</li>
                 </ul>
             </div>
         </section>
@@ -550,15 +573,12 @@
 
     <!-- Floating Action Controls (Download PDF, Print) -->
     <div class="action-bar">
-        <a href="/cv-general.html" class="action-btn secondary">
-            🌐 Bản Tiếng Việt
+        <a href="/cv-ba-project-coordinator.html" class="action-btn secondary">
+            💼 View BA / PM Resume
         </a>
-        <a href="/VoVanTuTai_IT_Business_Analyst_Resume_General.pdf" download="VoVanTuTai_IT_Business_Analyst_Resume_General.pdf" class="action-btn">
-            📥 DOWNLOAD RESUME (2 Pages A4)
+        <a href="/VoVanTuTai_Fullstack_Developer_CV.pdf" download="VoVanTuTai_Fullstack_Developer_CV.pdf" class="action-btn">
+            📥 Download PDF (A4)
         </a>
-        <button class="action-btn secondary" onclick="window.print()">
-            🖨️ Print
-        </button>
     </div>
 </body>
 
