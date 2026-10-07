@@ -143,7 +143,7 @@ const portfolioDataVi: PortfolioLocaleData = {
     lede: (
       <>
         Đã hoàn thành chương trình đào tạo Kỹ sư <b>Hệ thống Thông tin (IUH - GPA 3.26/4.0 · Sẵn sàng làm việc Full-time)</b>, sở hữu thế mạnh kép về <b>Phân tích Nghiệp vụ</b> và <b>Tư duy Kỹ thuật Hệ thống</b>.
-        Tích lũy 6+ tháng kinh nghiệm Associate BA tại <b>HomeNest Software</b> (được cất nhắc từ Thực tập sinh) cùng nền tảng vận hành hiện trường tại <b>J&amp;T Express</b>.
+        Tích lũy 6+ tháng kinh nghiệm Business Analyst (BA) tại <b>HomeNest Software</b> cùng nền tảng vận hành hiện trường tại <b>J&amp;T Express</b>.
         Thành thạo xây dựng tài liệu <b>PRD/SRS</b> chuẩn kỹ thuật cho Dev, mô hình hóa quy trình <b>BPMN 2.0</b>, viết <b>User Stories (Given-When-Then)</b>,
         thiết kế wireframe <b>Figma</b>, và điều phối <b>UAT</b> xuyên suốt 2+ chu kỳ phát hành sản phẩm.
       </>
@@ -168,7 +168,7 @@ const portfolioDataVi: PortfolioLocaleData = {
       { top: "Bàn giao", strong: "UAT & Agile", bottom: "đúng tiến độ Release" },
     ],
     targetLabel: "Vị trí mục tiêu",
-    targetValue: "IT Business Analyst (Fresher / Junior) · Associate BA",
+    targetValue: "IT Business Analyst (Fresher / Junior)",
     tags: ["Phân tích Nghiệp vụ", "Mô hình hóa Quy trình", "Hệ thống Booking & OMS"],
   },
   proofSignals: [
@@ -178,7 +178,7 @@ const portfolioDataVi: PortfolioLocaleData = {
     },
     {
       label: "Vận hành Sprint & Scope",
-      value: "Được cất nhắc từ Intern lên Associate BA tại HomeNest; kinh nghiệm bảo vệ Scope Freeze, quản lý backlog Jira và nghiệm thu UAT qua 2+ đợt release.",
+      value: "Đảm nhiệm vai trò Business Analyst tại HomeNest; kinh nghiệm bảo vệ Scope Freeze, quản lý backlog Jira và nghiệm thu UAT qua 2+ đợt release.",
     },
     {
       label: "Thực tế Hiện trường",
@@ -188,7 +188,7 @@ const portfolioDataVi: PortfolioLocaleData = {
   stats: [
     { label: "Vị trí Ứng tuyển", value: "IT Business Analyst (Fresher / Junior)" },
     { label: "Sản phẩm Chuyên môn", value: "PRD/SRS · BPMN · User Stories · UAT" },
-    { label: "Kinh nghiệm Thực chiến", value: "HomeNest (Associate BA) & J&T (Vận hành)" },
+    { label: "Kinh nghiệm Thực chiến", value: "HomeNest (Business Analyst) & J&T (Vận hành)" },
     { label: "Học vấn & Đào tạo", value: "Chương trình Kỹ sư HTTT (IUH) · GPA 3.26" },
   ],
   about: {
@@ -197,7 +197,7 @@ const portfolioDataVi: PortfolioLocaleData = {
     p1: (
       <>
         Tôi đã hoàn thành chương trình đào tạo Kỹ sư Hệ thống Thông tin tại Trường Đại học Công nghiệp TP.HCM (IUH, GPA 3.26/4.0, tốt nghiệp 2026 và sẵn sàng làm việc Full-time),
-        kết hợp kinh nghiệm thực chiến Associate Business Analyst tại <b>HomeNest Software</b> với nền tảng
+        kết hợp kinh nghiệm thực chiến Business Analyst tại <b>HomeNest Software</b> với nền tảng
         giải quyết bài toán vận hành thực địa tại <b>J&amp;T Express</b>.
       </>
     ),
@@ -354,11 +354,11 @@ const portfolioDataVi: PortfolioLocaleData = {
   experienceSection: {
     homeNest: {
       label: "Kinh nghiệm Phân tích Nghiệp vụ",
-      title: "HomeNest Software — Associate Business Analyst (Cất nhắc từ Thực tập sinh) · Trợ lý PM",
+      title: "HomeNest Software — Business Analyst · Trợ lý PM",
       meta: "03/2026 – 09/2026 · TP. Hồ Chí Minh, Việt Nam",
       text: (
         <>
-          Được cất nhắc từ Thực tập sinh lên Associate BA chính thức; trực tiếp phân tích nghiệp vụ và điều phối triển khai 2 nền tảng trọng điểm: <b>"Hỗ Trợ Cuộc Sống"</b> (Hệ sinh thái tiện ích: Thợ sửa chữa theo yêu cầu, Chuyến xe ngắn tức thời, Xe ghép, Việc làm &amp; Admin tổng) và <b>"VietPlus"</b> (Nền tảng đăng tin rao vặt mua bán &amp; kết nối chuyến xe ghép cho cộng đồng tại thị trường Hàn Quốc).
+          Đảm nhiệm vai trò Business Analyst và hỗ trợ điều phối dự án; trực tiếp phân tích nghiệp vụ và điều phối triển khai 2 nền tảng trọng điểm: <b>"Hỗ Trợ Cuộc Sống"</b> (Hệ sinh thái tiện ích: Thợ sửa chữa theo yêu cầu, Chuyến xe ngắn tức thời, Xe ghép, Việc làm &amp; Admin tổng) và <b>"VietPlus"</b> (Nền tảng đăng tin rao vặt mua bán &amp; kết nối chuyến xe ghép cho cộng đồng tại thị trường Hàn Quốc).
           Thiết kế luồng máy trạng thái cho <b>Module Thương lượng giá dịch vụ</b> (trả giá hai chiều giữa khách và thợ/tài xế) cùng <b>cơ chế làm mới GPS theo sự kiện</b> (chỉ refresh khi nhận đơn/hoàn tất) giúp tiết kiệm tối đa chi phí gọi API bản đồ.
           Gia nhập VietPlus giữa chừng, nhanh chóng kiểm soát nghiệp vụ; trực tiếp làm việc với khách hàng xử lý Change Requests về luồng <b>giao nhận, hủy đơn, hoàn hàng</b> và đề xuất giải pháp tinh gọn cho <b>Module Giao hàng Việt - Hàn</b> (Form tiếp nhận nhu cầu) bảo vệ Scope Freeze; soạn thảo biên bản cuộc họp, lập Go-Live Checklist (tư vấn tài khoản App Store / Google Play) và điều phối UAT xuyên suốt 2+ chu kỳ phát hành sản phẩm.
         </>
@@ -406,7 +406,7 @@ const portfolioDataEn: PortfolioLocaleData = {
     lede: (
       <>
         Completed Information Systems Engineering degree requirements from <b>IUH (GPA 3.26/4.0 · Available Full-time)</b> with a dual edge in <b>Business Analysis</b> and <b>Technical Systems Design</b>.
-        Equipped with 6+ months of hands-on Associate BA experience at <b>HomeNest Software</b> (promoted from Intern) and frontline operational grounding at <b>J&amp;T Express</b>.
+        Equipped with 6+ months of hands-on Business Analyst (BA) experience at <b>HomeNest Software</b> and frontline operational grounding at <b>J&amp;T Express</b>.
         Proven track record in authoring engineering-ready <b>PRD/SRS</b>, modeling <b>BPMN 2.0</b> workflows, crafting testable <b>Given-When-Then</b> User Stories,
         designing <b>Figma wireframes</b>, and coordinating end-to-end <b>UAT</b> across 2+ release cycles.
       </>
@@ -431,7 +431,7 @@ const portfolioDataEn: PortfolioLocaleData = {
       { top: "Delivery", strong: "UAT & Agile", bottom: "on-time releases" },
     ],
     targetLabel: "Target Level",
-    targetValue: "IT Business Analyst (Fresher / Junior) · Associate BA",
+    targetValue: "IT Business Analyst (Fresher / Junior)",
     tags: ["Business Analysis", "Process Modeling", "Booking & OMS Systems"],
   },
   proofSignals: [
@@ -441,7 +441,7 @@ const portfolioDataEn: PortfolioLocaleData = {
     },
     {
       label: "Sprint & Scope Delivery",
-      value: "Promoted from Intern to Associate BA at HomeNest; experienced in Scope Freeze defense, Jira backlog grooming, and UAT across 2+ release cycles.",
+      value: "Directly handled Business Analyst responsibilities at HomeNest; experienced in Scope Freeze defense, Jira backlog grooming, and UAT across 2+ release cycles.",
     },
     {
       label: "Operational Grounding",
@@ -451,7 +451,7 @@ const portfolioDataEn: PortfolioLocaleData = {
   stats: [
     { label: "Target Role", value: "IT Business Analyst (Fresher / Junior)" },
     { label: "Core Deliverables", value: "PRD/SRS · BPMN · User Stories · UAT" },
-    { label: "Proven Experience", value: "HomeNest (Associate BA) & J&T (Ops)" },
+    { label: "Proven Experience", value: "HomeNest (Business Analyst) & J&T (Ops)" },
     { label: "Education & Degree", value: "B.Eng. Information Systems (IUH) · GPA 3.26" },
   ],
   about: {
@@ -460,7 +460,7 @@ const portfolioDataEn: PortfolioLocaleData = {
     p1: (
       <>
         I have completed the curriculum for the Engineer's Degree / Bachelor of Engineering (B.Eng.) in Information Systems at Industrial University of Ho Chi Minh City (IUH, GPA 3.26/4.0, available immediately for full-time roles),
-        combining hands-on Associate Business Analyst experience at <b>HomeNest Software</b> with frontline operational
+        combining hands-on Business Analyst experience at <b>HomeNest Software</b> with frontline operational
         problem-solving at <b>J&amp;T Express</b>.
       </>
     ),
@@ -616,11 +616,11 @@ const portfolioDataEn: PortfolioLocaleData = {
   experienceSection: {
     homeNest: {
       label: "Business Analyst Experience",
-      title: "HomeNest Software — Associate Business Analyst (Promoted from Intern) · PM Assistant",
+      title: "HomeNest Software — Business Analyst · PM Assistant",
       meta: "Mar 2026 – Sep 2026 · Ho Chi Minh City, Vietnam",
       text: (
         <>
-          Promoted from Intern to official Associate BA; directly analyzed requirements and coordinated delivery for 2 key platforms: <b>"Hỗ Trợ Cuộc Sống"</b> (Multi-service ecosystem: On-demand Home Repair, Short-trip Ride-hailing, Carpooling, Job Matching &amp; Admin portal) and <b>"VietPlus"</b> (Classified marketplace &amp; community carpooling platform for the South Korea market).
+          Directly handled Business Analyst responsibilities and PM assistance; analyzed requirements and coordinated delivery for 2 key platforms: <b>"Hỗ Trợ Cuộc Sống"</b> (Multi-service ecosystem: On-demand Home Repair, Short-trip Ride-hailing, Carpooling, Job Matching &amp; Admin portal) and <b>"VietPlus"</b> (Classified marketplace &amp; community carpooling platform for the South Korea market).
           Modeled state-driven workflows for the <b>Interactive Price Negotiation module</b> (bid/counter-offer rules) and specified an <b>event-driven GPS refresh mechanism</b> (refreshing coordinates upon pickup/completion instead of continuous polling) to slash third-party map API costs.
           Joined VietPlus mid-stream, rapidly establishing domain control; directly interfaced with clients on Change Requests for marketplace fulfillment, cancellations, returns (hoàn hàng), and innovated a lean inquiry-form MVP for Vietnam–Korea shipping to defend Scope Freeze; authored Meeting Minutes, curated commercial Go-Live checklists (App Store / Google Play accounts), and facilitated client UAT across 2+ release cycles.
         </>
