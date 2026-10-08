@@ -916,14 +916,15 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
               <div className="profile-chips-row">
                 <span className="profile-chip">
                   <span className="chip-dot" />
-                  IUH · GPA 3.22/4.0
+                  IUH · GPA 3.26/4.0
                 </span>
                 <span className="profile-chip">
                   <span className="chip-dot" />
                   TOEIC 650+
                 </span>
                 <span className="profile-chip highlight">
-                  {lang === "vi" ? "Sẵn sàng nhận việc" : "Available for hire"}
+                  <span className="chip-dot online" />
+                  {lang === "vi" ? "Sẵn sàng nhận việc Full-time" : "Available Full-time"}
                 </span>
               </div>
             </div>
