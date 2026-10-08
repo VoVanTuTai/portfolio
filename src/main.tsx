@@ -68,12 +68,14 @@ interface PortfolioLocaleData {
     lede: React.ReactNode;
     actions: {
       explore: string;
-      webGeneralCv: string;
-      webGeneralCvHref: string;
-      webBaCv: string;
-      webBaCvHref: string;
-      pdfGeneralCv: string;
-      pdfGeneralCvHref: string;
+      pdfBaVi: string;
+      pdfBaViHref: string;
+      pdfBaEn: string;
+      pdfBaEnHref: string;
+      webBaVi: string;
+      webBaViHref: string;
+      webBaEn: string;
+      webBaEnHref: string;
     };
   };
   preview: {
@@ -122,10 +124,10 @@ interface PortfolioLocaleData {
     label: string;
     heading: string;
     subtitle: string;
-    pdfGeneral: { label: string; href: string };
-    pdfBa: { label: string; href: string };
-    webGeneral: { label: string; href: string };
-    webBa: { label: string; href: string };
+    pdfBaVi: { label: string; href: string };
+    pdfBaEn: { label: string; href: string };
+    webBaVi: { label: string; href: string };
+    webBaEn: { label: string; href: string };
     location: string;
   };
   footer: {
@@ -142,25 +144,27 @@ const portfolioDataVi: PortfolioLocaleData = {
     contact: "Liên hệ",
   },
   hero: {
-    profileMeta: "TP. Hồ Chí Minh, Việt Nam · Kỹ sư Hệ thống Thông tin (IUH · Sẵn sàng làm Full-time)",
-    eyebrow: "Hồ sơ Năng lực IT Business Analyst",
-    heading: "Cầu Nối Vững Chắc Giữa Bài Toán Kinh Doanh và Giải Pháp Kỹ Thuật",
+    profileMeta: "TP. Hồ Chí Minh, Việt Nam · Kỹ sư Hệ thống Thông tin (IUH · Sẵn sàng làm việc)",
+    eyebrow: "Portfolio & Góc chia sẻ nghề BA",
+    heading: "Cầu nối giữa bài toán kinh doanh và giải pháp kỹ thuật",
     lede: (
       <>
-        Đã hoàn thành chương trình đào tạo Kỹ sư <b>Hệ thống Thông tin (IUH - GPA 3.26/4.0 · Sẵn sàng làm việc Full-time)</b>, sở hữu thế mạnh kép về <b>Phân tích Nghiệp vụ</b> và <b>Tư duy Kỹ thuật Hệ thống</b>.
-        Tích lũy 6+ tháng kinh nghiệm Business Analyst (BA) tại <b>HomeNest Software</b> cùng nền tảng vận hành hiện trường tại <b>J&amp;T Express</b>.
-        Thành thạo xây dựng tài liệu <b>PRD/SRS</b> chuẩn kỹ thuật cho Dev, mô hình hóa quy trình <b>BPMN 2.0</b>, viết <b>User Stories (Given-When-Then)</b>,
-        thiết kế wireframe <b>Figma</b>, và điều phối <b>UAT</b> xuyên suốt 2+ chu kỳ phát hành sản phẩm.
+        Tốt nghiệp ngành <b>Hệ thống Thông tin (IUH - GPA 3.26/4.0)</b>, mình tập trung phát triển thế mạnh kết hợp giữa <b>Phân tích Nghiệp vụ</b> và <b>Tư duy Kỹ thuật Hệ thống</b>.
+        Với 6+ tháng kinh nghiệm Business Analyst (BA) tại <b>HomeNest Software</b> và thời gian cọ xát thực tế tại <b>J&amp;T Express</b>,
+        mình thành thạo khảo sát yêu cầu, soạn thảo <b>PRD/SRS</b> rõ ràng cho Dev, vẽ luồng <b>BPMN 2.0</b>, viết <b>User Stories (Given-When-Then)</b>,
+        dựng wireframe <b>Figma</b>, và trực tiếp điều phối <b>UAT</b> cho sản phẩm.
       </>
     ),
     actions: {
-      explore: "Khám phá Case Studies",
-      webGeneralCv: "Xem CV Tổng Quát (Web)",
-      webGeneralCvHref: "/cv-general.html",
-      webBaCv: "Xem CV Chuyên Sâu BA (Web)",
-      webBaCvHref: "/po-ba-cv-vi.html",
-      pdfGeneralCv: "Tải CV (PDF Tiếng Việt)",
-      pdfGeneralCvHref: "/VoVanTuTai_IT_Business_Analyst_CV_Tong_Quat.pdf",
+      explore: "Xem các Case Studies",
+      pdfBaVi: "Tải CV BA (PDF Tiếng Việt)",
+      pdfBaViHref: "/VoVanTuTai_Business_Analyst_CV_Tieng_Viet.pdf",
+      pdfBaEn: "Tải Resume BA (PDF Tiếng Anh)",
+      pdfBaEnHref: "/VoVanTuTai_Business_Analyst_CV.pdf",
+      webBaVi: "Xem CV BA Tiếng Việt (Web)",
+      webBaViHref: "/po-ba-cv-vi.html",
+      webBaEn: "Xem Resume BA Tiếng Anh (Web)",
+      webBaEnHref: "/cv.html",
     },
   },
   preview: {
@@ -388,10 +392,10 @@ const portfolioDataVi: PortfolioLocaleData = {
     label: "Sẵn sàng Hợp tác",
     heading: "Chào đón cơ hội việc làm vị trí IT Business Analyst (Fresher / Junior) và Associate PM.",
     subtitle: "Sẵn sàng nhận việc toàn thời gian (On-site hoặc Hybrid) ngay lập tức tại TP. Hồ Chí Minh.",
-    pdfGeneral: { label: "CV Tổng Quát (PDF Tiếng Việt)", href: "/VoVanTuTai_IT_Business_Analyst_CV_Tong_Quat.pdf" },
-    pdfBa: { label: "CV Chuyên Sâu BA (PDF Tiếng Việt)", href: "/VoVanTuTai_Business_Analyst_CV_Tieng_Viet.pdf" },
-    webGeneral: { label: "Xem CV Tổng Quát (Bản Web)", href: "/cv-general.html" },
-    webBa: { label: "Xem CV Chuyên Sâu BA (Web)", href: "/po-ba-cv-vi.html" },
+    pdfBaVi: { label: "Tải CV BA Tiếng Việt (PDF)", href: "/VoVanTuTai_Business_Analyst_CV_Tieng_Viet.pdf" },
+    pdfBaEn: { label: "Tải Resume BA Tiếng Anh (PDF)", href: "/VoVanTuTai_Business_Analyst_CV.pdf" },
+    webBaVi: { label: "Xem CV BA Tiếng Việt (Web)", href: "/po-ba-cv-vi.html" },
+    webBaEn: { label: "Xem Resume BA Tiếng Anh (Web)", href: "/cv.html" },
     location: "TP. Hồ Chí Minh, Việt Nam (Sẵn sàng làm việc ngay)",
   },
   footer: {
@@ -421,12 +425,14 @@ const portfolioDataEn: PortfolioLocaleData = {
     ),
     actions: {
       explore: "Explore Case Studies",
-      webGeneralCv: "View General Resume (Web)",
-      webGeneralCvHref: "/cv-general-en.html",
-      webBaCv: "View Deep BA Resume (Web)",
-      webBaCvHref: "/cv.html",
-      pdfGeneralCv: "Download Resume (English PDF)",
-      pdfGeneralCvHref: "/VoVanTuTai_IT_Business_Analyst_Resume_General.pdf",
+      pdfBaVi: "Download BA Resume - Vietnamese (PDF)",
+      pdfBaViHref: "/VoVanTuTai_Business_Analyst_CV_Tieng_Viet.pdf",
+      pdfBaEn: "Download BA Resume - English (PDF)",
+      pdfBaEnHref: "/VoVanTuTai_Business_Analyst_CV.pdf",
+      webBaVi: "View BA Resume - Vietnamese (Web)",
+      webBaViHref: "/po-ba-cv-vi.html",
+      webBaEn: "View BA Resume - English (Web)",
+      webBaEnHref: "/cv.html",
     },
   },
   preview: {
@@ -654,10 +660,10 @@ const portfolioDataEn: PortfolioLocaleData = {
     label: "Ready to Connect",
     heading: "Open to IT Business Analyst (Fresher / Junior) and Associate PM roles.",
     subtitle: "Available immediately for Full-time on-site or hybrid roles in Ho Chi Minh City.",
-    pdfGeneral: { label: "General Resume (English PDF)", href: "/VoVanTuTai_IT_Business_Analyst_Resume_General.pdf" },
-    pdfBa: { label: "Deep BA Resume (English PDF)", href: "/VoVanTuTai_Business_Analyst_CV.pdf" },
-    webGeneral: { label: "View General Resume (Web)", href: "/cv-general-en.html" },
-    webBa: { label: "View Deep BA Resume (Web)", href: "/cv.html" },
+    pdfBaVi: { label: "Download BA Resume - Vietnamese (PDF)", href: "/VoVanTuTai_Business_Analyst_CV_Tieng_Viet.pdf" },
+    pdfBaEn: { label: "Download BA Resume - English (PDF)", href: "/VoVanTuTai_Business_Analyst_CV.pdf" },
+    webBaVi: { label: "View BA Resume - Vietnamese (Web)", href: "/po-ba-cv-vi.html" },
+    webBaEn: { label: "View BA Resume - English (Web)", href: "/cv.html" },
     location: "Ho Chi Minh City, Vietnam (Available Immediately)",
   },
   footer: {
@@ -764,113 +770,85 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
                 <div className="dropdown-header">
                   <div className="dropdown-status-dot" />
                   <div>
-                    <strong>{lang === "vi" ? "Hồ Sơ Năng Lực Ứng Tuyển" : "Candidate Profile & Resumes"}</strong>
-                    <p>{lang === "vi" ? "Sẵn sàng phỏng vấn & nhận việc Full-time" : "Available for Full-time hire"}</p>
+                    <strong>{lang === "vi" ? "Hồ sơ & CV đính kèm" : "Resumes & Documents"}</strong>
+                    <p>{lang === "vi" ? "Chọn bản Tiếng Việt hoặc Tiếng Anh" : "Vietnamese & English versions"}</p>
                   </div>
                 </div>
 
-                <div className="dropdown-section">
-                  <span className="dropdown-label">{lang === "vi" ? "Tải Bản PDF (1-Click)" : "Download PDF Files"}</span>
-                  <a
-                    className="dropdown-item dropdown-item-featured"
-                    href="/VoVanTuTai_Business_Analyst_CV_Tieng_Viet.pdf"
-                    download
-                    onClick={() => setIsCvMenuOpen(false)}
-                  >
-                    <div className="item-icon-wrap gold">
-                      <Download size={15} />
-                    </div>
-                    <div className="item-content">
-                      <div className="item-title-row">
-                        <strong>{lang === "vi" ? "CV IT BA Chuyên Sâu (Tiếng Việt)" : "Deep BA Resume (Vietnamese)"}</strong>
-                        <span className="item-badge">{lang === "vi" ? "Khuyên dùng" : "Recommended"}</span>
+                <div className="dropdown-tracks-list">
+                  {/* Track 1: CV BA Tiếng Việt */}
+                  <div className="dropdown-track-item">
+                    <div className="dropdown-track-header">
+                      <div className="item-icon-wrap gold">
+                        <FileText size={15} />
                       </div>
-                      <span>{lang === "vi" ? "Bản tối ưu cho NTD Việt Nam · Đầy đủ dự án & SRS" : "Detailed project cases & SRS specifications"}</span>
-                    </div>
-                  </a>
-
-                  <a
-                    className="dropdown-item"
-                    href="/VoVanTuTai_Business_Analyst_CV.pdf"
-                    download
-                    onClick={() => setIsCvMenuOpen(false)}
-                  >
-                    <div className="item-icon-wrap emerald">
-                      <Download size={15} />
-                    </div>
-                    <div className="item-content">
-                      <div className="item-title-row">
-                        <strong>{lang === "vi" ? "Resume IT BA (English PDF)" : "IT BA Resume (English PDF)"}</strong>
-                        <span className="item-badge-subtle">Global</span>
+                      <div className="dropdown-track-meta">
+                        <div className="item-title-row">
+                          <strong>{lang === "vi" ? "CV BA (Tiếng Việt)" : "BA Resume (Vietnamese)"}</strong>
+                          <span className="item-badge">VI</span>
+                        </div>
+                        <p>{lang === "vi" ? "Kinh nghiệm thực tế, quy trình SRS & UAT" : "Detailed project cases & SRS specifications"}</p>
                       </div>
-                      <span>{lang === "vi" ? "Dành cho công ty Đa quốc gia / Outsource" : "For MNCs & English-speaking teams"}</span>
                     </div>
-                  </a>
+                    <div className="dropdown-track-actions">
+                      <a
+                        className="dropdown-action-btn primary"
+                        href="/VoVanTuTai_Business_Analyst_CV_Tieng_Viet.pdf"
+                        download
+                        onClick={() => setIsCvMenuOpen(false)}
+                      >
+                        <Download size={13} />
+                        <span>{lang === "vi" ? "Tải PDF" : "Download PDF"}</span>
+                      </a>
+                      <a
+                        className="dropdown-action-btn secondary"
+                        href="/po-ba-cv-vi.html"
+                        target="_blank"
+                        rel="noreferrer"
+                        onClick={() => setIsCvMenuOpen(false)}
+                      >
+                        <ExternalLink size={13} />
+                        <span>{lang === "vi" ? "Xem Web" : "View Web"}</span>
+                      </a>
+                    </div>
+                  </div>
 
-                  <a
-                    className="dropdown-item"
-                    href="/VoVanTuTai_IT_Business_Analyst_CV_Tong_Quat.pdf"
-                    download
-                    onClick={() => setIsCvMenuOpen(false)}
-                  >
-                    <div className="item-icon-wrap">
-                      <Download size={15} />
+                  {/* Track 2: CV BA Tiếng Anh */}
+                  <div className="dropdown-track-item">
+                    <div className="dropdown-track-header">
+                      <div className="item-icon-wrap emerald">
+                        <FileText size={15} />
+                      </div>
+                      <div className="dropdown-track-meta">
+                        <div className="item-title-row">
+                          <strong>{lang === "vi" ? "CV BA (Tiếng Anh)" : "BA Resume (English)"}</strong>
+                          <span className="item-badge-subtle">EN</span>
+                        </div>
+                        <p>{lang === "vi" ? "Phiên bản tiếng Anh cho team Outsource & MNC" : "English version for international teams"}</p>
+                      </div>
                     </div>
-                    <div className="item-content">
-                      <strong>{lang === "vi" ? "CV IT BA Tổng Quát (PDF)" : "General IT BA CV (PDF)"}</strong>
-                      <span>{lang === "vi" ? "Bản tổng hợp năng lực hệ thống" : "Comprehensive skill summary"}</span>
+                    <div className="dropdown-track-actions">
+                      <a
+                        className="dropdown-action-btn primary"
+                        href="/VoVanTuTai_Business_Analyst_CV.pdf"
+                        download
+                        onClick={() => setIsCvMenuOpen(false)}
+                      >
+                        <Download size={13} />
+                        <span>{lang === "vi" ? "Tải PDF" : "Download PDF"}</span>
+                      </a>
+                      <a
+                        className="dropdown-action-btn secondary"
+                        href="/cv.html"
+                        target="_blank"
+                        rel="noreferrer"
+                        onClick={() => setIsCvMenuOpen(false)}
+                      >
+                        <ExternalLink size={13} />
+                        <span>{lang === "vi" ? "Xem Web" : "View Web"}</span>
+                      </a>
                     </div>
-                  </a>
-
-                  <a
-                    className="dropdown-item"
-                    href="/VoVanTuTai_Business_Analyst_Project_Coordinator.pdf"
-                    download
-                    onClick={() => setIsCvMenuOpen(false)}
-                  >
-                    <div className="item-icon-wrap">
-                      <Download size={15} />
-                    </div>
-                    <div className="item-content">
-                      <strong>{lang === "vi" ? "CV BA & Project Coordinator (PDF)" : "BA & Project Coordinator CV"}</strong>
-                      <span>{lang === "vi" ? "Vị trí Điều phối dự án & Trợ lý PM" : "Project coordination & PM assistant"}</span>
-                    </div>
-                  </a>
-                </div>
-
-                <div className="dropdown-section">
-                  <span className="dropdown-label">{lang === "vi" ? "Xem Trực Tiếp Bản Web (Interactive)" : "View Web Resumes (Instant)"}</span>
-                  <a
-                    className="dropdown-item"
-                    href="/po-ba-cv-vi.html"
-                    target="_blank"
-                    rel="noreferrer"
-                    onClick={() => setIsCvMenuOpen(false)}
-                  >
-                    <div className="item-icon-wrap web">
-                      <ExternalLink size={15} />
-                    </div>
-                    <div className="item-content">
-                      <strong>{lang === "vi" ? "Xem CV Web Tiếng Việt (Bản Chuyên Sâu)" : "Web View: Vietnamese BA Resume"}</strong>
-                      <span>{lang === "vi" ? "Giao diện trực quan · Tải nhanh 0.1s" : "Fast interactive web layout"}</span>
-                    </div>
-                  </a>
-
-                  <a
-                    className="dropdown-item"
-                    href="/cv.html"
-                    target="_blank"
-                    rel="noreferrer"
-                    onClick={() => setIsCvMenuOpen(false)}
-                  >
-                    <div className="item-icon-wrap web">
-                      <ExternalLink size={15} />
-                    </div>
-                    <div className="item-content">
-                      <strong>{lang === "vi" ? "Xem Resume Web Tiếng Anh (English)" : "Web View: English BA Resume"}</strong>
-                      <span>{lang === "vi" ? "Giao diện tiếng Anh chuẩn mực" : "Standardized English layout"}</span>
-                    </div>
-                  </a>
+                  </div>
                 </div>
 
                 <div className="dropdown-footer">
@@ -913,17 +891,13 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
 
       <section className="hero" id="top">
         <div className="hero-copy">
-          {/* Executive Candidate Status Badge */}
-          <div className="executive-badge">
+          {/* Personal Introduction & Availability Pill */}
+          <div className="personal-status-pill">
             <span className="badge-pulse-dot" />
             <span className="badge-text">
               {lang === "vi"
-                ? "KỸ SƯ HỆ THỐNG THÔNG TIN (IUH) · SẴN SÀNG LÀM FULL-TIME TẠI TP.HCM"
-                : "B.ENG INFORMATION SYSTEMS (IUH) · AVAILABLE FULL-TIME IN HCM CITY"}
-            </span>
-            <span className="badge-pill-verified">
-              <ShieldCheck size={13} aria-hidden="true" />
-              Verified
+                ? "Kỹ sư Hệ thống Thông tin (IUH) · Sẵn sàng làm việc tại TP.HCM"
+                : "B.Eng in Information Systems (IUH) · Available Full-time in HCM City"}
             </span>
           </div>
 
@@ -932,12 +906,27 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
               <img className="profile-avatar" src="/assets/avatar.png" alt="Vo Van Tu Tai" />
               <span className="avatar-online-dot" title="Available for hire" />
             </div>
-            <div>
+            <div className="profile-info-col">
               <div className="profile-name-row">
                 <p className="profile-name">Vo Van Tu Tai</p>
                 <span className="profile-role-tag">IT Business Analyst</span>
+                <span className="profile-role-tag secondary">Project Coordinator</span>
               </div>
               <p className="profile-meta">{t.hero.profileMeta}</p>
+              <div className="profile-chips-row">
+                <span className="profile-chip">
+                  <span className="chip-dot" />
+                  IUH · GPA 3.26/4.0
+                </span>
+                <span className="profile-chip">
+                  <span className="chip-dot" />
+                  TOEIC 650+
+                </span>
+                <span className="profile-chip highlight">
+                  <span className="chip-dot online" />
+                  {lang === "vi" ? "Sẵn sàng nhận việc Full-time" : "Available Full-time"}
+                </span>
+              </div>
             </div>
           </div>
 
@@ -945,85 +934,99 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
           <h1 className="hero-title">{t.hero.heading}</h1>
           <p className="hero-lede">{t.hero.lede}</p>
 
-          {/* DEDICATED RECRUITER FAST-TRACK & CV ACTIONS AT TOP */}
-          <div className="recruiter-fast-track-card" aria-label="Recruiter Action Hub">
-            <div className="fast-track-head">
-              <div className="fast-track-title-group">
-                <div className="fast-track-icon">
+          {/* FRIENDLY DOCUMENT & CV SHARING CARD */}
+          <div className="cv-sharing-card" aria-label="Tài liệu và Hồ sơ CV">
+            <div className="sharing-card-head">
+              <div className="sharing-title-group">
+                <div className="sharing-icon">
                   <FileText size={18} aria-hidden="true" />
                 </div>
                 <div>
-                  <h3>{lang === "vi" ? "Cụm Tác Vụ Dành Cho Nhà Tuyển Dụng" : "Recruiter Fast-Track Command"}</h3>
-                  <p>{lang === "vi" ? "Tải CV định dạng PDF hoặc xem trực tiếp bản Web tương tác" : "Download PDF resumes or open interactive web versions"}</p>
+                  <h3>{lang === "vi" ? "Hồ sơ & CV của mình" : "My Resumes & Documents"}</h3>
+                  <p>{lang === "vi" ? "Bạn có thể tải nhanh bản PDF để lưu trữ hoặc xem trực tiếp trên web nhé:" : "Download PDF copies or explore interactive web versions:"}</p>
                 </div>
               </div>
-              <div className="fast-track-avail">
+              <div className="sharing-avail-tag">
                 <span className="pulse-green" />
-                <span>{lang === "vi" ? "Nhận việc ngay" : "Immediate Start"}</span>
+                <span>{lang === "vi" ? "Sẵn sàng nhận việc" : "Available for hire"}</span>
               </div>
             </div>
 
-            <div className="fast-track-actions">
-              {/* Primary Gold CTA */}
-              <a
-                className="cv-cta-gold"
-                href="/VoVanTuTai_Business_Analyst_CV_Tieng_Viet.pdf"
-                download
-              >
-                <Download size={19} aria-hidden="true" />
-                <div className="cta-text">
-                  <div className="cta-main-row">
-                    <strong>{lang === "vi" ? "Tải CV PDF (Tiếng Việt)" : "Download PDF Resume (VI)"}</strong>
-                    <span className="cta-tag-vip">{lang === "vi" ? "Khuyên dùng" : "Best Choice"}</span>
+            <div className="sharing-tracks-grid">
+              {/* Track 1: CV BA Tiếng Việt */}
+              <div className="cv-track-item">
+                <div className="cv-track-header">
+                  <div className="cv-track-icon vi">
+                    <FileText size={18} aria-hidden="true" />
                   </div>
-                  <span>{lang === "vi" ? "Bản Chuyên Sâu IT BA · Chuẩn in ấn A4" : "Deep IT BA Edition · Standard A4"}</span>
-                </div>
-              </a>
-
-              {/* Secondary Emerald CTA */}
-              <a
-                className="cv-cta-emerald"
-                href="/po-ba-cv-vi.html"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <ExternalLink size={19} aria-hidden="true" />
-                <div className="cta-text">
-                  <div className="cta-main-row">
-                    <strong>{lang === "vi" ? "Xem CV Trực Tuyến (Web)" : "Interactive Web CV"}</strong>
-                    <span className="cta-tag-fast">0.1s</span>
+                  <div className="cv-track-text">
+                    <div className="cv-track-title-row">
+                      <strong>{lang === "vi" ? "CV BA (Tiếng Việt)" : "BA Resume (Vietnamese)"}</strong>
+                      <span className="cv-track-badge vi">Tiếng Việt</span>
+                    </div>
+                    <p>{lang === "vi" ? "Bản chi tiết kinh nghiệm dự án, quy trình BPMN 2.0 & tài liệu SRS" : "Detailed project cases, BPMN 2.0 workflows & SRS documentation"}</p>
                   </div>
-                  <span>{lang === "vi" ? "Mở tab mới · Giao diện trực quan" : "Instant tab view · Modern UI"}</span>
                 </div>
-              </a>
+                <div className="cv-track-buttons">
+                  <a
+                    className="cv-btn-download"
+                    href="/VoVanTuTai_Business_Analyst_CV_Tieng_Viet.pdf"
+                    download
+                  >
+                    <Download size={15} aria-hidden="true" />
+                    <span>{lang === "vi" ? "Tải CV (PDF)" : "Download PDF"}</span>
+                  </a>
+                  <a
+                    className="cv-btn-view"
+                    href="/po-ba-cv-vi.html"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <ExternalLink size={15} aria-hidden="true" />
+                    <span>{lang === "vi" ? "Xem bản Web" : "View Web"}</span>
+                  </a>
+                </div>
+              </div>
 
-              {/* Tertiary English PDF */}
-              <a
-                className="cv-cta-dark"
-                href="/VoVanTuTai_Business_Analyst_CV.pdf"
-                download
-              >
-                <Download size={18} aria-hidden="true" />
-                <div className="cta-text">
-                  <strong>{lang === "vi" ? "Tải Resume PDF (English)" : "Download English Resume"}</strong>
-                  <span>{lang === "vi" ? "Global / Outsource teams" : "For international teams"}</span>
+              {/* Track 2: CV BA Tiếng Anh */}
+              <div className="cv-track-item">
+                <div className="cv-track-header">
+                  <div className="cv-track-icon en">
+                    <FileText size={18} aria-hidden="true" />
+                  </div>
+                  <div className="cv-track-text">
+                    <div className="cv-track-title-row">
+                      <strong>{lang === "vi" ? "CV BA (Tiếng Anh)" : "BA Resume (English)"}</strong>
+                      <span className="cv-track-badge en">English</span>
+                    </div>
+                    <p>{lang === "vi" ? "Phiên bản tiếng Anh chuẩn mực cho team Outsource & Quốc tế" : "Standardized English version for MNCs & international teams"}</p>
+                  </div>
                 </div>
-              </a>
-
-              {/* Explore Projects Button */}
-              <a className="cv-cta-explore" href="#projects">
-                <ArrowUpRight size={18} aria-hidden="true" />
-                <div className="cta-text">
-                  <strong>{t.hero.actions.explore}</strong>
-                  <span>{lang === "vi" ? "4 Case Studies thực tế" : "4 Production Case Studies"}</span>
+                <div className="cv-track-buttons">
+                  <a
+                    className="cv-btn-download"
+                    href="/VoVanTuTai_Business_Analyst_CV.pdf"
+                    download
+                  >
+                    <Download size={15} aria-hidden="true" />
+                    <span>{lang === "vi" ? "Tải Resume (PDF)" : "Download PDF"}</span>
+                  </a>
+                  <a
+                    className="cv-btn-view"
+                    href="/cv.html"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <ExternalLink size={15} aria-hidden="true" />
+                    <span>{lang === "vi" ? "Xem bản Web" : "View Web"}</span>
+                  </a>
                 </div>
-              </a>
+              </div>
             </div>
 
-            <div className="fast-track-foot">
+            <div className="sharing-card-foot">
               <span className="foot-label">
-                <UserCheck size={14} aria-hidden="true" />
-                {lang === "vi" ? "Liên hệ phỏng vấn trực tiếp:" : "Direct Recruiter Hotline:"}
+                {lang === "vi" ? "Trao đổi & liên hệ nhanh:" : "Direct contact:"}
               </span>
               <a href="tel:+84869500573" className="foot-link">
                 <Phone size={13} aria-hidden="true" />
@@ -1035,25 +1038,20 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
                 tutaivovan@gmail.com
               </a>
               <span className="foot-sep">·</span>
-              <span className="foot-highlight">
-                <Sparkles size={12} aria-hidden="true" />
-                {lang === "vi" ? "Phản hồi trong 2 giờ" : "Response within 2h"}
+              <span className="foot-location">
+                {lang === "vi" ? "TP. Hồ Chí Minh" : "Ho Chi Minh City"}
               </span>
             </div>
           </div>
         </div>
 
         <aside className="hero-visual" aria-label="Portfolio proof points">
-          <div className="visual-frame executive-dossier">
+          <div className="visual-frame competency-overview">
             <div className="browser-bar" aria-hidden="true">
               <span />
               <span />
               <span />
               <strong>{t.preview.browserLabel}</strong>
-              <span className="dossier-verified-badge">
-                <ShieldCheck size={12} />
-                CONFIRMED
-              </span>
             </div>
             <div className="web-preview" aria-label="Business Analyst portfolio focus preview">
               <div className="web-preview-main">
@@ -1270,40 +1268,74 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
           </p>
         </div>
         <div className="contact-links">
-          <a href="tel:+84869500573">
-            <Phone size={18} aria-hidden="true" />
-            +84 869 500 573
-          </a>
-          <a href="mailto:tutaivovan@gmail.com">
-            <Mail size={18} aria-hidden="true" />
-            tutaivovan@gmail.com
-          </a>
-          <a href={t.contactSection.pdfGeneral.href} download>
-            <Download size={18} aria-hidden="true" />
-            {t.contactSection.pdfGeneral.label}
-          </a>
-          <a href={t.contactSection.pdfBa.href} download>
-            <Download size={18} aria-hidden="true" />
-            {t.contactSection.pdfBa.label}
-          </a>
-          <a href={t.contactSection.webGeneral.href} target="_blank" rel="noreferrer">
-            <ArrowUpRight size={18} aria-hidden="true" />
-            {t.contactSection.webGeneral.label}
-          </a>
-          <a href={t.contactSection.webBa.href} target="_blank" rel="noreferrer">
-            <ArrowUpRight size={18} aria-hidden="true" />
-            {t.contactSection.webBa.label}
-          </a>
-          <a href="https://github.com/VoVanTuTai" target="_blank" rel="noreferrer">
-            <Github size={18} aria-hidden="true" />
-            github.com/VoVanTuTai
-          </a>
-          <a href="https://linkedin.com/in/vovantutai" target="_blank" rel="noreferrer">
-            <Linkedin size={18} aria-hidden="true" />
-            linkedin.com/in/vovantutai
-          </a>
-          <span>
-            <MapPin size={18} aria-hidden="true" />
+          {/* Quick Contact & Socials Grid */}
+          <div className="contact-primary-grid">
+            <a href="tel:+84869500573" className="contact-action-item">
+              <Phone size={17} aria-hidden="true" />
+              <span>+84 869 500 573</span>
+            </a>
+            <a href="mailto:tutaivovan@gmail.com" className="contact-action-item">
+              <Mail size={17} aria-hidden="true" />
+              <span>tutaivovan@gmail.com</span>
+            </a>
+            <a href="https://linkedin.com/in/vovantutai" target="_blank" rel="noreferrer" className="contact-action-item">
+              <Linkedin size={17} aria-hidden="true" />
+              <span>LinkedIn</span>
+            </a>
+            <a href="https://github.com/VoVanTuTai" target="_blank" rel="noreferrer" className="contact-action-item">
+              <Github size={17} aria-hidden="true" />
+              <span>GitHub</span>
+            </a>
+          </div>
+
+          {/* COMPACT & TIDY CV SECTION AT FOOTER */}
+          <div className="footer-cv-box">
+            <div className="footer-cv-header">
+              <FileText size={15} aria-hidden="true" />
+              <strong>{lang === "vi" ? "Hồ sơ & CV đính kèm" : "Resumes & Documents"}</strong>
+            </div>
+
+            <div className="footer-cv-grid">
+              {/* Tiếng Việt */}
+              <div className="footer-cv-item">
+                <div className="footer-cv-meta">
+                  <span className="footer-cv-badge vi">VI</span>
+                  <strong>{lang === "vi" ? "CV BA Tiếng Việt" : "Vietnamese Resume"}</strong>
+                </div>
+                <div className="footer-cv-actions">
+                  <a href="/VoVanTuTai_Business_Analyst_CV_Tieng_Viet.pdf" download className="footer-btn-dl" title="Tải PDF">
+                    <Download size={13} aria-hidden="true" />
+                    <span>PDF</span>
+                  </a>
+                  <a href="/po-ba-cv-vi.html" target="_blank" rel="noreferrer" className="footer-btn-view" title="Xem Web">
+                    <ExternalLink size={13} aria-hidden="true" />
+                    <span>Web</span>
+                  </a>
+                </div>
+              </div>
+
+              {/* Tiếng Anh */}
+              <div className="footer-cv-item">
+                <div className="footer-cv-meta">
+                  <span className="footer-cv-badge en">EN</span>
+                  <strong>{lang === "vi" ? "CV BA Tiếng Anh" : "English Resume"}</strong>
+                </div>
+                <div className="footer-cv-actions">
+                  <a href="/VoVanTuTai_Business_Analyst_CV.pdf" download className="footer-btn-dl" title="Download PDF">
+                    <Download size={13} aria-hidden="true" />
+                    <span>PDF</span>
+                  </a>
+                  <a href="/cv.html" target="_blank" rel="noreferrer" className="footer-btn-view" title="View Web">
+                    <ExternalLink size={13} aria-hidden="true" />
+                    <span>Web</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <span className="contact-location-tag">
+            <MapPin size={16} aria-hidden="true" />
             {t.contactSection.location}
           </span>
         </div>
