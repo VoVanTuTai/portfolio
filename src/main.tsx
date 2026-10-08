@@ -169,7 +169,7 @@ const portfolioDataVi: PortfolioLocaleData = {
     ],
     targetLabel: "Vị trí mục tiêu",
     targetValue: "IT Business Analyst (Fresher / Junior)",
-    tags: ["Phân tích Nghiệp vụ", "Mô hình hóa Quy trình", "Hệ thống Booking & OMS"],
+    tags: ["Phân tích Nghiệp vụ", "Mô hình hóa Quy trình", "Hệ thống Booking & OMS", "ERP (Odoo)"],
   },
   proofSignals: [
     {
@@ -305,6 +305,7 @@ const portfolioDataVi: PortfolioLocaleData = {
         title: "Hiểu biết Miền Nghiệp vụ",
         items: [
           "Hệ thống Quản lý Đơn hàng (OMS)",
+          "Hệ thống ERP Doanh nghiệp (Odoo: Sales, Purchase, Inventory)",
           "Logistics & Trạm quét theo dõi",
           "Lịch Đặt phòng & Tồn kho Thời gian thực",
           "Cổng Thanh toán Trực tuyến (VNPay IPN)",
@@ -317,6 +318,7 @@ const portfolioDataVi: PortfolioLocaleData = {
         items: [
           "Thiết kế CSDL Quan hệ (ERD 3NF)",
           "Truy vấn SQL (MySQL, PostgreSQL)",
+          "Dashboard & Báo cáo Dữ liệu (Power BI)",
           "Sơ đồ Máy trạng thái & Hoạt động",
           "Chuẩn hóa Dữ liệu (Normalization)",
           "Từ điển Dữ liệu & Danh mục Thực thể",
@@ -342,6 +344,7 @@ const portfolioDataVi: PortfolioLocaleData = {
         title: "Công cụ & Phương pháp Agile",
         items: [
           "Jira & Confluence",
+          "Odoo ERP & Power BI",
           "Figma (Wireframing)",
           "Camunda Modeler & Draw.io",
           "Lập kế hoạch Sprint & Phân rã WBS",
@@ -432,7 +435,7 @@ const portfolioDataEn: PortfolioLocaleData = {
     ],
     targetLabel: "Target Level",
     targetValue: "IT Business Analyst (Fresher / Junior)",
-    tags: ["Business Analysis", "Process Modeling", "Booking & OMS Systems"],
+    tags: ["Business Analysis", "Process Modeling", "Booking & OMS Systems", "ERP (Odoo)"],
   },
   proofSignals: [
     {
@@ -567,6 +570,7 @@ const portfolioDataEn: PortfolioLocaleData = {
         title: "Domain Exposure",
         items: [
           "Order Management Systems (OMS)",
+          "Enterprise ERP Systems (Odoo: Sales, Purchase, Inventory)",
           "Logistics & Tracking Checkpoints",
           "Reservation & Inventory Calendars",
           "Digital Payments (VNPay IPN)",
@@ -579,6 +583,7 @@ const portfolioDataEn: PortfolioLocaleData = {
         items: [
           "Relational Schema Design (ERD 3NF)",
           "SQL Querying (MySQL, PostgreSQL)",
+          "Data Dashboards & Reporting (Power BI)",
           "State Machine & Activity Diagrams",
           "Database Normalization",
           "Data Dictionaries & Catalogs",
@@ -604,6 +609,7 @@ const portfolioDataEn: PortfolioLocaleData = {
         title: "Agile Tools & Methodologies",
         items: [
           "Jira & Confluence",
+          "Odoo ERP & Power BI",
           "Figma (Wireframing)",
           "Camunda Modeler & Draw.io",
           "Sprint Planning & WBS Breakdown",
@@ -3387,6 +3393,12 @@ function BusinessAnalysisLessonPage({ navigate }: { navigate: NavigateHandler })
                 <h3>Structured Problem Solving</h3>
                 <p>Chia nhỏ vấn đề, nhận diện state, condition, dependency và phân tích trade-off có thứ tự.</p>
                 <strong>Bằng chứng: xử lý rule và edge case thay vì chỉ mô tả happy path.</strong>
+              </article>
+              <article>
+                <span>Enterprise Resource Planning (ERP)</span>
+                <h3>ERP &amp; Business Process Modules</h3>
+                <p>Khảo sát &amp; thực hành phân hệ ERP (Odoo: Sales, Purchase, Inventory/Kho, Invoicing), luồng luân chuyển chứng từ và chuẩn hóa quy trình doanh nghiệp.</p>
+                <strong>Bằng chứng: liên kết thực tế với luồng OMS/Kho vận và quy trình chuỗi cung ứng.</strong>
               </article>
             </div>
             <div className="self-check">
