@@ -1253,40 +1253,74 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
           </p>
         </div>
         <div className="contact-links">
-          <a href="tel:+84869500573">
-            <Phone size={18} aria-hidden="true" />
-            +84 869 500 573
-          </a>
-          <a href="mailto:tutaivovan@gmail.com">
-            <Mail size={18} aria-hidden="true" />
-            tutaivovan@gmail.com
-          </a>
-          <a href={t.contactSection.pdfBaVi.href} download>
-            <Download size={18} aria-hidden="true" />
-            {t.contactSection.pdfBaVi.label}
-          </a>
-          <a href={t.contactSection.pdfBaEn.href} download>
-            <Download size={18} aria-hidden="true" />
-            {t.contactSection.pdfBaEn.label}
-          </a>
-          <a href={t.contactSection.webBaVi.href} target="_blank" rel="noreferrer">
-            <ArrowUpRight size={18} aria-hidden="true" />
-            {t.contactSection.webBaVi.label}
-          </a>
-          <a href={t.contactSection.webBaEn.href} target="_blank" rel="noreferrer">
-            <ArrowUpRight size={18} aria-hidden="true" />
-            {t.contactSection.webBaEn.label}
-          </a>
-          <a href="https://github.com/VoVanTuTai" target="_blank" rel="noreferrer">
-            <Github size={18} aria-hidden="true" />
-            github.com/VoVanTuTai
-          </a>
-          <a href="https://linkedin.com/in/vovantutai" target="_blank" rel="noreferrer">
-            <Linkedin size={18} aria-hidden="true" />
-            linkedin.com/in/vovantutai
-          </a>
-          <span>
-            <MapPin size={18} aria-hidden="true" />
+          {/* Quick Contact & Socials Grid */}
+          <div className="contact-primary-grid">
+            <a href="tel:+84869500573" className="contact-action-item">
+              <Phone size={17} aria-hidden="true" />
+              <span>+84 869 500 573</span>
+            </a>
+            <a href="mailto:tutaivovan@gmail.com" className="contact-action-item">
+              <Mail size={17} aria-hidden="true" />
+              <span>tutaivovan@gmail.com</span>
+            </a>
+            <a href="https://linkedin.com/in/vovantutai" target="_blank" rel="noreferrer" className="contact-action-item">
+              <Linkedin size={17} aria-hidden="true" />
+              <span>LinkedIn</span>
+            </a>
+            <a href="https://github.com/VoVanTuTai" target="_blank" rel="noreferrer" className="contact-action-item">
+              <Github size={17} aria-hidden="true" />
+              <span>GitHub</span>
+            </a>
+          </div>
+
+          {/* COMPACT & TIDY CV SECTION AT FOOTER */}
+          <div className="footer-cv-box">
+            <div className="footer-cv-header">
+              <FileText size={15} aria-hidden="true" />
+              <strong>{lang === "vi" ? "Hồ sơ & CV đính kèm" : "Resumes & Documents"}</strong>
+            </div>
+
+            <div className="footer-cv-grid">
+              {/* Tiếng Việt */}
+              <div className="footer-cv-item">
+                <div className="footer-cv-meta">
+                  <span className="footer-cv-badge vi">VI</span>
+                  <strong>{lang === "vi" ? "CV BA Tiếng Việt" : "Vietnamese Resume"}</strong>
+                </div>
+                <div className="footer-cv-actions">
+                  <a href="/VoVanTuTai_Business_Analyst_CV_Tieng_Viet.pdf" download className="footer-btn-dl" title="Tải PDF">
+                    <Download size={13} aria-hidden="true" />
+                    <span>PDF</span>
+                  </a>
+                  <a href="/po-ba-cv-vi.html" target="_blank" rel="noreferrer" className="footer-btn-view" title="Xem Web">
+                    <ExternalLink size={13} aria-hidden="true" />
+                    <span>Web</span>
+                  </a>
+                </div>
+              </div>
+
+              {/* Tiếng Anh */}
+              <div className="footer-cv-item">
+                <div className="footer-cv-meta">
+                  <span className="footer-cv-badge en">EN</span>
+                  <strong>{lang === "vi" ? "CV BA Tiếng Anh" : "English Resume"}</strong>
+                </div>
+                <div className="footer-cv-actions">
+                  <a href="/VoVanTuTai_Business_Analyst_CV.pdf" download className="footer-btn-dl" title="Download PDF">
+                    <Download size={13} aria-hidden="true" />
+                    <span>PDF</span>
+                  </a>
+                  <a href="/cv.html" target="_blank" rel="noreferrer" className="footer-btn-view" title="View Web">
+                    <ExternalLink size={13} aria-hidden="true" />
+                    <span>Web</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <span className="contact-location-tag">
+            <MapPin size={16} aria-hidden="true" />
             {t.contactSection.location}
           </span>
         </div>

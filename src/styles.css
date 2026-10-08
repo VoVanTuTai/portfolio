@@ -4887,38 +4887,193 @@ h1.hero-title {
 
 .contact-links {
   display: grid;
+  gap: 12px;
+}
+
+.contact-primary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
 }
 
-.contact-links a,
-.contact-links span {
+.contact-action-item {
   display: flex;
   align-items: center;
-  gap: 12px;
-  min-height: 50px;
-  padding: 0 18px;
+  gap: 10px;
+  min-height: 48px;
+  padding: 0 16px;
   border: 1px solid rgba(203, 213, 225, 0.9);
   border-radius: 12px;
   background: #ffffff;
   color: #0f172a;
-  font-size: 14px;
-  font-weight: 800;
+  font-size: 13.5px;
+  font-weight: 750;
   text-decoration: none;
   overflow-wrap: anywhere;
-  transition: all 180ms ease;
-  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+  transition: all 160ms ease;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03);
 }
 
-.contact-links a:hover {
+.contact-action-item svg {
+  color: #0284c7;
+  flex-shrink: 0;
+}
+
+.contact-action-item:hover {
   border-color: rgba(14, 165, 233, 0.6);
   color: #0284c7;
   background: #f0f9ff;
   transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(14, 165, 233, 0.16);
+  box-shadow: 0 8px 20px rgba(14, 165, 233, 0.14);
 }
 
-.contact-links a svg,
-.contact-links span svg {
+/* Compact & Tidy Footer CV Box */
+.footer-cv-box {
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: #ffffff;
+  border: 1.5px solid rgba(14, 165, 233, 0.28);
+  box-shadow: 0 4px 16px rgba(14, 165, 233, 0.06);
+}
+
+.footer-cv-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  font-size: 13px;
+  font-weight: 850;
+  color: #0f172a;
+}
+
+.footer-cv-header svg {
+  color: #0284c7;
+  flex-shrink: 0;
+}
+
+.footer-cv-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.footer-cv-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: #f8fafc;
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  transition: all 160ms ease;
+}
+
+.footer-cv-item:hover {
+  border-color: rgba(14, 165, 233, 0.45);
+  background: #f0f9ff;
+}
+
+.footer-cv-meta {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-width: 0;
+}
+
+.footer-cv-meta strong {
+  font-size: 12.5px;
+  font-weight: 800;
+  color: #0f172a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.footer-cv-badge {
+  padding: 1px 5px;
+  border-radius: 4px;
+  font-size: 9.5px;
+  font-weight: 850;
+  letter-spacing: 0.02em;
+}
+
+.footer-cv-badge.vi {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+.footer-cv-badge.en {
+  background: #dcfce7;
+  color: #047857;
+}
+
+.footer-cv-actions {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-shrink: 0;
+}
+
+.footer-btn-dl,
+.footer-btn-view {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 9px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: all 140ms ease;
+}
+
+.footer-btn-dl {
+  background: linear-gradient(135deg, #0284c7, #2563eb);
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(2, 132, 199, 0.25);
+}
+
+.footer-btn-dl:hover {
+  opacity: 0.95;
+  transform: translateY(-1px);
+}
+
+.footer-btn-dl svg {
+  color: #ffffff;
+}
+
+.footer-btn-view {
+  background: #ffffff;
+  border: 1px solid rgba(203, 213, 225, 0.9);
+  color: #0f172a;
+}
+
+.footer-btn-view:hover {
+  background: #f0f9ff;
+  border-color: #0284c7;
+  color: #0284c7;
+  transform: translateY(-1px);
+}
+
+.footer-btn-view svg {
+  color: #0284c7;
+}
+
+.contact-location-tag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 16px;
+  border-radius: 10px;
+  background: rgba(240, 249, 255, 0.7);
+  border: 1px solid rgba(186, 230, 253, 0.8);
+  color: #0369a1;
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.contact-location-tag svg {
   color: #0284c7;
   flex-shrink: 0;
 }
@@ -5126,6 +5281,16 @@ footer span:last-child {
     flex-wrap: wrap;
     font-size: 11px;
     padding: 6px 10px;
+  }
+
+  .contact-primary-grid,
+  .footer-cv-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-cv-item {
+    flex-wrap: wrap;
+    gap: 8px;
   }
 
   h1 {
