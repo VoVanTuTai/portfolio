@@ -142,19 +142,19 @@ const portfolioDataVi: PortfolioLocaleData = {
     contact: "Liên hệ",
   },
   hero: {
-    profileMeta: "TP. Hồ Chí Minh, Việt Nam · Kỹ sư Hệ thống Thông tin (IUH · Sẵn sàng làm Full-time)",
-    eyebrow: "Hồ sơ Năng lực IT Business Analyst",
-    heading: "Cầu Nối Vững Chắc Giữa Bài Toán Kinh Doanh và Giải Pháp Kỹ Thuật",
+    profileMeta: "TP. Hồ Chí Minh, Việt Nam · Kỹ sư Hệ thống Thông tin (IUH · Sẵn sàng làm việc)",
+    eyebrow: "Portfolio & Góc chia sẻ nghề BA",
+    heading: "Cầu nối giữa bài toán kinh doanh và giải pháp kỹ thuật",
     lede: (
       <>
-        Đã hoàn thành chương trình đào tạo Kỹ sư <b>Hệ thống Thông tin (IUH - GPA 3.26/4.0 · Sẵn sàng làm việc Full-time)</b>, sở hữu thế mạnh kép về <b>Phân tích Nghiệp vụ</b> và <b>Tư duy Kỹ thuật Hệ thống</b>.
-        Tích lũy 6+ tháng kinh nghiệm Business Analyst (BA) tại <b>HomeNest Software</b> cùng nền tảng vận hành hiện trường tại <b>J&amp;T Express</b>.
-        Thành thạo xây dựng tài liệu <b>PRD/SRS</b> chuẩn kỹ thuật cho Dev, mô hình hóa quy trình <b>BPMN 2.0</b>, viết <b>User Stories (Given-When-Then)</b>,
-        thiết kế wireframe <b>Figma</b>, và điều phối <b>UAT</b> xuyên suốt 2+ chu kỳ phát hành sản phẩm.
+        Tốt nghiệp ngành <b>Hệ thống Thông tin (IUH - GPA 3.26/4.0)</b>, mình tập trung phát triển thế mạnh kết hợp giữa <b>Phân tích Nghiệp vụ</b> và <b>Tư duy Kỹ thuật Hệ thống</b>.
+        Với 6+ tháng kinh nghiệm Business Analyst (BA) tại <b>HomeNest Software</b> và thời gian cọ xát thực tế tại <b>J&amp;T Express</b>,
+        mình thành thạo khảo sát yêu cầu, soạn thảo <b>PRD/SRS</b> rõ ràng cho Dev, vẽ luồng <b>BPMN 2.0</b>, viết <b>User Stories (Given-When-Then)</b>,
+        dựng wireframe <b>Figma</b>, và trực tiếp điều phối <b>UAT</b> cho sản phẩm.
       </>
     ),
     actions: {
-      explore: "Khám phá Case Studies",
+      explore: "Xem các Case Studies",
       webGeneralCv: "Xem CV Tổng Quát (Web)",
       webGeneralCvHref: "/cv-general.html",
       webBaCv: "Xem CV Chuyên Sâu BA (Web)",
@@ -764,13 +764,13 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
                 <div className="dropdown-header">
                   <div className="dropdown-status-dot" />
                   <div>
-                    <strong>{lang === "vi" ? "Hồ Sơ Năng Lực Ứng Tuyển" : "Candidate Profile & Resumes"}</strong>
-                    <p>{lang === "vi" ? "Sẵn sàng phỏng vấn & nhận việc Full-time" : "Available for Full-time hire"}</p>
+                    <strong>{lang === "vi" ? "Hồ sơ & CV đính kèm" : "Resumes & Documents"}</strong>
+                    <p>{lang === "vi" ? "Chọn định dạng PDF tải về hoặc xem trên web" : "Download PDF or view on web"}</p>
                   </div>
                 </div>
 
                 <div className="dropdown-section">
-                  <span className="dropdown-label">{lang === "vi" ? "Tải Bản PDF (1-Click)" : "Download PDF Files"}</span>
+                  <span className="dropdown-label">{lang === "vi" ? "Tải File PDF" : "Download PDF"}</span>
                   <a
                     className="dropdown-item dropdown-item-featured"
                     href="/VoVanTuTai_Business_Analyst_CV_Tieng_Viet.pdf"
@@ -782,10 +782,10 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
                     </div>
                     <div className="item-content">
                       <div className="item-title-row">
-                        <strong>{lang === "vi" ? "CV IT BA Chuyên Sâu (Tiếng Việt)" : "Deep BA Resume (Vietnamese)"}</strong>
-                        <span className="item-badge">{lang === "vi" ? "Khuyên dùng" : "Recommended"}</span>
+                        <strong>{lang === "vi" ? "CV IT BA (PDF Tiếng Việt)" : "IT BA Resume (Vietnamese PDF)"}</strong>
+                        <span className="item-badge">PDF</span>
                       </div>
-                      <span>{lang === "vi" ? "Bản tối ưu cho NTD Việt Nam · Đầy đủ dự án & SRS" : "Detailed project cases & SRS specifications"}</span>
+                      <span>{lang === "vi" ? "Bản chi tiết kinh nghiệm dự án & kỹ năng" : "Detailed project cases & BA skills"}</span>
                     </div>
                   </a>
 
@@ -800,10 +800,10 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
                     </div>
                     <div className="item-content">
                       <div className="item-title-row">
-                        <strong>{lang === "vi" ? "Resume IT BA (English PDF)" : "IT BA Resume (English PDF)"}</strong>
-                        <span className="item-badge-subtle">Global</span>
+                        <strong>{lang === "vi" ? "Resume IT BA (PDF English)" : "IT BA Resume (English PDF)"}</strong>
+                        <span className="item-badge-subtle">EN</span>
                       </div>
-                      <span>{lang === "vi" ? "Dành cho công ty Đa quốc gia / Outsource" : "For MNCs & English-speaking teams"}</span>
+                      <span>{lang === "vi" ? "Bản tiếng Anh cho team Outsource / MNC" : "For MNCs & English-speaking teams"}</span>
                     </div>
                   </a>
 
@@ -839,7 +839,7 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
                 </div>
 
                 <div className="dropdown-section">
-                  <span className="dropdown-label">{lang === "vi" ? "Xem Trực Tiếp Bản Web (Interactive)" : "View Web Resumes (Instant)"}</span>
+                  <span className="dropdown-label">{lang === "vi" ? "Xem Trực Tiếp Trên Web" : "Web Resumes"}</span>
                   <a
                     className="dropdown-item"
                     href="/po-ba-cv-vi.html"
@@ -851,8 +851,8 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
                       <ExternalLink size={15} />
                     </div>
                     <div className="item-content">
-                      <strong>{lang === "vi" ? "Xem CV Web Tiếng Việt (Bản Chuyên Sâu)" : "Web View: Vietnamese BA Resume"}</strong>
-                      <span>{lang === "vi" ? "Giao diện trực quan · Tải nhanh 0.1s" : "Fast interactive web layout"}</span>
+                      <strong>{lang === "vi" ? "Xem CV Web Tiếng Việt (Bản Chi Tiết)" : "Web View: Vietnamese BA Resume"}</strong>
+                      <span>{lang === "vi" ? "Giao diện web trực quan, rõ ràng" : "Interactive web layout"}</span>
                     </div>
                   </a>
 
@@ -868,7 +868,7 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
                     </div>
                     <div className="item-content">
                       <strong>{lang === "vi" ? "Xem Resume Web Tiếng Anh (English)" : "Web View: English BA Resume"}</strong>
-                      <span>{lang === "vi" ? "Giao diện tiếng Anh chuẩn mực" : "Standardized English layout"}</span>
+                      <span>{lang === "vi" ? "Giao diện tiếng Anh tiêu chuẩn" : "Standardized English layout"}</span>
                     </div>
                   </a>
                 </div>
@@ -913,17 +913,13 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
 
       <section className="hero" id="top">
         <div className="hero-copy">
-          {/* Executive Candidate Status Badge */}
-          <div className="executive-badge">
+          {/* Personal Introduction & Availability Pill */}
+          <div className="personal-status-pill">
             <span className="badge-pulse-dot" />
             <span className="badge-text">
               {lang === "vi"
-                ? "KỸ SƯ HỆ THỐNG THÔNG TIN (IUH) · SẴN SÀNG LÀM FULL-TIME TẠI TP.HCM"
-                : "B.ENG INFORMATION SYSTEMS (IUH) · AVAILABLE FULL-TIME IN HCM CITY"}
-            </span>
-            <span className="badge-pill-verified">
-              <ShieldCheck size={13} aria-hidden="true" />
-              Verified
+                ? "Kỹ sư Hệ thống Thông tin (IUH) · Sẵn sàng làm việc tại TP.HCM"
+                : "B.Eng in Information Systems (IUH) · Available Full-time in HCM City"}
             </span>
           </div>
 
@@ -945,85 +941,84 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
           <h1 className="hero-title">{t.hero.heading}</h1>
           <p className="hero-lede">{t.hero.lede}</p>
 
-          {/* DEDICATED RECRUITER FAST-TRACK & CV ACTIONS AT TOP */}
-          <div className="recruiter-fast-track-card" aria-label="Recruiter Action Hub">
-            <div className="fast-track-head">
-              <div className="fast-track-title-group">
-                <div className="fast-track-icon">
+          {/* FRIENDLY DOCUMENT & CV SHARING CARD */}
+          <div className="cv-sharing-card" aria-label="Tài liệu và Hồ sơ CV">
+            <div className="sharing-card-head">
+              <div className="sharing-title-group">
+                <div className="sharing-icon">
                   <FileText size={18} aria-hidden="true" />
                 </div>
                 <div>
-                  <h3>{lang === "vi" ? "Cụm Tác Vụ Dành Cho Nhà Tuyển Dụng" : "Recruiter Fast-Track Command"}</h3>
-                  <p>{lang === "vi" ? "Tải CV định dạng PDF hoặc xem trực tiếp bản Web tương tác" : "Download PDF resumes or open interactive web versions"}</p>
+                  <h3>{lang === "vi" ? "Hồ sơ & CV của mình" : "My Resumes & Documents"}</h3>
+                  <p>{lang === "vi" ? "Bạn có thể tải nhanh bản PDF để lưu trữ hoặc xem trực tiếp trên web nhé:" : "Download PDF copies or explore interactive web versions:"}</p>
                 </div>
               </div>
-              <div className="fast-track-avail">
+              <div className="sharing-avail-tag">
                 <span className="pulse-green" />
-                <span>{lang === "vi" ? "Nhận việc ngay" : "Immediate Start"}</span>
+                <span>{lang === "vi" ? "Sẵn sàng nhận việc" : "Available for hire"}</span>
               </div>
             </div>
 
-            <div className="fast-track-actions">
-              {/* Primary Gold CTA */}
+            <div className="sharing-actions-grid">
+              {/* Primary Download Button */}
               <a
-                className="cv-cta-gold"
+                className="sharing-btn sharing-btn-primary"
                 href="/VoVanTuTai_Business_Analyst_CV_Tieng_Viet.pdf"
                 download
               >
                 <Download size={19} aria-hidden="true" />
-                <div className="cta-text">
-                  <div className="cta-main-row">
-                    <strong>{lang === "vi" ? "Tải CV PDF (Tiếng Việt)" : "Download PDF Resume (VI)"}</strong>
-                    <span className="cta-tag-vip">{lang === "vi" ? "Khuyên dùng" : "Best Choice"}</span>
+                <div className="sharing-btn-text">
+                  <div className="sharing-btn-row">
+                    <strong>{lang === "vi" ? "Tải CV PDF (Tiếng Việt)" : "Download Resume (VI PDF)"}</strong>
+                    <span className="sharing-tag">PDF</span>
                   </div>
-                  <span>{lang === "vi" ? "Bản Chuyên Sâu IT BA · Chuẩn in ấn A4" : "Deep IT BA Edition · Standard A4"}</span>
+                  <span>{lang === "vi" ? "Bản chi tiết kinh nghiệm dự án & kỹ năng BA" : "Detailed BA experience & projects"}</span>
                 </div>
               </a>
 
-              {/* Secondary Emerald CTA */}
+              {/* Secondary Web CV Button */}
               <a
-                className="cv-cta-emerald"
+                className="sharing-btn sharing-btn-secondary"
                 href="/po-ba-cv-vi.html"
                 target="_blank"
                 rel="noreferrer"
               >
                 <ExternalLink size={19} aria-hidden="true" />
-                <div className="cta-text">
-                  <div className="cta-main-row">
-                    <strong>{lang === "vi" ? "Xem CV Trực Tuyến (Web)" : "Interactive Web CV"}</strong>
-                    <span className="cta-tag-fast">0.1s</span>
+                <div className="sharing-btn-text">
+                  <div className="sharing-btn-row">
+                    <strong>{lang === "vi" ? "Xem CV trực tuyến (Web)" : "Interactive Web CV"}</strong>
+                    <span className="sharing-tag">Web</span>
                   </div>
-                  <span>{lang === "vi" ? "Mở tab mới · Giao diện trực quan" : "Instant tab view · Modern UI"}</span>
+                  <span>{lang === "vi" ? "Mở tab mới xem trực tiếp trên trình duyệt" : "Instant browser preview"}</span>
                 </div>
               </a>
 
               {/* Tertiary English PDF */}
               <a
-                className="cv-cta-dark"
+                className="sharing-btn sharing-btn-outline"
                 href="/VoVanTuTai_Business_Analyst_CV.pdf"
                 download
               >
                 <Download size={18} aria-hidden="true" />
-                <div className="cta-text">
+                <div className="sharing-btn-text">
                   <strong>{lang === "vi" ? "Tải Resume PDF (English)" : "Download English Resume"}</strong>
-                  <span>{lang === "vi" ? "Global / Outsource teams" : "For international teams"}</span>
+                  <span>{lang === "vi" ? "Phiên bản tiếng Anh cho team Outsource / MNC" : "For international teams"}</span>
                 </div>
               </a>
 
               {/* Explore Projects Button */}
-              <a className="cv-cta-explore" href="#projects">
+              <a className="sharing-btn sharing-btn-outline" href="#projects">
                 <ArrowUpRight size={18} aria-hidden="true" />
-                <div className="cta-text">
+                <div className="sharing-btn-text">
                   <strong>{t.hero.actions.explore}</strong>
-                  <span>{lang === "vi" ? "4 Case Studies thực tế" : "4 Production Case Studies"}</span>
+                  <span>{lang === "vi" ? "4 Case Studies & giải pháp thực tế" : "4 Production Case Studies"}</span>
                 </div>
               </a>
             </div>
 
-            <div className="fast-track-foot">
+            <div className="sharing-card-foot">
               <span className="foot-label">
-                <UserCheck size={14} aria-hidden="true" />
-                {lang === "vi" ? "Liên hệ phỏng vấn trực tiếp:" : "Direct Recruiter Hotline:"}
+                {lang === "vi" ? "Trao đổi & liên hệ nhanh:" : "Direct contact:"}
               </span>
               <a href="tel:+84869500573" className="foot-link">
                 <Phone size={13} aria-hidden="true" />
@@ -1035,25 +1030,20 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
                 tutaivovan@gmail.com
               </a>
               <span className="foot-sep">·</span>
-              <span className="foot-highlight">
-                <Sparkles size={12} aria-hidden="true" />
-                {lang === "vi" ? "Phản hồi trong 2 giờ" : "Response within 2h"}
+              <span className="foot-location">
+                {lang === "vi" ? "TP. Hồ Chí Minh" : "Ho Chi Minh City"}
               </span>
             </div>
           </div>
         </div>
 
         <aside className="hero-visual" aria-label="Portfolio proof points">
-          <div className="visual-frame executive-dossier">
+          <div className="visual-frame competency-overview">
             <div className="browser-bar" aria-hidden="true">
               <span />
               <span />
               <span />
               <strong>{t.preview.browserLabel}</strong>
-              <span className="dossier-verified-badge">
-                <ShieldCheck size={12} />
-                CONFIRMED
-              </span>
             </div>
             <div className="web-preview" aria-label="Business Analyst portfolio focus preview">
               <div className="web-preview-main">
