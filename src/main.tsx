@@ -906,12 +906,26 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
               <img className="profile-avatar" src="/assets/avatar.png" alt="Vo Van Tu Tai" />
               <span className="avatar-online-dot" title="Available for hire" />
             </div>
-            <div>
+            <div className="profile-info-col">
               <div className="profile-name-row">
                 <p className="profile-name">Vo Van Tu Tai</p>
                 <span className="profile-role-tag">IT Business Analyst</span>
+                <span className="profile-role-tag secondary">Project Coordinator</span>
               </div>
               <p className="profile-meta">{t.hero.profileMeta}</p>
+              <div className="profile-chips-row">
+                <span className="profile-chip">
+                  <span className="chip-dot" />
+                  IUH · GPA 3.22/4.0
+                </span>
+                <span className="profile-chip">
+                  <span className="chip-dot" />
+                  TOEIC 650+
+                </span>
+                <span className="profile-chip highlight">
+                  {lang === "vi" ? "Sẵn sàng nhận việc" : "Available for hire"}
+                </span>
+              </div>
             </div>
           </div>
 
