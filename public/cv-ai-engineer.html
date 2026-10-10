@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Võ Văn Tú Tài — CV AI / LLM Application Engineer</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <!-- Inter Font Support (Chuẩn mực quốc tế, sắc nét, tối ưu ATS) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #e4e7eb;
+            color: #1a1a1a;
+            line-height: 1.35;
+            font-size: 13px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        a, a:visited, a:hover, a:active {
+            color: #111 !important;
+            text-decoration: none !important;
+        }
+
+        /* ── 2-PAGE A4 CONTAINER ── */
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            height: 297mm;
+            max-height: 297mm;
+            background: #fff;
+            margin: 20px auto;
+            padding: 7.5mm 14mm 6.5mm 14mm;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            overflow: hidden;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        /* ── HEADER ── */
+        .header {
+            text-align: center;
+            margin-bottom: 5px;
+            padding-bottom: 3px;
+        }
+
+        .name {
+            font-size: 21pt;
+            font-weight: 700;
+            letter-spacing: -0.4px;
+            color: #111;
+            line-height: 1.1;
+            margin-bottom: 3px;
+        }
+
+        .subtitle {
+            font-size: 10pt;
+            font-weight: 600;
+            color: #2b3648;
+            margin-bottom: 5px;
+            letter-spacing: 0.1px;
+        }
+
+        .contact-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: nowrap;
+            gap: 0 8px;
+            font-size: 8.15pt;
+            color: #333;
+            max-width: 100%;
+            margin: 0 auto;
+            white-space: nowrap;
+        }
+
+        .contact-row a,
+        .contact-row span {
+            color: #222 !important;
+            text-decoration: none !important;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            line-height: 1;
+            vertical-align: middle;
+        }
+
+        .contact-icon {
+            width: 11px;
+            height: 11px;
+            fill: #333;
+            flex-shrink: 0;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .separator {
+            color: #888;
+            font-size: 8.5pt;
+            user-select: none;
+        }
+
+        /* ── SECTIONS ── */
+        .section {
+            margin-top: 5px;
+            margin-bottom: 3px;
+        }
+
+        .section-title {
+            font-size: 10pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: #0f2744;
+            border-bottom: 1.5px solid #0f2744;
+            padding-bottom: 2px;
+            margin-bottom: 4px;
+        }
+
+        /* ── SUMMARY ── */
+        .summary-text {
+            font-size: 9.1pt;
+            line-height: 1.34;
+            color: #262626;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        /* ── ENTRIES ── */
+        .entry {
+            margin-bottom: 5px;
+        }
+
+        .entry:last-child {
+            margin-bottom: 0;
+        }
+
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-size: 9.7pt;
+            color: #111;
+            gap: 8px;
+        }
+
+        .entry-title {
+            font-weight: 700;
+            color: #111;
+            flex: 1;
+        }
+
+        .entry-title a {
+            font-weight: 700;
+            color: #111 !important;
+            text-decoration: none !important;
+        }
+
+        .project-link {
+            font-size: 8.5pt !important;
+            font-weight: 600 !important;
+            color: #0949b8 !important;
+            text-decoration: underline !important;
+            margin-left: 5px;
+            white-space: nowrap;
+        }
+
+        .entry-location {
+            font-weight: 500;
+            color: #444;
+            font-size: 8.9pt;
+            white-space: nowrap;
+            text-align: right;
+            flex-shrink: 0;
+        }
+
+        .entry-sub {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-size: 9pt;
+            color: #333;
+            margin-bottom: 2.5px;
+        }
+
+        .entry-role {
+            font-weight: 600;
+            color: #1a365d;
+        }
+
+        .entry-tech {
+            font-style: italic;
+            font-size: 8.7pt;
+            color: #444;
+        }
+
+        .entry-date {
+            font-style: italic;
+            font-size: 8.9pt;
+            color: #444;
+            white-space: nowrap;
+        }
+
+        /* Sub-project header */
+        .sub-project-header {
+            font-size: 9.2pt;
+            font-weight: 700;
+            color: #2b3648;
+            margin-top: 3.5px;
+            margin-bottom: 2px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .sub-project-header::before {
+            content: "▸";
+            color: #0949b8;
+            font-weight: bold;
+        }
+
+        /* ── BULLETS ── */
+        .bullet-list {
+            list-style-type: disc;
+            padding-left: 14px;
+            margin: 0;
+        }
+
+        .bullet-list li {
+            font-size: 9.05pt;
+            line-height: 1.30;
+            color: #262626;
+            margin-bottom: 2.2px;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        .bullet-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .bullet-list b {
+            font-weight: 600;
+            color: #111;
+        }
+
+        /* ── SKILLS TABLE (LISTING FORMAT) ── */
+        .skills-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .skills-list li {
+            font-size: 8.95pt;
+            line-height: 1.32;
+            color: #262626;
+            margin-bottom: 3.5px;
+            text-align: justify;
+        }
+
+        .skills-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .skills-list b {
+            font-weight: 600;
+            color: #0f2744;
+        }
+
+        /* ── PAGE NUMBER ── */
+        .page-number {
+            position: absolute;
+            bottom: 4mm;
+            right: 14mm;
+            font-size: 8pt;
+            color: #888;
+            font-weight: 500;
+        }
+
+        /* ── ACTION BAR ── */
+        .action-bar {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 10px 18px;
+            border-radius: 30px;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            z-index: 1000;
+        }
+
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #0f2744;
+            color: #fff !important;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .action-btn:hover {
+            background: #1a4275;
+            transform: translateY(-1px);
+        }
+
+        .action-btn.secondary {
+            background: #fff;
+            color: #111 !important;
+            border: 1px solid #ccc;
+        }
+
+        .action-btn.secondary:hover {
+            background: #f0f0f0;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .page {
+                margin: 0;
+                padding: 7.5mm 14mm 6.5mm 14mm;
+                box-shadow: none;
+                width: 210mm;
+                height: 297mm;
+                min-height: 297mm;
+                max-height: 297mm;
+                page-break-after: always;
+                break-after: page;
+            }
+
+            .page:last-child {
+                page-break-after: avoid;
+                break-after: avoid;
+            }
+
+            @page {
+                size: A4 portrait;
+                margin: 0;
+            }
+
+            .action-bar {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ════════════════════ TRANG 1 ════════════════════ -->
+    <div class="page">
+        <!-- HEADER -->
+        <header class="header">
+            <h1 class="name">Võ Văn Tú Tài</h1>
+            <div class="subtitle">AI &amp; LLM Application Engineer · RAG &amp; Agentic Workflows · Loop Engineering</div>
+            <div class="contact-row">
+                <span>
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.25 1.01l-2.2 2.2z" /></svg>
+                    (+84) 869 500 573
+                </span>
+                <span class="separator">|</span>
+                <a href="mailto:tutaivovan@gmail.com">
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" /></svg>
+                    tutaivovan@gmail.com
+                </a>
+                <span class="separator">|</span>
+                <a href="https://linkedin.com/in/vovantutai" target="_blank">
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.2a1.66 1.66 0 0 0-1.66 1.66c0 .92.74 1.66 1.66 1.66.92 0 1.66-.74 1.66-1.66 0-.92-.74-1.66-1.66-1.66z" /></svg>
+                    linkedin.com/in/vovantutai
+                </a>
+                <span class="separator">|</span>
+                <a href="https://github.com/VoVanTuTai" target="_blank">
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" /></svg>
+                    github.com/VoVanTuTai
+                </a>
+                <span class="separator">|</span>
+                <a href="https://tracking.nexus-ex.site" target="_blank">
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" /></svg>
+                    tracking.nexus-ex.site
+                </a>
+            </div>
+        </header>
+
+        <!-- TÓM TẮT CHUYÊN MÔN -->
+        <section class="section">
+            <div class="section-title">Tóm Tắt Năng Lực Chuyên Môn</div>
+            <p class="summary-text">
+                Kỹ sư Hệ thống Thông tin (IUH, GPA 3.26/4.0 · Hoàn thành toàn bộ chương trình · Sẵn sàng làm việc full-time ngay) định hướng chuyên sâu <b>xây dựng tính năng AI &amp; LLM vào hệ thống sản phẩm thật (E-commerce, MarTech, Vận hành)</b>. Tác giả của sản phẩm AI Logistics Assistant chạy thực tế tại <b>tracking.nexus-ex.site</b>, ứng dụng kiến trúc <b>Live RAG</b> (Vector search, document parsing, grounding citations) kết hợp <b>Agent Tool Calling &amp; Loop Engineering</b> (multi-turn conversational state machine tự động intake đơn hàng, tính cước tạm tính và kích hoạt API dispatch bưu tá). Thành thạo lập trình <b>Python (FastAPI, data parsing/embeddings)</b>, <b>Node.js/TypeScript</b>, thiết kế <b>RESTful APIs</b> chuẩn mực và cơ sở dữ liệu quan hệ (PostgreSQL, MySQL, Redis). Từng đảm nhiệm vai trò cầu nối kỹ thuật (HomeNest) và điều phối vận hành logistics (J&T Express), có năng lực giao tiếp mạch lạc với các bên phi kỹ thuật (Founders, Vận hành, Marketing) và tư duy tối ưu chi phí token/API trong môi trường sản phẩm thay đổi nhanh.
+            </p>
+        </section>
+
+        <!-- KINH NGHIỆM LÀM VIỆC -->
+        <section class="section">
+            <div class="section-title">Kinh Nghiệm Làm Việc Thực Chiến</div>
+
+            <!-- HomeNest Software -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">HomeNest Software</span>
+                    <span class="entry-location">TP. Hồ Chí Minh, Việt Nam</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-role">Business Analyst · PM Assistant (Kỹ sư Cầu nối Kỹ thuật &amp; Nghiệp vụ)</span>
+                    <span class="entry-date">03/2026 – 09/2026</span>
+                </div>
+
+                <!-- Sub-project 1 -->
+                <div class="sub-project-header">Dự án 1: "Hỗ Trợ Cuộc Sống" — Hệ Sinh Thái Đa Dịch Vụ Tiện Ích &amp; Đàm Phán Tự Động</div>
+                <ul class="bullet-list">
+                    <li><b>Mô hình hóa kiến trúc &amp; Phạm vi đa dịch vụ:</b> Phân tích yêu cầu nghiệp vụ cho hệ sinh thái tiện ích tích hợp gồm: Thợ sửa chữa theo yêu cầu (Home repair), Chuyến xe ngắn tức thời (mô hình như Grab), Chuyến xe ghép liên tỉnh (Carpooling), và Cổng Super Admin quản trị tập trung; chuyển hóa thành JSON contracts và OpenAPI specs rõ ràng.</li>
+                    <li><b>Thương lượng giá 2 chiều (Dynamic Bidding State Machine):</b> Giải quyết bài toán xung đột giá và bế tắc giao dịch bằng cách thiết kế máy trạng thái (state machine) cho <b>Module Thương lượng giá dịch vụ</b> (khách hàng đề xuất &harr; đối tác trả giá lại &harr; chấp nhận/từ chối kèm thời gian chờ TTL); thiết lập cơ chế khóa trạng thái chống race-condition cho đội Dev.</li>
+                    <li><b>Tối ưu chi phí API bản đồ GPS theo sự kiện:</b> Xử lý triệt để bài toán ngân sách API bản đồ đắt đỏ và hao pin thiết bị bằng <b>cơ chế làm mới GPS theo sự kiện</b> (chỉ ghi nhận tọa độ tại các mốc nhận đơn và hoàn tất cuốc thay vì quét liên tục); giúp tối ưu và tiết kiệm đáng kể chi phí gọi API bản đồ mà vẫn lưu giữ đầy đủ bằng chứng đối soát.</li>
+                    <li><b>Đặc tả kỹ thuật &amp; Hạn chế rủi ro lỗi logic:</b> Soạn thảo tài liệu PRD, Use Cases và User Stories (Given-When-Then) kèm từ điển dữ liệu chuẩn hóa; phối hợp cùng Tech Lead và UI/UX rà soát wireframe Figma với mô hình dữ liệu quan hệ, loại trừ hoàn toàn lỗi lệch schema trước khi triển khai sprint.</li>
+                </ul>
+
+                <!-- Sub-project 2 -->
+                <div class="sub-project-header">Dự án 2: "VietPlus" — Sàn Mua Bán Thương Mại &amp; Điều Phối Vận Chuyển</div>
+                <ul class="bullet-list">
+                    <li><b>Tiếp quản dự án &amp; Làm chủ nghiệp vụ E-commerce:</b> Gia nhập dự án khi đang trong giai đoạn phát triển; nhanh chóng rà soát backlog, kiến trúc kỹ thuật và quy định bản địa (mô hình tương tự Chợ Tốt) để làm chủ toàn diện việc quản lý yêu cầu vòng đời tin đăng, kiểm duyệt nội dung và luân chuyển dữ liệu không gây gián đoạn tiến độ.</li>
+                    <li><b>Tái thiết kế luồng Giao nhận, Hủy đơn &amp; Hoàn hàng:</b> Trực tiếp làm việc với khách hàng tiếp nhận Change Requests; thiết kế luồng máy trạng thái và kịch bản xử lý tranh chấp cho <b>giao nhận hàng hóa, cơ chế hủy đơn tự động và quy trình hoàn hàng/khiếu nại (returns &amp; refunds)</b> giữa người mua và người bán.</li>
+                    <li><b>Tư duy giải pháp tinh gọn (Module Giao hàng Việt - Hàn):</b> Khách hàng yêu cầu gấp tính năng vận chuyển hai chiều; khéo léo tư vấn và đặc tả <b>Form tiếp nhận nhu cầu (Lead Form)</b> để đội ngũ vận hành sàn liên hệ hỗ trợ thủ công thay vì tốn kém nguồn lực code cả hệ thống logistics phức tạp, đáp ứng đúng mục tiêu kinh doanh mà vẫn bảo vệ vững chắc <b>Scope Freeze</b> của sprint.</li>
+                    <li><b>Chuẩn bị Go-Live, Kiểm thử chức năng &amp; Nghiệm thu UAT:</b> Soạn thảo Meeting Minutes và lập <b>Danh mục chuẩn bị Go-Live thương mại</b> (tài khoản App Store, Google Play, chính sách duyệt app); trực tiếp <b>kiểm thử chức năng (Functional &amp; Smoke Testing)</b> các bản build của Dev theo User Stories, phân loại lỗi (Defect Triage) và dẫn dắt UAT bàn giao sản phẩm.</li>
+                </ul>
+            </div>
+
+            <!-- J&T Express -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">J&amp;T Express</span>
+                    <span class="entry-location">TP. Hồ Chí Minh, Việt Nam</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-role">Chuyên Viên Phân Tích &amp; Điều Phối Quy Trình Vận Hành (Operations Coordinator)</span>
+                    <span class="entry-date">09/2025 – 02/2026</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Đối soát dữ liệu bằng SQL &amp; Đảm bảo tính toàn vẹn:</b> Trực tiếp viết các câu lệnh SQL truy vấn và đối soát sai lệch giữa bảng kê xuất nhập thực tế tại kho với nhật ký hệ thống điều hành logistics; lập báo cáo dữ liệu định kỳ cho ban giám đốc.</li>
+                    <li><b>Tối ưu hóa thông lượng luồng xử lý (Throughput):</b> Trực tiếp nhận diện điểm nghẽn xử lý hàng ngàn bưu kiện mỗi ca; tái cấu trúc dây chuyền phân loại thành luồng khép kín 1 chiều (Nhập kho &rarr; Cân &rarr; Quét mã &rarr; Xuất tuyến), đẩy nhanh tốc độ luân chuyển đơn hàng.</li>
+                    <li><b>Chuẩn hóa SOP xử lý ngoại lệ giao nhận:</b> Soạn thảo quy chuẩn xử lý các ca giao hàng bất thường (hàng bể vỡ, thất lạc, bom hàng, khiếu nại cước) — nền tảng tri thức thực tế giúp thiết kế các knowledge base và guardrails chính xác cho RAG chatbot sau này.</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="page-number">Trang 1 / 2</div>
+    </div>
+
+    <!-- ════════════════════ TRANG 2 ════════════════════ -->
+    <div class="page">
+        <!-- DỰ ÁN AI & KỸ THUẬT TIÊU BIỂU -->
+        <section class="section">
+            <div class="section-title">Dự Án AI &amp; Kỹ Thuật Tiêu Biểu</div>
+
+            <!-- Project 1: Nexus Logistics AI Assistant -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">
+                        <a href="https://tracking.nexus-ex.site" target="_blank">Nexus Express — Trợ Lý AI CSKH Live RAG &amp; Loop Engineering</a>
+                        <a href="https://tracking.nexus-ex.site" target="_blank" class="project-link">[Live Demo ↗]</a>
+                        <a href="https://github.com/VoVanTuTai/logistics-management-system" target="_blank" class="project-link">[GitHub ↗]</a>
+                    </span>
+                    <span class="entry-location">Dự án AI &amp; Logistics</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-tech">Python, FastAPI, Live RAG, Embeddings, Loop Engineering, Agent Tool Calling, React, NestJS, Docker</span>
+                    <span class="entry-date">10/2025 – 03/2026</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Kiến trúc Live RAG &amp; Grounding Citations:</b> Xây dựng quy trình xử lý và vector hóa tài liệu quy chế vận hành, chính sách bảo hiểm và giải quyết bồi thường tổn thất hàng hóa (<code>02-insurance-and-claim-policy.md</code>); thực hiện semantic retrieval gắn kèm trích dẫn nguồn minh bạch (citations), loại bỏ triệt để hiện tượng bịa đặt chính sách (hallucination).</li>
+                    <li><b>Loop Engineering (Multi-Turn Conversational State Machine):</b> Thiết kế vòng lặp hội thoại đa lượt có khả năng tự động hóa quy trình nghiệp vụ: nhận diện ý định gửi hàng &rarr; trích xuất thực thể (địa chỉ, số điện thoại, trọng lượng, COD) &rarr; kiểm tra thông tin còn thiếu để hỏi lại &rarr; kích hoạt công cụ tính giá cước tạm tính &rarr; vòng lặp chờ xác nhận người thanh toán &rarr; chốt đơn hàng và cấp mã bưu gửi.</li>
+                    <li><b>Agent Tool Calling &amp; UI Cards:</b> Xây dựng các công cụ tích hợp trực tiếp vào backend: <code>createRetailOrder</code> (tạo vận đơn &amp; điều phối bưu tá), <code>quoteShipmentOrder</code> (tính cước phân tuyến), <code>trackClaimStatus</code> (tra cứu tiến độ bồi thường), và <code>getDamageAndClaimPolicy</code>; trả về thẻ tương tác trực quan (Shipment Cards) và Action Chips ngữ cảnh.</li>
+                    <li><b>Gateway API Fallback &amp; Context Window:</b> Tích hợp endpoint REST API (<code>/api/v1/ai-assistant/message</code> và <code>/api/v1/chat/message</code>) với cơ chế timeout (15s–30s) và bộ xử lý fallback dự phòng nội tại, đảm bảo chatbot phản hồi ổn định 24/7; tối ưu hóa kích thước Context Window qua cơ chế tóm tắt lịch sử hội thoại sessionStorage, kiểm soát chặt chẽ ngân sách token tiêu thụ.</li>
+                </ul>
+            </div>
+
+            <!-- Project 2: Tourist Accommodation Platform -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">
+                        <a href="https://github.com/VoVanTuTai/tourist-accommodation-management-system" target="_blank">Nền Tảng Quản Lý Dịch Vụ &amp; Đặt Phòng Trực Tuyến Đa Phân Quyền</a>
+                        <a href="https://github.com/VoVanTuTai/tourist-accommodation-management-system" target="_blank" class="project-link">[GitHub ↗]</a>
+                    </span>
+                    <span class="entry-location">Dự án Phần mềm Ứng dụng</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-tech">Kiểm soát đồng thời (Concurrency Control), RBAC, VNPay IPN Webhook, MySQL, Express.js, Docker</span>
+                    <span class="entry-date">10/2025 – 12/2025</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Kiểm soát xung đột giữ chỗ (TTL Hold):</b> Phân tích và thiết kế cơ chế giữ chỗ tạm thời (Held/Pending kèm TTL 15 phút), giải quyết triệt để rủi ro tranh chấp phòng (overbooking race condition) trong các đợt cao điểm trước khi hoàn tất thanh toán.</li>
+                    <li><b>Thiết kế ma trận phân quyền người dùng (RBAC):</b> Xây dựng cấu trúc phân quyền chặt chẽ giữa 3 nhóm (Khách hàng, Đối tác cung cấp, Quản trị viên), bảo đảm an toàn bảo mật và phân tách độc lập cơ sở dữ liệu kinh doanh của từng đối tác.</li>
+                    <li><b>Tích hợp cổng thanh toán &amp; Xử lý bất đồng bộ:</b> Đặc tả luồng thanh toán qua <b>IPN Webhook của VNPay</b> với cơ chế xác thực mã băm Checksum HMAC-SHA512, thiết kế giải pháp đối soát và cập nhật chính xác trạng thái đơn kể cả khi phát sinh gián đoạn mạng.</li>
+                </ul>
+            </div>
+
+            <!-- Project 3: Song Tai Shop -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">
+                        <a href="https://github.com/VoVanTuTai/php-online-store" target="_blank">Song Tai Shop — Nền Tảng Thương Mại Điện Tử Full-Stack</a>
+                        <a href="https://github.com/VoVanTuTai/php-online-store" target="_blank" class="project-link">[GitHub ↗]</a>
+                    </span>
+                    <span class="entry-location">Dự án E-commerce</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-tech">PHP (OOP &amp; MVC Architecture), MySQL (3NF &amp; ACID), RESTful APIs, JavaScript (Fetch/AJAX), Docker Compose</span>
+                    <span class="entry-date">11/2025 – 01/2026</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Kiến trúc E-commerce &amp; Quản lý giao dịch ACID:</b> Xây dựng nền tảng thương mại điện tử hoàn chỉnh theo mô hình MVC; giải quyết bài toán trừ kho đồng thời khi flash sale bằng giao dịch ACID nghiêm ngặt (<code>START TRANSACTION</code>, <code>COMMIT</code>, <code>ROLLBACK</code>) và khóa dòng bi quan (<code>SELECT ... FOR UPDATE</code>).</li>
+                    <li><b>RESTful APIs &amp; Tư duy Conversational Commerce:</b> Thiết kế chuẩn hóa các endpoint danh mục sản phẩm, biến thể SKU, giỏ hàng và đặt hàng; hiểu sâu sắc hành trình khách hàng từ xem hàng &rarr; thêm giỏ &rarr; thanh toán &rarr; giao vận phục vụ việc tích hợp chatbot bán hàng.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- KỸ NĂNG CHUYÊN MÔN & CÔNG CỤ -->
+        <section class="section">
+            <div class="section-title">Kỹ Năng Chuyên Môn &amp; Nền Tảng Kỹ Thuật</div>
+            <ul class="skills-list">
+                <li><b>LLM &amp; Generative AI:</b> Prompt Engineering (System instructions, Chain-of-Thought, JSON output enforcement, Few-shot prompting), Context Window &amp; Token Budget Optimization, Guardrails (chống hallucination chính sách bồi thường &amp; SLA).</li>
+                <li><b>RAG &amp; Loop Engineering:</b> Semantic Chunking, Embeddings, Vector Storage &amp; Similarity Search (FAISS, Chroma, PostgreSQL pgvector), Multi-Turn Stateful Loops, ReAct Agent Pattern, Tool / Function Calling.</li>
+                <li><b>Lập trình &amp; Backend:</b> Python (FastAPI, data parsing/embeddings, gọi LLM API), Node.js, TypeScript, PHP (OOP, MVC), RESTful API Design (OpenAPI 3.0), Webhooks, RabbitMQ Message Broker.</li>
+                <li><b>Cơ sở dữ liệu &amp; DevOps:</b> PostgreSQL, MySQL (3NF, ACID, Indexing), Redis (Cache &amp; Distributed Locks), Docker, Docker Compose, Git / GitHub, Postman, Linux / Bash scripting, Jira.</li>
+                <li><b>Ngoại ngữ &amp; Kỹ năng mềm:</b> Tiếng Anh (Đọc hiểu &amp; nghiên cứu tài liệu kỹ thuật, API docs, Papers), Tiếng Việt (Bản ngữ), Giao tiếp mạch lạc với Founder &amp; Vận hành, Thích ứng nhanh trong môi trường Agile.</li>
+            </ul>
+        </section>
+
+        <!-- HỌC VẤN -->
+        <section class="section">
+            <div class="section-title">Học Vấn &amp; Nền Tảng Đào Tạo</div>
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">Trường Đại học Công nghiệp TP. Hồ Chí Minh (IUH)</span>
+                    <span class="entry-location">TP. Hồ Chí Minh, Việt Nam</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-role">Kỹ sư Hệ thống Thông tin (Hoàn thành toàn bộ chương trình · Sẵn sàng làm việc Full-time)</span>
+                    <span class="entry-date">09/2022 – 2026</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Điểm trung bình tích lũy (GPA):</b> <b>3.26 / 4.0</b></li>
+                    <li><b>Môn học chuyên ngành trọng tâm:</b> Trí tuệ Nhân tạo &amp; Hệ thống Thông minh, Kỹ thuật Phần mềm, Cấu trúc Dữ liệu &amp; Giải thuật, Cơ sở Dữ liệu Nâng cao (Truy vấn SQL &amp; Báo cáo), Kiến trúc Hướng Dịch vụ (SOA), Phân tích &amp; Thiết kế Hệ thống.</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="page-number">Trang 2 / 2</div>
+    </div>
+
+    <!-- Thanh Điều Khiển Nổi (Tải PDF, In & Đổi Ngôn Ngữ) -->
+    <div class="action-bar">
+        <a href="/cv-ai-engineer-en.html" class="action-btn secondary">
+            🌐 English Version
+        </a>
+        <a href="/VoVanTuTai_AI_Engineer_CV_Tieng_Viet.pdf" download="VoVanTuTai_AI_Engineer_CV_Tieng_Viet.pdf" class="action-btn">
+            📥 TẢI FILE PDF (2 Trang A4)
+        </a>
+        <button class="action-btn secondary" onclick="window.print()">
+            🖨️ In
+        </button>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vo Van Tu Tai — AI / LLM Application Engineer Resume</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <!-- Inter Font Support (ATS Compliant, Crisp, Modern) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #e4e7eb;
+            color: #1a1a1a;
+            line-height: 1.35;
+            font-size: 13px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        a, a:visited, a:hover, a:active {
+            color: #111 !important;
+            text-decoration: none !important;
+        }
+
+        /* ── 2-PAGE A4 CONTAINER ── */
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            height: 297mm;
+            max-height: 297mm;
+            background: #fff;
+            margin: 20px auto;
+            padding: 7.5mm 14mm 6.5mm 14mm;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            overflow: hidden;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        /* ── HEADER ── */
+        .header {
+            text-align: center;
+            margin-bottom: 5px;
+            padding-bottom: 3px;
+        }
+
+        .name {
+            font-size: 21pt;
+            font-weight: 700;
+            letter-spacing: -0.4px;
+            color: #111;
+            line-height: 1.1;
+            margin-bottom: 3px;
+        }
+
+        .subtitle {
+            font-size: 10pt;
+            font-weight: 600;
+            color: #2b3648;
+            margin-bottom: 5px;
+            letter-spacing: 0.1px;
+        }
+
+        .contact-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: nowrap;
+            gap: 0 8px;
+            font-size: 8.15pt;
+            color: #333;
+            max-width: 100%;
+            margin: 0 auto;
+            white-space: nowrap;
+        }
+
+        .contact-row a,
+        .contact-row span {
+            color: #222 !important;
+            text-decoration: none !important;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            line-height: 1;
+            vertical-align: middle;
+        }
+
+        .contact-icon {
+            width: 11px;
+            height: 11px;
+            fill: #333;
+            flex-shrink: 0;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .separator {
+            color: #888;
+            font-size: 8.5pt;
+            user-select: none;
+        }
+
+        /* ── SECTIONS ── */
+        .section {
+            margin-top: 5px;
+            margin-bottom: 3px;
+        }
+
+        .section-title {
+            font-size: 10pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: #0f2744;
+            border-bottom: 1.5px solid #0f2744;
+            padding-bottom: 2px;
+            margin-bottom: 4px;
+        }
+
+        /* ── SUMMARY ── */
+        .summary-text {
+            font-size: 9.1pt;
+            line-height: 1.34;
+            color: #262626;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        /* ── ENTRIES ── */
+        .entry {
+            margin-bottom: 5px;
+        }
+
+        .entry:last-child {
+            margin-bottom: 0;
+        }
+
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-size: 9.7pt;
+            color: #111;
+            gap: 8px;
+        }
+
+        .entry-title {
+            font-weight: 700;
+            color: #111;
+            flex: 1;
+        }
+
+        .entry-title a {
+            font-weight: 700;
+            color: #111 !important;
+            text-decoration: none !important;
+        }
+
+        .project-link {
+            font-size: 8.5pt !important;
+            font-weight: 600 !important;
+            color: #0949b8 !important;
+            text-decoration: underline !important;
+            margin-left: 5px;
+            white-space: nowrap;
+        }
+
+        .entry-location {
+            font-weight: 500;
+            color: #444;
+            font-size: 8.9pt;
+            white-space: nowrap;
+            text-align: right;
+            flex-shrink: 0;
+        }
+
+        .entry-sub {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-size: 9pt;
+            color: #333;
+            margin-bottom: 2.5px;
+        }
+
+        .entry-role {
+            font-weight: 600;
+            color: #1a365d;
+        }
+
+        .entry-tech {
+            font-style: italic;
+            font-size: 8.7pt;
+            color: #444;
+        }
+
+        .entry-date {
+            font-style: italic;
+            font-size: 8.9pt;
+            color: #444;
+            white-space: nowrap;
+        }
+
+        /* Sub-project header */
+        .sub-project-header {
+            font-size: 9.2pt;
+            font-weight: 700;
+            color: #2b3648;
+            margin-top: 3.5px;
+            margin-bottom: 2px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .sub-project-header::before {
+            content: "▸";
+            color: #0949b8;
+            font-weight: bold;
+        }
+
+        /* ── BULLETS ── */
+        .bullet-list {
+            list-style-type: disc;
+            padding-left: 14px;
+            margin: 0;
+        }
+
+        .bullet-list li {
+            font-size: 9.05pt;
+            line-height: 1.30;
+            color: #262626;
+            margin-bottom: 2.2px;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        .bullet-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .bullet-list b {
+            font-weight: 600;
+            color: #111;
+        }
+
+        /* ── SKILLS TABLE ── */
+        .skills-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .skills-list li {
+            font-size: 8.95pt;
+            line-height: 1.32;
+            color: #262626;
+            margin-bottom: 3.5px;
+            text-align: justify;
+        }
+
+        .skills-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .skills-list b {
+            font-weight: 600;
+            color: #0f2744;
+        }
+
+        /* ── PAGE NUMBER ── */
+        .page-number {
+            position: absolute;
+            bottom: 4mm;
+            right: 14mm;
+            font-size: 8pt;
+            color: #888;
+            font-weight: 500;
+        }
+
+        /* ── ACTION BAR ── */
+        .action-bar {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 10px 18px;
+            border-radius: 30px;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            z-index: 1000;
+        }
+
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #0f2744;
+            color: #fff !important;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .action-btn:hover {
+            background: #1a4275;
+            transform: translateY(-1px);
+        }
+
+        .action-btn.secondary {
+            background: #fff;
+            color: #111 !important;
+            border: 1px solid #ccc;
+        }
+
+        .action-btn.secondary:hover {
+            background: #f0f0f0;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .page {
+                margin: 0;
+                padding: 7.5mm 14mm 6.5mm 14mm;
+                box-shadow: none;
+                width: 210mm;
+                height: 297mm;
+                min-height: 297mm;
+                max-height: 297mm;
+                page-break-after: always;
+                break-after: page;
+            }
+
+            .page:last-child {
+                page-break-after: avoid;
+                break-after: avoid;
+            }
+
+            @page {
+                size: A4 portrait;
+                margin: 0;
+            }
+
+            .action-bar {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ════════════════════ PAGE 1 ════════════════════ -->
+    <div class="page">
+        <!-- HEADER -->
+        <header class="header">
+            <h1 class="name">Vo Van Tu Tai</h1>
+            <div class="subtitle">AI &amp; LLM Application Engineer · RAG &amp; Agentic Workflows · Loop Engineering</div>
+            <div class="contact-row">
+                <span>
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.25 1.01l-2.2 2.2z" /></svg>
+                    (+84) 869 500 573
+                </span>
+                <span class="separator">|</span>
+                <a href="mailto:tutaivovan@gmail.com">
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" /></svg>
+                    tutaivovan@gmail.com
+                </a>
+                <span class="separator">|</span>
+                <a href="https://linkedin.com/in/vovantutai" target="_blank">
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.2a1.66 1.66 0 0 0-1.66 1.66c0 .92.74 1.66 1.66 1.66.92 0 1.66-.74 1.66-1.66 0-.92-.74-1.66-1.66-1.66z" /></svg>
+                    linkedin.com/in/vovantutai
+                </a>
+                <span class="separator">|</span>
+                <a href="https://github.com/VoVanTuTai" target="_blank">
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" /></svg>
+                    github.com/VoVanTuTai
+                </a>
+                <span class="separator">|</span>
+                <a href="https://tracking.nexus-ex.site" target="_blank">
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" /></svg>
+                    tracking.nexus-ex.site
+                </a>
+            </div>
+        </header>
+
+        <!-- PROFESSIONAL SUMMARY -->
+        <section class="section">
+            <div class="section-title">Professional Summary</div>
+            <p class="summary-text">
+                Information Systems Engineer (IUH, GPA 3.26/4.0 · Completed all degree requirements · Available immediately for full-time) with hands-on expertise building production-ready <b>AI &amp; LLM application features for E-commerce, MarTech, and Logistics platforms</b>. Creator of a live production AI Logistics Assistant deployed at <b>tracking.nexus-ex.site</b>, featuring <b>Live RAG</b> (Vector search, document parsing, grounded citations) combined with <b>Agent Tool Calling and Loop Engineering</b> (multi-turn conversational state loops that extract shipment entities, calculate real-time pricing quotes, and trigger courier dispatch API calls). Proficient in <b>Python (FastAPI, data parsing/embeddings)</b>, <b>Node.js/TypeScript</b>, RESTful API contracts, and relational databases (PostgreSQL, MySQL, Redis). Proven track record bridging engineering and non-technical stakeholders (Founders, Ops, Marketing) with deep commitment to prompt quality, guardrail enforcement, and token cost optimization in fast-paced product environments.
+            </p>
+        </section>
+
+        <!-- WORK EXPERIENCE -->
+        <section class="section">
+            <div class="section-title">Professional Work Experience</div>
+
+            <!-- HomeNest Software -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">HomeNest Software</span>
+                    <span class="entry-location">Ho Chi Minh City, Vietnam</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-role">Business Analyst · PM Assistant (Engineering &amp; Operations Liaison)</span>
+                    <span class="entry-date">Mar 2026 – Sep 2026</span>
+                </div>
+
+                <!-- Sub-project 1 -->
+                <div class="sub-project-header">Project 1: Multi-Service On-Demand Utility Ecosystem &amp; Dynamic Bidding</div>
+                <ul class="bullet-list">
+                    <li><b>Architecture &amp; Multi-Service Scope Modeling:</b> Analyzed requirements for an integrated on-demand platform spanning home repairs, short-trip rides, interprovincial carpooling, and centralized Admin; authored unambiguous JSON data contracts and OpenAPI specs.</li>
+                    <li><b>State-Machine &amp; Interactive Bidding Logic:</b> Architected a two-way price bidding state machine (propose &harr; counter-bid &harr; accept/reject with TTL expiration); specified strict status locking and concurrency guards to prevent race conditions during checkout.</li>
+                    <li><b>Third-Party API Cost &amp; Battery Optimization:</b> Mitigated high third-party mapping API expenses and mobile battery drain by specifying an event-driven GPS checkpoint mechanism (triggering location updates strictly on order pickup/drop-off instead of continuous polling), saving substantial external API budget.</li>
+                    <li><b>Technical Specification &amp; Schema Integrity:</b> Authored PRDs, Use Cases, and User Stories (Given-When-Then); collaborated with Tech Lead and UI/UX to review wireframes against relational data models, eliminating schema mismatches before sprint kickoff.</li>
+                </ul>
+
+                <!-- Sub-project 2 -->
+                <div class="sub-project-header">Project 2: Commercial Marketplace &amp; Cross-Border Delivery Coordination</div>
+                <ul class="bullet-list">
+                    <li><b>Backlog Ownership &amp; Domain Mastery:</b> Stepped into an active development cycle; quickly audited backlogs and local compliance requirements to master listing lifecycles, content moderation, and courier workflows without disrupting delivery timelines.</li>
+                    <li><b>Fulfillment, Order Cancellation &amp; Dispute State Flow:</b> Partnered with clients on Change Requests; designed state machines and exception handling workflows for delivery tracking, automated order cancellations, and customer return/refund disputes.</li>
+                    <li><b>Pragmatic Solution Thinking (International Lead Intake):</b> When the client requested urgent cross-border shipping capabilities, designed a lean conversational lead form for manual ops fulfillment rather than building heavy logistics software, achieving business goals while protecting <b>Scope Freeze</b>.</li>
+                    <li><b>Go-Live Preparation, Functional Testing &amp; UAT:</b> Authored Go-Live readiness checklists (App Store/Google Play policies); conducted hands-on Functional and Smoke testing against User Stories, triaged Jira defects, and coordinated successful client UAT sign-off.</li>
+                </ul>
+            </div>
+
+            <!-- J&T Express -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">J&amp;T Express</span>
+                    <span class="entry-location">Ho Chi Minh City, Vietnam</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-role">Operations Process Coordinator (Full-time)</span>
+                    <span class="entry-date">Sep 2025 – Feb 2026</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>SQL Data Reconciliation &amp; System Integrity:</b> Formulated daily SQL queries to cross-verify discrepancies between physical warehouse manifests and core enterprise logistics systems, delivering data integrity reports to upper management.</li>
+                    <li><b>Logistics Throughput Optimization:</b> Identified processing bottlenecks handling thousands of daily parcels; restructured shift workflows into an efficient unidirectional sorting pipeline (Intake &rarr; Weigh &rarr; Scan &rarr; Dispatch), substantially accelerating throughput.</li>
+                    <li><b>Standard Operating Procedures (SOP):</b> Authored standard exception procedures categorizing delivery anomalies (damaged parcels, failed deliveries, lost items, COD claims) — providing foundational domain knowledge for downstream RAG chatbots and operational guardrails.</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="page-number">Page 1 of 2</div>
+    </div>
+
+    <!-- ════════════════════ PAGE 2 ════════════════════ -->
+    <div class="page">
+        <!-- FEATURED TECHNICAL PROJECTS -->
+        <section class="section">
+            <div class="section-title">Featured AI &amp; Technical Projects</div>
+
+            <!-- Project 1: Nexus Logistics AI Assistant -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">
+                        <a href="https://tracking.nexus-ex.site" target="_blank">Nexus Express — Logistics AI Assistant, Live RAG &amp; Loop Engineering</a>
+                        <a href="https://tracking.nexus-ex.site" target="_blank" class="project-link">[Live Demo ↗]</a>
+                        <a href="https://github.com/VoVanTuTai/logistics-management-system" target="_blank" class="project-link">[GitHub ↗]</a>
+                    </span>
+                    <span class="entry-location">AI &amp; Logistics Project</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-tech">Python, FastAPI, Live RAG, Embeddings, Loop Engineering, Agent Tool Calling, React, NestJS, Docker</span>
+                    <span class="entry-date">Oct 2025 – Mar 2026</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Live RAG Architecture &amp; Grounded Citations:</b> Engineered an end-to-end knowledge parsing and vector retrieval pipeline for operational policies, insurance terms, and parcel damage settlement rules (<code>02-insurance-and-claim-policy.md</code>); enforced transparent citation outputs, eliminating hallucinations regarding compensation limits and SLAs.</li>
+                    <li><b>Loop Engineering (Multi-Turn Conversational State Machine):</b> Built an autonomous multi-turn intake loop: detects shipping intent &rarr; extracts structured entities (addresses, phone numbers, weight, COD amount) &rarr; prompts user for missing fields &rarr; triggers pricing quote tool &rarr; enters payment confirmation loop (Human-in-the-Loop) &rarr; locks order and provisions official tracking code.</li>
+                    <li><b>Agent Tool Calling &amp; UI Cards:</b> Implemented live backend function integration tools: <code>createRetailOrder</code> (auto-dispatch courier), <code>quoteShipmentOrder</code> (real-time distance/weight rate calculator), <code>trackClaimStatus</code> (insurance status tracking), and <code>getDamageAndClaimPolicy</code>; surfaced interactive Shipment Cards and contextual Action Chips in UI.</li>
+                    <li><b>Gateway API Fallback &amp; Token Budget:</b> Integrated REST API endpoints (<code>/api/v1/ai-assistant/message</code> and <code>/api/v1/chat/message</code>) with timeout guards (15s–30s) and internal heuristic fallback parsing, guaranteeing 24/7 service availability; optimized Context Window token budget via sessionStorage conversational history truncation.</li>
+                </ul>
+            </div>
+
+            <!-- Project 2: Tourist Accommodation Platform -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">
+                        <a href="https://github.com/VoVanTuTai/tourist-accommodation-management-system" target="_blank">Tourist Accommodation Booking &amp; Hospitality Platform</a>
+                        <a href="https://github.com/VoVanTuTai/tourist-accommodation-management-system" target="_blank" class="project-link">[GitHub ↗]</a>
+                    </span>
+                    <span class="entry-location">Web Application Project</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-tech">Concurrency Control, RBAC, VNPay IPN Webhook, MySQL, Express.js, Docker</span>
+                    <span class="entry-date">Oct 2025 – Dec 2025</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Inventory Lock &amp; Overbooking Defense (TTL Hold):</b> Solved critical room reservation race conditions during peak traffic spikes through a stateful two-phase booking hold: temporarily locks rooms in <code>Pending</code> state with a 15-minute TTL hold, auto-releasing inventory via timeout daemon if unconfirmed.</li>
+                    <li><b>Multi-Tenant RBAC Architecture:</b> Architected an end-to-end booking platform with granular RBAC strictly isolating Guests, Hosts, and Super-Admins; protected sensitive transactional endpoints with middleware guards.</li>
+                    <li><b>Cryptographic Payment Gateway:</b> Integrated VNPay payment gateway using HMAC-SHA512 checksum validation with idempotent IPN webhook processing; maintained sub-second query latencies under concurrent lookups.</li>
+                </ul>
+            </div>
+
+            <!-- Project 3: Song Tai Shop -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">
+                        <a href="https://github.com/VoVanTuTai/php-online-store" target="_blank">Song Tai Shop — Full-Stack E-Commerce Platform</a>
+                        <a href="https://github.com/VoVanTuTai/php-online-store" target="_blank" class="project-link">[GitHub ↗]</a>
+                    </span>
+                    <span class="entry-location">E-Commerce Platform</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-tech">PHP (OOP &amp; MVC Architecture), MySQL (3NF &amp; ACID), RESTful APIs, JavaScript (Fetch/AJAX), Docker Compose</span>
+                    <span class="entry-date">Nov 2025 – Jan 2026</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>E-Commerce Architecture &amp; ACID Concurrency:</b> Developed a full-stack online store with custom MVC architecture; protected inventory consistency during simultaneous checkout spikes using MySQL ACID transactions (<code>START TRANSACTION</code>, <code>COMMIT</code>, <code>ROLLBACK</code>) and pessimistic row locking (<code>SELECT ... FOR UPDATE</code>).</li>
+                    <li><b>RESTful Catalog APIs &amp; Conversational Commerce:</b> Designed standardized endpoints for product catalogs, SKU variants, cart management, and order states; understood end-to-end E-commerce customer lifecycles for MarTech automation.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- CORE COMPETENCIES -->
+        <section class="section">
+            <div class="section-title">Core Competencies &amp; Technical Tools</div>
+            <ul class="skills-list">
+                <li><b>LLM &amp; Generative AI:</b> Structured Prompt Engineering (Role-based system prompts, Few-shot prompting, JSON output enforcement), Token Budget &amp; Context Window Management, Output Evaluation &amp; Guardrails (preventing hallucinations on terms, SLAs &amp; damage claims).</li>
+                <li><b>RAG &amp; Loop Engineering:</b> Knowledge Base Processing (Markdown parsing, semantic chunking), Text Embeddings, Vector Storage &amp; Similarity Retrieval (FAISS, Chroma, PostgreSQL pgvector), Multi-Turn Stateful Loops, ReAct Agent Pattern, Tool / Function Calling.</li>
+                <li><b>Programming &amp; Backend:</b> Python (proficient in service integration, data pipelines, FastAPI), Node.js, TypeScript, PHP (OOP, MVC), RESTful API Design (OpenAPI 3.0), Webhooks, RabbitMQ Message Broker.</li>
+                <li><b>Databases &amp; DevOps:</b> PostgreSQL, MySQL (3NF &amp; ACID transactions), Redis (In-memory caching, session store &amp; distributed locks), Docker, Docker Compose, Git / GitHub, Postman, Linux / Bash scripting, Jira.</li>
+                <li><b>Domain &amp; Professional Skills:</b> Fluent technical English comprehension (reading LLM papers &amp; API specs), Vietnamese (Native), clear cross-functional communication with non-tech stakeholders, rapid adaptation in Agile startup sprints.</li>
+            </ul>
+        </section>
+
+        <!-- EDUCATION -->
+        <section class="section">
+            <div class="section-title">Education &amp; Academic Background</div>
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">Industrial University of Ho Chi Minh City (IUH)</span>
+                    <span class="entry-location">Ho Chi Minh City, Vietnam</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-role">Bachelor of Engineering (B.Eng.) in Information Systems · GPA: 3.26 / 4.0</span>
+                    <span class="entry-date">Sep 2022 – 2026 (Completed All Degree Requirements · Available Full-Time)</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Key Relevant Coursework:</b> Artificial Intelligence &amp; Intelligent Systems Concepts, Software Engineering, Data Structures &amp; Algorithms, Advanced Database Systems (SQL Optimization &amp; Indexing), Service-Oriented Architecture (SOA), Systems Analysis &amp; Design.</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="page-number">Page 2 of 2</div>
+    </div>
+
+    <!-- Floating Action Bar -->
+    <div class="action-bar">
+        <a href="/cv-ai-engineer.html" class="action-btn secondary">
+            🌐 Bản Tiếng Việt
+        </a>
+        <a href="/VoVanTuTai_AI_Engineer_CV_English.pdf" download="VoVanTuTai_AI_Engineer_CV_English.pdf" class="action-btn">
+            📥 DOWNLOAD PDF (2-Page A4)
+        </a>
+        <button class="action-btn secondary" onclick="window.print()">
+            🖨️ Print
+        </button>
+    </div>
+</body>
+
+</html>
