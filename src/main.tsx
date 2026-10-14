@@ -33,6 +33,8 @@ interface ProjectItem {
   name: string;
   role: string;
   href: string;
+  liveUrl?: string;
+  liveLabel?: string;
   image: string;
   stack: string[];
   summary: string;
@@ -266,13 +268,15 @@ const portfolioDataVi: PortfolioLocaleData = {
           name: "logistics-management-system",
           role: "Nexus Express · Hệ thống Quản lý Logistics & Đơn hàng (OMS)",
           href: "https://github.com/VoVanTuTai/logistics-management-system",
+          liveUrl: "https://tracking.nexus-ex.site/",
+          liveLabel: "Live Demo",
           image: "/assets/project-nexus.png",
           stack: ["BPMN 2.0 (Camunda)", "OpenAPI 3.0", "ERD 3NF", "PostgreSQL", "NestJS", "RabbitMQ"],
           summary: "Nền tảng logistics toàn diện chuyển hóa kinh nghiệm điều phối bưu cục thực tế thành phân định ranh giới dịch vụ, luồng sự kiện bất đồng bộ và kiểm soát luồng bưu kiện.",
           highlights: [
             "Thách thức Nghiệp vụ: Trạng thái theo dõi đơn hàng không nhất quán giữa các trạm trung chuyển và ranh giới dịch vụ mơ hồ giữa các microservice phân tán.",
             "Phân tích BA & Giải pháp: Chuẩn hóa vòng đời bưu kiện bằng BPMN 2.0 trên Camunda; thiết kế hợp đồng OpenAPI 3.0 với Idempotency Key; xây dựng từ điển dữ liệu 3NF chuẩn hóa.",
-            "Kết quả & Bàn giao: Động cơ trạng thái bưu kiện minh bạch, luồng sự kiện bất đồng bộ RabbitMQ và quy trình xử lý ngoại lệ SOP (chuyển hoàn RTO, hư hỏng, sai tuyến).",
+            "Kết quả & Bàn giao: Động cơ trạng thái bưu kiện minh bạch, luồng sự kiện bất đồng bộ RabbitMQ, hệ thống live tracking bưu phẩm tại tracking.nexus-ex.site và quy trình xử lý ngoại lệ SOP (chuyển hoàn RTO, hư hỏng, sai tuyến).",
           ],
         },
         {
@@ -533,13 +537,15 @@ const portfolioDataEn: PortfolioLocaleData = {
           name: "logistics-management-system",
           role: "Nexus Express · Logistics & Order Management System (OMS)",
           href: "https://github.com/VoVanTuTai/logistics-management-system",
+          liveUrl: "https://tracking.nexus-ex.site/",
+          liveLabel: "Live Demo",
           image: "/assets/project-nexus.png",
           stack: ["BPMN 2.0 (Camunda)", "OpenAPI 3.0", "ERD 3NF", "PostgreSQL", "NestJS", "RabbitMQ"],
           summary: "An end-to-end logistics platform turning first-hand branch operations into explicit service ownership, event handoffs, and shipment workflows.",
           highlights: [
             "Business Challenge: Tracking status inconsistencies across multi-party carrier handoffs and ambiguous service boundaries across distributed microservices.",
             "BA Analysis & Solution: Formalized parcel lifecycles using BPMN 2.0 in Camunda; authored OpenAPI 3.0 contracts with Idempotency keys; drafted normalized 3NF relational data dictionary.",
-            "Outcome & Deliverables: Documented traceable parcel state engine, RabbitMQ asynchronous event workflows, and exception handling SOPs (RTO, damaged parcels, routing errors).",
+            "Outcome & Deliverables: Live tracking application deployed at tracking.nexus-ex.site, documented traceable parcel state engine, RabbitMQ asynchronous event workflows, and exception handling SOPs.",
           ],
         },
         {
@@ -840,6 +846,43 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
                       <a
                         className="dropdown-action-btn secondary"
                         href="/cv.html"
+                        target="_blank"
+                        rel="noreferrer"
+                        onClick={() => setIsCvMenuOpen(false)}
+                      >
+                        <ExternalLink size={13} />
+                        <span>{lang === "vi" ? "Xem Web" : "View Web"}</span>
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Track 3: CV Full-Stack Developer */}
+                  <div className="dropdown-track-item">
+                    <div className="dropdown-track-header">
+                      <div className="item-icon-wrap indigo">
+                        <Code2 size={15} />
+                      </div>
+                      <div className="dropdown-track-meta">
+                        <div className="item-title-row">
+                          <strong>{lang === "vi" ? "CV Full-Stack Developer" : "Full-Stack Resume"}</strong>
+                          <span className="item-badge-subtle">DEV</span>
+                        </div>
+                        <p>{lang === "vi" ? "PHP (OOP/MVC), NestJS, React & Logistics OMS" : "PHP OOP, NestJS, React & Logistics OMS"}</p>
+                      </div>
+                    </div>
+                    <div className="dropdown-track-actions">
+                      <a
+                        className="dropdown-action-btn primary"
+                        href="/VoVanTuTai_Fullstack_Developer_CV.pdf"
+                        download
+                        onClick={() => setIsCvMenuOpen(false)}
+                      >
+                        <Download size={13} />
+                        <span>{lang === "vi" ? "Tải PDF" : "Download PDF"}</span>
+                      </a>
+                      <a
+                        className="dropdown-action-btn secondary"
+                        href="/cv-fullstack-developer.html"
                         target="_blank"
                         rel="noreferrer"
                         onClick={() => setIsCvMenuOpen(false)}
@@ -1159,19 +1202,50 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
                       <p className="compact-role">{project.role}</p>
                     </div>
                     {isActive ? (
-                      <a
-                        className="icon-link"
-                        href={project.href}
-                        target="_blank"
-                        rel="noreferrer"
-                        aria-label={`${project.name} GitHub`}
-                      >
-                        <ArrowUpRight size={20} aria-hidden="true" />
-                      </a>
+                      <div className="project-card-actions">
+                        {project.liveUrl ? (
+                          <a
+                            className="live-demo-link"
+                            href={project.liveUrl}
+                            target="_blank"
+                            rel="noreferrer"
+                            aria-label={`${project.name} Live Demo`}
+                            title="Open Live Tracking Demo"
+                          >
+                            <ExternalLink size={14} aria-hidden="true" />
+                            <span>{project.liveLabel || "Live Demo"}</span>
+                          </a>
+                        ) : null}
+                        <a
+                          className="icon-link"
+                          href={project.href}
+                          target="_blank"
+                          rel="noreferrer"
+                          aria-label={`${project.name} GitHub`}
+                          title="View on GitHub"
+                        >
+                          <ArrowUpRight size={20} aria-hidden="true" />
+                        </a>
+                      </div>
                     ) : null}
                   </div>
 
                   <div className="deck-card-details" aria-hidden={!isActive}>
+                    {project.liveUrl ? (
+                      <div className="project-live-preview-bar">
+                        <span className="live-status-dot" aria-hidden="true" />
+                        <span className="live-status-text">Production Live Tracking:</span>
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="live-status-url"
+                        >
+                          {project.liveUrl.replace(/^https?:\/\//, "").replace(/\/$/, "")}
+                          <ExternalLink size={12} aria-hidden="true" />
+                        </a>
+                      </div>
+                    ) : null}
                     <p className="project-summary">{project.summary}</p>
                     <div className="stack-list">
                       {project.stack.slice(0, 6).map((item) => (
@@ -1326,6 +1400,24 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
                     <span>PDF</span>
                   </a>
                   <a href="/cv.html" target="_blank" rel="noreferrer" className="footer-btn-view" title="View Web">
+                    <ExternalLink size={13} aria-hidden="true" />
+                    <span>Web</span>
+                  </a>
+                </div>
+              </div>
+
+              {/* Full-Stack Developer */}
+              <div className="footer-cv-item">
+                <div className="footer-cv-meta">
+                  <span className="footer-cv-badge fs">FS</span>
+                  <strong>{lang === "vi" ? "CV Full-Stack Dev" : "Full-Stack Dev"}</strong>
+                </div>
+                <div className="footer-cv-actions">
+                  <a href="/VoVanTuTai_Fullstack_Developer_CV.pdf" download className="footer-btn-dl" title="Download PDF">
+                    <Download size={13} aria-hidden="true" />
+                    <span>PDF</span>
+                  </a>
+                  <a href="/cv-fullstack-developer.html" target="_blank" rel="noreferrer" className="footer-btn-view" title="View Web">
                     <ExternalLink size={13} aria-hidden="true" />
                     <span>Web</span>
                   </a>
@@ -3753,6 +3845,17 @@ function BusinessAnalysisLessonPage({ navigate }: { navigate: NavigateHandler })
                 <p><strong>Problem:</strong> status, scan location, tracking, reporting và COD có thể bị hiểu khác nhau giữa các bên.</p>
                 <p><strong>Analysis:</strong> dùng trải nghiệm J&amp;T để xác định actor, as-is flow, trạng thái, exception, source of truth và service handoff.</p>
                 <p><strong>Evidence:</strong> workflow xuyên nhiều client/service, OpenAPI, data ownership, event và tài liệu hệ thống.</p>
+                <p>
+                  <strong>Live Demo:</strong>{" "}
+                  <a
+                    href="https://tracking.nexus-ex.site/"
+                    target="_blank"
+                    rel="noreferrer"
+                    style={{ color: "#0284c7", fontWeight: 700, textDecoration: "underline" }}
+                  >
+                    tracking.nexus-ex.site ↗
+                  </a>
+                </p>
               </article>
               <article>
                 <div>
