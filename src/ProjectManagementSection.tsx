@@ -569,33 +569,33 @@ export function ProjectManagementSection({ lang }: ProjectManagementSectionProps
         </div>
       )}
 
-      {/* Recruiter Action Bar: Download Dedicated PM CV */}
+      {/* Recruiter Action Bar: Download Official BA / PO CV */}
       <div className="pm-cv-action-card">
         <div className="pm-cv-action-left">
           <div className="pm-cv-icon-wrap">
             <FileText size={22} />
           </div>
           <div>
-            <h4>{lang === "vi" ? "Hồ Sơ CV Quản Lý Dự Án & Project Coordinator" : "Project Manager & Project Coordinator Resume"}</h4>
+            <h4>{lang === "vi" ? "Hồ Sơ Năng Lực & CV BA / PO Chính Thức" : "Official Business Analyst & Product Owner Resume"}</h4>
             <p>
               {lang === "vi"
-                ? "Tải bản CV chuẩn mực (2 trang A4) thể hiện năng lực Kỹ sư Hệ thống Thông tin (GPA 3.26), kinh nghiệm điều phối Sprint tại HomeNest và tối ưu vận hành tại J&T Express."
-                : "Download official 2-page A4 resume featuring Information Systems Engineering degree (GPA 3.26), HomeNest sprint coordination, and J&T Express operational analytics."}
+                ? "Tải bản CV chính thức (2 trang A4 chuẩn) thể hiện năng lực Kỹ sư Hệ thống Thông tin (GPA 3.26), kỹ năng phân tích nghiệp vụ, điều phối Sprint tại HomeNest và tối ưu quy trình tại J&T Express."
+                : "Download official 2-page A4 resume featuring Information Systems Engineering degree (GPA 3.26), requirements analysis, sprint delivery at HomeNest, and operational optimization at J&T Express."}
             </p>
           </div>
         </div>
 
         <div className="pm-cv-action-buttons">
           <a
-            href={lang === "vi" ? "/VoVanTuTai_IT_Business_Analyst_CV_Tong_Quat.pdf" : "/VoVanTuTai_IT_Business_Analyst_Resume_General.pdf"}
+            href={lang === "vi" ? "/VoVanTuTai_Business_Analyst_CV_Tieng_Viet.pdf" : "/VoVanTuTai_Business_Analyst_CV.pdf"}
             download
             className="pm-btn-primary"
           >
             <Download size={15} aria-hidden="true" />
-            <span>{lang === "vi" ? "Tải CV PM (PDF)" : "Download PM Resume (PDF)"}</span>
+            <span>{lang === "vi" ? "Tải CV BA / PO (PDF)" : "Download BA / PO Resume (PDF)"}</span>
           </a>
           <a
-            href={lang === "vi" ? "/cv-general.html" : "/cv-general-en.html"}
+            href={lang === "vi" ? "/po-ba-cv-vi.html" : "/cv.html"}
             target="_blank"
             rel="noreferrer"
             className="pm-btn-secondary"
