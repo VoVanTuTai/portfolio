@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Võ Văn Tú Tài — CV Chuyên Viên Xử Lý &amp; Đảm Bảo Chất Lượng Dữ Liệu TMĐT | YouNet ECI</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <!-- Inter Font Support (Chuẩn mực quốc tế, sắc nét, tối ưu ATS) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #e4e7eb;
+            color: #1a1a1a;
+            line-height: 1.35;
+            font-size: 13px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        a, a:visited, a:hover, a:active {
+            color: #111 !important;
+            text-decoration: none !important;
+        }
+
+        /* ── 2-PAGE A4 CONTAINER ── */
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            height: 297mm;
+            max-height: 297mm;
+            background: #fff;
+            margin: 20px auto;
+            padding: 6.5mm 13mm 5mm 13mm;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            overflow: hidden;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        /* ── HEADER (XẾP TẦNG TOÀN KHỔ CĂN TRÁI THẲNG HÀNG — 100% KHÔNG CHÈN ĐÈ) ── */
+        .header {
+            text-align: left;
+            margin-bottom: 5px;
+            padding-bottom: 4px;
+            border-bottom: 1.5px solid #0f2744;
+        }
+
+        .name {
+            font-size: 21pt;
+            font-weight: 700;
+            letter-spacing: -0.4px;
+            color: #0f172a;
+            line-height: 1.1;
+            margin-bottom: 2.5px;
+        }
+
+        .subtitle {
+            font-size: 10.2pt;
+            font-weight: 700;
+            color: #0f2744;
+            margin-bottom: 2px;
+            letter-spacing: 0.1px;
+            line-height: 1.25;
+        }
+
+        .sub-tagline {
+            font-size: 8.6pt;
+            font-weight: 500;
+            color: #475569;
+            margin-bottom: 3.5px;
+            line-height: 1.25;
+        }
+
+        .header-contacts {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 4px 9px;
+            font-size: 8.2pt;
+            color: #334155;
+            line-height: 1.2;
+        }
+
+        .contact-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 3.5px;
+        }
+
+        .contact-item a,
+        .contact-item span {
+            color: #1e293b !important;
+            text-decoration: none !important;
+        }
+
+        .contact-item a:hover {
+            color: #0949b8 !important;
+            text-decoration: underline !important;
+        }
+
+        .contact-icon {
+            width: 10.5px;
+            height: 10.5px;
+            fill: #475569;
+            flex-shrink: 0;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .contact-sep {
+            color: #94a3b8;
+            font-size: 8pt;
+            user-select: none;
+        }
+
+        /* ── SECTIONS ── */
+        .section {
+            margin-top: 4px;
+            margin-bottom: 2px;
+        }
+
+        .section-title {
+            font-size: 9.8pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #0f2744;
+            border-bottom: 1.5px solid #0f2744;
+            padding-bottom: 1.5px;
+            margin-bottom: 3.5px;
+        }
+
+        /* ── SUMMARY ── */
+        .summary-text {
+            font-size: 9.0pt;
+            line-height: 1.32;
+            color: #262626;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        /* ── ENTRIES ── */
+        .entry {
+            margin-bottom: 4px;
+        }
+
+        .entry:last-child {
+            margin-bottom: 0;
+        }
+
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-size: 9.5pt;
+            color: #111;
+            gap: 8px;
+        }
+
+        .entry-title {
+            font-weight: 700;
+            color: #111;
+            flex: 1;
+        }
+
+        .entry-title a {
+            font-weight: 700;
+            color: #111 !important;
+            text-decoration: none !important;
+        }
+
+        .project-link {
+            font-size: 8.3pt !important;
+            font-weight: 600 !important;
+            color: #0949b8 !important;
+            text-decoration: underline !important;
+            margin-left: 5px;
+            white-space: nowrap;
+        }
+
+        .entry-location {
+            font-weight: 500;
+            color: #444;
+            font-size: 8.8pt;
+            white-space: nowrap;
+            text-align: right;
+            flex-shrink: 0;
+        }
+
+        .entry-sub {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-size: 8.9pt;
+            color: #333;
+            margin-bottom: 2px;
+        }
+
+        .entry-role {
+            font-weight: 600;
+            color: #1a365d;
+        }
+
+        .entry-tech {
+            font-style: italic;
+            font-size: 8.6pt;
+            color: #444;
+        }
+
+        .entry-date {
+            font-style: italic;
+            font-size: 8.8pt;
+            color: #444;
+            white-space: nowrap;
+        }
+
+        /* Sub-project header */
+        .sub-project-header {
+            font-size: 9.1pt;
+            font-weight: 700;
+            color: #2b3648;
+            margin-top: 3px;
+            margin-bottom: 1.5px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .sub-project-header::before {
+            content: "▸";
+            color: #0949b8;
+            font-weight: bold;
+        }
+
+        /* ── BULLETS ── */
+        .bullet-list {
+            list-style-type: disc;
+            padding-left: 14px;
+            margin: 0;
+        }
+
+        .bullet-list li {
+            font-size: 8.95pt;
+            line-height: 1.28;
+            color: #262626;
+            margin-bottom: 1.8px;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        .bullet-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .bullet-list b {
+            font-weight: 600;
+            color: #111;
+        }
+
+        /* ── SKILLS TABLE (LISTING FORMAT) ── */
+        .skills-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .skills-list li {
+            font-size: 8.9pt;
+            line-height: 1.29;
+            color: #262626;
+            margin-bottom: 2.2px;
+            text-align: justify;
+        }
+
+        .skills-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .skills-list b {
+            font-weight: 600;
+            color: #0f2744;
+        }
+
+        /* ── PAGE NUMBER ── */
+        .page-number {
+            position: absolute;
+            bottom: 4mm;
+            right: 14mm;
+            font-size: 8pt;
+            color: #888;
+            font-weight: 500;
+        }
+
+        /* ── ACTION BAR ── */
+        .action-bar {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 10px 18px;
+            border-radius: 30px;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            z-index: 1000;
+        }
+
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #0f2744;
+            color: #fff !important;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .action-btn:hover {
+            background: #1a4275;
+            transform: translateY(-1px);
+        }
+
+        .action-btn.secondary {
+            background: #fff;
+            color: #111 !important;
+            border: 1px solid #ccc;
+        }
+
+        .action-btn.secondary:hover {
+            background: #f0f0f0;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .page {
+                margin: 0;
+                padding: 6.5mm 13mm 5mm 13mm;
+                box-shadow: none;
+                width: 210mm;
+                height: 297mm;
+                min-height: 297mm;
+                max-height: 297mm;
+                page-break-after: always;
+                break-after: page;
+            }
+
+            .page:last-child {
+                page-break-after: avoid;
+                break-after: avoid;
+            }
+
+            @page {
+                size: A4 portrait;
+                margin: 0;
+            }
+
+            .action-bar {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ════════════════════ TRANG 1 ════════════════════ -->
+    <div class="page">
+        <!-- HEADER (XẾP TẦNG TOÀN KHỔ CĂN TRÁI THẲNG HÀNG — 100% KHÔNG CHÈN ĐÈ) -->
+        <header class="header">
+            <h1 class="name">VÕ VĂN TÚ TÀI</h1>
+            <div class="subtitle">Chuyên Viên Xử Lý &amp; Đảm Bảo Chất Lượng Dữ Liệu TMĐT (E-commerce Data Specialist)</div>
+            <div class="sub-tagline">Phân Loại &amp; Làm Sạch Dữ Liệu · Tự Động Hóa Python &amp; SQL · Phân Tích Excel Nâng Cao</div>
+            <div class="header-contacts">
+                <span class="contact-item">
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.25 1.01l-2.2 2.2z" /></svg>
+                    (+84) 869 500 573
+                </span>
+                <span class="contact-sep">|</span>
+                <span class="contact-item">
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" /></svg>
+                    <a href="mailto:tutaivovan@gmail.com">tutaivovan@gmail.com</a>
+                </span>
+                <span class="contact-sep">|</span>
+                <span class="contact-item">
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.2a1.66 1.66 0 0 0-1.66 1.66c0 .92.74 1.66 1.66 1.66.92 0 1.66-.74 1.66-1.66 0-.92-.74-1.66-1.66-1.66z" /></svg>
+                    <a href="https://linkedin.com/in/vovantutai" target="_blank">linkedin.com/in/vovantutai</a>
+                </span>
+                <span class="contact-sep">|</span>
+                <span class="contact-item">
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" /></svg>
+                    <a href="https://vovantutai-portfolio.vercel.app" target="_blank">Portfolio</a>
+                </span>
+            </div>
+        </header>
+
+        <!-- TÓM TẮT CHUYÊN MÔN -->
+        <section class="section">
+            <div class="section-title">Tóm Tắt Năng Lực Chuyên Môn</div>
+            <p class="summary-text">
+                Kỹ sư Hệ thống Thông tin (IUH, GPA 3.26/4.0 · Hoàn thành toàn bộ chương trình · Sẵn sàng làm việc full-time ngay) với thế mạnh nổi trội về <b>Xử lý, Làm sạch &amp; Phân loại Dữ liệu Thương mại điện tử (E-commerce Data Processing)</b> và <b>Kiểm soát chất lượng dữ liệu (Data Quality &amp; Integrity)</b>. Dày dạn kinh nghiệm thực chiến trong việc bóc tách cấu trúc dữ liệu thô, chuẩn hóa danh mục ngành hàng (Categories), thương hiệu (Brands) và model sản phẩm (SKUs); thành thạo <b>Excel nâng cao (VLOOKUP, INDEX-MATCH, Pivot Table, Data Validation)</b> kết hợp viết truy vấn <b>SQL (PostgreSQL, MySQL)</b> để lọc, khử trùng lặp (De-duplication) và đối soát dữ liệu quy mô lớn. Đặc biệt có năng lực <b>ứng dụng lập trình Python và AI/NLP</b> để tự động hóa quy trình phân loại từ khóa sản phẩm, tối ưu hiệu suất xử lý dữ liệu cho các báo cáo phân tích thị trường TMĐT. Tư duy logic chặt chẽ, tỉ mỉ và tinh thần trách nhiệm cao.
+            </p>
+        </section>
+
+        <!-- KINH NGHIỆM LÀM VIỆC THỰC CHIẾN -->
+        <section class="section">
+            <div class="section-title">Kinh Nghiệm Làm Việc Thực Chiến</div>
+
+            <!-- HomeNest Software -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">HomeNest Software</span>
+                    <span class="entry-location">TP. Hồ Chí Minh, Việt Nam</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-role">Business Analyst · Trợ lý PM (Phân Tích Nghiệp Vụ &amp; Chuẩn Hóa Dữ Liệu TMĐT)</span>
+                    <span class="entry-date">03/2026 – 09/2026</span>
+                </div>
+
+                <!-- Sub-project 1: VietPlus -->
+                <div class="sub-project-header">Dự án Sàn Mua Bán Thương Mại &amp; Rao Vặt VietPlus (Mô hình E-commerce / C2C)</div>
+                <ul class="bullet-list">
+                    <li><b>Phân loại danh mục &amp; Chuẩn hóa dữ liệu sản phẩm (Classification &amp; Cleaning):</b> Trực tiếp tiếp nhận và rà soát hàng nghìn tin đăng sản phẩm thô từ người bán; xây dựng cây danh mục ngành hàng đa tầng (Category Tree), chuẩn hóa thông tin thuộc tính sản phẩm (Brand, Model, Tình trạng, Giá cả, Địa điểm) về định dạng chuẩn mực, phục vụ tính năng tìm kiếm và lọc dữ liệu chính xác.</li>
+                    <li><b>Kiểm soát chất lượng dữ liệu &amp; Loại trừ tin rác (Data Quality Control):</b> Thiết lập bộ quy tắc kiểm duyệt nội dung niêm yết (Data Validation Rules); nhận diện và loại bỏ các tin đăng trùng lặp (duplicate listings), dữ liệu spam từ khóa hoặc sai lệch giá trị danh mục, đảm bảo tính sạch và độ tin cậy cao của tập dữ liệu sàn.</li>
+                    <li><b>Xây dựng Từ điển Dữ liệu (Data Dictionary) &amp; Tài liệu hóa quy chuẩn:</b> Soạn thảo tài liệu đặc tả định nghĩa dữ liệu (Data Dictionary), quy chuẩn đặt tên thuộc tính và từ điển từ khóa chuẩn hóa (Keyword Taxonomy); làm tài liệu tham chiếu giúp đội ngũ vận hành và kiểm thử duy trì tính nhất quán dữ liệu lâu dài.</li>
+                    <li><b>Kiểm tra dữ liệu trước/sau Go-Live &amp; Phối hợp liên phòng ban:</b> Trực tiếp lập kịch bản và thực hiện kiểm thử dữ liệu (Data Testing &amp; UAT), đối chiếu tính toàn vẹn của dữ liệu hiển thị trên App với CSDL; phối hợp nhịp nhàng giữa đội ngũ vận hành kinh doanh và đội ngũ IT Dev để xử lý triệt để các lỗi sai lệch dữ liệu.</li>
+                </ul>
+
+                <!-- Sub-project 2: Hỗ Trợ Cuộc Sống -->
+                <div class="sub-project-header">Dự án Hệ Sinh Thái Đa Dịch Vụ Theo Yêu Cầu "Hỗ Trợ Cuộc Sống"</div>
+                <ul class="bullet-list">
+                    <li><b>Cấu trúc hóa dữ liệu đối tác &amp; Dịch vụ (Master Data Structuring):</b> Phân tích và cấu trúc hóa toàn bộ dữ liệu hồ sơ đối tác cung ứng, phân loại nhóm ngành dịch vụ (Sửa chữa, Chuyến xe, Xe ghép); chuẩn hóa schema dữ liệu JSON contracts, loại trừ hoàn toàn tình trạng lệch cấu trúc dữ liệu giữa các phân hệ.</li>
+                    <li><b>Thiết lập quy tắc logic &amp; Thu thập bằng chứng dữ liệu:</b> Thiết kế máy trạng thái và các ràng buộc logic cho Module Đàm phán giá (Dynamic Bidding); tối ưu hóa cơ chế làm mới tọa độ GPS theo sự kiện mốc, đảm bảo dữ liệu ghi nhận đầy đủ, chuẩn xác nhưng không gây quá tải lưu trữ.</li>
+                </ul>
+            </div>
+
+            <!-- J&T Express -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">J&amp;T Express</span>
+                    <span class="entry-location">TP. Hồ Chí Minh, Việt Nam</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-role">Chuyên Viên Phân Tích Quy Trình &amp; Quản Trị Dữ Liệu Vận Hành</span>
+                    <span class="entry-date">09/2025 – 02/2026</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Đối soát dữ liệu quy mô lớn &amp; Xử lý bất đồng bộ bằng SQL:</b> Trực tiếp viết các câu lệnh truy vấn SQL (PostgreSQL, MySQL) kiểm tra và đối soát sai lệch hàng ngày giữa <b>hàng nghìn chứng từ thực tế (phiếu bưu gửi, bảng kê ký nhận) với dữ liệu hệ thống</b>; phát hiện và xử lý dứt điểm các lỗi lệch mã đơn, sai số tiền COD hoặc dữ liệu bị trùng lặp.</li>
+                    <li><b>Đảm bảo tính toàn vẹn dữ liệu (Data Integrity) &amp; Lập báo cáo định kỳ:</b> Sử dụng Excel nâng cao (VLOOKUP, INDEX-MATCH, Pivot Table) trích xuất dữ liệu từ CSDL, tổng hợp báo cáo tỷ lệ sai lệch dữ liệu, theo dõi và duy trì tính nhất quán 100% của bộ dữ liệu phục vụ báo cáo quản trị cấp cao.</li>
+                    <li><b>Chuẩn hóa SOP xử lý ngoại lệ dữ liệu &amp; Hướng dẫn người dùng:</b> Biên soạn quy trình thao tác chuẩn (SOP) phân loại và xử lý các ca lỗi dữ liệu vận hành (sai tuyến, hoàn hàng RTO, thất lạc); trực tiếp đào tạo nhân viên hiện trường tuân thủ chuẩn mực nhập liệu, giảm thiểu tối đa tỷ lệ phát sinh dữ liệu bẩn từ đầu vào.</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="page-number">Trang 1 / 2</div>
+    </div>
+
+    <!-- ════════════════════ TRANG 2 ════════════════════ -->
+    <div class="page">
+        <!-- DỰ ÁN DỮ LIỆU & E-COMMERCE TIÊU BIỂU -->
+        <section class="section">
+            <div class="section-title">Dự Án Dữ Liệu, Thương Mại Điện Tử &amp; Năng Lực Tự Động Hóa</div>
+
+            <!-- Project 1: Song Tai Shop (E-commerce Data Modeling & SKU/Brand Hierarchy) -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">
+                        <a href="https://github.com/VoVanTuTai/php-online-store" target="_blank">Song Tai Shop — Nền Tảng Thương Mại Điện Tử &amp; Quản Trị Dữ Liệu SKU Sản Phẩm</a>
+                        <a href="https://github.com/VoVanTuTai/php-online-store" target="_blank" class="project-link">[GitHub ↗]</a>
+                    </span>
+                    <span class="entry-location">Dự án E-commerce Full-Stack</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-tech">CSDL MySQL chuẩn 3NF, Phân loại SKU/Variants, Quản trị Danh mục Thương hiệu, RESTful APIs</span>
+                    <span class="entry-date">11/2025 – 01/2026</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Thiết kế cấu trúc dữ liệu ngành hàng &amp; Biến thể sản phẩm (SKU Hierarchy):</b> Xây dựng mô hình cơ sở dữ liệu quan hệ MySQL chuẩn hóa 3NF phân rã chi tiết cấu trúc sản phẩm TMĐT: Danh mục cha/con (Categories), Thương hiệu (Brands), Thuộc tính kỹ thuật (Attributes) và các biến thể phân loại (SKU/Variants: dung tích, màu sắc, size).</li>
+                    <li><b>Thiết lập ràng buộc toàn vẹn &amp; Khử trùng lặp dữ liệu:</b> Cài đặt các ràng buộc CSDL nghiêm ngặt (Unique Constraints, Foreign Keys) ngăn chặn tình trạng tạo trùng mã SKU sản phẩm hoặc trùng lặp tên thương hiệu; tối ưu hóa index truy vấn giúp trích xuất và lọc dữ liệu sản phẩm tức thời.</li>
+                    <li><b>Am hiểu sâu sắc hành trình dữ liệu TMĐT:</b> Nắm vững toàn bộ chu trình luân chuyển dữ liệu bán lẻ trực tuyến từ hiển thị sản phẩm &rarr; giỏ hàng &rarr; áp mã khuyến mãi &rarr; đối soát thanh toán &rarr; quản lý trạng thái tồn kho, là nền tảng vững chắc để phân tích dữ liệu thị trường TMĐT.</li>
+                </ul>
+            </div>
+
+            <!-- Project 2: Nexus Express AI Assistant (Auto Entity Extraction & NLP Data Processing) -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">
+                        <a href="https://tracking.nexus-ex.site" target="_blank">Nexus Express AI Assistant — Tự Động Hóa Trích Xuất Dữ Liệu &amp; Mapping Thực Thể Bằng Python / AI</a>
+                        <a href="https://tracking.nexus-ex.site" target="_blank" class="project-link">[Live Demo ↗]</a>
+                        <a href="https://github.com/VoVanTuTai/logistics-management-system" target="_blank" class="project-link">[GitHub ↗]</a>
+                    </span>
+                    <span class="entry-location">Dự án AI &amp; Xử lý Dữ liệu</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-tech">Python, FastAPI, Regex/Data Parsing, Live RAG, Embeddings, ReAct Agent Workflow, Vector Search</span>
+                    <span class="entry-date">10/2025 – 03/2026</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Tự động hóa bóc tách thực thể từ văn bản thô (Auto Data Extraction):</b> Lập trình Python và quy trình Agent tự động trích xuất các trường thông tin trọng yếu (Tên sản phẩm, Mã vận đơn, Tên người nhận, Số điện thoại, Địa chỉ phân cấp, Giá trị hàng hóa) từ chuỗi văn bản không cấu trúc của người dùng với độ chính xác cao.</li>
+                    <li><b>Mapping ngữ nghĩa &amp; Vector Search từ khóa sản phẩm:</b> Ứng dụng công nghệ Embeddings và Vector Similarity Search để giải quyết bài toán đối chiếu từ khóa (Semantic Keyword Matching); tự động gán nhãn sản phẩm và ánh xạ câu hỏi người dùng với danh mục chính sách chuẩn mà không phụ thuộc vào chuỗi ký tự khớp cứng.</li>
+                    <li><b>Làm sạch &amp; Chuẩn hóa tập dữ liệu văn bản quy chuẩn (Knowledge Base Cleaning):</b> Trực tiếp tiền xử lý, phân đoạn ngữ nghĩa (Semantic Chunking) và làm sạch tập dữ liệu tài liệu chính sách bảo hiểm và bồi thường (`02-insurance-and-claim-policy.md`), đảm bảo dữ liệu đưa vào vector database có chất lượng sạch và độ tin cậy tuyệt đối.</li>
+                </ul>
+            </div>
+
+            <!-- Project 3: Tourist Accommodation Platform (Data Concurrency & RBAC) -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">
+                        <a href="https://github.com/VoVanTuTai/tourist-accommodation-management-system" target="_blank">Nền Tảng Quản Lý Giao Dịch &amp; Đặt Chỗ — Kiểm Soát Tính Toàn Vẹn Dữ Liệu Đa Người Dùng</a>
+                        <a href="https://github.com/VoVanTuTai/tourist-accommodation-management-system" target="_blank" class="project-link">[GitHub ↗]</a>
+                    </span>
+                    <span class="entry-location">Dự án Phần mềm Ứng dụng</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-tech">MySQL 3NF, Kiểm soát Concurrency (TTL Lock), RBAC, Xác thực mã băm HMAC Checksum</span>
+                    <span class="entry-date">10/2025 – 12/2025</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Bảo vệ tính nhất quán dữ liệu giao dịch đồng thời:</b> Thiết kế cơ chế khóa giữ trạng thái tạm thời (TTL 15 phút), ngăn ngừa hoàn toàn lỗi xung đột dữ liệu và double-booking khi hàng trăm người dùng cùng truy cập và thao tác trên một bản ghi dữ liệu.</li>
+                    <li><b>Phân tách dữ liệu độc lập &amp; Kiểm soát phân quyền (RBAC):</b> Xây dựng cấu trúc cơ sở dữ liệu cách ly độc lập giữa các đối tác cung ứng, đảm bảo dữ liệu kinh doanh được bảo mật và chỉ người có thẩm quyền mới được truy cập và chỉnh sửa.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- KỸ NĂNG CHUYÊN MÔN & CÔNG CỤ DỮ LIỆU -->
+        <section class="section">
+            <div class="section-title">Kỹ Năng Chuyên Môn &amp; Công Cụ Dữ Liệu</div>
+            <ul class="skills-list">
+                <li><b>Xử lý &amp; Làm sạch Dữ liệu TMĐT:</b> Phân loại ngành hàng (Category Mapping), chuẩn hóa thương hiệu (Brand) và model sản phẩm (SKU/Variants); làm sạch dữ liệu thô (loại bỏ ký tự lạ, xử lý missing values, chuẩn hóa chính tả và đơn vị đo lường); xây dựng từ điển dữ liệu (Data Dictionary &amp; Keyword Taxonomy).</li>
+                <li><b>Quản lý Chất lượng Dữ liệu (Data Quality &amp; Integrity):</b> Xây dựng các quy tắc kiểm tra tính hợp lệ của dữ liệu (Validation Rules); đối soát dữ liệu đối chiếu chênh lệch, phát hiện và khử trùng lặp (De-duplication); giám sát tính toàn vẹn của tập dữ liệu trước khi chuyển giao cho bộ phận Nghiên cứu thị trường (Research/Analytics).</li>
+                <li><b>Công cụ Phân tích &amp; Lập trình:</b> Thành thạo <b>Microsoft Excel nâng cao</b> (VLOOKUP, XLOOKUP, INDEX-MATCH, Pivot Table, Conditional Formatting, Text Functions, Data Cleaning); viết truy vấn <b>SQL nâng cao</b> (PostgreSQL, MySQL: JOIN, Window Functions, Aggregate); lập trình <b>Python</b> cơ bản phục vụ xử lý dữ liệu (Pandas, Regex, Data Parsing).</li>
+                <li><b>Quy trình, Tài liệu &amp; Quản trị Dự án:</b> Lập tài liệu quy trình thao tác chuẩn (SOP), mô hình hóa quy trình (BPMN 2.0 trên Camunda), Jira, Confluence, ClickUp, Draw.io, Figma, Postman, Docker, Git / GitHub.</li>
+                <li><b>Tố chất &amp; Kỹ năng mềm:</b> Tư duy logic sắc sảo, cẩn thận, tỉ mỉ đến từng dòng dữ liệu; kỹ năng giao tiếp và làm việc nhóm hiệu quả giữa các bên liên quan; tinh thần trách nhiệm cao và khả năng thích ứng linh hoạt trong môi trường dữ liệu thay đổi nhanh; Tiếng Anh đọc hiểu tài liệu chuyên ngành tốt.</li>
+            </ul>
+        </section>
+
+        <!-- HỌC VẤN & NỀN TẢNG ĐÀO TẠO -->
+        <section class="section">
+            <div class="section-title">Học Vấn &amp; Nền Tảng Đào Tạo</div>
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">Trường Đại học Công nghiệp TP. Hồ Chí Minh (IUH)</span>
+                    <span class="entry-location">TP. Hồ Chí Minh, Việt Nam</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-role">Kỹ sư Hệ thống Thông tin (Hoàn thành toàn bộ chương trình đào tạo · Sẵn sàng làm việc Full-time ngay)</span>
+                    <span class="entry-date">09/2022 – 2026</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Điểm trung bình tích lũy (GPA):</b> <b>3.26 / 4.0</b></li>
+                    <li><b>Môn học chuyên ngành trọng tâm:</b> <b>Cơ sở Dữ liệu Nâng cao (Truy vấn SQL &amp; Quản trị CSDL)</b>, Cấu trúc Dữ liệu &amp; Giải thuật, Phân tích &amp; Thiết kế Hệ thống Thông tin (HTTTQL), Trí tuệ Nhân tạo &amp; Hệ thống Thông minh, Hoạch định Nguồn lực Doanh nghiệp (ERP - Odoo), Quản trị Dự án CNTT.</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="page-number">Trang 2 / 2</div>
+    </div>
+
+    <!-- Thanh Điều Khiển Nổi (Tải PDF, In & Chuyển Trang) -->
+    <div class="action-bar">
+        <a href="/cv-general.html" class="action-btn secondary">
+            📄 Xem CV Tổng Quát
+        </a>
+        <a href="/VoVanTuTai_YouNet_ECI_Data_Specialist_CV.pdf" download="VoVanTuTai_YouNet_ECI_Data_Specialist_CV.pdf" class="action-btn">
+            📥 TẢI FILE PDF (2 Trang A4)
+        </a>
+        <button class="action-btn secondary" onclick="window.print()">
+            🖨️ In / Lưu PDF
+        </button>
+    </div>
+</body>
+
+</html>

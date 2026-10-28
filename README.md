@@ -1,6 +1,6 @@
 # Vo Van Tu Tai — Portfolio & Engineering Showcase
 
-> 🌐 **Live Portfolio:** [vovantutai.is-a.dev](https://vovantutai.is-a.dev)  
+> 🌐 **Live Portfolio:** [vovantutai-portfolio.vercel.app](https://vovantutai-portfolio.vercel.app)  
 > 🚚 **Featured Live Logistics System:** [tracking.nexus-ex.site](https://tracking.nexus-ex.site/)
 
 Personal portfolio web application showcasing production-grade projects, distributed architecture systems, business analysis case studies, and professional curriculum vitae for Full-Stack Developer, AI Engineer, and Business Analyst roles.
@@ -42,13 +42,17 @@ All CVs are designed with modern, printable A4 layouts and direct PDF downloads:
 
 | Role / Specialization | Web Version | Download PDF |
 |---|---|---|
-| **Full-Stack Developer** | [cv-fullstack-developer.html](https://vovantutai.is-a.dev/cv-fullstack-developer.html) | [Download PDF](https://vovantutai.is-a.dev/VoVanTuTai_Fullstack_Developer_CV.pdf) |
-| **AI Engineer (Vietnamese)** | [cv-ai-engineer.html](https://vovantutai.is-a.dev/cv-ai-engineer.html) | [Download PDF](https://vovantutai.is-a.dev/VoVanTuTai_AI_Engineer_CV_Tieng_Viet.pdf) |
-| **AI Engineer (English)** | [cv-ai-engineer-en.html](https://vovantutai.is-a.dev/cv-ai-engineer-en.html) | [Download PDF](https://vovantutai.is-a.dev/VoVanTuTai_AI_Engineer_CV_English.pdf) |
-| **Business Analyst / PM (Vietnamese)** | [po-ba-cv-vi.html](https://vovantutai.is-a.dev/po-ba-cv-vi.html) | [Download PDF](https://vovantutai.is-a.dev/VoVanTuTai_Business_Analyst_CV_Tieng_Viet.pdf) |
-| **Business Analyst (English)** | [cv.html](https://vovantutai.is-a.dev/cv.html) | [Download PDF](https://vovantutai.is-a.dev/VoVanTuTai_Business_Analyst_CV.pdf) |
-| **General SWE / BA (Vietnamese)** | [cv-general.html](https://vovantutai.is-a.dev/cv-general.html) | [Download PDF](https://vovantutai.is-a.dev/VoVanTuTai_IT_Business_Analyst_CV_Tong_Quat.pdf) |
-| **General SWE / BA (English)** | [cv-general-en.html](https://vovantutai.is-a.dev/cv-general-en.html) | [Download PDF](https://vovantutai.is-a.dev/VoVanTuTai_IT_Business_Analyst_Resume_General.pdf) |
+| **Full-Stack Developer** | [cv-fullstack-developer.html](https://vovantutai-portfolio.vercel.app/cv-fullstack-developer.html) | [Download PDF](https://vovantutai-portfolio.vercel.app/VoVanTuTai_Fullstack_Developer_CV.pdf) |
+| **AI Engineer (Vietnamese)** | [cv-ai-engineer.html](https://vovantutai-portfolio.vercel.app/cv-ai-engineer.html) | [Download PDF](https://vovantutai-portfolio.vercel.app/VoVanTuTai_AI_Engineer_CV_Tieng_Viet.pdf) |
+| **AI Engineer (English)** | [cv-ai-engineer-en.html](https://vovantutai-portfolio.vercel.app/cv-ai-engineer-en.html) | [Download PDF](https://vovantutai-portfolio.vercel.app/VoVanTuTai_AI_Engineer_CV_English.pdf) |
+| **Business Analyst / PM (Vietnamese)** | [po-ba-cv-vi.html](https://vovantutai-portfolio.vercel.app/po-ba-cv-vi.html) | [Download PDF](https://vovantutai-portfolio.vercel.app/VoVanTuTai_Business_Analyst_CV_Tieng_Viet.pdf) |
+| **Business Analyst (English)** | [cv.html](https://vovantutai-portfolio.vercel.app/cv.html) | [Download PDF](https://vovantutai-portfolio.vercel.app/VoVanTuTai_Business_Analyst_CV.pdf) |
+| **General SWE / BA (Vietnamese)** | [cv-general.html](https://vovantutai-portfolio.vercel.app/cv-general.html) | [Download PDF](https://vovantutai-portfolio.vercel.app/VoVanTuTai_IT_Business_Analyst_CV_Tong_Quat.pdf) |
+| **System Integration Specialist (CRM/ERP)** | [cv-system-integration-solution-specialist.html](https://vovantutai-portfolio.vercel.app/cv-system-integration-solution-specialist.html) | [Download PDF](https://vovantutai-portfolio.vercel.app/VoVanTuTai_Chuyen_Vien_Giai_Phap_Tich_Hop_He_Thong_CV.pdf) |
+| **Product Owner / BA (E-Commerce & Chat - FPT Long Châu)** | [cv-product-owner-ecommerce-chat-long-chau.html](https://vovantutai-portfolio.vercel.app/cv-product-owner-ecommerce-chat-long-chau.html) | [Download PDF](https://vovantutai-portfolio.vercel.app/VoVanTuTai_Product_Owner_Ecommerce_Chat_Long_Chau_CV.pdf) |
+| **AI / Automation Engineer (Workflow Agents - SOCOM)** | [cv-ai-automation-engineer-socom.html](https://vovantutai-portfolio.vercel.app/cv-ai-automation-engineer-socom.html) | [Download PDF](https://vovantutai-portfolio.vercel.app/VoVanTuTai_AI_Automation_Engineer_SOCOM_CV.pdf) |
+| **Account Executive / Project Manager (SEONGON)** | [cv-account-executive-project-management-seongon.html](https://vovantutai-portfolio.vercel.app/cv-account-executive-project-management-seongon.html) | [Download PDF](https://vovantutai-portfolio.vercel.app/VoVanTuTai_Account_Executive_SEONGON_CV.pdf) |
+| **General SWE / BA (English)** | [cv-general-en.html](https://vovantutai-portfolio.vercel.app/cv-general-en.html) | [Download PDF](https://vovantutai-portfolio.vercel.app/VoVanTuTai_IT_Business_Analyst_Resume_General.pdf) |
 
 ---
 

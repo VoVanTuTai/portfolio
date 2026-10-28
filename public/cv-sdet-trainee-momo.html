@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vo Van Tu Tai — CV SDET Trainee | MoMo (Software Development Engineer in Test)</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <!-- Clean, Universal, ATS-Optimized Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, 'Segoe UI', Roboto, Helvetica, -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #e4e7eb;
+            color: #1a1a1a;
+            line-height: 1.36;
+            font-size: 13px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        a, a:visited, a:hover, a:active {
+            color: #111 !important;
+            text-decoration: none !important;
+        }
+
+        /* ── 2-PAGE A4 CONTAINER ── */
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            height: 297mm;
+            max-height: 297mm;
+            background: #fff;
+            margin: 20px auto;
+            padding: 8.5mm 15mm 7.5mm 15mm;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            overflow: hidden;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        /* ── HEADER ── */
+        .header {
+            text-align: center;
+            margin-bottom: 5px;
+            padding-bottom: 2px;
+        }
+
+        .name {
+            font-size: 21pt;
+            font-weight: 800;
+            letter-spacing: -0.4px;
+            color: #111;
+            line-height: 1.1;
+            margin-bottom: 3px;
+        }
+
+        .subtitle {
+            font-size: 9.3pt;
+            font-weight: 700;
+            color: #a50064; /* MoMo brand magenta */
+            margin-bottom: 4px;
+            letter-spacing: -0.1px;
+            white-space: nowrap;
+        }
+
+        .contact-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: nowrap;
+            gap: 0 9px;
+            font-size: 8.3pt;
+            color: #333;
+            max-width: 100%;
+            margin: 0 auto;
+            white-space: nowrap;
+        }
+
+        .contact-row a,
+        .contact-row span {
+            color: #222 !important;
+            text-decoration: none !important;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            line-height: 1;
+            vertical-align: middle;
+        }
+
+        .contact-row a:hover {
+            color: #a50064 !important;
+            text-decoration: underline !important;
+        }
+
+        .contact-icon {
+            width: 11.5px;
+            height: 11.5px;
+            fill: #333;
+            flex-shrink: 0;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .separator {
+            color: #888;
+            font-size: 8.5pt;
+            user-select: none;
+        }
+
+        /* ── SECTIONS ── */
+        .section {
+            margin-top: 4.5px;
+            margin-bottom: 4px;
+        }
+
+        .section-title {
+            font-size: 9.6pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #0f2744;
+            border-bottom: 1.5px solid #0f2744;
+            padding-bottom: 2px;
+            margin-bottom: 4px;
+        }
+
+        /* ── MANDATORY APPLICATION CRITERIA BANNER (REQUIRED BY MOMO) ── */
+        .momo-criteria-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 5px;
+            background: #fdf2f8;
+            border: 1px solid #fbcfe8;
+            border-left: 3.5px solid #a50064;
+            border-radius: 4px;
+            padding: 4px 8px;
+            margin-bottom: 4.5px;
+            font-size: 8.4pt;
+        }
+
+        .criteria-item b {
+            color: #831843;
+            display: block;
+            font-size: 7.7pt;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .criteria-item span {
+            color: #111;
+            font-weight: 600;
+        }
+
+        .summary-text {
+            font-size: 8.95pt;
+            line-height: 1.37;
+            color: #262626;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        /* ── SKILLS LIST ── */
+        .skills-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .skills-list li {
+            font-size: 8.85pt;
+            line-height: 1.35;
+            margin-bottom: 3px;
+            color: #262626;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        .skills-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .skills-list b {
+            font-weight: 700;
+            color: #0f2744;
+        }
+
+        /* ── ENTRIES ── */
+        .entry {
+            margin-bottom: 4.5px;
+        }
+
+        .entry:last-child {
+            margin-bottom: 0;
+        }
+
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-size: 9.35pt;
+            color: #111;
+        }
+
+        .entry-title {
+            font-weight: 700;
+            color: #111;
+        }
+
+        .project-link {
+            font-size: 8.2pt !important;
+            font-weight: 600 !important;
+            color: #a50064 !important;
+            text-decoration: underline !important;
+            margin-left: 4px;
+            white-space: nowrap;
+        }
+
+        .entry-location {
+            font-weight: 500;
+            color: #444;
+            font-size: 8.6pt;
+        }
+
+        .entry-sub {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-size: 8.75pt;
+            color: #333;
+            margin-bottom: 2px;
+        }
+
+        .entry-role {
+            font-weight: 600;
+            color: #1a365d;
+        }
+
+        .entry-tech {
+            font-style: italic;
+            font-size: 8.3pt;
+            color: #444;
+        }
+
+        .entry-date {
+            font-style: italic;
+            font-size: 8.6pt;
+            color: #444;
+            white-space: nowrap;
+        }
+
+        /* ── BULLETS ── */
+        .bullet-list {
+            list-style-type: disc;
+            padding-left: 14px;
+            margin: 0;
+        }
+
+        .bullet-list li {
+            font-size: 8.85pt;
+            line-height: 1.33;
+            color: #262626;
+            margin-bottom: 2px;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        .bullet-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .bullet-list b {
+            font-weight: 600;
+            color: #111;
+        }
+
+        .page-number {
+            position: absolute;
+            bottom: 4mm;
+            right: 15mm;
+            font-size: 8.3pt;
+            color: #888;
+            font-weight: 500;
+        }
+
+        /* ── ACTION CONTROLS ── */
+        .action-bar {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 9999;
+        }
+
+        .action-btn {
+            padding: 10px 18px;
+            background: #a50064;
+            color: #fff !important;
+            border: 1px solid #a50064;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 600;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none !important;
+        }
+
+        .action-btn:hover {
+            background: #831843;
+            transform: translateY(-2px);
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .page {
+                margin: 0;
+                padding: 8.5mm 15mm 7.5mm 15mm;
+                box-shadow: none;
+                width: 210mm;
+                height: 297mm;
+                min-height: 297mm;
+                max-height: 297mm;
+                page-break-after: always;
+                break-after: page;
+            }
+
+            .page:last-child {
+                page-break-after: avoid;
+                break-after: avoid;
+            }
+
+            @page {
+                size: A4 portrait;
+                margin: 0;
+            }
+
+            .action-bar {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ════════════════════ PAGE 1: OVERVIEW, MANDATORY CRITERIA, SKILLS & WORK EXPERIENCE ════════════════════ -->
+    <div class="page">
+        <!-- HEADER -->
+        <header class="header">
+            <h1 class="name">Vo Van Tu Tai</h1>
+            <div class="subtitle">Target Position: Software Development Engineer in Test (SDET) - Trainee Program</div>
+            <div class="contact-row">
+                <a href="tel:+84869500573">
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                    (+84) 869 500 573
+                </a>
+                <span class="separator">|</span>
+                <a href="mailto:tutaivovan@gmail.com">
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    tutaivovan@gmail.com
+                </a>
+                <span class="separator">|</span>
+                <a href="https://linkedin.com/in/vovantutai" target="_blank">
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.25c-.95 0-1.72.78-1.72 1.73s.77 1.73 1.72 1.73 1.73-.78 1.73-1.73-.78-1.73-1.73-1.73z"/></svg>
+                    linkedin.com/in/vovantutai
+                </a>
+                <span class="separator">|</span>
+                <a href="https://github.com/VoVanTuTai" target="_blank">
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+                    github.com/VoVanTuTai
+                </a>
+                <span class="separator">|</span>
+                <a href="https://vovantutai-portfolio.vercel.app" target="_blank">
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                    Portfolio
+                </a>
+            </div>
+        </header>
+
+        <!-- MANDATORY APPLICATION CRITERIA TABLE (REQUIRED BY MOMO) -->
+        <div class="momo-criteria-grid">
+            <div class="criteria-item">
+                <b>Cumulative GPA</b>
+                <span>3.26 / 4.0 (Top Tier / Excellent)</span>
+            </div>
+            <div class="criteria-item">
+                <b>Graduation Year</b>
+                <span>2026 (Completed Curriculum)</span>
+            </div>
+            <div class="criteria-item">
+                <b>Academic Major</b>
+                <span>Information Systems (IUH)</span>
+            </div>
+            <div class="criteria-item">
+                <b>Target Role</b>
+                <span>SDET Trainee (Full-Time)</span>
+            </div>
+        </div>
+
+        <!-- PROFESSIONAL SUMMARY -->
+        <section class="section">
+            <div class="section-title">Professional Summary</div>
+            <p class="summary-text">
+                Information Systems Engineering graduate from Industrial University of Ho Chi Minh City (IUH, GPA 3.26/4.0 · Completed all degree requirements · Available 100% for full-time commitment). Solid engineering foundation combining <b>software development (TypeScript, Node.js, NestJS, Python, SQL), API architecture, and automated quality verification</b>. Hands-on experience designing RESTful APIs (OpenAPI 3.0), analyzing transactional failure scenarios (ACID isolation, deadlocks, pessimistic row locking, and idempotency), verifying distributed locking mechanisms (Redis <code>SETNX</code>), and investigating runtime failures via structured logs. Actively leverages AI tools for test case generation, edge-case discovery, and automated debugging. Curious about how complex distributed systems break under the hood, committed to building scalable automation tools over repetitive manual effort, and fully dedicated to excelling in MoMo's selective 6-month SDET Trainee Program.
+            </p>
+        </section>
+
+        <!-- CORE TECHNICAL SKILLS -->
+        <section class="section">
+            <div class="section-title">Core Technical Skills</div>
+            <ul class="skills-list">
+                <li><b>Testing &amp; Automation Engineering:</b> Software Development Engineer in Test (SDET), Automation Testing, API Testing, Unit Testing (Jest), Integration Testing, E2E Testing (Cypress), BDD (Given-When-Then), Test Case Design, Edge Cases, Boundary Value Analysis, Negative Testing, Bug Tracking &amp; Defect Triage on Jira.</li>
+                <li><b>Programming &amp; Software Development:</b> TypeScript, JavaScript (ES6+), Node.js (NestJS, Express.js), Python (Automation Scripting), PHP (OOP/MVC), Object-Oriented Programming (OOP), Data Structures &amp; Algorithms, Clean Code Architecture, Git, GitHub, GitLab.</li>
+                <li><b>API Architecture &amp; Integration Testing:</b> RESTful APIs, OpenAPI 3.0 / Swagger Contracts, Automated API Testing with Postman (Newman, Pre-request scripts, Test scripts, Environment variables), DTO Validation (class-validator), Webhooks (HMAC-SHA512 verification), and Idempotency-Key validation.</li>
+                <li><b>Databases &amp; Data Integrity:</b> PostgreSQL, MySQL (3NF Relational Schema Design, B-Tree Indexing, ACID Transactions, Pessimistic Row Locking <code>SELECT ... FOR UPDATE</code>), Advanced SQL Queries (Multi-table JOINs, Aggregations, Window Functions) for data reconciliation.</li>
+                <li><b>Distributed Systems, CI/CD &amp; DevOps:</b> In-memory Caching &amp; Distributed Locks (Redis <code>SETNX</code>), Asynchronous Message Queues (RabbitMQ, Retry Queue, Dead-Letter Queue), Docker, Docker Compose, CI/CD Workflows, Runtime Log Investigation, Root Cause Analysis (RCA).</li>
+                <li><b>AI-Augmented Engineering &amp; Communication:</b> Utilizing Large Language Models (LLM) and Prompt Engineering for Edge-Case Discovery, Test Data Generation, and Stack Trace Debugging; Agile/Scrum; English (Professional technical reading, writing, and communication).</li>
+            </ul>
+        </section>
+
+        <!-- WORK EXPERIENCE -->
+        <section class="section">
+            <div class="section-title">Work Experience</div>
+
+            <!-- HomeNest Software -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">HomeNest Software</span>
+                    <span class="entry-location">Ho Chi Minh City, Vietnam</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-role">Technical Quality Coordinator · QA / BA Assistant</span>
+                    <span class="entry-date">March 2026 – September 2026</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>API Contract &amp; Edge Case Specification:</b> Collaborated with Lead Developers to standardize OpenAPI 3.0 contracts and JSON schema validation rules; drafted Given-When-Then acceptance criteria capturing boundary failure scenarios prior to sprint development.</li>
+                    <li><b>State Machine &amp; Concurrency Validation:</b> Formulated test scenarios for multi-party dynamic order bidding; verified state transition safeguards and lock timeouts (TTL) to prevent data race conditions and duplicate order claims.</li>
+                    <li><b>Automated &amp; Manual Verification on Mobile / Web:</b> Executed functional, regression, and network interruption tests (Wi-Fi to 4G handoffs, dropped connections) across iOS and Android apps; maintained 150+ test cases and reported defect tickets on Jira.</li>
+                    <li><b>International Client Collaboration:</b> Liaised directly in English with Korean product partners (VietPlus project) to review technical specifications, coordinate UAT verification checklists, and resolve defect tickets.</li>
+                </ul>
+            </div>
+
+            <!-- J&T Express -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">J&amp;T Express</span>
+                    <span class="entry-location">Ho Chi Minh City, Vietnam</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-role">Operations Process &amp; Data Verification Coordinator</span>
+                    <span class="entry-date">September 2025 – February 2026</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Data Reconciliation &amp; Discrepancy Investigation:</b> Formulated daily SQL queries (JOINs, aggregations, subqueries) to cross-verify physical parcel barcode logs against central databases; tracked down data sync discrepancies and root causes across transit hubs.</li>
+                    <li><b>Process Standardization:</b> Co-authored Standard Operating Procedures (SOP) for anomaly handling, standardizing operational exception workflows and minimizing manual data-entry errors.</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="page-number">Page 1 / 2</div>
+    </div>
+
+    <!-- ════════════════════ PAGE 2: TECHNICAL PROJECTS & EDUCATION ════════════════════ -->
+    <div class="page">
+        <!-- TECHNICAL PROJECTS -->
+        <section class="section">
+            <div class="section-title">Technical Projects</div>
+
+            <!-- Project 1: Nexus Express -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">
+                        <a href="https://tracking.nexus-ex.site/" target="_blank">Nexus Express — Distributed Order &amp; Logistics Tracking System</a>
+                        <a href="https://tracking.nexus-ex.site/" target="_blank" class="project-link">[Live Production ↗]</a>
+                        <a href="https://github.com/VoVanTuTai/logistics-management-system" target="_blank" class="project-link">[GitHub ↗]</a>
+                    </span>
+                    <span class="entry-location">Production: tracking.nexus-ex.site</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-tech">NestJS, TypeScript, PostgreSQL (3NF), RabbitMQ, OpenAPI 3.0, Jest, Docker Compose</span>
+                    <span class="entry-date">September 2025 – December 2025</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-role">Backend &amp; Integration Testing Engineer</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>API Contract &amp; Automated Testing:</b> Standardized RESTful APIs adhering to OpenAPI 3.0 contracts; authored automated integration test suites with <b>Jest &amp; Postman</b> verifying DTO validation, order state transitions (Created &rarr; Dispatched &rarr; In Transit &rarr; Delivered), and malformed payload edge cases.</li>
+                    <li><b>Message Queue Reliability Testing:</b> Formulated test scenarios simulating consumer service failures on RabbitMQ; verified retry queue policies and Dead-Letter Queue (DLQ) routing to ensure zero message loss during worker crashes.</li>
+                    <li><b>Containerized Debugging &amp; Data Integrity:</b> Packaged microservices via Docker Compose; analyzed runtime container logs to diagnose inter-service network latencies and cross-verified relational data integrity inside PostgreSQL.</li>
+                </ul>
+            </div>
+
+            <!-- Project 2: Cab Booking & Dispatch System -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">
+                        <a href="https://github.com/VoVanTuTai" target="_blank">Real-Time Cab Booking &amp; Dispatch Platform</a>
+                        <a href="https://github.com/VoVanTuTai" target="_blank" class="project-link">[GitHub ↗]</a>
+                    </span>
+                    <span class="entry-location">High-Concurrency Distributed Backend</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-tech">Node.js, Express.js, Redis, WebSocket, PostgreSQL, Postman Automation, Locust</span>
+                    <span class="entry-date">March 2025 – June 2025</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-role">Transaction &amp; Concurrency Testing Engineer</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Concurrency &amp; Distributed Lock Testing:</b> Formulated automated concurrency stress tests simulating 50 drivers accepting the same ride simultaneously; verified that <b>Redis <code>SETNX</code></b> distributed locks with atomic release TTL eliminate 100% of duplicate ride allocation race conditions.</li>
+                    <li><b>Real-Time Event Stream Testing (WebSocket):</b> Verified driver coordinate broadcast latency under simulated jitter conditions; formulated test cases for sudden client disconnections and automatic session reconnection.</li>
+                </ul>
+            </div>
+
+            <!-- Project 3: Song Tai Shop -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">
+                        <a href="https://github.com/VoVanTuTai/shop-equipment" target="_blank">Song Tai Shop — Transactional E-Commerce &amp; Inventory Management</a>
+                        <a href="https://github.com/VoVanTuTai/shop-equipment" target="_blank" class="project-link">[GitHub ↗]</a>
+                    </span>
+                    <span class="entry-location">Transactional Integrity &amp; Inventory</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-tech">PHP (OOP/MVC), MySQL (InnoDB), AJAX, JavaScript, Postman API Testing</span>
+                    <span class="entry-date">October 2024 – January 2025</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-role">Database &amp; Transaction Testing Engineer</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>ACID Transactional Verification:</b> Formulated test cases for flash-sale checkout spikes; validated that pessimistic row-level locking (<b><code>SELECT ... FOR UPDATE</code></b>) inside MySQL InnoDB prevents overselling and negative inventory balances.</li>
+                    <li><b>Crash Recovery &amp; Rollback Testing:</b> Simulated runtime exceptions during multi-step order checkout; verified automated transaction rollbacks to guarantee absolute synchronization between order logs and stock levels.</li>
+                </ul>
+            </div>
+
+            <!-- Project 4: Tourist Accommodation Platform -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">
+                        <a href="https://github.com/VoVanTuTai" target="_blank">Tourist Accommodation &amp; Online Payment Gateway Platform</a>
+                        <a href="https://github.com/VoVanTuTai" target="_blank" class="project-link">[GitHub ↗]</a>
+                    </span>
+                    <span class="entry-location">Payment Gateway &amp; Booking Management</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-tech">Node.js, Express, MySQL, VNPay Webhook IPN, HMAC-SHA512, Postman</span>
+                    <span class="entry-date">April 2024 – August 2024</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-role">Payment Integration &amp; Testing Engineer</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Payment Webhook &amp; Signature Verification:</b> Tested VNPay IPN Webhook integration with HMAC-SHA512 checksum validation; formulated negative test cases detecting tampered payment parameters and replay attacks.</li>
+                    <li><b>Idempotency Verification:</b> Formulated test scenarios simulating duplicate webhook callbacks; verified that idempotent transaction processing prevents duplicate balance credits or double booking status updates.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- EDUCATION -->
+        <section class="section">
+            <div class="section-title">Education</div>
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">Industrial University of Ho Chi Minh City (IUH)</span>
+                    <span class="entry-location">Ho Chi Minh City, Vietnam</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-role">Bachelor of Engineering in Information Systems</span>
+                    <span class="entry-date">2022 – 2026</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Cumulative GPA:</b> <b>3.26 / 4.0 (Top Tier / Excellent)</b> — Ranked in top 10% of graduating cohort.</li>
+                    <li><b>Academic Status:</b> <b>Completed all curriculum coursework and technical credits</b>; 100% available for full-time commitment in the MoMo SDET Trainee Program.</li>
+                    <li><b>Relevant Coursework:</b> Software Testing &amp; Quality Assurance, Software Engineering, Advanced Relational Databases &amp; SQL, Distributed Systems &amp; Service-Oriented Architecture (SOA), Object-Oriented Analysis &amp; Design (OOAD/UML), Data Structures &amp; Algorithms, Artificial Intelligence &amp; Data Mining.</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="page-number">Page 2 / 2</div>
+    </div>
+
+    <!-- Floating Action Controls -->
+    <div class="action-bar">
+        <a href="/VoVanTuTai_SDET_Trainee_MoMo_CV.pdf" download="VoVanTuTai_SDET_Trainee_MoMo_CV.pdf" class="action-btn">
+            <svg style="width:16px;height:16px;fill:currentColor" viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+            Download PDF (2-Page A4)
+        </a>
+        <button onclick="window.print()" class="action-btn" style="background:#374151;border-color:#374151;">
+            Print / Save PDF
+        </button>
+    </div>
+</body>
+
+</html>
