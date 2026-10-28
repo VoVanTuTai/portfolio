@@ -31,6 +31,16 @@ import {
   Target,
   AlertTriangle,
   GitBranch,
+  Cpu,
+  Terminal,
+  Copy,
+  Zap,
+  Boxes,
+  FileCode,
+  RefreshCw,
+  Search,
+  HelpCircle,
+  Activity,
 } from "lucide-react";
 import "./styles.css";
 import { ProjectManagementSection } from "./ProjectManagementSection";
@@ -1557,430 +1567,1643 @@ function KnowledgeHubPage({ navigate }: { navigate: NavigateHandler }) {
 }
 
 function ProgrammingLanguagesLessonPage({ navigate }: { navigate: NavigateHandler }) {
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [activeCodeLang, setActiveCodeLang] = useState<"typescript" | "java" | "php" | "python" | "go">("typescript");
+  const [copiedCode, setCopiedCode] = useState(false);
+  const [activeArch, setActiveArch] = useState<"all" | "aot" | "jit" | "v8" | "opcache">("all");
+  const [faqCategory, setFaqCategory] = useState<"all" | "runtime" | "memory" | "types" | "concurrency">("all");
+  const [faqSearch, setFaqSearch] = useState("");
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
+  const [checkedChecklist, setCheckedChecklist] = useState<Record<number, boolean>>({
+    0: true,
+    1: true,
+    2: true,
+    3: true,
+    4: true,
+    5: true,
+    6: true,
+  });
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (totalHeight > 0) {
+        setScrollProgress(Math.min(100, Math.max(0, (window.scrollY / totalHeight) * 100)));
+      }
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const toggleChecklist = (idx: number) => {
+    setCheckedChecklist((prev) => ({ ...prev, [idx]: !prev[idx] }));
+  };
+
+  const checkedCount = Object.values(checkedChecklist).filter(Boolean).length;
+
+  const handleCopyCode = (codeStr: string) => {
+    if (navigator?.clipboard?.writeText) {
+      navigator.clipboard.writeText(codeStr);
+      setCopiedCode(true);
+      setTimeout(() => setCopiedCode(false), 2000);
+    }
+  };
+
+  const codeSnippets: Record<
+    "typescript" | "java" | "php" | "python" | "go",
+    {
+      fileName: string;
+      languageLabel: string;
+      code: string;
+      paradigm: string;
+      typeMechanism: string;
+      runtimeEngine: string;
+      invariants: string;
+    }
+  > = {
+    typescript: {
+      fileName: "shipping-calculator.service.ts",
+      languageLabel: "TypeScript 5.4 (NestJS)",
+      code: `/**
+ * Nexus Express OMS - Shipping Fee Engine
+ * TypeScript 5.4: Strict Typing, Immutability & Domain Invariants
+ */
+export interface ShippingCalculationInput {
+  readonly weightGrams: number;
+  readonly isExpress: boolean;
+  readonly codAmountVnd?: number;
+}
+
+export interface ShippingCalculationResult {
+  readonly baseFeeVnd: number;
+  readonly weightSurchargeVnd: number;
+  readonly expressSurchargeVnd: number;
+  readonly totalFeeVnd: number;
+  readonly currency: 'VND';
+}
+
+export class ShippingCalculatorService {
+  private static readonly BASE_FEE_VND = 15_000;
+  private static readonly BASE_WEIGHT_LIMIT_GRAMS = 1_000;
+  private static readonly TIER_STEP_GRAMS = 500;
+  private static readonly TIER_SURCHARGE_VND = 4_000;
+  private static readonly EXPRESS_SURCHARGE_VND = 10_000;
+
+  public static calculate(input: ShippingCalculationInput): ShippingCalculationResult {
+    // 1. Boundary & Invariant Guard (Runtime Validation)
+    if (!Number.isFinite(input.weightGrams) || input.weightGrams <= 0) {
+      throw new RangeError(\`Trọng lượng hàng không hợp lệ: \${input.weightGrams}g (phải > 0)\`);
+    }
+
+    // 2. Weight tiering logic (Round up excess grams by step)
+    const excessGrams = Math.max(0, input.weightGrams - this.BASE_WEIGHT_LIMIT_GRAMS);
+    const extraUnits = Math.ceil(excessGrams / this.TIER_STEP_GRAMS);
+    const weightSurchargeVnd = extraUnits * this.TIER_SURCHARGE_VND;
+
+    // 3. Express delivery service surcharge
+    const expressSurchargeVnd = input.isExpress ? this.EXPRESS_SURCHARGE_VND : 0;
+
+    // 4. Integer arithmetic: VND has no fractional cents -> avoids floating-point inaccuracy
+    const totalFeeVnd = this.BASE_FEE_VND + weightSurchargeVnd + expressSurchargeVnd;
+
+    return Object.freeze({
+      baseFeeVnd: this.BASE_FEE_VND,
+      weightSurchargeVnd,
+      expressSurchargeVnd,
+      totalFeeVnd,
+      currency: 'VND',
+    });
+  }
+}`,
+      paradigm: "Multi-paradigm (OOP / Functional)",
+      typeMechanism: "Static Type Checking (Structural Typing / Compile-time erased)",
+      runtimeEngine: "Node.js (V8 Engine with Ignition bytecode & TurboFan JIT)",
+      invariants: "Bảo toàn số nguyên VND, type guards kiểm tra input bên ngoài, Object.freeze chống mutation.",
+    },
+    java: {
+      fileName: "ShippingCalculator.java",
+      languageLabel: "Java 21 LTS (Spring Boot 3)",
+      code: `package com.tutai.devflow.logistics.domain;
+
+import java.util.Objects;
+
+/**
+ * DevFlow Enterprise - Logistics Pricing Domain
+ * Java 21: Records, Immutability & Nominal Type Safety
+ */
+public final class ShippingCalculator {
+
+    public static final int BASE_FEE_VND = 15_000;
+    public static final int BASE_WEIGHT_LIMIT_GRAMS = 1_000;
+    public static final double TIER_STEP_GRAMS = 500.0;
+    public static final int TIER_SURCHARGE_VND = 4_000;
+    public static final int EXPRESS_SURCHARGE_VND = 10_000;
+
+    // Java 21 Compact Constructor in Record: Immutable Value Object
+    public record ShippingQuote(
+        int baseFeeVnd,
+        int weightSurchargeVnd,
+        int expressSurchargeVnd,
+        int totalFeeVnd,
+        String currency
+    ) {
+        public ShippingQuote {
+            if (totalFeeVnd < 0) {
+                throw new IllegalStateException("Cước phí không thể là số âm");
+            }
+        }
+    }
+
+    public static ShippingQuote calculate(int weightGrams, boolean isExpress) {
+        // 1. Boundary & Invariant validation
+        if (weightGrams <= 0) {
+            throw new IllegalArgumentException("Khối lượng kiện hàng phải > 0g: " + weightGrams);
+        }
+
+        // 2. Extra units calculation with explicit double division for ceil
+        int excessGrams = Math.max(0, weightGrams - BASE_WEIGHT_LIMIT_GRAMS);
+        int extraUnits = (int) Math.ceil(excessGrams / TIER_STEP_GRAMS);
+        int weightSurcharge = extraUnits * TIER_SURCHARGE_VND;
+
+        // 3. Express service fee
+        int expressSurcharge = isExpress ? EXPRESS_SURCHARGE_VND : 0;
+
+        // 4. Deterministic integer arithmetic
+        int total = BASE_FEE_VND + weightSurcharge + expressSurcharge;
+
+        return new ShippingQuote(BASE_FEE_VND, weightSurcharge, expressSurcharge, total, "VND");
+    }
+}`,
+      paradigm: "Class-based Object-Oriented",
+      typeMechanism: "Static Nominal Typing (Enforced at compile-time & checked in Bytecode)",
+      runtimeEngine: "JVM HotSpot 21 (C1/C2 JIT Tiered Compilation & ZGC/G1GC)",
+      invariants: "Record bất biến, Compact constructor bảo vệ invariant, compile-time exception types.",
+    },
+    php: {
+      fileName: "ShippingCalculator.php",
+      languageLabel: "PHP 8.3 (Song Tai Shop MVC)",
+      code: `<?php
+declare(strict_types=1);
+
+namespace App\\Domain\\Logistics;
+
+use InvalidArgumentException;
+
+/**
+ * Song Tai Shop - Logistics Fee Engine
+ * PHP 8.3: Readonly Class, Strict Types & Match Expression
+ */
+final readonly class ShippingQuote
+{
+    public function __construct(
+        public int $baseFeeVnd,
+        public int $weightSurchargeVnd,
+        public int $expressSurchargeVnd,
+        public int $totalFeeVnd,
+        public string $currency = 'VND'
+    ) {}
+}
+
+final class ShippingCalculator
+{
+    private const int BASE_FEE_VND = 15_000;
+    private const int BASE_WEIGHT_GRAMS = 1_000;
+    private const float TIER_STEP_GRAMS = 500.0;
+    private const int TIER_SURCHARGE_VND = 4_000;
+    private const int EXPRESS_SURCHARGE_VND = 10_000;
+
+    public static function calculate(int $weightGrams, bool $isExpress): ShippingQuote
+    {
+        // 1. Invariant check with strict types active
+        if ($weightGrams <= 0) {
+            throw new InvalidArgumentException("Khối lượng hàng phải > 0g. Nhận: {$weightGrams}g");
+        }
+
+        // 2. Extra weight calculation
+        $excessGrams = max(0, $weightGrams - self::BASE_WEIGHT_GRAMS);
+        $extraUnits = (int) ceil($excessGrams / self::TIER_STEP_GRAMS);
+        $weightSurcharge = $extraUnits * self::TIER_SURCHARGE_VND;
+
+        // 3. Express surcharge via PHP 8 match expression
+        $expressSurcharge = match ($isExpress) {
+            true => self::EXPRESS_SURCHARGE_VND,
+            false => 0,
+        };
+
+        $totalFee = self::BASE_FEE_VND + $weightSurcharge + $expressSurcharge;
+
+        return new ShippingQuote(
+            baseFeeVnd: self::BASE_FEE_VND,
+            weightSurchargeVnd: $weightSurcharge,
+            expressSurchargeVnd: $expressSurcharge,
+            totalFeeVnd: $totalFee
+        );
+    }
+}`,
+      paradigm: "Multi-paradigm (Procedural & Modern OOP)",
+      typeMechanism: "Dynamic with Type Declarations (declare(strict_types=1))",
+      runtimeEngine: "Zend Engine 8.3 (PHP-FPM Opcode Caching & JIT Compiler)",
+      invariants: "Strict types mode, readonly DTO, Shared-Nothing memory lifecycle per HTTP request.",
+    },
+    python: {
+      fileName: "shipping_calculator.py",
+      languageLabel: "Python 3.12 (Pydantic / AI Service)",
+      code: `from dataclasses import dataclass
+import math
+from typing import Final
+
+# PEP 8 Compliant Constants
+BASE_FEE_VND: Final[int] = 15_000
+BASE_WEIGHT_GRAMS: Final[int] = 1_000
+TIER_STEP_GRAMS: Final[float] = 500.0
+TIER_SURCHARGE_VND: Final[int] = 4_000
+EXPRESS_SURCHARGE_VND: Final[int] = 10_000
+
+@dataclass(frozen=True, slots=True)
+class ShippingQuote:
+    """Immutable quote result with high-performance memory slots."""
+    base_fee_vnd: int
+    weight_surcharge_vnd: int
+    express_surcharge_vnd: int
+    total_fee_vnd: int
+    currency: str = "VND"
+
+def calculate_shipping_fee(weight_grams: int, is_express: bool) -> ShippingQuote:
+    """Calculate deterministic logistics fee avoiding float imprecision."""
+    if not isinstance(weight_grams, int) or weight_grams <= 0:
+        raise ValueError(f"Khối lượng kiện hàng không hợp lệ: {weight_grams}g (phải là số nguyên > 0)")
+
+    excess_grams = max(0, weight_grams - BASE_WEIGHT_GRAMS)
+    extra_units = math.ceil(excess_grams / TIER_STEP_GRAMS)
+    weight_surcharge = extra_units * TIER_SURCHARGE_VND
+
+    express_surcharge = EXPRESS_SURCHARGE_VND if is_express else 0
+    total_fee = BASE_FEE_VND + weight_surcharge + express_surcharge
+
+    return ShippingQuote(
+        base_fee_vnd=BASE_FEE_VND,
+        weight_surcharge_vnd=weight_surcharge,
+        express_surcharge_vnd=express_surcharge,
+        total_fee_vnd=total_fee,
+    )`,
+      paradigm: "Multi-paradigm (Dynamic, Functional, OOP)",
+      typeMechanism: "Dynamic Typing with Type Hints (Mypy static check, slots optimization)",
+      runtimeEngine: "CPython 3.12 (Bytecode Interpreter with GIL & Specializing Adaptive Interpreter)",
+      invariants: "Frozen dataclass, slots giảm tải bộ nhớ Heap, type annotations hỗ trợ IDE linting.",
+    },
+    go: {
+      fileName: "shipping_calculator.go",
+      languageLabel: "Go 1.22 (High-Throughput Gateway)",
+      code: `package logistics
+
+import (
+	"errors"
+	"math"
+)
+
+const (
+	BaseFeeVND          = 15000
+	BaseWeightLimitGram = 1000
+	TierStepGram        = 500.0
+	TierSurchargeVND    = 4000
+	ExpressSurchargeVND = 10000
+)
+
+type ShippingQuote struct {
+	BaseFeeVND          int    \`json:"base_fee_vnd"\`
+	WeightSurchargeVND  int    \`json:"weight_surcharge_vnd"\`
+	ExpressSurchargeVND int    \`json:"express_surcharge_vnd"\`
+	TotalFeeVND         int    \`json:"total_fee_vnd"\`
+	Currency            string \`json:"currency"\`
+}
+
+// CalculateFee returns deterministic quote with idiomatic Go explicit error handling
+func CalculateFee(weightGrams int, isExpress bool) (ShippingQuote, error) {
+	if weightGrams <= 0 {
+		return ShippingQuote{}, errors.New("khối lượng kiện hàng phải lớn hơn 0g")
+	}
+
+	excessGrams := 0
+	if weightGrams > BaseWeightLimitGram {
+		excessGrams = weightGrams - BaseWeightLimitGram
+	}
+
+	extraUnits := int(math.Ceil(float64(excessGrams) / TierStepGram))
+	weightSurcharge := extraUnits * TierSurchargeVND
+
+	expressSurcharge := 0
+	if isExpress {
+		expressSurcharge = ExpressSurchargeVND
+	}
+
+	total := BaseFeeVND + weightSurcharge + expressSurcharge
+
+	return ShippingQuote{
+		BaseFeeVND:          BaseFeeVND,
+		WeightSurchargeVND:  weightSurcharge,
+		ExpressSurchargeVND: expressSurcharge,
+		TotalFeeVND:         total,
+		Currency:            "VND",
+	}, nil
+}`,
+      paradigm: "Procedural / Structural OOP (No inheritance, composition via interfaces)",
+      typeMechanism: "Static Strong Typing (Structural interfaces, zero runtime overhead)",
+      runtimeEngine: "Native Machine Code (Direct OS compilation, Goroutines & Go Runtime GC)",
+      invariants: "Explicit error return (không có exception ngầm), JSON serialization tags, zero class overhead.",
+    },
+  };
+
+  const interviewQuestions = [
+    {
+      category: "runtime",
+      categoryLabel: "Runtime & Engine",
+      question: "1. JIT (Just-in-Time) Compiler vs AOT (Ahead-of-Time) Compiler: Cơ chế hoạt động và trade-off hiệu năng?",
+      answer:
+        "AOT Compiler (Go, Rust, C++) biên dịch toàn bộ source code thành mã máy gốc (Native Machine Code) trước khi triển khai: Ưu điểm là khởi động tức thì (Zero warmup), dung lượng bộ nhớ nhỏ, đóng gói binary độc lập. Ngược lại, JIT Compiler (Java JVM HotSpot, V8) biên dịch code thành Bytecode/IR trước, sau đó trong lúc chạy (Runtime) sẽ theo dõi profiling: những hàm được gọi hàng triệu lần ('Hot Spot') sẽ được JIT compile trực tiếp sang mã máy tối ưu hóa cao độ với CPU hiện thời (Inlining, Loop Unrolling). Trade-off của JIT là thời gian Warmup ban đầu và tiêu tốn CPU/RAM cho trình phân tích, nhưng về lâu dài có thể tối ưu hơn AOT nhờ dữ liệu runtime thực tế.",
+    },
+    {
+      category: "runtime",
+      categoryLabel: "Runtime & Engine",
+      question: "2. V8 Engine thực thi JavaScript/TypeScript như thế nào qua Ignition & TurboFan?",
+      answer:
+        "Quy trình V8: (1) Parser chuyển source code JavaScript (sau khi TS đã strip types) thành AST (Abstract Syntax Tree); (2) Trình thông dịch Ignition chuyển AST thành Bytecode để bắt đầu thực thi ngay mà không cần đợi compile (giảm thời gian tương tác ban đầu); (3) Profiler theo dõi các hàm chạy thường xuyên; (4) Trình biên dịch tối ưu hóa TurboFan nạp Bytecode cùng Type Feedback từ Ignition để sinh ra High-Performance Machine Code; (5) Deoptimization: Nếu giả định kiểu dữ liệu bị vi phạm (ví dụ một hàm trước đó luôn nhận số nhưng đột nhiên nhận object), TurboFan sẽ hủy mã máy và quay ngược về Bytecode trong Ignition.",
+    },
+    {
+      category: "runtime",
+      categoryLabel: "Runtime & Engine",
+      question: "3. Quá trình nạp class (Class Loading) và Bytecode Verification của JVM diễn ra ra sao?",
+      answer:
+        "JVM thực hiện Class Loading theo nguyên tắc Delegation qua 3 tầng ClassLoader: Bootstrap -> Extension/Platform -> Application. Khi một class được nạp, JVM trải qua 3 pha: (1) Loading: Đọc file .class dạng byte stream và tạo đối tượng Class<?> trên Metaspace; (2) Linking: Gồm Verification (kiểm tra tính hợp lệ của format bytecode, đảm bảo không can thiệp trái phép con trỏ hay stack overflow), Preparation (cấp phát bộ nhớ cho static variables) và Resolution (chuyển đổi Symbolic References thành Direct References); (3) Initialization: Thực thi các khối static block và gán giá trị khởi tạo ban đầu cho biến static.",
+    },
+    {
+      category: "memory",
+      categoryLabel: "Memory & GC",
+      question: "4. Phân biệt Call Stack và Heap: Khi nào một biến/đối tượng được cấp phát trên Stack thay vì Heap?",
+      answer:
+        "Call Stack quản lý bộ nhớ dạng LIFO theo từng lời gọi hàm: Cấp phát siêu nhanh, lưu trữ các biến cục bộ (primitives) và địa chỉ tham chiếu (references). Bộ nhớ Stack tự động giải phóng ngay khi hàm trả về (return), không cần Garbage Collector can thiệp, nhưng có giới hạn kích thước (dễ bị StackOverflowError khi đệ quy vô hạn). Ngược lại, Heap là vùng nhớ động lưu trữ các Object, Array sống lâu hơn vòng đời một hàm. Cấp phát trên Heap tốn chi phí hơn và cần Garbage Collector thu hồi. Kỹ thuật Escape Analysis trong JVM/Go cho phép compiler nhận diện nếu một Object không bao giờ 'thoát' ra khỏi phạm vi hàm, nó có thể được cấp phát thẳng trên Stack (Scalar Replacement) để triệt tiêu chi phí GC.",
+    },
+    {
+      category: "memory",
+      categoryLabel: "Memory & GC",
+      question: "5. Garbage Collector hoạt động ra sao? Nguyên lý Generational Hypothesis và 'Stop-the-World'?",
+      answer:
+        "GC giải phóng bộ nhớ của các object không còn Reachable từ GC Roots (các biến trên Stack, static variables, JNI references). Nguyên lý Generational Hypothesis chỉ ra rằng: 'Hơn 95% object sinh ra sẽ chết rất nhanh ngay sau khi hàm hoàn thành'. Do đó, JVM chia Heap thành Young Generation (Eden + 2 Survivor S0/S1) và Old/Tenured Generation. Minor GC chạy cực nhanh trên Young Gen; chỉ những object sống sót qua nhiều chu kỳ (age threshold) mới được promote lên Old Gen. Hiện tượng 'Stop-the-World' (STW) xảy ra khi GC tạm ngưng toàn bộ Application Threads để cập nhật con trỏ và di dời đối tượng. Các GC hiện đại như G1GC hay ZGC (Java 21) giảm thời gian STW xuống dưới 1 mili-giây thông qua Concurrent Marking và Colored Pointers.",
+    },
+    {
+      category: "memory",
+      categoryLabel: "Memory & GC",
+      question: "6. Tại sao PHP-FPM theo mô hình Shared-Nothing lại miễn nhiễm với Memory Leak dài hạn của Daemon?",
+      answer:
+        "Trong các kiến trúc daemon dài hạn (Node.js, Java Spring Boot), một tiến trình phục vụ hàng triệu request. Nếu một lập trình viên vô tình lưu dữ liệu vào biến toàn cục (global cache, unclosed event listener), bộ nhớ Heap sẽ phình to dẫn đến OutOfMemoryError. Ngược lại, PHP-FPM vận hành theo mô hình Shared-Nothing (Không chia sẻ trạng thái giữa các request): Khi request HTTP tới, một worker process tiếp nhận, cấp phát bộ nhớ, thực thi logic, trả response và NGAY LẬP TỨC giải phóng 100% vùng nhớ của request đó (zend_mm memory manager reset). Nhờ vậy, PHP loại bỏ hoàn toàn rủi ro memory leak tích lũy qua thời gian.",
+    },
+    {
+      category: "types",
+      categoryLabel: "Hệ Kiểu & Soundness",
+      question: "7. Structural Typing (Duck Typing của TypeScript/Go) khác gì Nominal Typing (Java/C#)?",
+      answer:
+        "Nominal Typing (Java): Hai kiểu dữ liệu CHỈ tương thích nếu chúng có cùng tên hoặc có quan hệ kế thừa tường minh (explicit inheritance). Cho dù Class Dog và Class Cat có cùng thuộc tính name và method bark(), ta không thể gán Dog d = new Cat(). Ngược lại, Structural Typing (TypeScript): Hai kiểu tương thích nếu cấu trúc hình dạng (shape/properties) của chúng tương thích ('Nếu nó bơi như vịt và kêu như vịt, thì nó là vịt'). Nếu interface Order có id và total, bất kỳ object nào có id và total đều hợp lệ. Go cũng áp dụng structural typing cho interface: một struct tự động implement interface nếu có đủ methods mà không cần từ khóa implements.",
+    },
+    {
+      category: "types",
+      categoryLabel: "Hệ Kiểu & Soundness",
+      question: "8. Type Erasure trong TypeScript và Java: Tại sao Static Typing không thể thay thế Runtime Validation?",
+      answer:
+        "Cả TypeScript và Java (Generics) đều áp dụng Type Erasure: Khi compile, các type annotation (như interface Order trong TS hoặc List<Order> trong Java) bị xóa bỏ hoàn toàn. JavaScript và Java Bytecode lúc chạy không còn thông tin type strict của generic/interface đó nữa. Do đó, Static Typing chỉ bảo vệ được bên trong ranh giới code của chính lập trình viên (Internal Codebase). Khi dữ liệu đi qua Ranh giới Hệ thống (Network HTTP Request, JSON Body, User Input, Third-party Webhook, Database query), compiler hoàn toàn bất lực. Vì vậy, ứng dụng bắt buộc phải có tầng Runtime Validation (như Zod, class-validator trong TypeScript, hoặc Hibernate Validator @Valid trong Java).",
+    },
+    {
+      category: "types",
+      categoryLabel: "Hệ Kiểu & Soundness",
+      question: "9. Tại sao không bao giờ được dùng float/double để tính toán tiền tệ trong phần mềm doanh nghiệp?",
+      answer:
+        "Kiểu float/double tuân theo chuẩn IEEE 754 biểu diễn số thực dưới dạng nhị phân cơ số 2. Một số phân số thập phân quen thuộc như 0.1 hay 0.2 không thể biểu diễn chính xác tuyệt đối trong hệ nhị phân (giống như 1/3 trong hệ thập phân là 0.33333...). Kết quả là 0.1 + 0.2 = 0.30000000000000004. Trong các hệ thống tài chính, e-commerce, logistics (Nexus Express, Song Tai Shop), sai số này tích lũy qua hàng triệu giao dịch sẽ làm lệch sổ sách đối soát kế toán. Giải pháp chuẩn: (1) Lưu trữ tiền tệ dưới dạng số nguyên nhỏ nhất (ví dụ VND luôn lưu số nguyên, USD lưu đơn vị Cents); (2) Sử dụng thư viện số học chính xác cao như BigDecimal trong Java hoặc Decimal trong Python.",
+    },
+    {
+      category: "concurrency",
+      categoryLabel: "Concurrency & I/O",
+      question: "10. So sánh Concurrency Models: Single-threaded Event Loop (Node.js) vs Virtual Threads (Java 21) vs Multi-process (PHP-FPM)?",
+      answer:
+        "Node.js (Event Loop): Một thread chính duy nhất xử lý JavaScript, ủy thác tác vụ I/O cho Libuv thread pool của OS. Phù hợp tuyệt vời với I/O-bound (REST API, WebSocket, chat, tracking), nhưng một tác vụ CPU-bound nặng có thể làm nghẽn toàn bộ server. Java 21 (Virtual Threads - Project Loom): Giải quyết nhược điểm của OS Threads truyền thống (vốn ngốn 1-2MB RAM/thread và context switch đắt đỏ). Virtual Threads là các user-mode threads cực nhẹ (vài KB), cho phép tạo hàng triệu threads đồng thời theo phong cách synchronous blocking quen thuộc mà không nghẽn OS thread. PHP-FPM (Process Pool): Mỗi request một tiến trình độc lập, lập trình đơn giản nhất, không sợ race conditions, nhưng tốn nhiều RAM hơn trên mỗi kết nối so với Event Loop.",
+    },
+  ];
+
+  const filteredFaqs = interviewQuestions.filter((item) => {
+    const matchCategory = faqCategory === "all" || item.category === faqCategory;
+    const matchSearch =
+      faqSearch.trim() === "" ||
+      item.question.toLowerCase().includes(faqSearch.toLowerCase()) ||
+      item.answer.toLowerCase().includes(faqSearch.toLowerCase());
+    return matchCategory && matchSearch;
+  });
+
   return (
-    <main className="site-shell knowledge-shell language-lesson">
-      <header className="topbar knowledge-topbar" aria-label="Programming languages lesson navigation">
-        <a
-          className="brand"
-          href="/knowledge"
-          onClick={(event) => navigate(event, "/knowledge")}
-          aria-label="Learning hub"
-        >
-          <img className="brand-avatar" src="/assets/avatar.png" alt="" aria-hidden="true" />
-          <span>Knowledge Hub</span>
-        </a>
-        <nav>
-          <a href="#mental-model">Mental model</a>
-          <a href="#execution-pipeline">Thực thi</a>
-          <a href="#type-system">Hệ kiểu</a>
-          <a href="#language-comparison">So sánh code</a>
-          <a href="#practice-review">Thực hành</a>
+    <main className="site-shell knowledge-shell pl-lesson">
+      {/* 1. Dynamic Reading Progress Bar */}
+      <div className="pl-reading-progress" style={{ width: `${scrollProgress}%` }} aria-hidden="true" />
+
+      {/* 2. Modern Executive Topbar */}
+      <header className="topbar knowledge-topbar pl-topbar" aria-label="Programming languages lesson navigation">
+        <div className="pl-topbar-left">
+          <a
+            className="brand"
+            href="/knowledge"
+            onClick={(event) => navigate(event, "/knowledge")}
+            aria-label="Về Knowledge Hub"
+          >
+            <img className="brand-avatar" src="/assets/avatar.png" alt="Võ Văn Tú Tài" />
+            <div className="brand-info">
+              <span className="brand-name">Võ Văn Tú Tài</span>
+              <span className="brand-role-tag">Software Engineer · B.Eng in IS IUH</span>
+            </div>
+          </a>
+          <a
+            className="pl-back-home-btn"
+            href="/"
+            onClick={(event) => navigate(event, "/")}
+          >
+            <ArrowLeft size={14} aria-hidden="true" />
+            <span>Trang chủ</span>
+          </a>
+        </div>
+
+        <nav className="pl-topbar-nav" aria-label="Nội dung chuyên đề">
+          <a href="#mental-model">01. Mental Model</a>
+          <a href="#execution-pipeline">02. Execution Pipeline</a>
+          <a href="#type-system">03. Hệ Kiểu &amp; Soundness</a>
+          <a href="#memory-concurrency">04. Memory &amp; Concurrency</a>
+          <a href="#code-comparison">05. Code Lab So Sánh</a>
+          <a href="#language-selection">06. Decision Matrix &amp; Dự Án</a>
+          <a href="#interview-questions">07. Phỏng Vấn Chuyên Sâu</a>
+          <a href="#checklist">08. Checklist Kỹ Sư</a>
         </nav>
+
+        <div className="pl-topbar-actions">
+          <a
+            href="https://tracking.nexus-ex.site/"
+            target="_blank"
+            rel="noreferrer"
+            className="pl-cta-live"
+            title="Xem hệ thống Nexus Express OMS đang chạy Live"
+          >
+            <ExternalLink size={14} aria-hidden="true" />
+            <span>Live Demo OMS</span>
+          </a>
+          <a
+            href="https://github.com/VoVanTuTai/logistics-management-system"
+            target="_blank"
+            rel="noreferrer"
+            className="pl-cta-cv"
+            title="Xem mã nguồn dự án Nexus Express trên GitHub"
+          >
+            <Github size={14} aria-hidden="true" />
+            <span>GitHub Source</span>
+          </a>
+        </div>
       </header>
+
+      {/* Global Learning Path Stepper */}
       <LearningPathNav currentPath="/knowledge/programming-languages" navigate={navigate} />
 
-      <section className="knowledge-hero language-hero">
-        <div>
-          <a className="back-link" href="/knowledge" onClick={(event) => navigate(event, "/knowledge")}>
-            <ArrowLeft size={17} aria-hidden="true" />
-            Trở về Learning Hub
-          </a>
-          <p className="eyebrow">Programming Languages Fundamentals · Bài 01</p>
-          <h1>Hiểu ngôn ngữ lập trình trước khi học thêm framework</h1>
+      {/* 3. High-Impact Hero Section */}
+      <section className="knowledge-hero pl-hero">
+        <div className="pl-hero-main">
+          <div className="pl-breadcrumbs">
+            <a href="/" onClick={(e) => navigate(e, "/")}>Portfolio</a>
+            <ChevronRight size={13} aria-hidden="true" />
+            <a href="/knowledge" onClick={(e) => navigate(e, "/knowledge")}>Knowledge Hub</a>
+            <ChevronRight size={13} aria-hidden="true" />
+            <span>Chuyên đề 01: Programming Languages &amp; Runtime Architecture</span>
+          </div>
+
+          <div className="pl-hero-badge-wrap">
+            <span className="pl-hero-badge">
+              <Sparkles size={14} aria-hidden="true" />
+              CHUYÊN ĐỀ 01 · PROGRAMMING LANGUAGES, COMPILERS &amp; RUNTIME ARCHITECTURE
+            </span>
+          </div>
+
+          <h1>Bản Chất Ngôn Ngữ Lập Trình &amp; Kiến Trúc Runtime: Từ Source Code Đến CPU Thực Thi</h1>
+
           <p className="knowledge-lede">
-            Đi từ source code đến chương trình đang chạy, phân biệt compiler, interpreter và runtime, hiểu hệ kiểu,
-            scope, paradigm, rồi dùng cùng một bài toán để quan sát PHP, TypeScript và Java.
+            Lý giải cội rễ cách máy tính hiểu code: Phân tích cú pháp (Lexing, AST), Cơ chế biên dịch (JIT Compiler vs AOT),
+            Quản lý bộ nhớ (Call Stack, Heap, Garbage Collection), Độ an toàn hệ kiểu (Nominal vs Structural Typing),
+            và Mô hình đa nhiệm (Event Loop vs Virtual Threads). Trực tiếp liên hệ qua 3 dự án production:{" "}
+            <strong>Nexus Express</strong> (TypeScript/NestJS), <strong>DevFlow</strong> (Java 21/Spring Boot) và{" "}
+            <strong>Song Tai Shop</strong> (PHP 8.3/MySQL).
           </p>
-          <div className="lesson-meta" aria-label="Lesson information">
-            <span><BookOpen size={16} aria-hidden="true" /> Tự học có hướng dẫn</span>
-            <span>40 phút học</span>
-            <span>6 checkpoint thực hành</span>
+
+          <div className="pl-proof-chips" aria-label="Bằng chứng năng lực cốt lõi">
+            <span className="pl-proof-chip">
+              <CheckCircle2 size={15} aria-hidden="true" />
+              <strong>B.Eng in Information Systems</strong> (IUH · GPA 3.26/4.0 Giỏi)
+            </span>
+            <span className="pl-proof-chip">
+              <Code2 size={15} aria-hidden="true" />
+              <strong>TypeScript &amp; NestJS</strong> (Nexus Express OMS)
+            </span>
+            <span className="pl-proof-chip">
+              <Cpu size={15} aria-hidden="true" />
+              <strong>Java 21 &amp; Spring Boot 3</strong> (DevFlow Enterprise)
+            </span>
+            <span className="pl-proof-chip">
+              <ServerCog size={15} aria-hidden="true" />
+              <strong>PHP 8.3 &amp; Modern MVC</strong> (Song Tai Shop)
+            </span>
+            <span className="pl-proof-chip highlight">
+              <Clock size={15} aria-hidden="true" />
+              <strong>Sẵn sàng làm việc Full-time ngay lập tức</strong>
+            </span>
           </div>
         </div>
 
-        <aside className="learning-outcomes">
-          <p className="panel-label">Sau bài này, bạn có thể</p>
-          <ul>
-            <li><CheckCircle2 size={18} aria-hidden="true" /> Mô tả hành trình từ source code đến lúc chương trình chạy.</li>
-            <li><CheckCircle2 size={18} aria-hidden="true" /> Phân biệt hệ kiểu tĩnh, động và vai trò của runtime.</li>
-            <li><CheckCircle2 size={18} aria-hidden="true" /> Nhận ra cùng một nghiệp vụ qua PHP, TypeScript và Java.</li>
-            <li><CheckCircle2 size={18} aria-hidden="true" /> Chọn ngôn ngữ dựa trên bối cảnh thay vì bảng xếp hạng.</li>
+        <aside className="pl-hero-card">
+          <div className="pl-hero-card-header">
+            <Target size={18} aria-hidden="true" />
+            <h3>Trọng Tâm Kiến Thức Kỹ Sư</h3>
+          </div>
+          <ul className="pl-hero-card-list">
+            <li>
+              <CheckCircle2 size={17} aria-hidden="true" />
+              <div>
+                <strong>Execution Pipeline &amp; JIT</strong>
+                <p>Từ Source ➔ AST ➔ Bytecode/IR ➔ JIT Compiler ➔ Native Machine Code.</p>
+              </div>
+            </li>
+            <li>
+              <CheckCircle2 size={17} aria-hidden="true" />
+              <div>
+                <strong>Memory Model &amp; GC</strong>
+                <p>Quản lý Stack vs Heap, Generational GC (G1/ZGC) và Shared-Nothing isolation.</p>
+              </div>
+            </li>
+            <li>
+              <CheckCircle2 size={17} aria-hidden="true" />
+              <div>
+                <strong>Type Soundness &amp; Boundary</strong>
+                <p>Nominal vs Structural typing; tại sao compile-time types không thay thế runtime validation.</p>
+              </div>
+            </li>
+            <li>
+              <CheckCircle2 size={17} aria-hidden="true" />
+              <div>
+                <strong>1 Domain Rule · 5 Ngôn Ngữ</strong>
+                <p>Thực chứng nghiệp vụ tính cước vận chuyển Logistics trên TS, Java, PHP, Python và Go.</p>
+              </div>
+            </li>
           </ul>
         </aside>
       </section>
 
-      <div className="lesson-layout">
-        <aside className="lesson-toc" aria-label="Mục lục bài Programming Languages">
-          <p>Chương trong bài</p>
-          <a href="#mental-model">1. Ngôn ngữ là gì?</a>
-          <a href="#execution-pipeline">2. Source code được chạy ra sao?</a>
-          <a href="#type-system">3. Hệ kiểu</a>
-          <a href="#program-building-blocks">4. Thành phần cốt lõi</a>
-          <a href="#paradigms">5. Paradigm</a>
-          <a href="#language-comparison">6. So sánh ba ngôn ngữ</a>
-          <a href="#language-selection">7. Cách lựa chọn</a>
-          <a href="#practice-review">8. Thực hành và ôn tập</a>
+      {/* 4. Main Content Layout with Sticky Sidebar */}
+      <div className="lesson-layout pl-layout-container">
+        <aside className="lesson-toc pl-sticky-toc" aria-label="Mục lục chuyên đề">
+          <div className="pl-toc-header">
+            <BookOpen size={16} aria-hidden="true" />
+            <span>Nội dung Chuyên đề</span>
+          </div>
+          <div className="pl-toc-links">
+            <a href="#mental-model">
+              <span className="pl-toc-num">01</span>
+              <span>Mental Model &amp; 4 Trụ Cột</span>
+            </a>
+            <a href="#execution-pipeline">
+              <span className="pl-toc-num">02</span>
+              <span>Execution Pipeline &amp; JIT</span>
+            </a>
+            <a href="#type-system">
+              <span className="pl-toc-num">03</span>
+              <span>Hệ Kiểu &amp; Type Soundness</span>
+            </a>
+            <a href="#memory-concurrency">
+              <span className="pl-toc-num">04</span>
+              <span>Memory, GC &amp; Concurrency</span>
+            </a>
+            <a href="#code-comparison">
+              <span className="pl-toc-num">05</span>
+              <span>Code Lab So Sánh 5 Ngôn Ngữ</span>
+            </a>
+            <a href="#language-selection">
+              <span className="pl-toc-num">06</span>
+              <span>Decision Matrix &amp; Dự Án</span>
+            </a>
+            <a href="#interview-questions">
+              <span className="pl-toc-num">07</span>
+              <span>Phỏng Vấn Kỹ Sư (10 Câu)</span>
+            </a>
+            <a href="#checklist">
+              <span className="pl-toc-num">08</span>
+              <span>Checklist &amp; Tài Liệu Gốc</span>
+            </a>
+          </div>
+
+          <div className="pl-toc-cta-box">
+            <div className="pl-toc-cta-badge">Nexus Express OMS</div>
+            <h4>Hệ Thống Thực Tế</h4>
+            <p>Khám phá cách TypeScript &amp; NestJS được áp dụng trong hệ thống Logistics thực chiến.</p>
+            <div className="pl-toc-cta-buttons">
+              <a
+                href="https://tracking.nexus-ex.site/"
+                target="_blank"
+                rel="noreferrer"
+                className="pl-toc-btn-primary"
+              >
+                <ExternalLink size={13} aria-hidden="true" />
+                <span>Trải Nghiệm Live Demo</span>
+              </a>
+              <a
+                href="https://github.com/VoVanTuTai/logistics-management-system"
+                target="_blank"
+                rel="noreferrer"
+                className="pl-toc-btn-secondary"
+              >
+                <Github size={13} aria-hidden="true" />
+                <span>Kho Mã Nguồn</span>
+              </a>
+            </div>
+          </div>
         </aside>
 
-        <article className="lesson-content">
-          <section className="lesson-section" id="mental-model">
-            <p className="section-label">01 · Mental model</p>
-            <h2>Ngôn ngữ lập trình là cách diễn đạt chỉ dẫn một cách có quy tắc</h2>
-            <p>
-              Con người viết source code theo cú pháp và ý nghĩa mà ngôn ngữ quy định. Một implementation như
-              compiler, interpreter hoặc runtime tiếp nhận code đó và làm cho hành vi được thực hiện trên máy tính.
-              Vì vậy, học ngôn ngữ không chỉ là nhớ từ khóa.
-            </p>
-            <div className="concept-grid">
-              <div><Code2 size={20} aria-hidden="true" /><strong>Syntax</strong><span>Cách viết hợp lệ: từ khóa, dấu ngoặc và cấu trúc câu lệnh.</span></div>
-              <div><Network size={20} aria-hidden="true" /><strong>Semantics</strong><span>Đoạn code có ý nghĩa và tạo ra hành vi gì.</span></div>
-              <div><ServerCog size={20} aria-hidden="true" /><strong>Runtime</strong><span>Môi trường quản lý việc thực thi, bộ nhớ và lỗi khi chạy.</span></div>
-              <div><BriefcaseBusiness size={20} aria-hidden="true" /><strong>Ecosystem</strong><span>Thư viện, framework, tooling và cộng đồng quanh ngôn ngữ.</span></div>
+        <article className="lesson-content pl-article-content">
+          {/* SECTION 01: MENTAL MODEL */}
+          <section className="lesson-section pl-card-section" id="mental-model">
+            <div className="pl-section-badge">
+              <Sparkles size={13} aria-hidden="true" />
+              <span>Phần 01 · Mental Model</span>
             </div>
-            <div className="definition-card">
-              <strong>Mental model cần giữ</strong>
-              <p>
-                Source code là mô tả. CPU không trực tiếp hiểu PHP, TypeScript hay Java source. Giữa source code và
-                phần cứng luôn có một chuỗi công cụ chuyển đổi, kiểm tra và thực thi.
-              </p>
+            <h2>Ngôn Ngữ Lập Trình Là Giao Ước Giữa Kỹ Sư Và Môi Trường Thực Thi</h2>
+            <p className="pl-section-intro">
+              Một sai lầm phổ biến của lập trình viên mới là xem việc học ngôn ngữ chỉ là “nhớ từ khóa và cú pháp”.
+              Trong kỹ nghệ phần mềm chuyên nghiệp, ngôn ngữ lập trình là một hệ thống ký hiệu có quy tắc chặt chẽ
+              được thiết kế để con người diễn đạt giải thuật, và máy tính có thể phân rã thành các chuỗi chỉ thị CPU
+              với hành vi hoàn toàn có thể dự đoán được (Deterministic Behavior).
+            </p>
+
+            <div className="pl-pillar-grid">
+              <div className="pl-pillar-card">
+                <div className="pl-pillar-icon">
+                  <Code2 size={20} aria-hidden="true" />
+                </div>
+                <strong>1. Syntax &amp; Grammar</strong>
+                <p>
+                  Tập hợp quy tắc ngữ pháp (EBNF/BNF): từ khóa, cấu trúc token, dấu ngoặc. Cú pháp quyết định đoạn code
+                  có “hợp lệ về mặt văn bản” để Parser tiếp nhận hay không.
+                </p>
+              </div>
+
+              <div className="pl-pillar-card">
+                <div className="pl-pillar-icon">
+                  <Network size={20} aria-hidden="true" />
+                </div>
+                <strong>2. Semantics</strong>
+                <p>
+                  Ý nghĩa và hành vi thực sự khi đoạn code chạy: Giá trị được gán thế nào, scope tìm kiếm biến ra sao,
+                  hàm truyền tham trị hay tham chiếu, và exception lan truyền như thế nào.
+                </p>
+              </div>
+
+              <div className="pl-pillar-card">
+                <div className="pl-pillar-icon">
+                  <Cpu size={20} aria-hidden="true" />
+                </div>
+                <strong>3. Runtime Environment</strong>
+                <p>
+                  Cỗ máy sống cấp phát bộ nhớ, quản lý Call Stack, Heap, Garbage Collector, luồng OS (Threads), Event Loop
+                  và giao tiếp với kernel hệ điều hành qua System Calls.
+                </p>
+              </div>
+
+              <div className="pl-pillar-card">
+                <div className="pl-pillar-icon">
+                  <BriefcaseBusiness size={20} aria-hidden="true" />
+                </div>
+                <strong>4. Ecosystem &amp; Tooling</strong>
+                <p>
+                  Hệ sinh thái quyết định năng suất: Package Manager (npm, Maven, Composer), Linter, Type Checker,
+                  Profiler, Testing Frameworks và cộng đồng hỗ trợ bảo mật.
+                </p>
+              </div>
+            </div>
+
+            <div className="pl-callout-box">
+              <div className="pl-callout-icon">
+                <ShieldCheck size={22} aria-hidden="true" />
+              </div>
+              <div className="pl-callout-body">
+                <strong>Quy Luật Kiến Trúc Cần Khắc Cốt Ghi Tâm:</strong>
+                <p>
+                  CPU không bao giờ trực tiếp hiểu source code PHP, TypeScript hay Java. Ở giữa bàn phím của bạn và
+                  thanh ghi CPU luôn tồn tại một chuỗi công cụ chuyển đổi (Transformation Pipeline): Lexer ➔ Parser ➔ AST
+                  ➔ Bytecode/IR ➔ JIT/AOT Compiler ➔ Native Machine Code. Khi gặp lỗi, kỹ sư giỏi luôn biết lỗi đó thuộc
+                  về bước nào trong pipeline thay vì thử sai một cách mù quáng.
+                </p>
+              </div>
             </div>
           </section>
 
-          <section className="lesson-section" id="execution-pipeline">
-            <p className="section-label">02 · Execution pipeline</p>
-            <h2>Từ file code đến hành vi đang chạy</h2>
-            <p>
-              Chi tiết khác nhau giữa từng implementation, nhưng pipeline khái quát dưới đây giúp ta đọc lỗi đúng
-              tầng và hiểu vì sao code hợp lệ về cú pháp vẫn có thể sai khi chạy.
+          {/* SECTION 02: EXECUTION PIPELINE */}
+          <section className="lesson-section pl-card-section" id="execution-pipeline">
+            <div className="pl-section-badge">
+              <Zap size={13} aria-hidden="true" />
+              <span>Phần 02 · Execution Pipeline</span>
+            </div>
+            <h2>Hành Trình Chuyển Hóa: Từ Ký Tự Text Đến Thanh Ghi CPU</h2>
+            <p className="pl-section-intro">
+              Dù mỗi ngôn ngữ có thiết kế khác nhau, pipeline tổng quát dưới đây là nền tảng cốt lõi giải thích vì sao
+              cùng một đoạn code lại có tốc độ thực thi, mức tiêu thụ RAM và thời gian khởi động khác nhau hoàn toàn.
             </p>
-            <div className="language-pipeline" aria-label="Programming language execution pipeline">
-              <div><span>01</span><strong>Source</strong><small>Code do developer viết</small></div>
-              <b aria-hidden="true">→</b>
-              <div><span>02</span><strong>Parse</strong><small>Token và cấu trúc cú pháp</small></div>
-              <b aria-hidden="true">→</b>
-              <div><span>03</span><strong>Transform</strong><small>AST, bytecode hoặc code đích</small></div>
-              <b aria-hidden="true">→</b>
-              <div><span>04</span><strong>Runtime</strong><small>Nạp code, quản lý và thực thi</small></div>
-              <b aria-hidden="true">→</b>
-              <div><span>05</span><strong>Effect</strong><small>Kết quả, I/O hoặc thay đổi trạng thái</small></div>
+
+            {/* Step Flow Pipeline */}
+            <div className="pl-pipeline-wrap" aria-label="Programming language execution pipeline flow">
+              <div className="pl-pipeline-flow">
+                <div className="pl-pipe-step">
+                  <span className="pl-pipe-step-num">Bước 01</span>
+                  <h4>Source Code</h4>
+                  <p>Chuỗi ký tự ASCII/UTF-8 trong file (.ts, .java, .php, .go) do kỹ sư viết.</p>
+                  <span className="pl-pipe-tag">Plain Text</span>
+                </div>
+
+                <div className="pl-pipe-arrow" aria-hidden="true">➔</div>
+
+                <div className="pl-pipe-step">
+                  <span className="pl-pipe-step-num">Bước 02</span>
+                  <h4>Lex &amp; Parse</h4>
+                  <p>Tokenizer chia từ tố, Parser dựng Cây cú pháp trừu tượng (Abstract Syntax Tree - AST).</p>
+                  <span className="pl-pipe-tag">Grammar Tree</span>
+                </div>
+
+                <div className="pl-pipe-arrow" aria-hidden="true">➔</div>
+
+                <div className="pl-pipe-step">
+                  <span className="pl-pipe-step-num">Bước 03</span>
+                  <h4>Intermediate Rep (IR)</h4>
+                  <p>Chuyển AST thành dạng trung gian: Java Bytecode, Zend Opcodes, LLVM IR, hoặc JS output.</p>
+                  <span className="pl-pipe-tag">Bytecode / IR</span>
+                </div>
+
+                <div className="pl-pipe-arrow" aria-hidden="true">➔</div>
+
+                <div className="pl-pipe-step">
+                  <span className="pl-pipe-step-num">Bước 04</span>
+                  <h4>Runtime &amp; JIT</h4>
+                  <p>JVM HotSpot, V8 Engine hoặc Zend Engine quản lý nạp code, bộ nhớ và JIT optimize.</p>
+                  <span className="pl-pipe-tag">Engine VM</span>
+                </div>
+
+                <div className="pl-pipe-arrow" aria-hidden="true">➔</div>
+
+                <div className="pl-pipe-step">
+                  <span className="pl-pipe-step-num">Bước 05</span>
+                  <h4>Native CPU Execution</h4>
+                  <p>Mã nhị phân máy tính (x86_64 / ARM64) chạy trực tiếp trên các thanh ghi và cache L1/L2/L3.</p>
+                  <span className="pl-pipe-tag">Machine Code</span>
+                </div>
+              </div>
             </div>
 
-            <div className="language-axis-grid">
-              <article>
-                <span>Compiler</span>
-                <h3>Chuyển đổi trước hoặc trong lúc chạy</h3>
+            {/* Architecture Comparison Cards */}
+            <div className="pl-arch-matrix">
+              <article className="pl-arch-card">
+                <div className="pl-arch-card-header">
+                  <h3>1. Ahead-of-Time (AOT) Compiled</h3>
+                  <span className="pl-arch-badge aot">Go · Rust · C++</span>
+                </div>
                 <p>
-                  Compiler phân tích source và tạo representation khác. Java thường được biên dịch thành bytecode;
-                  JVM sau đó có thể diễn giải hoặc biên dịch tiếp thành mã máy.
+                  Biên dịch toàn bộ source code thành file nhị phân máy (Native Binary) trước khi chạy. Không cần máy ảo (VM)
+                  nặng nề, khởi động cực nhanh và chiếm rất ít RAM.
                 </p>
+                <div className="pl-arch-meta">
+                  <div className="pl-arch-meta-row">
+                    <span>Ưu thế:</span>
+                    <span>Zero Warmup, deploy 1 file binary duy nhất, hiệu năng raw tối đa.</span>
+                  </div>
+                  <div className="pl-arch-meta-row">
+                    <span>Đánh đổi:</span>
+                    <span>Thời gian compile lâu, phụ thuộc kiến trúc CPU đích (phải cross-compile).</span>
+                  </div>
+                </div>
               </article>
-              <article>
-                <span>Interpreter</span>
-                <h3>Thực thi thông qua một chương trình khác</h3>
-                <p>
-                  Interpreter đọc representation của chương trình và thực hiện hành vi. Một runtime hiện đại có thể
-                  kết hợp interpreter với JIT compiler để tối ưu code chạy nhiều lần.
-                </p>
-              </article>
-              <article>
-                <span>Transpiler</span>
-                <h3>Chuyển từ ngôn ngữ cấp cao này sang ngôn ngữ khác</h3>
-                <p>
-                  TypeScript được kiểm tra kiểu rồi phát sinh JavaScript. Browser hoặc Node.js chạy JavaScript đầu ra,
-                  không chạy type annotation của TypeScript.
-                </p>
-              </article>
-              <article>
-                <span>Runtime</span>
-                <h3>Cung cấp môi trường để chương trình sống</h3>
-                <p>
-                  Runtime xử lý call stack, cấp phát bộ nhớ, exception, garbage collection và giao tiếp với hệ điều
-                  hành tùy theo implementation.
-                </p>
-              </article>
-            </div>
 
-            <div className="self-check">
-              <span>Tự kiểm tra</span>
-              <p>
-                “Java là compiled còn JavaScript là interpreted” là cách nói quá đơn giản. Hãy giải thích lại dựa
-                trên pipeline và implementation cụ thể thay vì gắn một nhãn cố định cho cả ngôn ngữ.
-              </p>
+              <article className="pl-arch-card">
+                <div className="pl-arch-card-header">
+                  <h3>2. Bytecode + Tiered JIT</h3>
+                  <span className="pl-arch-badge jit">Java (JVM) · C# (.NET)</span>
+                </div>
+                <p>
+                  Source code được biên dịch trước thành Bytecode (.class). Tại runtime, JVM dùng Interpreter chạy trước,
+                  rồi JIT Compiler (C1 Client / C2 Server) tự động biên dịch các đoạn code 'nóng' thành mã máy tối ưu hóa.
+                </p>
+                <div className="pl-arch-meta">
+                  <div className="pl-arch-meta-row">
+                    <span>Ưu thế:</span>
+                    <span>Write Once, Run Anywhere; profiling thời gian thực tối ưu cực sâu.</span>
+                  </div>
+                  <div className="pl-arch-meta-row">
+                    <span>Đánh đổi:</span>
+                    <span>Cần thời gian warmup ban đầu, JVM tiêu tốn footprint RAM lớn hơn AOT.</span>
+                  </div>
+                </div>
+              </article>
+
+              <article className="pl-arch-card">
+                <div className="pl-arch-card-header">
+                  <h3>3. Transpiled + V8 JIT Engine</h3>
+                  <span className="pl-arch-badge v8">TypeScript ➔ JavaScript</span>
+                </div>
+                <p>
+                  TypeScript không chạy trực tiếp trên CPU. Trình biên dịch `tsc` xác minh kiểu dữ liệu, loại bỏ toàn bộ type
+                  annotation (Type Erasure) và sinh ra JavaScript. V8 Engine (Node.js/Chrome) tiếp nhận JS qua Ignition &amp; TurboFan.
+                </p>
+                <div className="pl-arch-meta">
+                  <div className="pl-arch-meta-row">
+                    <span>Ưu thế:</span>
+                    <span>Bảo vệ type lúc dev, chia sẻ models giữa Frontend và Backend (Nexus Express).</span>
+                  </div>
+                  <div className="pl-arch-meta-row">
+                    <span>Đánh đổi:</span>
+                    <span>Runtime không còn type; bắt buộc phải có validation layer ở boundary.</span>
+                  </div>
+                </div>
+              </article>
+
+              <article className="pl-arch-card">
+                <div className="pl-arch-card-header">
+                  <h3>4. Interpreted + Opcode Cache</h3>
+                  <span className="pl-arch-badge opcache">PHP 8.3 (Zend Engine)</span>
+                </div>
+                <p>
+                  Zend Engine dịch file PHP thành Opcodes. Với OPcache bật sẵn trong PHP-FPM, opcodes được lưu trên Shared Memory,
+                  loại bỏ việc parse lại code trên mỗi request. PHP 8 bổ sung JIT cho các tác vụ tính toán chuyên sâu.
+                </p>
+                <div className="pl-arch-meta">
+                  <div className="pl-arch-meta-row">
+                    <span>Ưu thế:</span>
+                    <span>Shared-Nothing: giải phóng 100% RAM sau request, không sợ memory leak dài hạn.</span>
+                  </div>
+                  <div className="pl-arch-meta-row">
+                    <span>Đánh đổi:</span>
+                    <span>Mỗi request phải khởi tạo lại context cơ bản nếu không dùng persistent pool.</span>
+                  </div>
+                </div>
+              </article>
             </div>
           </section>
 
-          <section className="lesson-section" id="type-system">
-            <p className="section-label">03 · Type system</p>
-            <h2>Kiểu dữ liệu đặt ra những phép toán nào được xem là hợp lệ</h2>
-            <p>
-              Type system giúp mô tả và kiểm tra cách value được sử dụng. Hai trục thường bị trộn lẫn là thời điểm
-              kiểm tra kiểu và mức độ chuyển đổi ngầm. “Static/dynamic” không đồng nghĩa với “strong/weak”.
+          {/* SECTION 03: TYPE SYSTEM */}
+          <section className="lesson-section pl-card-section" id="type-system">
+            <div className="pl-section-badge">
+              <ShieldCheck size={13} aria-hidden="true" />
+              <span>Phần 03 · Type System &amp; Soundness</span>
+            </div>
+            <h2>Hệ Kiểu: Ràng Buộc Hợp Lệ Của Phép Toán Và Giới Hạn Của Compiler</h2>
+            <p className="pl-section-intro">
+              Hai trục phân loại thường bị nhầm lẫn trong phỏng vấn kỹ sư là: <strong>Thời điểm kiểm tra kiểu</strong> (Static vs Dynamic)
+              và <strong>Mức độ nghiêm ngặt khi ép kiểu</strong> (Strong vs Weak). Ngoài ra, sự khác biệt giữa{" "}
+              <strong>Nominal Typing</strong> (Java) và <strong>Structural Typing</strong> (TypeScript) định hình toàn bộ cách thiết kế phần mềm.
             </p>
-            <div className="comparison-grid">
-              <div>
+
+            <div className="pl-type-grid">
+              <div className="pl-type-card">
+                <h3>Trục 1: Static vs Dynamic</h3>
+                <p>
+                  <strong>Static Typing</strong> (Java, Go, TypeScript): Kiểu dữ liệu gắn với biến và được kiểm tra trước khi chạy.
+                  <br /><br />
+                  <strong>Dynamic Typing</strong> (PHP, Python, JavaScript): Kiểu dữ liệu gắn với giá trị (Value) và kiểm tra khi dòng lệnh chạy tới.
+                </p>
+                <div className="pl-type-example">
+                  <strong>Ví dụ:</strong>
+                  <span>Java báo lỗi đỏ ngay lúc gõ code; PHP kiểm tra ràng buộc khi hàm được gọi.</span>
+                </div>
+              </div>
+
+              <div className="pl-type-card">
+                <h3>Trục 2: Strong vs Weak</h3>
+                <p>
+                  <strong>Strong Typing</strong> (Java, Python, Go): Ngôn ngữ từ chối các phép toán giữa các kiểu không tương thích.
+                  <br /><br />
+                  <strong>Weak Typing</strong> (JavaScript, PHP thuần): Tự ý ép kiểu ngầm (Implicit Coercion), ví dụ <code>"5" + 2 = "52"</code> hay <code>"5" - 2 = 3</code>.
+                </p>
+                <div className="pl-type-example">
+                  <strong>Hệ quả:</strong>
+                  <span>Weak typing tạo ra các bug ngầm cực kỳ nguy hiểm trong tính toán tiền tệ.</span>
+                </div>
+              </div>
+
+              <div className="pl-type-card">
+                <h3>Trục 3: Nominal vs Structural</h3>
+                <p>
+                  <strong>Nominal Typing</strong> (Java): Hai kiểu chỉ tương thích nếu cùng tên hoặc kế thừa tường minh.
+                  <br /><br />
+                  <strong>Structural Typing</strong> (TypeScript, Go): Hai kiểu tương thích nếu chúng có cùng “hình dạng” thuộc tính (Duck Typing).
+                </p>
+                <div className="pl-type-example">
+                  <strong>Nexus Express:</strong>
+                  <span>Object trả về từ Prisma tự động thỏa mãn interface DTO vì cùng shape.</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Enterprise Comparison Table */}
+            <div className="pl-table-container">
+              <table className="pl-data-table">
+                <thead>
+                  <tr>
+                    <th>Ngôn ngữ</th>
+                    <th>Kiểm Tra Kiểu</th>
+                    <th>Cơ Chế Định Danh</th>
+                    <th>Hành Vi Khi Chạy (Runtime)</th>
+                    <th>Áp Dụng Trong Dự Án Của Tôi</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div className="pl-lang-cell">
+                        <Code2 size={16} color="#2563eb" />
+                        <span>TypeScript 5</span>
+                      </div>
+                    </td>
+                    <td>Static (Compile-time)</td>
+                    <td>Structural (Duck Typing)</td>
+                    <td>Type bị xóa hoàn toàn (Type Erasure); V8 chạy JavaScript thuần</td>
+                    <td><strong>Nexus Express OMS:</strong> Chia sẻ DTOs giữa Frontend và NestJS</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div className="pl-lang-cell">
+                        <Cpu size={16} color="#b45309" />
+                        <span>Java 21</span>
+                      </div>
+                    </td>
+                    <td>Static (Compile-time)</td>
+                    <td>Nominal (Dựa trên tên Class)</td>
+                    <td>Bytecode giữ lại metadata class; runtime JVM kiểm tra instanceof an toàn</td>
+                    <td><strong>DevFlow Enterprise:</strong> Strict layered architecture, Spring Security</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div className="pl-lang-cell">
+                        <ServerCog size={16} color="#7c3aed" />
+                        <span>PHP 8.3</span>
+                      </div>
+                    </td>
+                    <td>Dynamic + Gradual Typing</td>
+                    <td>Nominal (Class &amp; Type hints)</td>
+                    <td>Zend Engine kiểm tra ràng buộc kiểu khi gọi hàm qua <code>strict_types=1</code></td>
+                    <td><strong>Song Tai Shop:</strong> Web MVC, xử lý đơn hàng &amp; cổng thanh toán VNPay</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div className="pl-lang-cell">
+                        <Terminal size={16} color="#059669" />
+                        <span>Python 3.12</span>
+                      </div>
+                    </td>
+                    <td>Dynamic + Type Hints</td>
+                    <td>Duck Typing + Protocol</td>
+                    <td>CPython chạy bytecode; dùng Pydantic / Mypy để xác thực runtime</td>
+                    <td><strong>AI Assistant:</strong> Data processing pipelines, RAG LangChain</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div className="pl-lang-cell">
+                        <Boxes size={16} color="#0284c7" />
+                        <span>Go 1.22</span>
+                      </div>
+                    </td>
+                    <td>Static Strong</td>
+                    <td>Structural (Implicit Interfaces)</td>
+                    <td>Mã máy gốc trực tiếp; interface dispatch qua itable (interface table)</td>
+                    <td>High-throughput API Gateway, microservices micro-benchmark</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div className="pl-callout-box">
+              <div className="pl-callout-icon">
+                <AlertTriangle size={22} aria-hidden="true" />
+              </div>
+              <div className="pl-callout-body">
+                <strong>Bẫy Kỹ Thuật: Static Typing Không Thay Thế Được Runtime Validation!</strong>
+                <p>
+                  Một compiler có thể bảo đảm biến <code>weightGrams: number</code> không bị gán string trong code của bạn.
+                  Nhưng khi người dùng gửi một HTTP POST request qua mạng, compiler không ở đó để bảo vệ hệ thống.
+                  Payload JSON hoàn toàn có thể chứa số âm <code>-500</code> hoặc số cực lớn gây overflow.
+                  Trong các hệ thống enterprise, tầng Boundary Validation (Zod/class-validator trong TypeScript, Hibernate Validator @Valid trong Java)
+                  luôn là lớp phòng thủ bắt buộc trước khi đưa dữ liệu vào Domain Model.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          {/* SECTION 04: MEMORY & CONCURRENCY */}
+          <section className="lesson-section pl-card-section" id="memory-concurrency">
+            <div className="pl-section-badge">
+              <Cpu size={13} aria-hidden="true" />
+              <span>Phần 04 · Memory Architecture &amp; Concurrency</span>
+            </div>
+            <h2>Kiến Trúc Bộ Nhớ (Stack vs Heap) &amp; Các Mô Hình Đa Nhiệm</h2>
+            <p className="pl-section-intro">
+              Sự ổn định của hệ thống backend chịu tải cao phụ thuộc vào hai yếu tố then chốt: Cách runtime cấp phát và thu hồi
+              bộ nhớ RAM, cùng chiến lược xử lý đồng thời hàng nghìn kết nối I/O.
+            </p>
+
+            <div className="pl-memory-grid">
+              <div className="pl-memory-card">
+                <h3>
+                  <Layers size={18} aria-hidden="true" />
+                  <span>Call Stack vs Heap Memory</span>
+                </h3>
+                <ul>
+                  <li>
+                    <strong>Call Stack (Ngăn xếp):</strong> Cấp phát LIFO siêu nhanh, lưu trữ các biến nguyên thủy (primitives)
+                    và con trỏ tham chiếu (references). Bộ nhớ tự giải phóng ngay khi hàm kết thúc mà không cần GC.
+                  </li>
+                  <li>
+                    <strong>Heap (Vùng nhớ tự do):</strong> Cấp phát động cho các Object, Mảng lớn, tồn tại độc lập với thời gian chạy
+                    của hàm. Đòi hỏi cơ chế Garbage Collection thu hồi, có nguy cơ gây OutOfMemory nếu bị leak.
+                  </li>
+                  <li>
+                    <strong>StackOverflow vs OutOfMemory:</strong> Stack tràn khi đệ quy quá sâu không có điểm dừng;
+                    Heap tràn khi các object không còn dùng nhưng vẫn bị tham chiếu giữ lại (Unclosed EventListeners, Static Maps).
+                  </li>
+                </ul>
+              </div>
+
+              <div className="pl-memory-card">
+                <h3>
+                  <RefreshCw size={18} aria-hidden="true" />
+                  <span>Ba Chiến Lược Quản Lý Bộ Nhớ</span>
+                </h3>
+                <ul>
+                  <li>
+                    <strong>JVM Generational GC (Java):</strong> Chia nhỏ Heap thành Young và Old Gen. Thuật toán Mark-Sweep-Compact.
+                    Trình thu gom hiện đại (ZGC, G1GC) duy trì độ trễ ngắt (Stop-the-World pause) dưới 1ms.
+                  </li>
+                  <li>
+                    <strong>V8 Generational Scavenge (Node.js):</strong> Sử dụng Semi-space copying cho New Space (siêu nhanh)
+                    và Mark-Sweep-Compact cho Old Space.
+                  </li>
+                  <li>
+                    <strong>Shared-Nothing Lifecycle (PHP-FPM):</strong> Mỗi HTTP request cấp phát vùng nhớ độc lập qua Zend Memory Manager.
+                    Khi request kết thúc, 100% vùng nhớ được trả về OS, triệt tiêu nguy cơ rò rỉ bộ nhớ dài hạn.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <h3 className="scenario-heading">Ba Mô Hình Concurrency Kinh Điển Trong Backend</h3>
+            <div className="pl-concurrency-grid">
+              <div className="pl-concurrency-card">
+                <h4>Single-Threaded Event Loop</h4>
+                <span className="pl-concurrency-tag">Node.js (TypeScript) · Libuv</span>
+                <p>
+                  Một thread chính thực thi code, ủy thác I/O cho Libuv thread pool. Cực kỳ tối ưu cho các tác vụ I/O bound
+                  (WebSocket tracking của Nexus Express, REST API). Tuy nhiên một tác vụ CPU-bound nặng có thể block toàn bộ server.
+                </p>
+              </div>
+
+              <div className="pl-concurrency-card">
+                <h4>Virtual Threads (Project Loom)</h4>
+                <span className="pl-concurrency-tag">Java 21 · Spring Boot 3</span>
+                <p>
+                  Không bị giới hạn bởi 1-2MB/thread của OS thread truyền thống. Virtual Threads là user-mode threads siêu nhẹ (vài KB),
+                  cho phép xử lý đồng thời hàng chục nghìn request theo phong cách synchronous blocking code quen thuộc mà không nghẽn OS thread.
+                </p>
+              </div>
+
+              <div className="pl-concurrency-card">
+                <h4>Multi-Process Worker Pool</h4>
+                <span className="pl-concurrency-tag">PHP 8 · PHP-FPM</span>
+                <p>
+                  Master process quản lý một pool các worker processes. Mỗi request chiếm dụng 1 process riêng biệt, không chia sẻ bộ nhớ.
+                  Lập trình đơn giản, an toàn tuyệt đối khỏi race condition, một worker crash không làm ảnh hưởng các request khác.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          {/* SECTION 05: CODE LAB */}
+          <section className="lesson-section pl-card-section" id="code-comparison">
+            <div className="pl-section-badge">
+              <Code2 size={13} aria-hidden="true" />
+              <span>Phần 05 · Interactive Code Lab</span>
+            </div>
+            <h2>Một Quy Tắc Nghiệp Vụ Vận Chuyển — Triển Khai Qua 5 Ngôn Ngữ</h2>
+            <p className="pl-section-intro">
+              Quan sát cùng một bài toán tính cước vận chuyển thực tế từ <strong>Nexus Express</strong> và <strong>Song Tai Shop</strong>:
+              1 kg đầu có giá 15.000 VND; mỗi 500 g phát sinh tiếp theo thêm 4.000 VND; dịch vụ giao nhanh cộng thêm 10.000 VND.
+              Tiền tệ được duy trì dưới dạng số nguyên VND để triệt tiêu hoàn toàn sai số dấu phẩy động (IEEE 754).
+            </p>
+
+            {/* Interactive Code Window */}
+            <div className="pl-code-lab">
+              <div className="pl-code-nav-bar">
+                <div className="pl-term-dots">
+                  <span className="pl-term-dot red" />
+                  <span className="pl-term-dot yellow" />
+                  <span className="pl-term-dot green" />
+                </div>
+
+                <div className="pl-lang-tabs" role="tablist" aria-label="Language selection tabs">
+                  <button
+                    className={`pl-lang-tab ${activeCodeLang === "typescript" ? "active" : ""}`}
+                    onClick={() => setActiveCodeLang("typescript")}
+                    role="tab"
+                    aria-selected={activeCodeLang === "typescript"}
+                  >
+                    TypeScript 5 (NestJS)
+                  </button>
+                  <button
+                    className={`pl-lang-tab ${activeCodeLang === "java" ? "active" : ""}`}
+                    onClick={() => setActiveCodeLang("java")}
+                    role="tab"
+                    aria-selected={activeCodeLang === "java"}
+                  >
+                    Java 21 (Spring Boot)
+                  </button>
+                  <button
+                    className={`pl-lang-tab ${activeCodeLang === "php" ? "active" : ""}`}
+                    onClick={() => setActiveCodeLang("php")}
+                    role="tab"
+                    aria-selected={activeCodeLang === "php"}
+                  >
+                    PHP 8.3 (Strict MVC)
+                  </button>
+                  <button
+                    className={`pl-lang-tab ${activeCodeLang === "python" ? "active" : ""}`}
+                    onClick={() => setActiveCodeLang("python")}
+                    role="tab"
+                    aria-selected={activeCodeLang === "python"}
+                  >
+                    Python 3.12 (Pydantic)
+                  </button>
+                  <button
+                    className={`pl-lang-tab ${activeCodeLang === "go" ? "active" : ""}`}
+                    onClick={() => setActiveCodeLang("go")}
+                    role="tab"
+                    aria-selected={activeCodeLang === "go"}
+                  >
+                    Go 1.22 (Idiomatic)
+                  </button>
+                </div>
+
+                <div className="pl-code-actions">
+                  <button
+                    className={`pl-copy-code-btn ${copiedCode ? "copied" : ""}`}
+                    onClick={() => handleCopyCode(codeSnippets[activeCodeLang].code)}
+                    title="Sao chép mã nguồn"
+                  >
+                    {copiedCode ? (
+                      <>
+                        <Check size={13} aria-hidden="true" />
+                        <span>Đã chép!</span>
+                      </>
+                    ) : (
+                      <>
+                        <Copy size={13} aria-hidden="true" />
+                        <span>Sao chép</span>
+                      </>
+                    )}
+                  </button>
+                </div>
+              </div>
+
+              <div className="pl-code-body">
+                <pre>
+                  <code>{codeSnippets[activeCodeLang].code}</code>
+                </pre>
+              </div>
+
+              <div className="pl-code-notes-panel">
+                <div className="pl-code-note-item">
+                  <strong>
+                    <Layers size={14} aria-hidden="true" />
+                    <span>Mô Hình Paradigm:</span>
+                  </strong>
+                  <p>{codeSnippets[activeCodeLang].paradigm}</p>
+                </div>
+                <div className="pl-code-note-item">
+                  <strong>
+                    <ShieldCheck size={14} aria-hidden="true" />
+                    <span>Cơ Chế Hệ Kiểu:</span>
+                  </strong>
+                  <p>{codeSnippets[activeCodeLang].typeMechanism}</p>
+                </div>
+                <div className="pl-code-note-item">
+                  <strong>
+                    <Cpu size={14} aria-hidden="true" />
+                    <span>Động Cơ Runtime:</span>
+                  </strong>
+                  <p>{codeSnippets[activeCodeLang].runtimeEngine}</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="pl-callout-box">
+              <div className="pl-callout-icon">
                 <CheckCircle2 size={22} aria-hidden="true" />
-                <h3>Static typing</h3>
-                <p>Nhiều lỗi kiểu được phát hiện trước khi chương trình chạy.</p>
-                <span>Ví dụ trong bài: Java, TypeScript ở bước type-check</span>
               </div>
-              <div>
-                <Sparkles size={22} aria-hidden="true" />
-                <h3>Dynamic typing</h3>
-                <p>Kiểu gắn với value và được kiểm tra chủ yếu trong quá trình chạy.</p>
-                <span>Ví dụ trong bài: PHP, JavaScript</span>
-              </div>
-            </div>
-
-            <div className="language-type-table">
-              <div className="table-caption">
-                <strong>Ba ngôn ngữ trong portfolio</strong>
-                <span>Quan sát khác biệt, không xếp hạng hơn kém</span>
-              </div>
-              <div className="language-type-row language-type-heading">
-                <strong>Ngôn ngữ</strong><strong>Kiểm tra kiểu</strong><strong>Khi chạy</strong>
-              </div>
-              <div className="language-type-row">
-                <strong>PHP</strong><span>Dynamic, có thể thêm type declaration</span><span>PHP runtime thực thi và kiểm tra các ràng buộc liên quan</span>
-              </div>
-              <div className="language-type-row">
-                <strong>TypeScript</strong><span>Static checker trên JavaScript</span><span>Type bị xóa; JavaScript đầu ra mới được thực thi</span>
-              </div>
-              <div className="language-type-row">
-                <strong>Java</strong><span>Static typing khi compile</span><span>Bytecode chạy trên JVM với các kiểm tra runtime cần thiết</span>
-              </div>
-            </div>
-
-            <div className="selection-rule">
-              <span>Type safety không tự động tạo ra business correctness</span>
-              <p>
-                Compiler có thể xác nhận <code>weightGrams</code> là số, nhưng không biết cân nặng âm có hợp lệ hay
-                chính sách giá có đúng không. Validation và test nghiệp vụ vẫn là trách nhiệm của ứng dụng.
-              </p>
-            </div>
-          </section>
-
-          <section className="lesson-section" id="program-building-blocks">
-            <p className="section-label">04 · Building blocks</p>
-            <h2>Mọi chương trình đều xoay quanh value, state và control flow</h2>
-            <div className="principle-list">
-              <li><span>01</span><div><strong>Value và variable</strong><p>Value là dữ liệu; variable là tên dùng để tham chiếu value. Cần phân biệt gán lại biến với thay đổi object.</p></div></li>
-              <li><span>02</span><div><strong>Scope và lifetime</strong><p>Scope quyết định nơi một tên có thể được truy cập; lifetime mô tả dữ liệu tồn tại trong bao lâu.</p></div></li>
-              <li><span>03</span><div><strong>Control flow</strong><p>Điều kiện, vòng lặp, function call, return và exception quyết định thứ tự hành vi.</p></div></li>
-              <li><span>04</span><div><strong>Function và boundary</strong><p>Function nhận input, thực hiện logic và trả output; boundary rõ giúp code dễ test và tái sử dụng.</p></div></li>
-              <li><span>05</span><div><strong>Error handling</strong><p>Lỗi dự kiến nên trở thành kết quả hoặc exception có chủ đích; lỗi không nên bị nuốt im lặng.</p></div></li>
-            </div>
-            <div className="definition-card">
-              <strong>Stack và heap là mô hình hữu ích nhưng không phải luật cú pháp</strong>
-              <p>
-                Ta thường dùng call stack để hình dung function call và heap để hình dung object sống lâu hơn một
-                frame. Tuy nhiên vị trí lưu thực tế là quyết định tối ưu của compiler/runtime, không nên suy ra chỉ từ
-                việc value là primitive hay object.
-              </p>
-            </div>
-          </section>
-
-          <section className="lesson-section" id="paradigms">
-            <p className="section-label">05 · Programming paradigms</p>
-            <h2>Paradigm là cách tổ chức suy nghĩ, không phải chiếc hộp khóa ngôn ngữ</h2>
-            <p>
-              Phần lớn ngôn ngữ hiện đại là multi-paradigm. Ta chọn cách biểu diễn phù hợp với vấn đề và quy ước của
-              codebase, thay vì cố ép toàn bộ chương trình vào một phong cách.
-            </p>
-            <div className="scenario-grid language-paradigm-grid">
-              <article><span>Procedural</span><h3>Một chuỗi bước và function</h3><p>Phù hợp với flow rõ ràng, script và logic xử lý tuần tự.</p><strong>Hỏi: dữ liệu đi qua các bước nào?</strong></article>
-              <article><span>Object-oriented</span><h3>Object giữ state và behavior</h3><p>Hữu ích khi mô hình có identity, lifecycle và invariants cần bảo vệ.</p><strong>Hỏi: trách nhiệm thuộc về object nào?</strong></article>
-              <article><span>Functional</span><h3>Biến đổi dữ liệu bằng function</h3><p>Ưu tiên pure function và hạn chế mutation để logic dễ dự đoán.</p><strong>Hỏi: input được biến đổi thành output ra sao?</strong></article>
-              <article><span>Event-driven</span><h3>Phản ứng với sự kiện</h3><p>Phù hợp UI, message broker và workflow bất đồng bộ giữa các thành phần.</p><strong>Hỏi: ai phát sự kiện và ai phản ứng?</strong></article>
-            </div>
-          </section>
-
-          <section className="lesson-section" id="language-comparison">
-            <p className="section-label">06 · One rule, three languages</p>
-            <h2>Cùng một quy tắc tính phí qua PHP, TypeScript và Java</h2>
-            <p>
-              Quy tắc: 1 kg đầu giá 15.000 VND; mỗi 500 g vượt mức thêm 4.000 VND; giao nhanh thêm 10.000 VND.
-              Tiền được giữ dưới dạng số nguyên VND để tránh sai số số thực trong ví dụ.
-            </p>
-            <div className="language-code-grid">
-              <article>
-                <span>PHP</span>
-                <pre><code>{`function shippingFee(
-  int $weightGrams,
-  bool $express
-): int {
-  $extraUnits = max(
-    0,
-    (int) ceil(
-      ($weightGrams - 1000) / 500
-    )
-  );
-
-  return 15000
-    + ($extraUnits * 4000)
-    + ($express ? 10000 : 0);
-}`}</code></pre>
-                <p>Dynamic language với type declaration tại function boundary.</p>
-              </article>
-              <article>
-                <span>TypeScript</span>
-                <pre><code>{`function shippingFee(
-  weightGrams: number,
-  express: boolean
-): number {
-  const extraUnits = Math.max(
-    0,
-    Math.ceil(
-      (weightGrams - 1000) / 500
-    )
-  );
-
-  return 15000
-    + extraUnits * 4000
-    + (express ? 10000 : 0);
-}`}</code></pre>
-                <p>Type checker xác minh shape trước khi phát sinh JavaScript.</p>
-              </article>
-              <article>
-                <span>Java</span>
-                <pre><code>{`static int shippingFee(
-  int weightGrams,
-  boolean express
-) {
-  int extraUnits = Math.max(
-    0,
-    (int) Math.ceil(
-      (weightGrams - 1000) / 500.0
-    )
-  );
-
-  return 15000
-    + extraUnits * 4000
-    + (express ? 10000 : 0);
-}`}</code></pre>
-                <p>Static typing và method nằm trong một class khi triển khai đầy đủ.</p>
-              </article>
-            </div>
-            <div className="self-check">
-              <span>Điểm quan trọng</span>
-              <p>
-                Cú pháp khác nhau nhưng domain rule giống nhau. Trước khi tranh luận ngôn ngữ nào “tốt hơn”, hãy kiểm
-                tra input âm, overflow, cách biểu diễn tiền, rounding rule và test tại các boundary 1000 g, 1001 g.
-              </p>
-            </div>
-          </section>
-
-          <section className="lesson-section" id="language-selection">
-            <p className="section-label">07 · Language selection</p>
-            <h2>Chọn ngôn ngữ từ constraint của hệ thống</h2>
-            <p>
-              Benchmark chỉ có ý nghĩa khi phản ánh workload thật. Trong đa số dự án business, tốc độ delivery, độ
-              trưởng thành của thư viện, khả năng vận hành và năng lực đội ngũ ảnh hưởng nhiều hơn một con số đơn lẻ.
-            </p>
-            <div className="decision-checklist">
-              <p className="panel-label">Checklist trước khi lựa chọn</p>
-              <ol>
-                <li><span>1</span><p><strong>Problem domain:</strong> web app, mobile, data processing, embedded hay hệ thống phân tán?</p></li>
-                <li><span>2</span><p><strong>Ecosystem:</strong> framework, driver, security update và thư viện nghiệp vụ có trưởng thành không?</p></li>
-                <li><span>3</span><p><strong>Team:</strong> đội ngũ có thể phát triển, review, debug và tuyển thêm người không?</p></li>
-                <li><span>4</span><p><strong>Runtime:</strong> latency, throughput, memory, concurrency và startup time yêu cầu mức nào?</p></li>
-                <li><span>5</span><p><strong>Operations:</strong> build, deploy, monitoring, dependency management và hosting có phù hợp không?</p></li>
-                <li><span>6</span><p><strong>Lifecycle:</strong> hệ thống cần duy trì bao lâu và mức tương thích ngược cần thiết là gì?</p></li>
-              </ol>
-            </div>
-
-            <h3 className="scenario-heading">Liên hệ với project của tôi</h3>
-            <div className="project-connection-grid">
-              <div><h3>PHP</h3><p>Song Tai Shop dùng PHP/MySQL để học request-response, session, form processing và cải thiện một codebase web truyền thống.</p><span>Ưu tiên: delivery trực tiếp và hosting đơn giản</span></div>
-              <div><h3>TypeScript</h3><p>Nexus Express dùng TypeScript với NestJS/React để chia sẻ tooling, mô hình type và contract trong hệ thống nhiều service.</p><span>Ưu tiên: maintainability và ecosystem web</span></div>
-              <div><h3>Java</h3><p>DevFlow dùng Java 21/Spring Boot để luyện static typing, layered backend, persistence và nền tảng ứng dụng doanh nghiệp.</p><span>Ưu tiên: explicit contract và ecosystem backend</span></div>
-            </div>
-          </section>
-
-          <section className="lesson-section" id="practice-review">
-            <p className="section-label">08 · Practice and review</p>
-            <h2>Biến khái niệm thành khả năng giải thích và viết code</h2>
-            <div className="practice-assignment language-practice">
-              <div>
-                <span>Bài tập 30 phút</span>
-                <h3>Viết lại một business rule bằng hai ngôn ngữ</h3>
+              <div className="pl-callout-body">
+                <strong>Điểm Kiểm Tra Kỹ Sư Cần Lưu Ý:</strong>
                 <p>
-                  Chọn rule giảm giá, tính phí hoặc chuyển trạng thái từ project của bạn. Mục tiêu là giữ nguyên
-                  semantics trong khi quan sát khác biệt về type, function, error handling và test.
+                  Cú pháp giữa các ngôn ngữ có thể khác biệt, nhưng bản chất nghiệp vụ (Domain Invariants) phải đồng nhất:
+                  Luôn chặn số âm hoặc 0g tại boundary, bảo toàn kiểu số nguyên VND để tránh sai số dấu phẩy động IEEE 754,
+                  và kiểm thử kỹ lưỡng tại các điểm biên (1000g không bị phụ phí; 1001g lập tức nhảy bậc 1 đơn vị phụ phí).
                 </p>
               </div>
+            </div>
+          </section>
+
+          {/* SECTION 06: LANGUAGE SELECTION & PROJECT EVIDENCE */}
+          <section className="lesson-section pl-card-section" id="language-selection">
+            <div className="pl-section-badge">
+              <BriefcaseBusiness size={13} aria-hidden="true" />
+              <span>Phần 06 · Decision Matrix &amp; Project Evidence</span>
+            </div>
+            <h2>Lựa Chọn Công Nghệ Từ Ràng Buộc Kỹ Thuật &amp; Bằng Chứng Thực Tế</h2>
+            <p className="pl-section-intro">
+              Một kỹ sư giỏi không bao giờ chọn ngôn ngữ vì “yêu thích cá nhân” hay “bảng xếp hạng xu hướng”.
+              Lựa chọn đúng đắn luôn bắt nguồn từ sự cân bằng giữa 6 ràng buộc: Bài toán nghiệp vụ, Độ chín hệ sinh thái,
+              Năng lực đội ngũ, Yêu cầu độ trễ/thông lượng, Chi phí vận hành hạ tầng và Vòng đời bảo trì.
+            </p>
+
+            <div className="decision-checklist">
+              <p className="panel-label">Checklist 6 Trục Ra Quyết Định Công Nghệ</p>
               <ol>
-                <li>Viết input, output và các invariant trước khi code.</li>
-                <li>Liệt kê ít nhất ba boundary case.</li>
-                <li>Cài đặt bằng hai ngôn ngữ.</li>
-                <li>Viết test cho cùng một bộ dữ liệu.</li>
-                <li>Giải thích runtime nào thực thi mỗi phiên bản.</li>
-                <li>Ghi lại khác biệt có ảnh hưởng đến maintainability.</li>
+                <li>
+                  <span>1</span>
+                  <p><strong>Problem Domain:</strong> Hệ thống cần I/O streaming, real-time WebSocket, batch processing hay web CRUD?</p>
+                </li>
+                <li>
+                  <span>2</span>
+                  <p><strong>Ecosystem &amp; Libraries:</strong> Thư viện ORM, driver database, security patches và tài liệu có trưởng thành không?</p>
+                </li>
+                <li>
+                  <span>3</span>
+                  <p><strong>Team &amp; Talent:</strong> Chi phí tuyển dụng và tốc độ onboarding thành viên mới vào codebase như thế nào?</p>
+                </li>
+                <li>
+                  <span>4</span>
+                  <p><strong>Runtime Performance:</strong> Cần độ trễ p99 thấp (AOT Go/Rust) hay thông lượng I/O cao (Node.js/Java)?</p>
+                </li>
+                <li>
+                  <span>5</span>
+                  <p><strong>Operations &amp; CI/CD:</strong> Kích thước Docker image, thời gian build CI/CD và mức tiêu thụ RAM container?</p>
+                </li>
+                <li>
+                  <span>6</span>
+                  <p><strong>Maintainability:</strong> Hệ thống cần duy trì trong 5-10 năm tới hay chỉ là MVP thăm dò thị trường trong 3 tháng?</p>
+                </li>
               </ol>
             </div>
 
-            <div className="answer-framework">
-              <span>Khung trả lời phỏng vấn</span>
-              <ol>
-                <li><strong>Định nghĩa:</strong> nói ngắn gọn khái niệm.</li>
-                <li><strong>Cơ chế:</strong> mô tả nó hoạt động khi nào.</li>
-                <li><strong>Trade-off:</strong> nêu lợi ích và giới hạn.</li>
-                <li><strong>Ví dụ:</strong> liên hệ project đã làm.</li>
-              </ol>
+            <h3 className="scenario-heading">Bằng Chứng Ứng Dụng Trong 3 Dự Án Thực Chiến Của Tôi</h3>
+            <div className="pl-project-evidence-grid">
+              <div className="pl-project-card">
+                <div className="pl-proj-card-top">
+                  <span className="pl-proj-lang-pill ts">TypeScript</span>
+                  <span className="pl-pipe-tag">Production Live</span>
+                </div>
+                <h3>Nexus Express (Logistics OMS)</h3>
+                <div className="pl-proj-stack">NestJS · Next.js · Prisma · Redis · PostgreSQL</div>
+                <p>
+                  Chọn TypeScript full-stack để đồng bộ hợp đồng dữ liệu (Shared Types &amp; DTOs) giữa Client và Server.
+                  Tận dụng kiến trúc Non-blocking Event Loop của Node.js để xử lý hàng ngàn kết nối WebSocket cập nhật vị trí
+                  kiện hàng theo thời gian thực mà không ngốn bộ nhớ thread.
+                </p>
+                <div className="pl-proj-footer">
+                  <span className="pl-proj-role-tag">Fullstack &amp; System Architect</span>
+                  <a
+                    href="https://tracking.nexus-ex.site/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="pl-proj-link"
+                  >
+                    <span>Live Demo ↗</span>
+                  </a>
+                </div>
+              </div>
+
+              <div className="pl-project-card">
+                <div className="pl-proj-card-top">
+                  <span className="pl-proj-lang-pill java">Java 21</span>
+                  <span className="pl-pipe-tag">Enterprise Core</span>
+                </div>
+                <h3>DevFlow (Task Management)</h3>
+                <div className="pl-proj-stack">Java 21 LTS · Spring Boot 3 · JPA · Docker</div>
+                <p>
+                  Chọn Java 21 để luyện tập hệ kiểu tĩnh danh nghĩa (Strict Nominal Typing), phân tầng kiến trúc chặt chẽ
+                  (Controller - Service - Repository), quản trị ACID transactions với Hibernate, và vận dụng Virtual Threads
+                  cho các tác vụ gửi thông báo nền (Background Batch Jobs).
+                </p>
+                <div className="pl-proj-footer">
+                  <span className="pl-proj-role-tag">Backend Engineer</span>
+                  <span className="pl-proj-role-tag">Architecture Evidence</span>
+                </div>
+              </div>
+
+              <div className="pl-project-card">
+                <div className="pl-proj-card-top">
+                  <span className="pl-proj-lang-pill php">PHP 8.3</span>
+                  <span className="pl-pipe-tag">Web Commercial</span>
+                </div>
+                <h3>Song Tai Shop (E-Commerce)</h3>
+                <div className="pl-proj-stack">PHP 8.3 · MySQL · MVC Pattern · VNPay</div>
+                <p>
+                  Chọn PHP 8.3 kết hợp MVC để làm chủ mô hình Request-Response truyền thống, quản lý session giỏ hàng,
+                  xử lý cURL API tích hợp cổng thanh toán VNPay chuẩn xác. Tận dụng mô hình Shared-Nothing giúp hệ thống
+                  hoạt động ổn định trên hosting chi phí thấp mà không lo rò rỉ RAM.
+                </p>
+                <div className="pl-proj-footer">
+                  <span className="pl-proj-role-tag">Fullstack Developer</span>
+                  <span className="pl-proj-role-tag">Production Ready</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* SECTION 07: INTERVIEW QUESTIONS */}
+          <section className="lesson-section pl-card-section" id="interview-questions">
+            <div className="pl-section-badge">
+              <HelpCircle size={13} aria-hidden="true" />
+              <span>Phần 07 · Technical Interview Hub</span>
+            </div>
+            <h2>10 Câu Hỏi Phỏng Vấn Kỹ Sư Chuyên Sâu Về Programming Languages &amp; Runtime</h2>
+            <p className="pl-section-intro">
+              Bộ câu hỏi thường xuất hiện trong các vòng phỏng vấn Kỹ sư Phần mềm (Software Engineer / Backend Developer)
+              nhằm phân loại ứng viên hiểu bản chất hệ thống với ứng viên chỉ biết dùng framework ở bề mặt.
+            </p>
+
+            <div className="pl-faq-controls">
+              <div className="pl-faq-categories" role="group" aria-label="Lọc câu hỏi phỏng vấn theo chủ đề">
+                <button
+                  className={`pl-faq-cat-btn ${faqCategory === "all" ? "active" : ""}`}
+                  onClick={() => setFaqCategory("all")}
+                >
+                  Tất cả ({interviewQuestions.length})
+                </button>
+                <button
+                  className={`pl-faq-cat-btn ${faqCategory === "runtime" ? "active" : ""}`}
+                  onClick={() => setFaqCategory("runtime")}
+                >
+                  Runtime &amp; Engine
+                </button>
+                <button
+                  className={`pl-faq-cat-btn ${faqCategory === "memory" ? "active" : ""}`}
+                  onClick={() => setFaqCategory("memory")}
+                >
+                  Memory &amp; GC
+                </button>
+                <button
+                  className={`pl-faq-cat-btn ${faqCategory === "types" ? "active" : ""}`}
+                  onClick={() => setFaqCategory("types")}
+                >
+                  Hệ Kiểu
+                </button>
+                <button
+                  className={`pl-faq-cat-btn ${faqCategory === "concurrency" ? "active" : ""}`}
+                  onClick={() => setFaqCategory("concurrency")}
+                >
+                  Concurrency
+                </button>
+              </div>
+
+              <div className="pl-faq-search-wrap">
+                <Search size={14} aria-hidden="true" />
+                <input
+                  type="text"
+                  className="pl-faq-search-input"
+                  placeholder="Tìm kiếm câu hỏi (JIT, Stack, GC, V8...)"
+                  value={faqSearch}
+                  onChange={(e) => setFaqSearch(e.target.value)}
+                />
+              </div>
             </div>
 
-            <div className="review-list">
-              <details><summary>1. Compiler và interpreter khác nhau thế nào?</summary><p>Compiler chuyển chương trình sang representation khác; interpreter thực thi chương trình thông qua một implementation. Một runtime có thể kết hợp cả hai, nên không nên gắn nhãn cứng cho cả ngôn ngữ.</p></details>
-              <details><summary>2. TypeScript có chạy trực tiếp trên browser không?</summary><p>Không theo workflow thông thường. TypeScript kiểm tra kiểu và phát sinh JavaScript; browser chạy JavaScript đầu ra. Type annotation không tồn tại trong runtime đó.</p></details>
-              <details><summary>3. Static typing có thay thế validation không?</summary><p>Không. Type checker xác minh các ràng buộc biểu diễn được bằng type, nhưng input bên ngoài và business rule vẫn cần runtime validation cùng test.</p></details>
-              <details><summary>4. Scope và lifetime khác nhau thế nào?</summary><p>Scope nói nơi một tên được nhìn thấy; lifetime nói value hoặc object tồn tại trong bao lâu. Hai khái niệm liên quan nhưng không đồng nhất.</p></details>
-              <details><summary>5. OOP có nghĩa là mọi thứ phải là class không?</summary><p>Không. OOP là một cách tổ chức state và behavior quanh object. Ngôn ngữ multi-paradigm cho phép kết hợp class, function thuần và event tùy bài toán.</p></details>
-              <details><summary>6. Bạn chọn Java, TypeScript hay PHP cho dự án mới bằng cách nào?</summary><p>Tôi bắt đầu từ domain, ecosystem, kinh nghiệm đội ngũ, runtime constraint, cách deploy và vòng đời hệ thống. Sau đó mới làm prototype hoặc benchmark phần có rủi ro thật.</p></details>
+            <div className="pl-faq-list">
+              {filteredFaqs.map((faq, index) => {
+                const isOpen = openFaqIndex === index;
+                return (
+                  <div className={`pl-faq-item ${isOpen ? "open" : ""}`} key={faq.question}>
+                    <button
+                      className="pl-faq-question"
+                      onClick={() => setOpenFaqIndex(isOpen ? null : index)}
+                      aria-expanded={isOpen}
+                    >
+                      <div className="pl-faq-q-left">
+                        <span className="pl-faq-badge">{faq.categoryLabel}</span>
+                        <strong>{faq.question}</strong>
+                      </div>
+                      <ChevronDown size={18} className="pl-faq-chevron" aria-hidden="true" />
+                    </button>
+                    {isOpen && (
+                      <div className="pl-faq-answer">
+                        <p>{faq.answer}</p>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+              {filteredFaqs.length === 0 && (
+                <p style={{ textAlign: "center", color: "#64748b", padding: "20px" }}>
+                  Không tìm thấy câu hỏi phù hợp với từ khóa &ldquo;{faqSearch}&rdquo;.
+                </p>
+              )}
+            </div>
+          </section>
+
+          {/* SECTION 08: CHECKLIST & RESOURCES */}
+          <section className="lesson-section pl-card-section" id="checklist">
+            <div className="pl-section-badge">
+              <CheckCircle2 size={13} aria-hidden="true" />
+              <span>Phần 08 · Checklist &amp; Resources</span>
+            </div>
+            <h2>Tự Đánh Giá Năng Lực &amp; Tài Liệu Kiến Trúc Gốc</h2>
+            <p className="pl-section-intro">
+              Đánh dấu các tiêu chí kỹ thuật mà bạn đã nắm vững sau chuyên đề này để xác nhận sự tự tin trước các buổi phỏng vấn kỹ thuật.
+            </p>
+
+            <div className="pl-checklist-box">
+              <div className="pl-checklist-header">
+                <div className="pl-checklist-title-wrap">
+                  <CheckCircle2 size={18} color="#059669" aria-hidden="true" />
+                  <h4>Checklist 7 Tiêu Chuẩn Năng Lực Kỹ Sư</h4>
+                </div>
+                <div className="pl-checklist-pill">
+                  {checkedCount}/7 Tiêu chuẩn hoàn thành
+                </div>
+              </div>
+
+              <div className="pl-checklist-items">
+                {[
+                  {
+                    title: "1. Tường minh hành trình từ Source Code đến CPU",
+                    desc: "Giải thích rõ ràng vai trò của Lexer, Parser, AST, Intermediate Representation và Machine Code.",
+                  },
+                  {
+                    title: "2. Phân biệt chính xác AOT Compiler, JIT Compiler và Interpreter",
+                    desc: "Hiểu bản chất tối ưu hóa runtime của V8 TurboFan và JVM HotSpot C1/C2.",
+                  },
+                  {
+                    title: "3. Làm chủ 3 trục phân loại Type System",
+                    desc: "Static vs Dynamic, Strong vs Weak, Nominal vs Structural Typing (Duck Typing).",
+                  },
+                  {
+                    title: "4. Nắm vững ranh giới giữa Compile-time Types và Runtime Validation",
+                    desc: "Biết vì sao Type Erasure đòi hỏi Zod / class-validator / Spring @Valid ở tầng network input.",
+                  },
+                  {
+                    title: "5. Phân biệt Call Stack và Heap cùng cơ chế Garbage Collection",
+                    desc: "Nắm vững nguyên lý Generational GC, Stop-the-World mitigation và Shared-Nothing isolation của PHP.",
+                  },
+                  {
+                    title: "6. Hiểu sự khác biệt giữa 3 mô hình Concurrency",
+                    desc: "Single-threaded Event Loop (Node.js), Virtual Threads (Java 21) và Multi-process pool (PHP-FPM).",
+                  },
+                  {
+                    title: "7. Ra quyết định chọn ngôn ngữ dựa trên bài toán thực tế",
+                    desc: "Cân đối 6 khía cạnh kỹ thuật thay vì đánh giá cảm tính theo trend.",
+                  },
+                ].map((item, idx) => {
+                  const isChecked = !!checkedChecklist[idx];
+                  return (
+                    <div
+                      key={item.title}
+                      className={`pl-check-item ${isChecked ? "checked" : ""}`}
+                      onClick={() => toggleChecklist(idx)}
+                      role="checkbox"
+                      aria-checked={isChecked}
+                      tabIndex={0}
+                      onKeyDown={(e) => {
+                        if (e.key === " " || e.key === "Enter") {
+                          e.preventDefault();
+                          toggleChecklist(idx);
+                        }
+                      }}
+                    >
+                      <div className="pl-custom-check">
+                        {isChecked && <Check size={14} aria-hidden="true" />}
+                      </div>
+                      <div className="pl-check-content">
+                        <strong>{item.title}</strong>
+                        <p>{item.desc}</p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
 
-            <h3 className="scenario-heading">Tài liệu chính thức để học sâu hơn</h3>
-            <div className="resource-list">
-              <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Execution_model" target="_blank" rel="noreferrer">
-                <span>MDN Web Docs</span>
-                <div><strong>JavaScript execution model</strong><p>Engine, execution context, agent, job queue và event loop.</p></div>
+            <h3 className="scenario-heading">Tài Liệu Đặc Tả Kỹ Thuật Chính Thức Nên Đọc</h3>
+            <div className="pl-resource-grid">
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Execution_model"
+                target="_blank"
+                rel="noreferrer"
+                className="pl-resource-link"
+              >
+                <div className="pl-resource-left">
+                  <span className="pl-resource-pub">MDN Web Docs</span>
+                  <strong>JavaScript Execution Model</strong>
+                  <span>Engine, call stack, agent, job queue &amp; event loop architecture.</span>
+                </div>
                 <ArrowUpRight size={18} aria-hidden="true" />
               </a>
-              <a href="https://www.typescriptlang.org/docs/handbook/typescript-from-scratch.html" target="_blank" rel="noreferrer">
-                <span>TypeScript</span>
-                <div><strong>TypeScript for the New Programmer</strong><p>Quan hệ giữa JavaScript, static type checking và TypeScript output.</p></div>
+
+              <a
+                href="https://docs.oracle.com/javase/specs/jvms/se21/html/jvms-1.html"
+                target="_blank"
+                rel="noreferrer"
+                className="pl-resource-link"
+              >
+                <div className="pl-resource-left">
+                  <span className="pl-resource-pub">Oracle Corporation</span>
+                  <strong>The Java Virtual Machine Specification (Java 21)</strong>
+                  <span>JVM architecture, class file format, bytecode verification &amp; memory areas.</span>
+                </div>
                 <ArrowUpRight size={18} aria-hidden="true" />
               </a>
-              <a href="https://docs.oracle.com/javase/specs/jvms/se21/html/jvms-1.html" target="_blank" rel="noreferrer">
-                <span>Oracle · JVM SE 21</span>
-                <div><strong>The Java Virtual Machine</strong><p>Kiến trúc JVM, class file format và cách Java source đi vào runtime.</p></div>
+
+              <a
+                href="https://www.typescriptlang.org/docs/handbook/typescript-from-scratch.html"
+                target="_blank"
+                rel="noreferrer"
+                className="pl-resource-link"
+              >
+                <div className="pl-resource-left">
+                  <span className="pl-resource-pub">TypeScript Official</span>
+                  <strong>TypeScript Handbook: Type Erasure &amp; Soundness</strong>
+                  <span>Quan hệ giữa compile-time types, JavaScript runtime và structural typing.</span>
+                </div>
                 <ArrowUpRight size={18} aria-hidden="true" />
               </a>
-              <a href="https://www.php.net/manual/en/langref.php" target="_blank" rel="noreferrer">
-                <span>PHP Manual</span>
-                <div><strong>PHP Language Reference</strong><p>Types, variables, expressions, control structures, functions và classes.</p></div>
+
+              <a
+                href="https://www.php.net/manual/en/langref.php"
+                target="_blank"
+                rel="noreferrer"
+                className="pl-resource-link"
+              >
+                <div className="pl-resource-left">
+                  <span className="pl-resource-pub">PHP Group</span>
+                  <strong>PHP 8 Language Reference &amp; Zend Engine</strong>
+                  <span>Strict types, OPcache, match expression, memory allocation &amp; JIT engine.</span>
+                </div>
                 <ArrowUpRight size={18} aria-hidden="true" />
               </a>
             </div>
           </section>
 
-          <div className="next-lesson">
-            <span>Bài tiếp theo</span>
-            <strong>Database Fundamentals</strong>
-            <p>Tiếp tục từ value trong chương trình đến cách hệ thống lưu trữ, liên kết và truy vấn dữ liệu lâu dài.</p>
-            <a
-              className="next-lesson-link"
-              href="/knowledge/database"
-              onClick={(event) => navigate(event, "/knowledge/database")}
-            >
-              Bắt đầu bài 02
-              <ArrowUpRight size={17} aria-hidden="true" />
-            </a>
+          {/* KEY TAKEAWAYS & ACTION CTAS */}
+          <div className="next-lesson pl-takeaway-card">
+            <div className="pl-takeaway-badge">
+              <Sparkles size={14} aria-hidden="true" />
+              <span>Key Engineering Takeaway</span>
+            </div>
+            <h3>Ngôn Ngữ Chỉ Là Công Cụ Diễn Đạt; Tư Duy Kiến Trúc &amp; Runtime Là Giá Trị Cốt Lõi</h3>
+            <p>
+              Framework và cú pháp có thể thay đổi sau mỗi vài năm, nhưng quy luật về Call Stack, Heap, Bộ nhớ đệm CPU,
+              Độ an toàn của kiểu dữ liệu và Ranh giới xác thực (Boundary Validation) vẫn luôn bất biến. Làm chủ cội rễ
+              này giúp kỹ sư tự tin học bất kỳ ngôn ngữ mới nào chỉ trong vài ngày và xây dựng hệ thống phần mềm có độ tin cậy cao.
+            </p>
+            <div className="pl-takeaway-actions">
+              <a href="/" onClick={(e) => navigate(e, "/")} className="pl-action-btn primary">
+                <ArrowLeft size={15} aria-hidden="true" />
+                <span>Về Trang Chủ Portfolio</span>
+              </a>
+              <a
+                href="https://tracking.nexus-ex.site/"
+                target="_blank"
+                rel="noreferrer"
+                className="pl-action-btn secondary"
+              >
+                <ExternalLink size={15} aria-hidden="true" />
+                <span>Trải Nghiệm Live Demo OMS</span>
+              </a>
+              <a
+                href="/knowledge/database"
+                onClick={(e) => navigate(e, "/knowledge/database")}
+                className="pl-action-btn outline"
+              >
+                <span>Học Tiếp: Database Fundamentals (Bài 02)</span>
+                <ChevronRight size={15} aria-hidden="true" />
+              </a>
+            </div>
           </div>
         </article>
       </div>
 
-      <footer>
-        <span>Programming Languages Fundamentals · Bài 01</span>
-        <span><Sparkles size={15} aria-hidden="true" /> Learn the model behind the syntax</span>
+      {/* 5. Executive Footer */}
+      <footer className="pl-lesson-footer">
+        <div className="pl-footer-left">
+          <span>Programming Languages &amp; Runtime Architecture · Chuyên đề 01</span>
+          <span className="ba-footer-divider">•</span>
+          <span>Võ Văn Tú Tài · B.Eng in Information Systems (IUH · GPA 3.26/4.0 Giỏi)</span>
+        </div>
+        <div className="pl-footer-right">
+          <Sparkles size={15} aria-hidden="true" />
+          <span>Computer Science &amp; Runtime Engineering Evidence</span>
+        </div>
       </footer>
     </main>
   );
@@ -4786,7 +6009,7 @@ function App() {
   useEffect(() => {
     const pageTitles: Record<string, string> = {
       "/knowledge": "Knowledge Portfolio - Vo Van Tu Tai",
-      "/knowledge/programming-languages": "Programming Languages Fundamentals - Vo Van Tu Tai",
+      "/knowledge/programming-languages": "Programming Languages & Runtime Architecture - Võ Văn Tú Tài",
       "/knowledge/database": "Database Fundamentals - Vo Van Tu Tai",
       "/knowledge/database/data-modeling": "Data Modeling & ERD - Vo Van Tu Tai",
       "/knowledge/backend-api": "Backend & Authentication Fundamentals - Vo Van Tu Tai",
