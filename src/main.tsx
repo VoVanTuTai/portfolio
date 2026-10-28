@@ -357,15 +357,14 @@ const portfolioDataVi: PortfolioLocaleData = {
       },
       {
         icon: Code2,
-        title: "Công cụ & Phương pháp Agile",
+        title: "Quản Trị Dự Án & Phương Pháp Agile",
         items: [
-          "Jira & Confluence",
-          "Odoo ERP & Power BI",
-          "Figma (Wireframing)",
-          "Camunda Modeler & Draw.io",
           "Lập kế hoạch Sprint & Phân rã WBS",
-          "Bảo vệ Baseline & Scope Freeze",
-          "Các nghi thức Agile / Scrum",
+          "Kiểm soát Scope Baseline & Scope Freeze",
+          "Quy trình Đánh giá Change Request (CR)",
+          "Ma trận Quản trị Rủi ro & Burndown Chart",
+          "Nghi thức Scrum & Nghiệm thu UAT",
+          "Jira, Confluence, Camunda & Figma",
         ],
       },
     ],
@@ -627,15 +626,14 @@ const portfolioDataEn: PortfolioLocaleData = {
       },
       {
         icon: Code2,
-        title: "Agile Tools & Methodologies",
+        title: "Project Management & Agile Delivery",
         items: [
-          "Jira & Confluence",
-          "Odoo ERP & Power BI",
-          "Figma (Wireframing)",
-          "Camunda Modeler & Draw.io",
           "Sprint Planning & WBS Breakdown",
-          "Scope Baseline & Scope Freeze",
-          "Agile / Scrum Rituals",
+          "Scope Baseline & Scope Freeze Governance",
+          "Change Request (CR) Evaluation Protocol",
+          "Risk Management Matrix & Burndown Charts",
+          "Agile Scrum Rituals & UAT Gatekeeping",
+          "Jira, Confluence, Camunda & Figma",
         ],
       },
     ],
@@ -790,44 +788,7 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
                 </div>
 
                 <div className="dropdown-tracks-list">
-                  {/* Track 0: CV Project Manager & Project Coordinator */}
-                  <div className="dropdown-track-item featured-pm">
-                    <div className="dropdown-track-header">
-                      <div className="item-icon-wrap sapphire">
-                        <BriefcaseBusiness size={15} />
-                      </div>
-                      <div className="dropdown-track-meta">
-                        <div className="item-title-row">
-                          <strong>{lang === "vi" ? "CV Quản Lý Dự Án (PM / Coordinator)" : "Project Manager & Coordinator Resume"}</strong>
-                          <span className="item-badge pm">PM</span>
-                        </div>
-                        <p>{lang === "vi" ? "Agile / Scrum Sprint, Scope Freeze, Camunda & UAT" : "Agile Scrum Sprints, Scope Freeze, Camunda & UAT"}</p>
-                      </div>
-                    </div>
-                    <div className="dropdown-track-actions">
-                      <a
-                        className="dropdown-action-btn primary"
-                        href={lang === "vi" ? "/VoVanTuTai_IT_Business_Analyst_CV_Tong_Quat.pdf" : "/VoVanTuTai_IT_Business_Analyst_Resume_General.pdf"}
-                        download
-                        onClick={() => setIsCvMenuOpen(false)}
-                      >
-                        <Download size={13} />
-                        <span>{lang === "vi" ? "Tải PDF" : "Download PDF"}</span>
-                      </a>
-                      <a
-                        className="dropdown-action-btn secondary"
-                        href={lang === "vi" ? "/cv-general.html" : "/cv-general-en.html"}
-                        target="_blank"
-                        rel="noreferrer"
-                        onClick={() => setIsCvMenuOpen(false)}
-                      >
-                        <ExternalLink size={13} />
-                        <span>{lang === "vi" ? "Xem Web" : "View Web"}</span>
-                      </a>
-                    </div>
-                  </div>
-
-                  {/* Track 1: CV BA Tiếng Việt */}
+                  {/* Track 1: CV BA / PO Tiếng Việt */}
                   <div className="dropdown-track-item">
                     <div className="dropdown-track-header">
                       <div className="item-icon-wrap gold">
@@ -835,10 +796,10 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
                       </div>
                       <div className="dropdown-track-meta">
                         <div className="item-title-row">
-                          <strong>{lang === "vi" ? "CV BA (Tiếng Việt)" : "BA Resume (Vietnamese)"}</strong>
+                          <strong>{lang === "vi" ? "CV BA / PO (Tiếng Việt)" : "BA / PO Resume (Vietnamese)"}</strong>
                           <span className="item-badge">VI</span>
                         </div>
-                        <p>{lang === "vi" ? "Kinh nghiệm thực tế, quy trình SRS & UAT" : "Detailed project cases & SRS specifications"}</p>
+                        <p>{lang === "vi" ? "Kinh nghiệm thực tế, tài liệu PRD/SRS, quy trình BPMN & UAT" : "Detailed project cases, PRD/SRS specs & BPMN workflows"}</p>
                       </div>
                     </div>
                     <div className="dropdown-track-actions">
@@ -864,7 +825,7 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
                     </div>
                   </div>
 
-                  {/* Track 2: CV BA Tiếng Anh */}
+                  {/* Track 2: CV BA / PO Tiếng Anh */}
                   <div className="dropdown-track-item">
                     <div className="dropdown-track-header">
                       <div className="item-icon-wrap emerald">
@@ -872,10 +833,10 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
                       </div>
                       <div className="dropdown-track-meta">
                         <div className="item-title-row">
-                          <strong>{lang === "vi" ? "CV BA (Tiếng Anh)" : "BA Resume (English)"}</strong>
+                          <strong>{lang === "vi" ? "CV BA / PO (Tiếng Anh)" : "BA / PO Resume (English)"}</strong>
                           <span className="item-badge-subtle">EN</span>
                         </div>
-                        <p>{lang === "vi" ? "Phiên bản tiếng Anh cho team Outsource & MNC" : "English version for international teams"}</p>
+                        <p>{lang === "vi" ? "Phiên bản tiếng Anh chuẩn quốc tế cho team Product & Outsource" : "Standardized English version for Product & Outsource teams"}</p>
                       </div>
                     </div>
                     <div className="dropdown-track-actions">
@@ -900,143 +861,10 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
                       </a>
                     </div>
                   </div>
-
-                  {/* Track 3: CV Frontend Developer */}
-                  <div className="dropdown-track-item">
-                    <div className="dropdown-track-header">
-                      <div className="item-icon-wrap amber">
-                        <Code2 size={15} />
-                      </div>
-                      <div className="dropdown-track-meta">
-                        <div className="item-title-row">
-                          <strong>{lang === "vi" ? "CV Frontend Developer" : "Frontend Resume"}</strong>
-                          <span className="item-badge-subtle">FE</span>
-                        </div>
-                        <p>{lang === "vi" ? "React.js, TypeScript, UI/UX & Live AI SPA" : "React.js, TypeScript, UI/UX & Live AI SPA"}</p>
-                      </div>
-                    </div>
-                    <div className="dropdown-track-actions">
-                      <a
-                        className="dropdown-action-btn primary"
-                        href={lang === "vi" ? "/VoVanTuTai_Frontend_Developer_CV_Tieng_Viet.pdf" : "/VoVanTuTai_Frontend_Developer_CV.pdf"}
-                        download
-                        onClick={() => setIsCvMenuOpen(false)}
-                      >
-                        <Download size={13} />
-                        <span>{lang === "vi" ? "Tải PDF" : "Download PDF"}</span>
-                      </a>
-                      <a
-                        className="dropdown-action-btn secondary"
-                        href={lang === "vi" ? "/cv-frontend-developer.html" : "/cv-frontend-developer-en.html"}
-                        target="_blank"
-                        rel="noreferrer"
-                        onClick={() => setIsCvMenuOpen(false)}
-                      >
-                        <ExternalLink size={13} />
-                        <span>{lang === "vi" ? "Xem Web" : "View Web"}</span>
-                      </a>
-                    </div>
-                  </div>
-
-                  {/* Track 4: CV Backend Developer */}
-                  <div className="dropdown-track-item">
-                    <div className="dropdown-track-header">
-                      <div className="item-icon-wrap purple">
-                        <ServerCog size={15} />
-                      </div>
-                      <div className="dropdown-track-meta">
-                        <div className="item-title-row">
-                          <strong>{lang === "vi" ? "CV Backend Developer" : "Backend Resume"}</strong>
-                          <span className="item-badge-subtle">BE</span>
-                        </div>
-                        <p>{lang === "vi" ? "Node.js, PHP, PostgreSQL 3NF & RabbitMQ" : "Node.js, PHP, PostgreSQL 3NF & RabbitMQ"}</p>
-                      </div>
-                    </div>
-                    <div className="dropdown-track-actions">
-                      <a
-                        className="dropdown-action-btn primary"
-                        href={lang === "vi" ? "/VoVanTuTai_Backend_Developer_CV_Tieng_Viet.pdf" : "/VoVanTuTai_Backend_Developer_CV.pdf"}
-                        download
-                        onClick={() => setIsCvMenuOpen(false)}
-                      >
-                        <Download size={13} />
-                        <span>{lang === "vi" ? "Tải PDF" : "Download PDF"}</span>
-                      </a>
-                      <a
-                        className="dropdown-action-btn secondary"
-                        href={lang === "vi" ? "/cv-backend-developer.html" : "/cv-backend-developer-en.html"}
-                        target="_blank"
-                        rel="noreferrer"
-                        onClick={() => setIsCvMenuOpen(false)}
-                      >
-                        <ExternalLink size={13} />
-                        <span>{lang === "vi" ? "Xem Web" : "View Web"}</span>
-                      </a>
-                    </div>
-                  </div>
-
-                  {/* Track 5: CV Full-Stack Developer */}
-                  <div className="dropdown-track-item">
-                    <div className="dropdown-track-header">
-                      <div className="item-icon-wrap indigo">
-                        <Code2 size={15} />
-                      </div>
-                      <div className="dropdown-track-meta">
-                        <div className="item-title-row">
-                          <strong>{lang === "vi" ? "CV Full-Stack Developer" : "Full-Stack Resume"}</strong>
-                          <span className="item-badge-subtle">DEV</span>
-                        </div>
-                        <p>{lang === "vi" ? "PHP (OOP/MVC), NestJS, React & Logistics OMS" : "PHP OOP, NestJS, React & Logistics OMS"}</p>
-                      </div>
-                    </div>
-                    <div className="dropdown-track-actions">
-                      <a
-                        className="dropdown-action-btn primary"
-                        href="/VoVanTuTai_Fullstack_Developer_CV.pdf"
-                        download
-                        onClick={() => setIsCvMenuOpen(false)}
-                      >
-                        <Download size={13} />
-                        <span>{lang === "vi" ? "Tải PDF" : "Download PDF"}</span>
-                      </a>
-                      <a
-                        className="dropdown-action-btn secondary"
-                        href="/cv-fullstack-developer.html"
-                        target="_blank"
-                        rel="noreferrer"
-                        onClick={() => setIsCvMenuOpen(false)}
-                      >
-                        <ExternalLink size={13} />
-                        <span>{lang === "vi" ? "Xem Web" : "View Web"}</span>
-                      </a>
-                    </div>
-                  </div>
                 </div>
 
-                <div className="dropdown-footer" style={{ flexDirection: "column", gap: "8px", alignItems: "stretch" }}>
-                  <a
-                    href="/cv-directory.html"
-                    target="_blank"
-                    rel="noreferrer"
-                    onClick={() => setIsCvMenuOpen(false)}
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      gap: "6px",
-                      padding: "7px 10px",
-                      background: "#0f2744",
-                      color: "#ffffff",
-                      borderRadius: "6px",
-                      fontSize: "12px",
-                      fontWeight: 600,
-                      textDecoration: "none",
-                      marginBottom: "4px"
-                    }}
-                  >
-                    <span>📂 {lang === "vi" ? "Xem tất cả hồ sơ (CV Directory Hub) →" : "View All Resumes (CV Directory Hub) →"}</span>
-                  </a>
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <div className="dropdown-footer">
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%" }}>
                     <a href="tel:+84869500573" className="dropdown-contact-link">
                       <Phone size={13} />
                       +84 869 500 573
@@ -1095,9 +923,9 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
             <div className="profile-info-col">
               <div className="profile-name-row">
                 <p className="profile-name">Vo Van Tu Tai</p>
-                <span className="profile-role-tag highlight">Software Project Manager</span>
-                <span className="profile-role-tag">IT Business Analyst</span>
-                <span className="profile-role-tag secondary">Project Coordinator</span>
+                <span className="profile-role-tag highlight">IT Business Analyst</span>
+                <span className="profile-role-tag">Product Owner</span>
+                <span className="profile-role-tag secondary">Software Project Manager</span>
               </div>
               <p className="profile-meta">{t.hero.profileMeta}</p>
               <div className="profile-chips-row">
@@ -1140,42 +968,8 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
             </div>
 
             <div className="sharing-tracks-grid">
-              {/* Track 0: CV Project Manager & Coordinator */}
-              <div className="cv-track-item featured-pm">
-                <div className="cv-track-header">
-                  <div className="cv-track-icon pm">
-                    <BriefcaseBusiness size={18} aria-hidden="true" />
-                  </div>
-                  <div className="cv-track-text">
-                    <div className="cv-track-title-row">
-                      <strong>{lang === "vi" ? "CV Quản Lý Dự Án (PM / Coordinator)" : "Project Manager & Coordinator"}</strong>
-                      <span className="cv-track-badge pm">PM / Coordinator</span>
-                    </div>
-                    <p>{lang === "vi" ? "Kỹ sư HTTT (GPA 3.26), điều phối Sprint Agile, bảo vệ Scope Freeze & UAT" : "IS Engineer (GPA 3.26), Agile sprint delivery, Scope Freeze & UAT sign-off"}</p>
-                  </div>
-                </div>
-                <div className="cv-track-buttons">
-                  <a
-                    className="cv-btn-download"
-                    href={lang === "vi" ? "/VoVanTuTai_IT_Business_Analyst_CV_Tong_Quat.pdf" : "/VoVanTuTai_IT_Business_Analyst_Resume_General.pdf"}
-                    download
-                  >
-                    <Download size={15} aria-hidden="true" />
-                    <span>{lang === "vi" ? "Tải CV PM (PDF)" : "Download PDF"}</span>
-                  </a>
-                  <a
-                    className="cv-btn-view"
-                    href={lang === "vi" ? "/cv-general.html" : "/cv-general-en.html"}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <ExternalLink size={15} aria-hidden="true" />
-                    <span>{lang === "vi" ? "Xem bản Web" : "View Web"}</span>
-                  </a>
-                </div>
-              </div>
 
-              {/* Track 1: CV BA Tiếng Việt */}
+              {/* Track 1: CV BA / PO Tiếng Việt */}
               <div className="cv-track-item">
                 <div className="cv-track-header">
                   <div className="cv-track-icon vi">
@@ -1183,7 +977,7 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
                   </div>
                   <div className="cv-track-text">
                     <div className="cv-track-title-row">
-                      <strong>{lang === "vi" ? "CV BA (Tiếng Việt)" : "BA Resume (Vietnamese)"}</strong>
+                      <strong>{lang === "vi" ? "CV BA / PO (Tiếng Việt)" : "BA / PO Resume (Vietnamese)"}</strong>
                       <span className="cv-track-badge vi">Tiếng Việt</span>
                     </div>
                     <p>{lang === "vi" ? "Bản chi tiết kinh nghiệm dự án, quy trình BPMN 2.0 & tài liệu SRS" : "Detailed project cases, BPMN 2.0 workflows & SRS documentation"}</p>
@@ -1210,7 +1004,7 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
                 </div>
               </div>
 
-              {/* Track 2: CV BA Tiếng Anh */}
+              {/* Track 2: CV BA / PO Tiếng Anh */}
               <div className="cv-track-item">
                 <div className="cv-track-header">
                   <div className="cv-track-icon en">
@@ -1218,7 +1012,7 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
                   </div>
                   <div className="cv-track-text">
                     <div className="cv-track-title-row">
-                      <strong>{lang === "vi" ? "CV BA (Tiếng Anh)" : "BA Resume (English)"}</strong>
+                      <strong>{lang === "vi" ? "CV BA / PO (Tiếng Anh)" : "BA / PO Resume (English)"}</strong>
                       <span className="cv-track-badge en">English</span>
                     </div>
                     <p>{lang === "vi" ? "Phiên bản tiếng Anh chuẩn mực cho team Outsource & Quốc tế" : "Standardized English version for MNCs & international teams"}</p>
@@ -1552,40 +1346,12 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
             </div>
 
             <div className="footer-cv-grid">
-              {/* Quản Lý Dự Án (PM / Coordinator) */}
-              <div className="footer-cv-item featured-pm">
-                <div className="footer-cv-meta">
-                  <span className="footer-cv-badge pm">PM</span>
-                  <strong>{lang === "vi" ? "CV Quản Lý Dự Án" : "Project Manager"}</strong>
-                </div>
-                <div className="footer-cv-actions">
-                  <a
-                    href={lang === "vi" ? "/VoVanTuTai_IT_Business_Analyst_CV_Tong_Quat.pdf" : "/VoVanTuTai_IT_Business_Analyst_Resume_General.pdf"}
-                    download
-                    className="footer-btn-dl"
-                    title={lang === "vi" ? "Tải PDF" : "Download PDF"}
-                  >
-                    <Download size={13} aria-hidden="true" />
-                    <span>PDF</span>
-                  </a>
-                  <a
-                    href={lang === "vi" ? "/cv-general.html" : "/cv-general-en.html"}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="footer-btn-view"
-                    title={lang === "vi" ? "Xem Web" : "View Web"}
-                  >
-                    <ExternalLink size={13} aria-hidden="true" />
-                    <span>Web</span>
-                  </a>
-                </div>
-              </div>
 
-              {/* Tiếng Việt */}
+              {/* BA / PO Tiếng Việt */}
               <div className="footer-cv-item">
                 <div className="footer-cv-meta">
                   <span className="footer-cv-badge vi">VI</span>
-                  <strong>{lang === "vi" ? "CV BA Tiếng Việt" : "Vietnamese Resume"}</strong>
+                  <strong>{lang === "vi" ? "CV BA / PO Tiếng Việt" : "Vietnamese BA/PO"}</strong>
                 </div>
                 <div className="footer-cv-actions">
                   <a href="/VoVanTuTai_Business_Analyst_CV_Tieng_Viet.pdf" download className="footer-btn-dl" title="Tải PDF">
@@ -1599,11 +1365,11 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
                 </div>
               </div>
 
-              {/* Tiếng Anh */}
+              {/* BA / PO Tiếng Anh */}
               <div className="footer-cv-item">
                 <div className="footer-cv-meta">
                   <span className="footer-cv-badge en">EN</span>
-                  <strong>{lang === "vi" ? "CV BA Tiếng Anh" : "English Resume"}</strong>
+                  <strong>{lang === "vi" ? "CV BA / PO Tiếng Anh" : "English BA/PO"}</strong>
                 </div>
                 <div className="footer-cv-actions">
                   <a href="/VoVanTuTai_Business_Analyst_CV.pdf" download className="footer-btn-dl" title="Download PDF">
@@ -1611,60 +1377,6 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
                     <span>PDF</span>
                   </a>
                   <a href="/cv.html" target="_blank" rel="noreferrer" className="footer-btn-view" title="View Web">
-                    <ExternalLink size={13} aria-hidden="true" />
-                    <span>Web</span>
-                  </a>
-                </div>
-              </div>
-
-              {/* Frontend Developer */}
-              <div className="footer-cv-item">
-                <div className="footer-cv-meta">
-                  <span className="footer-cv-badge fe">FE</span>
-                  <strong>{lang === "vi" ? "CV Frontend Dev" : "Frontend Dev"}</strong>
-                </div>
-                <div className="footer-cv-actions">
-                  <a href={lang === "vi" ? "/VoVanTuTai_Frontend_Developer_CV_Tieng_Viet.pdf" : "/VoVanTuTai_Frontend_Developer_CV.pdf"} download className="footer-btn-dl" title="Download PDF">
-                    <Download size={13} aria-hidden="true" />
-                    <span>PDF</span>
-                  </a>
-                  <a href={lang === "vi" ? "/cv-frontend-developer.html" : "/cv-frontend-developer-en.html"} target="_blank" rel="noreferrer" className="footer-btn-view" title="View Web">
-                    <ExternalLink size={13} aria-hidden="true" />
-                    <span>Web</span>
-                  </a>
-                </div>
-              </div>
-
-              {/* Backend Developer */}
-              <div className="footer-cv-item">
-                <div className="footer-cv-meta">
-                  <span className="footer-cv-badge be">BE</span>
-                  <strong>{lang === "vi" ? "CV Backend Dev" : "Backend Dev"}</strong>
-                </div>
-                <div className="footer-cv-actions">
-                  <a href={lang === "vi" ? "/VoVanTuTai_Backend_Developer_CV_Tieng_Viet.pdf" : "/VoVanTuTai_Backend_Developer_CV.pdf"} download className="footer-btn-dl" title="Download PDF">
-                    <Download size={13} aria-hidden="true" />
-                    <span>PDF</span>
-                  </a>
-                  <a href={lang === "vi" ? "/cv-backend-developer.html" : "/cv-backend-developer-en.html"} target="_blank" rel="noreferrer" className="footer-btn-view" title="View Web">
-                    <ExternalLink size={13} aria-hidden="true" />
-                    <span>Web</span>
-                  </a>
-                </div>
-              </div>
-
-              {/* Full-Stack Developer */}
-              <div className="footer-cv-item">
-                <div className="footer-cv-meta">
-                  <span className="footer-cv-badge fs">FS</span>
-                  <strong>{lang === "vi" ? "CV Full-Stack Dev" : "Full-Stack Dev"}</strong>
-                </div>
-                <div className="footer-cv-actions">
-                  <a href="/VoVanTuTai_Fullstack_Developer_CV.pdf" download className="footer-btn-dl" title="Download PDF">
-                    <Download size={13} aria-hidden="true" />
-                    <span>PDF</span>
-                  </a>
-                  <a href="/cv-fullstack-developer.html" target="_blank" rel="noreferrer" className="footer-btn-view" title="View Web">
                     <ExternalLink size={13} aria-hidden="true" />
                     <span>Web</span>
                   </a>
