@@ -249,38 +249,6 @@ const portfolioDataVi: PortfolioLocaleData = {
   },
   projectGroups: [
     {
-      title: "Nền tảng Quản lý Đặt phòng & Lưu trú Doanh nghiệp",
-      description: "Hệ thống thực tế minh chứng cách chuyển hóa yêu cầu nghiệp vụ phức tạp thành luồng xử lý chặt chẽ, kiểm soát đồng thời (race condition) và cổng thông tin phân quyền đa vai trò.",
-      projects: [
-        {
-          name: "tourist-accommodation-management-system",
-          role: "Nền tảng Đặt phòng & Quản lý Lưu trú · Hệ thống Đa Phân quyền",
-          href: "https://github.com/VoVanTuTai/tourist-accommodation-management-system",
-          image: "/assets/project-tourist.png",
-          stack: ["BPMN 2.0", "PRD/SRS", "RBAC Matrix", "VNPay IPN", "MySQL", "Express.js"],
-          summary: "Nền tảng quản lý lưu trú kiểm soát hiệu quả tranh chấp giữ phòng đồng thời (race condition), lịch phòng theo thời gian thực, chính sách hủy phòng phân tầng và quy trình thanh toán trực tuyến.",
-          highlights: [
-            "Thách thức Nghiệp vụ: Phòng ngừa rủi ro trùng lịch phòng (overbooking race condition) vào giờ cao điểm, phân quyền độc lập 3 nhóm người dùng (Khách/Chủ nhà/Quản trị) và xử lý sự cố rớt mạng khi thanh toán trực tuyến.",
-            "Phân tích BA & Giải pháp: Soạn thảo PRD/SRS với tiêu chí Given-When-Then; thiết kế cơ chế giữ phòng tạm thời (Held/Pending kèm TTL), ma trận phân quyền RBAC nghiêm ngặt, chính sách hủy phạt linh hoạt và hợp đồng Webhook VNPay IPN.",
-            "Kết quả & Bàn giao: Cổng thông tin tương tác đa phân quyền hiển thị tình trạng phòng thời gian thực, thanh toán mã QR an toàn, xuất hóa đơn điện tử tự động và bộ kịch bản kiểm thử UAT hoàn chỉnh.",
-          ],
-        },
-        {
-          name: "php-online-store",
-          role: "Song Tai Shop · Hệ thống Thương mại Điện tử & Bán lẻ Trực tuyến",
-          href: "https://github.com/VoVanTuTai/php-online-store",
-          image: "/assets/project-songtai.png",
-          stack: ["Process Flow", "User Stories", "RBAC Matrix", "MySQL 3NF", "PHP", "Bootstrap"],
-          summary: "Hệ thống bán lẻ thương mại điện tử chuẩn hóa danh mục sản phẩm đa cấp, hành trình thanh toán của khách hàng, quản lý đơn hàng phân quyền và nhật ký kiểm toán quản trị viên.",
-          highlights: [
-            "Thách thức Nghiệp vụ: Phân định ranh giới chặt chẽ giữa luồng người mua và quản trị, bảo toàn tính toàn vẹn khi thanh toán giỏ hàng và theo dõi chuyển đổi trạng thái đơn hàng (Chờ xử lý/Đã thanh toán/Đang giao/Hoàn tất).",
-            "Phân tích BA & Giải pháp: Xây dựng đặc tả yêu cầu chức năng (SRS), mô hình hóa hành trình thanh toán người dùng, thiết kế CSDL quan hệ chuẩn hóa 3NF và quy định cơ chế kiểm soát tồn kho cho admin.",
-            "Kết quả & Bàn giao: Môi trường Docker hóa hoàn chỉnh kèm dữ liệu mẫu, tài khoản demo kiểm thử và tài liệu quy trình mua hàng khép kín.",
-          ],
-        },
-      ],
-    },
-    {
       title: "Hệ thống Vận tải & Quản lý Đơn hàng (OMS)",
       description: "Các hệ thống cấp doanh nghiệp chuyển đổi kinh nghiệm vận hành thực tế thành máy trạng thái BPMN 2.0, trạm quét mã kiểm soát và hợp đồng API chuẩn mực.",
       projects: [
@@ -310,6 +278,38 @@ const portfolioDataVi: PortfolioLocaleData = {
             "Thách thức Nghiệp vụ: Điều phối tài xế thời gian thực với tải cao, tính toán cước phí nhiều bước và xử lý kết nối mạng chập chờn giữa khách và tài xế.",
             "Phân tích BA & Giải pháp: Thiết kế máy trạng thái cuốc xe, hợp đồng sự kiện bất đồng bộ, quy tắc định giá linh hoạt theo cung cầu và luồng hoàn tác (rollback) khi hủy chuyến.",
             "Kết quả & Bàn giao: Cấu trúc đa dịch vụ Docker Compose kèm cơ chế kiểm tra hợp đồng API, nhật ký sự kiện phân tán và kịch bản kiểm thử nghiệp vụ.",
+          ],
+        },
+      ],
+    },
+    {
+      title: "Nền tảng Quản lý Đặt phòng & Lưu trú Doanh nghiệp",
+      description: "Hệ thống thực tế minh chứng cách chuyển hóa yêu cầu nghiệp vụ phức tạp thành luồng xử lý chặt chẽ, kiểm soát đồng thời (race condition) và cổng thông tin phân quyền đa vai trò.",
+      projects: [
+        {
+          name: "tourist-accommodation-management-system",
+          role: "Nền tảng Đặt phòng & Quản lý Lưu trú · Hệ thống Đa Phân quyền",
+          href: "https://github.com/VoVanTuTai/tourist-accommodation-management-system",
+          image: "/assets/project-tourist.png",
+          stack: ["BPMN 2.0", "PRD/SRS", "RBAC Matrix", "VNPay IPN", "MySQL", "Express.js"],
+          summary: "Nền tảng quản lý lưu trú kiểm soát hiệu quả tranh chấp giữ phòng đồng thời (race condition), lịch phòng theo thời gian thực, chính sách hủy phòng phân tầng và quy trình thanh toán trực tuyến.",
+          highlights: [
+            "Thách thức Nghiệp vụ: Phòng ngừa rủi ro trùng lịch phòng (overbooking race condition) vào giờ cao điểm, phân quyền độc lập 3 nhóm người dùng (Khách/Chủ nhà/Quản trị) và xử lý sự cố rớt mạng khi thanh toán trực tuyến.",
+            "Phân tích BA & Giải pháp: Soạn thảo PRD/SRS với tiêu chí Given-When-Then; thiết kế cơ chế giữ phòng tạm thời (Held/Pending kèm TTL), ma trận phân quyền RBAC nghiêm ngặt, chính sách hủy phạt linh hoạt và hợp đồng Webhook VNPay IPN.",
+            "Kết quả & Bàn giao: Cổng thông tin tương tác đa phân quyền hiển thị tình trạng phòng thời gian thực, thanh toán mã QR an toàn, xuất hóa đơn điện tử tự động và bộ kịch bản kiểm thử UAT hoàn chỉnh.",
+          ],
+        },
+        {
+          name: "php-online-store",
+          role: "Song Tai Shop · Hệ thống Thương mại Điện tử & Bán lẻ Trực tuyến",
+          href: "https://github.com/VoVanTuTai/php-online-store",
+          image: "/assets/project-songtai.png",
+          stack: ["Process Flow", "User Stories", "RBAC Matrix", "MySQL 3NF", "PHP", "Bootstrap"],
+          summary: "Hệ thống bán lẻ thương mại điện tử chuẩn hóa danh mục sản phẩm đa cấp, hành trình thanh toán của khách hàng, quản lý đơn hàng phân quyền và nhật ký kiểm toán quản trị viên.",
+          highlights: [
+            "Thách thức Nghiệp vụ: Phân định ranh giới chặt chẽ giữa luồng người mua và quản trị, bảo toàn tính toàn vẹn khi thanh toán giỏ hàng và theo dõi chuyển đổi trạng thái đơn hàng (Chờ xử lý/Đã thanh toán/Đang giao/Hoàn tất).",
+            "Phân tích BA & Giải pháp: Xây dựng đặc tả yêu cầu chức năng (SRS), mô hình hóa hành trình thanh toán người dùng, thiết kế CSDL quan hệ chuẩn hóa 3NF và quy định cơ chế kiểm soát tồn kho cho admin.",
+            "Kết quả & Bàn giao: Môi trường Docker hóa hoàn chỉnh kèm dữ liệu mẫu, tài khoản demo kiểm thử và tài liệu quy trình mua hàng khép kín.",
           ],
         },
       ],
@@ -518,38 +518,6 @@ const portfolioDataEn: PortfolioLocaleData = {
   },
   projectGroups: [
     {
-      title: "Business Platforms & Reservation Systems",
-      description: "Production-grade business systems demonstrating how business requirements become structured workflows, concurrency controls, and role-based portals.",
-      projects: [
-        {
-          name: "tourist-accommodation-management-system",
-          role: "Accommodation & Booking Platform · Multi-Role System",
-          href: "https://github.com/VoVanTuTai/tourist-accommodation-management-system",
-          image: "/assets/project-tourist.png",
-          stack: ["BPMN 2.0", "PRD/SRS", "RBAC Matrix", "VNPay IPN", "MySQL", "Express.js"],
-          summary: "A multi-role booking platform resolving room overbooking race conditions, dynamic inventory calendars, tiered cancellations, and online payment workflows.",
-          highlights: [
-            "Business Challenge: Preventing room overbooking race conditions during peak traffic, isolating 3-tier user roles (Guest/Host/Admin), and handling network drops during online payment.",
-            "BA Analysis & Solution: Authored PRD/SRS with Given-When-Then criteria; modeled temporary holds (Held/Pending with TTL), strict RBAC permissions, tiered cancellation policies, and VNPay IPN webhook contracts.",
-            "Outcome & Deliverables: Interactive multi-role portal featuring real-time room availability, secure QR payments, automated digital invoices, and verified UAT test suite.",
-          ],
-        },
-        {
-          name: "php-online-store",
-          role: "Song Tai Shop · E-Commerce & Retail Order Management",
-          href: "https://github.com/VoVanTuTai/php-online-store",
-          image: "/assets/project-songtai.png",
-          stack: ["Process Flow", "User Stories", "RBAC Matrix", "MySQL 3NF", "PHP", "Bootstrap"],
-          summary: "An e-commerce retail system modeling product catalog hierarchies, customer checkout lifecycles, role-based order management, and administrative audit trails.",
-          highlights: [
-            "Business Challenge: Customer and admin workflows required strict role separation, secure checkout integrity, and auditable order state transitions (Pending/Paid/Shipped/Completed).",
-            "BA Analysis & Solution: Formulated functional requirements (SRS), modeled checkout user journeys, designed normalized relational schema, and defined administrative inventory controls.",
-            "Outcome & Deliverables: Complete Dockerized retail environment with seed catalogs, demo test accounts, and end-to-end purchasing workflow documentation.",
-          ],
-        },
-      ],
-    },
-    {
       title: "Logistics & Order Management Systems (OMS)",
       description: "Enterprise systems translating frontline operations into formal BPMN 2.0 state machines, scan checkpoints, and API contracts.",
       projects: [
@@ -579,6 +547,38 @@ const portfolioDataEn: PortfolioLocaleData = {
             "Business Challenge: High-concurrency ride dispatching, fare calculation states, and driver-passenger matching under unstable network connections.",
             "BA Analysis & Solution: Formulated ride status state machines, asynchronous event contracts, surge pricing business rules, and compensation/rollback flows.",
             "Outcome & Deliverables: Docker Compose multi-service architecture with contract verification checks, distributed event logs, and operational test scenarios.",
+          ],
+        },
+      ],
+    },
+    {
+      title: "Business Platforms & Reservation Systems",
+      description: "Production-grade business systems demonstrating how business requirements become structured workflows, concurrency controls, and role-based portals.",
+      projects: [
+        {
+          name: "tourist-accommodation-management-system",
+          role: "Accommodation & Booking Platform · Multi-Role System",
+          href: "https://github.com/VoVanTuTai/tourist-accommodation-management-system",
+          image: "/assets/project-tourist.png",
+          stack: ["BPMN 2.0", "PRD/SRS", "RBAC Matrix", "VNPay IPN", "MySQL", "Express.js"],
+          summary: "A multi-role booking platform resolving room overbooking race conditions, dynamic inventory calendars, tiered cancellations, and online payment workflows.",
+          highlights: [
+            "Business Challenge: Preventing room overbooking race conditions during peak traffic, isolating 3-tier user roles (Guest/Host/Admin), and handling network drops during online payment.",
+            "BA Analysis & Solution: Authored PRD/SRS with Given-When-Then criteria; modeled temporary holds (Held/Pending with TTL), strict RBAC permissions, tiered cancellation policies, and VNPay IPN webhook contracts.",
+            "Outcome & Deliverables: Interactive multi-role portal featuring real-time room availability, secure QR payments, automated digital invoices, and verified UAT test suite.",
+          ],
+        },
+        {
+          name: "php-online-store",
+          role: "Song Tai Shop · E-Commerce & Retail Order Management",
+          href: "https://github.com/VoVanTuTai/php-online-store",
+          image: "/assets/project-songtai.png",
+          stack: ["Process Flow", "User Stories", "RBAC Matrix", "MySQL 3NF", "PHP", "Bootstrap"],
+          summary: "An e-commerce retail system modeling product catalog hierarchies, customer checkout lifecycles, role-based order management, and administrative audit trails.",
+          highlights: [
+            "Business Challenge: Customer and admin workflows required strict role separation, secure checkout integrity, and auditable order state transitions (Pending/Paid/Shipped/Completed).",
+            "BA Analysis & Solution: Formulated functional requirements (SRS), modeled checkout user journeys, designed normalized relational schema, and defined administrative inventory controls.",
+            "Outcome & Deliverables: Complete Dockerized retail environment with seed catalogs, demo test accounts, and end-to-end purchasing workflow documentation.",
           ],
         },
       ],
@@ -696,6 +696,184 @@ const portfolioDataEn: PortfolioLocaleData = {
   },
 };
 
+const academicPillars = [
+  {
+    code: "SAD-01",
+    icon: Layers,
+    color: "blue",
+    title: {
+      vi: "Phân tích & Thiết kế Hệ thống (SAD)",
+      en: "Systems Analysis & Design (SAD)",
+    },
+    desc: {
+      vi: "Mô hình hóa nghiệp vụ chuyên sâu với chuẩn UML 2.5 (Use Case, Sequence, State Machine), BPMN 2.0 và phân rã chức năng WBS đáp ứng tiêu chuẩn phần mềm quốc tế.",
+      en: "Rigorous domain modeling using UML 2.5 (Use Case, Sequence, State Machine), BPMN 2.0, and WBS functional decomposition aligned with international standards.",
+    },
+    tags: ["UML 2.5", "BPMN 2.0", "PRD/SRS", "WBS & Scope", "Given-When-Then"],
+  },
+  {
+    code: "DB-02",
+    icon: Database,
+    color: "indigo",
+    title: {
+      vi: "Hệ Quản trị CSDL & Mô hình hóa Quan hệ",
+      en: "Database Systems & Relational Modeling",
+    },
+    desc: {
+      vi: "Thiết kế thực thể quan hệ ERD chuẩn hóa 3NF/BCNF, thiết lập toàn vẹn tham chiếu, tối ưu hóa Indexing B-Tree và kiểm soát giao dịch ACID chống race condition.",
+      en: "Relational modeling with 3NF/BCNF normalization, referential integrity, B-Tree index optimization, and ACID concurrency transaction isolation.",
+    },
+    tags: ["ERD 3NF/BCNF", "PostgreSQL", "MySQL", "Indexing & Query", "ACID Transactions"],
+  },
+  {
+    code: "ERP-03",
+    icon: Boxes,
+    color: "purple",
+    title: {
+      vi: "Hệ thống ERP Doanh nghiệp & OMS",
+      en: "Enterprise ERP & OMS Architectures",
+    },
+    desc: {
+      vi: "Kiến trúc luồng xử lý đơn hàng OMS, luồng nghiệp vụ Odoo ERP (Sales, Purchase, Inventory, Accounting) và tích hợp chuỗi cung ứng SCM nhiều phân hệ.",
+      en: "Order Management Systems (OMS), Odoo ERP workflows (Sales, Purchase, Inventory, Accounting), and multi-module SCM supply chain integration.",
+    },
+    tags: ["Odoo ERP", "OMS Lifecycle", "SCM Workflows", "Inventory Audits", "RBAC Matrix"],
+  },
+  {
+    code: "SE-04",
+    icon: ServerCog,
+    color: "emerald",
+    title: {
+      vi: "Kỹ nghệ Phần mềm & Kiểm thử Nghiệm thu",
+      en: "Software Engineering & UAT Governance",
+    },
+    desc: {
+      vi: "Chu trình phát triển phần mềm SDLC, phương pháp Agile Scrum, kiến trúc REST API & OpenAPI 3.0, cùng kế hoạch nghiệm thu UAT kiểm soát rủi ro phát hành.",
+      en: "End-to-end SDLC governance, Agile Scrum sprints, OpenAPI 3.0 contracts, and structured UAT acceptance test plans minimizing release risks.",
+    },
+    tags: ["Agile Scrum", "OpenAPI 3.0", "UAT Sign-off", "Postman", "CI/CD & Docker"],
+  },
+];
+
+const thesesMonographs = [
+  {
+    num: { vi: "CHUYÊN ĐỀ 01", en: "MONOGRAPH 01" },
+    time: { vi: "45 phút · Toàn diện", en: "45 min · Comprehensive" },
+    path: "/knowledge/business-analysis",
+    title: {
+      vi: "Phân tích Nghiệp vụ & Đặc tả Yêu cầu Hệ thống",
+      en: "Business Analysis & Systems Requirements Engineering",
+    },
+    desc: {
+      vi: "Khảo sát yêu cầu mơ hồ, lập tài liệu BRD/PRD/SRS, mô hình hóa quy trình chuẩn BPMN 2.0, viết User Stories (Given-When-Then) và kế hoạch kiểm thử UAT.",
+      en: "Elicitation techniques, BRD/PRD/SRS authoring, BPMN 2.0 process modeling, Given-When-Then User Stories, and rigorous UAT governance.",
+    },
+  },
+  {
+    num: { vi: "CHUYÊN ĐỀ 02", en: "MONOGRAPH 02" },
+    time: { vi: "40 phút · Lab tương tác", en: "40 min · Interactive Lab" },
+    path: "/knowledge/programming-languages",
+    title: {
+      vi: "Ngôn ngữ Lập trình & Kiến trúc Runtime Thực thi",
+      en: "Programming Languages & Execution Runtime Architectures",
+    },
+    desc: {
+      vi: "Bản chất source code, so sánh Trình biên dịch (AOT) vs Trình thông dịch (JIT), Quản lý bộ nhớ (GC/Borrow Checker), Concurrency Model và Lab phân tích trực quan.",
+      en: "Compilation (AOT) vs Interpretation (JIT), Memory Management, Garbage Collection vs Rust Ownership, Concurrency Event Loops, and interactive runtime lab.",
+    },
+  },
+  {
+    num: { vi: "CHUYÊN ĐỀ 03", en: "MONOGRAPH 03" },
+    time: { vi: "25 phút · Nền tảng", en: "25 min · Fundamentals" },
+    path: "/knowledge/database",
+    title: {
+      vi: "Hệ Quản trị Cơ sở Dữ liệu & Lưu trữ Thực thể",
+      en: "Database Fundamentals & Storage Engines",
+    },
+    desc: {
+      vi: "Phân loại RDBMS vs NoSQL, nguyên lý chỉ mục B-Tree / LSM-Tree, cơ chế đảm bảo tính ACID, cô lập giao dịch và lựa chọn công nghệ lưu trữ cho hệ thống lớn.",
+      en: "RDBMS vs NoSQL classification, B-Tree and LSM-Tree indexing, ACID transaction isolation levels, and storage engine selection for high-scale systems.",
+    },
+  },
+  {
+    num: { vi: "CHUYÊN ĐỀ 04", en: "MONOGRAPH 04" },
+    time: { vi: "35 phút · Thực hành", en: "35 min · Practical Modeling" },
+    path: "/knowledge/database/data-modeling",
+    title: {
+      vi: "Mô hình hóa Dữ liệu Quan hệ, ERD & Chuẩn hóa 3NF",
+      en: "Relational Data Modeling, ERD & Normalization (3NF)",
+    },
+    desc: {
+      vi: "Quy trình chuyển đổi bài toán nghiệp vụ thành thực thể, xác định khóa ngoại/khóa chính, sơ đồ quan hệ 1-N/N-N và kỹ thuật chuẩn hóa chống dị thường dữ liệu.",
+      en: "Translating business domain entities into relational schemas, primary/foreign keys, cardinality mapping (1:N, N:M), and 1NF-3NF anomaly elimination.",
+    },
+  },
+  {
+    num: { vi: "CHUYÊN ĐỀ 05", en: "MONOGRAPH 05" },
+    time: { vi: "30 phút · Hướng dẫn", en: "30 min · Guide & Lab" },
+    path: "/knowledge/backend-api",
+    title: {
+      vi: "Thiết kế Backend & Hợp đồng RESTful API Chuẩn mực",
+      en: "Backend Architecture & RESTful API Contracts",
+    },
+    desc: {
+      vi: "Vòng đời HTTP request-response, thiết kế OpenAPI 3.0, cơ chế Idempotency Key, xác thực phân quyền JWT/OAuth2 và xử lý lỗi chuẩn RFC 7807.",
+      en: "HTTP request lifecycle, OpenAPI 3.0 contract design, Idempotency Keys, JWT/OAuth2 RBAC security, and RFC 7807 standardized problem details.",
+    },
+  },
+];
+
+const archSteps = [
+  {
+    id: "ingestion",
+    title: "01. Ingestion",
+    tech: "NestJS · API",
+    name: "API Gateway & Ingestion",
+    metric: "OpenAPI 3.0 · Idempotency",
+    desc: {
+      vi: "Tiếp nhận và xác thực mã vận đơn, chống trùng lặp request quét mã đơn hàng bằng Idempotency Key và xác thực JWT RBAC.",
+      en: "Ingests and validates shipment scan events, preventing duplicate scan requests with Idempotency Keys and JWT RBAC validation.",
+    },
+    tags: ["NestJS", "OpenAPI 3.0", "Idempotency Key", "Rate Limiting"],
+  },
+  {
+    id: "workflow",
+    title: "02. Workflow",
+    tech: "Camunda BPMN",
+    name: "BPMN 2.0 State Machine",
+    metric: "100% Deterministic",
+    desc: {
+      vi: "Điều phối vòng đời bưu kiện 8 trạm quét bằng Camunda BPMN 2.0, kiểm soát chặt chẽ chuyển trạng thái đơn hàng và xử lý ngoại lệ SOP.",
+      en: "Orchestrates 8-stage parcel lifecycle with Camunda BPMN 2.0, strictly enforcing valid state transitions and SOP exceptions.",
+    },
+    tags: ["Camunda", "BPMN 2.0", "Event Dispatcher", "RabbitMQ"],
+  },
+  {
+    id: "storage",
+    title: "03. Database",
+    tech: "PostgreSQL 3NF",
+    name: "Relational Storage & ACID",
+    metric: "ACID Isolation · 3NF",
+    desc: {
+      vi: "Lưu trữ thực thể quan hệ chuẩn hóa 3NF, bảo đảm toàn vẹn tham chiếu, tối ưu hóa B-Tree Index và lưu vết kiểm toán audit log mọi lượt quét.",
+      en: "Stores normalized 3NF relational data with full referential integrity, B-Tree indexes, and immutable audit logs on every scan.",
+    },
+    tags: ["PostgreSQL", "ERD 3NF", "B-Tree Index", "Audit Trails"],
+  },
+  {
+    id: "tracking",
+    title: "04. Client",
+    tech: "Live Leaflet Web",
+    name: "Live Tracking & Timeline",
+    metric: "tracking.nexus-ex.site",
+    desc: {
+      vi: "Giao diện tra cứu bưu phẩm thời gian thực đang chạy thực tế tại tracking.nexus-ex.site, hiển thị dòng thời gian bưu kiện và bản đồ trạm trung chuyển.",
+      en: "Production shipment tracking client live at tracking.nexus-ex.site with waybill search, real-time parcel timeline, and transit hub map.",
+    },
+    tags: ["Live Production", "Leaflet Map", "Real-Time Timeline", "Vercel + VPS"],
+  },
+];
+
 type NavigateHandler = (event: React.MouseEvent<HTMLAnchorElement>, path: string) => void;
 
 function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
@@ -707,6 +885,7 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
     return "vi";
   });
   const [activeProjectIndex, setActiveProjectIndex] = useState(0);
+  const [activeArchStep, setActiveArchStep] = useState(0);
   const [isCvMenuOpen, setIsCvMenuOpen] = useState(false);
   const cvMenuRef = React.useRef<HTMLDivElement>(null);
 
@@ -759,7 +938,7 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
           </div>
           <div className="brand-text">
             <span className="brand-name">Vo Van Tu Tai</span>
-            <span className="brand-tag">IT Business Analyst</span>
+            <span className="brand-tag">B.Eng in IS · IT BA & Software Engineer</span>
           </div>
         </a>
 
@@ -770,15 +949,31 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
               <Sparkles size={13} aria-hidden="true" />
               <span>{t.nav.pmFramework}</span>
             </a>
-            <a href="#skills">{t.nav.skills}</a>
-            <a href="/knowledge/business-analysis" onClick={(event) => navigate(event, "/knowledge/business-analysis")}>
-              {t.nav.baKnowledge}
+            <a href="#academic-foundation">
+              {lang === "vi" ? "Nền tảng Kỹ sư" : "Foundation"}
             </a>
-            <a href="/knowledge" onClick={(event) => navigate(event, "/knowledge")}>
-              {t.nav.knowledge}
+            <a href="#academic-theses">
+              {lang === "vi" ? "Chuyên đề" : "Theses"}
+            </a>
+            <a href="#skills">{t.nav.skills}</a>
+            <a href="#experience">
+              {lang === "vi" ? "Kinh nghiệm" : "Experience"}
             </a>
             <a href="#contact">{t.nav.contact}</a>
           </nav>
+
+          {/* TOPBAR LIVE OMS DEMO CTA */}
+          <a
+            href="https://tracking.nexus-ex.site/"
+            target="_blank"
+            rel="noreferrer"
+            className="topbar-live-cta"
+            title="Open Live Tracking Demo: Nexus Express"
+          >
+            <span className="live-status-dot" />
+            <span>Live Demo OMS</span>
+            <ExternalLink size={12} />
+          </a>
 
           {/* LUXURY RECRUITER CV BUTTON & DROPDOWN */}
           <div className="topbar-cv-menu-container" ref={cvMenuRef}>
@@ -920,15 +1115,16 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
         </div>
       </header>
 
-      <section className="hero" id="top">
+      {/* 1. EXECUTIVE HERO SECTION */}
+      <section className="hero executive-hero" id="top">
         <div className="hero-copy">
-          {/* Personal Introduction & Availability Pill */}
-          <div className="personal-status-pill">
+          {/* Academic Status & Availability Pill */}
+          <div className="academic-status-pill">
             <span className="badge-pulse-dot" />
             <span className="badge-text">
               {lang === "vi"
-                ? "Kỹ sư Hệ thống Thông tin (IUH) · Sẵn sàng làm việc tại TP.HCM"
-                : "B.Eng in Information Systems (IUH) · Available Full-time in HCM City"}
+                ? "KỸ SƯ HỆ THỐNG THÔNG TIN · IUH (GPA 3.26/4.0 GIỎI) · SẴN SÀNG NHẬN VIỆC"
+                : "B.ENG IN INFORMATION SYSTEMS · IUH (GPA 3.26/4.0 DISTINCTION) · AVAILABLE NOW"}
             </span>
           </div>
 
@@ -941,24 +1137,10 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
               <div className="profile-name-row">
                 <p className="profile-name">Vo Van Tu Tai</p>
                 <span className="profile-role-tag highlight">IT Business Analyst</span>
-                <span className="profile-role-tag">Product Owner</span>
-                <span className="profile-role-tag secondary">Software Project Manager</span>
+                <span className="profile-role-tag">Information Systems Architect</span>
+                <span className="profile-role-tag secondary">Software Engineer</span>
               </div>
               <p className="profile-meta">{t.hero.profileMeta}</p>
-              <div className="profile-chips-row">
-                <span className="profile-chip">
-                  <span className="chip-dot" />
-                  IUH · GPA 3.26/4.0
-                </span>
-                <span className="profile-chip">
-                  <span className="chip-dot" />
-                  TOEIC 650+
-                </span>
-                <span className="profile-chip highlight">
-                  <span className="chip-dot online" />
-                  {lang === "vi" ? "Sẵn sàng nhận việc Full-time" : "Available Full-time"}
-                </span>
-              </div>
             </div>
           </div>
 
@@ -966,151 +1148,159 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
           <h1 className="hero-title">{t.hero.heading}</h1>
           <p className="hero-lede">{t.hero.lede}</p>
 
-          {/* FRIENDLY DOCUMENT & CV SHARING CARD */}
-          <div className="cv-sharing-card" aria-label="Tài liệu và Hồ sơ CV">
-            <div className="sharing-card-head">
-              <div className="sharing-title-group">
-                <div className="sharing-icon">
-                  <FileText size={18} aria-hidden="true" />
-                </div>
-                <div>
-                  <h3>{lang === "vi" ? "Hồ sơ & CV của mình" : "My Resumes & Documents"}</h3>
-                  <p>{lang === "vi" ? "Bạn có thể tải nhanh bản PDF để lưu trữ hoặc xem trực tiếp trên web nhé:" : "Download PDF copies or explore interactive web versions:"}</p>
-                </div>
-              </div>
-              <div className="sharing-avail-tag">
-                <span className="pulse-green" />
-                <span>{lang === "vi" ? "Sẵn sàng nhận việc" : "Available for hire"}</span>
-              </div>
-            </div>
+          {/* Primary Action Buttons */}
+          <div className="hero-action-buttons">
+            <a
+              href="https://tracking.nexus-ex.site/"
+              target="_blank"
+              rel="noreferrer"
+              className="hero-btn-primary"
+              title="Open Live Tracking Demo: Nexus Express"
+            >
+              <ExternalLink size={15} />
+              <span>{lang === "vi" ? "Xem Live Demo: Nexus Express OMS ↗" : "Live Demo: Nexus Express OMS ↗"}</span>
+            </a>
+            <a
+              href={lang === "vi" ? "/VoVanTuTai_Business_Analyst_CV_Tieng_Viet.pdf" : "/VoVanTuTai_Business_Analyst_CV.pdf"}
+              download
+              className="hero-btn-secondary"
+            >
+              <Download size={15} />
+              <span>{lang === "vi" ? "Tải CV Kỹ sư & BA (PDF)" : "Download ATS CV (PDF)"}</span>
+            </a>
+            <a
+              href="#academic-foundation"
+              className="hero-btn-outline"
+            >
+              <Layers size={15} />
+              <span>{lang === "vi" ? "Khám phá Nền tảng Kỹ sư ↓" : "Explore Foundation ↓"}</span>
+            </a>
+          </div>
 
-            <div className="sharing-tracks-grid">
-
-              {/* Track 1: CV BA / PO Tiếng Việt */}
-              <div className="cv-track-item">
-                <div className="cv-track-header">
-                  <div className="cv-track-icon vi">
-                    <FileText size={18} aria-hidden="true" />
-                  </div>
-                  <div className="cv-track-text">
-                    <div className="cv-track-title-row">
-                      <strong>{lang === "vi" ? "CV BA / PO (Tiếng Việt)" : "BA / PO Resume (Vietnamese)"}</strong>
-                      <span className="cv-track-badge vi">Tiếng Việt</span>
-                    </div>
-                    <p>{lang === "vi" ? "Bản chi tiết kinh nghiệm dự án, quy trình BPMN 2.0 & tài liệu SRS" : "Detailed project cases, BPMN 2.0 workflows & SRS documentation"}</p>
-                  </div>
-                </div>
-                <div className="cv-track-buttons">
-                  <a
-                    className="cv-btn-download"
-                    href="/VoVanTuTai_Business_Analyst_CV_Tieng_Viet.pdf"
-                    download
-                  >
-                    <Download size={15} aria-hidden="true" />
-                    <span>{lang === "vi" ? "Tải CV (PDF)" : "Download PDF"}</span>
-                  </a>
-                  <a
-                    className="cv-btn-view"
-                    href="/po-ba-cv-vi.html"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <ExternalLink size={15} aria-hidden="true" />
-                    <span>{lang === "vi" ? "Xem bản Web" : "View Web"}</span>
-                  </a>
-                </div>
-              </div>
-
-              {/* Track 2: CV BA / PO Tiếng Anh */}
-              <div className="cv-track-item">
-                <div className="cv-track-header">
-                  <div className="cv-track-icon en">
-                    <FileText size={18} aria-hidden="true" />
-                  </div>
-                  <div className="cv-track-text">
-                    <div className="cv-track-title-row">
-                      <strong>{lang === "vi" ? "CV BA / PO (Tiếng Anh)" : "BA / PO Resume (English)"}</strong>
-                      <span className="cv-track-badge en">English</span>
-                    </div>
-                    <p>{lang === "vi" ? "Phiên bản tiếng Anh chuẩn mực cho team Outsource & Quốc tế" : "Standardized English version for MNCs & international teams"}</p>
-                  </div>
-                </div>
-                <div className="cv-track-buttons">
-                  <a
-                    className="cv-btn-download"
-                    href="/VoVanTuTai_Business_Analyst_CV.pdf"
-                    download
-                  >
-                    <Download size={15} aria-hidden="true" />
-                    <span>{lang === "vi" ? "Tải Resume (PDF)" : "Download PDF"}</span>
-                  </a>
-                  <a
-                    className="cv-btn-view"
-                    href="/cv.html"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <ExternalLink size={15} aria-hidden="true" />
-                    <span>{lang === "vi" ? "Xem bản Web" : "View Web"}</span>
-                  </a>
-                </div>
+          {/* Hero Proof Chips */}
+          <div className="hero-proof-chips-row">
+            <div className="hero-proof-chip highlight">
+              <CheckCircle2 size={18} />
+              <div>
+                <strong>IUH · GPA 3.26 / 4.0</strong>
+                <span>{lang === "vi" ? "Bằng Giỏi / Distinction" : "Distinction Degree"}</span>
               </div>
             </div>
-
-            <div className="sharing-card-foot">
-              <span className="foot-label">
-                {lang === "vi" ? "Trao đổi & liên hệ nhanh:" : "Direct contact:"}
-              </span>
-              <a href="tel:+84869500573" className="foot-link">
-                <Phone size={13} aria-hidden="true" />
-                +84 869 500 573
-              </a>
-              <span className="foot-sep">·</span>
-              <a href="mailto:tutaivovan@gmail.com" className="foot-link">
-                <Mail size={13} aria-hidden="true" />
-                tutaivovan@gmail.com
-              </a>
-              <span className="foot-sep">·</span>
-              <span className="foot-location">
-                {lang === "vi" ? "TP. Hồ Chí Minh" : "Ho Chi Minh City"}
-              </span>
+            <div className="hero-proof-chip">
+              <BriefcaseBusiness size={18} />
+              <div>
+                <strong>HomeNest Software</strong>
+                <span>{lang === "vi" ? "6+ tháng Business Analyst" : "6+ mos IT BA Experience"}</span>
+              </div>
+            </div>
+            <div className="hero-proof-chip">
+              <Boxes size={18} />
+              <div>
+                <strong>J&amp;T Express</strong>
+                <span>{lang === "vi" ? "Điều phối Hiện trường" : "Frontline Logistics Ops"}</span>
+              </div>
+            </div>
+            <div className="hero-proof-chip highlight-green">
+              <Sparkles size={18} />
+              <div>
+                <strong>{lang === "vi" ? "Sẵn sàng nhận việc" : "Available Full-Time"}</strong>
+                <span>{lang === "vi" ? "Full-time tại TP.HCM" : "Immediate in HCM City"}</span>
+              </div>
             </div>
           </div>
         </div>
 
-        <aside className="hero-visual" aria-label="Portfolio proof points">
-          <div className="visual-frame competency-overview">
-            <div className="browser-bar" aria-hidden="true">
+        <aside className="hero-visual" aria-label="System architecture & competency preview">
+          <div className="architecture-interactive-frame">
+            <div className="browser-bar">
               <span />
               <span />
               <span />
-              <strong>{t.preview.browserLabel}</strong>
+              <div className="browser-url-pill">
+                <span className="url-protocol">https://</span>
+                <span className="url-domain">tracking.nexus-ex.site</span>
+                <span className="url-path">/architecture</span>
+              </div>
+              <div className="dossier-verified-badge">
+                <span className="live-status-dot" />
+                <span>ONLINE · 99.9%</span>
+              </div>
             </div>
-            <div className="web-preview" aria-label="Business Analyst portfolio focus preview">
-              <div className="web-preview-main">
-                <p className="panel-label">{t.preview.panelLabel}</p>
-                <h2>{t.preview.panelTitle}</h2>
-                <div className="preview-card-grid">
-                  {t.preview.cards.map((c) => (
-                    <div className="preview-card" key={c.top}>
-                      <span>{c.top}</span>
-                      <strong>{c.strong}</strong>
-                      <p>{c.bottom}</p>
-                    </div>
-                  ))}
+
+            <div className="arch-interactive-body">
+              {/* Simulator Header */}
+              <div className="arch-hero-banner">
+                <div className="arch-banner-left">
+                  <span className="arch-sub-tag">ENTERPRISE SYSTEM ARCHITECTURE</span>
+                  <h3>Nexus Express — Logistics OMS &amp; Tracking</h3>
+                  <p>{lang === "vi" ? "Mô hình xử lý trạng thái đơn hàng & luồng dữ liệu thời gian thực" : "Stateful parcel workflow & real-time telemetry model"}</p>
+                </div>
+                <div className="arch-live-chip">
+                  <span className="pulse-dot" />
+                  <span>SLA &lt; 180ms</span>
                 </div>
               </div>
-              <div className="web-preview-side">
-                <span>{t.preview.targetLabel}</span>
-                <p>{t.preview.targetValue}</p>
+
+              {/* 4 Clickable Interactive Stages */}
+              <div className="arch-pipeline-interactive">
+                <div className="arch-nodes-row">
+                  {archSteps.map((step, idx) => (
+                    <button
+                      key={step.id}
+                      type="button"
+                      className={`arch-node-btn${activeArchStep === idx ? " is-active" : ""}`}
+                      onClick={() => setActiveArchStep(idx)}
+                    >
+                      <span className="node-step-badge">{String(idx + 1).padStart(2, "0")}</span>
+                      <strong className="node-title">{step.title}</strong>
+                      <span className="node-sub">{step.tech}</span>
+                    </button>
+                  ))}
+                </div>
+
+                {/* Inspected Step Active Card */}
+                <div className="arch-inspect-card">
+                  <div className="inspect-head">
+                    <div className="inspect-title-group">
+                      <span className="inspect-pill">GIAI ĐOẠN {activeArchStep + 1} / 4</span>
+                      <h4>{archSteps[activeArchStep].name}</h4>
+                    </div>
+                    <span className="inspect-status-badge">{archSteps[activeArchStep].metric}</span>
+                  </div>
+                  <p className="inspect-desc">{archSteps[activeArchStep].desc[lang]}</p>
+                  <div className="inspect-tags">
+                    {archSteps[activeArchStep].tags.map((tg) => (
+                      <span key={tg}>{tg}</span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Action Buttons inside frame */}
+              <div className="arch-footer-actions">
+                <a
+                  href="https://tracking.nexus-ex.site/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="arch-btn-live"
+                  title="Open Nexus Express Live Tracking"
+                >
+                  <ExternalLink size={14} />
+                  <span>{lang === "vi" ? "Xem Live Tracking Demo (tracking.nexus-ex.site) ↗" : "Open Live Tracking Demo ↗"}</span>
+                </a>
+                <a
+                  href="https://github.com/VoVanTuTai/logistics-management-system"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="arch-btn-code"
+                >
+                  <Github size={14} />
+                  <span>Mã nguồn</span>
+                </a>
               </div>
             </div>
-            <div className="visual-footer">
-              {t.preview.tags.map((tag) => (
-                <span key={tag}>{tag}</span>
-              ))}
-            </div>
           </div>
+
           <div className="hero-proof-grid">
             {t.proofSignals.map((item) => (
               <div className="proof-tile" key={item.label}>
@@ -1119,6 +1309,7 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
               </div>
             ))}
           </div>
+
           <div className="panel-links">
             <a href="https://github.com/VoVanTuTai" target="_blank" rel="noreferrer">
               <Github size={18} aria-hidden="true" />
@@ -1128,10 +1319,15 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
               <Linkedin size={18} aria-hidden="true" />
               LinkedIn
             </a>
+            <a href="mailto:tutaivovan@gmail.com">
+              <Mail size={18} aria-hidden="true" />
+              Email
+            </a>
           </div>
         </aside>
       </section>
 
+      {/* 2. STATS BAND */}
       <section className="stats-band" aria-label="Profile statistics">
         {t.stats.map((stat) => (
           <div className="stat-item" key={stat.label}>
@@ -1141,6 +1337,7 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
         ))}
       </section>
 
+      {/* 3. ABOUT SECTION */}
       <section className="section-grid about-section">
         <div>
           <p className="section-label">{t.about.label}</p>
@@ -1152,11 +1349,77 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
         </div>
       </section>
 
+      {/* 4. ACADEMIC FOUNDATION (4 PILLARS) */}
+      <section className="academic-foundation-section" id="academic-foundation">
+        <div className="section-heading-centered">
+          <span className="academic-badge-pill">
+            <Sparkles size={13} />
+            {lang === "vi" ? "HỌC THUẬT & NỀN TẢNG KỸ SƯ" : "ACADEMIC & ENGINEERING FOUNDATION"}
+          </span>
+          <h2>{lang === "vi" ? "4 Trụ Cột Nền Tảng Kỹ Sư Hệ Thống Thông Tin" : "4 Pillars of Information Systems Engineering"}</h2>
+          <p>
+            {lang === "vi"
+              ? "Được đào tạo chính quy tại Đại học Công nghiệp TP.HCM (IUH - GPA 3.26/4.0 Giỏi), kết hợp phương pháp mô hình hóa nghiệp vụ chuẩn quốc tế, kiến trúc dữ liệu quan hệ và kỹ nghệ phần mềm thực nghiệm."
+              : "Formally trained in Information Systems Engineering at IUH (GPA 3.26/4.0 Distinction), mastering international domain modeling, relational data architecture, and software engineering discipline."}
+          </p>
+        </div>
+
+        <div className="academic-pillars-grid">
+          {academicPillars.map((pillar) => {
+            const Icon = pillar.icon;
+            return (
+              <article className="academic-pillar-card" key={pillar.code}>
+                <div className="pillar-header">
+                  <div className={`pillar-icon-wrap ${pillar.color}`}>
+                    <Icon size={22} />
+                  </div>
+                  <span className="pillar-code">{pillar.code}</span>
+                </div>
+                <h3>{pillar.title[lang]}</h3>
+                <p>{pillar.desc[lang]}</p>
+                <div className="pillar-tags">
+                  {pillar.tags.map((tag) => (
+                    <span key={tag}>{tag}</span>
+                  ))}
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* 5. 3D ANIMATED STACKING PROJECT DECK */}
       <section className="projects-section compact-projects" id="projects">
         <div className="section-heading project-heading">
           <p className="section-label">{t.projectsSection.label}</p>
           <h2>{t.projectsSection.heading}</h2>
           <p>{t.projectsSection.subtitle}</p>
+        </div>
+
+        {/* Quick Project Switcher Tabs */}
+        <div className="project-deck-switcher" role="tablist" aria-label="Project switcher">
+          {projects.map((project, idx) => (
+            <button
+              key={project.name}
+              type="button"
+              role="tab"
+              aria-selected={idx === activeProjectIndex}
+              className={`project-deck-tab${idx === activeProjectIndex ? " is-active" : ""}`}
+              onClick={() => setActiveProjectIndex(idx)}
+            >
+              <span className="tab-num">{String(idx + 1).padStart(2, "0")}</span>
+              <span className="tab-name">
+                {project.name === "logistics-management-system"
+                  ? "Nexus Express (Live OMS)"
+                  : project.name === "cab-booking-system"
+                  ? "Cab Booking Dispatch"
+                  : project.name === "tourist-accommodation-management-system"
+                  ? "Tourist Accommodation"
+                  : "Song Tai Shop"}
+              </span>
+              {project.liveUrl && <span className="tab-live-badge">Live Demo</span>}
+            </button>
+          ))}
         </div>
 
         <div className="project-deck" aria-label="Selected project deck">
@@ -1256,9 +1519,48 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
         </div>
       </section>
 
-      {/* DEDICATED VISUAL PROJECT MANAGEMENT FRAMEWORK & BLUEPRINT */}
+      {/* 6. DEDICATED VISUAL PROJECT MANAGEMENT FRAMEWORK & BLUEPRINT */}
       <ProjectManagementSection lang={lang} />
 
+      {/* 7. ACADEMIC RESEARCH THESES & MONOGRAPHS */}
+      <section className="academic-theses-section" id="academic-theses">
+        <div className="section-heading-centered">
+          <span className="academic-badge-pill">
+            <BookOpen size={13} />
+            {lang === "vi" ? "CHUYÊN ĐỀ HỌC THUẬT & SỔ TAY KỸ SƯ" : "ACADEMIC THESES & TECHNICAL MONOGRAPHS"}
+          </span>
+          <h2>{lang === "vi" ? "Chuyên Đề Nghiên Cứu & Kiến Thức Chuyên Sâu" : "Specialized Engineering Monographs"}</h2>
+          <p>
+            {lang === "vi"
+              ? "Tổng hợp các chuyên đề kiến thức cốt lõi được xây dựng bài bản, kết hợp lý thuyết học thuật kỹ sư Hệ thống Thông tin với kinh nghiệm giải quyết vấn đề kỹ thuật trong thực tế."
+              : "A curated collection of deep-dive monographs synthesizing core computer science & information systems theory with hands-on production engineering practice."}
+          </p>
+        </div>
+
+        <div className="theses-showcase-grid">
+          {thesesMonographs.map((thesis) => (
+            <a
+              className="thesis-showcase-card"
+              key={thesis.path}
+              href={thesis.path}
+              onClick={(event) => navigate(event, thesis.path)}
+            >
+              <div className="thesis-badge-row">
+                <span className="thesis-num">{thesis.num[lang]}</span>
+                <span className="thesis-time">{thesis.time[lang]}</span>
+              </div>
+              <h3>{thesis.title[lang]}</h3>
+              <p>{thesis.desc[lang]}</p>
+              <div className="thesis-card-footer">
+                <span>{lang === "vi" ? "Khám phá chuyên đề" : "Read Monograph"}</span>
+                <ArrowUpRight size={15} />
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      {/* 8. COMPETENCY SKILLS MATRIX */}
       <section className="section-grid" id="skills">
         <div>
           <p className="section-label">{t.skillsSection.label}</p>
@@ -1300,7 +1602,8 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
         </div>
       </section>
 
-      <section className="experience-section">
+      {/* 9. PROFESSIONAL EXPERIENCE */}
+      <section className="experience-section" id="experience">
         <div className="experience-card">
           <div className="experience-icon">
             <BriefcaseBusiness size={22} aria-hidden="true" />
@@ -1326,6 +1629,7 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
         </div>
       </section>
 
+      {/* 10. CONTACT & ATS CV RECRUITER SUITE */}
       <section className="contact-section" id="contact">
         <div>
           <p className="section-label">{t.contactSection.label}</p>
@@ -1363,7 +1667,6 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
             </div>
 
             <div className="footer-cv-grid">
-
               {/* BA / PO Tiếng Việt */}
               <div className="footer-cv-item">
                 <div className="footer-cv-meta">
@@ -1410,7 +1713,14 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
       </section>
 
       <footer>
-        <span>Vo Van Tu Tai</span>
+        <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+          <strong>Vo Van Tu Tai — Bachelor of Engineering in Information Systems</strong>
+          <span style={{ fontSize: "12px", color: "var(--muted)" }}>
+            {lang === "vi"
+              ? "Đại học Công nghiệp TP.HCM (IUH) · GPA 3.26/4.0 (Giỏi) · Sẵn sàng làm việc Full-time"
+              : "Industrial University of Ho Chi Minh City · GPA 3.26/4.0 (Distinction) · Available Immediately"}
+          </span>
+        </div>
         <span>
           <Sparkles size={15} aria-hidden="true" />
           {t.footer.caption}
@@ -2015,7 +2325,10 @@ func CalculateFee(weightGrams int, isExpress bool) (ShippingQuote, error) {
             onClick={(event) => navigate(event, "/knowledge")}
             aria-label="Về Knowledge Hub"
           >
-            <img className="brand-avatar" src="/assets/avatar.png" alt="Võ Văn Tú Tài" />
+            <div className="brand-avatar-wrap">
+              <img className="brand-avatar" src="/assets/avatar.png" alt="Võ Văn Tú Tài" />
+              <span className="brand-dot-pulse" aria-hidden="true" />
+            </div>
             <div className="brand-info">
               <span className="brand-name">Võ Văn Tú Tài</span>
               <span className="brand-role-tag">Software Engineer · B.Eng in IS IUH</span>
@@ -4918,7 +5231,10 @@ function BusinessAnalysisLessonPage({ navigate }: { navigate: NavigateHandler })
             onClick={(event) => navigate(event, "/")}
             aria-label="Về trang chủ Portfolio"
           >
-            <img className="brand-avatar" src="/assets/avatar.png" alt="Võ Văn Tú Tài" />
+            <div className="brand-avatar-wrap">
+              <img className="brand-avatar" src="/assets/avatar.png" alt="Võ Văn Tú Tài" />
+              <span className="brand-dot-pulse" aria-hidden="true" />
+            </div>
             <div className="brand-info">
               <span className="brand-name">Võ Văn Tú Tài</span>
               <span className="brand-role-tag">IT Business Analyst &amp; Associate PO</span>
