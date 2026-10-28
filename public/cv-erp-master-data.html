@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Võ Văn Tú Tài — CV Chuyên Viên Vận Hành Hệ Thống ERP &amp; Quản Trị Master Data</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <!-- Inter Font Support (Chuẩn quốc tế, sắc nét, tối ưu ATS) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #e4e7eb;
+            color: #1a1a1a;
+            line-height: 1.35;
+            font-size: 13px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        a, a:visited, a:hover, a:active {
+            color: #111 !important;
+            text-decoration: none !important;
+        }
+
+        /* ── 2-PAGE A4 CONTAINER ── */
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            height: 297mm;
+            max-height: 297mm;
+            background: #fff;
+            margin: 20px auto;
+            padding: 6.5mm 13mm 5mm 13mm;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            overflow: hidden;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        /* ── HEADER (XẾP TẦNG TOÀN KHỔ CĂN TRÁI THẲNG HÀNG — 100% KHÔNG CHÈN ĐÈ) ── */
+        .header {
+            text-align: left;
+            margin-bottom: 5px;
+            padding-bottom: 4px;
+            border-bottom: 1.5px solid #0f2744;
+        }
+
+        .name {
+            font-size: 21pt;
+            font-weight: 700;
+            letter-spacing: -0.4px;
+            color: #0f172a;
+            line-height: 1.1;
+            margin-bottom: 2.5px;
+        }
+
+        .subtitle {
+            font-size: 10.2pt;
+            font-weight: 700;
+            color: #0f2744;
+            margin-bottom: 2px;
+            letter-spacing: 0.1px;
+            line-height: 1.25;
+        }
+
+        .sub-tagline {
+            font-size: 8.6pt;
+            font-weight: 500;
+            color: #475569;
+            margin-bottom: 3.5px;
+            line-height: 1.25;
+        }
+
+        .header-contacts {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 4px 9px;
+            font-size: 8.2pt;
+            color: #334155;
+            line-height: 1.2;
+        }
+
+        .contact-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 3.5px;
+        }
+
+        .contact-item a,
+        .contact-item span {
+            color: #1e293b !important;
+            text-decoration: none !important;
+        }
+
+        .contact-item a:hover {
+            color: #0949b8 !important;
+            text-decoration: underline !important;
+        }
+
+        .contact-icon {
+            width: 10.5px;
+            height: 10.5px;
+            fill: #475569;
+            flex-shrink: 0;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .contact-sep {
+            color: #94a3b8;
+            font-size: 8pt;
+            user-select: none;
+        }
+
+        /* ── SECTIONS ── */
+        .section {
+            margin-top: 4px;
+            margin-bottom: 2px;
+        }
+
+        .section-title {
+            font-size: 9.8pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #0f2744;
+            border-bottom: 1.5px solid #0f2744;
+            padding-bottom: 1.5px;
+            margin-bottom: 3.5px;
+        }
+
+        /* ── SUMMARY ── */
+        .summary-text {
+            font-size: 9.0pt;
+            line-height: 1.32;
+            color: #262626;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        /* ── ENTRIES ── */
+        .entry {
+            margin-bottom: 4px;
+        }
+
+        .entry:last-child {
+            margin-bottom: 0;
+        }
+
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-size: 9.5pt;
+            color: #111;
+            gap: 8px;
+        }
+
+        .entry-title {
+            font-weight: 700;
+            color: #111;
+            flex: 1;
+        }
+
+        .entry-title a {
+            font-weight: 700;
+            color: #111 !important;
+            text-decoration: none !important;
+        }
+
+        .project-link {
+            font-size: 8.3pt !important;
+            font-weight: 600 !important;
+            color: #0949b8 !important;
+            text-decoration: underline !important;
+            margin-left: 5px;
+            white-space: nowrap;
+        }
+
+        .entry-location {
+            font-weight: 500;
+            color: #444;
+            font-size: 8.8pt;
+            white-space: nowrap;
+            text-align: right;
+            flex-shrink: 0;
+        }
+
+        .entry-sub {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-size: 8.9pt;
+            color: #333;
+            margin-bottom: 2px;
+        }
+
+        .entry-role {
+            font-weight: 600;
+            color: #1a365d;
+        }
+
+        .entry-tech {
+            font-style: italic;
+            font-size: 8.6pt;
+            color: #444;
+        }
+
+        .entry-date {
+            font-style: italic;
+            font-size: 8.8pt;
+            color: #444;
+            white-space: nowrap;
+        }
+
+        /* Sub-project header */
+        .sub-project-header {
+            font-size: 9.1pt;
+            font-weight: 700;
+            color: #2b3648;
+            margin-top: 3px;
+            margin-bottom: 1.5px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .sub-project-header::before {
+            content: "▸";
+            color: #0949b8;
+            font-weight: bold;
+        }
+
+        /* ── BULLETS ── */
+        .bullet-list {
+            list-style-type: disc;
+            padding-left: 14px;
+            margin: 0;
+        }
+
+        .bullet-list li {
+            font-size: 8.95pt;
+            line-height: 1.28;
+            color: #262626;
+            margin-bottom: 1.8px;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        .bullet-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .bullet-list b {
+            font-weight: 600;
+            color: #111;
+        }
+
+        /* ── SKILLS TABLE (LISTING FORMAT) ── */
+        .skills-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .skills-list li {
+            font-size: 8.9pt;
+            line-height: 1.29;
+            color: #262626;
+            margin-bottom: 2.2px;
+            text-align: justify;
+        }
+
+        .skills-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .skills-list b {
+            font-weight: 600;
+            color: #0f2744;
+        }
+
+        /* ── PAGE NUMBER ── */
+        .page-number {
+            position: absolute;
+            bottom: 4mm;
+            right: 14mm;
+            font-size: 8pt;
+            color: #888;
+            font-weight: 500;
+        }
+
+        /* ── ACTION BAR ── */
+        .action-bar {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 10px 18px;
+            border-radius: 30px;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            z-index: 1000;
+        }
+
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #0f2744;
+            color: #fff !important;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .action-btn:hover {
+            background: #1a4275;
+            transform: translateY(-1px);
+        }
+
+        .action-btn.secondary {
+            background: #fff;
+            color: #111 !important;
+            border: 1px solid #ccc;
+        }
+
+        .action-btn.secondary:hover {
+            background: #f0f0f0;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .page {
+                margin: 0;
+                padding: 6.5mm 13mm 5mm 13mm;
+                box-shadow: none;
+                width: 210mm;
+                height: 297mm;
+                min-height: 297mm;
+                max-height: 297mm;
+                page-break-after: always;
+                break-after: page;
+            }
+
+            .page:last-child {
+                page-break-after: avoid;
+                break-after: avoid;
+            }
+
+            @page {
+                size: A4 portrait;
+                margin: 0;
+            }
+
+            .action-bar {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ════════════════════ TRANG 1 ════════════════════ -->
+    <div class="page">
+        <!-- HEADER (XẾP TẦNG TOÀN KHỔ CĂN TRÁI THẲNG HÀNG — 100% KHÔNG CHÈN ĐÈ) -->
+        <header class="header">
+            <h1 class="name">VÕ VĂN TÚ TÀI</h1>
+            <div class="subtitle">Chuyên Viên Vận Hành Hệ Thống ERP &amp; Quản Trị Master Data</div>
+            <div class="sub-tagline">Kiểm Soát Nội Bộ (SoD) · Phân Tích &amp; Đối Soát SQL · Cầu Nối Nghiệp Vụ &amp; IT</div>
+            <div class="header-contacts">
+                <span class="contact-item">
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.25 1.01l-2.2 2.2z" /></svg>
+                    (+84) 869 500 573
+                </span>
+                <span class="contact-sep">|</span>
+                <span class="contact-item">
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" /></svg>
+                    <a href="mailto:tutaivovan@gmail.com">tutaivovan@gmail.com</a>
+                </span>
+                <span class="contact-sep">|</span>
+                <span class="contact-item">
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.2a1.66 1.66 0 0 0-1.66 1.66c0 .92.74 1.66 1.66 1.66.92 0 1.66-.74 1.66-1.66 0-.92-.74-1.66-1.66-1.66z" /></svg>
+                    <a href="https://linkedin.com/in/vovantutai" target="_blank">linkedin.com/in/vovantutai</a>
+                </span>
+                <span class="contact-sep">|</span>
+                <span class="contact-item">
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" /></svg>
+                    <a href="https://vovantutai-portfolio.vercel.app" target="_blank">vovantutai-portfolio.vercel.app (Portfolio)</a>
+                </span>
+            </div>
+        </header>
+
+        <!-- TÓM TẮT CHUYÊN MÔN -->
+        <section class="section">
+            <div class="section-title">Tóm Tắt Năng Lực Chuyên Môn</div>
+            <p class="summary-text">
+                Kỹ sư Hệ thống Thông tin (IUH, GPA 3.26/4.0 · Hoàn thành toàn bộ chương trình · Sẵn sàng làm việc full-time ngay) với nền tảng đào tạo chuyên sâu về <b>Quản trị CSDL &amp; HTTTQL, Hệ thống ERP (Odoo: Sales, Purchase, Inventory, Accounting)</b> kết hợp kinh nghiệm thực chiến trong vai trò <b>Business Analyst · Vận hành Hệ thống &amp; Đối soát Dữ liệu Master Data</b>. Thành thạo phân tích cấu trúc dữ liệu (Data Structure), thiết kế mô hình dữ liệu quan hệ (ERD 3NF), viết truy vấn <b>SQL nâng cao để làm sạch, phát hiện trùng lặp và đối soát dữ liệu</b> trước/sau Go-Live. Am hiểu nguyên tắc kiểm soát nội bộ và phân tách trách nhiệm (<b>SoD - Segregation of Duties</b>) qua ma trận phân quyền người dùng (RBAC). Dày dạn kinh nghiệm phối hợp giữa Khách hàng/Vận hành và đội ngũ IT, dẫn dắt kiểm thử UAT và biên soạn tài liệu SOP đào tạo người dùng cuối.
+            </p>
+        </section>
+
+        <!-- KINH NGHIỆM LÀM VIỆC THỰC CHIẾN -->
+        <section class="section">
+            <div class="section-title">Kinh Nghiệm Làm Việc Thực Chiến</div>
+
+            <!-- HomeNest Software -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">HomeNest Software</span>
+                    <span class="entry-location">TP. Hồ Chí Minh, Việt Nam</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-role">Business Analyst · Trợ lý PM (Cầu Nối Kỹ Thuật IT &amp; Nghiệp Vụ Vận Hành)</span>
+                    <span class="entry-date">03/2026 – 09/2026</span>
+                </div>
+
+                <!-- Sub-project 1: VietPlus -->
+                <div class="sub-project-header">Dự án Sàn Thương Mại &amp; Rao Vặt VietPlus (Thị trường Hàn Quốc)</div>
+                <ul class="bullet-list">
+                    <li><b>Quản trị Master Data danh mục &amp; Chuẩn hóa cấu trúc dữ liệu:</b> Rà soát và cấu trúc lại toàn bộ dữ liệu danh mục hàng hóa, phân loại dịch vụ, bảng định danh người dùng và đối tác vận chuyển; thiết lập quy chuẩn nhập liệu nhất quán, ngăn chặn lỗi trùng lặp dữ liệu (duplication) và xung đột schema giữa Mobile App và Cổng Quản trị Super Admin.</li>
+                    <li><b>Kiểm thử quy trình số hóa (UAT &amp; Functional Testing):</b> Xây dựng bộ kịch bản kiểm thử (Test Cases), trực tiếp thực hiện kiểm thử chức năng và luồng dữ liệu trước/sau khi triển khai tính năng mới; kiểm tra đối chiếu dữ liệu giao dịch, phân loại lỗi hệ thống (Defect Triage) và phối hợp chặt chẽ với đội ngũ Dev để khắc phục dứt điểm.</li>
+                    <li><b>Tối ưu quy trình vận hành &amp; Quản trị Scope Freeze:</b> Tiếp nhận các yêu cầu thay đổi (Change Requests) từ bộ phận vận hành; khéo léo đề xuất giải pháp tiếp nhận nhu cầu tinh gọn (Lead Form) giúp đội ngũ vận hành xử lý trực tiếp thay vì chờ code hệ thống phức tạp, vừa đáp ứng mục tiêu kinh doanh vừa bảo vệ vững chắc Scope Freeze.</li>
+                    <li><b>Chuẩn bị Go-Live &amp; Hướng dẫn vận hành hệ thống:</b> Lập danh mục kiểm tra sẵn sàng Go-Live (Go-Live Readiness Checklist); soạn thảo tài liệu hướng dẫn sử dụng, biên bản bàn giao và tổ chức đào tạo chuyển giao cho đội ngũ vận hành sàn làm chủ hệ thống.</li>
+                </ul>
+
+                <!-- Sub-project 2: Hỗ Trợ Cuộc Sống -->
+                <div class="sub-project-header">Dự án Hệ Sinh Thái Đa Dịch Vụ Theo Yêu Cầu "Hỗ Trợ Cuộc Sống"</div>
+                <ul class="bullet-list">
+                    <li><b>Xây dựng Từ điển Dữ liệu (Data Dictionary) &amp; Đặc tả PRD:</b> Biên soạn tài liệu đặc tả yêu cầu phần mềm (PRD), từ điển dữ liệu chuẩn hóa cho toàn bộ các thực thể: Đối tác cung cấp (Merchants/Technicians), Khách hàng, Chuyến xe, Hóa đơn dịch vụ; rà soát mô hình dữ liệu quan hệ cùng Tech Lead loại trừ lỗi logic biên (edge cases).</li>
+                    <li><b>Thiết kế ma trận phân quyền &amp; Kiểm soát phân tách trách nhiệm (SoD):</b> Đặc tả cấu trúc phân quyền người dùng đa tầng (Khách hàng &harr; Đối tác dịch vụ &harr; Điều phối viên &harr; Super Admin); đảm bảo nguyên tắc kiểm soát nội bộ: phân định rõ thẩm quyền tạo đơn, phê duyệt hồ sơ đối tác, đối soát tài chính và khóa/mở tài khoản.</li>
+                    <li><b>Thiết kế máy trạng thái giao dịch &amp; Chống xung đột dữ liệu:</b> Xây dựng máy trạng thái (state machine) cho Module Đàm phán giá 2 chiều (Dynamic Bidding); thiết lập cơ chế khóa trạng thái (locking state/concurrency control) phòng ngừa triệt để lỗi ghi đè dữ liệu (race conditions) khi nhiều người dùng thao tác đồng thời.</li>
+                </ul>
+            </div>
+
+            <!-- J&T Express -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">J&amp;T Express</span>
+                    <span class="entry-location">TP. Hồ Chí Minh, Việt Nam</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-role">Chuyên Viên Phân Tích Quy Trình Vận Hành &amp; Quản Trị Dữ Liệu</span>
+                    <span class="entry-date">09/2025 – 02/2026</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Giám sát chất lượng dữ liệu &amp; Đối soát hệ thống bằng SQL:</b> Trực tiếp viết các câu truy vấn SQL (PostgreSQL/MySQL) kiểm tra, đối chiếu hàng ngày giữa chứng từ thực tế (phiếu gửi, bảng kê ký nhận) với dữ liệu trên phần mềm quản lý vận hành; phát hiện sai lệch số liệu, truy vết nguyên nhân và xử lý triệt để lỗi bất đồng bộ dữ liệu.</li>
+                    <li><b>Chuẩn hóa SOP &amp; Đào tạo, hỗ trợ người dùng cuối:</b> Biên soạn quy trình thao tác chuẩn (SOP) phân loại và xử lý sự cố (giao thất bại, chuyển sai tuyến, hoàn hàng RTO); trực tiếp hướng dẫn và đào tạo nhân viên các ca trực tuân thủ đúng quy trình nhập liệu trên phần mềm, giảm thiểu tối đa sai sót dữ liệu do thao tác thủ công.</li>
+                    <li><b>Tái cấu trúc luồng vận hành &amp; Đề xuất cải tiến hệ thống:</b> Phân tích điểm nghẽn tại bưu cục xử lý sản lượng lớn; tái cấu trúc dây chuyền phân loại thành luồng 1 chiều khép kín, đề xuất các điểm chạm quét mã tự động giúp tăng năng suất xử lý đơn hàng và đảm bảo tính toàn vẹn của dữ liệu chuỗi cung ứng.</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="page-number">Trang 1 / 2</div>
+    </div>
+
+    <!-- ════════════════════ TRANG 2 ════════════════════ -->
+    <div class="page">
+        <!-- DỰ ÁN TRỌNG TÂM & NĂNG LỰC KỸ THUẬT HỆ THỐNG -->
+        <section class="section">
+            <div class="section-title">Dự Án Trọng Tâm &amp; Năng Lực Vận Hành Hệ Thống / Quản Trị Dữ Liệu</div>
+
+            <!-- Project 1: Tourist Accommodation Platform (RBAC & SoD & Data Integrity) -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">
+                        <a href="https://github.com/VoVanTuTai/tourist-accommodation-management-system" target="_blank">Nền Tảng Quản Lý Giao Dịch Đa Phân Quyền — Thiết Kế CSDL &amp; Kiểm Soát Nội Bộ</a>
+                        <a href="https://github.com/VoVanTuTai/tourist-accommodation-management-system" target="_blank" class="project-link">[GitHub ↗]</a>
+                    </span>
+                    <span class="entry-location">Dự án Phần mềm Ứng dụng</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-tech">RBAC (Ma trận phân quyền SoD), CSDL MySQL chuẩn 3NF, Kiểm soát Concurrency, VNPay IPN Webhook</span>
+                    <span class="entry-date">10/2025 – 12/2025</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Thiết kế ma trận phân quyền người dùng (RBAC) &amp; Nguyên tắc SoD:</b> Phân tích và thiết lập cấu trúc phân quyền nghiêm ngặt 3 cấp (Khách hàng &harr; Đối tác cung ứng &harr; Ban quản trị); cách ly độc lập cơ sở dữ liệu kinh doanh của từng đối tác, đảm bảo tuân thủ nguyên tắc kiểm soát nội bộ và phân tách trách nhiệm (SoD).</li>
+                    <li><b>Thiết kế CSDL chuẩn 3NF &amp; Kiểm soát toàn vẹn dữ liệu:</b> Xây dựng lược đồ cơ sở dữ liệu quan hệ MySQL chuẩn hóa 3NF; thiết lập các ràng buộc toàn vẹn nghiêm ngặt (Foreign Keys, Unique Indexes, Check Constraints) ngăn chặn triệt để tình trạng dữ liệu mồ côi hoặc ghi trùng lặp Master Data phòng/dịch vụ.</li>
+                    <li><b>Kiểm soát đồng thời (Concurrency Control) &amp; Đối soát thanh toán:</b> Thiết kế cơ chế khóa giữ chỗ tạm thời (TTL 15 phút), loại trừ hoàn toàn rủi ro trùng lặp đơn khi có nhiều người đặt cùng thời điểm; tích hợp cổng thanh toán IPN Webhook với mã băm Checksum HMAC-SHA512 để đối soát và tự động đồng bộ trạng thái đơn hàng.</li>
+                </ul>
+            </div>
+
+            <!-- Project 2: Nexus Express OMS (State Machine & BPMN 2.0 & Audit Trail) -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">
+                        <a href="https://github.com/VoVanTuTai/logistics-management-system" target="_blank">Nexus Express OMS — Chuẩn Hóa Chu Trình Trạng Thái &amp; Nhật Ký Kiểm Toán (Audit Trail)</a>
+                        <a href="https://tracking.nexus-ex.site/" target="_blank" class="project-link" style="color: #0284c7 !important;">[Live Demo ↗]</a>
+                        <a href="https://github.com/VoVanTuTai/logistics-management-system" target="_blank" class="project-link">[GitHub ↗]</a>
+                    </span>
+                    <span class="entry-location">Dự án Hệ thống Phân tán</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-tech">Mô hình hóa BPMN 2.0 (Camunda), Idempotency Key, Event-Driven Audit Trail, PostgreSQL, NestJS, RabbitMQ</span>
+                    <span class="entry-date">09/2025 – 02/2026</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Chuẩn hóa quy trình vòng đời đơn hàng bằng BPMN 2.0:</b> Mô hình hóa toàn diện chu trình xử lý trạng thái đơn hàng trên công cụ Camunda Modeler; thiết lập điều kiện chuyển trạng thái nghiêm ngặt, loại bỏ các lỗi logic nhảy cóc trạng thái trong quá trình vận hành luân chuyển đơn.</li>
+                    <li><b>Kiểm soát trùng lặp dữ liệu với Idempotency Key:</b> Đặc tả cơ chế Idempotency Key cho toàn bộ API tạo đơn và cập nhật trạng thái; bảo đảm an toàn dữ liệu kể cả khi người dùng bấm gửi nhiều lần hoặc mạng chập chờn gây lặp gói tin.</li>
+                    <li><b>Nhật ký kiểm toán bất biến (Audit Logging) phục vụ kiểm soát nội bộ:</b> Thiết kế cơ chế ghi log lịch sử dựa trên sự kiện (Event-driven với PostgreSQL / RabbitMQ), lưu trữ dấu vết bất biến của mọi thao tác tạo mới, cập nhật dữ liệu để phục vụ kiểm tra, kiểm toán hệ thống.</li>
+                </ul>
+            </div>
+
+            <!-- Project 3: Nexus Express AI Assistant (End-User Support & Data Extraction) -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">
+                        <a href="https://tracking.nexus-ex.site" target="_blank">Nexus Express AI Assistant — Trợ Lý Ảo Tự Động Hóa Hỗ Trợ Người Dùng &amp; Trích Xuất Dữ Liệu</a>
+                        <a href="https://tracking.nexus-ex.site" target="_blank" class="project-link">[Live Demo ↗]</a>
+                    </span>
+                    <span class="entry-location">Dự án AI &amp; Hỗ trợ Vận hành</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-tech">Python, FastAPI, Live RAG, Embeddings, ReAct Agent Workflow, Tool Calling, Vector Store, Docker</span>
+                    <span class="entry-date">10/2025 – 03/2026</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Hỗ trợ người dùng tự động 24/7 &amp; Hướng dẫn quy trình:</b> Ứng dụng kiến trúc Live RAG vector hóa toàn bộ tài liệu chính sách, quy chế và cẩm nang hướng dẫn sử dụng; tự động giải đáp thắc mắc người dùng với trích dẫn nguồn chuẩn xác, giảm tải đến 70% các câu hỏi thường gặp gửi đến bộ phận vận hành.</li>
+                    <li><b>Tự động trích xuất thông tin Master Data từ hội thoại:</b> Thiết kế quy trình Agent Tool Calling đa lượt tự động nhận diện và trích xuất thông tin đối tác, địa chỉ, số điện thoại, mã đơn từ văn bản không cấu trúc để điền vào form tạo đơn hàng, hỗ trợ người dùng nhập liệu nhanh chóng và chính xác.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- KỸ NĂNG CHUYÊN MÔN & CÔNG CỤ HỆ THỐNG -->
+        <section class="section">
+            <div class="section-title">Kỹ Năng Chuyên Môn &amp; Nền Tảng Kỹ Thuật</div>
+            <ul class="skills-list">
+                <li><b>Quản trị Master Data &amp; ERP:</b> Hiểu sâu sắc cấu trúc Master Data (Khách hàng, Nhà cung cấp, Sản phẩm, Tài khoản), quy trình làm sạch &amp; kiểm soát trùng lặp dữ liệu (De-duplication), phân tích phân hệ ERP (Odoo: Sales, Purchase, Inventory, Accounting), kiểm soát nội bộ &amp; phân tách trách nhiệm (SoD - Segregation of Duties).</li>
+                <li><b>Cơ sở Dữ liệu &amp; Đối soát SQL:</b> Thiết kế lược đồ CSDL chuẩn 3NF (ERD), thành thạo viết truy vấn <b>SQL nâng cao (PostgreSQL, MySQL)</b> để lọc, đối soát sai lệch, trích xuất dữ liệu; hiểu biết sâu sắc về cấu trúc dữ liệu (Data Structure), Indexing, Transaction ACID và ràng buộc toàn vẹn dữ liệu.</li>
+                <li><b>Kiểm thử &amp; Quản trị Quy trình:</b> Lập kịch bản kiểm thử (Test Cases), kiểm thử chức năng (Functional Testing), kiểm tra dữ liệu trước/sau Go-Live, quản lý và phân loại lỗi (Defect Triage), mô hình hóa quy trình nghiệp vụ (BPMN 2.0 trên Camunda), biên soạn tài liệu kỹ thuật (PRD, SRS, Dictionary).</li>
+                <li><b>Vận hành, Đào tạo &amp; Công cụ:</b> Soạn thảo quy trình thao tác chuẩn (SOP), hướng dẫn và đào tạo người dùng cuối, theo dõi &amp; xử lý lỗi phần mềm (Troubleshooting); thành thạo Jira, Confluence, ClickUp, Draw.io, Figma, Postman, Excel nâng cao (VLOOKUP, INDEX-MATCH, Pivot Table), Docker, Git.</li>
+                <li><b>Kỹ năng giải quyết vấn đề &amp; Ngoại ngữ:</b> Tư duy phân tích logic chặt chẽ, khả năng phối hợp nhịp nhàng giữa đội ngũ Nghiệp vụ và Kỹ thuật IT; Tiếng Anh đọc hiểu tài liệu kỹ thuật, phần mềm và giao tiếp chuyên môn tốt; Tiếng Việt bản ngữ.</li>
+            </ul>
+        </section>
+
+        <!-- HỌC VẤN & NỀN TẢNG ĐÀO TẠO -->
+        <section class="section">
+            <div class="section-title">Học Vấn &amp; Nền Tảng Đào Tạo</div>
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">Trường Đại học Công nghiệp TP. Hồ Chí Minh (IUH)</span>
+                    <span class="entry-location">TP. Hồ Chí Minh, Việt Nam</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-role">Kỹ sư Hệ thống Thông tin (Hoàn thành toàn bộ chương trình đào tạo · Sẵn sàng làm việc Full-time ngay)</span>
+                    <span class="entry-date">09/2022 – 2026</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Điểm trung bình tích lũy (GPA):</b> <b>3.26 / 4.0</b></li>
+                    <li><b>Môn học chuyên ngành trọng tâm:</b> <b>Hoạch định Nguồn lực Doanh nghiệp (ERP - Odoo)</b>, <b>Cơ sở Dữ liệu Nâng cao (Truy vấn SQL &amp; Quản trị CSDL)</b>, Phân tích &amp; Thiết kế Hệ thống Thông tin (HTTTQL), Cấu trúc Dữ liệu &amp; Giải thuật, Quản trị Dự án CNTT, Kiến trúc Hướng Dịch vụ (SOA).</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="page-number">Trang 2 / 2</div>
+    </div>
+
+    <!-- Thanh Điều Khiển Nổi (Tải PDF, In & Chuyển Trang) -->
+    <div class="action-bar">
+        <a href="/cv-general.html" class="action-btn secondary">
+            📄 Xem CV Tổng Quát
+        </a>
+        <a href="/VoVanTuTai_ERP_Master_Data_Specialist_CV.pdf" download="VoVanTuTai_ERP_Master_Data_Specialist_CV.pdf" class="action-btn">
+            📥 TẢI FILE PDF (2 Trang A4)
+        </a>
+        <button class="action-btn secondary" onclick="window.print()">
+            🖨️ In / Lưu PDF
+        </button>
+    </div>
+</body>
+
+</html>

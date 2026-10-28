@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Võ Văn Tú Tài — CV QA Game Tester | Mobile &amp; Global Game Quality Control</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <!-- Inter Font (Sắc nét, chuẩn mực in ấn quốc tế & tối ưu hệ thống tuyển dụng ATS) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #e4e7eb;
+            color: #1a1a1a;
+            line-height: 1.4;
+            font-size: 13px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        a, a:visited, a:hover, a:active {
+            color: #111 !important;
+            text-decoration: none !important;
+        }
+
+        /* ── 2-PAGE A4 CONTAINER CHUẨN MỰC ── */
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            height: 297mm;
+            max-height: 297mm;
+            background: #fff;
+            margin: 20px auto;
+            padding: 8.5mm 15mm 7.5mm 15mm;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            overflow: hidden;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        /* ── HEADER CĂN GIỮA TRANG TRỌNG ── */
+        .header {
+            text-align: center;
+            margin-bottom: 6px;
+            padding-bottom: 3px;
+        }
+
+        .name {
+            font-size: 21pt;
+            font-weight: 800;
+            letter-spacing: -0.4px;
+            color: #111;
+            line-height: 1.1;
+            margin-bottom: 3px;
+        }
+
+        .subtitle {
+            font-size: 9.8pt;
+            font-weight: 700;
+            color: #0f2744;
+            margin-bottom: 5px;
+            letter-spacing: 0.15px;
+        }
+
+        .contact-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: nowrap;
+            gap: 0 10px;
+            font-size: 8.3pt;
+            color: #333;
+            max-width: 100%;
+            margin: 0 auto;
+            white-space: nowrap;
+        }
+
+        .contact-row a,
+        .contact-row span {
+            color: #222 !important;
+            text-decoration: none !important;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            line-height: 1;
+            vertical-align: middle;
+        }
+
+        .contact-row a:hover {
+            color: #0284c7 !important;
+            text-decoration: underline !important;
+        }
+
+        .contact-icon {
+            width: 11.5px;
+            height: 11.5px;
+            fill: #333;
+            flex-shrink: 0;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .separator {
+            color: #888;
+            font-size: 8.5pt;
+            user-select: none;
+        }
+
+        /* ── SECTIONS ── */
+        .section {
+            margin-top: 5px;
+            margin-bottom: 4px;
+        }
+
+        .section-title {
+            font-size: 9.9pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: #0f2744;
+            border-bottom: 1.5px solid #0f2744;
+            padding-bottom: 2px;
+            margin-bottom: 5px;
+        }
+
+        /* ── SUMMARY ── */
+        .summary-text {
+            font-size: 9.05pt;
+            line-height: 1.4;
+            color: #262626;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        /* ── GAME CARDS GRID (BỐ CỤC LƯỚI THẺ HIỆN ĐẠI, GỌN GÀNG) ── */
+        .game-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 4.5px;
+        }
+
+        .game-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-left: 3px solid #0284c7;
+            border-radius: 5px;
+            padding: 4.5px 9px;
+            font-size: 8.85pt;
+            line-height: 1.34;
+            color: #334155;
+            text-align: justify;
+        }
+
+        .game-header {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            margin-bottom: 1.5px;
+        }
+
+        .game-badge {
+            display: inline-block;
+            background: #0f2744;
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 7.5pt;
+            padding: 1px 5px;
+            border-radius: 3px;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            flex-shrink: 0;
+        }
+
+        .game-titles {
+            font-weight: 700;
+            color: #0f2744;
+            font-size: 9pt;
+        }
+
+        /* ── SKILLS LIST ── */
+        .skills-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .skills-list li {
+            font-size: 8.95pt;
+            line-height: 1.37;
+            margin-bottom: 3.5px;
+            color: #262626;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        .skills-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .skills-list b {
+            font-weight: 700;
+            color: #0f2744;
+        }
+
+        /* ── ENTRIES ── */
+        .entry {
+            margin-bottom: 5px;
+        }
+
+        .entry:last-child {
+            margin-bottom: 0;
+        }
+
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-size: 9.5pt;
+            color: #111;
+        }
+
+        .entry-title {
+            font-weight: 700;
+            color: #111;
+        }
+
+        .project-link {
+            font-size: 8.3pt !important;
+            font-weight: 600 !important;
+            color: #0284c7 !important;
+            text-decoration: underline !important;
+            margin-left: 5px;
+            white-space: nowrap;
+        }
+
+        .entry-location {
+            font-weight: 500;
+            color: #444;
+            font-size: 8.7pt;
+        }
+
+        .entry-sub {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-size: 8.85pt;
+            color: #333;
+            margin-bottom: 2px;
+        }
+
+        .entry-role {
+            font-weight: 600;
+            color: #1a365d;
+        }
+
+        .entry-tech {
+            font-style: italic;
+            font-size: 8.4pt;
+            color: #444;
+        }
+
+        .entry-date {
+            font-style: italic;
+            font-size: 8.7pt;
+            color: #444;
+            white-space: nowrap;
+        }
+
+        /* ── BULLETS ── */
+        .bullet-list {
+            list-style-type: disc;
+            padding-left: 14px;
+            margin: 0;
+        }
+
+        .bullet-list li {
+            font-size: 8.9pt;
+            line-height: 1.34;
+            color: #262626;
+            margin-bottom: 2px;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        .bullet-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .bullet-list b {
+            font-weight: 600;
+            color: #111;
+        }
+
+        .page-number {
+            position: absolute;
+            bottom: 4mm;
+            right: 15mm;
+            font-size: 8.3pt;
+            color: #888;
+            font-weight: 500;
+        }
+
+        /* ── ACTION CONTROLS ── */
+        .action-bar {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 9999;
+        }
+
+        .action-btn {
+            padding: 10px 18px;
+            background: #0f2744;
+            color: #fff !important;
+            border: 1px solid #0f2744;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 600;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none !important;
+        }
+
+        .action-btn:hover {
+            background: #1a365d;
+            transform: translateY(-2px);
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .page {
+                margin: 0;
+                padding: 10mm 15mm 9mm 15mm;
+                box-shadow: none;
+                width: 210mm;
+                height: 297mm;
+                min-height: 297mm;
+                max-height: 297mm;
+                page-break-after: always;
+                break-after: page;
+            }
+
+            .page:last-child {
+                page-break-after: avoid;
+                break-after: avoid;
+            }
+
+            @page {
+                size: A4 portrait;
+                margin: 0;
+            }
+
+            .action-bar {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ════════════════════ PAGE 1: TỔNG QUAN, HỒ SƠ GAME & KỸ NĂNG QA ════════════════════ -->
+    <div class="page">
+        <!-- HEADER -->
+        <header class="header">
+            <h1 class="name">Võ Văn Tú Tài</h1>
+            <div class="subtitle">QA Game Tester · Kỹ Sư Kiểm Soát Chất Lượng Game (Manual Testing · iOS / Android &amp; Dữ Liệu Số)</div>
+            <div class="contact-row">
+                <a href="tel:+84869500573">
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                    (+84) 869 500 573
+                </a>
+                <span class="separator">|</span>
+                <a href="mailto:tutaivovan@gmail.com">
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    tutaivovan@gmail.com
+                </a>
+                <span class="separator">|</span>
+                <a href="https://linkedin.com/in/vovantutai" target="_blank">
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.25c-.95 0-1.72.78-1.72 1.73s.77 1.73 1.72 1.73 1.73-.78 1.73-1.73-.78-1.73-1.73-1.73z"/></svg>
+                    linkedin.com/in/vovantutai
+                </a>
+                <span class="separator">|</span>
+                <a href="https://github.com/VoVanTuTai" target="_blank">
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+                    github.com/VoVanTuTai
+                </a>
+                <span class="separator">|</span>
+                <a href="https://vovantutai-portfolio.vercel.app" target="_blank">
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                    Portfolio
+                </a>
+            </div>
+        </header>
+
+        <!-- TÓM TẮT CHUYÊN MÔN -->
+        <section class="section">
+            <div class="section-title">Tóm Tắt Năng Lực Chuyên Môn</div>
+            <p class="summary-text">
+                Tốt nghiệp Kỹ sư Hệ thống Thông tin (ĐH Công nghiệp TP.HCM - IUH, GPA 3.26/4.0 · Hoàn thành chương trình đào tạo · 23 tuổi). Sở hữu sự kết hợp chặt chẽ giữa <b>tư duy kiểm thử hệ thống logic, bài bản</b> (soạn thảo Test Cases, kiểm thử UAT, rà soát dữ liệu số và phân loại lỗi trên Jira tại HomeNest Software) cùng <b>bề dày trải nghiệm chơi game phong phú, am hiểu sâu sắc cơ chế gameplay</b> (từ MOBA, FPS/Shooter, Open-World Gacha RPG, SLG chiến thuật đến MMORPG cày cuốc / Idle treo máy). Đôi mắt tinh tường, kiên trì săn tìm lỗi góc khuất; thành thạo kiểm thử chức năng phức tạp, kiểm soát dữ liệu số (drop rate, chỉ số trang bị, kinh tế in-game), sản phẩm trả phí (In-App Purchases - IAP) và tính tương thích trên nền tảng <b>iOS &amp; Android</b>. Đọc hiểu tốt tài liệu tiếng Anh, từng làm việc với đối tác Hàn Quốc; tinh thần kỷ luật cao, cầu thị và mong muốn gắn bó lâu dài cùng đội ngũ Kiểm soát chất lượng game quốc tế tại <b>UOA Tower (Quận 7, TP.HCM)</b>.
+            </p>
+        </section>
+
+        <!-- HỒ SƠ GAME THỦ (THIẾT KẾ DẠNG THẺ THOÁNG MẮT, DỄ ĐỌC) -->
+        <section class="section">
+            <div class="section-title">Hồ Sơ Game Thủ &amp; Kiến Thức Gameplay Chuyên Sâu</div>
+            <div class="game-grid">
+                <!-- Game 1: Genshin Impact -->
+                <div class="game-card">
+                    <div class="game-header">
+                        <span class="game-badge">Gacha RPG</span>
+                        <span class="game-titles">Genshin Impact (Thế Giới Mở)</span>
+                    </div>
+                    Am hiểu sâu sắc hệ thống gacha (tỷ lệ rơi vật phẩm, cơ chế bảo hiểm pity, reset banner), cân bằng phản ứng nguyên tố; kiểm tra hiệu năng đồ họa thế giới mở, phát hiện hiện tượng tụt khung hình (FPS drop), quá nhiệt và lỗi kẹt góc va chạm/xuyên địa hình.
+                </div>
+
+                <!-- Game 2: Tactical Shooter -->
+                <div class="game-card">
+                    <div class="game-header">
+                        <span class="game-badge">Shooter / FPS</span>
+                        <span class="game-titles">Delta Force Mobile, PUBG Mobile, Call of Duty: Mobile</span>
+                    </div>
+                    Nắm rõ cơ chế đường đạn (ballistics), độ giật (recoil), âm thanh không gian 3D; kiểm tra độ trễ mạng (latency/ping), hiện tượng desync giữa máy khách - máy chủ (tick rate), lỗi hiển thị hitbox và kiểm soát tính công bằng (anti-cheat/anti-exploit).
+                </div>
+
+                <!-- Game 3: MOBA -->
+                <div class="game-card">
+                    <div class="game-header">
+                        <span class="game-badge">MOBA Esports</span>
+                        <span class="game-titles">Liên Quân Mobile (Arena of Valor)</span>
+                    </div>
+                    Hiểu rõ cơ chế cân bằng thông số tướng (damage scaling, thời gian hồi chiêu, tầm đánh hitbox), cơ chế bùa lợi, kinh tế vàng/kinh nghiệm; kiểm thử tính đồng bộ thời gian thực đa người chơi và hệ thống ghép trận (matchmaking).
+                </div>
+
+                <!-- Game 4: SLG -->
+                <div class="game-card">
+                    <div class="game-header">
+                        <span class="game-badge">SLG Chiến Thuật</span>
+                        <span class="game-titles">Clash of Clans, Chinh Phục Cửu Châu</span>
+                    </div>
+                    Hiểu rõ logic tài nguyên in-game, thuật toán tìm đường (pathfinding của lính), thời gian nâng cấp công trình; kiểm thử tính toàn vẹn dữ liệu khi nhiều người cùng công thành và thao tác sự kiện đồng thời.
+                </div>
+
+                <!-- Game 5: MMORPG & Idle -->
+                <div class="game-card">
+                    <div class="game-header">
+                        <span class="game-badge">Idle / AFK</span>
+                        <span class="game-titles">MMORPG Cày Cuốc &amp; Game Treo Máy (Level Grinding)</span>
+                    </div>
+                    Trải nghiệm dày dạn các tựa game cày cấp và treo máy offline; am hiểu sâu sắc đường cong thăng cấp (level curve), tỷ lệ rơi trang bị hiếm, thuật toán tính thưởng khi offline và kiểm thử chống can thiệp bộ nhớ.
+                </div>
+            </div>
+        </section>
+
+        <!-- KỸ NĂNG KIỂM THỬ GAME CỐT LÕI -->
+        <section class="section">
+            <div class="section-title">Kỹ Năng Kiểm Thử Game &amp; Tiêu Chuẩn Nền Tảng</div>
+            <ul class="skills-list">
+                <li><b>Kiểm thử Game thủ công (Manual Game Testing):</b> Thành thạo Functional Testing (tính năng cốt lõi, UI/UX, logic nhiệm vụ), Smoke/Sanity Testing cho các bản cập nhật (patches), Regression Testing sau khi sửa lỗi, và Exploratory Testing phát hiện lỗi ngoài kịch bản.</li>
+                <li><b>Kiểm thử Tiêu chuẩn iOS &amp; Android:</b> Kiểm thử độ tương thích trên nhiều dòng thiết bị di động (độ phân giải, màn hình tai thỏ, tỉ lệ khung hình); kiểm thử các tình huống ngắt quãng (nhận cuộc gọi, tin nhắn, pin yếu, chuyển đổi Wi-Fi &harr; 4G, xoay màn hình, chạy ngầm).</li>
+                <li><b>Kiểm soát Dữ liệu Số &amp; Sản phẩm Trả Phí (IAP):</b> Kiểm tra tính chính xác của các gói nạp In-App Purchases qua Apple App Store và Google Play Billing; kiểm tra đối soát giao dịch trừ tiền, nhận kim cương/vật phẩm, xử lý lỗi mạng khi thanh toán và tính nhất quán kinh tế game.</li>
+                <li><b>Báo cáo Lỗi Chuyên Nghiệp (Jira, Bug Tracker):</b> Viết Bug Report chuẩn quốc tế: tiêu đề súc tích, mô tả chi tiết các bước tái hiện (Steps to Reproduce), Kết quả thực tế vs Kỳ vọng, mức độ nghiêm trọng (Severity/Priority), đính kèm video, ảnh chụp màn hình và log crash.</li>
+                <li><b>Ngoại ngữ, Tin học &amp; Phối hợp Quốc tế:</b> Thành thạo MS Office (Excel phân tích dữ liệu số); đọc hiểu tốt tài liệu thiết kế game (GDD), test case tiếng Anh; giao tiếp cởi mở, tôn trọng văn hóa và phối hợp hiệu quả với đội ngũ Quản lý Chất lượng tại Hàn Quốc.</li>
+            </ul>
+        </section>
+
+        <div class="page-number">Trang 1 / 2</div>
+    </div>
+
+    <!-- ════════════════════ PAGE 2: KINH NGHIỆM THỰC CHIẾN, DỰ ÁN & HỌC VẤN ════════════════════ -->
+    <div class="page">
+        <!-- KINH NGHIỆM LÀM VIỆC THỰC CHIẾN (ĐẦY ĐỦ HOMENEST & J&T EXPRESS) -->
+        <section class="section">
+            <div class="section-title">Kinh Nghiệm Làm Việc Thực Chiến (01 Năm)</div>
+
+            <!-- HomeNest Software -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">HomeNest Software</span>
+                    <span class="entry-location">TP. Hồ Chí Minh, Việt Nam</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-role">Kỹ Sư Kiểm Thử Chất Lượng &amp; Cầu Nối Nghiệp Vụ (QA &amp; PM Assistant)</span>
+                    <span class="entry-date">Tháng 03/2026 – Tháng 09/2026</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Thiết lập tình huống kiểm thử &amp; Báo cáo lỗi trên Jira:</b> Soạn thảo hơn 150+ kịch bản kiểm thử (Test Cases) bao phủ cả luồng hoạt động chuẩn và các trường hợp lỗi biên; trực tiếp kiểm thử thủ công trên thiết bị di động thật (iOS &amp; Android) và ghi nhận lỗi lên Jira.</li>
+                    <li><b>Phối hợp chặt chẽ với đối tác Hàn Quốc (Dự án VietPlus):</b> Tiếp nhận yêu cầu kiểm thử và trao đổi bằng tiếng Anh với khách hàng Hàn Quốc; kiểm thử tính năng định danh người dùng, luồng giao nhận và giải quyết khiếu nại đảm bảo chất lượng phát hành ứng dụng.</li>
+                    <li><b>Kiểm thử chức năng phức tạp &amp; Luồng thanh toán:</b> Kiểm thử logic máy trạng thái (State Machine) chuyển đổi theo thời gian thực; kiểm tra tính hợp lệ của giao dịch thanh toán trực tuyến, đảm bảo không có lỗ hổng gây thất thoát doanh thu.</li>
+                </ul>
+            </div>
+
+            <!-- J&T Express -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">J&amp;T Express</span>
+                    <span class="entry-location">TP. Hồ Chí Minh, Việt Nam</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-role">Chuyên Viên Đối Soát Dữ Liệu &amp; Quy Trình (Data &amp; Operations Coordinator)</span>
+                    <span class="entry-date">Tháng 09/2025 – Tháng 02/2026</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Rà soát dữ liệu số quy mô lớn &amp; Phát hiện sai lệch:</b> Kiểm tra và đối soát hàng ngàn bản ghi dữ liệu quét mã mỗi ngày bằng SQL và MS Excel nâng cao (VLOOKUP, PivotTable); phát hiện nhanh chóng các điểm bất thường và dữ liệu lệch trạng thái để thông báo đội ngũ xử lý.</li>
+                    <li><b>Tính cẩn trọng &amp; Kỷ luật quy trình:</b> Rèn luyện đức tính tỉ mỉ, kiên nhẫn trong việc truy xuất nguồn gốc lỗi; tham gia biên soạn tài liệu hướng dẫn thao tác chuẩn (SOP) giúp tối ưu hóa độ chính xác và tính toàn vẹn của số liệu.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- DỰ ÁN KỸ THUẬT & TƯ DUY KIỂM THỬ HỆ THỐNG -->
+        <section class="section">
+            <div class="section-title">Dự Án Kỹ Thuật &amp; Nền Tảng Tư Duy Kiểm Thử Hệ Thống</div>
+
+            <!-- Project 1: Nexus Express -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">
+                        <a href="https://tracking.nexus-ex.site/" target="_blank">Nexus Express — Hệ Thống Quản Lý Dữ Liệu Vận Hành Thời Gian Thực</a>
+                        <a href="https://tracking.nexus-ex.site/" target="_blank" class="project-link">[Live Demo ↗]</a>
+                    </span>
+                    <span class="entry-location">Dự Án Đang Chạy Trực Tuyến</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-tech">Mô hình hóa quy trình BPMN 2.0, Đồng bộ sự kiện bất đồng bộ, Kiểm thử API Postman, Docker</span>
+                    <span class="entry-date">Tháng 09/2025 – Tháng 02/2026</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Kiểm thử đồng bộ trạng thái nhiều người dùng:</b> Thiết kế các kịch bản kiểm thử tình trạng race-condition (nhiều hành động cùng gửi request lên server tại cùng mili-giây); xác nhận cơ chế khóa dữ liệu ngăn chặn tạo trùng bản ghi hoặc lệch trạng thái hiển thị.</li>
+                    <li><b>Kiểm tra tính nhất quán dữ liệu số (Data Consistency):</b> Sử dụng Postman kiểm thử API endpoints, kiểm tra tính toàn vẹn của dữ liệu số phản hồi (Response time, mã trạng thái HTTP, định dạng Envelope); khai thác log kiểm toán (Audit Trail) để phân tích nguyên nhân gốc rễ (Root Cause).</li>
+                </ul>
+            </div>
+
+            <!-- Project 2: Cab Booking -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">
+                        <a href="https://github.com/VoVanTuTai/cab-booking-system" target="_blank">Cab Booking &amp; Dispatch — Hệ Thống Điều Phối &amp; Xử Lý Thời Gian Thực</a>
+                        <a href="https://github.com/VoVanTuTai/cab-booking-system" target="_blank" class="project-link">[GitHub ↗]</a>
+                    </span>
+                    <span class="entry-location">Dự Án Backend Hiệu Năng Cao</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-tech">Kiểm soát đồng thời (Redis Distributed Lock), Kết nối WebSocket thời gian thực, Node.js, Express</span>
+                    <span class="entry-date">Tháng 12/2025 – Tháng 01/2026</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Kiểm thử kết nối mạng thời gian thực (WebSocket):</b> Kiểm tra độ ổn định của luồng WebSocket khi thiết bị di động bị rớt mạng đột ngột hoặc chuyển mạng (Wi-Fi sang 4G), đảm bảo client tự động kết nối lại (auto-reconnect) mà không mất gói tin.</li>
+                    <li><b>Kiểm tra tình huống xung đột nhận đơn:</b> Thiết lập kịch bản 10+ thiết bị giả lập cùng bấm nút nhận đơn đồng thời; kiểm tra cơ chế phân phối duy nhất (Distributed Lock SETNX) hoạt động chính xác 100%, không bị nhận đúp.</li>
+                </ul>
+            </div>
+
+            <!-- Project 3: Song Tai Shop -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">
+                        <a href="https://github.com/VoVanTuTai/php-online-store" target="_blank">Song Tai Shop — Nền Tảng Thương Mại Điện Tử &amp; Giao Dịch Dữ Liệu</a>
+                        <a href="https://github.com/VoVanTuTai/php-online-store" target="_blank" class="project-link">[GitHub ↗]</a>
+                    </span>
+                    <span class="entry-location">Hệ Thống Quản Lý Kho &amp; Đơn</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-tech">Giao dịch ACID MySQL, Khóa dòng dữ liệu (Row-level Locking), Bảo mật chống gian lận dữ liệu</span>
+                    <span class="entry-date">Tháng 11/2025 – Tháng 01/2026</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Kiểm thử tính toàn vẹn số lượng vật phẩm (Inventory Integrity):</b> Thiết lập các tình huống trừ kho đồng thời, kiểm tra logic giao dịch ACID bảo đảm số lượng tồn kho hiển thị luôn khớp chính xác với số lượng thực tế, loại trừ lỗi âm vật phẩm (negative balance bug).</li>
+                    <li><b>Kiểm tra bảo mật và xác thực đầu vào:</b> Rà soát các lỗ hổng gian lận thông số đầu vào (Parameter Tampering, thay đổi giá tiền gửi lên server), đảm bảo dữ liệu kinh tế luôn được xác thực an toàn tại máy chủ.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- HỌC VẤN & BẰNG CẤP CHUYÊN NGÀNH -->
+        <section class="section">
+            <div class="section-title">Học Vấn &amp; Nền Tảng Đào Tạo</div>
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">Trường Đại học Công nghiệp TP. Hồ Chí Minh (IUH)</span>
+                    <span class="entry-location">TP. Hồ Chí Minh, Việt Nam</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-role">Kỹ sư Hệ thống Thông tin (Hoàn thành chương trình đào tạo · Sẵn sàng làm việc Full-time)</span>
+                    <span class="entry-date">09/2022 – 2026</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Điểm trung bình tích lũy (GPA):</b> <b>3.26 / 4.0</b> (Xếp loại Giỏi).</li>
+                    <li><b>Môn học chuyên ngành hỗ trợ đắc lực cho Game QA:</b> Kiểm thử Phần mềm (Software Testing), Kỹ thuật Phần mềm (Software Engineering), Cơ sở Dữ liệu &amp; SQL nâng cao (Truy vấn phân tích dữ liệu số), Phân tích &amp; Thiết kế Hệ thống (OOAD/UML), Cấu trúc Dữ liệu &amp; Giải thuật, Mạng Máy tính.</li>
+                    <li><b>Cam kết làm việc &amp; Tố chất cá nhân:</b> Đam mê mãnh liệt với trò chơi điện tử; có khả năng ngồi hàng giờ tập trung săn tìm và tái hiện lỗi; tính cách kỷ luật, cẩn trọng, tôn trọng thời hạn (deadline) và sẵn sàng làm việc tại <b>UOA Tower (Tân Trào, Quận 7, TP.HCM)</b> với khung giờ 09:00 – 18:00 (Thứ 2 – Thứ 6).</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="page-number">Trang 2 / 2</div>
+    </div>
+
+    <!-- Floating Action Controls -->
+    <div class="action-bar">
+        <a href="/applied-jobs/VoVanTuTai_QA_Game_Tester_CV.pdf" download="VoVanTuTai_QA_Game_Tester_CV.pdf" class="action-btn">
+            📥 Tải Bản PDF (2 Trang A4)
+        </a>
+    </div>
+</body>
+
+</html>

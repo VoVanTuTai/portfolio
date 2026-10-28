@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Võ Văn Tú Tài — Hệ Thống Danh Mục Hồ Sơ &amp; CV (CV Directory Hub)</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0f2744;
+            --primary-light: #1e3a5f;
+            --accent: #0284c7;
+            --accent-hover: #0369a1;
+            --bg-page: #f8fafc;
+            --bg-card: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 12px rgba(15, 39, 68, 0.08);
+            --shadow-hover: 0 10px 24px rgba(15, 39, 68, 0.12);
+            --radius-md: 10px;
+            --radius-lg: 14px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── HEADER ── */
+        .hub-header {
+            background: linear-gradient(135deg, #0b192c 0%, #0f2744 100%);
+            color: #ffffff;
+            padding: 40px 20px 36px;
+            border-bottom: 3px solid var(--accent);
+            text-align: center;
+        }
+
+        .header-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .badge-hub {
+            display: inline-block;
+            background: rgba(2, 132, 199, 0.25);
+            color: #7dd3fc;
+            padding: 4px 12px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            border: 1px solid rgba(125, 211, 252, 0.3);
+        }
+
+        .hub-title {
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+        }
+
+        .hub-subtitle {
+            font-size: 15px;
+            color: #cbd5e1;
+            max-width: 680px;
+            margin: 0 auto 20px;
+            line-height: 1.5;
+        }
+
+        .candidate-contacts {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px 20px;
+            font-size: 13px;
+            color: #94a3b8;
+        }
+
+        .candidate-contacts a {
+            color: #e2e8f0;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.2s;
+        }
+
+        .candidate-contacts a:hover {
+            color: #38bdf8;
+        }
+
+        /* ── CONTAINER ── */
+        .hub-container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 36px 20px 80px;
+        }
+
+        /* ── SEARCH & FILTER ── */
+        .controls-card {
+            background: #ffffff;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border);
+            padding: 16px 20px;
+            margin-bottom: 32px;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .search-box {
+            position: relative;
+            flex: 1;
+            min-width: 260px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 10px 14px 10px 38px;
+            border-radius: 8px;
+            border: 1px solid #cbd5e1;
+            font-size: 14px;
+            font-family: inherit;
+            color: var(--text-main);
+            outline: none;
+            transition: all 0.2s;
+        }
+
+        .search-input:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 16px;
+            height: 16px;
+            fill: #94a3b8;
+        }
+
+        .filter-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: #f1f5f9;
+            color: #475569;
+            border: none;
+            padding: 7px 14px;
+            border-radius: 6px;
+            font-size: 12.5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .filter-btn:hover {
+            background: #e2e8f0;
+            color: #1e293b;
+        }
+
+        .filter-btn.active {
+            background: var(--primary);
+            color: #ffffff;
+        }
+
+        /* ── SECTION HEADINGS ── */
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 20px;
+            margin-top: 40px;
+            padding: 14px 20px;
+            border-radius: var(--radius-md);
+        }
+
+        .section-header:first-of-type {
+            margin-top: 0;
+        }
+
+        .section-header.main-header {
+            background: linear-gradient(135deg, #0b192c 0%, #0f2744 100%);
+            border: 1px solid #1e3a5f;
+            box-shadow: 0 4px 16px rgba(15, 39, 68, 0.12);
+        }
+
+        .section-header.main-header .section-title {
+            color: #ffffff;
+            font-size: 19px;
+            letter-spacing: -0.3px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-badge.main-badge {
+            background: #0284c7;
+            color: #ffffff;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            letter-spacing: 0.3px;
+        }
+
+        .section-header.secondary-header {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-left: 5px solid #64748b;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .section-header.secondary-header .section-title {
+            color: #1e293b;
+            font-size: 17px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-badge.secondary-badge {
+            background: #f1f5f9;
+            color: #475569;
+            font-size: 11.5px;
+            font-weight: 600;
+            padding: 3px 12px;
+            border-radius: 999px;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* ── CV GRID ── */
+        .cv-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 20px;
+        }
+
+        /* ── CV CARD ── */
+        .cv-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.25s ease;
+            position: relative;
+        }
+
+        .cv-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+            border-color: #cbd5e1;
+        }
+
+        .cv-card.main-featured {
+            border: 1.5px solid #0284c7;
+            background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+            box-shadow: 0 4px 18px rgba(2, 132, 199, 0.09);
+        }
+
+        .cv-card.main-featured:hover {
+            border-color: #0369a1;
+            box-shadow: 0 8px 24px rgba(2, 132, 199, 0.18);
+            transform: translateY(-4px);
+        }
+
+        .main-flag-badge {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 700;
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 2px 7px;
+            border-radius: 4px;
+            border: 1px solid #bae6fd;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+        }
+
+        .card-top {
+            margin-bottom: 16px;
+        }
+
+        .card-meta-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .lang-tag {
+            font-size: 10.5px;
+            font-weight: 700;
+            padding: 2px 7px;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .lang-tag.vi {
+            background: #fef2f2;
+            color: #dc2626;
+            border: 1px solid #fecaca;
+        }
+
+        .lang-tag.en {
+            background: #f0fdf4;
+            color: #16a34a;
+            border: 1px solid #bbf7d0;
+        }
+
+        .ats-tag {
+            font-size: 10.5px;
+            font-weight: 600;
+            background: #f8fafc;
+            color: #64748b;
+            padding: 2px 6px;
+            border-radius: 4px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #0f172a;
+            line-height: 1.3;
+            margin-bottom: 6px;
+        }
+
+        .card-target {
+            font-size: 13px;
+            color: #0369a1;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .card-desc {
+            font-size: 12.8px;
+            color: #475569;
+            line-height: 1.45;
+            margin-bottom: 12px;
+        }
+
+        .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-bottom: 16px;
+        }
+
+        .skill-pill {
+            font-size: 11px;
+            background: #f1f5f9;
+            color: #334155;
+            padding: 2px 7px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        /* ── CARD ACTIONS ── */
+        .card-actions {
+            display: flex;
+            gap: 8px;
+            padding-top: 14px;
+            border-top: 1px solid #f1f5f9;
+        }
+
+        .btn-action {
+            flex: 1;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 12.5px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+            text-align: center;
+        }
+
+        .btn-view {
+            background: #f8fafc;
+            color: var(--primary);
+            border: 1px solid #cbd5e1;
+        }
+
+        .btn-view:hover {
+            background: #f1f5f9;
+            border-color: #94a3b8;
+            color: #0b192c;
+        }
+
+        .btn-download {
+            background: var(--primary);
+            color: #ffffff;
+            border: 1px solid var(--primary);
+        }
+
+        .btn-download:hover {
+            background: var(--primary-light);
+            border-color: var(--primary-light);
+        }
+
+        /* ── FOOTER ── */
+        .hub-footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #64748b;
+            font-size: 13px;
+            border-top: 1px solid var(--border);
+            background: #ffffff;
+        }
+
+        .hub-footer a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .hub-footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 640px) {
+            .cv-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .controls-card {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ════════════════════ HEADER ════════════════════ -->
+    <header class="hub-header">
+        <div class="header-content">
+            <span class="badge-hub">Danh Mục Hồ Sơ &amp; CV Đã Chuẩn Hóa</span>
+            <h1 class="hub-title">Võ Văn Tú Tài — CV Directory Hub</h1>
+            <p class="hub-subtitle">
+                Toàn bộ hồ sơ năng lực cá nhân được thiết kế theo tiêu chuẩn ATS quốc tế, bố cục 2 trang A4 chuẩn mực, tối ưu hóa theo từng vị trí tuyển dụng và có thể kiểm chứng 100% qua sản phẩm thực tế.
+            </p>
+            <div class="candidate-contacts">
+                <span>📞 (+84) 869 500 573</span>
+                <span>•</span>
+                <a href="mailto:tutaivovan@gmail.com">✉️ tutaivovan@gmail.com</a>
+                <span>•</span>
+                <a href="https://linkedin.com/in/vovantutai" target="_blank">💼 LinkedIn</a>
+                <span>•</span>
+                <a href="https://github.com/VoVanTuTai" target="_blank">💻 GitHub</a>
+                <span>•</span>
+                <a href="https://tracking.nexus-ex.site" target="_blank">🌐 Live Project</a>
+                <span>•</span>
+                <a href="https://vovantutai-portfolio.vercel.app" target="_blank">🏠 Về Trang Chủ Portfolio</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ════════════════════ MAIN CONTENT ════════════════════ -->
+    <main class="hub-container">
+        <!-- CONTROLS -->
+        <div class="controls-card">
+            <div class="search-box">
+                <svg class="search-icon" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                <input type="text" id="searchInput" class="search-input" placeholder="Tìm kiếm theo vị trí, kỹ năng (Fullstack, BA, Odoo, AI, Python, SQL, Docker...)..." onkeyup="filterCVs()">
+            </div>
+            <div class="filter-tags">
+                <button class="filter-btn active" onclick="setCategory('all', this)">🔍 Tất Cả Hồ Sơ</button>
+                <button class="filter-btn" onclick="setCategory('main', this)">⭐ Hồ Sơ Chủ Lực (Mục Chính)</button>
+                <button class="filter-btn" onclick="setCategory('secondary', this)">📁 Hồ Sơ Phụ / Chuyên Biệt (Mục Phụ)</button>
+            </div>
+        </div>
+
+        <!-- ════════════════════ MỤC 1: CÁC BỘ HỒ SƠ CHỦ LỰC (MỤC CHÍNH ĐỂ XIN VIỆC) ════════════════════ -->
+        <div class="section-header main-header" data-group="main">
+            <h2 class="section-title">⭐ MỤC CHÍNH: CÁC BỘ HỒ SƠ NĂNG LỰC CHỦ LỰC (MASTER RESUMES)</h2>
+            <span class="section-badge main-badge">Ưu Tiên Sử Dụng Ứng Tuyển • Chuẩn ATS 2 Trang A4</span>
+        </div>
+
+        <div class="cv-grid" data-group="main">
+            <!-- 1. Frontend VI -->
+            <div class="cv-card main-featured" data-cat="main" data-keywords="frontend developer lap trinh frontend reactjs typescript javascript html css figma responsive spa live demo">
+                <div class="card-top">
+                    <div class="card-meta-row">
+                        <div style="display: flex; gap: 6px; align-items: center;">
+                            <span class="lang-tag vi">Tiếng Việt</span>
+                            <span class="main-flag-badge">CHỦ LỰC FE</span>
+                        </div>
+                        <span class="ats-tag">2 Trang A4 • ATS Ready</span>
+                    </div>
+                    <h3 class="card-title">Kỹ Sư Lập Trình Frontend</h3>
+                    <div class="card-target">Frontend Software Engineer (React.js · TypeScript · JavaScript ES6+)</div>
+                    <p class="card-desc">Chuyên sâu React.js, TypeScript, chuyển đổi Figma chuẩn pixel, tối ưu hiệu năng render (lazy loading, debouncing), quản lý state Context/Hooks và tích hợp API/WebSocket cho SPA tại tracking.nexus-ex.site.</p>
+                    <div class="card-tags">
+                        <span class="skill-pill">React.js</span>
+                        <span class="skill-pill">TypeScript</span>
+                        <span class="skill-pill">Modern CSS3</span>
+                        <span class="skill-pill">Figma to Code</span>
+                        <span class="skill-pill">RESTful API</span>
+                        <span class="skill-pill">Tiếng Anh Kỹ Thuật</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="/cv-frontend-developer.html" target="_blank" class="btn-action btn-view">👁️ Xem Web</a>
+                    <a href="/VoVanTuTai_Frontend_Developer_CV_Tieng_Viet.pdf" download class="btn-action btn-download">📥 Tải PDF</a>
+                </div>
+            </div>
+
+            <!-- 2. Frontend EN -->
+            <div class="cv-card main-featured" data-cat="main" data-keywords="frontend developer software engineer react typescript javascript ui ux spa english">
+                <div class="card-top">
+                    <div class="card-meta-row">
+                        <div style="display: flex; gap: 6px; align-items: center;">
+                            <span class="lang-tag en">English</span>
+                            <span class="main-flag-badge">CORE FE</span>
+                        </div>
+                        <span class="ats-tag">2 Pages A4 • ATS Ready</span>
+                    </div>
+                    <h3 class="card-title">Frontend Software Engineer</h3>
+                    <div class="card-target">Frontend Engineer (React.js · TypeScript · UI/UX Design System)</div>
+                    <p class="card-desc">Production-grade SPA engineering with React &amp; TypeScript: sub-1.2s page load, live AI RAG streaming interface, interactive Leaflet dispatch mapping, and atomic UI component architecture.</p>
+                    <div class="card-tags">
+                        <span class="skill-pill">React.js</span>
+                        <span class="skill-pill">TypeScript</span>
+                        <span class="skill-pill">Tailwind/CSS3</span>
+                        <span class="skill-pill">SPA Architecture</span>
+                        <span class="skill-pill">Performance</span>
+                        <span class="skill-pill">Technical English</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="/cv-frontend-developer-en.html" target="_blank" class="btn-action btn-view">👁️ View Web</a>
+                    <a href="/VoVanTuTai_Frontend_Developer_CV.pdf" download class="btn-action btn-download">📥 Download PDF</a>
+                </div>
+            </div>
+
+            <!-- 3. Backend VI -->
+            <div class="cv-card main-featured" data-cat="main" data-keywords="backend developer lap trinh backend nodejs nestjs php sql postgresql mysql redis rabbitmq concurrency acid">
+                <div class="card-top">
+                    <div class="card-meta-row">
+                        <div style="display: flex; gap: 6px; align-items: center;">
+                            <span class="lang-tag vi">Tiếng Việt</span>
+                            <span class="main-flag-badge">CHỦ LỰC BE</span>
+                        </div>
+                        <span class="ats-tag">2 Trang A4 • ATS Ready</span>
+                    </div>
+                    <h3 class="card-title">Kỹ Sư Lập Trình Backend</h3>
+                    <div class="card-target">Backend Software Engineer (Node.js · PHP · PostgreSQL · Redis)</div>
+                    <p class="card-desc">Chuyên sâu dịch vụ backend với NestJS &amp; PHP MVC: CSDL chuẩn 3NF (PostgreSQL, MySQL), tối ưu hóa chỉ mục B-Tree (-40% latency), kiểm soát giao dịch ACID, Redis Distributed Locks và hàng đợi RabbitMQ.</p>
+                    <div class="card-tags">
+                        <span class="skill-pill">Node.js / NestJS</span>
+                        <span class="skill-pill">PHP OOP/MVC</span>
+                        <span class="skill-pill">PostgreSQL 3NF</span>
+                        <span class="skill-pill">Redis Distributed Lock</span>
+                        <span class="skill-pill">RabbitMQ</span>
+                        <span class="skill-pill">Tiếng Anh Kỹ Thuật</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="/cv-backend-developer.html" target="_blank" class="btn-action btn-view">👁️ Xem Web</a>
+                    <a href="/VoVanTuTai_Backend_Developer_CV_Tieng_Viet.pdf" download class="btn-action btn-download">📥 Tải PDF</a>
+                </div>
+            </div>
+
+            <!-- 4. Backend EN -->
+            <div class="cv-card main-featured" data-cat="main" data-keywords="backend developer software engineer nodejs nestjs php postgresql redis rabbitmq acid concurrency docker">
+                <div class="card-top">
+                    <div class="card-meta-row">
+                        <div style="display: flex; gap: 6px; align-items: center;">
+                            <span class="lang-tag en">English</span>
+                            <span class="main-flag-badge">CORE BE</span>
+                        </div>
+                        <span class="ats-tag">2 Pages A4 • ATS Ready</span>
+                    </div>
+                    <h3 class="card-title">Backend Software Engineer</h3>
+                    <div class="card-target">Backend Engineer (Node.js · NestJS · PHP · PostgreSQL · Redis)</div>
+                    <p class="card-desc">High-concurrency backend services: event-driven RabbitMQ architecture, idempotent OpenAPI 3.0 contracts, strict MySQL ACID transactions with pessimistic locking, and sub-millisecond Redis geospatial caching.</p>
+                    <div class="card-tags">
+                        <span class="skill-pill">NestJS</span>
+                        <span class="skill-pill">PHP Clean MVC</span>
+                        <span class="skill-pill">PostgreSQL 3NF</span>
+                        <span class="skill-pill">Redis SETNX</span>
+                        <span class="skill-pill">RabbitMQ</span>
+                        <span class="skill-pill">Technical English</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="/cv-backend-developer-en.html" target="_blank" class="btn-action btn-view">👁️ View Web</a>
+                    <a href="/VoVanTuTai_Backend_Developer_CV.pdf" download class="btn-action btn-download">📥 Download PDF</a>
+                </div>
+            </div>
+            <!-- 1. Fullstack VI -->
+            <div class="cv-card main-featured" data-cat="main" data-keywords="fullstack developer lap trinh phan mem nodejs php react sql docker concurrency acid live demo">
+                <div class="card-top">
+                    <div class="card-meta-row">
+                        <div style="display: flex; gap: 6px; align-items: center;">
+                            <span class="lang-tag vi">Tiếng Việt</span>
+                            <span class="main-flag-badge">CHỦ LỰC 01</span>
+                        </div>
+                        <span class="ats-tag">2 Trang A4 • ATS Ready</span>
+                    </div>
+                    <h3 class="card-title">Kỹ Sư Lập Trình Full-Stack</h3>
+                    <div class="card-target">Full-Stack Software Engineer (Node.js · PHP · React · SQL · Docker)</div>
+                    <p class="card-desc">Bản tinh gọn sắc bén: tập trung kiến trúc MVC/Clean Architecture, kiểm soát tương tranh giao dịch ACID (Pessimistic Lock), tối ưu 40% SQL và sản phẩm chạy thật tại tracking.nexus-ex.site.</p>
+                    <div class="card-tags">
+                        <span class="skill-pill">Node.js / Express</span>
+                        <span class="skill-pill">PHP OOP/MVC</span>
+                        <span class="skill-pill">React.js</span>
+                        <span class="skill-pill">PostgreSQL 3NF</span>
+                        <span class="skill-pill">ACID Locking</span>
+                        <span class="skill-pill">Tiếng Anh Kỹ Thuật</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="/cv-fullstack-developer-vi.html" target="_blank" class="btn-action btn-view">👁️ Xem Web</a>
+                    <a href="/VoVanTuTai_Fullstack_Developer_CV_Tieng_Viet.pdf" download class="btn-action btn-download">📥 Tải PDF</a>
+                </div>
+            </div>
+
+            <!-- 2. Fullstack EN -->
+            <div class="cv-card main-featured" data-cat="main" data-keywords="fullstack developer software engineer english nodejs react php docker concurrency acid live demo">
+                <div class="card-top">
+                    <div class="card-meta-row">
+                        <div style="display: flex; gap: 6px; align-items: center;">
+                            <span class="lang-tag en">English</span>
+                            <span class="main-flag-badge">CORE 01</span>
+                        </div>
+                        <span class="ats-tag">2 Pages A4 • ATS Ready</span>
+                    </div>
+                    <h3 class="card-title">Full-Stack Software Engineer</h3>
+                    <div class="card-target">Full-Stack Developer (Node.js · PHP · React · PostgreSQL)</div>
+                    <p class="card-desc">International format for Tech &amp; Product teams: event-driven architecture, idempotent APIs, ACID concurrency control (-40% latency), and production system on tracking.nexus-ex.site.</p>
+                    <div class="card-tags">
+                        <span class="skill-pill">Node.js</span>
+                        <span class="skill-pill">TypeScript</span>
+                        <span class="skill-pill">PHP MVC</span>
+                        <span class="skill-pill">RabbitMQ</span>
+                        <span class="skill-pill">Docker Compose</span>
+                        <span class="skill-pill">Technical English</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="/cv-fullstack-developer.html" target="_blank" class="btn-action btn-view">👁️ View Web</a>
+                    <a href="/VoVanTuTai_Fullstack_Developer_CV.pdf" download class="btn-action btn-download">📥 Download PDF</a>
+                </div>
+            </div>
+
+            <!-- 3. BA VI -->
+            <div class="cv-card main-featured" data-cat="main" data-keywords="business analyst it ba po assistant phan tich nghiep vu homenest bpmn sql odoo prd uat scope freeze">
+                <div class="card-top">
+                    <div class="card-meta-row">
+                        <div style="display: flex; gap: 6px; align-items: center;">
+                            <span class="lang-tag vi">Tiếng Việt</span>
+                            <span class="main-flag-badge">CHỦ LỰC 02</span>
+                        </div>
+                        <span class="ats-tag">2 Trang A4 • ATS Ready</span>
+                    </div>
+                    <h3 class="card-title">Kỹ Sư Cầu Nối &amp; Phân Tích Nghiệp Vụ</h3>
+                    <div class="card-target">IT Business Analyst · Product Owner Assistant</div>
+                    <p class="card-desc">Bản tinh gọn sắc sảo: năng lực làm việc trực tiếp khách hàng, quản trị Change Request (Scope Freeze), mô hình hóa BPMN 2.0 (Camunda), đặc tả PRD / User Stories Given-When-Then và UAT bàn giao.</p>
+                    <div class="card-tags">
+                        <span class="skill-pill">IT Business Analysis</span>
+                        <span class="skill-pill">PRD/SRS</span>
+                        <span class="skill-pill">User Stories</span>
+                        <span class="skill-pill">BPMN 2.0 / Camunda</span>
+                        <span class="skill-pill">SQL Auditing</span>
+                        <span class="skill-pill">Tiếng Anh Kỹ Thuật</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="/po-ba-cv-vi.html" target="_blank" class="btn-action btn-view">👁️ Xem Web</a>
+                    <a href="/VoVanTuTai_Business_Analyst_CV_Tieng_Viet.pdf" download class="btn-action btn-download">📥 Tải PDF</a>
+                </div>
+            </div>
+
+            <!-- 4. BA EN -->
+            <div class="cv-card main-featured" data-cat="main" data-keywords="business analyst resume english po assistant prd user stories bpmn agile scope freeze technical ba">
+                <div class="card-top">
+                    <div class="card-meta-row">
+                        <div style="display: flex; gap: 6px; align-items: center;">
+                            <span class="lang-tag en">English</span>
+                            <span class="main-flag-badge">CORE 02</span>
+                        </div>
+                        <span class="ats-tag">2 Pages A4 • ATS Ready</span>
+                    </div>
+                    <h3 class="card-title">IT Business Analyst · PO Assistant</h3>
+                    <div class="card-target">Technical Business Analyst &amp; Project Delivery</div>
+                    <p class="card-desc">English resume bridging business logic and engineering delivery: technical specifications, Given-When-Then criteria, API contracts, Scope Freeze governance, and Jira defect triage.</p>
+                    <div class="card-tags">
+                        <span class="skill-pill">Technical BA</span>
+                        <span class="skill-pill">Scope Freeze</span>
+                        <span class="skill-pill">OpenAPI 3.0</span>
+                        <span class="skill-pill">SQL Auditing</span>
+                        <span class="skill-pill">Agile/Scrum</span>
+                        <span class="skill-pill">Technical English</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="/cv.html" target="_blank" class="btn-action btn-view">👁️ View Web</a>
+                    <a href="/VoVanTuTai_Business_Analyst_CV.pdf" download class="btn-action btn-download">📥 Download PDF</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ════════════════════ MỤC 2: CÁC HỒ SƠ PHỤ & CHUYÊN BIỆT (MỤC PHỤ) ════════════════════ -->
+        <div class="section-header secondary-header" data-group="secondary">
+            <h2 class="section-title">📁 MỤC PHỤ: CÁC HỒ SƠ CHUYÊN BIỆT THEO VỊ TRÍ &amp; LƯU TRỮ (SPECIALIZED &amp; ARCHIVE)</h2>
+            <span class="section-badge secondary-badge">Hồ sơ bổ trợ &amp; tùy biến theo từng bài toán doanh nghiệp</span>
+        </div>
+
+        <div class="cv-grid" data-group="secondary">
+            <!-- QA Automation Engineer (English) -->
+            <div class="cv-card" data-cat="secondary" data-keywords="qa automation engineer tester cypress detox typescript javascript postman api testing bdd jira remote">
+                <div class="card-top">
+                    <div class="card-meta-row">
+                        <span class="lang-tag en">English</span>
+                        <span class="ats-tag">Remote Ready • ATS 2 Pages</span>
+                    </div>
+                    <h3 class="card-title">QA Automation Engineer</h3>
+                    <div class="card-target">Automation Test Engineer (Cypress · Detox · TypeScript · BDD)</div>
+                    <p class="card-desc">Designed for remote QA automation roles: web E2E automation with Cypress, mobile gray-box concepts (Detox), Given-When-Then BDD test case formulation, Postman API testing, and Jira defect triage.</p>
+                    <div class="card-tags">
+                        <span class="skill-pill">Cypress</span>
+                        <span class="skill-pill">Detox Concepts</span>
+                        <span class="skill-pill">TypeScript</span>
+                        <span class="skill-pill">Postman API</span>
+                        <span class="skill-pill">BDD / Given-When-Then</span>
+                        <span class="skill-pill">Jira Defect Triage</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="/cv-qa-automation-engineer.html" target="_blank" class="btn-action btn-view">👁️ View Web</a>
+                    <a href="/VoVanTuTai_QA_Automation_Engineer_CV.pdf" download class="btn-action btn-download">📥 Download PDF</a>
+                </div>
+            </div>
+
+            <!-- QA Automation Engineer (Tiếng Việt) -->
+            <div class="cv-card" data-cat="secondary" data-keywords="qa automation tester kiem thu tu dong cypress detox typescript postman bdd jira">
+                <div class="card-top">
+                    <div class="card-meta-row">
+                        <span class="lang-tag vi">Tiếng Việt</span>
+                        <span class="ats-tag">Chuyên Biệt: QA Automation</span>
+                    </div>
+                    <h3 class="card-title">Kỹ Sư Kiểm Thử Tự Động</h3>
+                    <div class="card-target">QA Automation Engineer (Cypress · Detox · TypeScript · Postman)</div>
+                    <p class="card-desc">Bản tiếng Việt: kiểm thử tự động web với Cypress, nguyên lý Detox mobile, đặc tả kịch bản BDD (Given-When-Then), kiểm thử API Postman và kinh nghiệm thực chiến phân loại lỗi Jira tại HomeNest.</p>
+                    <div class="card-tags">
+                        <span class="skill-pill">Cypress E2E</span>
+                        <span class="skill-pill">Detox Mobile</span>
+                        <span class="skill-pill">TypeScript</span>
+                        <span class="skill-pill">Postman</span>
+                        <span class="skill-pill">BDD Test Cases</span>
+                        <span class="skill-pill">Jira Triage</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="/cv-qa-automation-engineer-vi.html" target="_blank" class="btn-action btn-view">👁️ Xem Web</a>
+                    <a href="/VoVanTuTai_QA_Automation_Engineer_CV_Tieng_Viet.pdf" download class="btn-action btn-download">📥 Tải PDF</a>
+                </div>
+            </div>
+
+            <!-- SDET Trainee (MoMo Trainee Program - TopCV & Tiếng Việt Tối Ưu) -->
+            <div class="cv-card" data-cat="featured" data-keywords="sdet trainee momo software development engineer in test topcv kiem thu phan mem automation test api postman typescript nodejs python sql postgresql mysql redis jest cypress docker jira ai">
+                <div class="card-top">
+                    <div class="card-meta-row">
+                        <span class="lang-tag vi">Song Ngữ / TopCV</span>
+                        <span class="ats-tag" style="background: rgba(165, 0, 100, 0.15); color: #a50064; border-color: rgba(165, 0, 100, 0.3);">TopCV Match 95%+</span>
+                    </div>
+                    <h3 class="card-title">SDET Trainee (Software Development Engineer in Test)</h3>
+                    <div class="card-target">MoMo SDET Trainee Program · Tối Ưu Hóa Bộ Lọc Điểm TopCV &amp; ATS</div>
+                    <p class="card-desc">Bản song ngữ tối ưu hóa 100% từ khóa TopCV: Điểm GPA 3.26/4.0 Giỏi (IUH), kiểm thử phần mềm &amp; tự động hóa (Automation Test, API Postman, Jest, Cypress), kiến trúc FinTech (ACID, Redis distributed locks, idempotency), và ứng dụng AI.</p>
+                    <div class="card-tags">
+                        <span class="skill-pill">TopCV Parser 95%+</span>
+                        <span class="skill-pill">Kiểm thử phần mềm</span>
+                        <span class="skill-pill">Automation Test</span>
+                        <span class="skill-pill">API Testing &amp; Postman</span>
+                        <span class="skill-pill">SQL &amp; Redis Lock</span>
+                        <span class="skill-pill">GPA 3.26 Giỏi</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="/cv-sdet-trainee-momo-topcv.html" target="_blank" class="btn-action btn-view">👁️ Xem Web</a>
+                    <a href="/VoVanTuTai_SDET_Trainee_MoMo_TopCV_CV.pdf" download class="btn-action btn-download">📥 Tải PDF</a>
+                </div>
+            </div>
+
+            <!-- SDET Trainee (MoMo Trainee Program - English ATS) -->
+            <div class="cv-card" data-cat="featured" data-keywords="sdet trainee momo software development engineer in test automation api integration typescript nodejs nestjs postgresql mysql redis rabbitmq idempotency jest postman docker ai gpa 3.26">
+                <div class="card-top">
+                    <div class="card-meta-row">
+                        <span class="lang-tag en">English</span>
+                        <span class="ats-tag" style="background: rgba(165, 0, 100, 0.15); color: #a50064; border-color: rgba(165, 0, 100, 0.3);">Featured: MoMo SDET Trainee</span>
+                    </div>
+                    <h3 class="card-title">SDET Trainee (Software Development Engineer in Test)</h3>
+                    <div class="card-target">MoMo SDET Trainee Program · 6-Month Intensive Engineering Track</div>
+                    <p class="card-desc">Tailored for MoMo: Cumulative GPA 3.26/4.0 (Information Systems IUH); solid software engineering in Node.js/NestJS, automated API &amp; integration testing, distributed transactions (ACID, Redis distributed locks, idempotency), and AI-driven quality engineering.</p>
+                    <div class="card-tags">
+                        <span class="skill-pill">SDET &amp; Automation</span>
+                        <span class="skill-pill">TypeScript &amp; NestJS</span>
+                        <span class="skill-pill">API &amp; Idempotency</span>
+                        <span class="skill-pill">ACID &amp; Redis Lock</span>
+                        <span class="skill-pill">AI in Testing</span>
+                        <span class="skill-pill">GPA 3.26 / 4.0</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="/cv-sdet-trainee-momo.html" target="_blank" class="btn-action btn-view">👁️ View Web</a>
+                    <a href="/VoVanTuTai_SDET_Trainee_MoMo_CV.pdf" download class="btn-action btn-download">📥 Download PDF</a>
+                </div>
+            </div>
+
+            <!-- Software QA / QC Engineer (KĐT Vạn Phúc, TP. Thủ Đức - Web & Online Services) -->
+            <div class="cv-card" data-cat="featured" data-keywords="software qa qc engineer tester van phuc thu duc exploratory testing regression testing postman chrome devtools proxy socks5 affiliate marketing cskh jira sql iuh gpa 3.26">
+                <div class="card-top">
+                    <div class="card-meta-row">
+                        <span class="lang-tag vi">Tiếng Việt</span>
+                        <span class="ats-tag" style="background: rgba(15, 39, 68, 0.12); color: #0f2744; border-color: rgba(15, 39, 68, 0.25);">Featured: QA / QC Vạn Phúc</span>
+                    </div>
+                    <h3 class="card-title">Chuyên Viên Kiểm Thử Phần Mềm (Software QA / QC)</h3>
+                    <div class="card-target">Nền Tảng Dịch Vụ Trực Tuyến &amp; Web (KĐT Vạn Phúc, TP. Thủ Đức)</div>
+                    <p class="card-desc">Thiết kế chuẩn xác theo JD: Kiểm thử hành trình người dùng (đăng ký, thanh toán, gia hạn), kiểm thử khám phá (Exploratory Testing), thành thạo Postman &amp; Chrome DevTools thu thập bằng chứng lỗi, hiểu biết nền tảng Proxy (IP, Port, SOCKS5) và cơ chế Affiliate Marketing.</p>
+                    <div class="card-tags">
+                        <span class="skill-pill">Exploratory Testing</span>
+                        <span class="skill-pill">Regression Testing</span>
+                        <span class="skill-pill">Postman &amp; DevTools</span>
+                        <span class="skill-pill">Proxy &amp; SOCKS5</span>
+                        <span class="skill-pill">Affiliate &amp; Tracking</span>
+                        <span class="skill-pill">Phối Hợp CSKH &amp; Dev</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="/cv-software-qa-qc-van-phuc.html" target="_blank" class="btn-action btn-view">👁️ Xem Web</a>
+                    <a href="/VoVanTuTai_Software_QA_QC_CV.pdf" download class="btn-action btn-download">📥 Tải PDF</a>
+                </div>
+            </div>
+
+            <!-- Chuyên Viên Giải Pháp & Tích Hợp Hệ Thống CRM, ERP (Khu Sala, TP. Thủ Đức) -->
+            <div class="cv-card" data-cat="featured" data-keywords="chuyen vien giai phap tich hop he thong crm erp scm thaco sala thu duc openapi api contract data mapping rabbitmq webhook ipn vnpay bpmn camunda sql postgresql postman docker iuh gpa 3.26">
+                <div class="card-top">
+                    <div class="card-meta-row">
+                        <span class="lang-tag vi">Tiếng Việt</span>
+                        <span class="ats-tag" style="background: rgba(14, 116, 144, 0.15); color: #0e7490; border-color: rgba(14, 116, 144, 0.3);">Featured: Tích Hợp CRM / ERP</span>
+                    </div>
+                    <h3 class="card-title">Chuyên Viên Giải Pháp &amp; Tích Hợp Hệ Thống (CRM · ERP)</h3>
+                    <div class="card-target">Khối Doanh Nghiệp &amp; Tập Đoàn (KĐT Sala, TP. Thủ Đức)</div>
+                    <p class="card-desc">Thiết kế tối ưu theo JD Tích hợp: Rà soát tài liệu kỹ thuật SRS/SDD, chuẩn hóa API Contract (OpenAPI 3.0), Data Mapping đa hệ thống, cơ chế đồng bộ bất đồng bộ qua RabbitMQ, xử lý lỗi retry &amp; Idempotency-Key chống trùng đơn, mô hình hóa BPMN 2.0 (Camunda), kiểm thử Postman, đối soát CSDL SQL và phân hệ ERP Odoo.</p>
+                    <div class="card-tags">
+                        <span class="skill-pill">API Contract &amp; OpenAPI</span>
+                        <span class="skill-pill">Data Mapping &amp; Sync</span>
+                        <span class="skill-pill">RabbitMQ &amp; Idempotency</span>
+                        <span class="skill-pill">BPMN 2.0 (Camunda)</span>
+                        <span class="skill-pill">ERP Odoo &amp; SCM / OMS</span>
+                        <span class="skill-pill">Postman &amp; SQL Đối Soát</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="/cv-system-integration-solution-specialist.html" target="_blank" class="btn-action btn-view">👁️ Xem Web</a>
+                    <a href="/VoVanTuTai_Chuyen_Vien_Giai_Phap_Tich_Hop_He_Thong_CV.pdf" download class="btn-action btn-download">📥 Tải PDF</a>
+                </div>
+            </div>
+
+            <!-- Executive Developer (Ci Research - Q're Builder) -->
+            <div class="cv-card" data-cat="featured" data-keywords="executive developer ci research qre builder nodejs nestjs mysql mariadb sql angular typeorm prisma redis bullmq websocket rest api unit test dashboard survey">
+                <div class="card-top">
+                    <div class="card-meta-row">
+                        <span class="lang-tag vi">Tiếng Việt</span>
+                        <span class="ats-tag">Chuyên Biệt: Ci Research (Q're Builder)</span>
+                    </div>
+                    <h3 class="card-title">Executive Developer (Node.js &amp; SQL/MySQL)</h3>
+                    <div class="card-target">Chi Nhánh Công Ty TNHH Ci Research (Nền tảng Q're Builder)</div>
+                    <p class="card-desc">Khớp 100% 9 tiêu chuẩn kỹ năng cốt lõi: Backend Node.js/NestJS module hóa, tối ưu truy vấn SQL/MySQL (JOIN, Subquery, Aggregate, Indexing) cho báo cáo/dashboard khảo sát, kiến trúc Angular (Reactive Forms/Services), ORM (TypeORM/Prisma), Redis, BullMQ, WebSocket và REST API.</p>
+                    <div class="card-tags">
+                        <span class="skill-pill">SQL &amp; MySQL</span>
+                        <span class="skill-pill">Node.js / NestJS</span>
+                        <span class="skill-pill">Angular Architecture</span>
+                        <span class="skill-pill">TypeORM / Prisma</span>
+                        <span class="skill-pill">Redis &amp; BullMQ</span>
+                        <span class="skill-pill">REST API &amp; WebSocket</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="/applied-jobs/cv-executive-developer-ci-research.html" target="_blank" class="btn-action btn-view">👁️ Xem Web</a>
+                    <a href="/applied-jobs/VoVanTuTai_Executive_Developer_Ci_Research_CV.pdf" download class="btn-action btn-download">📥 Tải PDF</a>
+                </div>
+            </div>
+
+            <!-- IT Project Admin (UOB Bank - FPro) -->
+            <div class="cv-card" data-cat="featured" data-keywords="it project admin can bo quan tri du an it administration uob bank fpro ism document control project coordination vendors hop dong hoa don thanh toan bao cao">
+                <div class="card-top">
+                    <div class="card-meta-row">
+                        <span class="lang-tag vi">Tiếng Việt</span>
+                        <span class="ats-tag">Chuyên Biệt: UOB Bank (FPro)</span>
+                    </div>
+                    <h3 class="card-title">Cán Bộ Quản Trị Dự Án IT (IT Project Admin)</h3>
+                    <div class="card-target">Phòng nghiệp vụ FPro · Dự án UOB HCM (12 Tôn Đản, Q.4)</div>
+                    <p class="card-desc">Khớp 100% tiêu chuẩn JD: 01 năm kinh nghiệm IT Administration &amp; Document Control; quản lý tài liệu, hồ sơ hành chính dự án IT; rà soát hợp đồng &amp; theo dõi thanh toán vendors; cập nhật và xuất báo cáo hệ thống ISM; nền tảng Kỹ sư HTTT bài bản, cẩn thận, tỉ mỉ và tiếng Anh tốt.</p>
+                    <div class="card-tags">
+                        <span class="skill-pill">IT Administration</span>
+                        <span class="skill-pill">Document Control</span>
+                        <span class="skill-pill">Vendor &amp; Contract</span>
+                        <span class="skill-pill">Hệ thống ISM</span>
+                        <span class="skill-pill">Invoice &amp; Payment</span>
+                        <span class="skill-pill">Jira &amp; MS Excel</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="/applied-jobs/cv-it-project-admin-uob.html" target="_blank" class="btn-action btn-view">👁️ Xem Web</a>
+                    <a href="/applied-jobs/VoVanTuTai_IT_Project_Admin_UOB_CV.pdf" download class="btn-action btn-download">📥 Tải PDF</a>
+                </div>
+            </div>
+
+            <!-- QA Game Tester (UOA Tower - Game QC Korea) -->
+            <div class="cv-card" data-cat="featured" data-keywords="qa game tester kiem thu game lien quan genshin impact pubg delta force call of duty clash of clan chinh phuc cuu chau cày cuốc treo máy ios android jira bug tracking iap han quoc uoa tower">
+                <div class="card-top">
+                    <div class="card-meta-row">
+                        <span class="lang-tag vi">Tiếng Việt</span>
+                        <span class="ats-tag">Chuyên Biệt: QA Game Tester (UOA Tower)</span>
+                    </div>
+                    <h3 class="card-title">Kỹ Sư Kiểm Thử Game (QA Game Tester)</h3>
+                    <div class="card-target">Đội ngũ Kiểm soát chất lượng Game Quốc tế / Hàn Quốc (UOA Tower, Q.7)</div>
+                    <p class="card-desc">Khớp 100% tiêu chuẩn JD: Bề dày trải nghiệm đa dạng tựa game (Genshin Impact, Delta Force, Liên Quân, PUBG Mobile, Call of Duty, Clash of Clans, game cày cuốc/treo máy); kết hợp tư duy Kỹ sư HTTT viết test case, kiểm soát dữ liệu số, thanh toán IAP, test iOS/Android và log bug Jira.</p>
+                    <div class="card-tags">
+                        <span class="skill-pill">Manual Game Testing</span>
+                        <span class="skill-pill">iOS &amp; Android Testing</span>
+                        <span class="skill-pill">In-App Purchases (IAP)</span>
+                        <span class="skill-pill">Dữ liệu số &amp; Balance</span>
+                        <span class="skill-pill">Jira Bug Tracking</span>
+                        <span class="skill-pill">Tiếng Anh &amp; Team Hàn Quốc</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="/applied-jobs/cv-qa-game-tester.html" target="_blank" class="btn-action btn-view">👁️ Xem Web</a>
+                    <a href="/applied-jobs/VoVanTuTai_QA_Game_Tester_CV.pdf" download class="btn-action btn-download">📥 Tải PDF</a>
+                </div>
+            </div>
+
+            <!-- Odoo Developer -->
+            <div class="cv-card" data-cat="secondary" data-keywords="odoo developer python postgresql erp orm custom module xml view">
+                <div class="card-top">
+                    <div class="card-meta-row">
+                        <span class="lang-tag vi">Tiếng Việt</span>
+                        <span class="ats-tag">Chuyên Biệt: Odoo ERP</span>
+                    </div>
+                    <h3 class="card-title">Kỹ Sư Phát Triển Odoo ERP</h3>
+                    <div class="card-target">Odoo ERP Software Developer (In-House &amp; Optimization)</div>
+                    <p class="card-desc">Được đào tạo chính quy môn ERP (Odoo) tại IUH: hiểu sâu kiến trúc Odoo ORM, kế thừa _inherit, thiết kế view XML, cấu hình phân quyền Security rules và tối ưu truy vấn PostgreSQL.</p>
+                    <div class="card-tags">
+                        <span class="skill-pill">Odoo ERP</span>
+                        <span class="skill-pill">Python OOP</span>
+                        <span class="skill-pill">PostgreSQL</span>
+                        <span class="skill-pill">XML Views</span>
+                        <span class="skill-pill">Security Rules</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="/applied-jobs/cv-odoo-software-developer.html" target="_blank" class="btn-action btn-view">👁️ Xem Web</a>
+                    <a href="/applied-jobs/VoVanTuTai_Odoo_Developer_CV.pdf" download class="btn-action btn-download">📥 Tải PDF</a>
+                </div>
+            </div>
+
+            <!-- AI Agent Developer - Digital Transformation -->
+            <div class="cv-card" data-cat="featured" data-keywords="ai agent developer ai chuyen doi so digital transformation n8n make zapier rag knowledge base prompt engineering python">
+                <div class="card-top">
+                    <div class="card-meta-row">
+                        <span class="lang-tag vi">Tiếng Việt</span>
+                        <span class="ats-tag">Chuyên Biệt: AI Chuyển Đổi Số</span>
+                    </div>
+                    <h3 class="card-title">Chuyên Viên AI Chuyển Đổi Số</h3>
+                    <div class="card-target">AI Agent Developer &amp; Automation Specialist (20 - 30 Triệu)</div>
+                    <p class="card-desc">Thiết kế AI Agent chuyên biệt &amp; tự động hóa quy trình đa phòng ban (Marketing, Sales, CSKH, Vận hành): Live RAG chống hallucination, Agent Tool Calling, n8n/Make/Zapier, Webhook/API và chuyển giao công nghệ cho đội ngũ non-tech.</p>
+                    <div class="card-tags">
+                        <span class="skill-pill">AI Agent Dev</span>
+                        <span class="skill-pill">Live RAG</span>
+                        <span class="skill-pill">Tool Calling</span>
+                        <span class="skill-pill">n8n / Make / Zapier</span>
+                        <span class="skill-pill">Multi-Agent Workflow</span>
+                        <span class="skill-pill">API &amp; Webhooks</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="/applied-jobs/cv-ai-agent-chuyen-doi-so.html" target="_blank" class="btn-action btn-view">👁️ Xem Web</a>
+                    <a href="/applied-jobs/VoVanTuTai_AI_Agent_Chuyen_Doi_So_CV.pdf" download class="btn-action btn-download">📥 Tải PDF</a>
+                </div>
+            </div>
+
+            <!-- AI Automation (The KAS) -->
+            <div class="cv-card" data-cat="secondary" data-keywords="ai automation ai agent the kas crm erp live rag tool calling cursor">
+                <div class="card-top">
+                    <div class="card-meta-row">
+                        <span class="lang-tag vi">Tiếng Việt</span>
+                        <span class="ats-tag">Chuyên Biệt: AI Automation</span>
+                    </div>
+                    <h3 class="card-title">Triển Khai AI Agent &amp; Tự Động Hóa</h3>
+                    <div class="card-target">AI Automation Engineer (CRM/ERP Internal Systems)</div>
+                    <p class="card-desc">Đưa AI Agent vào quy trình vận hành thực tế: xây dựng Live RAG tra cứu chính sách có căn cứ, Agent Tool Calling tự động tính cước &amp; tạo đơn, kết hợp tài liệu hóa quy trình SOP.</p>
+                    <div class="card-tags">
+                        <span class="skill-pill">AI Automation</span>
+                        <span class="skill-pill">Agent Tool Calling</span>
+                        <span class="skill-pill">Live RAG</span>
+                        <span class="skill-pill">CRM/ERP</span>
+                        <span class="skill-pill">Cursor/Claude</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="/applied-jobs/cv-ai-automation-kas.html" target="_blank" class="btn-action btn-view">👁️ Xem Web</a>
+                    <a href="/applied-jobs/VoVanTuTai_AI_Automation_TheKAS_CV.pdf" download class="btn-action btn-download">📥 Tải PDF</a>
+                </div>
+            </div>
+
+            <!-- Android Developer -->
+            <div class="cv-card" data-cat="secondary" data-keywords="android developer kotlin c# android sdk mobile restful api sqlite">
+                <div class="card-top">
+                    <div class="card-meta-row">
+                        <span class="lang-tag vi">Tiếng Việt</span>
+                        <span class="ats-tag">Chuyên Biệt: Android</span>
+                    </div>
+                    <h3 class="card-title">Kỹ Sư Lập Trình Ứng Dụng Android</h3>
+                    <div class="card-target">Android &amp; Web Developer (Kotlin · C# · RESTful API)</div>
+                    <p class="card-desc">Lập trình Android Client: quản lý Activity/Fragment, kết nối RESTful API qua Retrofit, lưu trữ dữ liệu cục bộ SQLite, tối ưu hóa sự kiện định vị GPS tiết kiệm pin thiết bị di động.</p>
+                    <div class="card-tags">
+                        <span class="skill-pill">Android SDK</span>
+                        <span class="skill-pill">Kotlin</span>
+                        <span class="skill-pill">C#</span>
+                        <span class="skill-pill">RESTful API</span>
+                        <span class="skill-pill">Mobile UI</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="/applied-jobs/cv-android-developer.html" target="_blank" class="btn-action btn-view">👁️ Xem Web</a>
+                    <a href="/applied-jobs/VoVanTuTai_Android_Developer_CV.pdf" download class="btn-action btn-download">📥 Tải PDF</a>
+                </div>
+            </div>
+
+            <!-- Software Engineering & Digital Systems -->
+            <div class="cv-card" data-cat="secondary" data-keywords="software engineering quan tri he thong so website seo map fanpage ssl dns">
+                <div class="card-top">
+                    <div class="card-meta-row">
+                        <span class="lang-tag vi">Tiếng Việt</span>
+                        <span class="ats-tag">Chuyên Biệt: Hệ Thống Số</span>
+                    </div>
+                    <h3 class="card-title">Kỹ Sư Phần Mềm &amp; Hệ Thống Số</h3>
+                    <div class="card-target">Software Engineering · Web Systems &amp; Technical SEO</div>
+                    <p class="card-desc">Quản trị và phát triển website ổn định, cấu hình DNS/SSL, tối ưu On-page SEO &amp; SEO Map (Google Business Profile), tích hợp kênh số (Fanpage, form liên hệ) và tư vấn kỹ thuật.</p>
+                    <div class="card-tags">
+                        <span class="skill-pill">Web Operations</span>
+                        <span class="skill-pill">DNS / SSL</span>
+                        <span class="skill-pill">On-page SEO</span>
+                        <span class="skill-pill">SEO Map</span>
+                        <span class="skill-pill">SDLC</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="/applied-jobs/cv-software-engineer-digital-systems.html" target="_blank" class="btn-action btn-view">👁️ Xem Web</a>
+                    <a href="/applied-jobs/VoVanTuTai_Software_Engineer_CV.pdf" download class="btn-action btn-download">📥 Tải PDF</a>
+                </div>
+            </div>
+
+            <!-- ERP Master Data Specialist -->
+            <div class="cv-card" data-cat="secondary" data-keywords="master data erp logistics jt express sql audit sop rbac">
+                <div class="card-top">
+                    <div class="card-meta-row">
+                        <span class="lang-tag vi">Tiếng Việt</span>
+                        <span class="ats-tag">Chuyên Biệt: Master Data</span>
+                    </div>
+                    <h3 class="card-title">Chuyên Viên Master Data &amp; ERP</h3>
+                    <div class="card-target">ERP Master Data &amp; Operations Specialist</div>
+                    <p class="card-desc">Kinh nghiệm đối soát số liệu chuỗi cung ứng bằng SQL, kiểm soát tính toàn vẹn dữ liệu Master Data, thiết lập quy chuẩn kiểm soát nội bộ (SoD/RBAC) và biên soạn SOP.</p>
+                    <div class="card-tags">
+                        <span class="skill-pill">Master Data</span>
+                        <span class="skill-pill">SQL Auditing</span>
+                        <span class="skill-pill">SOP Authoring</span>
+                        <span class="skill-pill">RBAC / SoD</span>
+                        <span class="skill-pill">Logistics</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="/applied-jobs/cv-erp-master-data.html" target="_blank" class="btn-action btn-view">👁️ Xem Web</a>
+                    <a href="/applied-jobs/VoVanTuTai_ERP_Master_Data_Specialist_CV.pdf" download class="btn-action btn-download">📥 Tải PDF</a>
+                </div>
+            </div>
+
+            <!-- BVTech -->
+            <div class="cv-card" data-cat="secondary" data-keywords="bvtech software engineer backend php nestjs postgresql">
+                <div class="card-top">
+                    <div class="card-meta-row">
+                        <span class="lang-tag vi">Tiếng Việt</span>
+                        <span class="ats-tag">Doanh nghiệp: BVTech</span>
+                    </div>
+                    <h3 class="card-title">Kỹ Sư Phần Mềm (Software Engineer)</h3>
+                    <div class="card-target">Ứng tuyển BVTech Việt Nam</div>
+                    <p class="card-desc">Tập trung tư duy logic thuật toán, RESTful API contracts, CSDL 3NF ACID và giải pháp AI Tool Calling phục vụ hệ sinh thái công nghệ BVTech.</p>
+                </div>
+                <div class="card-actions">
+                    <a href="/applied-jobs/cv-software-engineer-bvtech.html" target="_blank" class="btn-action btn-view">👁️ Xem Web</a>
+                    <a href="/applied-jobs/VoVanTuTai_Software_Engineer_BVTech_CV.pdf" download class="btn-action btn-download">📥 Tải PDF</a>
+                </div>
+            </div>
+
+            <!-- TAPTAP -->
+            <div class="cv-card" data-cat="secondary" data-keywords="taptap software engineer e-commerce loyalty react nestjs">
+                <div class="card-top">
+                    <div class="card-meta-row">
+                        <span class="lang-tag en">English</span>
+                        <span class="ats-tag">Doanh nghiệp: TAPTAP</span>
+                    </div>
+                    <h3 class="card-title">Software Engineer (Full-Stack)</h3>
+                    <div class="card-target">Application for TAPTAP (VUI Vietnam)</div>
+                    <p class="card-desc">Targeted for E-Commerce &amp; Loyalty Platforms: transactional cart logic, concurrency management, Redis caching, and responsive frontend UI.</p>
+                </div>
+                <div class="card-actions">
+                    <a href="/applied-jobs/cv-software-engineer-taptap.html" target="_blank" class="btn-action btn-view">👁️ View Web</a>
+                    <a href="/applied-jobs/VoVanTuTai_Software_Engineer_TAPTAP_CV.pdf" download class="btn-action btn-download">📥 Download PDF</a>
+                </div>
+            </div>
+
+            <!-- YouNet ECI -->
+            <div class="cv-card" data-cat="secondary" data-keywords="younet eci data specialist e-commerce doi soat sql">
+                <div class="card-top">
+                    <div class="card-meta-row">
+                        <span class="lang-tag vi">Tiếng Việt</span>
+                        <span class="ats-tag">Doanh nghiệp: YouNet ECI</span>
+                    </div>
+                    <h3 class="card-title">Chuyên Viên Dữ Liệu E-Commerce</h3>
+                    <div class="card-target">Ứng tuyển YouNet ECI (Data Specialist)</div>
+                    <p class="card-desc">Thế mạnh trích xuất, làm sạch và phân tích dữ liệu sàn TMĐT (Shopee, Lazada, TikTok Shop), viết truy vấn SQL phức tạp và đối soát dữ liệu thị trường.</p>
+                </div>
+                <div class="card-actions">
+                    <a href="/applied-jobs/cv-younet-eci-data-specialist.html" target="_blank" class="btn-action btn-view">👁️ Xem Web</a>
+                    <a href="/applied-jobs/VoVanTuTai_YouNet_ECI_Data_Specialist_CV.pdf" download class="btn-action btn-download">📥 Tải PDF</a>
+                </div>
+            </div>
+
+            <!-- Hùng Phát WordPress -->
+            <div class="cv-card" data-cat="secondary" data-keywords="wordpress developer hung phat website php seo">
+                <div class="card-top">
+                    <div class="card-meta-row">
+                        <span class="lang-tag vi">Tiếng Việt</span>
+                        <span class="ats-tag">Doanh nghiệp: Nội Thất Hùng Phát</span>
+                    </div>
+                    <h3 class="card-title">Nhân Viên Thiết Kế &amp; Lập Trình Web</h3>
+                    <div class="card-target">Ứng tuyển Công Ty Nội Thất Hùng Phát</div>
+                    <p class="card-desc">Thiết kế website chuẩn SEO, responsive, tối ưu hình ảnh banner sản phẩm, tích hợp form liên hệ, hotline, Google Maps và bảo mật SSL.</p>
+                </div>
+                <div class="card-actions">
+                    <a href="/applied-jobs/cv-wordpress-developer-hung-phat.html" target="_blank" class="btn-action btn-view">👁️ Xem Web</a>
+                    <a href="/applied-jobs/VoVanTuTai_WordPress_Developer_Hung_Phat_CV.pdf" download class="btn-action btn-download">📥 Tải PDF</a>
+                </div>
+            </div>
+
+            <!-- FPT Long Châu Product Owner / Business Analyst -->
+            <div class="cv-card" data-cat="secondary" data-keywords="product owner business analyst fpt long chau ecommerce mini app chat commerce zalo shopee tiktok shop">
+                <div class="card-top">
+                    <div class="card-meta-row">
+                        <span class="lang-tag en">English</span>
+                        <span class="ats-tag">Doanh nghiệp: FPT Long Châu</span>
+                    </div>
+                    <h3 class="card-title">Associate Product Owner / Business Analyst</h3>
+                    <div class="card-target">Ứng tuyển Dược Phẩm FPT Long Châu (E-Commerce &amp; Chat Commerce)</div>
+                    <p class="card-desc">Backlog &amp; User Stories chuẩn Given-When-Then, luồng retail e-commerce (SKU variants, inventory hold TTL, webhook, đối soát dữ liệu), hành trình Chat Commerce kèm guardrails an toàn và luồng bàn giao hỗ trợ chuyên môn.</p>
+                </div>
+                <div class="card-actions">
+                    <a href="/cv-product-owner-ecommerce-chat-long-chau.html" target="_blank" class="btn-action btn-view">👁️ Xem Web</a>
+                    <a href="/VoVanTuTai_Product_Owner_Ecommerce_Chat_Long_Chau_CV.pdf" download class="btn-action btn-download">📥 Tải PDF</a>
+                </div>
+            </div>
+
+            <!-- THACO Sala Giải Pháp & Tích Hợp Hệ Thống -->
+            <div class="cv-card" data-cat="secondary" data-keywords="chuyen vien giai phap tich hop he thong crm erp thaco sala bpmn uml api contract odoo">
+                <div class="card-top">
+                    <div class="card-meta-row">
+                        <span class="lang-tag vi">Tiếng Việt</span>
+                        <span class="ats-tag">Doanh nghiệp: THACO Sala</span>
+                    </div>
+                    <h3 class="card-title">Chuyên Viên Giải Pháp &amp; Tích Hợp Hệ Thống</h3>
+                    <div class="card-target">Ứng tuyển THACO Sala (CRM, ERP &amp; API Integration)</div>
+                    <p class="card-desc">Mô hình hóa quy trình BPMN 2.0 (Camunda), đặc tả API contract chuẩn OpenAPI 3.0, mapping dữ liệu đa hệ thống (ERP Odoo, CRM, SCM) và kiểm thử đối soát giao dịch thanh toán.</p>
+                </div>
+                <div class="card-actions">
+                    <a href="/cv-system-integration-solution-specialist.html" target="_blank" class="btn-action btn-view">👁️ Xem Web</a>
+                    <a href="/VoVanTuTai_Chuyen_Vien_Giai_Phap_Tich_Hop_He_Thong_CV.pdf" download class="btn-action btn-download">📥 Tải PDF</a>
+                </div>
+            </div>
+
+            <!-- SOCOM AI / Automation Engineer -->
+            <div class="cv-card" data-cat="secondary" data-keywords="ai automation engineer socom workflow agentic tool calling rag golden set human in the loop python sql">
+                <div class="card-top">
+                    <div class="card-meta-row">
+                        <span class="lang-tag en">English</span>
+                        <span class="ats-tag">Doanh nghiệp: SOCOM</span>
+                    </div>
+                    <h3 class="card-title">AI / Automation Engineer (Workflow Agents)</h3>
+                    <div class="card-target">Ứng tuyển SOCOM (Social Commerce &amp; Workflow-Driven AI Agents)</div>
+                    <p class="card-desc">Thiết kế AI Agents hướng quy trình: Multi-turn loops, tool calling, structured outputs, Live RAG chống hallucination, golden test sets benchmark, và kiểm soát chất lượng dữ liệu ngữ nghĩa (semantic tables).</p>
+                </div>
+                <div class="card-actions">
+                    <a href="/cv-ai-automation-engineer-socom.html" target="_blank" class="btn-action btn-view">👁️ Xem Web</a>
+                    <a href="/VoVanTuTai_AI_Automation_Engineer_SOCOM_CV.pdf" download class="btn-action btn-download">📥 Tải PDF</a>
+                </div>
+            </div>
+
+            <!-- SEONGON Account Executive (Quản Lý Dự Án) -->
+            <div class="cv-card" data-cat="secondary" data-keywords="account executive quan ly du an seongon agency search marketing seo google ads project management client relationship">
+                <div class="card-top">
+                    <div class="card-meta-row">
+                        <span class="lang-tag vi">Tiếng Việt</span>
+                        <span class="ats-tag">Doanh nghiệp: SEONGON</span>
+                    </div>
+                    <h3 class="card-title">Account Executive (Quản Lý Dự Án)</h3>
+                    <div class="card-target">Ứng tuyển SEONGON (Search Marketing &amp; SEO Agency)</div>
+                    <p class="card-desc">Cầu nối khách hàng &amp; đội ngũ kỹ thuật (SEO, Content, Dev), lập kế hoạch WBS/Milestones, báo cáo dữ liệu trực quan (Excel/SQL/GA4), nghiệm thu UAT và thủ tục hợp đồng.</p>
+                </div>
+                <div class="card-actions">
+                    <a href="/cv-account-executive-project-management-seongon.html" target="_blank" class="btn-action btn-view">👁️ Xem Web</a>
+                    <a href="/VoVanTuTai_Account_Executive_SEONGON_CV.pdf" download class="btn-action btn-download">📥 Tải PDF</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- ════════════════════ FOOTER ════════════════════ -->
+    <footer class="hub-footer">
+        <p>Hồ Sơ Năng Lực Của <b>Võ Văn Tú Tài</b> • Tốt Nghiệp Kỹ Sư Hệ Thống Thông Tin (IUH, GPA 3.26/4.0 - Xếp loại Giỏi)</p>
+        <p style="margin-top: 6px;">
+            <a href="https://vovantutai-portfolio.vercel.app">← Quay lại Trang Chủ Portfolio</a> • <a href="https://tracking.nexus-ex.site" target="_blank">Xem Dự Án Thực Tế (Live Demo)</a>
+        </p>
+    </footer>
+
+    <!-- ════════════════════ JAVASCRIPT LOGIC ════════════════════ -->
+    <script>
+        let currentCategory = 'all';
+
+        function setCategory(cat, btn) {
+            currentCategory = cat;
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            filterCVs();
+        }
+
+        function filterCVs() {
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+            const cards = document.querySelectorAll('.cv-card');
+            const sectionHeaders = document.querySelectorAll('.section-header');
+
+            cards.forEach(card => {
+                const cardCat = card.getAttribute('data-cat');
+                const keywords = card.getAttribute('data-keywords') ? card.getAttribute('data-keywords').toLowerCase() : '';
+                const text = card.innerText.toLowerCase();
+
+                const matchCategory = (currentCategory === 'all' || cardCat === currentCategory);
+                const matchQuery = (query === '' || text.includes(query) || keywords.includes(query));
+
+                if (matchCategory && matchQuery) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Hide section headers if all cards in group are hidden
+            sectionHeaders.forEach(header => {
+                const group = header.getAttribute('data-group');
+                const groupCards = document.querySelectorAll(`.cv-grid[data-group="${group}"] .cv-card`);
+                let anyVisible = false;
+                groupCards.forEach(c => {
+                    if (c.style.display !== 'none') anyVisible = true;
+                });
+                header.style.display = anyVisible ? 'flex' : 'none';
+            });
+        }
+    </script>
+</body>
+
+</html>

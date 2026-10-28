@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Võ Văn Tú Tài — CV Kỹ Sư Lập Trình Ứng Dụng Android &amp; Web</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <!-- Inter Font Support (Chuẩn mực quốc tế, sắc nét, tối ưu ATS) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #e4e7eb;
+            color: #1a1a1a;
+            line-height: 1.34;
+            font-size: 13px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        a, a:visited, a:hover, a:active {
+            color: #111 !important;
+            text-decoration: none !important;
+        }
+
+        /* ── 2-PAGE A4 CONTAINER ── */
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            height: 297mm;
+            max-height: 297mm;
+            background: #fff;
+            margin: 20px auto;
+            padding: 7.5mm 14mm 6.5mm 14mm;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            overflow: hidden;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        /* ── HEADER ── */
+        .header {
+            text-align: center;
+            margin-bottom: 5px;
+            padding-bottom: 3px;
+        }
+
+        .name {
+            font-size: 21pt;
+            font-weight: 700;
+            letter-spacing: -0.4px;
+            color: #111;
+            line-height: 1.1;
+            margin-bottom: 3px;
+        }
+
+        .subtitle {
+            font-size: 9.8pt;
+            font-weight: 600;
+            color: #0f2744;
+            margin-bottom: 5px;
+            letter-spacing: 0.1px;
+        }
+
+        .contact-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: nowrap;
+            gap: 0 8px;
+            font-size: 8.15pt;
+            color: #333;
+            max-width: 100%;
+            margin: 0 auto;
+            white-space: nowrap;
+        }
+
+        .contact-row a,
+        .contact-row span {
+            color: #222 !important;
+            text-decoration: none !important;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            line-height: 1;
+            vertical-align: middle;
+        }
+
+        .contact-icon {
+            width: 11px;
+            height: 11px;
+            fill: #333;
+            flex-shrink: 0;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .separator {
+            color: #888;
+            font-size: 8.5pt;
+            user-select: none;
+        }
+
+        /* ── SECTIONS ── */
+        .section {
+            margin-top: 5px;
+            margin-bottom: 3px;
+        }
+
+        .section-title {
+            font-size: 9.8pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: #0f2744;
+            border-bottom: 1.5px solid #0f2744;
+            padding-bottom: 2px;
+            margin-bottom: 4px;
+        }
+
+        /* ── SUMMARY ── */
+        .summary-text {
+            font-size: 8.95pt;
+            line-height: 1.34;
+            color: #262626;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        /* ── ENTRIES ── */
+        .entry {
+            margin-bottom: 5px;
+        }
+
+        .entry:last-child {
+            margin-bottom: 0;
+        }
+
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-size: 9.5pt;
+            color: #111;
+            gap: 8px;
+        }
+
+        .entry-title {
+            font-weight: 700;
+            color: #111;
+            flex: 1;
+        }
+
+        .entry-title a {
+            font-weight: 700;
+            color: #111 !important;
+            text-decoration: none !important;
+        }
+
+        .project-link {
+            font-size: 8.4pt !important;
+            font-weight: 600 !important;
+            color: #0284c7 !important;
+            text-decoration: underline !important;
+            margin-left: 5px;
+            white-space: nowrap;
+        }
+
+        .entry-location {
+            font-weight: 500;
+            color: #444;
+            font-size: 8.8pt;
+            white-space: nowrap;
+        }
+
+        .entry-sub {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-size: 8.8pt;
+            color: #333;
+            margin-bottom: 2px;
+        }
+
+        .entry-role {
+            font-weight: 600;
+            color: #0f2744;
+        }
+
+        .entry-tech {
+            font-style: italic;
+            font-size: 8.4pt;
+            color: #444;
+        }
+
+        .entry-date {
+            font-style: italic;
+            font-size: 8.7pt;
+            color: #444;
+            white-space: nowrap;
+        }
+
+        .sub-project-header {
+            font-weight: 600;
+            font-size: 8.9pt;
+            color: #0f2744;
+            margin-top: 3px;
+            margin-bottom: 2px;
+        }
+
+        /* ── BULLETS ── */
+        .bullet-list {
+            list-style-type: disc;
+            padding-left: 14px;
+            margin: 2px 0;
+        }
+
+        .bullet-list li {
+            font-size: 8.65pt;
+            line-height: 1.33;
+            color: #262626;
+            margin-bottom: 2.5px;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        .bullet-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ── SKILLS ── */
+        .skills-list {
+            list-style-type: disc;
+            padding-left: 14px;
+            margin: 2px 0;
+        }
+
+        .skills-list li {
+            font-size: 8.65pt;
+            line-height: 1.33;
+            color: #262626;
+            margin-bottom: 3px;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        .skills-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ── PAGE NUMBER ── */
+        .page-number {
+            position: absolute;
+            bottom: 5mm;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 8pt;
+            color: #888;
+        }
+
+        /* ── PRINT & SCREEN CONTROLS ── */
+        @media print {
+            body {
+                background: white;
+            }
+
+            .page {
+                margin: 0;
+                padding: 7.5mm 14mm 6.5mm 14mm;
+                box-shadow: none;
+                width: 210mm;
+                height: 297mm;
+                min-height: 297mm;
+                max-height: 297mm;
+                page-break-after: always;
+                break-after: page;
+            }
+
+            .page:last-child {
+                page-break-after: avoid;
+                break-after: avoid;
+            }
+
+            @page {
+                size: A4 portrait;
+                margin: 0;
+            }
+
+            .action-bar {
+                display: none !important;
+            }
+        }
+
+        .action-bar {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 1000;
+        }
+
+        .action-btn {
+            background: #0f2744;
+            color: #fff !important;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(15, 39, 68, 0.35);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none !important;
+            transition: all 0.2s ease;
+        }
+
+        .action-btn:hover {
+            background: #1a3a60;
+            transform: translateY(-1px);
+        }
+
+        .action-btn.secondary {
+            background: #fff;
+            color: #0f2744 !important;
+            border: 1.5px solid #0f2744;
+        }
+
+        .action-btn.secondary:hover {
+            background: #f8fafc;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ════════════════════ TRANG 1 ════════════════════ -->
+    <div class="page">
+        <!-- HEADER -->
+        <header class="header">
+            <h1 class="name">Võ Văn Tú Tài</h1>
+            <div class="subtitle">Kỹ Sư Lập Trình Ứng Dụng Di Động &amp; Web (Android · Kotlin / Java · JavaScript · RESTful API)</div>
+            <div class="contact-row">
+                <span>
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.25 1.01l-2.2 2.2z" /></svg>
+                    (+84) 869 500 573
+                </span>
+                <span class="separator">|</span>
+                <a href="mailto:tutaivovan@gmail.com">
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" /></svg>
+                    tutaivovan@gmail.com
+                </a>
+                <span class="separator">|</span>
+                <a href="https://linkedin.com/in/vovantutai" target="_blank">
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.2a1.66 1.66 0 0 0-1.66 1.66c0 .92.74 1.66 1.66 1.66.92 0 1.66-.74 1.66-1.66 0-.92-.74-1.66-1.66-1.66z" /></svg>
+                    linkedin.com/in/vovantutai
+                </a>
+                <span class="separator">|</span>
+                <a href="https://github.com/VoVanTuTai" target="_blank">
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" /></svg>
+                    github.com/VoVanTuTai
+                </a>
+                <span class="separator">|</span>
+                <a href="https://tracking.nexus-ex.site" target="_blank">
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" /></svg>
+                    tracking.nexus-ex.site
+                </a>
+            </div>
+        </header>
+
+        <!-- TÓM TẮT CHUYÊN MÔN -->
+        <section class="section">
+            <div class="section-title">Tóm Tắt Năng Lực Chuyên Môn</div>
+            <p class="summary-text">
+                Tốt nghiệp Kỹ sư Hệ thống Thông tin (ĐH Công nghiệp TP.HCM - IUH, GPA 3.26/4.0 - Xếp loại Giỏi). Có nền tảng vững vàng về lập trình hướng đối tượng (OOP), phát triển ứng dụng di động Android (Android SDK, vòng đời Activity/Fragment) và xây dựng giao diện Web responsive (JavaScript, HTML5, CSS3, RESTful API). Từng trực tiếp tham gia phân tích và thiết kế kiến trúc kỹ thuật cho dự án ứng dụng di động đa dịch vụ tại HomeNest Software, xây dựng tài liệu đặc tả API contracts (JSON payloads) cho đội ngũ Mobile (iOS/Android), thiết kế giải pháp ghi nhận GPS theo sự kiện giúp tối ưu hóa hiệu năng và tiết kiệm pin thiết bị di động. Nắm vững kiến trúc mạng Client–Server, cơ chế thông báo đẩy (Push Notification / Firebase), xử lý bất đồng bộ và kiểm soát dữ liệu giao dịch. Đọc hiểu tốt tài liệu kỹ thuật tiếng Anh (Android Developer docs, API specs), có tinh thần trách nhiệm cao, chủ động nghiên cứu và tiếp thu nhanh công nghệ mới (Kotlin, C#).
+            </p>
+        </section>
+
+        <!-- KỸ NĂNG CHUYÊN MÔN -->
+        <section class="section">
+            <div class="section-title">Kỹ Năng Kỹ Thuật Trọng Tâm</div>
+            <ul class="skills-list">
+                <li><b>Lập Trình Di Động &amp; Android SDK:</b> Nắm vững kiến trúc nền tảng Android, vòng đời thành phần ứng dụng (Activity, Fragment, Service, Broadcast Receiver), Android SDK; tư duy lập trình hướng đối tượng (OOP: Tính đóng gói, Kế thừa, Đa hình, Trừu tượng) qua Java, C# và sẵn sàng làm việc với Kotlin; hiểu rõ thiết kế giao diện XML, xử lý tương tác người dùng và thích ứng đa kích thước màn hình.</li>
+                <li><b>Công Nghệ Web &amp; Giao Diện Di Động:</b> JavaScript (ES6+), HTML5, CSS3/SCSS, responsive design tối ưu hiển thị mượt mà trên trình duyệt di động, tích hợp WebView, Fetch API/AJAX, xử lý biểu mẫu dữ liệu (Form Validation).</li>
+                <li><b>Kết Nối Dịch Vụ &amp; RESTful API:</b> Kết nối và tích hợp RESTful APIs (phân tích JSON payloads, HTTP status codes, xử lý timeout/retry), lập trình bất đồng bộ (Async/Await, Threads, Coroutines cơ bản); nắm vững cơ chế thông báo đẩy (Push Notification) qua Firebase Cloud Messaging (FCM).</li>
+                <li><b>Cơ Sở Dữ Liệu &amp; Tối Ưu Hiệu Năng:</b> Thiết kế sơ đồ thực thể quan hệ (ERD chuẩn 3NF), CSDL quan hệ (MySQL, PostgreSQL, SQLite cục bộ), tối ưu bộ nhớ đệm (Cache), tối ưu hóa luồng gọi API và định vị GPS theo sự kiện nhằm tiết kiệm pin và băng thông di động; quản lý mã nguồn bằng Git/GitHub.</li>
+                <li><b>Phân Tích Kỹ Thuật &amp; Tác Phong:</b> Khả năng nghiên cứu và đọc hiểu tài liệu kỹ thuật tiếng Anh chuyên ngành (Android Developer documentation, thư viện SDK); tư duy logic mạch lạc, cầu thị, có trách nhiệm và kỷ luật tiến độ trong công việc.</li>
+            </ul>
+        </section>
+
+        <!-- KINH NGHIỆM LÀM VIỆC THỰC CHIẾN -->
+        <section class="section">
+            <div class="section-title">Kinh Nghiệm Làm Việc Thực Chiến</div>
+
+            <!-- HomeNest Software -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">HomeNest Software</span>
+                    <span class="entry-location">TP. Hồ Chí Minh, Việt Nam</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-role">Kỹ sư Cầu nối Kỹ thuật &amp; Nghiệp vụ (BA / PM Assistant)</span>
+                    <span class="entry-date">03/2026 – 09/2026</span>
+                </div>
+
+                <!-- Dự án 1: Hỗ Trợ Cuộc Sống -->
+                <div class="sub-project-header">Dự án: "Hỗ Trợ Cuộc Sống" — Hệ Sinh Thái Tiện Ích Đa Dịch Vụ (Ứng Dụng Mobile &amp; Web)</div>
+                <ul class="bullet-list">
+                    <li><b>Đặc tả tài liệu API &amp; JSON Contracts cho Mobile App:</b> Khảo sát yêu cầu nghiệp vụ các dịch vụ (Thợ sửa chữa, Chuyến xe ngắn tức thời Grab-like, Xe ghép liên tỉnh); thiết kế mô hình dữ liệu quan hệ (ERD 3NF) và tài liệu đặc tả API contracts (JSON payloads, OpenAPI) chuẩn mực phục vụ đội ngũ phát triển Mobile App (iOS/Android).</li>
+                    <li><b>Thiết kế logic máy trạng thái thương lượng giá (State Machine):</b> Xây dựng quy trình đàm phán giá dịch vụ 2 chiều giữa khách hàng và đối tác kèm thời gian chờ (TTL); thiết lập các điều kiện khóa trạng thái nhằm phòng ngừa xung đột dữ liệu giao dịch đồng thời.</li>
+                    <li><b>Tối ưu hóa hiệu năng ứng dụng di động &amp; Tiết kiệm pin:</b> Đề xuất giải pháp ghi nhận tọa độ GPS theo sự kiện (khi tài xế nhận cuốc và khi hoàn tất cuốc) thay vì quét định vị liên tục, giúp giảm tải băng thông server, tiết kiệm pin cho thiết bị di động và tối ưu đáng kể chi phí gọi API bản đồ.</li>
+                    <li><b>Kiểm thử giao diện di động &amp; Nghiệm thu UAT:</b> Đối chiếu thiết kế wireframe Figma với hiển thị thực tế trên các kích thước màn hình điện thoại; kiểm tra tính năng form liên hệ và các luồng gọi API; hỗ trợ kiểm thử UAT trước khi bàn giao sản phẩm.</li>
+                </ul>
+
+                <!-- Dự án 2: VietPlus -->
+                <div class="sub-project-header">Dự án: "VietPlus" — Sàn Thương Mại Điện Tử C2C &amp; Điều Phối Giao Nhận</div>
+                <ul class="bullet-list">
+                    <li><b>Thiết kế quy trình xử lý giao nhận &amp; Khiếu nại:</b> Thiết kế luồng chuyển trạng thái đơn hàng, cơ chế tự động hủy đơn và quy trình xử lý tranh chấp hoàn tiền/hoàn hàng bảo vệ quyền lợi hai chiều giữa người mua và người bán.</li>
+                    <li><b>Kiểm thử chức năng ứng dụng:</b> Thực hiện kiểm thử chức năng (Functional Testing) theo kịch bản nghiệp vụ; rà soát tính toàn vẹn dữ liệu giao dịch trước khi phát hành.</li>
+                </ul>
+            </div>
+
+            <!-- J&T Express -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">J&amp;T Express</span>
+                    <span class="entry-location">TP. Hồ Chí Minh, Việt Nam</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-role">Chuyên Viên Phân Tích &amp; Điều Phối Quy Trình Vận Hành (Operations Coordinator)</span>
+                    <span class="entry-date">09/2025 – 02/2026</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Truy vấn SQL &amp; Đối soát dữ liệu vận hành:</b> Trực tiếp viết các câu truy vấn SQL (JOIN, Aggregation, Subquery) để đối soát số liệu xuất nhập kho thực tế với nhật ký phần mềm quản lý hàng ngàn bưu gửi mỗi ca; bảo đảm tính toàn vẹn và chính xác của dữ liệu.</li>
+                    <li><b>Tối ưu hóa quy trình xử lý luân chuyển:</b> Khảo sát và nhận diện điểm nghẽn tại dây chuyền phân loại; sắp xếp lại quy trình theo luồng một chiều (Nhập kho &rarr; Cân &rarr; Quét mã &rarr; Xuất tuyến), đẩy nhanh tốc độ luân chuyển hàng hóa trong mỗi ca.</li>
+                    <li><b>Biên soạn tài liệu quy trình SOP:</b> Soạn thảo tài liệu hướng dẫn từng bước chi tiết giúp người dùng tại các chi nhánh dễ dàng nắm bắt các thao tác nghiệp vụ trên phần mềm.</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="page-number">Trang 1 / 2</div>
+    </div>
+
+    <!-- ════════════════════ TRANG 2 ════════════════════ -->
+    <div class="page">
+        <!-- SẢN PHẨM & DỰ ÁN TIÊU BIỂU -->
+        <section class="section">
+            <div class="section-title">Sản Phẩm &amp; Dự Án Phần Mềm Tiêu Biểu</div>
+
+            <!-- Project 1: Nexus Logistics System -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">
+                        <a href="https://tracking.nexus-ex.site" target="_blank">Nexus Express — Website Quản Lý Vận Chuyển &amp; Tra Cứu Trực Tuyến</a>
+                        <a href="https://tracking.nexus-ex.site" target="_blank" class="project-link">[Website Live ↗]</a>
+                        <a href="https://github.com/VoVanTuTai/logistics-management-system" target="_blank" class="project-link">[Mã nguồn GitHub ↗]</a>
+                    </span>
+                    <span class="entry-location">Sản Phẩm Vận Hành Thực Tế</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-tech">Kiến trúc Client–Server, RESTful APIs, Mobile Responsive UI, JavaScript Fetch API, Docker</span>
+                    <span class="entry-date">Địa chỉ Live: tracking.nexus-ex.site</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Giao diện tối ưu trải nghiệm người dùng di động (Mobile Responsive):</b> Thiết kế giao diện tra cứu và quản lý bưu gửi trực tuyến thân thiện, mượt mà trên cả trình duyệt máy tính và điện thoại di động; hiển thị rõ ràng dòng thời gian trạng thái đơn hàng.</li>
+                    <li><b>Biểu mẫu nhập liệu động có xác thực dữ liệu (Form Validation):</b> Xây dựng form đăng ký gửi hàng có kiểm tra dữ liệu đầu vào (địa chỉ, số điện thoại, trọng lượng, số tiền thu hộ COD), kết nối với API backend qua JavaScript Fetch API (AJAX) không tải lại trang.</li>
+                    <li><b>Tích hợp RESTful API &amp; Xử lý bất đồng bộ:</b> Chuẩn hóa các endpoint RESTful API phục vụ tính cước, tạo vận đơn và tra cứu trạng thái hành trình; thiết lập cơ chế timeout và xử lý fallback dự phòng bảo đảm ứng dụng luôn phản hồi ổn định.</li>
+                    <li><b>Triển khai hạ tầng thực tế:</b> Đóng gói các dịch vụ bằng Docker Compose; trực tiếp cấu hình trỏ tên miền riêng và chứng chỉ bảo mật SSL/HTTPS.</li>
+                </ul>
+            </div>
+
+            <!-- Project 2: Tourist Accommodation Platform -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">
+                        <a href="https://github.com/VoVanTuTai/tourist-accommodation-management-system" target="_blank">Tourist Accommodation — Nền Tảng Đặt Phòng, Kiểm Soát Đồng Thời &amp; Phân Quyền RBAC</a>
+                        <a href="https://github.com/VoVanTuTai/tourist-accommodation-management-system" target="_blank" class="project-link">[Mã nguồn GitHub ↗]</a>
+                    </span>
+                    <span class="entry-location">Dự Án Backend Ứng Dụng</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-tech">Kiến trúc 3-tier, MySQL (3NF &amp; Indexing), Phân quyền RBAC, Webhook VNPay IPN, Node.js, Docker</span>
+                    <span class="entry-date">Hoàn thành: 12/2025</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Thiết kế ERD &amp; Phân quyền người dùng (RBAC):</b> Thiết kế sơ đồ quan hệ thực thể (ERD chuẩn 3NF) và xây dựng hệ thống phân quyền 3 cấp (Khách hàng, Đối tác cung cấp dịch vụ, Quản trị viên hệ thống), phân tách độc lập dữ liệu giữa các đối tác.</li>
+                    <li><b>Xử lý bài toán xung đột giữ chỗ (TTL Hold Concurrency):</b> Xây dựng cơ chế khóa giữ phòng tạm thời trong 15 phút (kèm thời gian hết hạn TTL), giải quyết triệt để rủi ro nhiều người cùng đặt một phòng tại một thời điểm trước khi hoàn tất thanh toán.</li>
+                    <li><b>Tích hợp cổng thanh toán qua Webhook:</b> Kết nối cổng thanh toán VNPay qua IPN Webhook với cơ chế kiểm tra chữ ký số HMAC-SHA512 để xác minh tính toàn vẹn của giao dịch; thiết kế cơ chế xử lý bất đồng bộ đảm bảo cập nhật trạng thái đơn hàng chính xác.</li>
+                </ul>
+            </div>
+
+            <!-- Project 3: Song Tai Shop -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">
+                        <a href="https://github.com/VoVanTuTai/php-online-store" target="_blank">Song Tai Shop — Hệ Thống Quản Trị Danh Mục &amp; Bán Hàng Trực Tuyến (Mô Hình MVC)</a>
+                        <a href="https://github.com/VoVanTuTai/php-online-store" target="_blank" class="project-link">[Mã nguồn GitHub ↗]</a>
+                    </span>
+                    <span class="entry-location">Dự Án Web Thương Mại Điện Tử</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-tech">Mô hình kiến trúc MVC, PHP OOP, MySQL (3NF &amp; Indexing), JavaScript AJAX, Docker Compose</span>
+                    <span class="entry-date">Hoàn thành: 01/2026</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Kiến trúc phân tầng MVC &amp; Quản trị giao dịch ACID:</b> Xây dựng hệ thống theo mô hình MVC phân tách rõ ràng giữa Model (dữ liệu), View (giao diện) và Controller (nghiệp vụ); xử lý bài toán trừ kho khi có nhiều giao dịch mua hàng đồng thời bằng giao dịch ACID nghiêm ngặt kết hợp khóa dòng dữ liệu (Pessimistic Locking).</li>
+                    <li><b>Trang quản trị &amp; Biểu mẫu quản lý sản phẩm:</b> Xây dựng trang quản trị danh mục sản phẩm, biến thể hàng hóa và giỏ hàng; áp dụng JavaScript Fetch API (AJAX) giúp cập nhật trạng thái đơn hàng và tính toán số lượng theo thời gian thực mà không cần tải lại toàn bộ trang.</li>
+                    <li><b>Chuẩn hóa RESTful API:</b> Xây dựng hệ thống API rõ ràng phục vụ việc truy xuất dữ liệu danh mục, giỏ hàng và xử lý đặt hàng.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- HỌC VẤN & NỀN TẢNG ĐÀO TẠO -->
+        <section class="section">
+            <div class="section-title">Học Vấn &amp; Nền Tảng Đào Tạo</div>
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">Trường Đại học Công nghiệp TP. Hồ Chí Minh (IUH)</span>
+                    <span class="entry-location">TP. Hồ Chí Minh, Việt Nam</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-role">Kỹ sư Hệ thống Thông tin (Hoàn thành chương trình đào tạo · Sẵn sàng làm việc Full-time)</span>
+                    <span class="entry-date">09/2022 – 2026</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Điểm trung bình tích lũy (GPA):</b> <b>3.26 / 4.0</b> (Xếp loại Giỏi).</li>
+                    <li><b>Môn học chuyên ngành trọng tâm:</b> Kỹ thuật Phần mềm (Software Engineering), Lập trình Hướng đối tượng (Java / OOP), Cấu trúc Dữ liệu &amp; Giải thuật, Hệ quản trị Cơ sở Dữ liệu &amp; SQL nâng cao (MySQL, PostgreSQL, Indexing, Transactions), Kiến trúc Hướng Dịch vụ (SOA), Phân tích &amp; Thiết kế Hệ thống (ERD 3NF, OOAD).</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="page-number">Trang 2 / 2</div>
+    </div>
+
+    <!-- Thanh Điều Khiển Nổi -->
+    <div class="action-bar">
+        <a href="https://tracking.nexus-ex.site" target="_blank" class="action-btn secondary">
+            🌐 Xem Website Live
+        </a>
+        <a href="/applied-jobs/VoVanTuTai_Android_Developer_CV.pdf" download="VoVanTuTai_Android_Developer_CV.pdf" class="action-btn">
+            📥 Tải Bản PDF (2 Trang A4)
+        </a>
+    </div>
+</body>
+
+</html>

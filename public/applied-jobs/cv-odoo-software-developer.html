@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Võ Văn Tú Tài — CV Kỹ Sư Phát Triển Odoo ERP (Odoo Software Developer)</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <!-- Inter Font Support (Chuẩn quốc tế, sắc nét, tối ưu in ấn và ATS) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #e4e7eb;
+            color: #1a1a1a;
+            line-height: 1.34;
+            font-size: 13px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        a, a:visited, a:hover, a:active {
+            color: #111 !important;
+            text-decoration: none !important;
+        }
+
+        /* ── 2-PAGE A4 CONTAINER ── */
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            height: 297mm;
+            max-height: 297mm;
+            background: #fff;
+            margin: 20px auto;
+            padding: 7mm 13mm 5.5mm 13mm;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            overflow: hidden;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        /* ── HEADER CĂN GIỮA ĐỒNG BỘ ── */
+        .header {
+            text-align: center;
+            margin-bottom: 5px;
+            padding-bottom: 3px;
+        }
+
+        .name {
+            font-size: 21pt;
+            font-weight: 700;
+            letter-spacing: -0.4px;
+            color: #111;
+            line-height: 1.1;
+            margin-bottom: 3px;
+        }
+
+        .subtitle {
+            font-size: 9.8pt;
+            font-weight: 600;
+            color: #0f2744;
+            margin-bottom: 5px;
+            letter-spacing: 0.1px;
+        }
+
+        .contact-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: nowrap;
+            gap: 0 8px;
+            font-size: 8.15pt;
+            color: #333;
+            max-width: 100%;
+            margin: 0 auto;
+            white-space: nowrap;
+        }
+
+        .contact-row a,
+        .contact-row span {
+            color: #222 !important;
+            text-decoration: none !important;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            line-height: 1;
+            vertical-align: middle;
+        }
+
+        .contact-icon {
+            width: 11px;
+            height: 11px;
+            fill: #333;
+            flex-shrink: 0;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .separator {
+            color: #888;
+            font-size: 8.5pt;
+            user-select: none;
+        }
+
+        /* ── SECTIONS ── */
+        .section {
+            margin-top: 5px;
+            margin-bottom: 3px;
+        }
+
+        .section-title {
+            font-size: 9.8pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: #0f2744;
+            border-bottom: 1.5px solid #0f2744;
+            padding-bottom: 2px;
+            margin-bottom: 4px;
+        }
+
+        /* ── SUMMARY ── */
+        .summary-text {
+            font-size: 8.95pt;
+            line-height: 1.34;
+            color: #262626;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        /* ── ENTRIES ── */
+        .entry {
+            margin-bottom: 5px;
+        }
+
+        .entry:last-child {
+            margin-bottom: 0;
+        }
+
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-size: 9.5pt;
+            color: #111;
+            gap: 8px;
+        }
+
+        .entry-title {
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        .entry-location {
+            font-size: 8.4pt;
+            color: #555;
+            flex-shrink: 0;
+            text-align: right;
+            font-weight: 500;
+        }
+
+        .entry-sub {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-size: 8.5pt;
+            margin-top: 1px;
+            margin-bottom: 2px;
+            gap: 8px;
+        }
+
+        .entry-role {
+            font-weight: 600;
+            color: #0f2744;
+        }
+
+        .entry-tech {
+            font-weight: 500;
+            color: #4b5563;
+            font-style: italic;
+        }
+
+        .entry-date {
+            font-size: 8.2pt;
+            color: #666;
+            flex-shrink: 0;
+            text-align: right;
+        }
+
+        .sub-project-header {
+            font-size: 8.7pt;
+            font-weight: 700;
+            color: #1e293b;
+            margin-top: 3px;
+            margin-bottom: 1.5px;
+        }
+
+        /* ── BULLET LISTS ── */
+        .bullet-list {
+            list-style-type: disc;
+            padding-left: 14px;
+            margin: 0;
+        }
+
+        .bullet-list li {
+            font-size: 8.85pt;
+            line-height: 1.33;
+            color: #2b2b2b;
+            margin-bottom: 2px;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        .bullet-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .bullet-list li b {
+            font-weight: 600;
+            color: #0f172a;
+        }
+
+        /* ── SKILLS LIST ── */
+        .skills-list {
+            list-style-type: disc;
+            padding-left: 14px;
+            margin: 0;
+        }
+
+        .skills-list li {
+            font-size: 8.85pt;
+            line-height: 1.33;
+            color: #2b2b2b;
+            margin-bottom: 2.5px;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        .skills-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .skills-list li b {
+            font-weight: 600;
+            color: #0f172a;
+        }
+
+        /* ── PROJECT LINK FORMATTING ── */
+        .project-link {
+            font-size: 8pt;
+            font-weight: 600;
+            color: #0f2744 !important;
+            margin-left: 4px;
+            text-decoration: underline !important;
+        }
+
+        .project-link:hover {
+            color: #1d4ed8 !important;
+        }
+
+        /* ── FOOTER & PAGE NUMBER ── */
+        .page-number {
+            position: absolute;
+            bottom: 3.5mm;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 7.8pt;
+            color: #888;
+        }
+
+        /* ── PRINT & SCREEN CONTROLS ── */
+        @media print {
+            body {
+                background: white;
+            }
+
+            .page {
+                margin: 0;
+                padding: 7.5mm 14mm 6.5mm 14mm;
+                box-shadow: none;
+                width: 210mm;
+                height: 297mm;
+                min-height: 297mm;
+                max-height: 297mm;
+                page-break-after: always;
+                break-after: page;
+            }
+
+            .page:last-child {
+                page-break-after: avoid;
+                break-after: avoid;
+            }
+
+            @page {
+                size: A4 portrait;
+                margin: 0;
+            }
+
+            .action-bar {
+                display: none !important;
+            }
+        }
+
+        /* ── ACTION BAR CHO NGƯỜI DÙNG XEM TRỰC TIẾP ── */
+        .action-bar {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 12px;
+            z-index: 1000;
+        }
+
+        .action-btn {
+            background: #0f2744;
+            color: #fff !important;
+            padding: 10px 18px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none !important;
+            box-shadow: 0 4px 12px rgba(15, 39, 68, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .action-btn:hover {
+            background: #1e3a5f;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(15, 39, 68, 0.4);
+        }
+
+        .action-btn.secondary {
+            background: #ffffff;
+            color: #0f2744 !important;
+            border: 1px solid #cbd5e1;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .action-btn.secondary:hover {
+            background: #f8fafc;
+            border-color: #94a3b8;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ════════════════════ TRANG 1 ════════════════════ -->
+    <div class="page">
+        <!-- HEADER CĂN GIỮA CHUẨN MỰC -->
+        <header class="header">
+            <h1 class="name">Võ Văn Tú Tài</h1>
+            <div class="subtitle">Kỹ Sư Phần Mềm · Phát Triển Hệ Thống Odoo ERP (Odoo Software Developer)</div>
+            <div class="contact-row">
+                <span>
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" /></svg>
+                    (+84) 869 500 573
+                </span>
+                <span class="separator">•</span>
+                <a href="mailto:tutaivovan@gmail.com">
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" /></svg>
+                    tutaivovan@gmail.com
+                </a>
+                <span class="separator">•</span>
+                <a href="https://linkedin.com/in/vovantutai" target="_blank">
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.2a1.66 1.66 0 0 0-1.66 1.66c0 .92.74 1.66 1.66 1.66.92 0 1.66-.74 1.66-1.66 0-.92-.74-1.66-1.66-1.66z" /></svg>
+                    linkedin.com/in/vovantutai
+                </a>
+                <span class="separator">•</span>
+                <a href="https://github.com/VoVanTuTai" target="_blank">
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z" /></svg>
+                    github.com/VoVanTuTai
+                </a>
+                <span class="separator">•</span>
+                <a href="https://tracking.nexus-ex.site" target="_blank">
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" /></svg>
+                    tracking.nexus-ex.site
+                </a>
+            </div>
+        </header>
+
+        <!-- TÓM TẮT NĂNG LỰC CHUYÊN MÔN -->
+        <section class="section">
+            <div class="section-title">Tóm Tắt Năng Lực Chuyên Môn</div>
+            <p class="summary-text">
+                Tốt nghiệp Kỹ sư Hệ thống Thông tin (ĐH Công nghiệp TP.HCM - IUH, GPA 3.26/4.0 - Xếp loại Giỏi), có nền tảng đào tạo chính quy về Hệ thống Hoạch định Nguồn lực Doanh nghiệp (ERP - Odoo) kết hợp kinh nghiệm thực tế trong phát triển phần mềm và tối ưu luồng vận hành nội bộ. Nắm vững ngôn ngữ Python, JavaScript, HTML/CSS và hệ quản trị cơ sở dữ liệu PostgreSQL. Hiểu rõ kiến trúc module Odoo, cơ chế ORM, kế thừa logic/giao diện (_inherit), xây dựng View (XML: Form, Tree, Search), phân quyền bảo mật (Security rules) và kết nối qua APIs. Có kinh nghiệm thực chiến trong vai trò Cầu nối Kỹ thuật &amp; Nghiệp vụ (BA / PM Assistant) và Điều phối Vận hành: phối hợp chặt chẽ với các phòng ban làm rõ yêu cầu, đánh giá giải pháp kỹ thuật, trực tiếp biên soạn tài liệu SOP và hướng dẫn người dùng nội bộ sử dụng phần mềm. Tác phong làm việc cẩn trọng, kỷ luật, có khả năng làm việc độc lập cũng như phối hợp nhóm tốt và duy trì chế độ báo cáo định kỳ chính xác.
+            </p>
+        </section>
+
+        <!-- KỸ NĂNG KỸ THUẬT & NGHIỆP VỤ TRỌNG TÂM -->
+        <section class="section">
+            <div class="section-title">Kỹ Năng Kỹ Thuật &amp; Nghiệp Vụ Trọng Tâm</div>
+            <ul class="skills-list">
+                <li><b>Phát Triển &amp; Tùy Chỉnh Odoo ERP:</b> Nắm vững kiến trúc đa tầng của Odoo; lập trình Python OOP; thao tác tầng Odoo ORM (Search, Browse, Create, Write, Unlink); định nghĩa trường dữ liệu quan hệ (Many2one, One2many, Many2many); kế thừa mở rộng model và view (_inherit); thiết kế giao diện người dùng qua XML (Form view, Tree view, Search view, Kanban); thiết lập phân quyền truy cập (Access Rights ir.model.access.csv, Record Rules).</li>
+                <li><b>Cơ Sở Dữ Liệu PostgreSQL &amp; SQL Nâng Cao:</b> Thiết kế mô hình dữ liệu quan hệ (ERD chuẩn 3NF); viết truy vấn SQL phức tạp (JOIN nhiều bảng, Subquery, Aggregation); phân tích và tối ưu hóa chỉ mục (B-Tree Indexing); kiểm soát giao dịch đồng thời và bảo đảm tính toàn vẹn dữ liệu (ACID) cho các giao dịch kho, bán hàng và vận hành.</li>
+                <li><b>Lập Trình Web &amp; Tích Hợp Hệ Thống:</b> Thành thạo JavaScript (ES6+), HTML5, Modern CSS; hiểu cơ chế hoạt động của Odoo Web Client và giao tiếp dữ liệu bất đồng bộ; xây dựng và tích hợp dịch vụ qua RESTful API, JSON-RPC phục vụ trao đổi dữ liệu hai chiều giữa Odoo với các phần mềm vệ tinh.</li>
+                <li><b>Quy Trình Phần Mềm (SDLC) &amp; Quản Lý Mã Nguồn:</b> Tuân thủ quy trình phát triển phần mềm (SDLC: Khảo sát, Thiết kế, Phát triển, Kiểm thử, Vận hành); sử dụng thành thạo Git/GitHub (quản lý nhánh tính năng, commit, pull request, giải quyết xung đột mã nguồn); làm quen với triển khai và đóng gói ứng dụng qua Docker / Docker Compose trên môi trường Linux.</li>
+                <li><b>Phân Tích Nghiệp Vụ, Hướng Dẫn &amp; Soạn Thảo Tài Liệu:</b> Khả năng làm việc trực tiếp với người dùng các phòng ban (Kinh doanh, Kho vận, Kế toán) để làm rõ yêu cầu nghiệp vụ; biên soạn tài liệu đặc tả và hướng dẫn sử dụng (SOP); hướng dẫn đào tạo người dùng thao tác đúng quy trình; thực hiện báo cáo định kỳ (ngày, tuần, tháng) minh bạch cho cấp quản lý.</li>
+            </ul>
+        </section>
+
+        <!-- KINH NGHIỆM LÀM VIỆC THỰC CHIẾN -->
+        <section class="section">
+            <div class="section-title">Kinh Nghiệm Làm Việc Thực Chiến</div>
+
+            <!-- HomeNest Software -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">HomeNest Software</span>
+                    <span class="entry-location">TP. Hồ Chí Minh, Việt Nam</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-role">Kỹ sư Cầu nối Kỹ thuật &amp; Nghiệp vụ (BA / PM Assistant)</span>
+                    <span class="entry-date">03/2026 – 09/2026</span>
+                </div>
+
+                <!-- Dự án 1: Hỗ Trợ Cuộc Sống -->
+                <div class="sub-project-header">Dự án: "Hỗ Trợ Cuộc Sống" — Hệ Sinh Thái Quản Lý Đa Dịch Vụ &amp; Quy Trình Nghiệp Vụ</div>
+                <ul class="bullet-list">
+                    <li><b>Khảo sát yêu cầu &amp; Phân tích giải pháp kỹ thuật:</b> Làm việc trực tiếp với các bộ phận để khảo sát nhu cầu nghiệp vụ; phân tích và chuyển hóa yêu cầu thành tài liệu đặc tả PRD, User Stories và mô hình dữ liệu quan hệ (ERD 3NF) phục vụ đội ngũ phát triển.</li>
+                    <li><b>Thiết kế quy trình máy trạng thái (State Machine):</b> Thiết kế luồng chuyển trạng thái dịch vụ (Chờ tiếp nhận, Đang xử lý, Hoàn thành, Hủy đơn); phối hợp đánh giá giải pháp kỹ thuật khả thi, bảo đảm tính logic và hạn chế phát sinh lỗi nghiệp vụ.</li>
+                    <li><b>Biên soạn tài liệu &amp; Hướng dẫn người dùng UAT:</b> Viết tài liệu mô tả luồng thao tác và kịch bản kiểm thử chấp nhận (UAT); trực tiếp hướng dẫn, giải đáp vướng mắc kỹ thuật cho người dùng nội bộ và đối tác trong quá trình nghiệm thu hệ thống.</li>
+                </ul>
+
+                <!-- Dự án 2: VietPlus -->
+                <div class="sub-project-header">Dự án: "VietPlus" — Sàn Thương Mại Điện Tử &amp; Quy Trình Luân Chuyển Đơn Hàng</div>
+                <ul class="bullet-list">
+                    <li><b>Chuẩn hóa quy trình giao dịch:</b> Thiết kế luồng luân chuyển đơn hàng, cơ chế tự động hủy đơn khi quá hạn và quy trình xử lý khiếu nại hoàn tiền bảo vệ quyền lợi hai chiều; kiểm tra tính toàn vẹn dữ liệu trước khi bàn giao.</li>
+                </ul>
+            </div>
+
+            <!-- J&T Express -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">J&amp;T Express</span>
+                    <span class="entry-location">TP. Hồ Chí Minh, Việt Nam</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-role">Chuyên Viên Phân Tích &amp; Điều Phối Quy Trình Vận Hành (Operations Coordinator)</span>
+                    <span class="entry-date">09/2025 – 02/2026</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Đối soát dữ liệu hệ thống bằng SQL:</b> Trực tiếp viết câu truy vấn SQL (JOIN, Aggregation) đối soát dữ liệu chứng từ thực tế tại kho với nhật ký phần mềm quản lý vận hành; phát hiện và xử lý kịp thời các sai lệch bất đồng bộ dữ liệu.</li>
+                    <li><b>Biên soạn tài liệu SOP &amp; Đào tạo người dùng:</b> Soạn thảo tài liệu quy trình thao tác chuẩn (SOP) mô tả chi tiết các bước nghiệp vụ; trực tiếp hướng dẫn nhân viên kho thao tác chính xác trên phần mềm, giảm thiểu lỗi nhập liệu sai sót.</li>
+                    <li><b>Báo cáo định kỳ:</b> Thực hiện tổng hợp số liệu và báo cáo định kỳ theo ngày, tuần và tháng gửi quản lý trung tâm khai thác, phản ánh chính xác tiến độ xử lý và các điểm nghẽn kỹ thuật cần khắc phục.</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="page-number">Trang 1 / 2</div>
+    </div>
+
+    <!-- ════════════════════ TRANG 2 ════════════════════ -->
+    <div class="page">
+        <!-- SẢN PHẨM & DỰ ÁN KỸ THUẬT TIÊU BIỂU -->
+        <section class="section">
+            <div class="section-title">Sản Phẩm &amp; Dự Án Kỹ Thuật Tiêu Biểu</div>
+
+            <!-- Project 1: Odoo ERP Customization & Simulation -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">
+                        Mô Hình Tùy Chỉnh Phân Hệ Quản Lý Bán Hàng &amp; Kho Hàng Odoo ERP
+                    </span>
+                    <span class="entry-location">Dự Án Nghiên Cứu &amp; Ứng Dụng Chuyên Sâu</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-tech">Kiến trúc Odoo ERP, Python OOP, Odoo ORM, PostgreSQL, XML Views, Security Rules, Docker</span>
+                    <span class="entry-date">Nền tảng: Odoo Community &amp; PostgreSQL</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Thiết kế Custom Module &amp; Kế thừa dữ liệu:</b> Xây dựng custom module mở rộng cho phân hệ Quản lý Bán hàng (Sale) và Quản lý Kho (Inventory); áp dụng kỹ thuật kế thừa model (_inherit) để thêm trường dữ liệu tùy chỉnh, thiết lập quan hệ Many2one/One2many và ràng buộc dữ liệu (Python constraints).</li>
+                    <li><b>Xây dựng giao diện XML &amp; Phân quyền người dùng:</b> Thiết kế giao diện Form view, Tree view và Search view với các bộ lọc dữ liệu động theo trạng thái; cấu hình tệp ir.model.access.csv và Record Rules bảo đảm phân tách quyền thao tác dữ liệu chuẩn xác giữa nhân viên kinh doanh và thủ kho.</li>
+                    <li><b>Tối ưu truy vấn dữ liệu PostgreSQL:</b> Vận dụng kiến thức CSDL quan hệ để rà soát các câu truy vấn do ORM tạo ra; tối ưu hóa cấu trúc truy xuất dữ liệu, hạn chế tình trạng truy vấn lặp (N+1 query) khi tải danh sách đơn hàng lớn.</li>
+                </ul>
+            </div>
+
+            <!-- Project 2: Nexus Express Logistics Management -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">
+                        <a href="https://tracking.nexus-ex.site" target="_blank">Nexus Express — Website Quản Lý Vận Chuyển &amp; Tra Cứu Trực Tuyến</a>
+                        <a href="https://tracking.nexus-ex.site" target="_blank" class="project-link">[Website Live ↗]</a>
+                        <a href="https://github.com/VoVanTuTai/logistics-management-system" target="_blank" class="project-link">[Mã nguồn GitHub ↗]</a>
+                    </span>
+                    <span class="entry-location">Sản Phẩm Vận Hành Thực Tế</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-tech">Python Backend, PostgreSQL (3NF), RESTful APIs, JSON-RPC, Docker Compose, Nginx SSL</span>
+                    <span class="entry-date">Địa chỉ Live: tracking.nexus-ex.site</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Mô hình hóa dữ liệu PostgreSQL &amp; Audit Trail:</b> Thiết kế lược đồ CSDL chuẩn 3NF với các bảng quan hệ chặt chẽ; thiết lập chỉ mục B-Tree trên mã vận đơn và mốc thời gian; lưu trữ nhật ký biến động trạng thái bất biến phục vụ việc truy vết và kiểm toán dữ liệu 100%.</li>
+                    <li><b>Xây dựng API kết nối &amp; Kiểm thực dữ liệu:</b> Phát triển các điểm cuối RESTful API hỗ trợ truyền nhận dữ liệu định dạng JSON; xây dựng tầng kiểm tra hợp lệ dữ liệu đầu vào (Data Validation) nghiêm ngặt, ngăn chặn lỗi dữ liệu rác trước khi lưu vào CSDL.</li>
+                    <li><b>Hỗ trợ thông tin nghiệp vụ cho người dùng:</b> Tích hợp module tra cứu quy chế vận chuyển và chính sách bồi thường; tự động trích xuất thông tin giải đáp thắc mắc của người dùng kèm căn cứ rõ ràng, giúp giảm tải khối lượng hỗ trợ thủ công.</li>
+                </ul>
+            </div>
+
+            <!-- Project 3: Song Tai Shop & Tourist Accommodation -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">
+                        <a href="https://github.com/VoVanTuTai/php-online-store" target="_blank">Song Tai Shop &amp; Tourist Accommodation — Nền Tảng Quản Lý Bán Hàng &amp; Dịch Vụ Lưu Trú</a>
+                        <a href="https://github.com/VoVanTuTai/php-online-store" target="_blank" class="project-link">[Mã nguồn GitHub ↗]</a>
+                    </span>
+                    <span class="entry-location">Dự Án Phần Mềm Ứng Dụng</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-tech">Quy trình SDLC, Kiến trúc MVC / 3-tier, CSDL quan hệ 3NF, Giao dịch ACID, Webhook IPN, Docker</span>
+                    <span class="entry-date">Hoàn thành: 01/2026</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Quản lý quy trình kinh doanh &amp; Kiểm soát kho:</b> Thiết kế kiến trúc phân tầng rõ ràng giữa tầng dữ liệu, tầng logic nghiệp vụ và tầng hiển thị; xử lý bài toán trừ tồn kho và giữ chỗ tạm thời bằng giao dịch ACID kết hợp khóa dữ liệu, tránh xung đột khi nhiều người dùng thao tác cùng lúc.</li>
+                    <li><b>Trang quản trị &amp; Báo cáo dữ liệu trực quan:</b> Xây dựng phân hệ quản trị danh mục sản phẩm, trạng thái phòng và lịch sử thanh toán; hỗ trợ người dùng lọc dữ liệu, cập nhật nhanh trạng thái đơn hàng và theo dõi báo cáo doanh thu định kỳ.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- HỌC VẤN & NỀN TẢNG ĐÀO TẠO -->
+        <section class="section">
+            <div class="section-title">Học Vấn &amp; Nền Tảng Đào Tạo</div>
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">Trường Đại học Công nghiệp TP. Hồ Chí Minh (IUH)</span>
+                    <span class="entry-location">TP. Hồ Chí Minh, Việt Nam</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-role">Kỹ sư Hệ thống Thông tin (Hoàn thành chương trình đào tạo · Sẵn sàng làm việc Full-time)</span>
+                    <span class="entry-date">09/2022 – 2026</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Điểm trung bình tích lũy (GPA):</b> <b>3.26 / 4.0</b> (Xếp loại Giỏi).</li>
+                    <li><b>Môn học chuyên ngành trọng tâm:</b> Hệ thống Hoạch định Nguồn lực Doanh nghiệp (ERP - Odoo: Sales, Purchase, Inventory, Accounting), Hệ quản trị Cơ sở Dữ liệu &amp; SQL nâng cao (PostgreSQL, MySQL, Indexing, Transactions), Kỹ thuật Phần mềm (Software Engineering), Phân tích &amp; Thiết kế Hệ thống (OOAD/UML), Kiến trúc Hướng Dịch vụ (SOA), Quản trị Dự án CNTT.</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="page-number">Trang 2 / 2</div>
+    </div>
+
+    <!-- Thanh Điều Khiển Nổi -->
+    <div class="action-bar">
+        <a href="https://tracking.nexus-ex.site" target="_blank" class="action-btn secondary">
+            🌐 Xem Website Live
+        </a>
+        <a href="/applied-jobs/VoVanTuTai_Odoo_Developer_CV.pdf" download="VoVanTuTai_Odoo_Developer_CV.pdf" class="action-btn">
+            📥 Tải Bản PDF (2 Trang A4)
+        </a>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vo Van Tu Tai — AI / Automation Engineer (Workflow-Driven AI Agents)</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, 'Segoe UI', Roboto, Helvetica, -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #e4e7eb;
+            color: #1a1a1a;
+            line-height: 1.38;
+            font-size: 13px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        a,
+        a:visited,
+        a:hover,
+        a:active {
+            color: #0949b8 !important;
+            text-decoration: none !important;
+        }
+
+        /* ── 2-PAGE A4 CONTAINER ── */
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            height: 297mm;
+            max-height: 297mm;
+            background: #fff;
+            margin: 18px auto;
+            padding: 10mm 15mm 9mm 15mm;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            overflow: hidden;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        /* ── HEADER ── */
+        .header {
+            text-align: center;
+            margin-bottom: 10px;
+            padding-bottom: 3px;
+        }
+
+        .name {
+            font-size: 21pt;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            color: #0f2744;
+            line-height: 1.15;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            font-size: 9.8pt;
+            font-weight: 600;
+            color: #0284c7;
+            margin-bottom: 7px;
+            letter-spacing: 0.2px;
+        }
+
+        .contact-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: nowrap;
+            gap: 0 10px;
+            font-size: 8.5pt;
+            color: #333;
+            max-width: 92%;
+            margin: 0 auto;
+            white-space: nowrap;
+        }
+
+        .contact-row a,
+        .contact-row span {
+            color: #222 !important;
+            text-decoration: none !important;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            line-height: 1;
+        }
+
+        .contact-icon {
+            width: 13px;
+            height: 13px;
+            fill: currentColor;
+            flex-shrink: 0;
+            color: #0284c7;
+        }
+
+        .separator {
+            color: #94a3b8;
+            font-weight: 300;
+            font-size: 8pt;
+        }
+
+        /* ── SECTIONS ── */
+        .section {
+            margin-bottom: 10px;
+        }
+
+        .section-title {
+            font-size: 9.5pt;
+            font-weight: 700;
+            color: #0f2744;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            border-bottom: 1.2px solid #0f2744;
+            padding-bottom: 3px;
+            margin-bottom: 5px;
+        }
+
+        .summary-text {
+            font-size: 8.7pt;
+            color: #2b3648;
+            text-align: justify;
+            line-height: 1.4;
+        }
+
+        /* ── SKILLS ── */
+        .skills-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .skills-list li {
+            font-size: 8.55pt;
+            color: #2b3648;
+            margin-bottom: 3.5px;
+            line-height: 1.36;
+            position: relative;
+            padding-left: 12px;
+            text-align: justify;
+        }
+
+        .skills-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #0284c7;
+            font-weight: bold;
+            font-size: 9pt;
+        }
+
+        /* ── ENTRIES ── */
+        .entry {
+            margin-bottom: 7px;
+        }
+
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 1px;
+        }
+
+        .entry-title {
+            font-size: 9.3pt;
+            font-weight: 700;
+            color: #0f2744;
+        }
+
+        .entry-title a {
+            color: #0f2744 !important;
+        }
+
+        .entry-location {
+            font-size: 8.3pt;
+            color: #64748b;
+            font-style: italic;
+            white-space: nowrap;
+        }
+
+        .entry-sub {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 3px;
+        }
+
+        .entry-role {
+            font-size: 8.7pt;
+            font-weight: 600;
+            color: #0284c7;
+        }
+
+        .entry-date {
+            font-size: 8.3pt;
+            color: #64748b;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .entry-tech {
+            font-size: 8.1pt;
+            color: #475569;
+            font-style: italic;
+        }
+
+        .project-links {
+            display: inline-flex;
+            gap: 6px;
+            margin-left: 5px;
+            white-space: nowrap;
+        }
+
+        .project-link {
+            font-size: 8pt;
+            color: #0284c7 !important;
+            font-weight: 600;
+        }
+
+        .bullet-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .bullet-list li {
+            font-size: 8.5pt;
+            color: #2b3648;
+            margin-bottom: 3.2px;
+            line-height: 1.36;
+            position: relative;
+            padding-left: 12px;
+            text-align: justify;
+        }
+
+        .bullet-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #0284c7;
+            font-weight: bold;
+            font-size: 8.5pt;
+        }
+
+        .page-number {
+            position: absolute;
+            bottom: 4.5mm;
+            right: 15mm;
+            font-size: 7.5pt;
+            color: #94a3b8;
+            font-weight: 500;
+        }
+
+        /* ── FLOATING CONTROLS (SCREEN ONLY) ── */
+        .action-bar {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            display: flex;
+            gap: 10px;
+            z-index: 1000;
+        }
+
+        .action-btn {
+            background: #0f2744;
+            color: #fff !important;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s ease;
+            text-decoration: none !important;
+        }
+
+        .action-btn:hover {
+            background: #0284c7;
+            transform: translateY(-2px);
+        }
+
+        .action-btn.secondary {
+            background: #fff;
+            color: #0f2744 !important;
+            border: 1px solid #cbd5e1;
+        }
+
+        .action-btn.secondary:hover {
+            background: #f1f5f9;
+        }
+
+        /* ── PRINT RULES ── */
+        @media print {
+            body {
+                background: white;
+            }
+
+            .page {
+                margin: 0;
+                padding: 9.5mm 15mm 8.5mm 15mm;
+                box-shadow: none;
+                width: 210mm;
+                height: 297mm;
+                min-height: 297mm;
+                max-height: 297mm;
+                overflow: hidden;
+                page-break-after: always;
+                break-after: page;
+            }
+
+            .page:last-child {
+                page-break-after: avoid;
+                break-after: avoid;
+            }
+
+            @page {
+                size: A4 portrait;
+                margin: 0;
+            }
+
+            .action-bar {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ════════════════════ PAGE 1 ════════════════════ -->
+    <div class="page">
+        <!-- HEADER -->
+        <header class="header">
+            <h1 class="name">Vo Van Tu Tai</h1>
+            <div class="subtitle">AI / Automation Engineer · Workflow-Driven AI Agents &amp; Practical Systems Integration</div>
+            <div class="contact-row">
+                <a href="tel:0869500573">
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                    (+84) 869 500 573
+                </a>
+                <span class="separator">|</span>
+                <a href="mailto:tutaivovan@gmail.com">
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    tutaivovan@gmail.com
+                </a>
+                <span class="separator">|</span>
+                <a href="https://linkedin.com/in/vovantutai" target="_blank">
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.25c-.95 0-1.72.78-1.72 1.73s.77 1.73 1.72 1.73 1.73-.78 1.73-1.73-.78-1.73-1.73-1.73z"/></svg>
+                    linkedin.com/in/vovantutai
+                </a>
+                <span class="separator">|</span>
+                <a href="https://github.com/VoVanTuTai" target="_blank">
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+                    github.com/VoVanTuTai
+                </a>
+                <span class="separator">|</span>
+                <a href="https://vovantutai-portfolio.vercel.app" target="_blank">
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                    Portfolio
+                </a>
+            </div>
+        </header>
+
+        <!-- PROFESSIONAL SUMMARY -->
+        <section class="section">
+            <div class="section-title">Professional Summary</div>
+            <p class="summary-text">
+                Information Systems Engineer (IUH, GPA 3.26/4.0 - Distinction) with a pragmatic approach to designing and deploying workflow-driven AI Agents embedded directly into business processes. Proven track record building practical agentic systems with live production validation at <b>tracking.nexus-ex.site</b>, integrating multi-turn conversational loops, function/tool calling via REST APIs, structured JSON schema outputs, and grounded RAG retrieval with anti-hallucination guardrails. Grounded in business process modeling (BPMN 2.0), relational data integrity (SQL, PostgreSQL 3NF), and technical requirements specification (PRD, User Stories, UAT Quality Gates). Passionate about pragmatic automation—choosing deterministic logic and clean semantic data where LLMs are unnecessary, while establishing strict human-in-the-loop review scorecards for mission-critical deliverables. Modest, disciplined, and immediately available full-time.
+            </p>
+        </section>
+
+        <!-- CORE COMPETENCIES & TECHNICAL TOOLING -->
+        <section class="section">
+            <div class="section-title">Core Competencies &amp; Technical Tooling</div>
+            <ul class="skills-list">
+                <li><b>Agentic Workflows &amp; Tool Calling:</b> Multi-turn stateful conversational loops, function / tool calling (connecting LLMs to REST APIs), prompt orchestration, dynamic context injection, structured outputs (JSON Schema validation), and human-in-the-loop escalation rules.</li>
+                <li><b>RAG Architecture &amp; Governance Guardrails:</b> Semantic search and vector retrieval, grounded citations against authoritative operational policies, strict boundary guardrails to suppress hallucinations, and designing golden test sets for SME review benchmarks.</li>
+                <li><b>Process Modeling &amp; Pragmatic Automation:</b> Business Process Model and Notation (BPMN 2.0 / Camunda), deterministic state machines, event-driven webhooks, and separating rule-based logic from generative tasks to protect token budget and system predictability.</li>
+                <li><b>Data Quality &amp; Semantic Data Tables:</b> Strong SQL proficiency (PostgreSQL, MySQL 3NF), relational schema design, verifying data integrity before agent ingestion, auditing transaction reconciliation logs, and working closely with Data Engineers on curated tables.</li>
+                <li><b>Engineering, QA &amp; Daily Tooling:</b> Python (FastAPI, data extraction/transformation), Node.js / TypeScript, RESTful API contracts (OpenAPI 3.0), Docker Compose, Postman, Jira, Confluence, Git/GitHub, UAT quality gate design.</li>
+            </ul>
+        </section>
+
+        <!-- WORK EXPERIENCE -->
+        <section class="section">
+            <div class="section-title">Work Experience</div>
+
+            <!-- HomeNest Software -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">HomeNest Software</span>
+                    <span class="entry-location">Ho Chi Minh City, Vietnam</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-role">Business Analyst &amp; Systems Process Specialist (Engineering &amp; Ops Liaison)</span>
+                    <span class="entry-date">Sep 2024 – Present</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Requirements Specification &amp; Governance Rules:</b> Surveyed departmental operations to translate messy business needs into structured PRDs, User Stories with clear Given-When-Then Acceptance Criteria, and explicit exception handling logic.</li>
+                    <li><b>State Machine &amp; Deterministic Flow Design:</b> Designed multi-step service state machines (service requests, two-way price negotiation, and status locks with TTL expiration), preventing concurrency conflicts without relying on complex, unpredictable logic.</li>
+                    <li><b>Pragmatic Automation &amp; Resource Efficiency:</b> Specified event-driven location checkpoint updates triggered strictly on status transitions instead of continuous polling, significantly reducing third-party API consumption and preserving mobile client battery.</li>
+                    <li><b>API Payload Verification &amp; UAT Quality Gates:</b> Validated JSON data contracts across web/mobile clients and backend endpoints using Postman; designed functional UAT test cases and collaborated directly with QA and developers to resolve blockers before release.</li>
+                </ul>
+            </div>
+
+            <!-- J&T Express Vietnam -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">J&amp;T Express Vietnam</span>
+                    <span class="entry-location">Ho Chi Minh City, Vietnam</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-role">Operations Data &amp; System Reconciliation Specialist</span>
+                    <span class="entry-date">Jun 2024 – Sep 2024</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Data Quality Auditing &amp; Reconciliation:</b> Monitored parcel transit status across regional sorting hubs and branches; authored multi-table SQL queries (joins, aggregations) to detect data discrepancies between centralized OMS records and courier mobile apps.</li>
+                    <li><b>Reliable Data Verification:</b> Cross-checked shipping fee calculations, COD settlement totals, and transit milestone delays against operational logs, providing clean anomaly datasets for technical leads to resolve data pipeline inconsistencies.</li>
+                    <li><b>Standard Operating Procedures (SOPs):</b> Documented routine operational failure modes and drafted clear troubleshooting guidelines, establishing structured domain rules that support automated routing and customer support escalation.</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="page-number">Page 1 of 2</div>
+    </div>
+
+    <!-- ════════════════════ PAGE 2 ════════════════════ -->
+    <div class="page">
+        <!-- SELECTED AI & SOFTWARE PROJECTS -->
+        <section class="section">
+            <div class="section-title">Selected AI &amp; Technical Projects</div>
+
+            <!-- Project 1: Nexus Express AI Logistics Assistant -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">
+                        Nexus Express — Distributed OMS &amp; AI Assistant (Live Production)
+                        <span class="project-links">
+                            <a href="https://tracking.nexus-ex.site" target="_blank" class="project-link">[Live Demo ↗]</a>
+                            <a href="https://github.com/VoVanTuTai/logistics-management-system" target="_blank" class="project-link">[GitHub ↗]</a>
+                        </span>
+                    </span>
+                    <span class="entry-location">Featured Production System</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-tech">Python, FastAPI, TypeScript, NestJS, RabbitMQ, PostgreSQL (3NF), Camunda BPMN 2.0, Redis, Docker Compose</span>
+                    <span class="entry-date">Sep 2025 – Feb 2026</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Workflow-Driven Multi-Turn Agent Loop:</b> Built an autonomous intake assistant featuring stateful multi-turn conversational loops: detects user intent, parses shipping information, extracts structured entities (names, phone numbers, addresses, weight), prompts for missing inputs, and triggers courier dispatch.</li>
+                    <li><b>Agent Tool Calling &amp; Structured UI Outputs:</b> Implemented backend tool integrations (<code>quoteShipmentOrder</code>, <code>createRetailOrder</code>, <code>trackClaimStatus</code>) via JSON function calling; returned structured response cards and interactive action chips directly within the chat interface.</li>
+                    <li><b>Grounded RAG &amp; Anti-Hallucination Guardrails:</b> Built document retrieval over operational guidelines, compensation policies, and SLAs; enforced grounded citations in responses to eliminate hallucinations regarding insurance limits, and established fallback escalation to human operators when queries fell outside authorized scope.</li>
+                    <li><b>Evaluation Golden Set &amp; Quality Gates:</b> Designed a curated golden benchmark set of representative test scenarios (standard lookups, incomplete entities, edge-case inquiries, and out-of-scope prompts) to verify intent accuracy and enforce response quality standards.</li>
+                    <li><b>Live Cloud Deployment:</b> Containerized microservices with Docker Compose and deployed live at <b><a href="https://tracking.nexus-ex.site" target="_blank">tracking.nexus-ex.site</a></b> with SSL encryption, Nginx reverse proxy, and operational health monitoring.</li>
+                </ul>
+            </div>
+
+            <!-- Project 2: Tourist Accommodation Booking -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">
+                        Hospitality Booking Platform &amp; VNPay Payment Gateway Integration
+                        <span class="project-links">
+                            <a href="https://github.com/VoVanTuTai/tourist-accommodation-management-system" target="_blank" class="project-link">[GitHub ↗]</a>
+                        </span>
+                    </span>
+                    <span class="entry-location">Commercial Web Application</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-tech">PHP (OOP, MVC), MySQL 3NF, VNPay Payment Gateway, IPN Webhook, HMAC-SHA512, Docker</span>
+                    <span class="entry-date">Mar 2025 – Jul 2025</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Temporary Inventory Hold (TTL):</b> Designed reservation checkout flow with a 15-minute temporary inventory lock to prevent double-booking on peak dates while users complete payment.</li>
+                    <li><b>Asynchronous IPN Webhook Verification:</b> Integrated VNPay payment gateway; processed asynchronous IPN webhooks with HMAC-SHA512 cryptographic checksum verification to secure payment authenticity.</li>
+                    <li><b>Automated Data Reconciliation:</b> Implemented background tasks comparing payment gateway responses with internal booking records, automatically releasing expired locks when transactions timed out.</li>
+                </ul>
+            </div>
+
+            <!-- Project 3: E-Commerce Store & Marketplace Research -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">
+                        E-Commerce Store &amp; Marketplace API Integration Research
+                        <span class="project-links">
+                            <a href="https://github.com/VoVanTuTai/php-online-store" target="_blank" class="project-link">[GitHub ↗]</a>
+                        </span>
+                    </span>
+                    <span class="entry-location">Social Commerce Architecture Study</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-tech">PHP OOP, MySQL (ACID Transactions), RESTful APIs, Marketplace Specs (Shopee, TikTok Shop)</span>
+                    <span class="entry-date">Oct 2024 – Jan 2025</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Core Retail Order Mechanics:</b> Implemented catalog browsing, SKU variant mapping, promotion vouchers, shopping cart management, and inventory deduction with row-level transaction locks.</li>
+                    <li><b>Social Commerce API Research:</b> Analyzed open API specifications and webhook schemas of regional e-commerce platforms (Shopee Open Platform, TikTok Shop Partner Center), studying payload structures for campaign order sync, inventory webhooks, and seller performance metrics.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- EDUCATION -->
+        <section class="section">
+            <div class="section-title">Education</div>
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">Industrial University of Ho Chi Minh City (IUH)</span>
+                    <span class="entry-location">Ho Chi Minh City, Vietnam</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-role">Bachelor of Engineering in Information Systems · GPA: 3.26 / 4.0 (Distinction / Giỏi)</span>
+                    <span class="entry-date">Sep 2022 – 2026 (Completed All Degree Requirements · Available Full-time)</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Relevant Coursework:</b> Systems Analysis &amp; Design, Database Management Systems (Advanced SQL), Enterprise Resource Planning (ERP - Odoo), Software Engineering, IT Project Management, Service-Oriented Architecture (SOA), Artificial Intelligence Fundamentals.</li>
+                    <li><b>Professional Readiness:</b> Strong analytical systems foundation, disciplined engineering ethics, clear cross-functional communication between technical and operational teams, and full commitment to full-time onboarding.</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="page-number">Page 2 of 2</div>
+    </div>
+
+    <!-- Floating Action Controls -->
+    <div class="action-bar">
+        <a href="/VoVanTuTai_AI_Automation_Engineer_SOCOM_CV.pdf" download="VoVanTuTai_AI_Automation_Engineer_SOCOM_CV.pdf" class="action-btn">
+            📥 DOWNLOAD RESUME (2 Pages A4)
+        </a>
+        <button class="action-btn secondary" onclick="window.print()">
+            🖨️ Print Resume
+        </button>
+    </div>
+</body>
+
+</html>

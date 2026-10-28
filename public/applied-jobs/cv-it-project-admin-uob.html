@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Võ Văn Tú Tài — CV IT Project Admin | Phòng Nghiệp Vụ FPro (Dự Án UOB HCM)</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <!-- Inter Font (Sắc nét, chuẩn mực in ấn văn phòng chuyên nghiệp & tối ưu ATS) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #e4e7eb;
+            color: #1a1a1a;
+            line-height: 1.34;
+            font-size: 13px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        a, a:visited, a:hover, a:active {
+            color: #111 !important;
+            text-decoration: none !important;
+        }
+
+        /* ── 2-PAGE A4 CONTAINER CHUẨN ── */
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            height: 297mm;
+            max-height: 297mm;
+            background: #fff;
+            margin: 20px auto;
+            padding: 7.5mm 13.5mm 6.5mm 13.5mm;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            overflow: hidden;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        /* ── HEADER ── */
+        .header {
+            text-align: center;
+            margin-bottom: 5px;
+            padding-bottom: 3px;
+        }
+
+        .name {
+            font-size: 21.5pt;
+            font-weight: 800;
+            letter-spacing: -0.4px;
+            color: #111;
+            line-height: 1.1;
+            margin-bottom: 3px;
+        }
+
+        .subtitle {
+            font-size: 9.8pt;
+            font-weight: 700;
+            color: #0f2744;
+            margin-bottom: 4px;
+            letter-spacing: 0.15px;
+        }
+
+        .contact-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: nowrap;
+            gap: 0 8px;
+            font-size: 8.15pt;
+            color: #333;
+            max-width: 100%;
+            margin: 0 auto;
+            white-space: nowrap;
+        }
+
+        .contact-row a,
+        .contact-row span {
+            color: #222 !important;
+            text-decoration: none !important;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            line-height: 1;
+            vertical-align: middle;
+        }
+
+        .contact-row a:hover {
+            color: #0284c7 !important;
+            text-decoration: underline !important;
+        }
+
+        .contact-icon {
+            width: 11px;
+            height: 11px;
+            fill: #333;
+            flex-shrink: 0;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .separator {
+            color: #888;
+            font-size: 8.5pt;
+            user-select: none;
+        }
+
+        /* ── SECTIONS ── */
+        .section {
+            margin-top: 5px;
+            margin-bottom: 4px;
+        }
+
+        .section-title {
+            font-size: 9.9pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: #0f2744;
+            border-bottom: 1.5px solid #0f2744;
+            padding-bottom: 2px;
+            margin-bottom: 4px;
+        }
+
+        /* ── SUMMARY ── */
+        .summary-text {
+            font-size: 9.05pt;
+            line-height: 1.34;
+            color: #262626;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        /* ── ENTRIES ── */
+        .entry {
+            margin-bottom: 5px;
+        }
+
+        .entry:last-child {
+            margin-bottom: 0;
+        }
+
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-size: 9.5pt;
+            color: #111;
+        }
+
+        .entry-title {
+            font-weight: 700;
+            color: #111;
+        }
+
+        .entry-location {
+            font-weight: 500;
+            color: #444;
+            font-size: 8.8pt;
+        }
+
+        .entry-sub {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-size: 8.9pt;
+            color: #333;
+            margin-bottom: 2px;
+        }
+
+        .entry-role {
+            font-weight: 600;
+            color: #1a365d;
+        }
+
+        .entry-tech {
+            font-style: italic;
+            font-size: 8.5pt;
+            color: #444;
+        }
+
+        .entry-date {
+            font-style: italic;
+            font-size: 8.8pt;
+            color: #444;
+            white-space: nowrap;
+        }
+
+        /* ── BULLETS ── */
+        .bullet-list {
+            list-style-type: disc;
+            padding-left: 15px;
+            margin: 0;
+        }
+
+        .bullet-list li {
+            font-size: 8.85pt;
+            line-height: 1.28;
+            color: #262626;
+            margin-bottom: 2px;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        .bullet-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .bullet-list b {
+            font-weight: 600;
+            color: #111;
+        }
+
+        /* ── SKILLS TABLE (ATS FORMAT) ── */
+        .skills-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .skills-list li {
+            font-size: 8.9pt;
+            line-height: 1.31;
+            margin-bottom: 2.8px;
+            color: #262626;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        .skills-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .skills-list b {
+            font-weight: 700;
+            color: #0f2744;
+        }
+
+        .page-number {
+            position: absolute;
+            bottom: 5mm;
+            right: 13.5mm;
+            font-size: 8.5pt;
+            color: #888;
+            font-weight: 500;
+        }
+
+        /* ── ACTION CONTROLS ── */
+        .action-bar {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 9999;
+        }
+
+        .action-btn {
+            padding: 10px 18px;
+            background: #0f2744;
+            color: #fff !important;
+            border: 1px solid #0f2744;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 600;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none !important;
+        }
+
+        .action-btn:hover {
+            background: #1a365d;
+            transform: translateY(-2px);
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .page {
+                margin: 0;
+                padding: 7.5mm 13.5mm 6.5mm 13.5mm;
+                box-shadow: none;
+                width: 210mm;
+                height: 297mm;
+                min-height: 297mm;
+                max-height: 297mm;
+                page-break-after: always;
+                break-after: page;
+            }
+
+            .page:last-child {
+                page-break-after: avoid;
+                break-after: avoid;
+            }
+
+            @page {
+                size: A4 portrait;
+                margin: 0;
+            }
+
+            .action-bar {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ════════════════════ PAGE 1 ════════════════════ -->
+    <div class="page">
+        <!-- HEADER -->
+        <header class="header">
+            <h1 class="name">Võ Văn Tú Tài</h1>
+            <div class="subtitle">IT Project Admin / Cán bộ Quản trị Dự án IT (IT Administration · Project Coordination &amp; Document Control)</div>
+            <div class="contact-row">
+                <a href="tel:+84869500573">
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                    (+84) 869 500 573
+                </a>
+                <span class="separator">|</span>
+                <a href="mailto:tutaivovan@gmail.com">
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    tutaivovan@gmail.com
+                </a>
+                <span class="separator">|</span>
+                <a href="https://linkedin.com/in/vovantutai" target="_blank">
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.25c-.95 0-1.72.78-1.72 1.73s.77 1.73 1.72 1.73 1.73-.78 1.73-1.73-.78-1.73-1.73-1.73z"/></svg>
+                    linkedin.com/in/vovantutai
+                </a>
+                <span class="separator">|</span>
+                <a href="https://github.com/VoVanTuTai" target="_blank">
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+                    github.com/VoVanTuTai
+                </a>
+                <span class="separator">|</span>
+                <a href="https://vovantutai-portfolio.vercel.app" target="_blank">
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                    Portfolio
+                </a>
+            </div>
+        </header>
+
+        <!-- TÓM TẮT CHUYÊN MÔN -->
+        <section class="section">
+            <div class="section-title">Tóm Tắt Chuyên Môn</div>
+            <p class="summary-text">
+                Tốt nghiệp Kỹ sư Hệ thống Thông tin (ĐH Công nghiệp TP.HCM - IUH, GPA 3.26/4.0 · Hoàn thành chương trình đào tạo · Sẵn sàng làm việc Full-time). Có <b>01 năm kinh nghiệm thực tế ở các vị trí IT Administration, Project Administration, Project Coordination và Document Control</b> tại HomeNest Software và J&amp;T Express. Nền tảng chuyên môn CNTT giúp nắm bắt nhanh chóng kiến trúc hệ thống, các thuật ngữ kỹ thuật và quy trình vận hành dự án phần mềm. Thành thạo kỹ năng quản lý, phân loại, lưu trữ hồ sơ hành chính; kiểm tra tính hợp lệ của hóa đơn, chứng từ và theo dõi đề nghị thanh toán đúng quy trình; xuất và cập nhật báo cáo định kỳ/đột xuất trên hệ thống thông tin quản lý (ISM / ERP). Tính cách cẩn thận, tỉ mỉ, kỹ tính trong từng văn bản và con số; tinh thần trách nhiệm cao; đọc hiểu tốt tài liệu tiếng Anh và sẵn sàng đáp ứng lịch làm việc 8:30 – 19:00 tại <b>Phòng nghiệp vụ FPro (Dự án UOB HCM)</b>.
+            </p>
+        </section>
+
+        <!-- KỸ NĂNG CỐT LÕI THEO TIÊU CHUẨN JD -->
+        <section class="section">
+            <div class="section-title">Kỹ Năng Cốt Lõi &amp; Năng Lực Đáp Ứng Vị Trí</div>
+            <ul class="skills-list">
+                <li><b>Quản lý Tài liệu &amp; Hồ sơ Dự án IT (Document Control):</b> Tiếp nhận, rà soát, kiểm soát phiên bản và lưu trữ khoa học hệ thống hồ sơ dự án: biên bản họp (MoM), tài liệu đặc tả (BRD/SRS), biên bản nghiệm thu (Sign-off), kịch bản UAT và tài liệu bàn giao; đảm bảo tính toàn vẹn và bảo mật thông tin nội bộ.</li>
+                <li><b>Phối hợp &amp; Quản lý Hợp đồng Đối tác (Vendors):</b> Phối hợp chặt chẽ giữa các phòng ban nội bộ (nghiệp vụ, kỹ thuật, kế toán) và các nhà cung cấp/đối tác (vendors); hỗ trợ hoàn thiện hồ sơ hợp đồng, rà soát phạm vi dịch vụ (SOW), phụ lục điều chỉnh và biên bản bàn giao đúng cam kết.</li>
+                <li><b>Xử lý Hóa đơn, Chứng từ &amp; Theo dõi Thanh toán:</b> Tiếp nhận hóa đơn, kiểm tra tính hợp lệ của chứng từ đối soát; lập tờ trình và theo dõi trạng thái đề nghị thanh toán (Payment Requests) theo quy trình phê duyệt công ty; kiểm soát chặt chẽ mốc thanh toán milestone theo hợp đồng.</li>
+                <li><b>Vận hành Hệ thống &amp; Báo cáo (ISM / ERP):</b> Cập nhật trạng thái công việc, điều chỉnh thông tin hồ sơ và xuất các báo cáo định kỳ/đột xuất trên hệ thống quản lý thông tin (ISM, ERP, J&amp;T Tracking System); sử dụng thành thạo MS Excel nâng cao (PivotTable, VLOOKUP, hàm đối soát số liệu) để tổng hợp dữ liệu chính xác.</li>
+                <li><b>Theo dõi Tiến độ &amp; Điều phối Công việc (Tracking &amp; Follow-up):</b> Quản trị công việc qua Jira, Confluence, Trello; chủ động theo dõi trạng thái hồ sơ chứng từ, phát hiện sớm nguy cơ trễ hạn (deadline) hoặc vướng mắc (blockers) để kịp thời báo cáo và phối hợp tháo gỡ.</li>
+                <li><b>Nền tảng Công nghệ Thông tin (IT Knowledge):</b> Hiểu sâu vòng đời phát triển phần mềm (SDLC, Agile/Scrum), cấu trúc cơ sở dữ liệu quan hệ (SQL), API và các luồng quy trình nghiệp vụ; đóng vai trò cầu nối thông suốt giữa bộ phận hành chính nghiệp vụ và đội ngũ kỹ thuật.</li>
+                <li><b>Ngoại ngữ &amp; Tố chất Làm việc:</b> Đọc hiểu tốt tài liệu, hợp đồng kỹ thuật và giao tiếp cơ bản bằng tiếng Anh trong môi trường ngân hàng đa quốc gia; tác phong cẩn thận, kỹ tính, kỷ luật, bảo mật thông tin và khả năng làm việc độc lập cũng như phối hợp nhóm hiệu quả.</li>
+            </ul>
+        </section>
+
+        <!-- KINH NGHIỆM LÀM VIỆC THỰC CHIẾN -->
+        <section class="section">
+            <div class="section-title">Kinh Nghiệm Làm Việc Thực Chiến (01 Năm)</div>
+
+            <!-- HomeNest Software -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">HomeNest Software</span>
+                    <span class="entry-location">TP. Hồ Chí Minh, Việt Nam</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-role">Cán bộ Quản trị Dự án IT &amp; Cầu nối Nghiệp vụ (IT Project Coordinator / PM Assistant)</span>
+                    <span class="entry-date">Tháng 03/2026 – Tháng 09/2026</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Quản trị hồ sơ &amp; Tài liệu kỹ thuật dự án:</b> Tiếp nhận, phân loại và lưu trữ toàn bộ hệ thống tài liệu dự án IT (PRD, SRS, tài liệu API, kịch bản UAT và biên bản họp MoM); thiết lập cấu trúc lưu trữ tập trung trên Confluence và Google Workspace giúp đội ngũ dễ dàng truy xuất thông tin chính xác.</li>
+                    <li><b>Phối hợp nội bộ &amp; Làm việc với đối tác/khách hàng:</b> Đóng vai trò đầu mối điều phối giao tiếp giữa Product Manager, Lead Developer, bộ phận QA và khách hàng; tiếp nhận các yêu cầu thay đổi (Change Requests), rà soát phạm vi (Scope) và theo dõi tiến độ giải quyết trên Jira.</li>
+                    <li><b>Theo dõi tiến độ &amp; Báo cáo trạng thái dự án:</b> Theo dõi sát sao trạng thái của các đầu việc, hồ sơ nghiệm thu tính năng và tiến độ sprint; định kỳ xuất báo cáo tiến độ tuần/tháng gửi cấp quản lý, cảnh báo sớm các hạng mục có nguy cơ trễ hạn để có phương án xử lý kịp thời.</li>
+                    <li><b>Hỗ trợ nghiệm thu UAT &amp; Bàn giao:</b> Soạn thảo kịch bản kiểm thử nghiệm thu người dùng (UAT Checklist), ghi nhận lỗi phát sinh (Defect Log) và phối hợp cùng đội kỹ thuật đóng các đầu việc tồn đọng trước khi ký biên bản bàn giao chính thức.</li>
+                </ul>
+            </div>
+
+            <!-- J&T Express -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">J&amp;T Express</span>
+                    <span class="entry-location">TP. Hồ Chí Minh, Việt Nam</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-role">Chuyên viên Quản trị Quy trình, Hồ sơ &amp; Dữ liệu Vận hành (Operations Process &amp; Document Coordinator)</span>
+                    <span class="entry-date">Tháng 09/2025 – Tháng 02/2026</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Kiểm soát chứng từ &amp; Đối soát hồ sơ dữ liệu:</b> Tiếp nhận, rà soát và đối chiếu chứng từ bưu gửi hàng ngày giữa biên bản bàn giao thực tế và dữ liệu trên hệ thống phần mềm trung tâm; phát hiện kịp thời các sai lệch thông tin và phối hợp chi nhánh xử lý dứt điểm.</li>
+                    <li><b>Cập nhật hệ thống &amp; Lập báo cáo định kỳ:</b> Nhập liệu, cập nhật và trích xuất dữ liệu vận hành từ hệ thống nội bộ; viết truy vấn SQL và dùng MS Excel nâng cao (PivotTable, VLOOKUP) để lập báo cáo chỉ số KPI định kỳ/đột xuất phục vụ ban quản lý.</li>
+                    <li><b>Chuẩn hóa tài liệu quy trình SOP:</b> Tham gia biên soạn bộ tài liệu quy trình thao tác chuẩn (SOP) phân loại các trường hợp bất thường; hướng dẫn và kiểm tra việc tuân thủ quy trình lưu trữ giấy tờ, chứng từ hành chính tại các đơn vị trực thuộc.</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="page-number">Trang 1 / 2</div>
+    </div>
+
+    <!-- ════════════════════ PAGE 2 ════════════════════ -->
+    <div class="page">
+        <!-- DỰ ÁN & HỆ THỐNG LIÊN QUAN ĐẾN QUẢN TRỊ DỰ ÁN IT -->
+        <section class="section">
+            <div class="section-title">Dự Án IT &amp; Quản Trị Hệ Thống Tiêu Biểu</div>
+
+            <!-- Project 1: Nexus Express -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">
+                        <a href="https://tracking.nexus-ex.site/" target="_blank">Nexus Express — Hệ Thống Quản Lý Đơn Hàng &amp; Dữ Liệu Vận Chuyển</a>
+                        <span class="project-link" style="color: #0284c7 !important;">[Dự án Đang Vận Hành Trực Tuyến]</span>
+                    </span>
+                    <span class="entry-location">Live: tracking.nexus-ex.site</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-tech">Mô hình hóa BPMN 2.0 (Camunda), Quản lý quy trình SDLC, Đặc tả API OpenAPI 3.0, Jira, NestJS, Docker</span>
+                    <span class="entry-date">Tháng 09/2025 – Tháng 02/2026</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Mô hình hóa &amp; Chuẩn hóa tài liệu quy trình:</b> Thiết kế lưu đồ quy trình xử lý đơn hàng và trạng thái luân chuyển bằng chuẩn BPMN 2.0 (Camunda); biên soạn tài liệu đặc tả luồng dữ liệu và hợp đồng giao tiếp API (OpenAPI 3.0) rõ ràng, khoa học cho các bên liên quan.</li>
+                    <li><b>Quản lý tài liệu kỹ thuật &amp; Theo dõi tiến độ:</b> Lập danh mục tính năng (Feature Backlog), theo dõi tiến độ hoàn thành các mốc bàn giao trên Jira; thiết lập tài liệu hướng dẫn vận hành hệ thống (System User Guide) phục vụ đào tạo người dùng nội bộ.</li>
+                    <li><b>Quản trị lịch sử kiểm toán (Audit Trail):</b> Thiết lập cơ chế ghi nhận nhật ký thao tác dữ liệu (Audit Logging) theo từng sự kiện, đảm bảo tính minh bạch, dễ dàng tra soát nguồn gốc khi xảy ra lỗi hoặc sai lệch số liệu.</li>
+                </ul>
+            </div>
+
+            <!-- Project 2: Hệ Thống Quản Lý Mua Sắm & Thanh Toán Hóa Đơn Đối Tác (Vendor Procurement & Invoicing) -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">
+                        Hệ Thống Quản Lý Mua Sắm, Hợp Đồng &amp; Đối Soát Thanh Toán Vendors
+                    </span>
+                    <span class="entry-location">Mô Phỏng Doanh Nghiệp ERP</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-tech">Hệ thống ERP (Odoo), Quy trình Mua sắm (Purchase Order), Đối soát hóa đơn 3 chiều, MS Excel nâng cao</span>
+                    <span class="entry-date">Tháng 10/2025 – Tháng 01/2026</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Thiết lập quy trình quản lý nhà cung cấp (Vendors):</b> Xây dựng quy trình theo dõi vòng đời hợp đồng vendor: từ báo giá (RFQ), đơn đặt hàng (PO), biên bản giao nhận dịch vụ/hàng hóa đến hóa đơn thanh toán (Vendor Bill) trên hệ thống phần mềm quản lý.</li>
+                    <li><b>Thực hiện đối soát hóa đơn 3 chiều (3-Way Matching):</b> Áp dụng cơ chế kiểm tra chéo giữa Đơn đặt hàng (PO) – Biên bản nghiệm thu (GRN) – Hóa đơn tài chính; đảm bảo tính chính xác tuyệt đối trước khi chuyển hồ sơ đề nghị thanh toán sang bộ phận kế toán.</li>
+                    <li><b>Quản lý quy trình phê duyệt &amp; Lưu trữ chứng từ:</b> Thiết lập cây thư mục lưu trữ số hóa hồ sơ chứng từ, theo dõi trạng thái duyệt thanh toán qua từng cấp thẩm quyền, kiểm soát không để xảy ra tình trạng thất lạc hoặc chậm trễ hạn thanh toán.</li>
+                </ul>
+            </div>
+
+            <!-- Project 3: Tourist Accommodation Platform -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">
+                        <a href="https://github.com/VoVanTuTai/tourist-accommodation-management-system" target="_blank">Nền Tảng Quản Trị Nghiệp Vụ &amp; Theo Dõi Giao Dịch Dịch Vụ</a>
+                        <span class="project-link" style="color: #0284c7 !important;">[Hệ Thống Quản Lý]</span>
+                    </span>
+                    <span class="entry-location">Dự Án Nghiệp Vụ Phần Mềm</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-tech">Phân quyền đa cấp (RBAC), Đối soát cổng thanh toán (VNPay IPN), Quản lý vòng đời yêu cầu dịch vụ</span>
+                    <span class="entry-date">Tháng 10/2025 – Tháng 12/2025</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Quản lý phân quyền &amp; Bảo mật hồ sơ:</b> Xây dựng cấu trúc phân quyền người dùng chặt chẽ (User Roles &amp; Permissions), đảm bảo dữ liệu giao dịch và hồ sơ đối tác chỉ được truy cập bởi đúng thẩm quyền được phân công.</li>
+                    <li><b>Đối soát thanh toán &amp; Lập báo cáo doanh thu:</b> Thiết lập luồng đối soát tự động giữa trạng thái đơn đặt và thông báo thanh toán (IPN Webhook); xuất báo cáo thống kê giao dịch phục vụ quyết toán định kỳ giữa các đơn vị liên kết.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- HỌC VẤN & BẰNG CẤP CHUYÊN NGÀNH -->
+        <section class="section">
+            <div class="section-title">Học Vấn &amp; Nền Tảng Đào Tạo</div>
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">Trường Đại học Công nghiệp TP. Hồ Chí Minh (IUH)</span>
+                    <span class="entry-location">TP. Hồ Chí Minh, Việt Nam</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-role">Kỹ sư Hệ thống Thông tin (Hoàn thành chương trình đào tạo · Sẵn sàng làm việc Full-time)</span>
+                    <span class="entry-date">09/2022 – 2026</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Điểm trung bình tích lũy (GPA):</b> <b>3.26 / 4.0</b> (Xếp loại Giỏi).</li>
+                    <li><b>Các môn học chuyên ngành cốt lõi liên quan:</b> Quản trị Dự án CNTT (IT Project Management), Hoạch định Nguồn lực Doanh nghiệp (ERP - Odoo), Phân tích &amp; Thiết kế Hệ thống Thông tin (OOAD, UML), Cơ sở Dữ liệu &amp; Báo cáo SQL, Quản trị Quy trình Nghiệp vụ (BPM), Kiến trúc Phần mềm.</li>
+                    <li><b>Cam kết làm việc &amp; Tố chất cá nhân:</b> Sẵn sàng đáp ứng đầy đủ khung giờ làm việc theo yêu cầu dự án (8:30 – 19:00, Thứ 2 – Thứ 6); cẩn thận, tỉ mỉ, tôn trọng kỷ luật ngân hàng, giữ gìn bảo mật thông tin tuyệt đối và mong muốn đồng hành lâu dài cùng <b>Phòng nghiệp vụ FPro tại UOB Bank (12 Tôn Đản, Quận 4, TP.HCM)</b>.</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="page-number">Trang 2 / 2</div>
+    </div>
+
+    <!-- Floating Action Controls -->
+    <div class="action-bar">
+        <a href="/applied-jobs/VoVanTuTai_IT_Project_Admin_UOB_CV.pdf" download="VoVanTuTai_IT_Project_Admin_UOB_CV.pdf" class="action-btn">
+            📥 Tải Bản PDF (2 Trang A4)
+        </a>
+    </div>
+</body>
+
+</html>
