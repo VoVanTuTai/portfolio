@@ -1494,8 +1494,14 @@ function KnowledgeHubPage({ navigate }: { navigate: NavigateHandler }) {
     <main className="site-shell knowledge-shell knowledge-hub">
       <header className="topbar knowledge-topbar" aria-label="Knowledge hub navigation">
         <a className="brand" href="/" onClick={(event) => navigate(event, "/")} aria-label="Back to portfolio">
-          <img className="brand-avatar" src="/assets/avatar.png" alt="" aria-hidden="true" />
-          <span>Vo Van Tu Tai</span>
+          <div className="brand-avatar-wrap">
+            <img className="brand-avatar" src="/assets/avatar.png" alt="Võ Văn Tú Tài" />
+            <span className="brand-dot-pulse" aria-hidden="true" />
+          </div>
+          <div className="brand-text">
+            <span className="brand-name">Võ Văn Tú Tài</span>
+            <span className="brand-tag">Knowledge Hub</span>
+          </div>
         </a>
         <nav>
           <a href="#learning-path">Lộ trình</a>
@@ -3214,8 +3220,14 @@ function DatabaseLessonPage({ navigate }: { navigate: NavigateHandler }) {
     <main className="site-shell knowledge-shell">
       <header className="topbar knowledge-topbar" aria-label="Knowledge navigation">
         <a className="brand" href="/knowledge" onClick={(event) => navigate(event, "/knowledge")} aria-label="Learning hub">
-          <img className="brand-avatar" src="/assets/avatar.png" alt="" aria-hidden="true" />
-          <span>Knowledge Hub</span>
+          <div className="brand-avatar-wrap">
+            <img className="brand-avatar" src="/assets/avatar.png" alt="Knowledge Hub" />
+            <span className="brand-dot-pulse" aria-hidden="true" />
+          </div>
+          <div className="brand-text">
+            <span className="brand-name">Knowledge Hub</span>
+            <span className="brand-tag">Database Fundamentals</span>
+          </div>
         </a>
         <nav>
           <a href="#overview">Khái niệm</a>
@@ -3841,8 +3853,14 @@ function DataModelingLessonPage({ navigate }: { navigate: NavigateHandler }) {
           onClick={(event) => navigate(event, "/knowledge")}
           aria-label="Learning hub"
         >
-          <img className="brand-avatar" src="/assets/avatar.png" alt="" aria-hidden="true" />
-          <span>Knowledge Hub</span>
+          <div className="brand-avatar-wrap">
+            <img className="brand-avatar" src="/assets/avatar.png" alt="Knowledge Hub" />
+            <span className="brand-dot-pulse" aria-hidden="true" />
+          </div>
+          <div className="brand-text">
+            <span className="brand-name">Knowledge Hub</span>
+            <span className="brand-tag">Data Modeling &amp; ERD</span>
+          </div>
         </a>
         <nav>
           <a href="#requirements">Yêu cầu</a>
@@ -4262,8 +4280,14 @@ function BackendApiLessonPage({ navigate }: { navigate: NavigateHandler }) {
           onClick={(event) => navigate(event, "/knowledge")}
           aria-label="Learning hub"
         >
-          <img className="brand-avatar" src="/assets/avatar.png" alt="" aria-hidden="true" />
-          <span>Knowledge Hub</span>
+          <div className="brand-avatar-wrap">
+            <img className="brand-avatar" src="/assets/avatar.png" alt="Knowledge Hub" />
+            <span className="brand-dot-pulse" aria-hidden="true" />
+          </div>
+          <div className="brand-text">
+            <span className="brand-name">Knowledge Hub</span>
+            <span className="brand-tag">Backend &amp; Auth</span>
+          </div>
         </a>
         <nav>
           <a href="#self-study-guide">Bắt đầu</a>
