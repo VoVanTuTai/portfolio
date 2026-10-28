@@ -249,38 +249,6 @@ const portfolioDataVi: PortfolioLocaleData = {
   },
   projectGroups: [
     {
-      title: "Nền tảng Quản lý Đặt phòng & Lưu trú Doanh nghiệp",
-      description: "Hệ thống thực tế minh chứng cách chuyển hóa yêu cầu nghiệp vụ phức tạp thành luồng xử lý chặt chẽ, kiểm soát đồng thời (race condition) và cổng thông tin phân quyền đa vai trò.",
-      projects: [
-        {
-          name: "tourist-accommodation-management-system",
-          role: "Nền tảng Đặt phòng & Quản lý Lưu trú · Hệ thống Đa Phân quyền",
-          href: "https://github.com/VoVanTuTai/tourist-accommodation-management-system",
-          image: "/assets/project-tourist.png",
-          stack: ["BPMN 2.0", "PRD/SRS", "RBAC Matrix", "VNPay IPN", "MySQL", "Express.js"],
-          summary: "Nền tảng quản lý lưu trú kiểm soát hiệu quả tranh chấp giữ phòng đồng thời (race condition), lịch phòng theo thời gian thực, chính sách hủy phòng phân tầng và quy trình thanh toán trực tuyến.",
-          highlights: [
-            "Thách thức Nghiệp vụ: Phòng ngừa rủi ro trùng lịch phòng (overbooking race condition) vào giờ cao điểm, phân quyền độc lập 3 nhóm người dùng (Khách/Chủ nhà/Quản trị) và xử lý sự cố rớt mạng khi thanh toán trực tuyến.",
-            "Phân tích BA & Giải pháp: Soạn thảo PRD/SRS với tiêu chí Given-When-Then; thiết kế cơ chế giữ phòng tạm thời (Held/Pending kèm TTL), ma trận phân quyền RBAC nghiêm ngặt, chính sách hủy phạt linh hoạt và hợp đồng Webhook VNPay IPN.",
-            "Kết quả & Bàn giao: Cổng thông tin tương tác đa phân quyền hiển thị tình trạng phòng thời gian thực, thanh toán mã QR an toàn, xuất hóa đơn điện tử tự động và bộ kịch bản kiểm thử UAT hoàn chỉnh.",
-          ],
-        },
-        {
-          name: "php-online-store",
-          role: "Song Tai Shop · Hệ thống Thương mại Điện tử & Bán lẻ Trực tuyến",
-          href: "https://github.com/VoVanTuTai/php-online-store",
-          image: "/assets/project-songtai.png",
-          stack: ["Process Flow", "User Stories", "RBAC Matrix", "MySQL 3NF", "PHP", "Bootstrap"],
-          summary: "Hệ thống bán lẻ thương mại điện tử chuẩn hóa danh mục sản phẩm đa cấp, hành trình thanh toán của khách hàng, quản lý đơn hàng phân quyền và nhật ký kiểm toán quản trị viên.",
-          highlights: [
-            "Thách thức Nghiệp vụ: Phân định ranh giới chặt chẽ giữa luồng người mua và quản trị, bảo toàn tính toàn vẹn khi thanh toán giỏ hàng và theo dõi chuyển đổi trạng thái đơn hàng (Chờ xử lý/Đã thanh toán/Đang giao/Hoàn tất).",
-            "Phân tích BA & Giải pháp: Xây dựng đặc tả yêu cầu chức năng (SRS), mô hình hóa hành trình thanh toán người dùng, thiết kế CSDL quan hệ chuẩn hóa 3NF và quy định cơ chế kiểm soát tồn kho cho admin.",
-            "Kết quả & Bàn giao: Môi trường Docker hóa hoàn chỉnh kèm dữ liệu mẫu, tài khoản demo kiểm thử và tài liệu quy trình mua hàng khép kín.",
-          ],
-        },
-      ],
-    },
-    {
       title: "Hệ thống Vận tải & Quản lý Đơn hàng (OMS)",
       description: "Các hệ thống cấp doanh nghiệp chuyển đổi kinh nghiệm vận hành thực tế thành máy trạng thái BPMN 2.0, trạm quét mã kiểm soát và hợp đồng API chuẩn mực.",
       projects: [
@@ -310,6 +278,38 @@ const portfolioDataVi: PortfolioLocaleData = {
             "Thách thức Nghiệp vụ: Điều phối tài xế thời gian thực với tải cao, tính toán cước phí nhiều bước và xử lý kết nối mạng chập chờn giữa khách và tài xế.",
             "Phân tích BA & Giải pháp: Thiết kế máy trạng thái cuốc xe, hợp đồng sự kiện bất đồng bộ, quy tắc định giá linh hoạt theo cung cầu và luồng hoàn tác (rollback) khi hủy chuyến.",
             "Kết quả & Bàn giao: Cấu trúc đa dịch vụ Docker Compose kèm cơ chế kiểm tra hợp đồng API, nhật ký sự kiện phân tán và kịch bản kiểm thử nghiệp vụ.",
+          ],
+        },
+      ],
+    },
+    {
+      title: "Nền tảng Quản lý Đặt phòng & Lưu trú Doanh nghiệp",
+      description: "Hệ thống thực tế minh chứng cách chuyển hóa yêu cầu nghiệp vụ phức tạp thành luồng xử lý chặt chẽ, kiểm soát đồng thời (race condition) và cổng thông tin phân quyền đa vai trò.",
+      projects: [
+        {
+          name: "tourist-accommodation-management-system",
+          role: "Nền tảng Đặt phòng & Quản lý Lưu trú · Hệ thống Đa Phân quyền",
+          href: "https://github.com/VoVanTuTai/tourist-accommodation-management-system",
+          image: "/assets/project-tourist.png",
+          stack: ["BPMN 2.0", "PRD/SRS", "RBAC Matrix", "VNPay IPN", "MySQL", "Express.js"],
+          summary: "Nền tảng quản lý lưu trú kiểm soát hiệu quả tranh chấp giữ phòng đồng thời (race condition), lịch phòng theo thời gian thực, chính sách hủy phòng phân tầng và quy trình thanh toán trực tuyến.",
+          highlights: [
+            "Thách thức Nghiệp vụ: Phòng ngừa rủi ro trùng lịch phòng (overbooking race condition) vào giờ cao điểm, phân quyền độc lập 3 nhóm người dùng (Khách/Chủ nhà/Quản trị) và xử lý sự cố rớt mạng khi thanh toán trực tuyến.",
+            "Phân tích BA & Giải pháp: Soạn thảo PRD/SRS với tiêu chí Given-When-Then; thiết kế cơ chế giữ phòng tạm thời (Held/Pending kèm TTL), ma trận phân quyền RBAC nghiêm ngặt, chính sách hủy phạt linh hoạt và hợp đồng Webhook VNPay IPN.",
+            "Kết quả & Bàn giao: Cổng thông tin tương tác đa phân quyền hiển thị tình trạng phòng thời gian thực, thanh toán mã QR an toàn, xuất hóa đơn điện tử tự động và bộ kịch bản kiểm thử UAT hoàn chỉnh.",
+          ],
+        },
+        {
+          name: "php-online-store",
+          role: "Song Tai Shop · Hệ thống Thương mại Điện tử & Bán lẻ Trực tuyến",
+          href: "https://github.com/VoVanTuTai/php-online-store",
+          image: "/assets/project-songtai.png",
+          stack: ["Process Flow", "User Stories", "RBAC Matrix", "MySQL 3NF", "PHP", "Bootstrap"],
+          summary: "Hệ thống bán lẻ thương mại điện tử chuẩn hóa danh mục sản phẩm đa cấp, hành trình thanh toán của khách hàng, quản lý đơn hàng phân quyền và nhật ký kiểm toán quản trị viên.",
+          highlights: [
+            "Thách thức Nghiệp vụ: Phân định ranh giới chặt chẽ giữa luồng người mua và quản trị, bảo toàn tính toàn vẹn khi thanh toán giỏ hàng và theo dõi chuyển đổi trạng thái đơn hàng (Chờ xử lý/Đã thanh toán/Đang giao/Hoàn tất).",
+            "Phân tích BA & Giải pháp: Xây dựng đặc tả yêu cầu chức năng (SRS), mô hình hóa hành trình thanh toán người dùng, thiết kế CSDL quan hệ chuẩn hóa 3NF và quy định cơ chế kiểm soát tồn kho cho admin.",
+            "Kết quả & Bàn giao: Môi trường Docker hóa hoàn chỉnh kèm dữ liệu mẫu, tài khoản demo kiểm thử và tài liệu quy trình mua hàng khép kín.",
           ],
         },
       ],
@@ -518,38 +518,6 @@ const portfolioDataEn: PortfolioLocaleData = {
   },
   projectGroups: [
     {
-      title: "Business Platforms & Reservation Systems",
-      description: "Production-grade business systems demonstrating how business requirements become structured workflows, concurrency controls, and role-based portals.",
-      projects: [
-        {
-          name: "tourist-accommodation-management-system",
-          role: "Accommodation & Booking Platform · Multi-Role System",
-          href: "https://github.com/VoVanTuTai/tourist-accommodation-management-system",
-          image: "/assets/project-tourist.png",
-          stack: ["BPMN 2.0", "PRD/SRS", "RBAC Matrix", "VNPay IPN", "MySQL", "Express.js"],
-          summary: "A multi-role booking platform resolving room overbooking race conditions, dynamic inventory calendars, tiered cancellations, and online payment workflows.",
-          highlights: [
-            "Business Challenge: Preventing room overbooking race conditions during peak traffic, isolating 3-tier user roles (Guest/Host/Admin), and handling network drops during online payment.",
-            "BA Analysis & Solution: Authored PRD/SRS with Given-When-Then criteria; modeled temporary holds (Held/Pending with TTL), strict RBAC permissions, tiered cancellation policies, and VNPay IPN webhook contracts.",
-            "Outcome & Deliverables: Interactive multi-role portal featuring real-time room availability, secure QR payments, automated digital invoices, and verified UAT test suite.",
-          ],
-        },
-        {
-          name: "php-online-store",
-          role: "Song Tai Shop · E-Commerce & Retail Order Management",
-          href: "https://github.com/VoVanTuTai/php-online-store",
-          image: "/assets/project-songtai.png",
-          stack: ["Process Flow", "User Stories", "RBAC Matrix", "MySQL 3NF", "PHP", "Bootstrap"],
-          summary: "An e-commerce retail system modeling product catalog hierarchies, customer checkout lifecycles, role-based order management, and administrative audit trails.",
-          highlights: [
-            "Business Challenge: Customer and admin workflows required strict role separation, secure checkout integrity, and auditable order state transitions (Pending/Paid/Shipped/Completed).",
-            "BA Analysis & Solution: Formulated functional requirements (SRS), modeled checkout user journeys, designed normalized relational schema, and defined administrative inventory controls.",
-            "Outcome & Deliverables: Complete Dockerized retail environment with seed catalogs, demo test accounts, and end-to-end purchasing workflow documentation.",
-          ],
-        },
-      ],
-    },
-    {
       title: "Logistics & Order Management Systems (OMS)",
       description: "Enterprise systems translating frontline operations into formal BPMN 2.0 state machines, scan checkpoints, and API contracts.",
       projects: [
@@ -579,6 +547,38 @@ const portfolioDataEn: PortfolioLocaleData = {
             "Business Challenge: High-concurrency ride dispatching, fare calculation states, and driver-passenger matching under unstable network connections.",
             "BA Analysis & Solution: Formulated ride status state machines, asynchronous event contracts, surge pricing business rules, and compensation/rollback flows.",
             "Outcome & Deliverables: Docker Compose multi-service architecture with contract verification checks, distributed event logs, and operational test scenarios.",
+          ],
+        },
+      ],
+    },
+    {
+      title: "Business Platforms & Reservation Systems",
+      description: "Production-grade business systems demonstrating how business requirements become structured workflows, concurrency controls, and role-based portals.",
+      projects: [
+        {
+          name: "tourist-accommodation-management-system",
+          role: "Accommodation & Booking Platform · Multi-Role System",
+          href: "https://github.com/VoVanTuTai/tourist-accommodation-management-system",
+          image: "/assets/project-tourist.png",
+          stack: ["BPMN 2.0", "PRD/SRS", "RBAC Matrix", "VNPay IPN", "MySQL", "Express.js"],
+          summary: "A multi-role booking platform resolving room overbooking race conditions, dynamic inventory calendars, tiered cancellations, and online payment workflows.",
+          highlights: [
+            "Business Challenge: Preventing room overbooking race conditions during peak traffic, isolating 3-tier user roles (Guest/Host/Admin), and handling network drops during online payment.",
+            "BA Analysis & Solution: Authored PRD/SRS with Given-When-Then criteria; modeled temporary holds (Held/Pending with TTL), strict RBAC permissions, tiered cancellation policies, and VNPay IPN webhook contracts.",
+            "Outcome & Deliverables: Interactive multi-role portal featuring real-time room availability, secure QR payments, automated digital invoices, and verified UAT test suite.",
+          ],
+        },
+        {
+          name: "php-online-store",
+          role: "Song Tai Shop · E-Commerce & Retail Order Management",
+          href: "https://github.com/VoVanTuTai/php-online-store",
+          image: "/assets/project-songtai.png",
+          stack: ["Process Flow", "User Stories", "RBAC Matrix", "MySQL 3NF", "PHP", "Bootstrap"],
+          summary: "An e-commerce retail system modeling product catalog hierarchies, customer checkout lifecycles, role-based order management, and administrative audit trails.",
+          highlights: [
+            "Business Challenge: Customer and admin workflows required strict role separation, secure checkout integrity, and auditable order state transitions (Pending/Paid/Shipped/Completed).",
+            "BA Analysis & Solution: Formulated functional requirements (SRS), modeled checkout user journeys, designed normalized relational schema, and defined administrative inventory controls.",
+            "Outcome & Deliverables: Complete Dockerized retail environment with seed catalogs, demo test accounts, and end-to-end purchasing workflow documentation.",
           ],
         },
       ],
@@ -823,6 +823,57 @@ const thesesMonographs = [
   },
 ];
 
+const archSteps = [
+  {
+    id: "ingestion",
+    title: "01. Ingestion",
+    tech: "NestJS · API",
+    name: "API Gateway & Ingestion",
+    metric: "OpenAPI 3.0 · Idempotency",
+    desc: {
+      vi: "Tiếp nhận và xác thực mã vận đơn, chống trùng lặp request quét mã đơn hàng bằng Idempotency Key và xác thực JWT RBAC.",
+      en: "Ingests and validates shipment scan events, preventing duplicate scan requests with Idempotency Keys and JWT RBAC validation.",
+    },
+    tags: ["NestJS", "OpenAPI 3.0", "Idempotency Key", "Rate Limiting"],
+  },
+  {
+    id: "workflow",
+    title: "02. Workflow",
+    tech: "Camunda BPMN",
+    name: "BPMN 2.0 State Machine",
+    metric: "100% Deterministic",
+    desc: {
+      vi: "Điều phối vòng đời bưu kiện 8 trạm quét bằng Camunda BPMN 2.0, kiểm soát chặt chẽ chuyển trạng thái đơn hàng và xử lý ngoại lệ SOP.",
+      en: "Orchestrates 8-stage parcel lifecycle with Camunda BPMN 2.0, strictly enforcing valid state transitions and SOP exceptions.",
+    },
+    tags: ["Camunda", "BPMN 2.0", "Event Dispatcher", "RabbitMQ"],
+  },
+  {
+    id: "storage",
+    title: "03. Database",
+    tech: "PostgreSQL 3NF",
+    name: "Relational Storage & ACID",
+    metric: "ACID Isolation · 3NF",
+    desc: {
+      vi: "Lưu trữ thực thể quan hệ chuẩn hóa 3NF, bảo đảm toàn vẹn tham chiếu, tối ưu hóa B-Tree Index và lưu vết kiểm toán audit log mọi lượt quét.",
+      en: "Stores normalized 3NF relational data with full referential integrity, B-Tree indexes, and immutable audit logs on every scan.",
+    },
+    tags: ["PostgreSQL", "ERD 3NF", "B-Tree Index", "Audit Trails"],
+  },
+  {
+    id: "tracking",
+    title: "04. Client",
+    tech: "Live Leaflet Web",
+    name: "Live Tracking & Timeline",
+    metric: "tracking.nexus-ex.site",
+    desc: {
+      vi: "Giao diện tra cứu bưu phẩm thời gian thực đang chạy thực tế tại tracking.nexus-ex.site, hiển thị dòng thời gian bưu kiện và bản đồ trạm trung chuyển.",
+      en: "Production shipment tracking client live at tracking.nexus-ex.site with waybill search, real-time parcel timeline, and transit hub map.",
+    },
+    tags: ["Live Production", "Leaflet Map", "Real-Time Timeline", "Vercel + VPS"],
+  },
+];
+
 type NavigateHandler = (event: React.MouseEvent<HTMLAnchorElement>, path: string) => void;
 
 function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
@@ -833,10 +884,18 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
     }
     return "vi";
   });
+  const [activeProjectIndex, setActiveProjectIndex] = useState(0);
+  const [activeArchStep, setActiveArchStep] = useState(0);
   const [isCvMenuOpen, setIsCvMenuOpen] = useState(false);
   const cvMenuRef = React.useRef<HTMLDivElement>(null);
 
   const t = lang === "vi" ? portfolioDataVi : portfolioDataEn;
+  const projects = t.projectGroups.flatMap((group) =>
+    group.projects.map((project) => ({
+      ...project,
+      category: group.title,
+    })),
+  );
 
   const handleLangChange = (newLang: Language) => {
     setLangState(newLang);
@@ -1151,84 +1210,93 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
           </div>
         </div>
 
-        <aside className="hero-visual" aria-label="System architecture overview">
-          <div className="executive-blueprint-card">
-            <div className="blueprint-header">
-              <div className="blueprint-dots">
-                <span className="dot red" />
-                <span className="dot yellow" />
-                <span className="dot green" />
-                <span className="blueprint-title">SYSTEM ARCHITECTURE: NEXUS EXPRESS OMS</span>
+        <aside className="hero-visual" aria-label="System architecture & competency preview">
+          <div className="architecture-interactive-frame">
+            <div className="browser-bar">
+              <span />
+              <span />
+              <span />
+              <div className="browser-url-pill">
+                <span className="url-protocol">https://</span>
+                <span className="url-domain">tracking.nexus-ex.site</span>
+                <span className="url-path">/architecture</span>
               </div>
-              <span className="blueprint-live-pill">
-                LIVE ON VPS · 99.9%
-              </span>
+              <div className="dossier-verified-badge">
+                <span className="live-status-dot" />
+                <span>ONLINE · 99.9%</span>
+              </div>
             </div>
 
-            <div className="blueprint-body">
-              <div className="blueprint-pipeline-steps">
-                <div className="blueprint-step-item">
-                  <span className="step-num-badge">01</span>
-                  <div className="step-content">
-                    <strong>Ingestion &amp; Validation</strong>
-                    <p>REST API · OpenAPI 3.0 · Idempotency</p>
-                  </div>
-                  <span className="step-tech-tag">NestJS</span>
+            <div className="arch-interactive-body">
+              {/* Simulator Header */}
+              <div className="arch-hero-banner">
+                <div className="arch-banner-left">
+                  <span className="arch-sub-tag">ENTERPRISE SYSTEM ARCHITECTURE</span>
+                  <h3>Nexus Express — Logistics OMS &amp; Tracking</h3>
+                  <p>{lang === "vi" ? "Mô hình xử lý trạng thái đơn hàng & luồng dữ liệu thời gian thực" : "Stateful parcel workflow & real-time telemetry model"}</p>
                 </div>
-                <div className="blueprint-arrow-down" aria-hidden="true">↓</div>
-                <div className="blueprint-step-item">
-                  <span className="step-num-badge">02</span>
-                  <div className="step-content">
-                    <strong>Workflow State Machine</strong>
-                    <p>Camunda BPMN 2.0 · Event-Driven</p>
-                  </div>
-                  <span className="step-tech-tag">BPMN 2.0</span>
-                </div>
-                <div className="blueprint-arrow-down" aria-hidden="true">↓</div>
-                <div className="blueprint-step-item">
-                  <span className="step-num-badge">03</span>
-                  <div className="step-content">
-                    <strong>State &amp; Persistence</strong>
-                    <p>PostgreSQL 3NF · ACID Concurrency</p>
-                  </div>
-                  <span className="step-tech-tag">PostgreSQL</span>
-                </div>
-                <div className="blueprint-arrow-down" aria-hidden="true">↓</div>
-                <div className="blueprint-step-item highlight">
-                  <span className="step-num-badge">04</span>
-                  <div className="step-content">
-                    <strong>Live Tracking Client</strong>
-                    <p>Leaflet Map · Real-time Status Timeline</p>
-                  </div>
-                  <span className="step-tech-tag success">Live Web</span>
+                <div className="arch-live-chip">
+                  <span className="pulse-dot" />
+                  <span>SLA &lt; 180ms</span>
                 </div>
               </div>
 
-              <div className="blueprint-status-bar">
-                <div className="status-indicator">
-                  <span className="status-ping" />
-                  <span>tracking.nexus-ex.site · 100% Deterministic</span>
+              {/* 4 Clickable Interactive Stages */}
+              <div className="arch-pipeline-interactive">
+                <div className="arch-nodes-row">
+                  {archSteps.map((step, idx) => (
+                    <button
+                      key={step.id}
+                      type="button"
+                      className={`arch-node-btn${activeArchStep === idx ? " is-active" : ""}`}
+                      onClick={() => setActiveArchStep(idx)}
+                    >
+                      <span className="node-step-badge">{String(idx + 1).padStart(2, "0")}</span>
+                      <strong className="node-title">{step.title}</strong>
+                      <span className="node-sub">{step.tech}</span>
+                    </button>
+                  ))}
                 </div>
-                <div className="blueprint-actions">
-                  <a
-                    href="https://tracking.nexus-ex.site/"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="blueprint-cta-btn"
-                  >
-                    <ExternalLink size={12} />
-                    <span>Live Demo</span>
-                  </a>
-                  <a
-                    href="https://github.com/VoVanTuTai/logistics-management-system"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="blueprint-repo-btn"
-                  >
-                    <Github size={12} />
-                    <span>Code</span>
-                  </a>
+
+                {/* Inspected Step Active Card */}
+                <div className="arch-inspect-card">
+                  <div className="inspect-head">
+                    <div className="inspect-title-group">
+                      <span className="inspect-pill">GIAI ĐOẠN {activeArchStep + 1} / 4</span>
+                      <h4>{archSteps[activeArchStep].name}</h4>
+                    </div>
+                    <span className="inspect-status-badge">{archSteps[activeArchStep].metric}</span>
+                  </div>
+                  <p className="inspect-desc">{archSteps[activeArchStep].desc[lang]}</p>
+                  <div className="inspect-tags">
+                    {archSteps[activeArchStep].tags.map((tg) => (
+                      <span key={tg}>{tg}</span>
+                    ))}
+                  </div>
                 </div>
+              </div>
+
+              {/* Action Buttons inside frame */}
+              <div className="arch-footer-actions">
+                <a
+                  href="https://tracking.nexus-ex.site/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="arch-btn-live"
+                  title="Open Nexus Express Live Tracking"
+                >
+                  <ExternalLink size={14} />
+                  <span>{lang === "vi" ? "Xem Live Tracking Demo (tracking.nexus-ex.site) ↗" : "Open Live Tracking Demo ↗"}</span>
+                </a>
+                <a
+                  href="https://github.com/VoVanTuTai/logistics-management-system"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="arch-btn-code"
+                >
+                  <Github size={14} />
+                  <span>Mã nguồn</span>
+                </a>
               </div>
             </div>
           </div>
@@ -1320,219 +1388,134 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
         </div>
       </section>
 
-      {/* 5. EXECUTIVE PROJECTS MATRIX (BENTO GRID) */}
-      <section className="projects-section" id="projects">
-        <div className="section-heading-centered">
-          <span className="academic-badge-pill">
-            <Activity size={13} />
-            {lang === "vi" ? "DỰ ÁN KỸ THUẬT & CASE STUDIES THỰC TIỄN" : "ENGINEERING CASE STUDIES & LIVE SYSTEMS"}
-          </span>
-          <h2>{lang === "vi" ? "Kiến Trúc Hệ Thống & Nghiệp Vụ Thực Chiến" : "System Architectures & Production Implementations"}</h2>
-          <p>
-            {lang === "vi"
-              ? "Mỗi dự án phản ánh trọn vẹn quy trình giải quyết bài toán nghiệp vụ: phân tích luồng quy trình, thiết kế cơ sở dữ liệu quan hệ 3NF, kiểm soát tranh chấp đồng thời (concurrency control) và bàn giao hệ thống chạy thực tế."
-              : "Each project demonstrates end-to-end domain problem-solving: process workflow diagrams, normalized 3NF schemas, concurrency control, and live production deployments."}
-          </p>
+      {/* 5. 3D ANIMATED STACKING PROJECT DECK */}
+      <section className="projects-section compact-projects" id="projects">
+        <div className="section-heading project-heading">
+          <p className="section-label">{t.projectsSection.label}</p>
+          <h2>{t.projectsSection.heading}</h2>
+          <p>{t.projectsSection.subtitle}</p>
         </div>
 
-        <div className="executive-projects-matrix">
-          {/* Flagship: Nexus Express OMS */}
-          <article className="featured-flagship-card">
-            <div className="flagship-media">
-              <img src="/assets/project-nexus.png" alt="Nexus Express Logistics OMS interface preview" />
-            </div>
-            <div className="flagship-content">
-              <div className="flagship-badge-row">
-                <span className="flagship-live-badge">
-                  <span className="live-status-dot" />
-                  {lang === "vi" ? "PRODUCTION LIVE DEMO" : "PRODUCTION LIVE DEMO"}
-                </span>
-                <span className="sup-category-tag">LOGISTICS & OMS PLATFORM</span>
-              </div>
-              <h3>Nexus Express — Logistics OMS & Tracking</h3>
-              <p className="flagship-role">
-                {lang === "vi"
-                  ? "Hệ thống Quản lý Vận tải & Theo dõi Bưu kiện Đa Trạm (BPMN 2.0 & Event-Driven)"
-                  : "Enterprise Logistics OMS & Shipment Tracking Platform (BPMN 2.0 & Event-Driven)"}
-              </p>
-              <p className="flagship-summary">
-                {lang === "vi"
-                  ? "Nền tảng logistics chuyển hóa bài toán điều phối bưu cục thực tế thành kiến trúc microservices phân tán: máy trạng thái BPMN 2.0 (Camunda), hợp đồng OpenAPI 3.0 với Idempotency Key, hàng đợi sự kiện RabbitMQ và bản đồ tracking trực tiếp thời gian thực."
-                  : "Comprehensive logistics platform translating real-world parcel operations into distributed architecture: Camunda BPMN 2.0 state machine, OpenAPI 3.0 with Idempotency Keys, RabbitMQ event queues, and real-time shipment tracking."}
-              </p>
-              <div className="flagship-highlights">
-                <div className="flagship-highlight-item">
-                  <CheckCircle2 size={16} />
-                  <span>
-                    {lang === "vi"
-                      ? "Nghiệp vụ thực tiễn: Chuẩn hóa vòng đời bưu kiện qua 8 trạm quét, giải quyết triệt để bất đồng bộ trạng thái đơn và SOP xử lý ngoại lệ (RTO, hư hại, sai tuyến)."
-                      : "Operational Grounding: Standardized 8-stage parcel lifecycle, resolving status synchronization across transit hubs and SOP exception handling (RTO, damaged, misrouted)."}
-                  </span>
-                </div>
-                <div className="flagship-highlight-item">
-                  <CheckCircle2 size={16} />
-                  <span>
-                    {lang === "vi"
-                      ? "Đặc tả kỹ thuật: Hợp đồng REST API với Idempotency Key ngăn trùng lặp, CSDL PostgreSQL chuẩn hóa 3NF và luồng phát sự kiện bất đồng bộ RabbitMQ."
-                      : "Technical Specs: RESTful API contracts with Idempotency Keys, normalized 3NF PostgreSQL relational schema, and asynchronous RabbitMQ event bus."}
-                  </span>
-                </div>
-                <div className="flagship-highlight-item">
-                  <CheckCircle2 size={16} />
-                  <span>
-                    {lang === "vi"
-                      ? "Sản phẩm bàn giao: Hệ thống theo dõi trực tuyến đang chạy tại tracking.nexus-ex.site, hỗ trợ tra cứu mã vận đơn, dòng thời gian bưu kiện và bản đồ trạm."
-                      : "Live Production: Production tracking client live at tracking.nexus-ex.site with waybill search, live parcel timeline, and transit hub map."}
-                  </span>
-                </div>
-              </div>
-              <div className="flagship-stack-pills">
-                <span>BPMN 2.0 (Camunda)</span>
-                <span>OpenAPI 3.0</span>
-                <span>PostgreSQL 3NF</span>
-                <span>NestJS</span>
-                <span>RabbitMQ</span>
-                <span>Leaflet Map</span>
-                <span>Docker Compose</span>
-              </div>
-              <div className="flagship-actions">
-                <a
-                  href="https://tracking.nexus-ex.site/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="hero-btn-primary"
-                  title="Open Nexus Express Live Tracking"
-                >
-                  <ExternalLink size={15} />
-                  <span>{lang === "vi" ? "Mở Live Demo: tracking.nexus-ex.site ↗" : "Open Live Tracking Demo ↗"}</span>
-                </a>
-                <a
-                  href="https://github.com/VoVanTuTai/logistics-management-system"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="hero-btn-secondary"
-                  title="View Source on GitHub"
-                >
-                  <Github size={15} />
-                  <span>{lang === "vi" ? "Mã nguồn GitHub" : "GitHub Repository"}</span>
-                </a>
-              </div>
-            </div>
-          </article>
+        {/* Quick Project Switcher Tabs */}
+        <div className="project-deck-switcher" role="tablist" aria-label="Project switcher">
+          {projects.map((project, idx) => (
+            <button
+              key={project.name}
+              type="button"
+              role="tab"
+              aria-selected={idx === activeProjectIndex}
+              className={`project-deck-tab${idx === activeProjectIndex ? " is-active" : ""}`}
+              onClick={() => setActiveProjectIndex(idx)}
+            >
+              <span className="tab-num">{String(idx + 1).padStart(2, "0")}</span>
+              <span className="tab-name">
+                {project.name === "logistics-management-system"
+                  ? "Nexus Express (Live OMS)"
+                  : project.name === "cab-booking-system"
+                  ? "Cab Booking Dispatch"
+                  : project.name === "tourist-accommodation-management-system"
+                  ? "Tourist Accommodation"
+                  : "Song Tai Shop"}
+              </span>
+              {project.liveUrl && <span className="tab-live-badge">Live Demo</span>}
+            </button>
+          ))}
+        </div>
 
-          {/* Supporting Projects Grid */}
-          <div className="supporting-projects-grid">
-            {/* 1: Tourist Accommodation */}
-            <article className="supporting-project-card">
-              <div className="sup-card-header">
-                <span className="sup-category-tag">BOOKING & RESERVATION</span>
-                <span className="pillar-code">RAC-01</span>
-              </div>
-              <h4>{lang === "vi" ? "Nền tảng Quản lý Đặt phòng Lưu trú" : "Tourist Accommodation Booking Platform"}</h4>
-              <p className="sup-role">
-                {lang === "vi" ? "Hệ thống Đặt phòng · Chống Race Condition & RBAC" : "Multi-Role Booking System · Concurrency Control"}
-              </p>
-              <p>
-                {lang === "vi"
-                  ? "Giải quyết bài toán tranh chấp giữ phòng đồng thời (overbooking race condition) vào giờ cao điểm, ma trận phân quyền 3 nhóm (Guest/Host/Admin), chính sách hủy phạt linh hoạt và cổng thanh toán VNPay IPN."
-                  : "Eliminates room overbooking race conditions during peak hours, enforces 3-tier RBAC matrix (Guest/Host/Admin), dynamic tiered cancellation policies, and VNPay IPN webhooks."}
-              </p>
-              <div className="sup-stack-list">
-                <span>BPMN 2.0</span>
-                <span>PRD/SRS</span>
-                <span>RBAC Matrix</span>
-                <span>VNPay IPN</span>
-                <span>MySQL 3NF</span>
-                <span>Express.js</span>
-              </div>
-              <div className="sup-footer-actions">
-                <a
-                  href="https://github.com/VoVanTuTai/tourist-accommodation-management-system"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="sup-footer-link"
-                >
-                  <Github size={14} />
-                  <span>{lang === "vi" ? "Mã nguồn & SRS ↗" : "Source Code & SRS ↗"}</span>
-                </a>
-                <span style={{ fontSize: "11px", color: "#64748b" }}>GitHub Repo</span>
-              </div>
-            </article>
+        <div className="project-deck" aria-label="Selected project deck">
+          {projects.map((project, index) => {
+            const isActive = index === activeProjectIndex;
+            const stackIndex = (index - activeProjectIndex + projects.length) % projects.length - 1;
 
-            {/* 2: Song Tai Shop */}
-            <article className="supporting-project-card">
-              <div className="sup-card-header">
-                <span className="sup-category-tag">RETAIL & E-COMMERCE</span>
-                <span className="pillar-code">ECOM-02</span>
-              </div>
-              <h4>{lang === "vi" ? "Song Tai Shop — Thương mại Điện tử" : "Song Tai Shop — E-Commerce System"}</h4>
-              <p className="sup-role">
-                {lang === "vi" ? "Bán lẻ Trực tuyến · Quản lý Đơn hàng & Audit Log" : "Online Retail · Order Management & Audit Trail"}
-              </p>
-              <p>
-                {lang === "vi"
-                  ? "Chuẩn hóa danh mục sản phẩm đa phân cấp, hành trình mua sắm giỏ hàng, chuyển đổi trạng thái đơn hàng (Chờ/Đã thanh toán/Đang giao/Hoàn tất) và nhật ký kiểm toán quản trị viên."
-                  : "Standardized multi-level catalog hierarchies, customer cart checkout journeys, auditable order state transitions (Pending/Paid/Shipped/Completed), and admin inventory audit logs."}
-              </p>
-              <div className="sup-stack-list">
-                <span>Process Flow</span>
-                <span>User Stories</span>
-                <span>MySQL 3NF</span>
-                <span>PHP</span>
-                <span>Docker</span>
-                <span>Bootstrap</span>
-              </div>
-              <div className="sup-footer-actions">
-                <a
-                  href="https://github.com/VoVanTuTai/php-online-store"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="sup-footer-link"
-                >
-                  <Github size={14} />
-                  <span>{lang === "vi" ? "Mã nguồn & CSDL ↗" : "Source Code & DB ↗"}</span>
-                </a>
-                <span style={{ fontSize: "11px", color: "#64748b" }}>GitHub Repo</span>
-              </div>
-            </article>
+            return (
+              <article
+                className={`project-deck-card${isActive ? " is-active" : " is-stacked"}`}
+                key={project.name}
+                style={{ "--stack-index": Math.max(stackIndex, 0) } as React.CSSProperties}
+              >
+                {!isActive ? (
+                  <button
+                    className="deck-card-trigger"
+                    type="button"
+                    onClick={() => setActiveProjectIndex(index)}
+                    aria-label={`Show ${project.name}`}
+                  />
+                ) : null}
 
-            {/* 3: Cab Booking */}
-            <article className="supporting-project-card">
-              <div className="sup-card-header">
-                <span className="sup-category-tag">MOBILITY & DISPATCH</span>
-                <span className="pillar-code">DISP-03</span>
-              </div>
-              <h4>{lang === "vi" ? "Hệ thống Điều phối Đặt xe Phân tán" : "Cab Booking & Driver Dispatch"}</h4>
-              <p className="sup-role">
-                {lang === "vi" ? "Điều phối Xe · Distributed State Machine & Events" : "Distributed State Machine & Event-Driven Engine"}
-              </p>
-              <p>
-                {lang === "vi"
-                  ? "Mô hình hóa vòng đời cuốc xe thời gian thực, thuật toán tìm tài xế lân cận, xử lý ngắt kết nối mạng và đối soát cước phí tự động thông qua kiến trúc phân tán microservices."
-                  : "Models real-time ride lifecycles, geospatial driver dispatch matching, resilient disconnect recovery, and automated fare settlement across distributed microservices."}
-              </p>
-              <div className="sup-stack-list">
-                <span>State Machine</span>
-                <span>Event Contracts</span>
-                <span>Node.js</span>
-                <span>Redis</span>
-                <span>Kafka</span>
-                <span>Docker</span>
-              </div>
-              <div className="sup-footer-actions">
-                <a
-                  href="https://github.com/VoVanTuTai/cab-booking-system"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="sup-footer-link"
-                >
-                  <Github size={14} />
-                  <span>{lang === "vi" ? "Mã nguồn Hệ thống ↗" : "Source Code & Docs ↗"}</span>
-                </a>
-                <span style={{ fontSize: "11px", color: "#64748b" }}>GitHub Repo</span>
-              </div>
-            </article>
-          </div>
+                <div className="deck-card-media">
+                  <img src={project.image} alt={`${project.name} interface preview`} />
+                  <span className="deck-card-number">{String(index + 1).padStart(2, "0")}</span>
+                </div>
+
+                <div className="deck-card-body">
+                  <div className="project-card-head">
+                    <div>
+                      <p className="project-role">{project.category}</p>
+                      <h3>{project.name}</h3>
+                      <p className="compact-role">{project.role}</p>
+                    </div>
+                    {isActive ? (
+                      <div className="project-card-actions">
+                        {project.liveUrl ? (
+                          <a
+                            className="live-demo-link"
+                            href={project.liveUrl}
+                            target="_blank"
+                            rel="noreferrer"
+                            aria-label={`${project.name} Live Demo`}
+                            title="Open Live Tracking Demo"
+                          >
+                            <ExternalLink size={14} aria-hidden="true" />
+                            <span>{project.liveLabel || "Live Demo"}</span>
+                          </a>
+                        ) : null}
+                        <a
+                          className="icon-link"
+                          href={project.href}
+                          target="_blank"
+                          rel="noreferrer"
+                          aria-label={`${project.name} GitHub`}
+                          title="View on GitHub"
+                        >
+                          <ArrowUpRight size={20} aria-hidden="true" />
+                        </a>
+                      </div>
+                    ) : null}
+                  </div>
+
+                  <div className="deck-card-details" aria-hidden={!isActive}>
+                    {project.liveUrl ? (
+                      <div className="project-live-preview-bar">
+                        <span className="live-status-dot" aria-hidden="true" />
+                        <span className="live-status-text">Production Live Tracking:</span>
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="live-status-url"
+                        >
+                          {project.liveUrl.replace(/^https?:\/\//, "").replace(/\/$/, "")}
+                          <ExternalLink size={12} aria-hidden="true" />
+                        </a>
+                      </div>
+                    ) : null}
+                    <p className="project-summary">{project.summary}</p>
+                    <div className="stack-list">
+                      {project.stack.slice(0, 6).map((item) => (
+                        <span key={item}>{item}</span>
+                      ))}
+                      {project.stack.length > 6 ? <span>+{project.stack.length - 6}</span> : null}
+                    </div>
+                    <div className="project-proof-list">
+                      {project.highlights.slice(0, 3).map((highlight) => (
+                        <p key={highlight}>{highlight}</p>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </article>
+            );
+          })}
         </div>
       </section>
 
@@ -2342,7 +2325,10 @@ func CalculateFee(weightGrams int, isExpress bool) (ShippingQuote, error) {
             onClick={(event) => navigate(event, "/knowledge")}
             aria-label="Về Knowledge Hub"
           >
-            <img className="brand-avatar" src="/assets/avatar.png" alt="Võ Văn Tú Tài" />
+            <div className="brand-avatar-wrap">
+              <img className="brand-avatar" src="/assets/avatar.png" alt="Võ Văn Tú Tài" />
+              <span className="brand-dot-pulse" aria-hidden="true" />
+            </div>
             <div className="brand-info">
               <span className="brand-name">Võ Văn Tú Tài</span>
               <span className="brand-role-tag">Software Engineer · B.Eng in IS IUH</span>
@@ -5245,7 +5231,10 @@ function BusinessAnalysisLessonPage({ navigate }: { navigate: NavigateHandler })
             onClick={(event) => navigate(event, "/")}
             aria-label="Về trang chủ Portfolio"
           >
-            <img className="brand-avatar" src="/assets/avatar.png" alt="Võ Văn Tú Tài" />
+            <div className="brand-avatar-wrap">
+              <img className="brand-avatar" src="/assets/avatar.png" alt="Võ Văn Tú Tài" />
+              <span className="brand-dot-pulse" aria-hidden="true" />
+            </div>
             <div className="brand-info">
               <span className="brand-name">Võ Văn Tú Tài</span>
               <span className="brand-role-tag">IT Business Analyst &amp; Associate PO</span>
