@@ -696,6 +696,133 @@ const portfolioDataEn: PortfolioLocaleData = {
   },
 };
 
+const academicPillars = [
+  {
+    code: "SAD-01",
+    icon: Layers,
+    color: "blue",
+    title: {
+      vi: "Phân tích & Thiết kế Hệ thống (SAD)",
+      en: "Systems Analysis & Design (SAD)",
+    },
+    desc: {
+      vi: "Mô hình hóa nghiệp vụ chuyên sâu với chuẩn UML 2.5 (Use Case, Sequence, State Machine), BPMN 2.0 và phân rã chức năng WBS đáp ứng tiêu chuẩn phần mềm quốc tế.",
+      en: "Rigorous domain modeling using UML 2.5 (Use Case, Sequence, State Machine), BPMN 2.0, and WBS functional decomposition aligned with international standards.",
+    },
+    tags: ["UML 2.5", "BPMN 2.0", "PRD/SRS", "WBS & Scope", "Given-When-Then"],
+  },
+  {
+    code: "DB-02",
+    icon: Database,
+    color: "indigo",
+    title: {
+      vi: "Hệ Quản trị CSDL & Mô hình hóa Quan hệ",
+      en: "Database Systems & Relational Modeling",
+    },
+    desc: {
+      vi: "Thiết kế thực thể quan hệ ERD chuẩn hóa 3NF/BCNF, thiết lập toàn vẹn tham chiếu, tối ưu hóa Indexing B-Tree và kiểm soát giao dịch ACID chống race condition.",
+      en: "Relational modeling with 3NF/BCNF normalization, referential integrity, B-Tree index optimization, and ACID concurrency transaction isolation.",
+    },
+    tags: ["ERD 3NF/BCNF", "PostgreSQL", "MySQL", "Indexing & Query", "ACID Transactions"],
+  },
+  {
+    code: "ERP-03",
+    icon: Boxes,
+    color: "purple",
+    title: {
+      vi: "Hệ thống ERP Doanh nghiệp & OMS",
+      en: "Enterprise ERP & OMS Architectures",
+    },
+    desc: {
+      vi: "Kiến trúc luồng xử lý đơn hàng OMS, luồng nghiệp vụ Odoo ERP (Sales, Purchase, Inventory, Accounting) và tích hợp chuỗi cung ứng SCM nhiều phân hệ.",
+      en: "Order Management Systems (OMS), Odoo ERP workflows (Sales, Purchase, Inventory, Accounting), and multi-module SCM supply chain integration.",
+    },
+    tags: ["Odoo ERP", "OMS Lifecycle", "SCM Workflows", "Inventory Audits", "RBAC Matrix"],
+  },
+  {
+    code: "SE-04",
+    icon: ServerCog,
+    color: "emerald",
+    title: {
+      vi: "Kỹ nghệ Phần mềm & Kiểm thử Nghiệm thu",
+      en: "Software Engineering & UAT Governance",
+    },
+    desc: {
+      vi: "Chu trình phát triển phần mềm SDLC, phương pháp Agile Scrum, kiến trúc REST API & OpenAPI 3.0, cùng kế hoạch nghiệm thu UAT kiểm soát rủi ro phát hành.",
+      en: "End-to-end SDLC governance, Agile Scrum sprints, OpenAPI 3.0 contracts, and structured UAT acceptance test plans minimizing release risks.",
+    },
+    tags: ["Agile Scrum", "OpenAPI 3.0", "UAT Sign-off", "Postman", "CI/CD & Docker"],
+  },
+];
+
+const thesesMonographs = [
+  {
+    num: { vi: "CHUYÊN ĐỀ 01", en: "MONOGRAPH 01" },
+    time: { vi: "45 phút · Toàn diện", en: "45 min · Comprehensive" },
+    path: "/knowledge/business-analysis",
+    title: {
+      vi: "Phân tích Nghiệp vụ & Đặc tả Yêu cầu Hệ thống",
+      en: "Business Analysis & Systems Requirements Engineering",
+    },
+    desc: {
+      vi: "Khảo sát yêu cầu mơ hồ, lập tài liệu BRD/PRD/SRS, mô hình hóa quy trình chuẩn BPMN 2.0, viết User Stories (Given-When-Then) và kế hoạch kiểm thử UAT.",
+      en: "Elicitation techniques, BRD/PRD/SRS authoring, BPMN 2.0 process modeling, Given-When-Then User Stories, and rigorous UAT governance.",
+    },
+  },
+  {
+    num: { vi: "CHUYÊN ĐỀ 02", en: "MONOGRAPH 02" },
+    time: { vi: "40 phút · Lab tương tác", en: "40 min · Interactive Lab" },
+    path: "/knowledge/programming-languages",
+    title: {
+      vi: "Ngôn ngữ Lập trình & Kiến trúc Runtime Thực thi",
+      en: "Programming Languages & Execution Runtime Architectures",
+    },
+    desc: {
+      vi: "Bản chất source code, so sánh Trình biên dịch (AOT) vs Trình thông dịch (JIT), Quản lý bộ nhớ (GC/Borrow Checker), Concurrency Model và Lab phân tích trực quan.",
+      en: "Compilation (AOT) vs Interpretation (JIT), Memory Management, Garbage Collection vs Rust Ownership, Concurrency Event Loops, and interactive runtime lab.",
+    },
+  },
+  {
+    num: { vi: "CHUYÊN ĐỀ 03", en: "MONOGRAPH 03" },
+    time: { vi: "25 phút · Nền tảng", en: "25 min · Fundamentals" },
+    path: "/knowledge/database",
+    title: {
+      vi: "Hệ Quản trị Cơ sở Dữ liệu & Lưu trữ Thực thể",
+      en: "Database Fundamentals & Storage Engines",
+    },
+    desc: {
+      vi: "Phân loại RDBMS vs NoSQL, nguyên lý chỉ mục B-Tree / LSM-Tree, cơ chế đảm bảo tính ACID, cô lập giao dịch và lựa chọn công nghệ lưu trữ cho hệ thống lớn.",
+      en: "RDBMS vs NoSQL classification, B-Tree and LSM-Tree indexing, ACID transaction isolation levels, and storage engine selection for high-scale systems.",
+    },
+  },
+  {
+    num: { vi: "CHUYÊN ĐỀ 04", en: "MONOGRAPH 04" },
+    time: { vi: "35 phút · Thực hành", en: "35 min · Practical Modeling" },
+    path: "/knowledge/database/data-modeling",
+    title: {
+      vi: "Mô hình hóa Dữ liệu Quan hệ, ERD & Chuẩn hóa 3NF",
+      en: "Relational Data Modeling, ERD & Normalization (3NF)",
+    },
+    desc: {
+      vi: "Quy trình chuyển đổi bài toán nghiệp vụ thành thực thể, xác định khóa ngoại/khóa chính, sơ đồ quan hệ 1-N/N-N và kỹ thuật chuẩn hóa chống dị thường dữ liệu.",
+      en: "Translating business domain entities into relational schemas, primary/foreign keys, cardinality mapping (1:N, N:M), and 1NF-3NF anomaly elimination.",
+    },
+  },
+  {
+    num: { vi: "CHUYÊN ĐỀ 05", en: "MONOGRAPH 05" },
+    time: { vi: "30 phút · Hướng dẫn", en: "30 min · Guide & Lab" },
+    path: "/knowledge/backend-api",
+    title: {
+      vi: "Thiết kế Backend & Hợp đồng RESTful API Chuẩn mực",
+      en: "Backend Architecture & RESTful API Contracts",
+    },
+    desc: {
+      vi: "Vòng đời HTTP request-response, thiết kế OpenAPI 3.0, cơ chế Idempotency Key, xác thực phân quyền JWT/OAuth2 và xử lý lỗi chuẩn RFC 7807.",
+      en: "HTTP request lifecycle, OpenAPI 3.0 contract design, Idempotency Keys, JWT/OAuth2 RBAC security, and RFC 7807 standardized problem details.",
+    },
+  },
+];
+
 type NavigateHandler = (event: React.MouseEvent<HTMLAnchorElement>, path: string) => void;
 
 function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
@@ -706,17 +833,10 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
     }
     return "vi";
   });
-  const [activeProjectIndex, setActiveProjectIndex] = useState(0);
   const [isCvMenuOpen, setIsCvMenuOpen] = useState(false);
   const cvMenuRef = React.useRef<HTMLDivElement>(null);
 
   const t = lang === "vi" ? portfolioDataVi : portfolioDataEn;
-  const projects = t.projectGroups.flatMap((group) =>
-    group.projects.map((project) => ({
-      ...project,
-      category: group.title,
-    })),
-  );
 
   const handleLangChange = (newLang: Language) => {
     setLangState(newLang);
@@ -759,7 +879,7 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
           </div>
           <div className="brand-text">
             <span className="brand-name">Vo Van Tu Tai</span>
-            <span className="brand-tag">IT Business Analyst</span>
+            <span className="brand-tag">B.Eng in IS · IT BA & Software Engineer</span>
           </div>
         </a>
 
@@ -770,15 +890,31 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
               <Sparkles size={13} aria-hidden="true" />
               <span>{t.nav.pmFramework}</span>
             </a>
-            <a href="#skills">{t.nav.skills}</a>
-            <a href="/knowledge/business-analysis" onClick={(event) => navigate(event, "/knowledge/business-analysis")}>
-              {t.nav.baKnowledge}
+            <a href="#academic-foundation">
+              {lang === "vi" ? "Nền tảng Kỹ sư" : "Foundation"}
             </a>
-            <a href="/knowledge" onClick={(event) => navigate(event, "/knowledge")}>
-              {t.nav.knowledge}
+            <a href="#academic-theses">
+              {lang === "vi" ? "Chuyên đề" : "Theses"}
+            </a>
+            <a href="#skills">{t.nav.skills}</a>
+            <a href="#experience">
+              {lang === "vi" ? "Kinh nghiệm" : "Experience"}
             </a>
             <a href="#contact">{t.nav.contact}</a>
           </nav>
+
+          {/* TOPBAR LIVE OMS DEMO CTA */}
+          <a
+            href="https://tracking.nexus-ex.site/"
+            target="_blank"
+            rel="noreferrer"
+            className="topbar-live-cta"
+            title="Open Live Tracking Demo: Nexus Express"
+          >
+            <span className="live-status-dot" />
+            <span>Live Demo OMS</span>
+            <ExternalLink size={12} />
+          </a>
 
           {/* LUXURY RECRUITER CV BUTTON & DROPDOWN */}
           <div className="topbar-cv-menu-container" ref={cvMenuRef}>
@@ -920,15 +1056,16 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
         </div>
       </header>
 
-      <section className="hero" id="top">
+      {/* 1. EXECUTIVE HERO SECTION */}
+      <section className="hero executive-hero" id="top">
         <div className="hero-copy">
-          {/* Personal Introduction & Availability Pill */}
-          <div className="personal-status-pill">
+          {/* Academic Status & Availability Pill */}
+          <div className="academic-status-pill">
             <span className="badge-pulse-dot" />
             <span className="badge-text">
               {lang === "vi"
-                ? "Kỹ sư Hệ thống Thông tin (IUH) · Sẵn sàng làm việc tại TP.HCM"
-                : "B.Eng in Information Systems (IUH) · Available Full-time in HCM City"}
+                ? "KỸ SƯ HỆ THỐNG THÔNG TIN · IUH (GPA 3.26/4.0 GIỎI) · SẴN SÀNG NHẬN VIỆC"
+                : "B.ENG IN INFORMATION SYSTEMS · IUH (GPA 3.26/4.0 DISTINCTION) · AVAILABLE NOW"}
             </span>
           </div>
 
@@ -941,24 +1078,10 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
               <div className="profile-name-row">
                 <p className="profile-name">Vo Van Tu Tai</p>
                 <span className="profile-role-tag highlight">IT Business Analyst</span>
-                <span className="profile-role-tag">Product Owner</span>
-                <span className="profile-role-tag secondary">Software Project Manager</span>
+                <span className="profile-role-tag">Information Systems Architect</span>
+                <span className="profile-role-tag secondary">Software Engineer</span>
               </div>
               <p className="profile-meta">{t.hero.profileMeta}</p>
-              <div className="profile-chips-row">
-                <span className="profile-chip">
-                  <span className="chip-dot" />
-                  IUH · GPA 3.26/4.0
-                </span>
-                <span className="profile-chip">
-                  <span className="chip-dot" />
-                  TOEIC 650+
-                </span>
-                <span className="profile-chip highlight">
-                  <span className="chip-dot online" />
-                  {lang === "vi" ? "Sẵn sàng nhận việc Full-time" : "Available Full-time"}
-                </span>
-              </div>
             </div>
           </div>
 
@@ -966,151 +1089,150 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
           <h1 className="hero-title">{t.hero.heading}</h1>
           <p className="hero-lede">{t.hero.lede}</p>
 
-          {/* FRIENDLY DOCUMENT & CV SHARING CARD */}
-          <div className="cv-sharing-card" aria-label="Tài liệu và Hồ sơ CV">
-            <div className="sharing-card-head">
-              <div className="sharing-title-group">
-                <div className="sharing-icon">
-                  <FileText size={18} aria-hidden="true" />
-                </div>
-                <div>
-                  <h3>{lang === "vi" ? "Hồ sơ & CV của mình" : "My Resumes & Documents"}</h3>
-                  <p>{lang === "vi" ? "Bạn có thể tải nhanh bản PDF để lưu trữ hoặc xem trực tiếp trên web nhé:" : "Download PDF copies or explore interactive web versions:"}</p>
-                </div>
-              </div>
-              <div className="sharing-avail-tag">
-                <span className="pulse-green" />
-                <span>{lang === "vi" ? "Sẵn sàng nhận việc" : "Available for hire"}</span>
-              </div>
-            </div>
+          {/* Primary Action Buttons */}
+          <div className="hero-action-buttons">
+            <a
+              href="https://tracking.nexus-ex.site/"
+              target="_blank"
+              rel="noreferrer"
+              className="hero-btn-primary"
+              title="Open Live Tracking Demo: Nexus Express"
+            >
+              <ExternalLink size={15} />
+              <span>{lang === "vi" ? "Xem Live Demo: Nexus Express OMS ↗" : "Live Demo: Nexus Express OMS ↗"}</span>
+            </a>
+            <a
+              href={lang === "vi" ? "/VoVanTuTai_Business_Analyst_CV_Tieng_Viet.pdf" : "/VoVanTuTai_Business_Analyst_CV.pdf"}
+              download
+              className="hero-btn-secondary"
+            >
+              <Download size={15} />
+              <span>{lang === "vi" ? "Tải CV Kỹ sư & BA (PDF)" : "Download ATS CV (PDF)"}</span>
+            </a>
+            <a
+              href="#academic-foundation"
+              className="hero-btn-outline"
+            >
+              <Layers size={15} />
+              <span>{lang === "vi" ? "Khám phá Nền tảng Kỹ sư ↓" : "Explore Foundation ↓"}</span>
+            </a>
+          </div>
 
-            <div className="sharing-tracks-grid">
-
-              {/* Track 1: CV BA / PO Tiếng Việt */}
-              <div className="cv-track-item">
-                <div className="cv-track-header">
-                  <div className="cv-track-icon vi">
-                    <FileText size={18} aria-hidden="true" />
-                  </div>
-                  <div className="cv-track-text">
-                    <div className="cv-track-title-row">
-                      <strong>{lang === "vi" ? "CV BA / PO (Tiếng Việt)" : "BA / PO Resume (Vietnamese)"}</strong>
-                      <span className="cv-track-badge vi">Tiếng Việt</span>
-                    </div>
-                    <p>{lang === "vi" ? "Bản chi tiết kinh nghiệm dự án, quy trình BPMN 2.0 & tài liệu SRS" : "Detailed project cases, BPMN 2.0 workflows & SRS documentation"}</p>
-                  </div>
-                </div>
-                <div className="cv-track-buttons">
-                  <a
-                    className="cv-btn-download"
-                    href="/VoVanTuTai_Business_Analyst_CV_Tieng_Viet.pdf"
-                    download
-                  >
-                    <Download size={15} aria-hidden="true" />
-                    <span>{lang === "vi" ? "Tải CV (PDF)" : "Download PDF"}</span>
-                  </a>
-                  <a
-                    className="cv-btn-view"
-                    href="/po-ba-cv-vi.html"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <ExternalLink size={15} aria-hidden="true" />
-                    <span>{lang === "vi" ? "Xem bản Web" : "View Web"}</span>
-                  </a>
-                </div>
-              </div>
-
-              {/* Track 2: CV BA / PO Tiếng Anh */}
-              <div className="cv-track-item">
-                <div className="cv-track-header">
-                  <div className="cv-track-icon en">
-                    <FileText size={18} aria-hidden="true" />
-                  </div>
-                  <div className="cv-track-text">
-                    <div className="cv-track-title-row">
-                      <strong>{lang === "vi" ? "CV BA / PO (Tiếng Anh)" : "BA / PO Resume (English)"}</strong>
-                      <span className="cv-track-badge en">English</span>
-                    </div>
-                    <p>{lang === "vi" ? "Phiên bản tiếng Anh chuẩn mực cho team Outsource & Quốc tế" : "Standardized English version for MNCs & international teams"}</p>
-                  </div>
-                </div>
-                <div className="cv-track-buttons">
-                  <a
-                    className="cv-btn-download"
-                    href="/VoVanTuTai_Business_Analyst_CV.pdf"
-                    download
-                  >
-                    <Download size={15} aria-hidden="true" />
-                    <span>{lang === "vi" ? "Tải Resume (PDF)" : "Download PDF"}</span>
-                  </a>
-                  <a
-                    className="cv-btn-view"
-                    href="/cv.html"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <ExternalLink size={15} aria-hidden="true" />
-                    <span>{lang === "vi" ? "Xem bản Web" : "View Web"}</span>
-                  </a>
-                </div>
+          {/* Hero Proof Chips */}
+          <div className="hero-proof-chips-row">
+            <div className="hero-proof-chip highlight">
+              <CheckCircle2 size={18} />
+              <div>
+                <strong>IUH · GPA 3.26 / 4.0</strong>
+                <span>{lang === "vi" ? "Bằng Giỏi / Distinction" : "Distinction Degree"}</span>
               </div>
             </div>
-
-            <div className="sharing-card-foot">
-              <span className="foot-label">
-                {lang === "vi" ? "Trao đổi & liên hệ nhanh:" : "Direct contact:"}
-              </span>
-              <a href="tel:+84869500573" className="foot-link">
-                <Phone size={13} aria-hidden="true" />
-                +84 869 500 573
-              </a>
-              <span className="foot-sep">·</span>
-              <a href="mailto:tutaivovan@gmail.com" className="foot-link">
-                <Mail size={13} aria-hidden="true" />
-                tutaivovan@gmail.com
-              </a>
-              <span className="foot-sep">·</span>
-              <span className="foot-location">
-                {lang === "vi" ? "TP. Hồ Chí Minh" : "Ho Chi Minh City"}
-              </span>
+            <div className="hero-proof-chip">
+              <BriefcaseBusiness size={18} />
+              <div>
+                <strong>HomeNest Software</strong>
+                <span>{lang === "vi" ? "6+ tháng Business Analyst" : "6+ mos IT BA Experience"}</span>
+              </div>
+            </div>
+            <div className="hero-proof-chip">
+              <Boxes size={18} />
+              <div>
+                <strong>J&amp;T Express</strong>
+                <span>{lang === "vi" ? "Điều phối Hiện trường" : "Frontline Logistics Ops"}</span>
+              </div>
+            </div>
+            <div className="hero-proof-chip highlight-green">
+              <Sparkles size={18} />
+              <div>
+                <strong>{lang === "vi" ? "Sẵn sàng nhận việc" : "Available Full-Time"}</strong>
+                <span>{lang === "vi" ? "Full-time tại TP.HCM" : "Immediate in HCM City"}</span>
+              </div>
             </div>
           </div>
         </div>
 
-        <aside className="hero-visual" aria-label="Portfolio proof points">
-          <div className="visual-frame competency-overview">
-            <div className="browser-bar" aria-hidden="true">
-              <span />
-              <span />
-              <span />
-              <strong>{t.preview.browserLabel}</strong>
+        <aside className="hero-visual" aria-label="System architecture overview">
+          <div className="executive-blueprint-card">
+            <div className="blueprint-header">
+              <div className="blueprint-dots">
+                <span className="dot red" />
+                <span className="dot yellow" />
+                <span className="dot green" />
+                <span className="blueprint-title">SYSTEM ARCHITECTURE: NEXUS EXPRESS OMS</span>
+              </div>
+              <span className="blueprint-live-pill">
+                LIVE ON VPS · 99.9%
+              </span>
             </div>
-            <div className="web-preview" aria-label="Business Analyst portfolio focus preview">
-              <div className="web-preview-main">
-                <p className="panel-label">{t.preview.panelLabel}</p>
-                <h2>{t.preview.panelTitle}</h2>
-                <div className="preview-card-grid">
-                  {t.preview.cards.map((c) => (
-                    <div className="preview-card" key={c.top}>
-                      <span>{c.top}</span>
-                      <strong>{c.strong}</strong>
-                      <p>{c.bottom}</p>
-                    </div>
-                  ))}
+
+            <div className="blueprint-body">
+              <div className="blueprint-pipeline-steps">
+                <div className="blueprint-step-item">
+                  <span className="step-num-badge">01</span>
+                  <div className="step-content">
+                    <strong>Ingestion &amp; Validation</strong>
+                    <p>REST API · OpenAPI 3.0 · Idempotency</p>
+                  </div>
+                  <span className="step-tech-tag">NestJS</span>
+                </div>
+                <div className="blueprint-arrow-down" aria-hidden="true">↓</div>
+                <div className="blueprint-step-item">
+                  <span className="step-num-badge">02</span>
+                  <div className="step-content">
+                    <strong>Workflow State Machine</strong>
+                    <p>Camunda BPMN 2.0 · Event-Driven</p>
+                  </div>
+                  <span className="step-tech-tag">BPMN 2.0</span>
+                </div>
+                <div className="blueprint-arrow-down" aria-hidden="true">↓</div>
+                <div className="blueprint-step-item">
+                  <span className="step-num-badge">03</span>
+                  <div className="step-content">
+                    <strong>State &amp; Persistence</strong>
+                    <p>PostgreSQL 3NF · ACID Concurrency</p>
+                  </div>
+                  <span className="step-tech-tag">PostgreSQL</span>
+                </div>
+                <div className="blueprint-arrow-down" aria-hidden="true">↓</div>
+                <div className="blueprint-step-item highlight">
+                  <span className="step-num-badge">04</span>
+                  <div className="step-content">
+                    <strong>Live Tracking Client</strong>
+                    <p>Leaflet Map · Real-time Status Timeline</p>
+                  </div>
+                  <span className="step-tech-tag success">Live Web</span>
                 </div>
               </div>
-              <div className="web-preview-side">
-                <span>{t.preview.targetLabel}</span>
-                <p>{t.preview.targetValue}</p>
+
+              <div className="blueprint-status-bar">
+                <div className="status-indicator">
+                  <span className="status-ping" />
+                  <span>tracking.nexus-ex.site · 100% Deterministic</span>
+                </div>
+                <div className="blueprint-actions">
+                  <a
+                    href="https://tracking.nexus-ex.site/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="blueprint-cta-btn"
+                  >
+                    <ExternalLink size={12} />
+                    <span>Live Demo</span>
+                  </a>
+                  <a
+                    href="https://github.com/VoVanTuTai/logistics-management-system"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="blueprint-repo-btn"
+                  >
+                    <Github size={12} />
+                    <span>Code</span>
+                  </a>
+                </div>
               </div>
             </div>
-            <div className="visual-footer">
-              {t.preview.tags.map((tag) => (
-                <span key={tag}>{tag}</span>
-              ))}
-            </div>
           </div>
+
           <div className="hero-proof-grid">
             {t.proofSignals.map((item) => (
               <div className="proof-tile" key={item.label}>
@@ -1119,6 +1241,7 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
               </div>
             ))}
           </div>
+
           <div className="panel-links">
             <a href="https://github.com/VoVanTuTai" target="_blank" rel="noreferrer">
               <Github size={18} aria-hidden="true" />
@@ -1128,10 +1251,15 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
               <Linkedin size={18} aria-hidden="true" />
               LinkedIn
             </a>
+            <a href="mailto:tutaivovan@gmail.com">
+              <Mail size={18} aria-hidden="true" />
+              Email
+            </a>
           </div>
         </aside>
       </section>
 
+      {/* 2. STATS BAND */}
       <section className="stats-band" aria-label="Profile statistics">
         {t.stats.map((stat) => (
           <div className="stat-item" key={stat.label}>
@@ -1141,6 +1269,7 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
         ))}
       </section>
 
+      {/* 3. ABOUT SECTION */}
       <section className="section-grid about-section">
         <div>
           <p className="section-label">{t.about.label}</p>
@@ -1152,103 +1281,38 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
         </div>
       </section>
 
-      <section className="projects-section compact-projects" id="projects">
-        <div className="section-heading project-heading">
-          <p className="section-label">{t.projectsSection.label}</p>
-          <h2>{t.projectsSection.heading}</h2>
-          <p>{t.projectsSection.subtitle}</p>
+      {/* 4. ACADEMIC FOUNDATION (4 PILLARS) */}
+      <section className="academic-foundation-section" id="academic-foundation">
+        <div className="section-heading-centered">
+          <span className="academic-badge-pill">
+            <Sparkles size={13} />
+            {lang === "vi" ? "HỌC THUẬT & NỀN TẢNG KỸ SƯ" : "ACADEMIC & ENGINEERING FOUNDATION"}
+          </span>
+          <h2>{lang === "vi" ? "4 Trụ Cột Nền Tảng Kỹ Sư Hệ Thống Thông Tin" : "4 Pillars of Information Systems Engineering"}</h2>
+          <p>
+            {lang === "vi"
+              ? "Được đào tạo chính quy tại Đại học Công nghiệp TP.HCM (IUH - GPA 3.26/4.0 Giỏi), kết hợp phương pháp mô hình hóa nghiệp vụ chuẩn quốc tế, kiến trúc dữ liệu quan hệ và kỹ nghệ phần mềm thực nghiệm."
+              : "Formally trained in Information Systems Engineering at IUH (GPA 3.26/4.0 Distinction), mastering international domain modeling, relational data architecture, and software engineering discipline."}
+          </p>
         </div>
 
-        <div className="project-deck" aria-label="Selected project deck">
-          {projects.map((project, index) => {
-            const isActive = index === activeProjectIndex;
-            const stackIndex = (index - activeProjectIndex + projects.length) % projects.length - 1;
-
+        <div className="academic-pillars-grid">
+          {academicPillars.map((pillar) => {
+            const Icon = pillar.icon;
             return (
-              <article
-                className={`project-deck-card${isActive ? " is-active" : " is-stacked"}`}
-                key={project.name}
-                style={{ "--stack-index": Math.max(stackIndex, 0) } as React.CSSProperties}
-              >
-                {!isActive ? (
-                  <button
-                    className="deck-card-trigger"
-                    type="button"
-                    onClick={() => setActiveProjectIndex(index)}
-                    aria-label={`Show ${project.name}`}
-                  />
-                ) : null}
-
-                <div className="deck-card-media">
-                  <img src={project.image} alt={`${project.name} interface preview`} />
-                  <span className="deck-card-number">{String(index + 1).padStart(2, "0")}</span>
+              <article className="academic-pillar-card" key={pillar.code}>
+                <div className="pillar-header">
+                  <div className={`pillar-icon-wrap ${pillar.color}`}>
+                    <Icon size={22} />
+                  </div>
+                  <span className="pillar-code">{pillar.code}</span>
                 </div>
-
-                <div className="deck-card-body">
-                  <div className="project-card-head">
-                    <div>
-                      <p className="project-role">{project.category}</p>
-                      <h3>{project.name}</h3>
-                      <p className="compact-role">{project.role}</p>
-                    </div>
-                    {isActive ? (
-                      <div className="project-card-actions">
-                        {project.liveUrl ? (
-                          <a
-                            className="live-demo-link"
-                            href={project.liveUrl}
-                            target="_blank"
-                            rel="noreferrer"
-                            aria-label={`${project.name} Live Demo`}
-                            title="Open Live Tracking Demo"
-                          >
-                            <ExternalLink size={14} aria-hidden="true" />
-                            <span>{project.liveLabel || "Live Demo"}</span>
-                          </a>
-                        ) : null}
-                        <a
-                          className="icon-link"
-                          href={project.href}
-                          target="_blank"
-                          rel="noreferrer"
-                          aria-label={`${project.name} GitHub`}
-                          title="View on GitHub"
-                        >
-                          <ArrowUpRight size={20} aria-hidden="true" />
-                        </a>
-                      </div>
-                    ) : null}
-                  </div>
-
-                  <div className="deck-card-details" aria-hidden={!isActive}>
-                    {project.liveUrl ? (
-                      <div className="project-live-preview-bar">
-                        <span className="live-status-dot" aria-hidden="true" />
-                        <span className="live-status-text">Production Live Tracking:</span>
-                        <a
-                          href={project.liveUrl}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="live-status-url"
-                        >
-                          {project.liveUrl.replace(/^https?:\/\//, "").replace(/\/$/, "")}
-                          <ExternalLink size={12} aria-hidden="true" />
-                        </a>
-                      </div>
-                    ) : null}
-                    <p className="project-summary">{project.summary}</p>
-                    <div className="stack-list">
-                      {project.stack.slice(0, 6).map((item) => (
-                        <span key={item}>{item}</span>
-                      ))}
-                      {project.stack.length > 6 ? <span>+{project.stack.length - 6}</span> : null}
-                    </div>
-                    <div className="project-proof-list">
-                      {project.highlights.slice(0, 3).map((highlight) => (
-                        <p key={highlight}>{highlight}</p>
-                      ))}
-                    </div>
-                  </div>
+                <h3>{pillar.title[lang]}</h3>
+                <p>{pillar.desc[lang]}</p>
+                <div className="pillar-tags">
+                  {pillar.tags.map((tag) => (
+                    <span key={tag}>{tag}</span>
+                  ))}
                 </div>
               </article>
             );
@@ -1256,9 +1320,264 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
         </div>
       </section>
 
-      {/* DEDICATED VISUAL PROJECT MANAGEMENT FRAMEWORK & BLUEPRINT */}
+      {/* 5. EXECUTIVE PROJECTS MATRIX (BENTO GRID) */}
+      <section className="projects-section" id="projects">
+        <div className="section-heading-centered">
+          <span className="academic-badge-pill">
+            <Activity size={13} />
+            {lang === "vi" ? "DỰ ÁN KỸ THUẬT & CASE STUDIES THỰC TIỄN" : "ENGINEERING CASE STUDIES & LIVE SYSTEMS"}
+          </span>
+          <h2>{lang === "vi" ? "Kiến Trúc Hệ Thống & Nghiệp Vụ Thực Chiến" : "System Architectures & Production Implementations"}</h2>
+          <p>
+            {lang === "vi"
+              ? "Mỗi dự án phản ánh trọn vẹn quy trình giải quyết bài toán nghiệp vụ: phân tích luồng quy trình, thiết kế cơ sở dữ liệu quan hệ 3NF, kiểm soát tranh chấp đồng thời (concurrency control) và bàn giao hệ thống chạy thực tế."
+              : "Each project demonstrates end-to-end domain problem-solving: process workflow diagrams, normalized 3NF schemas, concurrency control, and live production deployments."}
+          </p>
+        </div>
+
+        <div className="executive-projects-matrix">
+          {/* Flagship: Nexus Express OMS */}
+          <article className="featured-flagship-card">
+            <div className="flagship-media">
+              <img src="/assets/project-nexus.png" alt="Nexus Express Logistics OMS interface preview" />
+            </div>
+            <div className="flagship-content">
+              <div className="flagship-badge-row">
+                <span className="flagship-live-badge">
+                  <span className="live-status-dot" />
+                  {lang === "vi" ? "PRODUCTION LIVE DEMO" : "PRODUCTION LIVE DEMO"}
+                </span>
+                <span className="sup-category-tag">LOGISTICS & OMS PLATFORM</span>
+              </div>
+              <h3>Nexus Express — Logistics OMS & Tracking</h3>
+              <p className="flagship-role">
+                {lang === "vi"
+                  ? "Hệ thống Quản lý Vận tải & Theo dõi Bưu kiện Đa Trạm (BPMN 2.0 & Event-Driven)"
+                  : "Enterprise Logistics OMS & Shipment Tracking Platform (BPMN 2.0 & Event-Driven)"}
+              </p>
+              <p className="flagship-summary">
+                {lang === "vi"
+                  ? "Nền tảng logistics chuyển hóa bài toán điều phối bưu cục thực tế thành kiến trúc microservices phân tán: máy trạng thái BPMN 2.0 (Camunda), hợp đồng OpenAPI 3.0 với Idempotency Key, hàng đợi sự kiện RabbitMQ và bản đồ tracking trực tiếp thời gian thực."
+                  : "Comprehensive logistics platform translating real-world parcel operations into distributed architecture: Camunda BPMN 2.0 state machine, OpenAPI 3.0 with Idempotency Keys, RabbitMQ event queues, and real-time shipment tracking."}
+              </p>
+              <div className="flagship-highlights">
+                <div className="flagship-highlight-item">
+                  <CheckCircle2 size={16} />
+                  <span>
+                    {lang === "vi"
+                      ? "Nghiệp vụ thực tiễn: Chuẩn hóa vòng đời bưu kiện qua 8 trạm quét, giải quyết triệt để bất đồng bộ trạng thái đơn và SOP xử lý ngoại lệ (RTO, hư hại, sai tuyến)."
+                      : "Operational Grounding: Standardized 8-stage parcel lifecycle, resolving status synchronization across transit hubs and SOP exception handling (RTO, damaged, misrouted)."}
+                  </span>
+                </div>
+                <div className="flagship-highlight-item">
+                  <CheckCircle2 size={16} />
+                  <span>
+                    {lang === "vi"
+                      ? "Đặc tả kỹ thuật: Hợp đồng REST API với Idempotency Key ngăn trùng lặp, CSDL PostgreSQL chuẩn hóa 3NF và luồng phát sự kiện bất đồng bộ RabbitMQ."
+                      : "Technical Specs: RESTful API contracts with Idempotency Keys, normalized 3NF PostgreSQL relational schema, and asynchronous RabbitMQ event bus."}
+                  </span>
+                </div>
+                <div className="flagship-highlight-item">
+                  <CheckCircle2 size={16} />
+                  <span>
+                    {lang === "vi"
+                      ? "Sản phẩm bàn giao: Hệ thống theo dõi trực tuyến đang chạy tại tracking.nexus-ex.site, hỗ trợ tra cứu mã vận đơn, dòng thời gian bưu kiện và bản đồ trạm."
+                      : "Live Production: Production tracking client live at tracking.nexus-ex.site with waybill search, live parcel timeline, and transit hub map."}
+                  </span>
+                </div>
+              </div>
+              <div className="flagship-stack-pills">
+                <span>BPMN 2.0 (Camunda)</span>
+                <span>OpenAPI 3.0</span>
+                <span>PostgreSQL 3NF</span>
+                <span>NestJS</span>
+                <span>RabbitMQ</span>
+                <span>Leaflet Map</span>
+                <span>Docker Compose</span>
+              </div>
+              <div className="flagship-actions">
+                <a
+                  href="https://tracking.nexus-ex.site/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hero-btn-primary"
+                  title="Open Nexus Express Live Tracking"
+                >
+                  <ExternalLink size={15} />
+                  <span>{lang === "vi" ? "Mở Live Demo: tracking.nexus-ex.site ↗" : "Open Live Tracking Demo ↗"}</span>
+                </a>
+                <a
+                  href="https://github.com/VoVanTuTai/logistics-management-system"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hero-btn-secondary"
+                  title="View Source on GitHub"
+                >
+                  <Github size={15} />
+                  <span>{lang === "vi" ? "Mã nguồn GitHub" : "GitHub Repository"}</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          {/* Supporting Projects Grid */}
+          <div className="supporting-projects-grid">
+            {/* 1: Tourist Accommodation */}
+            <article className="supporting-project-card">
+              <div className="sup-card-header">
+                <span className="sup-category-tag">BOOKING & RESERVATION</span>
+                <span className="pillar-code">RAC-01</span>
+              </div>
+              <h4>{lang === "vi" ? "Nền tảng Quản lý Đặt phòng Lưu trú" : "Tourist Accommodation Booking Platform"}</h4>
+              <p className="sup-role">
+                {lang === "vi" ? "Hệ thống Đặt phòng · Chống Race Condition & RBAC" : "Multi-Role Booking System · Concurrency Control"}
+              </p>
+              <p>
+                {lang === "vi"
+                  ? "Giải quyết bài toán tranh chấp giữ phòng đồng thời (overbooking race condition) vào giờ cao điểm, ma trận phân quyền 3 nhóm (Guest/Host/Admin), chính sách hủy phạt linh hoạt và cổng thanh toán VNPay IPN."
+                  : "Eliminates room overbooking race conditions during peak hours, enforces 3-tier RBAC matrix (Guest/Host/Admin), dynamic tiered cancellation policies, and VNPay IPN webhooks."}
+              </p>
+              <div className="sup-stack-list">
+                <span>BPMN 2.0</span>
+                <span>PRD/SRS</span>
+                <span>RBAC Matrix</span>
+                <span>VNPay IPN</span>
+                <span>MySQL 3NF</span>
+                <span>Express.js</span>
+              </div>
+              <div className="sup-footer-actions">
+                <a
+                  href="https://github.com/VoVanTuTai/tourist-accommodation-management-system"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="sup-footer-link"
+                >
+                  <Github size={14} />
+                  <span>{lang === "vi" ? "Mã nguồn & SRS ↗" : "Source Code & SRS ↗"}</span>
+                </a>
+                <span style={{ fontSize: "11px", color: "#64748b" }}>GitHub Repo</span>
+              </div>
+            </article>
+
+            {/* 2: Song Tai Shop */}
+            <article className="supporting-project-card">
+              <div className="sup-card-header">
+                <span className="sup-category-tag">RETAIL & E-COMMERCE</span>
+                <span className="pillar-code">ECOM-02</span>
+              </div>
+              <h4>{lang === "vi" ? "Song Tai Shop — Thương mại Điện tử" : "Song Tai Shop — E-Commerce System"}</h4>
+              <p className="sup-role">
+                {lang === "vi" ? "Bán lẻ Trực tuyến · Quản lý Đơn hàng & Audit Log" : "Online Retail · Order Management & Audit Trail"}
+              </p>
+              <p>
+                {lang === "vi"
+                  ? "Chuẩn hóa danh mục sản phẩm đa phân cấp, hành trình mua sắm giỏ hàng, chuyển đổi trạng thái đơn hàng (Chờ/Đã thanh toán/Đang giao/Hoàn tất) và nhật ký kiểm toán quản trị viên."
+                  : "Standardized multi-level catalog hierarchies, customer cart checkout journeys, auditable order state transitions (Pending/Paid/Shipped/Completed), and admin inventory audit logs."}
+              </p>
+              <div className="sup-stack-list">
+                <span>Process Flow</span>
+                <span>User Stories</span>
+                <span>MySQL 3NF</span>
+                <span>PHP</span>
+                <span>Docker</span>
+                <span>Bootstrap</span>
+              </div>
+              <div className="sup-footer-actions">
+                <a
+                  href="https://github.com/VoVanTuTai/php-online-store"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="sup-footer-link"
+                >
+                  <Github size={14} />
+                  <span>{lang === "vi" ? "Mã nguồn & CSDL ↗" : "Source Code & DB ↗"}</span>
+                </a>
+                <span style={{ fontSize: "11px", color: "#64748b" }}>GitHub Repo</span>
+              </div>
+            </article>
+
+            {/* 3: Cab Booking */}
+            <article className="supporting-project-card">
+              <div className="sup-card-header">
+                <span className="sup-category-tag">MOBILITY & DISPATCH</span>
+                <span className="pillar-code">DISP-03</span>
+              </div>
+              <h4>{lang === "vi" ? "Hệ thống Điều phối Đặt xe Phân tán" : "Cab Booking & Driver Dispatch"}</h4>
+              <p className="sup-role">
+                {lang === "vi" ? "Điều phối Xe · Distributed State Machine & Events" : "Distributed State Machine & Event-Driven Engine"}
+              </p>
+              <p>
+                {lang === "vi"
+                  ? "Mô hình hóa vòng đời cuốc xe thời gian thực, thuật toán tìm tài xế lân cận, xử lý ngắt kết nối mạng và đối soát cước phí tự động thông qua kiến trúc phân tán microservices."
+                  : "Models real-time ride lifecycles, geospatial driver dispatch matching, resilient disconnect recovery, and automated fare settlement across distributed microservices."}
+              </p>
+              <div className="sup-stack-list">
+                <span>State Machine</span>
+                <span>Event Contracts</span>
+                <span>Node.js</span>
+                <span>Redis</span>
+                <span>Kafka</span>
+                <span>Docker</span>
+              </div>
+              <div className="sup-footer-actions">
+                <a
+                  href="https://github.com/VoVanTuTai/cab-booking-system"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="sup-footer-link"
+                >
+                  <Github size={14} />
+                  <span>{lang === "vi" ? "Mã nguồn Hệ thống ↗" : "Source Code & Docs ↗"}</span>
+                </a>
+                <span style={{ fontSize: "11px", color: "#64748b" }}>GitHub Repo</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. DEDICATED VISUAL PROJECT MANAGEMENT FRAMEWORK & BLUEPRINT */}
       <ProjectManagementSection lang={lang} />
 
+      {/* 7. ACADEMIC RESEARCH THESES & MONOGRAPHS */}
+      <section className="academic-theses-section" id="academic-theses">
+        <div className="section-heading-centered">
+          <span className="academic-badge-pill">
+            <BookOpen size={13} />
+            {lang === "vi" ? "CHUYÊN ĐỀ HỌC THUẬT & SỔ TAY KỸ SƯ" : "ACADEMIC THESES & TECHNICAL MONOGRAPHS"}
+          </span>
+          <h2>{lang === "vi" ? "Chuyên Đề Nghiên Cứu & Kiến Thức Chuyên Sâu" : "Specialized Engineering Monographs"}</h2>
+          <p>
+            {lang === "vi"
+              ? "Tổng hợp các chuyên đề kiến thức cốt lõi được xây dựng bài bản, kết hợp lý thuyết học thuật kỹ sư Hệ thống Thông tin với kinh nghiệm giải quyết vấn đề kỹ thuật trong thực tế."
+              : "A curated collection of deep-dive monographs synthesizing core computer science & information systems theory with hands-on production engineering practice."}
+          </p>
+        </div>
+
+        <div className="theses-showcase-grid">
+          {thesesMonographs.map((thesis) => (
+            <a
+              className="thesis-showcase-card"
+              key={thesis.path}
+              href={thesis.path}
+              onClick={(event) => navigate(event, thesis.path)}
+            >
+              <div className="thesis-badge-row">
+                <span className="thesis-num">{thesis.num[lang]}</span>
+                <span className="thesis-time">{thesis.time[lang]}</span>
+              </div>
+              <h3>{thesis.title[lang]}</h3>
+              <p>{thesis.desc[lang]}</p>
+              <div className="thesis-card-footer">
+                <span>{lang === "vi" ? "Khám phá chuyên đề" : "Read Monograph"}</span>
+                <ArrowUpRight size={15} />
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      {/* 8. COMPETENCY SKILLS MATRIX */}
       <section className="section-grid" id="skills">
         <div>
           <p className="section-label">{t.skillsSection.label}</p>
@@ -1300,7 +1619,8 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
         </div>
       </section>
 
-      <section className="experience-section">
+      {/* 9. PROFESSIONAL EXPERIENCE */}
+      <section className="experience-section" id="experience">
         <div className="experience-card">
           <div className="experience-icon">
             <BriefcaseBusiness size={22} aria-hidden="true" />
@@ -1326,6 +1646,7 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
         </div>
       </section>
 
+      {/* 10. CONTACT & ATS CV RECRUITER SUITE */}
       <section className="contact-section" id="contact">
         <div>
           <p className="section-label">{t.contactSection.label}</p>
@@ -1363,7 +1684,6 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
             </div>
 
             <div className="footer-cv-grid">
-
               {/* BA / PO Tiếng Việt */}
               <div className="footer-cv-item">
                 <div className="footer-cv-meta">
@@ -1410,7 +1730,14 @@ function PortfolioPage({ navigate }: { navigate: NavigateHandler }) {
       </section>
 
       <footer>
-        <span>Vo Van Tu Tai</span>
+        <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+          <strong>Vo Van Tu Tai — Bachelor of Engineering in Information Systems</strong>
+          <span style={{ fontSize: "12px", color: "var(--muted)" }}>
+            {lang === "vi"
+              ? "Đại học Công nghiệp TP.HCM (IUH) · GPA 3.26/4.0 (Giỏi) · Sẵn sàng làm việc Full-time"
+              : "Industrial University of Ho Chi Minh City · GPA 3.26/4.0 (Distinction) · Available Immediately"}
+          </span>
+        </div>
         <span>
           <Sparkles size={15} aria-hidden="true" />
           {t.footer.caption}
