@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Võ Văn Tú Tài — CV Chuyên Viên Kiểm Thử Phần Mềm (Software QA / QC Engineer)</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <!-- Font hệ thống chuẩn mực: Đảm bảo độ sắc nét, không lỗi font Unicode tiếng Việt khi in ấn PDF và quét ATS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, 'Segoe UI', Roboto, Helvetica, -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #e4e7eb;
+            color: #1a1a1a;
+            line-height: 1.36;
+            font-size: 13px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        a, a:visited, a:hover, a:active {
+            color: #111 !important;
+            text-decoration: none !important;
+        }
+
+        /* ── KHUNG 2 TRANG A4 CHUẨN IN ẤN (210mm x 297mm) ── */
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            height: 297mm;
+            max-height: 297mm;
+            background: #fff;
+            margin: 20px auto;
+            padding: 8mm 14mm 7mm 14mm;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            overflow: hidden;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        /* ── HEADER CĂN GIỮA CHUẨN MỰC ── */
+        .header {
+            text-align: center;
+            margin-bottom: 4px;
+            padding-bottom: 2px;
+        }
+
+        .name {
+            font-size: 20pt;
+            font-weight: 800;
+            letter-spacing: -0.4px;
+            color: #111;
+            line-height: 1.1;
+            margin-bottom: 2.5px;
+        }
+
+        .subtitle {
+            font-size: 9.3pt;
+            font-weight: 700;
+            color: #0f2744; /* Deep Navy Tone */
+            margin-bottom: 3.5px;
+            letter-spacing: 0.1px;
+            white-space: nowrap;
+        }
+
+        .contact-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: nowrap;
+            gap: 0 8px;
+            font-size: 8.2pt;
+            color: #333;
+            max-width: 100%;
+            margin: 0 auto;
+            white-space: nowrap;
+        }
+
+        .contact-row a,
+        .contact-row span {
+            color: #222 !important;
+            text-decoration: none !important;
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+            line-height: 1;
+            vertical-align: middle;
+        }
+
+        .contact-row a:hover {
+            color: #0f2744 !important;
+            text-decoration: underline !important;
+        }
+
+        .contact-icon {
+            width: 11px;
+            height: 11px;
+            fill: #333;
+            flex-shrink: 0;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .separator {
+            color: #888;
+            font-size: 8.2pt;
+            user-select: none;
+        }
+
+        /* ── CÁC MỤC CHUYÊN ĐỀ (SECTIONS) ── */
+        .section {
+            margin-top: 4px;
+            margin-bottom: 3px;
+        }
+
+        .section-title {
+            font-size: 9.4pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #0f2744;
+            border-bottom: 1.5px solid #0f2744;
+            padding-bottom: 1.5px;
+            margin-bottom: 3.5px;
+        }
+
+        /* ── BẢNG ĐIỂM NỔI BẬT KHỚP JD ── */
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 4px;
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            border-left: 3.5px solid #16a34a;
+            border-radius: 4px;
+            padding: 3.5px 7px;
+            margin-bottom: 4px;
+            font-size: 8.3pt;
+        }
+
+        .highlights-item b {
+            color: #15803d;
+            display: block;
+            font-size: 7.5pt;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .highlights-item span {
+            color: #111;
+            font-weight: 600;
+        }
+
+        .summary-text {
+            font-size: 8.85pt;
+            line-height: 1.35;
+            color: #262626;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        /* ── DANH SÁCH KỸ NĂNG ── */
+        .skills-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .skills-list li {
+            font-size: 8.75pt;
+            line-height: 1.33;
+            margin-bottom: 2.2px;
+            color: #262626;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        .skills-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .skills-list b {
+            font-weight: 700;
+            color: #0f2744;
+        }
+
+        /* ── MỤC CÔNG VIỆC & DỰ ÁN ── */
+        .entry {
+            margin-bottom: 3.5px;
+        }
+
+        .entry:last-child {
+            margin-bottom: 0;
+        }
+
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-size: 9.2pt;
+            color: #111;
+        }
+
+        .entry-title {
+            font-weight: 700;
+            color: #111;
+        }
+
+        .project-link {
+            font-size: 8.1pt !important;
+            font-weight: 600 !important;
+            color: #1d4ed8 !important;
+            text-decoration: underline !important;
+            margin-left: 4px;
+            white-space: nowrap;
+        }
+
+        .entry-location {
+            font-weight: 500;
+            color: #444;
+            font-size: 8.5pt;
+        }
+
+        .entry-sub {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-size: 8.65pt;
+            color: #333;
+            margin-bottom: 1.5px;
+        }
+
+        .entry-role {
+            font-weight: 600;
+            color: #1a365d;
+        }
+
+        .entry-tech {
+            font-style: italic;
+            font-size: 8.2pt;
+            color: #444;
+        }
+
+        .entry-date {
+            font-style: italic;
+            font-size: 8.5pt;
+            color: #444;
+            white-space: nowrap;
+        }
+
+        /* ── DANH SÁCH CHI TIẾT ĐẦU DÒNG ── */
+        .bullet-list {
+            list-style-type: disc;
+            padding-left: 13px;
+            margin: 0;
+        }
+
+        .bullet-list li {
+            font-size: 8.75pt;
+            line-height: 1.32;
+            color: #262626;
+            margin-bottom: 1.8px;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        .bullet-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .bullet-list b {
+            font-weight: 600;
+            color: #111;
+        }
+
+        .page-number {
+            position: absolute;
+            bottom: 3.5mm;
+            right: 14mm;
+            font-size: 8.2pt;
+            color: #888;
+            font-weight: 500;
+        }
+
+        /* ── THANH ĐIỀU KHIỂN HÀNH ĐỘNG ── */
+        .action-bar {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 9999;
+        }
+
+        .action-btn {
+            padding: 10px 18px;
+            background: #0f2744;
+            color: #fff !important;
+            border: 1px solid #0f2744;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 600;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none !important;
+        }
+
+        .action-btn:hover {
+            background: #1e3a5f;
+            transform: translateY(-2px);
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .page {
+                margin: 0;
+                padding: 8.5mm 15mm 7.5mm 15mm;
+                box-shadow: none;
+                width: 210mm;
+                height: 297mm;
+                min-height: 297mm;
+                max-height: 297mm;
+                page-break-after: always;
+                break-after: page;
+            }
+
+            .page:last-child {
+                page-break-after: avoid;
+                break-after: avoid;
+            }
+
+            @page {
+                size: A4 portrait;
+                margin: 0;
+            }
+
+            .action-bar {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ════════════════════ TRANG 1: TỔNG QUAN, KỸ NĂNG & KINH NGHIỆM THỰC TẾ ════════════════════ -->
+    <div class="page">
+        <!-- HEADER CĂN GIỮA -->
+        <header class="header">
+            <h1 class="name">Võ Văn Tú Tài</h1>
+            <div class="subtitle">Vị Trí Ứng Tuyển: Chuyên Viên Kiểm Thử Phần Mềm (Software QA / QC Engineer · Web &amp; Online Services)</div>
+            <div class="contact-row">
+                <a href="tel:+84869500573">
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                    0869 500 573
+                </a>
+                <span class="separator">|</span>
+                <a href="mailto:tutaivovan@gmail.com">
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    tutaivovan@gmail.com
+                </a>
+                <span class="separator">|</span>
+                <a href="https://linkedin.com/in/vovantutai" target="_blank">
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.25c-.95 0-1.72.78-1.72 1.73s.77 1.73 1.72 1.73 1.73-.78 1.73-1.73-.78-1.73-1.73-1.73z"/></svg>
+                    linkedin.com/in/vovantutai
+                </a>
+                <span class="separator">|</span>
+                <a href="https://github.com/VoVanTuTai" target="_blank">
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+                    github.com/VoVanTuTai
+                </a>
+                <span class="separator">|</span>
+                <a href="https://vovantutai-portfolio.vercel.app" target="_blank">
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                    Portfolio
+                </a>
+            </div>
+        </header>
+
+        <!-- BẢNG ĐIỂM NỔI BẬT KHỚP TRỰC DIỆN YÊU CẦU JD -->
+        <div class="highlights-grid">
+            <div class="highlights-item">
+                <b>Trình Độ Chuyên Môn</b>
+                <span>Hệ Thống Thông Tin (IUH Giỏi)</span>
+            </div>
+            <div class="highlights-item">
+                <b>Công Cụ Trọng Tâm</b>
+                <span>Postman &amp; Chrome DevTools</span>
+            </div>
+            <div class="highlights-item">
+                <b>Nghiệp Vụ Nền Tảng</b>
+                <span>Web Services, Proxy, Affiliate</span>
+            </div>
+            <div class="highlights-item">
+                <b>Phương Pháp Kiểm Thử</b>
+                <span>Exploratory &amp; Regression Test</span>
+            </div>
+        </div>
+
+        <!-- TÓM TẮT NĂNG LỰC NGHỀ NGHIỆP -->
+        <section class="section">
+            <div class="section-title">Tóm Tắt Năng Lực Nghề Nghiệp (Professional Summary)</div>
+            <p class="summary-text">
+                Kỹ sư Hệ thống Thông tin tốt nghiệp Đại học Công nghiệp TP.HCM (IUH, GPA 3.26/4.0 · Xếp loại Giỏi), hiện sinh sống tại TP.HCM (thuận tiện làm việc tại KĐT Vạn Phúc, TP. Thủ Đức). Có kinh nghiệm thực tế trong công tác phối hợp chất lượng kỹ thuật, thiết kế kịch bản và thực thi kiểm thử phần mềm trên nền tảng Web và ứng dụng di động tại <b>HomeNest Software</b> và <b>J&amp;T Express</b>. Nắm vững phương pháp <b>kiểm thử chức năng (Functional Testing)</b>, <b>kiểm thử hồi quy (Regression Testing)</b> và đặc biệt có tư duy nhạy bén trong <b>kiểm thử khám phá (Exploratory Testing)</b> nhằm phát hiện các tình huống biên (edge cases), lỗi logic ngầm giữa các chức năng và các điểm nghẽn trải nghiệm người dùng (UX). Sử dụng thành thạo <b>Postman</b> và <b>Chrome DevTools</b> (Network, Console, Application) để phân tích gói tin HTTP/HTTPS, kiểm tra mã trạng thái, headers và khoanh vùng nguyên nhân lỗi chính xác trước khi báo Dev. Có hiểu biết nền tảng vững vàng về hạ tầng mạng (IP, Port, HTTP/HTTPS, giao thức SOCKS5/Proxy) và luồng nghiệp vụ dịch vụ trực tuyến (đăng ký, xác thực, thanh toán, quản lý tài khoản, theo dõi liên kết Affiliate &amp; đối soát hoa hồng). Tác phong tỉ mỉ, cầu thị, chủ động phối hợp chặt chẽ cùng Developer và bộ phận CSKH để tái hiện lỗi và đồng hành cải tiến chất lượng sản phẩm.
+            </p>
+        </section>
+
+        <!-- KỸ NĂNG CHUYÊN MÔN & CÔNG CỤ -->
+        <section class="section">
+            <div class="section-title">Kỹ Năng Chuyên Môn &amp; Công Cụ Kiểm Thử (Core QA Skills &amp; Tools)</div>
+            <ul class="skills-list">
+                <li><b>Phương Pháp Kiểm Thử &amp; Thiết Kế Kịch Bản:</b> Thành thạo Functional Testing, Regression Testing (Kiểm thử hồi quy) và Exploratory Testing (Kiểm thử khám phá tìm lỗi ngoài kịch bản); kỹ thuật thiết kế test case qua Phân tích giá trị biên (Boundary Value Analysis), Phân vùng tương đương (Equivalence Partitioning), kịch bản BDD (Given-When-Then), và xây dựng Checklist kiểm thử luồng nghiệp vụ.</li>
+                <li><b>Quy Trình Quản Lý &amp; Báo Cáo Lỗi (Defect Lifecycle):</b> Ghi nhận bug ticket chuyên nghiệp trên Jira / Sheets đầy đủ cấu trúc: Điều kiện tiên quyết (Preconditions), Các bước tái hiện (Steps to Reproduce), Kết quả thực tế (Actual), Kết quả mong đợi (Expected) kèm bằng chứng rõ ràng (Screenshots, Network payload, Console errors); đánh giá mức độ ảnh hưởng (Severity/Priority) và theo dõi re-test sau khi Dev sửa lỗi.</li>
+                <li><b>Công Cụ Kiểm Tra Giao Thức &amp; Bằng Chứng Lỗi:</b> Sử dụng <b>Postman</b> kiểm tra RESTful API, đối soát thông số request/response body, header, query params và mã phản hồi; sử dụng <b>Chrome DevTools</b> kiểm tra Network tab (XHR/Fetch, timing, status code), Console tab bắt ngoại lệ JavaScript, Application tab kiểm tra Cookie, Session và LocalStorage.</li>
+                <li><b>Hiểu Biết Về Mạng, Proxy &amp; Giao Thức Kết Nối:</b> Nắm vững mô hình Client-Server, TCP/IP, Cổng (Port), Địa chỉ IP, Giao thức HTTP/HTTPS; hiểu rõ nguyên lý vận hành của Web Proxy và SOCKS5 (chuyển tiếp lưu lượng, ẩn danh địa chỉ IP, cơ chế xác thực người dùng qua IP Whitelist hoặc Username/Password) và cách kiểm tra độ trễ/kết nối.</li>
+                <li><b>Nghiệp Vụ Dịch Vụ Trực Tuyến &amp; Affiliate Marketing:</b> Am hiểu luồng người dùng: Đăng ký tài khoản, xác thực danh tính, thanh toán dịch vụ trực tuyến, quản lý tài khoản và gia hạn subscription; hiểu cơ chế theo dõi liên kết giới thiệu (Referral Link, tracking cookies, UTM parameters), điều kiện ghi nhận chuyển đổi (conversion) và đối soát dữ liệu giao dịch bằng SQL.</li>
+            </ul>
+        </section>
+
+        <!-- KINH NGHIỆM LÀM VIỆC THỰC TẾ -->
+        <section class="section">
+            <div class="section-title">Kinh Nghiệm Làm Việc Thực Tế (Professional Experience)</div>
+
+            <!-- HomeNest Software -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">HomeNest Software</span>
+                    <span class="entry-location">TP. Hồ Chí Minh, Việt Nam</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-role">Kỹ Sư Phối Hợp Chất Lượng Kỹ Thuật (Technical Quality Coordinator · QA / BA Assistant)</span>
+                    <span class="entry-date">03/2026 – 09/2026</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Kiểm Thử Đa Dạng &amp; Kiểm Thử Khám Phá (Exploratory Testing):</b> Thực thi kiểm thử chức năng, hồi quy và kiểm thử khám phá trên Staging Web và Mobile app; chủ động giả lập các hành vi thao tác sai của người dùng để phát hiện sớm các lỗi biên (edge cases) và lỗi ngầm giữa các chức năng ngoài kịch bản có sẵn.</li>
+                    <li><b>Thu Thập Bằng Chứng Với Chrome DevTools &amp; Postman:</b> Thường xuyên mở Chrome DevTools (Network, Console, Application) để kiểm tra các request XHR/Fetch bị fail, đối soát mã lỗi HTTP (400, 401, 500) và kiểm tra Cookie/LocalStorage; dùng Postman gọi API độc lập để khoanh vùng chính xác lỗi thuộc Frontend hay Backend trước khi bàn giao Dev.</li>
+                    <li><b>Phối Hợp CSKH &amp; Tái Hiện Lỗi Khách Hàng:</b> Tiếp nhận các phản ánh sự cố từ bộ phận vận hành và CSKH; phân tích bối cảnh, tái hiện chính xác các lỗi khó gặp hoặc lặp lại thường xuyên; lập bug ticket chi tiết trên Jira kèm ảnh chụp, console log và payload mạng, hỗ trợ Developer sửa lỗi nhanh chóng.</li>
+                    <li><b>Rà Soát Giao Diện (UI/UX) &amp; Cập Nhật Checklist:</b> Rà soát thông báo lỗi và luồng thao tác để phát hiện điểm thiếu nhất quán, đề xuất cải thiện trải nghiệm người dùng; xây dựng và cập nhật checklist kiểm thử cho các luồng nghiệp vụ cốt lõi, thực hiện kiểm tra lại (re-test) nghiêm ngặt sau khi Dev vá lỗi.</li>
+                </ul>
+            </div>
+
+            <!-- J&T Express -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">J&amp;T Express</span>
+                    <span class="entry-location">TP. Hồ Chí Minh, Việt Nam</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-role">Chuyên Viên Đối Soát Dữ Liệu &amp; Quy Trình Vận Hành (Data &amp; Process Coordinator)</span>
+                    <span class="entry-date">09/2025 – 02/2026</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Đối Soát Tính Toàn Vẹn Dữ Liệu Bằng SQL:</b> Viết các câu truy vấn SQL (Multi-table JOINs, GROUP BY, Subqueries) đối soát chéo số liệu thực tế tại kho với dữ liệu phần mềm trung tâm; phát hiện các điểm sai lệch trạng thái và truy tìm nguyên nhân gốc rễ (Root Cause) phát sinh từ lỗi hệ thống hoặc thao tác người dùng.</li>
+                    <li><b>Chuẩn Hóa Quy Trình Thao Tác (SOP):</b> Tham gia xây dựng tài liệu quy trình thao tác chuẩn (SOP), hướng dẫn xử lý các ngoại lệ dữ liệu vận hành, giúp giảm thiểu tối đa các lỗi do người dùng thao tác sai quy chuẩn.</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="page-number">Trang 1 / 2</div>
+    </div>
+
+    <!-- ════════════════════ TRANG 2: KINH NGHIỆM THỰC HÀNH KHỚP NGHIỆP VỤ JD & HỌC VẤN ════════════════════ -->
+    <div class="page">
+        <!-- DỰ ÁN THỰC TẾ MINH CHỨNG NĂNG LỰC NGHIỆP VỤ (PROXY, THANH TOÁN, AFFILIATE, DỊCH VỤ WEB) -->
+        <section class="section">
+            <div class="section-title">Kinh Nghiệm Thực Hành &amp; Dự Án Khớp Nghiệp Vụ Trọng Tâm (Hands-on Experience)</div>
+
+            <!-- Dự án 1: Nền tảng Đặt phòng & Quản lý Thanh toán Dịch vụ -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">
+                        <a href="https://github.com/VoVanTuTai" target="_blank">Nền Tảng Đặt Dịch Vụ &amp; Quản Lý Thanh Toán Trực Tuyến</a>
+                        <a href="https://github.com/VoVanTuTai" target="_blank" class="project-link">[Mã nguồn GitHub ↗]</a>
+                    </span>
+                    <span class="entry-location">Mô hình Nền tảng Dịch vụ Trực tuyến</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-tech">Công nghệ &amp; Công cụ: Node.js, Express, MySQL, Cổng Thanh Toán VNPay IPN, Postman, Chrome DevTools</span>
+                    <span class="entry-date">04/2024 – 08/2024</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-role">Vai trò: Kiểm thử Luồng Người dùng, Cổng Thanh toán &amp; Quản lý Tài khoản</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Kiểm Thử Trọn Vẹn Hành Trình Người Dùng (End-to-End User Journey):</b> Kiểm tra toàn bộ chuỗi thao tác: Đăng ký tài khoản &rarr; Xác thực thông tin &rarr; Lựa chọn gói dịch vụ &rarr; Chuyển hướng thanh toán trực tuyến &rarr; Nhận thông báo kích hoạt &rarr; Quản lý trạng thái và gia hạn dịch vụ khi hết hạn.</li>
+                    <li><b>Kiểm Thử Tình Huống Biên &amp; Ngoại Lệ Thanh Toán:</b> Sử dụng Postman giả lập các kịch bản biên: Khách hàng hủy thanh toán giữa chừng, hết hạn thời gian giữ chỗ (timeout 15 phút), đường truyền mạng bị ngắt khi đang xử lý giao dịch; xác thực cơ chế hiển thị thông báo lỗi rõ ràng, tránh trừ tiền oan của khách.</li>
+                    <li><b>Kiểm Thử Tính Lũy Đẳng &amp; Chữ Ký Bảo Mật:</b> Kiểm tra luồng gọi lại (Webhook IPN) từ cổng thanh toán với chữ ký số băm HMAC-SHA512; kiểm thử trường hợp Webhook gửi lặp lại nhiều lần để đảm bảo hệ thống không bao giờ kích hoạt tài khoản hay cộng số dư hai lần.</li>
+                </ul>
+            </div>
+
+            <!-- Dự án 2: Nền tảng E-Commerce Song Tai Shop -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">
+                        <a href="https://github.com/VoVanTuTai/shop-equipment" target="_blank">Song Tai Shop — Nền Tảng Thương Mại Điện Tử &amp; Quản Trị Đơn Hàng</a>
+                        <a href="https://github.com/VoVanTuTai/shop-equipment" target="_blank" class="project-link">[GitHub ↗]</a>
+                    </span>
+                    <span class="entry-location">Dự án Giao dịch &amp; Quản lý Tài khoản</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-tech">Công nghệ &amp; Công cụ: PHP (OOP/MVC), MySQL (InnoDB), AJAX, JavaScript, Postman API Testing</span>
+                    <span class="entry-date">10/2024 – 01/2025</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-role">Vai trò: Kiểm thử Nghiệp vụ Mua hàng, Giỏ hàng &amp; Phân quyền Tài khoản</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Kiểm Thử Khám Phá Luồng Giỏ Hàng &amp; Quản Lý Tài Khoản:</b> Tìm kiếm lỗi ngoài kịch bản: Thay đổi số lượng sản phẩm liên tục khi đang tải trang, nhập số âm/ký tự đặc biệt, mở nhiều tab trình duyệt thao tác cùng 1 tài khoản; kiểm tra tính nhất quán của số dư và giỏ hàng.</li>
+                    <li><b>Kiểm Thử Tương Tranh &amp; Trừ Kho Hàng:</b> Kiểm tra kịch bản nhiều người dùng cùng bấm mua một sản phẩm còn số lượng tồn kho giới hạn; xác thực cơ chế khóa dòng (Pessimistic Locking: <code>SELECT ... FOR UPDATE</code>) để bảo đảm không xảy ra tình trạng bán quá số lượng có sẵn (overselling).</li>
+                    <li><b>Rà Soát Thông Báo Form &amp; Bảo Mật Dữ Liệu:</b> Kiểm tra thông báo lỗi khi nhập sai định dạng form đăng ký/đổi mật khẩu; kiểm tra cơ chế phân quyền tài khoản (User vs. Admin), đảm bảo người dùng bình thường không thể truy cập trái phép trang quản trị.</li>
+                </ul>
+            </div>
+
+            <!-- Dự án 3: Hệ thống Tra cứu Đơn hàng Nexus Express -->
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">
+                        <a href="https://tracking.nexus-ex.site/" target="_blank">Nexus Express — Hệ Thống Tra Cứu &amp; Quản Lý Đơn Hàng Dịch Vụ</a>
+                        <a href="https://tracking.nexus-ex.site/" target="_blank" class="project-link">[Live Production ↗]</a>
+                        <a href="https://github.com/VoVanTuTai/logistics-management-system" target="_blank" class="project-link">[GitHub ↗]</a>
+                    </span>
+                    <span class="entry-location">Hệ thống thực tế: tracking.nexus-ex.site</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-tech">Công nghệ &amp; Công cụ: NestJS, TypeScript, PostgreSQL (3NF), OpenAPI 3.0, Postman Collection, Docker</span>
+                    <span class="entry-date">09/2025 – 12/2025</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-role">Vai trò: Kiểm thử API Tích hợp, Giao thức Tra cứu &amp; Thu thập Log Lỗi</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Kiểm Thử Hợp Đồng API Với Postman:</b> Xây dựng bộ Postman Collection kiểm thử tự động toàn bộ danh mục API tra cứu và cập nhật trạng thái đơn; kiểm tra các kịch bản truyền thiếu header, sai kiểu dữ liệu DTO hoặc token hết hạn để đảm bảo API trả về mã lỗi HTTP và thông điệp chuẩn xác.</li>
+                    <li><b>Thu Thập Bằng Chứng &amp; Khoanh Vùng Lỗi Qua Logs:</b> Khi xảy ra sự cố không cập nhật được trạng thái, tiến hành tra cứu log hệ thống trong container Docker và đối chiếu với bản ghi trong PostgreSQL, xác định nguyên nhân do nghẽn mạng hay lỗi logic code trước khi báo Dev.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- NỀN TẢNG HIỂU BIẾT VỀ MẠNG, PROXY & AFFILIATE MARKETING -->
+        <section class="section">
+            <div class="section-title">Hiểu Biết Nền Tảng Về Proxy &amp; Affiliate Marketing (Domain Knowledge)</div>
+            <ul class="skills-list">
+                <li><b>Kiến Thức Mạng &amp; Proxy (IP, Port, HTTP/HTTPS, SOCKS5):</b> Được đào tạo bài bản môn Mạng máy tính tại IUH; hiểu rõ cơ chế Proxy đóng vai trò trạm trung chuyển (Forward Proxy / Reverse Proxy), cấu trúc địa chỉ IP (IPv4/IPv6), Cổng dịch vụ (Port); phân biệt Proxy HTTP (lọc web, xử lý header HTTP) và Proxy SOCKS5 (hoạt động ở tầng phiên, hỗ trợ truyền tải dữ liệu linh hoạt, hỗ trợ TCP/UDP mà không can thiệp nội dung gói tin); nắm vững cơ chế kiểm tra kết nối, độ trễ Ping/Latency và phương thức xác thực kết nối Proxy (xác thực theo địa chỉ IP cố định Whitelist hoặc qua Username/Password).</li>
+                <li><b>Cơ Chế Vận Hành Affiliate Marketing:</b> Hiểu rõ cấu trúc link tiếp thị liên kết (Referral Link chứa mã giới thiệu ref_id, tham số UTM); cơ chế lưu trữ Cookie trên trình duyệt của người dùng để ghi nhận lượt nhấp (Click) và thời gian sống của Cookie (Cookie Life); điều kiện ghi nhận chuyển đổi thành công (Conversion: đăng ký mới, mua dịch vụ, nạp tiền); quy tắc tính toán tỷ lệ hoa hồng và phương pháp đối soát dữ liệu giao dịch chống gian lận (Anti-fraud/Duplicate referrals).</li>
+            </ul>
+        </section>
+
+        <!-- HỌC VẤN & BẰNG CẤP -->
+        <section class="section">
+            <div class="section-title">Học Vấn &amp; Bằng Cấp (Education &amp; Academic Credentials)</div>
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">Đại Học Công Nghiệp TP. Hồ Chí Minh (IUH)</span>
+                    <span class="entry-location">TP. Hồ Chí Minh, Việt Nam</span>
+                </div>
+                <div class="entry-sub">
+                    <span class="entry-role">Kỹ Sư Hệ Thống Thông Tin (Bachelor of Engineering in Information Systems)</span>
+                    <span class="entry-date">2022 – 2026</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><b>Điểm trung bình tích lũy (Cumulative GPA):</b> <b>3.26 / 4.0 (Xếp loại Giỏi)</b> — Top 10% sinh viên xuất sắc của khoa.</li>
+                    <li><b>Tình trạng học tập:</b> <b>Đã hoàn thành toàn bộ chương trình đào tạo và tín chỉ chuyên ngành</b>; sẵn sàng nhận việc ngay và cam kết gắn bó lâu dài toàn thời gian (Full-time).</li>
+                    <li><b>Môn học nền tảng:</b> Kiểm thử Phần mềm, Mạng Máy tính &amp; Truyền số liệu, Cơ sở Dữ liệu Nâng cao, Phân tích &amp; Thiết kế Hệ thống, An toàn Thông tin.</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="page-number">Trang 2 / 2</div>
+    </div>
+
+    <!-- THANH ĐIỀU KHIỂN HÀNH ĐỘNG -->
+    <div class="action-bar">
+        <a href="/VoVanTuTai_Software_QA_QC_CV.pdf" download="VoVanTuTai_Software_QA_QC_CV.pdf" class="action-btn">
+            <svg style="width:16px;height:16px;fill:currentColor" viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+            Tải PDF Chuẩn In A4
+        </a>
+        <button onclick="window.print()" class="action-btn" style="background:#374151;border-color:#374151;">
+            In / Lưu PDF
+        </button>
+    </div>
+</body>
+
+</html>
