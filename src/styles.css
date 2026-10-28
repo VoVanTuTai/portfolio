@@ -148,18 +148,42 @@ a {
   position: relative;
   width: 40px;
   height: 40px;
+  max-width: 40px;
+  max-height: 40px;
   flex-shrink: 0;
 }
 
 .brand-avatar {
   display: block;
-  width: 100%;
-  height: 100%;
+  width: 38px;
+  height: 38px;
+  max-width: 40px;
+  max-height: 40px;
+  flex-shrink: 0;
   border-radius: 10px;
   border: 2px solid #ffffff;
   object-fit: cover;
   object-position: center 32%;
   box-shadow: 0 4px 16px rgba(2, 132, 199, 0.25), 0 0 0 1px rgba(14, 165, 233, 0.25);
+}
+
+.brand-avatar-wrap .brand-avatar {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.brand img,
+.topbar .brand img,
+.knowledge-topbar .brand img {
+  width: 38px;
+  height: 38px;
+  max-width: 38px;
+  max-height: 38px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  object-fit: cover;
 }
 
 .brand-dot-pulse {
