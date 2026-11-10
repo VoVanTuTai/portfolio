@@ -770,3 +770,5 @@ export function ProjectManagementSection({ lang }: ProjectManagementSectionProps
     </section>
   );
 }
+
+export default ProjectManagementSection;

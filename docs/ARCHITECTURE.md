@@ -28,8 +28,13 @@ The codebase is undergoing an incremental migration from a single-file prototype
     │   ├── academic.ts          # 4 Academic Pillars & 5 Research Monographs
     │   ├── architecture-steps.ts# 4-Stage OMS Interactive Architecture telemetry
     │   └── pm.data.ts           # SDLC pipeline, WBS Gantt CPM, CR flow & Risk Matrix
-    ├── features/                # Domain feature modules (Phase 3 target)
-    ├── components/              # Shared UI primitives & topbars (Phase 3 target)
+    ├── components/              # Shared UI primitives (BrandAvatar, RouteLoader)
+    ├── features/                # Feature-sliced UI modules loaded via React.lazy
+    │   ├── portfolio/           # PortfolioPage + HeroSection, ArchSimulator, ProjectDeck, etc.
+    │   ├── project-management/  # Interactive SDLC, WBS/CPM Gantt, CR & Risk Matrix
+    │   └── knowledge/           # KnowledgeHubPage + 5 technical monograph lesson pages
+    ├── App.tsx                  # Route matcher + React.lazy & Suspense boundary
+    ├── main.tsx                 # Minimal (<20 line) entry point mounting App
     └── styles/                  # Modular token & feature stylesheets (Phase 4 target)
 ```
 
@@ -39,7 +44,7 @@ The codebase is undergoing an incremental migration from a single-file prototype
 |---|---|---|
 | **Phase 1: Foundation Setup** | `@/*` path alias in TS & Vite, strict compiler checks (`noUnusedLocals`, `noUnusedParameters`), CI workflow, link verifier script, formatting rules, architecture doc | **Completed** |
 | **Phase 2: Type & Data Extraction** | Separate TypeScript domain contracts (`src/types/*`) and static/i18n/PM/lesson datasets (`src/data/*`) from UI rendering | **Completed** |
-| **Phase 3: Feature & Route Splitting** | Decompose page views into `src/features/*` with `React.lazy()` + `Suspense` to split the >500 KB monolithic JS bundle | Planned |
+| **Phase 3: Feature & Route Splitting** | Decompose page views into `src/features/*` with `React.lazy()` + `Suspense`, splitting the >500 KB bundle into on-demand route chunks and shrinking `src/main.tsx` to `< 20` lines | **Completed** |
 | **Phase 4: Stylesheet Modularization & Unit Tests** | Split `src/styles.css` into tokens + scoped CSS modules and add Vitest regression checks for interactive simulators | Planned |
 
 ## 3. Engineering Guardrails
