@@ -5272,8 +5272,8 @@ function BusinessAnalysisLessonPage({ navigate }: { navigate: NavigateHandler })
             <span>Live Demo OMS</span>
           </a>
           <a
-            href="/applied-jobs/CV_VoVanTuTai_IT_Business_Analyst.pdf"
-            download="CV_VoVanTuTai_IT_Business_Analyst.pdf"
+            href="/VoVanTuTai_Business_Analyst_CV_Tieng_Viet.pdf"
+            download="VoVanTuTai_Business_Analyst_CV_Tieng_Viet.pdf"
             className="ba-cta-cv"
             title="Tải CV IT Business Analyst bản PDF chuẩn ATS"
           >
@@ -5419,16 +5419,16 @@ function BusinessAnalysisLessonPage({ navigate }: { navigate: NavigateHandler })
             <p>Kỹ sư Hệ thống Thông tin · IT Business Analyst &amp; Associate PO</p>
             <div className="ba-toc-cta-buttons">
               <a
-                href="/applied-jobs/CV_VoVanTuTai_IT_Business_Analyst.pdf"
-                download="CV_VoVanTuTai_IT_Business_Analyst.pdf"
+                href="/VoVanTuTai_Business_Analyst_CV_Tieng_Viet.pdf"
+                download="VoVanTuTai_Business_Analyst_CV_Tieng_Viet.pdf"
                 className="ba-toc-btn-primary"
               >
                 <Download size={13} aria-hidden="true" />
                 Tải CV Tiếng Việt
               </a>
               <a
-                href="/applied-jobs/CV_VoVanTuTai_Business_Analyst_EN.pdf"
-                download="CV_VoVanTuTai_Business_Analyst_EN.pdf"
+                href="/VoVanTuTai_Business_Analyst_CV.pdf"
+                download="VoVanTuTai_Business_Analyst_CV.pdf"
                 className="ba-toc-btn-secondary"
               >
                 <Download size={13} aria-hidden="true" />
@@ -6310,8 +6310,8 @@ function BusinessAnalysisLessonPage({ navigate }: { navigate: NavigateHandler })
                 Trải nghiệm Live Demo OMS
               </a>
               <a
-                href="/applied-jobs/CV_VoVanTuTai_IT_Business_Analyst.pdf"
-                download="CV_VoVanTuTai_IT_Business_Analyst.pdf"
+                href="/VoVanTuTai_Business_Analyst_CV_Tieng_Viet.pdf"
+                download="VoVanTuTai_Business_Analyst_CV_Tieng_Viet.pdf"
                 className="ba-action-link outline"
               >
                 <Download size={15} aria-hidden="true" />
