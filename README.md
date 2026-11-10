@@ -42,26 +42,30 @@ All CVs are designed with modern, printable A4 layouts and direct PDF downloads:
 
 | Role / Specialization | Web Version | Download PDF |
 |---|---|---|
-| **Full-Stack Developer** | [cv-fullstack-developer.html](https://vovantutai-portfolio.vercel.app/cv-fullstack-developer.html) | [Download PDF](https://vovantutai-portfolio.vercel.app/VoVanTuTai_Fullstack_Developer_CV.pdf) |
+| **Business Analyst / PM (Vietnamese)** | [po-ba-cv-vi.html](https://vovantutai-portfolio.vercel.app/po-ba-cv-vi.html) | [Download PDF](https://vovantutai-portfolio.vercel.app/VoVanTuTai_Business_Analyst_CV_Tieng_Viet.pdf) |
+| **Business Analyst / PM (English)** | [cv.html](https://vovantutai-portfolio.vercel.app/cv.html) | [Download PDF](https://vovantutai-portfolio.vercel.app/VoVanTuTai_Business_Analyst_CV.pdf) |
+| **Full-Stack Developer (Vietnamese)** | [cv-fullstack-developer-vi.html](https://vovantutai-portfolio.vercel.app/cv-fullstack-developer-vi.html) | [Download PDF](https://vovantutai-portfolio.vercel.app/VoVanTuTai_Fullstack_Developer_CV_Tieng_Viet.pdf) |
+| **Full-Stack Developer (English)** | [cv-fullstack-developer.html](https://vovantutai-portfolio.vercel.app/cv-fullstack-developer.html) | [Download PDF](https://vovantutai-portfolio.vercel.app/VoVanTuTai_Fullstack_Developer_CV.pdf) |
+| **Backend Developer (Vietnamese)** | [cv-backend-developer.html](https://vovantutai-portfolio.vercel.app/cv-backend-developer.html) | [Download PDF](https://vovantutai-portfolio.vercel.app/VoVanTuTai_Backend_Developer_CV_Tieng_Viet.pdf) |
+| **Backend Developer (English)** | [cv-backend-developer-en.html](https://vovantutai-portfolio.vercel.app/cv-backend-developer-en.html) | [Download PDF](https://vovantutai-portfolio.vercel.app/VoVanTuTai_Backend_Developer_CV.pdf) |
+| **Frontend Developer (Vietnamese)** | [cv-frontend-developer.html](https://vovantutai-portfolio.vercel.app/cv-frontend-developer.html) | [Download PDF](https://vovantutai-portfolio.vercel.app/VoVanTuTai_Frontend_Developer_CV_Tieng_Viet.pdf) |
+| **Frontend Developer (English)** | [cv-frontend-developer-en.html](https://vovantutai-portfolio.vercel.app/cv-frontend-developer-en.html) | [Download PDF](https://vovantutai-portfolio.vercel.app/VoVanTuTai_Frontend_Developer_CV.pdf) |
+| **QA Automation Engineer (Vietnamese)** | [cv-qa-automation-engineer-vi.html](https://vovantutai-portfolio.vercel.app/cv-qa-automation-engineer-vi.html) | [Download PDF](https://vovantutai-portfolio.vercel.app/VoVanTuTai_QA_Automation_Engineer_CV_Tieng_Viet.pdf) |
+| **QA Automation Engineer (English)** | [cv-qa-automation-engineer.html](https://vovantutai-portfolio.vercel.app/cv-qa-automation-engineer.html) | [Download PDF](https://vovantutai-portfolio.vercel.app/VoVanTuTai_QA_Automation_Engineer_CV.pdf) |
 | **AI Engineer (Vietnamese)** | [cv-ai-engineer.html](https://vovantutai-portfolio.vercel.app/cv-ai-engineer.html) | [Download PDF](https://vovantutai-portfolio.vercel.app/VoVanTuTai_AI_Engineer_CV_Tieng_Viet.pdf) |
 | **AI Engineer (English)** | [cv-ai-engineer-en.html](https://vovantutai-portfolio.vercel.app/cv-ai-engineer-en.html) | [Download PDF](https://vovantutai-portfolio.vercel.app/VoVanTuTai_AI_Engineer_CV_English.pdf) |
-| **Business Analyst / PM (Vietnamese)** | [po-ba-cv-vi.html](https://vovantutai-portfolio.vercel.app/po-ba-cv-vi.html) | [Download PDF](https://vovantutai-portfolio.vercel.app/VoVanTuTai_Business_Analyst_CV_Tieng_Viet.pdf) |
-| **Business Analyst (English)** | [cv.html](https://vovantutai-portfolio.vercel.app/cv.html) | [Download PDF](https://vovantutai-portfolio.vercel.app/VoVanTuTai_Business_Analyst_CV.pdf) |
 | **General SWE / BA (Vietnamese)** | [cv-general.html](https://vovantutai-portfolio.vercel.app/cv-general.html) | [Download PDF](https://vovantutai-portfolio.vercel.app/VoVanTuTai_IT_Business_Analyst_CV_Tong_Quat.pdf) |
-| **System Integration Specialist (CRM/ERP)** | [cv-system-integration-solution-specialist.html](https://vovantutai-portfolio.vercel.app/cv-system-integration-solution-specialist.html) | [Download PDF](https://vovantutai-portfolio.vercel.app/VoVanTuTai_Chuyen_Vien_Giai_Phap_Tich_Hop_He_Thong_CV.pdf) |
-| **Product Owner / BA (E-Commerce & Chat - FPT Long Châu)** | [cv-product-owner-ecommerce-chat-long-chau.html](https://vovantutai-portfolio.vercel.app/cv-product-owner-ecommerce-chat-long-chau.html) | [Download PDF](https://vovantutai-portfolio.vercel.app/VoVanTuTai_Product_Owner_Ecommerce_Chat_Long_Chau_CV.pdf) |
-| **AI / Automation Engineer (Workflow Agents - SOCOM)** | [cv-ai-automation-engineer-socom.html](https://vovantutai-portfolio.vercel.app/cv-ai-automation-engineer-socom.html) | [Download PDF](https://vovantutai-portfolio.vercel.app/VoVanTuTai_AI_Automation_Engineer_SOCOM_CV.pdf) |
-| **Account Executive / Project Manager (SEONGON)** | [cv-account-executive-project-management-seongon.html](https://vovantutai-portfolio.vercel.app/cv-account-executive-project-management-seongon.html) | [Download PDF](https://vovantutai-portfolio.vercel.app/VoVanTuTai_Account_Executive_SEONGON_CV.pdf) |
 | **General SWE / BA (English)** | [cv-general-en.html](https://vovantutai-portfolio.vercel.app/cv-general-en.html) | [Download PDF](https://vovantutai-portfolio.vercel.app/VoVanTuTai_IT_Business_Analyst_Resume_General.pdf) |
 
 ---
 
 ## 💻 Tech Stack & Development
 
-- **Framework:** React 19, TypeScript
-- **Bundler:** Vite
+- **Framework:** React 18, TypeScript (Strict Mode), `@/*` path aliases, `React.lazy()` route code-splitting
+- **Bundler & Testing:** Vite 8, Vitest (CPM scheduling logic & static asset integrity tests)
 - **Icons:** Lucide React
-- **Styling:** Custom Modern Vanilla CSS (A4 Print-optimized, responsive layout, fluid deck interaction)
+- **Styling:** Modular CSS Architecture (Global Design Tokens + Scoped CSS Modules + Lazy Feature Stylesheets, A4 Print-optimized)
+- **Architecture Documentation:** See [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) for the feature-sliced structure and engineering guardrails.
 
 ### Getting Started
 
@@ -77,10 +81,13 @@ npm install
 npm run dev
 ```
 
-### Production Build
+### Verification & Production Build
 
 ```bash
-npm run build
+npm run typecheck    # Strict TypeScript check across src/ and tests/
+npm run check:links  # Zero-dependency CV, image & official domain verifier
+npm test             # Vitest unit tests (WBS/CPM solver & link integrity)
+npm run build        # Typecheck + production bundle with route-split JS & CSS
 ```
 
 ---
