@@ -36,11 +36,9 @@ import {
   Copy,
   Zap,
   Boxes,
-  FileCode,
   RefreshCw,
   Search,
   HelpCircle,
-  Activity,
 } from "lucide-react";
 import "./styles.css";
 import { ProjectManagementSection } from "./ProjectManagementSection";
@@ -1886,7 +1884,6 @@ function ProgrammingLanguagesLessonPage({ navigate }: { navigate: NavigateHandle
   const [scrollProgress, setScrollProgress] = useState(0);
   const [activeCodeLang, setActiveCodeLang] = useState<"typescript" | "java" | "php" | "python" | "go">("typescript");
   const [copiedCode, setCopiedCode] = useState(false);
-  const [activeArch, setActiveArch] = useState<"all" | "aot" | "jit" | "v8" | "opcache">("all");
   const [faqCategory, setFaqCategory] = useState<"all" | "runtime" | "memory" | "types" | "concurrency">("all");
   const [faqSearch, setFaqSearch] = useState("");
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);

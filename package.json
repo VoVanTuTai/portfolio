@@ -5,6 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "check:links": "node scripts/check-assets.mjs",
     "build": "tsc --noEmit -p tsconfig.json && vite build",
     "preview": "vite preview --host 0.0.0.0"
   },
