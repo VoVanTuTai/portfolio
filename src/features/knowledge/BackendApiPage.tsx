@@ -12,25 +12,30 @@ import {
 import type { NavigateHandler } from "@/types";
 import { httpStatusCodes } from "@/data/lessons/backend-api.data";
 import { BrandAvatar } from "@/components/BrandAvatar";
+import topbarStyles from "@/components/Topbar.module.css";
 import { LearningPathNav } from "./components/LearningPathNav";
+import "@/styles/features/backend-api.css";
 
 export function BackendApiPage({ navigate }: { navigate: NavigateHandler }) {
   return (
     <main className="site-shell knowledge-shell backend-lesson">
-      <header className="topbar knowledge-topbar" aria-label="Knowledge navigation">
+      <header
+        className={`${topbarStyles.topbar} ${topbarStyles.knowledgeTopbar}`}
+        aria-label="Knowledge navigation"
+      >
         <a
-          className="brand"
+          className={topbarStyles.brand}
           href="/knowledge"
           onClick={(event) => navigate(event, "/knowledge")}
           aria-label="Learning hub"
         >
           <BrandAvatar alt="Knowledge Hub" />
-          <div className="brand-text">
-            <span className="brand-name">Knowledge Hub</span>
-            <span className="brand-tag">Backend &amp; Auth</span>
+          <div className={topbarStyles.brandText}>
+            <span className={topbarStyles.brandName}>Knowledge Hub</span>
+            <span className={topbarStyles.brandTag}>Backend &amp; Auth</span>
           </div>
         </a>
-        <nav>
+        <nav className={topbarStyles.nav}>
           <a href="#self-study-guide">Bắt đầu</a>
           <a href="#rest-design">REST API</a>
           <a href="#auth-foundations">Authentication</a>

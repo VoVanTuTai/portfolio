@@ -36,6 +36,7 @@ import {
 } from "@/data/lessons/programming-languages.data";
 import { BrandAvatar } from "@/components/BrandAvatar";
 import { LearningPathNav } from "./components/LearningPathNav";
+import "@/styles/features/programming-languages.css";
 
 export function ProgrammingLanguagesPage({ navigate }: { navigate: NavigateHandler }) {
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -94,7 +95,7 @@ export function ProgrammingLanguagesPage({ navigate }: { navigate: NavigateHandl
       <div className="pl-reading-progress" style={{ width: `${scrollProgress}%` }} aria-hidden="true" />
 
       {/* 2. Modern Executive Topbar */}
-      <header className="topbar knowledge-topbar pl-topbar" aria-label="Programming languages lesson navigation">
+      <header className="pl-topbar" aria-label="Programming languages lesson navigation">
         <div className="pl-topbar-left">
           <a
             className="brand"

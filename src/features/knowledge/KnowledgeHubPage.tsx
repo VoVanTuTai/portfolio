@@ -2,24 +2,29 @@ import { ArrowUpRight, Sparkles } from "lucide-react";
 import type { NavigateHandler } from "@/types";
 import { learningPath } from "@/data/lessons/learning-path";
 import { BrandAvatar } from "@/components/BrandAvatar";
+import topbarStyles from "@/components/Topbar.module.css";
+import "@/styles/features/knowledge-base.css";
 
 export function KnowledgeHubPage({ navigate }: { navigate: NavigateHandler }) {
   return (
     <main className="site-shell knowledge-shell knowledge-hub">
-      <header className="topbar knowledge-topbar" aria-label="Knowledge hub navigation">
+      <header
+        className={`${topbarStyles.topbar} ${topbarStyles.knowledgeTopbar}`}
+        aria-label="Knowledge hub navigation"
+      >
         <a
-          className="brand"
+          className={topbarStyles.brand}
           href="/"
           onClick={(event) => navigate(event, "/")}
           aria-label="Back to portfolio"
         >
           <BrandAvatar alt="Võ Văn Tú Tài" />
-          <div className="brand-text">
-            <span className="brand-name">Võ Văn Tú Tài</span>
-            <span className="brand-tag">Knowledge Hub</span>
+          <div className={topbarStyles.brandText}>
+            <span className={topbarStyles.brandName}>Võ Văn Tú Tài</span>
+            <span className={topbarStyles.brandTag}>Knowledge Hub</span>
           </div>
         </a>
-        <nav>
+        <nav className={topbarStyles.nav}>
           <a href="#learning-path">Lộ trình</a>
           <a href="#study-method">Cách học</a>
           <a href="/" onClick={(event) => navigate(event, "/")}>

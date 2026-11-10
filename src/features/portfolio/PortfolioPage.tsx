@@ -3,6 +3,7 @@ import type { Language, NavigateHandler } from "@/types";
 import { portfolioDataVi } from "@/data/i18n/vi";
 import { portfolioDataEn } from "@/data/i18n/en";
 import { ProjectManagementSection } from "@/features/project-management/ProjectManagementSection";
+import "@/styles/features/portfolio-page.css";
 import { PortfolioTopbar } from "./components/PortfolioTopbar";
 import { HeroSection } from "./components/HeroSection";
 import { AcademicFoundationSection } from "./components/AcademicFoundationSection";

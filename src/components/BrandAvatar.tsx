@@ -1,3 +1,5 @@
+import styles from "./Topbar.module.css";
+
 interface BrandAvatarProps {
   alt?: string;
   ariaHidden?: boolean;
@@ -6,15 +8,15 @@ interface BrandAvatarProps {
 
 export function BrandAvatar({ alt = "Võ Văn Tú Tài", ariaHidden, dotTitle }: BrandAvatarProps) {
   return (
-    <div className="brand-avatar-wrap">
+    <div className={styles.brandAvatarWrap}>
       <img
-        className="brand-avatar"
+        className={styles.brandAvatar}
         src="/assets/avatar.png"
         alt={ariaHidden ? "" : alt}
         aria-hidden={ariaHidden || undefined}
       />
       <span
-        className="brand-dot-pulse"
+        className={styles.brandDotPulse}
         title={dotTitle}
         aria-hidden={dotTitle ? undefined : "true"}
       />

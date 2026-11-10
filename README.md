@@ -61,10 +61,11 @@ All CVs are designed with modern, printable A4 layouts and direct PDF downloads:
 
 ## 💻 Tech Stack & Development
 
-- **Framework:** React 19, TypeScript
-- **Bundler:** Vite
+- **Framework:** React 18, TypeScript (Strict Mode), `@/*` path aliases, `React.lazy()` route code-splitting
+- **Bundler & Testing:** Vite 8, Vitest (CPM scheduling logic & static asset integrity tests)
 - **Icons:** Lucide React
-- **Styling:** Custom Modern Vanilla CSS (A4 Print-optimized, responsive layout, fluid deck interaction)
+- **Styling:** Modular CSS Architecture (Global Design Tokens + Scoped CSS Modules + Lazy Feature Stylesheets, A4 Print-optimized)
+- **Architecture Documentation:** See [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) for the feature-sliced structure and engineering guardrails.
 
 ### Getting Started
 
@@ -80,10 +81,13 @@ npm install
 npm run dev
 ```
 
-### Production Build
+### Verification & Production Build
 
 ```bash
-npm run build
+npm run typecheck    # Strict TypeScript check across src/ and tests/
+npm run check:links  # Zero-dependency CV, image & official domain verifier
+npm test             # Vitest unit tests (WBS/CPM solver & link integrity)
+npm run build        # Typecheck + production bundle with route-split JS & CSS
 ```
 
 ---

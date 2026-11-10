@@ -1,6 +1,7 @@
 import { ArrowUpRight, BookOpen } from "lucide-react";
 import type { Language, NavigateHandler } from "@/types";
 import { thesesMonographs } from "@/data/academic";
+import styles from "./Cards.module.css";
 
 interface MonographsSectionProps {
   lang: Language;
@@ -9,7 +10,7 @@ interface MonographsSectionProps {
 
 export function MonographsSection({ lang, navigate }: MonographsSectionProps) {
   return (
-    <section className="academic-theses-section" id="academic-theses">
+    <section className={styles.academicThesesSection} id="academic-theses">
       <div className="section-heading-centered">
         <span className="academic-badge-pill">
           <BookOpen size={13} />
@@ -27,21 +28,21 @@ export function MonographsSection({ lang, navigate }: MonographsSectionProps) {
         </p>
       </div>
 
-      <div className="theses-showcase-grid">
+      <div className={styles.thesesShowcaseGrid}>
         {thesesMonographs.map((thesis) => (
           <a
-            className="thesis-showcase-card"
+            className={styles.thesisShowcaseCard}
             key={thesis.path}
             href={thesis.path}
             onClick={(event) => navigate(event, thesis.path)}
           >
-            <div className="thesis-badge-row">
-              <span className="thesis-num">{thesis.num[lang]}</span>
-              <span className="thesis-time">{thesis.time[lang]}</span>
+            <div className={styles.thesisBadgeRow}>
+              <span className={styles.thesisNum}>{thesis.num[lang]}</span>
+              <span className={styles.thesisTime}>{thesis.time[lang]}</span>
             </div>
             <h3>{thesis.title[lang]}</h3>
             <p>{thesis.desc[lang]}</p>
-            <div className="thesis-card-footer">
+            <div className={styles.thesisCardFooter}>
               <span>{lang === "vi" ? "Khám phá chuyên đề" : "Read Monograph"}</span>
               <ArrowUpRight size={15} />
             </div>

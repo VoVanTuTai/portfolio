@@ -1,6 +1,7 @@
 import { useState, type CSSProperties } from "react";
 import { ArrowUpRight, ExternalLink } from "lucide-react";
 import type { PortfolioLocaleData } from "@/types";
+import styles from "./Cards.module.css";
 
 interface ProjectDeckProps {
   t: PortfolioLocaleData;
@@ -17,26 +18,26 @@ export function ProjectDeck({ t }: ProjectDeckProps) {
   );
 
   return (
-    <section className="projects-section compact-projects" id="projects">
-      <div className="section-heading project-heading">
+    <section className={styles.projectsSection} id="projects">
+      <div className={`section-heading ${styles.projectHeading}`}>
         <p className="section-label">{t.projectsSection.label}</p>
         <h2>{t.projectsSection.heading}</h2>
         <p>{t.projectsSection.subtitle}</p>
       </div>
 
       {/* Quick Project Switcher Tabs */}
-      <div className="project-deck-switcher" role="tablist" aria-label="Project switcher">
+      <div className={styles.projectDeckSwitcher} role="tablist" aria-label="Project switcher">
         {projects.map((project, idx) => (
           <button
             key={project.name}
             type="button"
             role="tab"
             aria-selected={idx === activeProjectIndex}
-            className={`project-deck-tab${idx === activeProjectIndex ? " is-active" : ""}`}
+            className={`${styles.projectDeckTab}${idx === activeProjectIndex ? ` ${styles.isActive}` : ""}`}
             onClick={() => setActiveProjectIndex(idx)}
           >
-            <span className="tab-num">{String(idx + 1).padStart(2, "0")}</span>
-            <span className="tab-name">
+            <span className={styles.tabNum}>{String(idx + 1).padStart(2, "0")}</span>
+            <span className={styles.tabName}>
               {project.name === "logistics-management-system"
                 ? "Nexus Express (Live OMS)"
                 : project.name === "cab-booking-system"
@@ -45,48 +46,48 @@ export function ProjectDeck({ t }: ProjectDeckProps) {
                     ? "Tourist Accommodation"
                     : "Song Tai Shop"}
             </span>
-            {project.liveUrl && <span className="tab-live-badge">Live Demo</span>}
+            {project.liveUrl && <span className={styles.tabLiveBadge}>Live Demo</span>}
           </button>
         ))}
       </div>
 
-      <div className="project-deck" aria-label="Selected project deck">
+      <div className={styles.projectDeck} aria-label="Selected project deck">
         {projects.map((project, index) => {
           const isActive = index === activeProjectIndex;
           const stackIndex = ((index - activeProjectIndex + projects.length) % projects.length) - 1;
 
           return (
             <article
-              className={`project-deck-card${isActive ? " is-active" : " is-stacked"}`}
+              className={`${styles.projectDeckCard} ${isActive ? styles.isActive : styles.isStacked}`}
               key={project.name}
               style={{ "--stack-index": Math.max(stackIndex, 0) } as CSSProperties}
             >
               {!isActive ? (
                 <button
-                  className="deck-card-trigger"
+                  className={styles.deckCardTrigger}
                   type="button"
                   onClick={() => setActiveProjectIndex(index)}
                   aria-label={`Show ${project.name}`}
                 />
               ) : null}
 
-              <div className="deck-card-media">
+              <div className={styles.deckCardMedia}>
                 <img src={project.image} alt={`${project.name} interface preview`} />
-                <span className="deck-card-number">{String(index + 1).padStart(2, "0")}</span>
+                <span className={styles.deckCardNumber}>{String(index + 1).padStart(2, "0")}</span>
               </div>
 
-              <div className="deck-card-body">
-                <div className="project-card-head">
+              <div className={styles.deckCardBody}>
+                <div className={styles.projectCardHead}>
                   <div>
-                    <p className="project-role">{project.category}</p>
+                    <p className={styles.projectRole}>{project.category}</p>
                     <h3>{project.name}</h3>
-                    <p className="compact-role">{project.role}</p>
+                    <p className={styles.compactRole}>{project.role}</p>
                   </div>
                   {isActive ? (
-                    <div className="project-card-actions">
+                    <div className={styles.projectCardActions}>
                       {project.liveUrl ? (
                         <a
-                          className="live-demo-link"
+                          className={styles.liveDemoLink}
                           href={project.liveUrl}
                           target="_blank"
                           rel="noreferrer"
@@ -98,7 +99,7 @@ export function ProjectDeck({ t }: ProjectDeckProps) {
                         </a>
                       ) : null}
                       <a
-                        className="icon-link"
+                        className={styles.iconLink}
                         href={project.href}
                         target="_blank"
                         rel="noreferrer"
@@ -111,30 +112,30 @@ export function ProjectDeck({ t }: ProjectDeckProps) {
                   ) : null}
                 </div>
 
-                <div className="deck-card-details" aria-hidden={!isActive}>
+                <div className={styles.deckCardDetails} aria-hidden={!isActive}>
                   {project.liveUrl ? (
-                    <div className="project-live-preview-bar">
+                    <div className={styles.projectLivePreviewBar}>
                       <span className="live-status-dot" aria-hidden="true" />
-                      <span className="live-status-text">Production Live Tracking:</span>
+                      <span className={styles.liveStatusText}>Production Live Tracking:</span>
                       <a
                         href={project.liveUrl}
                         target="_blank"
                         rel="noreferrer"
-                        className="live-status-url"
+                        className={styles.liveStatusUrl}
                       >
                         {project.liveUrl.replace(/^https?:\/\//, "").replace(/\/$/, "")}
                         <ExternalLink size={12} aria-hidden="true" />
                       </a>
                     </div>
                   ) : null}
-                  <p className="project-summary">{project.summary}</p>
-                  <div className="stack-list">
+                  <p className={styles.projectSummary}>{project.summary}</p>
+                  <div className={styles.stackList}>
                     {project.stack.slice(0, 6).map((item) => (
                       <span key={item}>{item}</span>
                     ))}
                     {project.stack.length > 6 ? <span>+{project.stack.length - 6}</span> : null}
                   </div>
-                  <div className="project-proof-list">
+                  <div className={styles.projectProofList}>
                     {project.highlights.slice(0, 3).map((highlight) => (
                       <p key={highlight}>{highlight}</p>
                     ))}

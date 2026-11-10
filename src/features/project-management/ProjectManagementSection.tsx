@@ -28,6 +28,10 @@ import {
   pmLifecycleStages,
   pmRiskMatrix,
 } from "@/data/pm.data";
+import { filterGanttTasks, getTaskBarPosition, summarizePmSchedule } from "@/utils/pm-cpm";
+import "@/styles/features/project-management.css";
+
+const pmSummary = summarizePmSchedule(ganttTasks);
 
 export function ProjectManagementSection({ lang }: ProjectManagementSectionProps) {
   const [activeStage, setActiveStage] = useState<number>(0);
@@ -35,12 +39,7 @@ export function ProjectManagementSection({ lang }: ProjectManagementSectionProps
   const [ganttFilter, setGanttFilter] = useState<GanttFilter>("all");
   const [selectedTaskId, setSelectedTaskId] = useState<string>("wbs-2.3");
 
-  const filteredTasks = ganttTasks.filter((task) => {
-    if (ganttFilter === "critical") return task.isCritical;
-    if (ganttFilter === "sprint") return task.isSprint;
-    if (ganttFilter === "milestone") return task.isMilestone;
-    return true;
-  });
+  const filteredTasks = filterGanttTasks(ganttTasks, ganttFilter);
 
   const selectedTask = ganttTasks.find((t) => t.id === selectedTaskId) || ganttTasks[6];
   const currentStage = pmLifecycleStages[activeStage];
@@ -312,9 +311,11 @@ export function ProjectManagementSection({ lang }: ProjectManagementSectionProps
                     <span className="pm-kpi-label">Sprint Velocity</span>
                     <span className="pm-kpi-status-tag purple">Stable</span>
                   </div>
-                  <strong className="pm-kpi-value">48 SP</strong>
+                  <strong className="pm-kpi-value">{pmSummary.averageSprintVelocity} SP</strong>
                   <span className="pm-kpi-desc">
-                    {lang === "vi" ? "Độ lệch chuẩn < 5% / Sprint" : "Std dev < 5% across 4 Sprints"}
+                    {lang === "vi"
+                      ? `Độ lệch chuẩn < 5% / ${pmSummary.sprintCount} Sprints`
+                      : `Std dev < 5% across ${pmSummary.sprintCount} Sprints`}
                   </span>
                 </div>
               </div>
@@ -407,8 +408,7 @@ export function ProjectManagementSection({ lang }: ProjectManagementSectionProps
                 <div className="pm-gantt-body">
                   {filteredTasks.map((task) => {
                     const isSelected = task.id === selectedTaskId;
-                    const leftPercent = ((Math.max(1, Math.min(12, task.startWeek)) - 1) / 12) * 100;
-                    const widthPercent = Math.min(100 - leftPercent, (task.durationWeeks / 12) * 100);
+                    const { leftPercent, widthPercent } = getTaskBarPosition(task);
 
                     return (
                       <div

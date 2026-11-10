@@ -13,20 +13,29 @@ import {
 } from "lucide-react";
 import type { NavigateHandler } from "@/types";
 import { BrandAvatar } from "@/components/BrandAvatar";
+import topbarStyles from "@/components/Topbar.module.css";
 import { LearningPathNav } from "./components/LearningPathNav";
 
 export function DatabasePage({ navigate }: { navigate: NavigateHandler }) {
   return (
     <main className="site-shell knowledge-shell">
-      <header className="topbar knowledge-topbar" aria-label="Knowledge navigation">
-        <a className="brand" href="/knowledge" onClick={(event) => navigate(event, "/knowledge")} aria-label="Learning hub">
+      <header
+        className={`${topbarStyles.topbar} ${topbarStyles.knowledgeTopbar}`}
+        aria-label="Knowledge navigation"
+      >
+        <a
+          className={topbarStyles.brand}
+          href="/knowledge"
+          onClick={(event) => navigate(event, "/knowledge")}
+          aria-label="Learning hub"
+        >
           <BrandAvatar alt="Knowledge Hub" />
-          <div className="brand-text">
-            <span className="brand-name">Knowledge Hub</span>
-            <span className="brand-tag">Database Fundamentals</span>
+          <div className={topbarStyles.brandText}>
+            <span className={topbarStyles.brandName}>Knowledge Hub</span>
+            <span className={topbarStyles.brandTag}>Database Fundamentals</span>
           </div>
         </a>
-        <nav>
+        <nav className={topbarStyles.nav}>
           <a href="#overview">Khái niệm</a>
           <a href="#sql-vs-nosql">SQL và NoSQL</a>
           <a href="#database-selection">Cách lựa chọn</a>

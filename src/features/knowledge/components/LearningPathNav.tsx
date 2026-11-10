@@ -1,6 +1,7 @@
 import { BookOpen } from "lucide-react";
 import type { NavigateHandler } from "@/types";
 import { learningPath } from "@/data/lessons/learning-path";
+import "@/styles/features/knowledge-base.css";
 
 interface LearningPathNavProps {
   currentPath: string;

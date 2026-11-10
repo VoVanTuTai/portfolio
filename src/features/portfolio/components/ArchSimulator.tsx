@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ExternalLink, Github } from "lucide-react";
 import type { Language } from "@/types";
 import { archSteps } from "@/data/architecture-steps";
+import styles from "./HeroSection.module.css";
 
 interface ArchSimulatorProps {
   lang: Language;
@@ -11,27 +12,27 @@ export function ArchSimulator({ lang }: ArchSimulatorProps) {
   const [activeArchStep, setActiveArchStep] = useState(0);
 
   return (
-    <div className="architecture-interactive-frame">
-      <div className="browser-bar">
+    <div className={styles.architectureInteractiveFrame}>
+      <div className={styles.browserBar}>
         <span />
         <span />
         <span />
-        <div className="browser-url-pill">
-          <span className="url-protocol">https://</span>
-          <span className="url-domain">tracking.nexus-ex.site</span>
-          <span className="url-path">/architecture</span>
+        <div className={styles.browserUrlPill}>
+          <span className={styles.urlProtocol}>https://</span>
+          <span className={styles.urlDomain}>tracking.nexus-ex.site</span>
+          <span className={styles.urlPath}>/architecture</span>
         </div>
-        <div className="dossier-verified-badge">
+        <div className={styles.dossierVerifiedBadge}>
           <span className="live-status-dot" />
           <span>ONLINE · 99.9%</span>
         </div>
       </div>
 
-      <div className="arch-interactive-body">
+      <div className={styles.archInteractiveBody}>
         {/* Simulator Header */}
-        <div className="arch-hero-banner">
-          <div className="arch-banner-left">
-            <span className="arch-sub-tag">ENTERPRISE SYSTEM ARCHITECTURE</span>
+        <div className={styles.archHeroBanner}>
+          <div className={styles.archBannerLeft}>
+            <span className={styles.archSubTag}>ENTERPRISE SYSTEM ARCHITECTURE</span>
             <h3>Nexus Express — Logistics OMS &amp; Tracking</h3>
             <p>
               {lang === "vi"
@@ -39,40 +40,40 @@ export function ArchSimulator({ lang }: ArchSimulatorProps) {
                 : "Stateful parcel workflow & real-time telemetry model"}
             </p>
           </div>
-          <div className="arch-live-chip">
+          <div className={styles.archLiveChip}>
             <span className="pulse-dot" />
             <span>SLA &lt; 180ms</span>
           </div>
         </div>
 
         {/* 4 Clickable Interactive Stages */}
-        <div className="arch-pipeline-interactive">
-          <div className="arch-nodes-row">
+        <div>
+          <div className={styles.archNodesRow}>
             {archSteps.map((step, idx) => (
               <button
                 key={step.id}
                 type="button"
-                className={`arch-node-btn${activeArchStep === idx ? " is-active" : ""}`}
+                className={`${styles.archNodeBtn}${activeArchStep === idx ? ` ${styles.isActive}` : ""}`}
                 onClick={() => setActiveArchStep(idx)}
               >
-                <span className="node-step-badge">{String(idx + 1).padStart(2, "0")}</span>
-                <strong className="node-title">{step.title}</strong>
-                <span className="node-sub">{step.tech}</span>
+                <span className={styles.nodeStepBadge}>{String(idx + 1).padStart(2, "0")}</span>
+                <strong className={styles.nodeTitle}>{step.title}</strong>
+                <span className={styles.nodeSub}>{step.tech}</span>
               </button>
             ))}
           </div>
 
           {/* Inspected Step Active Card */}
-          <div className="arch-inspect-card">
-            <div className="inspect-head">
-              <div className="inspect-title-group">
-                <span className="inspect-pill">GIAI ĐOẠN {activeArchStep + 1} / 4</span>
+          <div className={styles.archInspectCard}>
+            <div className={styles.inspectHead}>
+              <div>
+                <span className={styles.inspectPill}>GIAI ĐOẠN {activeArchStep + 1} / 4</span>
                 <h4>{archSteps[activeArchStep].name}</h4>
               </div>
-              <span className="inspect-status-badge">{archSteps[activeArchStep].metric}</span>
+              <span className={styles.inspectStatusBadge}>{archSteps[activeArchStep].metric}</span>
             </div>
-            <p className="inspect-desc">{archSteps[activeArchStep].desc[lang]}</p>
-            <div className="inspect-tags">
+            <p className={styles.inspectDesc}>{archSteps[activeArchStep].desc[lang]}</p>
+            <div className={styles.inspectTags}>
               {archSteps[activeArchStep].tags.map((tg) => (
                 <span key={tg}>{tg}</span>
               ))}
@@ -81,12 +82,12 @@ export function ArchSimulator({ lang }: ArchSimulatorProps) {
         </div>
 
         {/* Action Buttons inside frame */}
-        <div className="arch-footer-actions">
+        <div className={styles.archFooterActions}>
           <a
             href="https://tracking.nexus-ex.site/"
             target="_blank"
             rel="noreferrer"
-            className="arch-btn-live"
+            className={styles.archBtnLive}
             title="Open Nexus Express Live Tracking"
           >
             <ExternalLink size={14} />
@@ -100,7 +101,7 @@ export function ArchSimulator({ lang }: ArchSimulatorProps) {
             href="https://github.com/VoVanTuTai/logistics-management-system"
             target="_blank"
             rel="noreferrer"
-            className="arch-btn-code"
+            className={styles.archBtnCode}
           >
             <Github size={14} />
             <span>Mã nguồn</span>

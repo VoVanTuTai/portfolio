@@ -28,6 +28,7 @@ import type { NavigateHandler } from "@/types";
 import { baCoreConcepts, baReadinessChecklist } from "@/data/lessons/business-analysis.data";
 import { BrandAvatar } from "@/components/BrandAvatar";
 import { LearningPathNav } from "./components/LearningPathNav";
+import "@/styles/features/business-analysis.css";
 
 export function BusinessAnalysisPage({ navigate }: { navigate: NavigateHandler }) {
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -68,7 +69,7 @@ export function BusinessAnalysisPage({ navigate }: { navigate: NavigateHandler }
       />
 
       {/* Modern Executive Topbar */}
-      <header className="topbar knowledge-topbar ba-topbar" aria-label="Business analysis navigation">
+      <header className="ba-topbar" aria-label="Business analysis navigation">
         <div className="ba-topbar-left">
           <a
             className="brand"

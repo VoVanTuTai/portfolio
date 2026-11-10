@@ -8,25 +8,30 @@ import {
 } from "lucide-react";
 import type { NavigateHandler } from "@/types";
 import { BrandAvatar } from "@/components/BrandAvatar";
+import topbarStyles from "@/components/Topbar.module.css";
 import { LearningPathNav } from "./components/LearningPathNav";
+import "@/styles/features/data-modeling.css";
 
 export function DataModelingPage({ navigate }: { navigate: NavigateHandler }) {
   return (
     <main className="site-shell knowledge-shell modeling-lesson">
-      <header className="topbar knowledge-topbar" aria-label="Data modeling lesson navigation">
+      <header
+        className={`${topbarStyles.topbar} ${topbarStyles.knowledgeTopbar}`}
+        aria-label="Data modeling lesson navigation"
+      >
         <a
-          className="brand"
+          className={topbarStyles.brand}
           href="/knowledge"
           onClick={(event) => navigate(event, "/knowledge")}
           aria-label="Learning hub"
         >
           <BrandAvatar alt="Knowledge Hub" />
-          <div className="brand-text">
-            <span className="brand-name">Knowledge Hub</span>
-            <span className="brand-tag">Data Modeling &amp; ERD</span>
+          <div className={topbarStyles.brandText}>
+            <span className={topbarStyles.brandName}>Knowledge Hub</span>
+            <span className={topbarStyles.brandTag}>Data Modeling &amp; ERD</span>
           </div>
         </a>
-        <nav>
+        <nav className={topbarStyles.nav}>
           <a href="#requirements">Yêu cầu</a>
           <a href="#erd">ERD</a>
           <a href="#normalization">Chuẩn hóa</a>

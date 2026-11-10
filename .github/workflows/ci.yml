@@ -33,5 +33,8 @@ jobs:
       - name: Verify CV & static asset references
         run: npm run check:links
 
+      - name: Run unit tests
+        run: npm test
+
       - name: Build production bundle
         run: npm run build

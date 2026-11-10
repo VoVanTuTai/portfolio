@@ -1,5 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 import type { NavigateHandler, PortfolioLocaleData } from "@/types";
+import styles from "./Cards.module.css";
 
 interface SkillsSectionProps {
   t: PortfolioLocaleData;
@@ -8,12 +9,12 @@ interface SkillsSectionProps {
 
 export function SkillsSection({ t, navigate }: SkillsSectionProps) {
   return (
-    <section className="section-grid" id="skills">
+    <section className={styles.skillsSection} id="skills">
       <div>
         <p className="section-label">{t.skillsSection.label}</p>
         <h2>{t.skillsSection.heading}</h2>
       </div>
-      <div className="skill-grid">
+      <div className={styles.skillGrid}>
         {t.skillsSection.groups.map((group) => {
           const Icon = group.icon;
           const href = group.href;
@@ -23,7 +24,7 @@ export function SkillsSection({ t, navigate }: SkillsSectionProps) {
               <h3>{group.title}</h3>
               <p>{group.items.join(" · ")}</p>
               {group.linkLabel ? (
-                <span className="skill-card-link">
+                <span className={styles.skillCardLink}>
                   {group.linkLabel}
                   <ArrowUpRight size={16} aria-hidden="true" />
                 </span>
@@ -33,7 +34,7 @@ export function SkillsSection({ t, navigate }: SkillsSectionProps) {
 
           return href ? (
             <a
-              className={`skill-card skill-card-clickable${group.title === "Phân tích Nghiệp vụ & Đặc tả" || group.title === "Business Analysis & Specs" ? " skill-card-featured" : ""}`}
+              className={`${styles.skillCard} ${styles.skillCardClickable}${group.title === "Phân tích Nghiệp vụ & Đặc tả" || group.title === "Business Analysis & Specs" ? ` ${styles.skillCardFeatured}` : ""}`}
               href={href}
               key={group.title}
               onClick={(event) => navigate(event, href)}
@@ -41,7 +42,7 @@ export function SkillsSection({ t, navigate }: SkillsSectionProps) {
               {content}
             </a>
           ) : (
-            <article className="skill-card" key={group.title}>
+            <article className={styles.skillCard} key={group.title}>
               {content}
             </article>
           );

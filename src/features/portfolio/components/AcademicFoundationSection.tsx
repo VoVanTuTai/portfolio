@@ -1,6 +1,7 @@
 import { Sparkles } from "lucide-react";
 import type { Language } from "@/types";
 import { academicPillars } from "@/data/academic";
+import styles from "./Cards.module.css";
 
 interface AcademicFoundationSectionProps {
   lang: Language;
@@ -8,7 +9,7 @@ interface AcademicFoundationSectionProps {
 
 export function AcademicFoundationSection({ lang }: AcademicFoundationSectionProps) {
   return (
-    <section className="academic-foundation-section" id="academic-foundation">
+    <section className={styles.academicFoundationSection} id="academic-foundation">
       <div className="section-heading-centered">
         <span className="academic-badge-pill">
           <Sparkles size={13} />
@@ -26,20 +27,20 @@ export function AcademicFoundationSection({ lang }: AcademicFoundationSectionPro
         </p>
       </div>
 
-      <div className="academic-pillars-grid">
+      <div className={styles.academicPillarsGrid}>
         {academicPillars.map((pillar) => {
           const Icon = pillar.icon;
           return (
-            <article className="academic-pillar-card" key={pillar.code}>
-              <div className="pillar-header">
-                <div className={`pillar-icon-wrap ${pillar.color}`}>
+            <article className={styles.academicPillarCard} key={pillar.code}>
+              <div className={styles.pillarHeader}>
+                <div className={`${styles.pillarIconWrap} ${styles[pillar.color]}`}>
                   <Icon size={22} />
                 </div>
-                <span className="pillar-code">{pillar.code}</span>
+                <span className={styles.pillarCode}>{pillar.code}</span>
               </div>
               <h3>{pillar.title[lang]}</h3>
               <p>{pillar.desc[lang]}</p>
-              <div className="pillar-tags">
+              <div className={styles.pillarTags}>
                 {pillar.tags.map((tag) => (
                   <span key={tag}>{tag}</span>
                 ))}

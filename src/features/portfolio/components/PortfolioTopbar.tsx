@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { ChevronDown, Download, ExternalLink, FileText, Mail, Phone, Sparkles } from "lucide-react";
 import type { Language, PortfolioLocaleData } from "@/types";
 import { BrandAvatar } from "@/components/BrandAvatar";
+import styles from "@/components/Topbar.module.css";
 
 interface PortfolioTopbarProps {
   lang: Language;
@@ -31,19 +32,19 @@ export function PortfolioTopbar({ lang, t, onLangChange }: PortfolioTopbarProps)
   }, []);
 
   return (
-    <header className="topbar" aria-label="Primary navigation">
-      <a className="brand" href="#top" aria-label="Vo Van Tu Tai home">
+    <header className={styles.topbar} aria-label="Primary navigation">
+      <a className={styles.brand} href="#top" aria-label="Vo Van Tu Tai home">
         <BrandAvatar ariaHidden dotTitle="Available for hire" />
-        <div className="brand-text">
-          <span className="brand-name">Vo Van Tu Tai</span>
-          <span className="brand-tag">B.Eng in IS · IT BA &amp; Software Engineer</span>
+        <div className={styles.brandText}>
+          <span className={styles.brandName}>Vo Van Tu Tai</span>
+          <span className={styles.brandTag}>B.Eng in IS · IT BA &amp; Software Engineer</span>
         </div>
       </a>
 
-      <div className="topbar-right">
-        <nav>
+      <div className={styles.topbarRight}>
+        <nav className={styles.nav}>
           <a href="#projects">{t.nav.projects}</a>
-          <a href="#project-management" className="nav-highlight-pm">
+          <a href="#project-management" className={styles.navHighlightPm}>
             <Sparkles size={13} aria-hidden="true" />
             <span>{t.nav.pmFramework}</span>
           </a>
@@ -59,7 +60,7 @@ export function PortfolioTopbar({ lang, t, onLangChange }: PortfolioTopbarProps)
           href="https://tracking.nexus-ex.site/"
           target="_blank"
           rel="noreferrer"
-          className="topbar-live-cta"
+          className={styles.topbarLiveCta}
           title="Open Live Tracking Demo: Nexus Express"
         >
           <span className="live-status-dot" />
@@ -68,10 +69,10 @@ export function PortfolioTopbar({ lang, t, onLangChange }: PortfolioTopbarProps)
         </a>
 
         {/* LUXURY RECRUITER CV BUTTON & DROPDOWN */}
-        <div className="topbar-cv-menu-container" ref={cvMenuRef}>
+        <div className={styles.topbarCvMenuContainer} ref={cvMenuRef}>
           <button
             type="button"
-            className={`topbar-cv-btn${isCvMenuOpen ? " is-active" : ""}`}
+            className={`${styles.topbarCvBtn}${isCvMenuOpen ? ` ${styles.isActive}` : ""}`}
             onClick={() => setIsCvMenuOpen((prev) => !prev)}
             aria-expanded={isCvMenuOpen}
             aria-haspopup="true"
@@ -80,15 +81,15 @@ export function PortfolioTopbar({ lang, t, onLangChange }: PortfolioTopbarProps)
             <span>{lang === "vi" ? "Tải & Xem CV" : "CV & Resume"}</span>
             <ChevronDown
               size={14}
-              className={`dropdown-chevron${isCvMenuOpen ? " is-rotated" : ""}`}
+              className={`${styles.dropdownChevron}${isCvMenuOpen ? ` ${styles.isRotated}` : ""}`}
               aria-hidden="true"
             />
           </button>
 
           {isCvMenuOpen && (
-            <div className="topbar-cv-dropdown" role="menu">
-              <div className="dropdown-header">
-                <div className="dropdown-status-dot" />
+            <div className={styles.topbarCvDropdown} role="menu">
+              <div className={styles.dropdownHeader}>
+                <div className={styles.dropdownStatusDot} />
                 <div>
                   <strong>{lang === "vi" ? "Hồ sơ & CV đính kèm" : "Resumes & Documents"}</strong>
                   <p>
@@ -99,19 +100,19 @@ export function PortfolioTopbar({ lang, t, onLangChange }: PortfolioTopbarProps)
                 </div>
               </div>
 
-              <div className="dropdown-tracks-list">
+              <div className={styles.dropdownTracksList}>
                 {/* Track 1: CV BA / PO Tiếng Việt */}
-                <div className="dropdown-track-item">
-                  <div className="dropdown-track-header">
-                    <div className="item-icon-wrap gold">
+                <div className={styles.dropdownTrackItem}>
+                  <div className={styles.dropdownTrackHeader}>
+                    <div className={`${styles.itemIconWrap} ${styles.gold}`}>
                       <FileText size={15} />
                     </div>
-                    <div className="dropdown-track-meta">
-                      <div className="item-title-row">
+                    <div className={styles.dropdownTrackMeta}>
+                      <div className={styles.itemTitleRow}>
                         <strong>
                           {lang === "vi" ? "CV BA / PO (Tiếng Việt)" : "BA / PO Resume (Vietnamese)"}
                         </strong>
-                        <span className="item-badge">VI</span>
+                        <span className={styles.itemBadge}>VI</span>
                       </div>
                       <p>
                         {lang === "vi"
@@ -120,9 +121,9 @@ export function PortfolioTopbar({ lang, t, onLangChange }: PortfolioTopbarProps)
                       </p>
                     </div>
                   </div>
-                  <div className="dropdown-track-actions">
+                  <div className={styles.dropdownTrackActions}>
                     <a
-                      className="dropdown-action-btn primary"
+                      className={`${styles.dropdownActionBtn} ${styles.primary}`}
                       href="/VoVanTuTai_Business_Analyst_CV_Tieng_Viet.pdf"
                       download
                       onClick={() => setIsCvMenuOpen(false)}
@@ -131,7 +132,7 @@ export function PortfolioTopbar({ lang, t, onLangChange }: PortfolioTopbarProps)
                       <span>{lang === "vi" ? "Tải PDF" : "Download PDF"}</span>
                     </a>
                     <a
-                      className="dropdown-action-btn secondary"
+                      className={`${styles.dropdownActionBtn} ${styles.secondary}`}
                       href="/po-ba-cv-vi.html"
                       target="_blank"
                       rel="noreferrer"
@@ -144,17 +145,17 @@ export function PortfolioTopbar({ lang, t, onLangChange }: PortfolioTopbarProps)
                 </div>
 
                 {/* Track 2: CV BA / PO Tiếng Anh */}
-                <div className="dropdown-track-item">
-                  <div className="dropdown-track-header">
-                    <div className="item-icon-wrap emerald">
+                <div className={styles.dropdownTrackItem}>
+                  <div className={styles.dropdownTrackHeader}>
+                    <div className={`${styles.itemIconWrap} ${styles.emerald}`}>
                       <FileText size={15} />
                     </div>
-                    <div className="dropdown-track-meta">
-                      <div className="item-title-row">
+                    <div className={styles.dropdownTrackMeta}>
+                      <div className={styles.itemTitleRow}>
                         <strong>
                           {lang === "vi" ? "CV BA / PO (Tiếng Anh)" : "BA / PO Resume (English)"}
                         </strong>
-                        <span className="item-badge-subtle">EN</span>
+                        <span className={styles.itemBadgeSubtle}>EN</span>
                       </div>
                       <p>
                         {lang === "vi"
@@ -163,9 +164,9 @@ export function PortfolioTopbar({ lang, t, onLangChange }: PortfolioTopbarProps)
                       </p>
                     </div>
                   </div>
-                  <div className="dropdown-track-actions">
+                  <div className={styles.dropdownTrackActions}>
                     <a
-                      className="dropdown-action-btn primary"
+                      className={`${styles.dropdownActionBtn} ${styles.primary}`}
                       href="/VoVanTuTai_Business_Analyst_CV.pdf"
                       download
                       onClick={() => setIsCvMenuOpen(false)}
@@ -174,7 +175,7 @@ export function PortfolioTopbar({ lang, t, onLangChange }: PortfolioTopbarProps)
                       <span>{lang === "vi" ? "Tải PDF" : "Download PDF"}</span>
                     </a>
                     <a
-                      className="dropdown-action-btn secondary"
+                      className={`${styles.dropdownActionBtn} ${styles.secondary}`}
                       href="/cv.html"
                       target="_blank"
                       rel="noreferrer"
@@ -187,7 +188,7 @@ export function PortfolioTopbar({ lang, t, onLangChange }: PortfolioTopbarProps)
                 </div>
               </div>
 
-              <div className="dropdown-footer">
+              <div className={styles.dropdownFooter}>
                 <div
                   style={{
                     display: "flex",
@@ -196,11 +197,11 @@ export function PortfolioTopbar({ lang, t, onLangChange }: PortfolioTopbarProps)
                     width: "100%",
                   }}
                 >
-                  <a href="tel:+84869500573" className="dropdown-contact-link">
+                  <a href="tel:+84869500573" className={styles.dropdownContactLink}>
                     <Phone size={13} />
                     +84 869 500 573
                   </a>
-                  <a href="mailto:tutaivovan@gmail.com" className="dropdown-contact-link">
+                  <a href="mailto:tutaivovan@gmail.com" className={styles.dropdownContactLink}>
                     <Mail size={13} />
                     tutaivovan@gmail.com
                   </a>
@@ -210,22 +211,22 @@ export function PortfolioTopbar({ lang, t, onLangChange }: PortfolioTopbarProps)
           )}
         </div>
 
-        <div className="lang-switcher" role="group" aria-label="Language selection">
+        <div className={styles.langSwitcher} role="group" aria-label="Language selection">
           <button
             type="button"
-            className={`lang-btn${lang === "vi" ? " is-active" : ""}`}
+            className={`${styles.langBtn}${lang === "vi" ? ` ${styles.isActive}` : ""}`}
             onClick={() => onLangChange("vi")}
             aria-pressed={lang === "vi"}
             title="Tiếng Việt"
           >
             VIE
           </button>
-          <span className="lang-divider" aria-hidden="true">
+          <span className={styles.langDivider} aria-hidden="true">
             /
           </span>
           <button
             type="button"
-            className={`lang-btn${lang === "en" ? " is-active" : ""}`}
+            className={`${styles.langBtn}${lang === "en" ? ` ${styles.isActive}` : ""}`}
             onClick={() => onLangChange("en")}
             aria-pressed={lang === "en"}
             title="English"
