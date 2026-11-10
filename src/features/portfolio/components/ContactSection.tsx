@@ -150,3 +150,4 @@ export function ContactSection({ lang, t }: ContactSectionProps) {
     </>
   );
 }
+

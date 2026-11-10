@@ -6,3 +6,4 @@ export function RouteLoader() {
     </div>
   );
 }
+
