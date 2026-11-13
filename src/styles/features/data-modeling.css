@@ -1,0 +1,556 @@
+.modeling-lesson {
+  --lesson-accent: #7c3aed;
+}
+
+.modeling-hero {
+  background:
+    linear-gradient(130deg, rgba(255, 255, 255, 0.72), rgba(245, 243, 255, 0.5)),
+    transparent;
+}
+
+.modeling-lesson .section-label,
+.modeling-lesson .eyebrow {
+  color: #6d28d9;
+}
+
+.case-brief {
+  margin-top: 28px;
+  padding: 26px;
+  border: 1px solid rgba(124, 58, 237, 0.18);
+  border-top: 4px solid #7c3aed;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.case-brief > span,
+.practice-assignment span {
+  color: #6d28d9;
+  font-size: 11px;
+  font-weight: 950;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.case-brief h3 {
+  margin: 9px 0 18px;
+}
+
+.clarifying-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.clarifying-grid > div {
+  padding: 16px;
+  border-radius: 8px;
+  background: rgba(124, 58, 237, 0.06);
+}
+
+.clarifying-grid p {
+  margin: 6px 0 0;
+  color: #5f6b7a;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.teacher-note {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 18px;
+  margin-top: 18px;
+  padding: 18px 20px;
+  border-radius: 8px;
+  background: #111827;
+  color: #ffffff;
+}
+
+.teacher-note strong {
+  color: #c4b5fd;
+}
+
+.teacher-note p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.74);
+  line-height: 1.6;
+}
+
+.entity-discovery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.entity-discovery-grid article {
+  min-height: 170px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.78);
+}
+
+.entity-discovery-grid span,
+.cardinality-grid article > span {
+  color: #7c3aed;
+  font-size: 10px;
+  font-weight: 950;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.entity-discovery-grid h3,
+.cardinality-grid h3 {
+  margin: 10px 0 7px;
+}
+
+.entity-discovery-grid p,
+.cardinality-grid p {
+  margin: 0;
+  color: #5f6b7a;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+
+.attribute-board {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.85fr) minmax(0, 1.15fr);
+  gap: 18px;
+  align-items: stretch;
+  margin-top: 28px;
+}
+
+.attribute-entity {
+  display: grid;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 16px 34px rgba(17, 24, 39, 0.08);
+}
+
+.attribute-entity strong {
+  padding: 14px 17px;
+  background: #5b21b6;
+  color: #ffffff;
+}
+
+.attribute-entity span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 17px;
+  border-top: 1px solid rgba(17, 24, 39, 0.07);
+  color: #536174;
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.attribute-entity svg {
+  color: #fbbf24;
+}
+
+.attribute-rules {
+  padding: 22px;
+  border-radius: 8px;
+  background: rgba(124, 58, 237, 0.08);
+}
+
+.attribute-rules h3 {
+  margin: 0 0 16px;
+}
+
+.attribute-rules ul,
+.schema-checklist ul {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding-left: 20px;
+  color: #536174;
+  line-height: 1.55;
+}
+
+.key-comparison {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.key-comparison > div {
+  padding: 17px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.key-comparison p {
+  margin: 7px 0 0;
+  color: #657184;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.cardinality-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.cardinality-grid article {
+  padding: 21px;
+  border: 1px solid var(--line);
+  border-left: 4px solid #8b5cf6;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.78);
+}
+
+.cardinality-grid code {
+  display: block;
+  margin: 16px 0 0;
+  font-size: 12px;
+}
+
+.junction-explainer {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.8fr) minmax(230px, 1.2fr);
+  gap: 22px;
+  margin-top: 20px;
+  padding: 24px;
+  border-radius: 8px;
+  background: #111827;
+  color: #ffffff;
+}
+
+.junction-explainer h3 {
+  margin: 0;
+  color: #ffffff;
+}
+
+.junction-explainer .panel-label {
+  color: #c4b5fd;
+}
+
+.junction-explainer > p {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+}
+
+.junction-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 7px;
+}
+
+.junction-fields span {
+  padding: 9px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 6px;
+  color: #ddd6fe;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.booking-erd {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-areas:
+    "user booking payment review"
+    "accommodation room junction junction";
+  gap: 62px 34px;
+  margin: 34px 0 24px;
+  padding: 24px;
+  border: 1px solid rgba(124, 58, 237, 0.16);
+  border-radius: 8px;
+  background:
+    linear-gradient(90deg, rgba(124, 58, 237, 0.045) 1px, transparent 1px),
+    linear-gradient(rgba(124, 58, 237, 0.045) 1px, transparent 1px),
+    rgba(255, 255, 255, 0.75);
+  background-size: 24px 24px;
+}
+
+.erd-node {
+  z-index: 1;
+  display: grid;
+  align-self: start;
+  overflow: hidden;
+  border: 1px solid rgba(17, 24, 39, 0.13);
+  border-radius: 7px;
+  background: #ffffff;
+  box-shadow: 0 12px 28px rgba(17, 24, 39, 0.08);
+}
+
+.erd-node strong {
+  padding: 10px 12px;
+  background: #111827;
+  color: #ffffff;
+  font-size: 13px;
+}
+
+.erd-node span {
+  padding: 7px 12px;
+  border-top: 1px solid rgba(17, 24, 39, 0.06);
+  color: #5f6b7a;
+  font-size: 10px;
+  font-weight: 750;
+}
+
+.erd-user { grid-area: user; }
+.erd-booking { grid-area: booking; }
+.erd-booking-room { grid-area: junction; }
+.erd-room { grid-area: room; }
+.erd-accommodation { grid-area: accommodation; }
+.erd-payment { grid-area: payment; }
+.erd-review { grid-area: review; }
+
+.erd-booking-room strong {
+  background: #6d28d9;
+}
+
+.erd-edge {
+  position: absolute;
+  z-index: 2;
+  padding: 3px 6px;
+  border-radius: 4px;
+  background: #ede9fe;
+  color: #6d28d9;
+  font-size: 9px;
+  font-weight: 950;
+}
+
+.edge-user-booking { top: 74px; left: 24.5%; }
+.edge-booking-payment { top: 74px; left: 50.5%; }
+.edge-booking-review { top: 74px; right: 22%; }
+.edge-room-accommodation { bottom: 70px; left: 24%; }
+.edge-room-junction { bottom: 70px; left: 50%; }
+.edge-booking-junction { top: 47%; right: 21%; }
+
+.schema-code {
+  margin-top: 28px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.schema-code pre,
+
+.schema-checklist {
+  margin-top: 18px;
+  padding: 22px;
+  border-left: 4px solid #8b5cf6;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.76);
+}
+
+.schema-checklist h3 {
+  margin: 0 0 15px;
+}
+
+.normalization-steps {
+  display: grid;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.normalization-steps article {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  gap: 20px;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.76);
+}
+
+.normalization-steps article > span {
+  color: #7c3aed;
+  font-size: 24px;
+  font-weight: 950;
+}
+
+.normalization-steps h3 {
+  margin: 0 0 5px;
+}
+
+.normalization-steps p {
+  margin: 0;
+  color: #5f6b7a;
+  line-height: 1.55;
+}
+
+.before-after-model {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.before-after-model > div {
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.76);
+}
+
+.before-after-model .bad-model {
+  border-top: 4px solid var(--rose);
+}
+
+.before-after-model .good-model {
+  border-top: 4px solid var(--green);
+}
+
+.before-after-model span {
+  font-size: 11px;
+  font-weight: 950;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.bad-model span { color: var(--rose); }
+.good-model span { color: #047857; }
+
+.before-after-model code {
+  display: block;
+  margin: 14px 0;
+  overflow-wrap: anywhere;
+  line-height: 1.5;
+}
+
+.before-after-model p {
+  margin: 0;
+  color: #657184;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.modeling-mistakes {
+  display: grid;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.modeling-mistakes > div {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 15px;
+  align-items: center;
+  padding: 17px 19px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.74);
+}
+
+.modeling-mistakes span {
+  color: #7c3aed;
+  font-weight: 950;
+}
+
+.modeling-mistakes p {
+  margin: 0;
+  color: #536174;
+  line-height: 1.5;
+}
+
+.practice-assignment {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(230px, 0.8fr);
+  gap: 26px;
+  padding: 26px;
+  border-radius: 8px;
+  background: #111827;
+  color: #ffffff;
+}
+
+.practice-assignment span {
+  color: #c4b5fd;
+}
+
+.practice-assignment h3 {
+  margin: 9px 0;
+  color: #ffffff;
+}
+
+.practice-assignment p,
+.practice-assignment ol {
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.6;
+}
+
+.practice-assignment p {
+  margin: 0;
+}
+
+.practice-assignment ol {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding-left: 22px;
+}
+
+
+@media (max-width: 980px) {
+  .entity-discovery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .booking-erd {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas:
+      "user booking"
+      "payment review"
+      "accommodation room"
+      "junction junction";
+  }
+
+  .erd-edge {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .clarifying-grid,
+  .entity-discovery-grid,
+  .attribute-board,
+  .key-comparison,
+  .cardinality-grid,
+  .junction-explainer,
+  .before-after-model,
+  .practice-assignment {
+    grid-template-columns: 1fr;
+  }
+
+  .teacher-note {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .junction-explainer > p {
+    grid-column: 1;
+  }
+
+  .booking-erd {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "user"
+      "booking"
+      "junction"
+      "room"
+      "accommodation"
+      "payment"
+      "review";
+    gap: 12px;
+  }
+
+  .normalization-steps article {
+    grid-template-columns: 54px 1fr;
+    gap: 12px;
+  }
+}
