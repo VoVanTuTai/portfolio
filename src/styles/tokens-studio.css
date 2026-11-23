@@ -1,0 +1,291 @@
+/* ==========================================================================
+   DESIGNED TO SCALE — WHITE & BLUE STUDIO TOKENS & UTILITIES
+   Bản sắc Kỹ sư Hệ thống Võ Văn Tú Tài: Trắng - Xanh Băng - Sapphire - Cobalt
+   ========================================================================== */
+
+:root {
+  /* 1. Studio Surfaces (White & Ice-Blue Spectrum) */
+  --studio-paper: #f8fbff;             /* Nền toàn trang trắng xanh băng thanh khiết */
+  --studio-paper-2: #ffffff;           /* Nền thẻ trắng tinh khiết */
+  --studio-sheet: #f0f7ff;             /* Nền không gian canvas / stage tương tác */
+  --studio-card: #ffffff;              /* Mặt thẻ chuẩn */
+  --studio-card-2: #f4f9ff;            /* Mặt thẻ phụ / hover */
+  --studio-line: #d8e6f5;              /* Đường kẻ kỹ thuật mềm */
+  --studio-line-soft: #ebf3fb;         /* Đường ngăn cách nhẹ */
+  --studio-line-strong: #0284c7;       /* Đường viền nhấn kỹ thuật */
+
+  /* 2. Ink & Typography */
+  --studio-ink: #0f172a;               /* Mực than xanh đen đậm nét (Slate 900) */
+  --studio-ink-2: #1e293b;             /* Mực thứ cấp (Slate 800) */
+  --studio-muted: #475569;             /* Chữ chú thích (Slate 600) */
+  --studio-muted-2: #64748b;           /* Chữ phụ mờ (Slate 500) */
+
+  /* 3. Signature Blue Spectrum (Xanh Dương Đa Tầng) */
+  --blue-50: #eff6ff;                  /* Xanh lơ nhạt làm nền tag */
+  --blue-100: #dbeafe;                 /* Xanh băng nhạt */
+  --blue-200: #bfdbfe;                 /* Viền xanh băng */
+  --blue-300: #93c5fd;                 /* Xanh thiên thanh */
+  --blue-400: #60a5fa;                 /* Xanh sáng */
+  --blue-500: #3b82f6;                 /* Xanh hoàng gia */
+  --blue-600: #2563eb;                 /* Xanh chủ đạo chuẩn (Primary Blue) */
+  --blue-700: #1d4ed8;                 /* Xanh sapphire đậm (Deep Sapphire) */
+  --blue-800: #1e40af;                 /* Xanh cobalt */
+  --blue-900: #1e3a8a;                 /* Xanh navy bưu chính */
+  --blue-950: #172554;                 /* Xanh đen đêm sâu */
+
+  /* 4. Telemetry & Functional Accents */
+  --studio-cyan: #06b6d4;              /* Gói tin telemetry / luồng mạng WebSocket */
+  --studio-emerald: #10b981;           /* Trạng thái Online / P50 Tốt / Done */
+  --studio-amber: #f59e0b;             /* Cảnh báo P99 / Chờ hàng đợi */
+  --studio-rose: #f43f5e;              /* Điểm nghẽn / Lỗi / Đường găng CPM */
+  --studio-violet: #8b5cf6;            /* Token bảo mật / Máy trạng thái Camunda */
+
+  /* 5. Mechanical Tactile Physics (Retro Pop-Shadows) */
+  --studio-drop: #0f172a;
+  --studio-drop-blue: #0284c7;
+  --studio-pop-shadow: 1.5px 2.5px 0 var(--studio-drop);
+  --studio-pop-shadow-blue: 1.5px 2.5px 0 var(--studio-drop-blue);
+  --studio-pop-shadow-hover: 2.5px 4px 0 var(--studio-drop);
+  --studio-card-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    0 2px 4px rgba(15, 23, 42, 0.04),
+    0 12px 28px -10px rgba(2, 132, 199, 0.12);
+
+  /* 6. Technical Monospace & UI Fonts */
+  --studio-font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --studio-font-sans: "Plus Jakarta Sans", Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* 7. Radii */
+  --studio-radius-sm: 6px;
+  --studio-radius-md: 10px;
+  --studio-radius-lg: 14px;
+  --studio-radius-xl: 18px;
+  --studio-radius-pill: 9999px;
+}
+
+/* Dark Theme Support (Tùy chọn cho người dùng thích Dark Slate Kỹ thuật) */
+[data-theme="dark"] {
+  --studio-paper: #090e17;
+  --studio-paper-2: #0f172a;
+  --studio-sheet: #0b1324;
+  --studio-card: #131d33;
+  --studio-card-2: #18243e;
+  --studio-line: rgba(56, 189, 248, 0.22);
+  --studio-line-soft: rgba(56, 189, 248, 0.12);
+  --studio-line-strong: #38bdf8;
+
+  --studio-ink: #f8fafc;
+  --studio-ink-2: #e2e8f0;
+  --studio-muted: #94a3b8;
+  --studio-muted-2: #64748b;
+
+  --studio-drop: #020617;
+  --studio-drop-blue: #38bdf8;
+  --studio-pop-shadow: 1.5px 2.5px 0 var(--studio-drop);
+  --studio-pop-shadow-blue: 1.5px 2.5px 0 var(--studio-drop-blue);
+  --studio-card-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 4px 12px rgba(0, 0, 0, 0.3),
+    0 16px 32px -12px rgba(14, 165, 233, 0.25);
+}
+
+/* ==========================================================================
+   STUDIO SHARED REUSABLE UTILITIES
+   ========================================================================== */
+
+/* 1. Monospace Telemetry HUD Chip */
+.studio-chip {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 7px 12px;
+  border-radius: var(--studio-radius-md);
+  background: var(--studio-card);
+  border: 1.5px solid var(--studio-line);
+  box-shadow: var(--studio-pop-shadow-blue);
+  font-family: var(--studio-font-mono);
+  transition: all 160ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.studio-chip:hover {
+  transform: translateY(-1.5px);
+  border-color: var(--studio-line-strong);
+}
+
+.studio-chip__label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  font-weight: 750;
+  color: var(--studio-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.studio-chip__value {
+  font-size: 13.5px;
+  font-weight: 800;
+  color: var(--studio-ink);
+  letter-spacing: -0.02em;
+}
+
+.studio-chip[data-level="good"] .studio-chip__value {
+  color: var(--studio-emerald);
+}
+
+.studio-chip[data-level="warn"] .studio-chip__value {
+  color: var(--studio-amber);
+}
+
+.studio-chip[data-level="crit"] .studio-chip__value {
+  color: var(--studio-rose);
+}
+
+.studio-chip[data-level="blue"] .studio-chip__value {
+  color: var(--blue-600);
+}
+
+/* 2. Tactile Button (Retro Pop-Shadow Action) */
+.studio-pop-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 8px 16px;
+  border-radius: var(--studio-radius-md);
+  font-family: var(--studio-font-mono);
+  font-size: 12.5px;
+  font-weight: 750;
+  cursor: pointer;
+  border: 1.5px solid var(--studio-line-strong);
+  background: var(--studio-card);
+  color: var(--blue-700);
+  box-shadow: var(--studio-pop-shadow-blue);
+  transition: all 120ms ease;
+  user-select: none;
+  text-decoration: none;
+}
+
+.studio-pop-btn:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: var(--studio-pop-shadow-hover);
+  background: var(--blue-50);
+}
+
+.studio-pop-btn:active {
+  transform: translate(1.5px, 2px);
+  box-shadow: 0 0 0 transparent;
+}
+
+.studio-pop-btn--primary {
+  background: var(--blue-600);
+  color: #ffffff;
+  border-color: var(--blue-800);
+  box-shadow: var(--studio-pop-shadow);
+}
+
+.studio-pop-btn--primary:hover {
+  background: var(--blue-700);
+  color: #ffffff;
+}
+
+/* 3. Inline Technical Highlighted Concept (<span class="term">) */
+.studio-term {
+  display: inline-block;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: var(--blue-50);
+  border: 1px solid var(--blue-200);
+  color: var(--blue-700);
+  font-family: var(--studio-font-mono);
+  font-size: 0.9em;
+  font-weight: 750;
+}
+
+/* 4. Callout Box (Ý chính / Key Takeaway) */
+.studio-callout {
+  display: flex;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: var(--studio-radius-lg);
+  background: linear-gradient(135deg, rgba(240, 249, 255, 0.95), rgba(224, 242, 254, 0.8));
+  border: 1.5px solid var(--blue-300);
+  box-shadow: var(--studio-pop-shadow-blue);
+  margin: 16px 0;
+}
+
+.studio-callout__icon {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  color: var(--blue-600);
+  display: grid;
+  place-items: center;
+}
+
+.studio-callout__title {
+  margin: 0 0 4px;
+  font-family: var(--studio-font-mono);
+  font-size: 11px;
+  font-weight: 850;
+  color: var(--blue-800);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.studio-callout__body {
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--studio-ink-2);
+}
+
+/* 5. Studio Timeline Stepper Bar */
+.studio-timeline-rail {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-radius: var(--studio-radius-lg);
+  background: var(--studio-card);
+  border: 1.5px solid var(--studio-line);
+  box-shadow: var(--studio-pop-shadow-blue);
+  font-family: var(--studio-font-mono);
+}
+
+.studio-timeline-dot {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid var(--studio-line);
+  background: var(--studio-card);
+  color: var(--studio-muted);
+  font-size: 12px;
+  font-weight: 800;
+  transition: all 180ms ease;
+  cursor: pointer;
+}
+
+.studio-timeline-dot:hover {
+  border-color: var(--blue-500);
+  color: var(--blue-600);
+  transform: scale(1.08);
+}
+
+.studio-timeline-dot.is-active {
+  border-color: var(--blue-700);
+  background: var(--blue-600);
+  color: #ffffff;
+  box-shadow: 0 0 0 3px var(--blue-200);
+  transform: scale(1.12);
+}
+
+.studio-timeline-dot.is-done {
+  border-color: var(--studio-emerald);
+  background: var(--studio-emerald);
+  color: #ffffff;
+}
