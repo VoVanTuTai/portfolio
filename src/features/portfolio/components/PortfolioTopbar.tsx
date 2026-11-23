@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { ChevronDown, Download, ExternalLink, FileText, Mail, Phone, Sparkles } from "lucide-react";
-import type { Language, PortfolioLocaleData } from "@/types";
+import type { Language, NavigateHandler, PortfolioLocaleData } from "@/types";
 import { BrandAvatar } from "@/components/BrandAvatar";
 import styles from "@/components/Topbar.module.css";
 
@@ -8,9 +8,10 @@ interface PortfolioTopbarProps {
   lang: Language;
   t: PortfolioLocaleData;
   onLangChange: (newLang: Language) => void;
+  navigate?: NavigateHandler;
 }
 
-export function PortfolioTopbar({ lang, t, onLangChange }: PortfolioTopbarProps) {
+export function PortfolioTopbar({ lang, t, onLangChange, navigate }: PortfolioTopbarProps) {
   const [isCvMenuOpen, setIsCvMenuOpen] = useState(false);
   const cvMenuRef = useRef<HTMLDivElement>(null);
 
@@ -43,6 +44,20 @@ export function PortfolioTopbar({ lang, t, onLangChange }: PortfolioTopbarProps)
 
       <div className={styles.topbarRight}>
         <nav className={styles.nav}>
+          <a
+            href="/studio"
+            onClick={(e) => (navigate ? navigate(e, "/studio") : undefined)}
+            className={styles.navHighlightPm}
+            style={{
+              background: "linear-gradient(135deg, rgba(2, 132, 199, 0.12), rgba(37, 99, 235, 0.18))",
+              borderColor: "rgba(2, 132, 199, 0.45)",
+              color: "#0284c7",
+            }}
+            title="Studio Học tập Tương tác (Designed to Scale style)"
+          >
+            <Sparkles size={13} aria-hidden="true" />
+            <span>Studio 3 Cột</span>
+          </a>
           <a href="#projects">{t.nav.projects}</a>
           <a href="#project-management" className={styles.navHighlightPm}>
             <Sparkles size={13} aria-hidden="true" />
