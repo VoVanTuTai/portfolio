@@ -44,7 +44,7 @@ export function PortfolioPage({ navigate }: PortfolioPageProps) {
 
   return (
     <main className="site-shell">
-      <PortfolioTopbar lang={lang} t={t} onLangChange={handleLangChange} />
+      <PortfolioTopbar lang={lang} t={t} onLangChange={handleLangChange} navigate={navigate} />
 
       <HeroSection lang={lang} t={t} />
 

@@ -18,6 +18,6 @@ export type IconComponent = React.ComponentType<{
 }>;
 
 export type NavigateHandler = (
-  event: React.MouseEvent<HTMLAnchorElement>,
+  event: React.MouseEvent<HTMLElement>,
   path: string,
 ) => void;
