@@ -42,6 +42,11 @@ export function StudioLayout({
     0,
   );
 
+  // Reset step index when active lesson changes
+  useEffect(() => {
+    setCurrentStepIndex(0);
+  }, [lesson.slug]);
+
   // Global Keyboard Shortcuts
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -131,6 +136,7 @@ export function StudioLayout({
           onStepChange={(idx) => setCurrentStepIndex(idx)}
           canvasSlot={
             <StudioSimulationCanvas
+              lesson={lesson}
               stepIndex={currentStepIndex}
               isPlaying={isPlaying}
               onTogglePlay={() => setIsPlaying((prev) => !prev)}
@@ -150,6 +156,15 @@ export function StudioLayout({
           hasNext={hasNext}
         />
       </div>
+
+      {/* Mobile Drawer Backdrop */}
+      {isDrawerOpen && (
+        <div
+          className={styles.drawerBackdrop}
+          onClick={() => setIsDrawerOpen(false)}
+          aria-hidden="true"
+        />
+      )}
 
       {/* Concept Search Modal (⌘K) */}
       <StudioSearchModal

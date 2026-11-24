@@ -1,12 +1,14 @@
 import { type ReactNode } from "react";
 import {
   Activity,
+  Check,
   Clock,
   Cpu,
   Database,
   Layers,
   Server,
   Shield,
+  Zap,
 } from "lucide-react";
 import type { StudioLesson, StudioStep, TelemetryChip } from "./studio.types";
 import styles from "./StudioLayout.module.css";
@@ -34,6 +36,10 @@ function renderTelemetryIcon(iconName?: TelemetryChip["iconName"]) {
       return <Layers size={12} />;
     case "shield":
       return <Shield size={12} />;
+    case "check":
+      return <Check size={12} />;
+    case "zap":
+      return <Zap size={12} />;
     default:
       return <Activity size={12} />;
   }

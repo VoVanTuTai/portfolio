@@ -25,6 +25,9 @@ export function KnowledgeHubPage({ navigate }: { navigate: NavigateHandler }) {
           </div>
         </a>
         <nav className={topbarStyles.nav}>
+          <a href="/studio" onClick={(event) => navigate(event, "/studio")} style={{ fontWeight: 750, color: "#2563eb" }}>
+            ⚡ Studio 3 Cột
+          </a>
           <a href="#learning-path">Lộ trình</a>
           <a href="#study-method">Cách học</a>
           <a href="/" onClick={(event) => navigate(event, "/")}>
@@ -47,6 +50,64 @@ export function KnowledgeHubPage({ navigate }: { navigate: NavigateHandler }) {
           <strong>5 bài học</strong>
           <p>Languages → Database → Data Modeling → Backend/API → Business Analysis</p>
         </aside>
+      </section>
+
+      {/* Interactive Studio Banner */}
+      <section
+        style={{
+          margin: "0 0 32px",
+          padding: "16px 20px",
+          borderRadius: "var(--studio-radius-lg, 12px)",
+          background: "linear-gradient(135deg, #f0f7ff 0%, #e0f2fe 100%)",
+          border: "1.5px solid #93c5fd",
+          boxShadow: "1.5px 2.5px 0 #0284c7",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          gap: "16px",
+          flexWrap: "wrap",
+        }}
+      >
+        <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+          <div
+            style={{
+              width: "36px",
+              height: "36px",
+              borderRadius: "8px",
+              background: "#2563eb",
+              color: "#ffffff",
+              display: "grid",
+              placeItems: "center",
+              boxShadow: "1.5px 2px 0 #0f172a",
+            }}
+          >
+            <Sparkles size={18} />
+          </div>
+          <div>
+            <h3
+              style={{
+                margin: "0 0 3px",
+                fontFamily: "var(--studio-font-mono)",
+                fontSize: "14px",
+                fontWeight: 800,
+                color: "#0f172a",
+              }}
+            >
+              Phòng Thí Nghiệm Hệ Thống 3 Cột (Interactive Studio)
+            </h3>
+            <p style={{ margin: 0, fontSize: "12.5px", color: "#475569" }}>
+              Trải nghiệm mô phỏng tương tác 2.5D Isometric, đo lường Telemetry HUD P50/P99 theo phong cách Designed to Scale.
+            </p>
+          </div>
+        </div>
+        <a
+          href="/studio"
+          onClick={(e) => navigate(e, "/studio")}
+          className="studio-pop-btn studio-pop-btn--primary"
+          style={{ textDecoration: "none" }}
+        >
+          <span>Khám Phá Studio 3 Cột ↗</span>
+        </a>
       </section>
 
       <section className="hub-section" id="learning-path">
