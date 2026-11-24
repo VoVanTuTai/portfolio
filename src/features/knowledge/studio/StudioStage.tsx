@@ -5,9 +5,6 @@ import {
   Cpu,
   Database,
   Layers,
-  Pause,
-  Play,
-  RotateCcw,
   Server,
   Shield,
 } from "lucide-react";
@@ -18,9 +15,6 @@ interface StudioStageProps {
   lesson: StudioLesson;
   currentStepIndex: number;
   onStepChange: (index: number) => void;
-  isPlaying: boolean;
-  onTogglePlay: () => void;
-  onReset: () => void;
   canvasSlot?: ReactNode;
 }
 
@@ -49,9 +43,6 @@ export function StudioStage({
   lesson,
   currentStepIndex,
   onStepChange,
-  isPlaying,
-  onTogglePlay,
-  onReset,
   canvasSlot,
 }: StudioStageProps) {
   const currentStep: StudioStep = lesson.steps[currentStepIndex] || lesson.steps[0];
@@ -105,27 +96,6 @@ export function StudioStage({
 
       {/* 3. Interactive Canvas Frame */}
       <section className={styles.interactiveCanvasCard} aria-label="Khung mô phỏng tương tác 2.5D">
-        <div className={styles.canvasToolbar}>
-          <button
-            type="button"
-            className="studio-pop-btn"
-            onClick={onReset}
-            title="Phát lại từ đầu bước này (Phím: R)"
-          >
-            <RotateCcw size={12} />
-            <span>Phát lại</span>
-          </button>
-          <button
-            type="button"
-            className="studio-pop-btn studio-pop-btn--primary"
-            onClick={onTogglePlay}
-            title={isPlaying ? "Tạm dừng luồng (Phím: Space)" : "Tiếp tục chạy (Phím: Space)"}
-          >
-            {isPlaying ? <Pause size={12} /> : <Play size={12} />}
-            <span>{isPlaying ? "Tạm dừng" : "Tiếp tục"}</span>
-          </button>
-        </div>
-
         <div className={styles.canvasInnerStage}>
           {canvasSlot || (
             <div style={{ textAlign: "center", color: "var(--studio-muted)" }}>
