@@ -1,6 +1,10 @@
 import { ExternalLink, Github, Radio } from "lucide-react";
 import type { Language } from "@/types";
 import type { PortfolioItem } from "@/data/portfolio-tree.data";
+import { NexusVietnamMap25dSimulator } from "@/features/portfolio/studio-portfolio/simulators/NexusVietnamMap25dSimulator";
+import { NexusOrderLifecycle25dSimulator } from "@/features/portfolio/studio-portfolio/simulators/NexusOrderLifecycle25dSimulator";
+import { NexusExceptionRto25dSimulator } from "@/features/portfolio/studio-portfolio/simulators/NexusExceptionRto25dSimulator";
+import { NexusAiRag25dSimulator } from "@/features/portfolio/studio-portfolio/simulators/NexusAiRag25dSimulator";
 import { Nexus25dSimulator } from "@/features/portfolio/studio-portfolio/simulators/Nexus25dSimulator";
 import { Cab25dSimulator } from "@/features/portfolio/studio-portfolio/simulators/Cab25dSimulator";
 import { Tourist25dSimulator } from "@/features/portfolio/studio-portfolio/simulators/Tourist25dSimulator";
@@ -21,12 +25,23 @@ export function StudioProjectsStageView({
   const isCab = item.slug.startsWith("cab") || item.id.includes("cab");
   const isTourist = item.slug.startsWith("tourist") || item.id.includes("tourist");
 
+  const getNexusSection = () => {
+    if (item.slug === "nexus-map-hubs") return "map-hubs";
+    if (item.slug === "nexus-order-lifecycle") return "lifecycle";
+    if (item.slug === "nexus-exceptions-rto") return "exceptions";
+    if (item.slug === "nexus-architecture") return "architecture";
+    if (item.slug === "nexus-ai-rag") return "ai-rag";
+    if (item.slug === "nexus-results") return "results";
+    return "overview";
+  };
+
   const getSubSection = (): ProjectSubSection => {
     if (item.slug.includes("architecture") || item.slug.includes("mo-hinh")) return "modeling";
     if (item.slug.includes("results") || item.slug.includes("ket-qua")) return "results";
     return "overview";
   };
 
+  const nexusSection = getNexusSection();
   const subSection = getSubSection();
 
   return (
@@ -126,7 +141,7 @@ export function StudioProjectsStageView({
           </div>
 
           {/* SUB-SECTION 1.1: TỔNG QUAN & BỐI CẢNH */}
-          {subSection === "overview" && (
+          {nexusSection === "overview" && (
             <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
               <div style={{ padding: "18px 20px", borderRadius: "10px", background: "#ffffff", border: "1.5px solid #d8e6f5" }}>
                 <h4 style={{ margin: "0 0 10px 0", fontSize: "14px", color: "#0f172a" }}>
@@ -195,15 +210,75 @@ export function StudioProjectsStageView({
             </div>
           )}
 
-          {/* SUB-SECTION 1.2: MÔ HÌNH HÓA HIỆN THỰC & 2.5D */}
-          {subSection === "modeling" && (
+          {/* SUB-SECTION 1.2: BẢN ĐỒ VIỆT NAM & MẠNG LƯỚI HUB 2.5D */}
+          {nexusSection === "map-hubs" && (
+            <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
+              <NexusVietnamMap25dSimulator lang={lang} />
+              <div style={{ padding: "18px 20px", borderRadius: "10px", background: "#ffffff", border: "1.5px solid #d8e6f5" }}>
+                <h4 style={{ margin: "0 0 8px 0", fontSize: "14px", color: "#0f172a" }}>
+                  Nguyên Lý Vận Hành Trục Chính Linehaul & Quy Chuẩn Phân Loại Bưu Kiện
+                </h4>
+                <p style={{ fontSize: "12.5px", color: "#475569", lineHeight: 1.6, margin: 0 }}>
+                  Mạng lưới logistics của Nexus Express được xây dựng theo mô hình <strong>Hub-and-Spoke</strong> tối ưu hóa chi phí vận chuyển. Các bưu kiện thu gom tại các bưu cục địa phương (Spokes) được gom lại và chuyển về 3 Mega Hubs (Hà Nội, Đà Nẵng, TP.HCM). Tại đây, hệ thống băng chuyền Cross-belt Sorter tự động chia chọn với công suất lên đến 95.000 kiện/giờ, đóng seal container vận chuyển trục (Linehaul) bằng xe tải 15 tấn hoặc đường bay chuyên dụng, giúp duy trì SLA toàn quốc dưới 24 giờ.
+                </p>
+              </div>
+            </div>
+          )}
+
+          {/* SUB-SECTION 1.3: VÒNG ĐỜI ĐƠN HÀNG FSM 2.5D */}
+          {nexusSection === "lifecycle" && (
+            <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
+              <NexusOrderLifecycle25dSimulator lang={lang} />
+              <div style={{ padding: "18px 20px", borderRadius: "10px", background: "#ffffff", border: "1.5px solid #d8e6f5" }}>
+                <h4 style={{ margin: "0 0 8px 0", fontSize: "14px", color: "#0f172a" }}>
+                  Tính Xác Định (Determinism) Của Máy Trạng Thái FSM & Cơ Chế Khóa
+                </h4>
+                <p style={{ fontSize: "12.5px", color: "#475569", lineHeight: 1.6, margin: 0 }}>
+                  Trạng thái đơn hàng không bao giờ được phép cập nhật tự do bằng các câu lệnh `UPDATE` đơn giản. Mọi sự kiện chuyển trạng thái đều phải kích hoạt qua <strong>Camunda BPMN 2.0 State Machine</strong>. Nếu bưu kiện đang ở trạng thái `ORDER_CREATED`, hệ thống tuyệt đối từ chối lệnh `HUB_OUTBOUND` nếu chưa từng đi qua bước `PICKED_UP` và `HUB_INBOUND`. Cơ chế này loại bỏ 100% tình trạng "nhảy cóc" trạng thái và đảm bảo kiểm toán truy vết nguồn gốc.
+                </p>
+              </div>
+            </div>
+          )}
+
+          {/* SUB-SECTION 1.4: NGOẠI LỆ & HOÀN HÀNG 2.5D */}
+          {nexusSection === "exceptions" && (
+            <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
+              <NexusExceptionRto25dSimulator lang={lang} />
+              <div style={{ padding: "18px 20px", borderRadius: "10px", background: "#ffffff", border: "1.5px solid #d8e6f5" }}>
+                <h4 style={{ margin: "0 0 8px 0", fontSize: "14px", color: "#0f172a" }}>
+                  Quản Trị Rủi Ro Ngược Chiều (Reverse Logistics) & Bảo Vệ Dòng Tiền Shop
+                </h4>
+                <p style={{ fontSize: "12.5px", color: "#475569", lineHeight: 1.6, margin: 0 }}>
+                  Thất thoát trong logistics không nằm ở các đơn giao thành công mà tập trung 80% ở các ca hoàn hàng (RTO) và khiếu nại bồi thường. Nexus Express thiết lập hàng rào kiểm soát đa lớp: Đối chiếu tọa độ GPS thực tế của bưu tá khi bấm báo giao không thành công, lưu kho đệm 48h tạo cơ hội Shop cứu đơn và tự động hóa bồi hoàn 100% trong 24h đối với sự cố rơi vỡ bao bì được biên bản đồng kiểm xác nhận.
+                </p>
+              </div>
+            </div>
+          )}
+
+          {/* SUB-SECTION 1.5: KIẾN TRÚC PHÂN TÁN 4 TẦNG 2.5D */}
+          {nexusSection === "architecture" && (
             <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
               <Nexus25dSimulator lang={lang} />
             </div>
           )}
 
-          {/* SUB-SECTION 1.3: KẾT QUẢ ĐẠT ĐƯỢC & ĐO LƯỜNG */}
-          {subSection === "results" && (
+          {/* SUB-SECTION 1.6: AI CHATBOT RAG 2.5D */}
+          {nexusSection === "ai-rag" && (
+            <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
+              <NexusAiRag25dSimulator lang={lang} />
+              <div style={{ padding: "18px 20px", borderRadius: "10px", background: "#ffffff", border: "1.5px solid #d8e6f5" }}>
+                <h4 style={{ margin: "0 0 8px 0", fontSize: "14px", color: "#0f172a" }}>
+                  Tại Sao Logistics Bắt Buộc Phải Dùng Hybrid RAG Kết Hợp Realtime Tool Calling?
+                </h4>
+                <p style={{ fontSize: "12.5px", color: "#475569", lineHeight: 1.6, margin: 0 }}>
+                  Mô hình LLM thuần túy hoặc Vector RAG đơn thuần không thể trả lời chính xác câu hỏi "Đơn hàng của tôi đang ở đâu?", bởi vì vị trí xe tải và trạng thái đơn hàng thay đổi từng giây trong cơ sở dữ liệu. Nexus Express giải quyết bằng <strong>Semantic Router</strong>: Câu hỏi về chính sách được định tuyến sang Vector Search (PgVector), trong khi câu hỏi tra cứu mã vận đơn được chuyển thành lệnh <strong>SQL Tool Calling</strong> đọc trực tiếp từ PostgreSQL Read-Replica, sau đó mới tổng hợp câu trả lời tự nhiên cho người dùng kèm link xác thực.
+                </p>
+              </div>
+            </div>
+          )}
+
+          {/* SUB-SECTION 1.7: KẾT QUẢ ĐẠT ĐƯỢC & ĐO LƯỜNG */}
+          {nexusSection === "results" && (
             <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "10px" }}>
                 {[
