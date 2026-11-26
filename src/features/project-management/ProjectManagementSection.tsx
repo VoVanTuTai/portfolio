@@ -1,5 +1,6 @@
-import { Fragment, useState, type CSSProperties } from "react";
+import { Fragment, useState, useEffect, type CSSProperties } from "react";
 import {
+  Activity,
   AlertTriangle,
   ArrowRight,
   BriefcaseBusiness,
@@ -7,13 +8,11 @@ import {
   CheckCircle2,
   ChevronRight,
   Clock,
-  Download,
-  ExternalLink,
+  Coins,
   FileCheck2,
   FileText,
   Filter,
-  RefreshCw,
-  ShieldAlert,
+  Milestone,
   ShieldCheck,
   Sparkles,
   Users2,
@@ -29,15 +28,42 @@ import {
   pmRiskMatrix,
 } from "@/data/pm.data";
 import { filterGanttTasks, getTaskBarPosition, summarizePmSchedule } from "@/utils/pm-cpm";
+import { InteractivePmProcessModel } from "./components/InteractivePmProcessModel";
+import { CpmNetworkSimulator } from "./components/CpmNetworkSimulator";
+import { EvmScaveSimulator } from "./components/EvmScaveSimulator";
+import { PmCashflow25dSimulator } from "@/features/portfolio/studio-portfolio/simulators/PmCashflow25dSimulator";
 import "@/styles/features/project-management.css";
 
 const pmSummary = summarizePmSchedule(ganttTasks);
 
-export function ProjectManagementSection({ lang }: ProjectManagementSectionProps) {
+export function ProjectManagementSection({
+  lang,
+  isStudio = false,
+  activeItemSlug,
+}: ProjectManagementSectionProps) {
+  const getInitialTab = (): PmTabId => {
+    if (activeItemSlug === "chi-so-evm") return "evm";
+    if (activeItemSlug === "duong-gang-cpm") return "cpm";
+    if (activeItemSlug === "tien-do-gantt") return "gantt";
+    return "process-model";
+  };
+
   const [activeStage, setActiveStage] = useState<number>(0);
-  const [activeTab, setActiveTab] = useState<PmTabId>("lifecycle");
+  const [activeTab, setActiveTab] = useState<PmTabId>(getInitialTab);
   const [ganttFilter, setGanttFilter] = useState<GanttFilter>("all");
   const [selectedTaskId, setSelectedTaskId] = useState<string>("wbs-2.3");
+
+  useEffect(() => {
+    if (activeItemSlug === "chi-so-evm") {
+      setActiveTab("evm");
+    } else if (activeItemSlug === "duong-gang-cpm") {
+      setActiveTab("cpm");
+    } else if (activeItemSlug === "tien-do-gantt") {
+      setActiveTab("gantt");
+    } else {
+      setActiveTab("process-model");
+    }
+  }, [activeItemSlug]);
 
   const filteredTasks = filterGanttTasks(ganttTasks, ganttFilter);
 
@@ -46,70 +72,95 @@ export function ProjectManagementSection({ lang }: ProjectManagementSectionProps
   const CurrentIcon = currentStage.icon;
 
   return (
-    <section className="pm-framework-section" id="project-management">
-      <div className="pm-section-head">
-        <div className="pm-badge-row">
-          <span className="pm-accent-pill">
-            <Sparkles size={14} aria-hidden="true" />
-            {lang === "vi" ? "Năng lực Quản Trị Dự Án Phần Mềm" : "Software Project Management Competencies"}
-          </span>
-          <span className="pm-role-pill">Agile / Scrum · SDLC · Scope Freeze · UAT Gatekeeper</span>
-        </div>
-        <h2 className="pm-main-heading">
-          {lang === "vi"
-            ? "Quy Trình Quản Trị & Điều Phối Dự Án Phần Mềm Chuyên Nghiệp"
-            : "Professional Software Project Delivery & Governance Framework"}
-        </h2>
-        <p className="pm-main-lede">
-          {lang === "vi"
-            ? "Mô hình hóa toàn diện quy trình đưa dự án phần mềm từ ý tưởng đến sản phẩm vận hành thực tế: Kiểm soát chặt chẽ phạm vi (Scope Freeze), quản lý thay đổi (Change Request), vận hành Sprint linh hoạt và nghiệm thu UAT chuẩn mực."
-            : "A comprehensive operational framework taking software projects from inception to production: Rigorous scope control, Change Request governance, Agile sprint velocity, and disciplined UAT sign-off."}
-        </p>
+    <section className={`pm-framework-section${isStudio ? " is-studio-mode" : ""}`} id="project-management">
+      {/* Standalone Landing Page Header */}
+      {!isStudio && (
+        <div className="pm-section-head">
+          <div className="pm-badge-row">
+            <span className="pm-accent-pill">
+              <Sparkles size={14} aria-hidden="true" />
+              {lang === "vi" ? "Năng lực Quản Trị Dự Án Phần Mềm" : "Software Project Management Competencies"}
+            </span>
+            <span className="pm-role-pill">Agile / Scrum · Scope Freeze · Milestone Billing · UAT Protocol</span>
+          </div>
+          <h2 className="pm-main-heading">
+            {lang === "vi"
+              ? "Quy Trình Quản Trị & Điều Phối Dự Án Phần Mềm Chuyên Nghiệp"
+              : "Professional Software Project Delivery & Governance Framework"}
+          </h2>
+          <p className="pm-main-lede">
+            {lang === "vi"
+              ? "Mô hình hóa toàn diện quy trình đưa dự án phần mềm từ ý tưởng đến sản phẩm vận hành thực tế: Kiểm soát chặt chẽ phạm vi (Scope Freeze), quản trị dòng tiền từng đợt, vận hành Sprint linh hoạt và nghiệm thu UAT chuẩn mực."
+              : "A comprehensive operational framework taking software projects from inception to production: Rigorous scope control, milestone-driven billing, Agile sprint velocity, and disciplined UAT sign-off."}
+          </p>
 
-        {/* View Switcher Tabs */}
-        <div className="pm-view-tabs" role="tablist">
-          <button
-            type="button"
-            className={`pm-tab-btn${activeTab === "lifecycle" ? " is-active" : ""}`}
-            onClick={() => setActiveTab("lifecycle")}
-            role="tab"
-            aria-selected={activeTab === "lifecycle"}
-          >
-            <Workflow size={15} aria-hidden="true" />
-            <span>{lang === "vi" ? "1. Sơ đồ 5 Giai đoạn SDLC" : "1. 5-Stage SDLC Pipeline"}</span>
-          </button>
-          <button
-            type="button"
-            className={`pm-tab-btn${activeTab === "gantt" ? " is-active" : ""}`}
-            onClick={() => setActiveTab("gantt")}
-            role="tab"
-            aria-selected={activeTab === "gantt"}
-          >
-            <Calendar size={15} aria-hidden="true" />
-            <span>{lang === "vi" ? "2. Sơ Đồ Gantt & Phân Rã WBS (CPM)" : "2. Gantt Schedule & WBS (CPM)"}</span>
-          </button>
-          <button
-            type="button"
-            className={`pm-tab-btn${activeTab === "cr-flow" ? " is-active" : ""}`}
-            onClick={() => setActiveTab("cr-flow")}
-            role="tab"
-            aria-selected={activeTab === "cr-flow"}
-          >
-            <RefreshCw size={15} aria-hidden="true" />
-            <span>{lang === "vi" ? "3. Kiểm soát Scope & Change Request" : "3. Scope & Change Request Control"}</span>
-          </button>
-          <button
-            type="button"
-            className={`pm-tab-btn${activeTab === "risk-matrix" ? " is-active" : ""}`}
-            onClick={() => setActiveTab("risk-matrix")}
-            role="tab"
-            aria-selected={activeTab === "risk-matrix"}
-          >
-            <ShieldAlert size={15} aria-hidden="true" />
-            <span>{lang === "vi" ? "4. Ma trận Quản trị Rủi ro" : "4. Risk Management Matrix"}</span>
-          </button>
+          {/* View Switcher Tabs */}
+          <div className="pm-view-tabs" role="tablist">
+            <button
+              type="button"
+              className={`pm-tab-btn${(activeTab === "process-model" || activeTab === "billing" || activeTab === "lifecycle") ? " is-active" : ""}`}
+              onClick={() => setActiveTab("process-model")}
+              role="tab"
+              aria-selected={activeTab === "process-model"}
+            >
+              <Workflow size={15} aria-hidden="true" />
+              <span>{lang === "vi" ? "1. Mô Hình Động Quy Trình" : "1. Process Simulation Model"}</span>
+            </button>
+            <button
+              type="button"
+              className={`pm-tab-btn${activeTab === "gantt" ? " is-active" : ""}`}
+              onClick={() => setActiveTab("gantt")}
+              role="tab"
+              aria-selected={activeTab === "gantt"}
+            >
+              <Calendar size={15} aria-hidden="true" />
+              <span>{lang === "vi" ? "2. Sơ Đồ Gantt Release (CPM)" : "2. Gantt Schedule & WBS (CPM)"}</span>
+            </button>
+            <button
+              type="button"
+              className={`pm-tab-btn${activeTab === "cpm" ? " is-active" : ""}`}
+              onClick={() => setActiveTab("cpm")}
+              role="tab"
+              aria-selected={activeTab === "cpm"}
+            >
+              <Activity size={15} aria-hidden="true" />
+              <span>{lang === "vi" ? "3. Đường Găng CPM Thực Chiến" : "3. Critical Path to Cash"}</span>
+            </button>
+            <button
+              type="button"
+              className={`pm-tab-btn${activeTab === "evm" ? " is-active" : ""}`}
+              onClick={() => setActiveTab("evm")}
+              role="tab"
+              aria-selected={activeTab === "evm"}
+            >
+              <Coins size={15} aria-hidden="true" />
+              <span>{lang === "vi" ? "4. Quản Trị Chi Phí EVM" : "4. EVM Cost Governance"}</span>
+            </button>
+          </div>
         </div>
-      </div>
+      )}
+
+      {/* TAB 1: INTERACTIVE ANIMATED PM PROCESS MODEL (FLAGSHIP 2.5D) */}
+      {(activeTab === "process-model" || activeTab === "billing") && (
+        <div className="pm-tab-content" style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+          <PmCashflow25dSimulator lang={lang} />
+          <InteractivePmProcessModel lang={lang} />
+        </div>
+      )}
+
+      {/* TAB 2: CPM NETWORK DAG SIMULATOR */}
+      {activeTab === "cpm" && (
+        <div className="pm-tab-content">
+          <CpmNetworkSimulator lang={lang} />
+        </div>
+      )}
+
+      {/* TAB 3: EVM COST GOVERNANCE S-CURVE SIMULATOR */}
+      {activeTab === "evm" && (
+        <div className="pm-tab-content">
+          <EvmScaveSimulator lang={lang} />
+        </div>
+      )}
 
       {/* TAB 1: 5-STAGE SDLC PIPELINE */}
       {activeTab === "lifecycle" && (
@@ -177,7 +228,7 @@ export function ProjectManagementSection({ lang }: ProjectManagementSectionProps
             </div>
 
             <div className="pm-detail-objective-box">
-              <strong className="pm-objective-label">{lang === "vi" ? "🎯 Mục tiêu trọng tâm của PM:" : "🎯 Core PM Objective:"}</strong>
+              <strong className="pm-objective-label">{lang === "vi" ? "Mục tiêu trọng tâm của PM:" : "Core PM Objective:"}</strong>
               <p>{currentStage.objective[lang]}</p>
             </div>
 
@@ -356,7 +407,7 @@ export function ProjectManagementSection({ lang }: ProjectManagementSectionProps
                   className={`pm-gfilter-btn${ganttFilter === "milestone" ? " is-active" : ""}`}
                   onClick={() => setGanttFilter("milestone")}
                 >
-                  <span>💎</span>
+                  <Milestone size={12} aria-hidden="true" />
                   {lang === "vi" ? "Cột mốc (Milestones)" : "Milestone Gates"}
                 </button>
               </div>
@@ -464,9 +515,7 @@ export function ProjectManagementSection({ lang }: ProjectManagementSectionProps
                               style={{ left: `${leftPercent}%` }}
                               title={`${task.wbs}: ${lang === "vi" ? task.title : task.titleEn}`}
                             >
-                              <div className="milestone-diamond">
-                                <span>💎</span>
-                              </div>
+                              <div className="milestone-diamond" aria-hidden="true" />
                               <span className="milestone-label">{task.wbs} Gate</span>
                             </div>
                           ) : (
@@ -730,43 +779,6 @@ export function ProjectManagementSection({ lang }: ProjectManagementSectionProps
           </div>
         </div>
       )}
-
-      {/* Recruiter Action Bar: Download Official BA / PO CV */}
-      <div className="pm-cv-action-card">
-        <div className="pm-cv-action-left">
-          <div className="pm-cv-icon-wrap">
-            <FileText size={22} />
-          </div>
-          <div>
-            <h4>{lang === "vi" ? "Hồ Sơ Năng Lực & CV BA / PO Chính Thức" : "Official Business Analyst & Product Owner Resume"}</h4>
-            <p>
-              {lang === "vi"
-                ? "Tải bản CV chính thức (2 trang A4 chuẩn) thể hiện năng lực Kỹ sư Hệ thống Thông tin (GPA 3.26), kỹ năng phân tích nghiệp vụ, điều phối Sprint tại HomeNest và tối ưu quy trình tại J&T Express."
-                : "Download official 2-page A4 resume featuring Information Systems Engineering degree (GPA 3.26), requirements analysis, sprint delivery at HomeNest, and operational optimization at J&T Express."}
-            </p>
-          </div>
-        </div>
-
-        <div className="pm-cv-action-buttons">
-          <a
-            href={lang === "vi" ? "/VoVanTuTai_Business_Analyst_CV_Tieng_Viet.pdf" : "/VoVanTuTai_Business_Analyst_CV.pdf"}
-            download
-            className="pm-btn-primary"
-          >
-            <Download size={15} aria-hidden="true" />
-            <span>{lang === "vi" ? "Tải CV BA / PO (PDF)" : "Download BA / PO Resume (PDF)"}</span>
-          </a>
-          <a
-            href={lang === "vi" ? "/po-ba-cv-vi.html" : "/cv.html"}
-            target="_blank"
-            rel="noreferrer"
-            className="pm-btn-secondary"
-          >
-            <ExternalLink size={15} aria-hidden="true" />
-            <span>{lang === "vi" ? "Xem Bản Web Tương Tác" : "View Interactive Web"}</span>
-          </a>
-        </div>
-      </div>
     </section>
   );
 }

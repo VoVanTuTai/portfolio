@@ -2,9 +2,19 @@ import type { IconComponent, Language, LocalizedList, LocalizedText } from "./co
 
 export interface ProjectManagementSectionProps {
   lang: Language;
+  isStudio?: boolean;
+  activeItemSlug?: string;
 }
 
-export type PmTabId = "lifecycle" | "gantt" | "cr-flow" | "risk-matrix";
+export type PmTabId =
+  | "process-model"
+  | "billing"
+  | "cpm"
+  | "gantt"
+  | "evm"
+  | "lifecycle"
+  | "cr-flow"
+  | "risk-matrix";
 export type GanttFilter = "all" | "critical" | "sprint" | "milestone";
 
 export interface GanttTask {
