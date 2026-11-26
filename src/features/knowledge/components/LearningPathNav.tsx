@@ -15,6 +15,9 @@ export function LearningPathNav({ currentPath, navigate }: LearningPathNavProps)
         <BookOpen size={16} aria-hidden="true" />
         Lộ trình
       </a>
+      <a href="/studio" onClick={(event) => navigate(event, "/studio")} style={{ color: "#2563eb", fontWeight: 750 }}>
+        ⚡ Studio 3 Cột
+      </a>
       <div>
         {learningPath.map((lesson) => (
           <a

@@ -11,14 +11,15 @@
   font-family: var(--studio-font-sans);
   display: flex;
   flex-direction: column;
-  overflow-x: hidden;
+  overflow-x: clip;
+  position: relative;
 }
 
 /* 1. Studio Topbar */
 .studioTopbar {
   position: sticky;
   top: 0;
-  z-index: 60;
+  z-index: 100;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -26,11 +27,11 @@
   width: 100%;
   height: 60px;
   padding: 0 24px;
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1.5px solid var(--studio-line);
-  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03);
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
 }
 
 .topbarLeft {
@@ -64,10 +65,10 @@
 }
 
 .brandName {
-  font-family: var(--studio-font-mono);
-  font-size: 14px;
-  font-weight: 800;
-  letter-spacing: -0.01em;
+  font-family: var(--studio-font-sans);
+  font-size: 15px;
+  font-weight: 850;
+  letter-spacing: -0.02em;
   color: var(--studio-ink);
   line-height: 1.2;
 }
@@ -195,6 +196,28 @@
   background: var(--blue-50);
 }
 
+.hamburgerBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  border: 1.5px solid var(--studio-line);
+  background: #ffffff;
+  color: var(--studio-ink);
+  cursor: pointer;
+  transition: all 140ms ease;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+}
+
+.hamburgerBtn:hover {
+  border-color: var(--blue-400);
+  color: var(--blue-600);
+  background: var(--blue-50);
+  transform: translateY(-1px);
+}
+
 .mobileMenuToggle {
   display: none;
   align-items: center;
@@ -212,10 +235,11 @@
 .studioWorkspace {
   flex: 1;
   display: grid;
-  grid-template-columns: 280px minmax(0, 1fr) 350px;
+  grid-template-columns: 290px minmax(0, 1fr) 340px;
   align-items: start;
   width: 100%;
   min-height: calc(100vh - 60px);
+  padding-bottom: 96px;
 }
 
 /* 3. Left Sidebar */
@@ -230,6 +254,169 @@
   flex-direction: column;
 }
 
+/* Sidebar Candidate Avatar Profile Card */
+.sidebarProfileCard {
+  padding: 14px 16px;
+  background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+  border-bottom: 1.5px solid var(--studio-line);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.sidebarProfileHead {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sidebarAvatarWrap {
+  position: relative;
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+}
+
+.sidebarAvatarImg {
+  width: 38px;
+  height: 38px;
+  border-radius: 9px;
+  border: 1.5px solid #2563eb;
+  object-fit: cover;
+  object-position: center 32%;
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.15);
+}
+
+.sidebarAvatarDot {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #16a34a;
+  border: 1.5px solid #ffffff;
+  box-shadow: 0 0 5px rgba(22, 163, 74, 0.6);
+}
+
+.sidebarProfileInfo {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.sidebarProfileNameRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sidebarProfileName {
+  font-family: var(--studio-font-sans);
+  font-size: 13.5px;
+  font-weight: 850;
+  color: var(--studio-ink);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sidebarRoleBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  font-family: var(--studio-font-mono);
+  font-size: 9px;
+  font-weight: 800;
+  color: #1d4ed8;
+}
+
+.sidebarProfileSub {
+  font-size: 11px;
+  color: #64748b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sidebarProfileItems {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sidebarProfileItemBtn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 10px;
+  border-radius: 7px;
+  border: 1px solid var(--studio-line);
+  background: #f8fafc;
+  color: #334155;
+  cursor: pointer;
+  transition: all 130ms ease;
+  font-family: var(--studio-font-sans);
+  text-align: left;
+}
+
+.sidebarProfileItemBtn:hover {
+  background: #eff6ff;
+  border-color: #bfdbfe;
+  color: #1d4ed8;
+}
+
+.sidebarProfileItemBtn.isActive {
+  background: #2563eb;
+  border-color: #1d4ed8;
+  color: #ffffff;
+  font-weight: 750;
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.22);
+}
+
+.profileItemLeft {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-width: 0;
+}
+
+.profileItemIcon {
+  flex-shrink: 0;
+}
+
+.profileItemText {
+  font-size: 11.5px;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.profileItemBadge {
+  font-family: var(--studio-font-mono);
+  font-size: 9px;
+  font-weight: 750;
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #64748b;
+  flex-shrink: 0;
+}
+
+.sidebarProfileItemBtn.isActive .profileItemBadge {
+  background: rgba(255, 255, 255, 0.22);
+  color: #ffffff;
+  border-color: transparent;
+}
+
 .sidebarHead {
   padding: 16px;
   border-bottom: 1px solid var(--studio-line);
@@ -239,12 +426,11 @@
 }
 
 .sidebarTitle {
-  font-family: var(--studio-font-mono);
-  font-size: 12.5px;
+  font-family: var(--studio-font-sans);
+  font-size: 13px;
   font-weight: 850;
   color: var(--studio-ink);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: -0.01em;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -265,6 +451,7 @@
 }
 
 .moduleSection {
+  flex-shrink: 0;
   border-radius: var(--studio-radius-md);
   border: 1px solid var(--studio-line);
   background: var(--studio-card);
@@ -306,9 +493,10 @@
 }
 
 .moduleTitleText {
-  font-family: var(--studio-font-mono);
-  font-size: 11.5px;
-  font-weight: 800;
+  font-family: var(--studio-font-sans);
+  font-size: 12px;
+  font-weight: 750;
+  letter-spacing: -0.01em;
   color: var(--studio-ink);
   white-space: nowrap;
   overflow: hidden;
@@ -354,8 +542,8 @@
   cursor: pointer;
   text-align: left;
   transition: all 120ms ease;
-  font-family: var(--studio-font-mono);
-  font-size: 11px;
+  font-family: var(--studio-font-sans);
+  font-size: 12px;
   color: var(--studio-muted);
 }
 
@@ -436,12 +624,12 @@
 
 .lessonHeading {
   margin: 0;
-  font-family: var(--studio-font-mono);
-  font-size: clamp(22px, 2.5vw, 32px);
-  font-weight: 900;
-  letter-spacing: -0.025em;
+  font-family: var(--studio-font-sans);
+  font-size: clamp(24px, 2.8vw, 34px);
+  font-weight: 850;
+  letter-spacing: -0.03em;
   color: var(--studio-ink);
-  line-height: 1.25;
+  line-height: 1.2;
 }
 
 .lessonSubtitle {
@@ -506,9 +694,10 @@
 .canvasInnerStage {
   flex: 1;
   position: relative;
-  display: grid;
-  place-items: center;
-  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
 }
 
 .canvasLegendRow {
@@ -800,14 +989,459 @@
   color: var(--studio-muted-2);
 }
 
+/* ==========================================================================
+   8. MACBOOK DOCK FLOATING TOOLBAR FOOTER
+   ========================================================================== */
+.inFlowFooterText {
+  text-align: center;
+  padding: 24px 16px 20px;
+  color: #94a3b8;
+  font-family: var(--studio-font-mono);
+  font-size: 11.5px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  border-top: 1px solid var(--studio-line-soft);
+  background: transparent;
+}
+
+.inFlowDivider {
+  color: #cbd5e1;
+}
+
+/* Floating macOS Dock Island */
+.macDockContainer {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 85;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(24px) saturate(190%);
+  -webkit-backdrop-filter: blur(24px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow:
+    0 16px 36px -6px rgba(15, 23, 42, 0.16),
+    0 4px 14px rgba(15, 23, 42, 0.06),
+    0 0 0 1px rgba(203, 213, 225, 0.65),
+    inset 0 1px 1px rgba(255, 255, 255, 0.95);
+  transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 220ms ease;
+  user-select: none;
+}
+
+.macDockContainer:hover {
+  box-shadow:
+    0 20px 44px -4px rgba(15, 23, 42, 0.2),
+    0 6px 18px rgba(15, 23, 42, 0.08),
+    0 0 0 1px rgba(148, 163, 184, 0.75),
+    inset 0 1px 1px rgba(255, 255, 255, 1);
+}
+
+/* Dock Item Wrapper */
+.dockItemWrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* macOS Squircle Dock Button */
+.dockItemBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  background: #ffffff;
+  color: #334155;
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+  transition: transform 180ms cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 180ms ease, background 140ms ease;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+}
+
+.dockItemBtn:hover {
+  transform: translateY(-5px) scale(1.15);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.16);
+  z-index: 2;
+}
+
+.dockItemBtn:active {
+  transform: translateY(-2px) scale(1.05);
+}
+
+/* App Variants */
+.dockAvatarBtn {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  width: 38px;
+  height: 38px;
+}
+
+.dockPhoneBtn {
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  border-color: #bbf7d0;
+  color: #16a34a;
+}
+.dockPhoneBtn:hover {
+  border-color: #86efac;
+  color: #15803d;
+}
+
+.dockMailBtn {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  border-color: #bae6fd;
+  color: #0284c7;
+}
+.dockMailBtn:hover {
+  border-color: #7dd3fc;
+  color: #0369a1;
+}
+
+.dockLinkedinBtn {
+  background: linear-gradient(135deg, #f0f6ff 0%, #dbeafe 100%);
+  border-color: #bfdbfe;
+  color: #0077b5;
+}
+.dockLinkedinBtn:hover {
+  border-color: #93c5fd;
+  color: #005582;
+}
+
+.dockGithubBtn {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border-color: #cbd5e1;
+  color: #0f172a;
+}
+.dockGithubBtn:hover {
+  border-color: #94a3b8;
+  color: #000000;
+}
+
+.dockCvBtn {
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+  border-color: #bfdbfe;
+  color: #2563eb;
+  font-family: var(--studio-font-mono);
+  font-size: 11px;
+  font-weight: 850;
+  gap: 2px;
+}
+
+.dockCvEnBtn {
+  background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+  border-color: #ddd6fe;
+  color: #7c3aed;
+  font-family: var(--studio-font-mono);
+  font-size: 11px;
+  font-weight: 850;
+  gap: 2px;
+}
+
+.dockOmsBtn {
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  border-color: #bbf7d0;
+  color: #059669;
+}
+
+.dockSearchBtn {
+  background: #ffffff;
+  border-color: #e2e8f0;
+  color: #475569;
+}
+
+.dockTopBtn {
+  background: #ffffff;
+  border-color: #e2e8f0;
+  color: #475569;
+}
+
+/* Vertical Dock Divider */
+.dockDivider {
+  width: 1px;
+  height: 24px;
+  background: rgba(203, 213, 225, 0.7);
+  margin: 0 3px;
+  flex-shrink: 0;
+}
+
+/* Active running app indicator dot */
+.dockActiveDot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #64748b;
+  margin-top: 3px;
+  opacity: 0.7;
+}
+
+/* Floating macOS Pill Tooltip */
+.dockTooltip {
+  position: absolute;
+  bottom: 54px;
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background: rgba(15, 23, 42, 0.94);
+  color: #ffffff;
+  font-family: var(--studio-font-sans);
+  font-size: 11px;
+  font-weight: 750;
+  padding: 5px 10px;
+  border-radius: 8px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 140ms ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.dockTooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 4px;
+  border-style: solid;
+  border-color: rgba(15, 23, 42, 0.94) transparent transparent transparent;
+}
+
+.dockItemWrap:hover .dockTooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
 /* 6. Responsive Breakpoints */
 @media (max-width: 1200px) {
   .studioWorkspace {
-    grid-template-columns: 240px minmax(0, 1fr) 300px;
+    grid-template-columns: 260px minmax(0, 1fr) 300px;
   }
 }
 
+.drawerCloseBtn {
+  display: none;
+}
+
+/* Typewriter Terminal Subtitle */
+.typewriterSubtitleWrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 12px;
+  border-radius: 8px;
+  background: #0f172a;
+  color: #38bdf8;
+  font-family: var(--font-mono, monospace);
+  font-size: 11.5px;
+  width: fit-content;
+  max-width: 100%;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.12);
+  margin-top: 4px;
+}
+
+.typewriterPrompt {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #34d399;
+  font-weight: 750;
+  flex-shrink: 0;
+}
+
+.typewriterPrefix {
+  color: #34d399;
+}
+
+.typewriterText {
+  color: #f8fafc;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.typewriterCursor {
+  display: inline-block;
+  width: 2px;
+  height: 13px;
+  background: #38bdf8;
+  margin-left: 2px;
+  animation: blinkCursor 1s step-end infinite;
+}
+
+@keyframes blinkCursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Floating Toast Notification */
+.floatingToast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 18px;
+  border-radius: 12px;
+  background: #0f172a;
+  color: #ffffff;
+  border: 1.5px solid rgba(59, 130, 246, 0.4);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.35), 0 0 16px rgba(37, 99, 235, 0.2);
+  animation: toastSlideUp 260ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  max-width: min(380px, 90vw);
+  overflow: hidden;
+  font-family: var(--studio-font-sans);
+}
+
+@keyframes toastSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.toastIconWrap {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(22, 163, 74, 0.15);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.toastBody {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  flex: 1;
+}
+
+.toastTitle {
+  font-size: 12.5px;
+  font-weight: 750;
+  color: #ffffff;
+}
+
+.toastContent {
+  font-size: 11.5px;
+  color: #94a3b8;
+  font-family: var(--font-mono, monospace);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.toastCloseBtn {
+  background: transparent;
+  border: none;
+  color: #64748b;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  display: grid;
+  place-items: center;
+  transition: all 120ms ease;
+  flex-shrink: 0;
+}
+
+.toastCloseBtn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.toastProgressBar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2.5px;
+  background: linear-gradient(90deg, #2563eb, #38bdf8);
+  width: 100%;
+  animation: toastProgress 2.5s linear forwards;
+}
+
+@keyframes toastProgress {
+  from { width: 100%; }
+  to { width: 0%; }
+}
+
 @media (max-width: 1024px) {
+  .drawerCloseBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    background: #ffffff;
+    color: #334155;
+    cursor: pointer;
+    margin-left: auto;
+  }
+
+  .drawerCloseBtn:hover {
+    background: #fee2e2;
+    color: #dc2626;
+    border-color: #fca5a5;
+  }
+
+  /* Apple HIG Touch Target Optimization: min 44px */
+  .sidebarProfileItemBtn {
+    min-height: 46px;
+    padding: 11px 12px;
+  }
+
+  .moduleHeaderBtn {
+    min-height: 46px;
+    padding: 11px 12px;
+  }
+
+  .lessonItemBtn {
+    min-height: 44px;
+    padding: 10px 12px;
+  }
+
+  .hamburgerBtn {
+    width: 44px;
+    height: 44px;
+  }
+
+  .floatingToast {
+    bottom: 82px;
+    right: 16px;
+    left: 16px;
+    max-width: none;
+  }
+
   .studioWorkspace {
     grid-template-columns: 1fr 340px;
   }
@@ -831,6 +1465,24 @@
     z-index: 55;
     box-shadow: 10px 0 30px rgba(15, 23, 42, 0.15);
   }
+
+  .drawerBackdrop {
+    display: block;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(15, 23, 42, 0.4);
+    backdrop-filter: blur(3px);
+    z-index: 50;
+    animation: fadeInBackdrop 160ms ease-out;
+  }
+
+  @keyframes fadeInBackdrop {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
 }
 
 @media (max-width: 768px) {
@@ -844,6 +1496,7 @@
 
   .studioWorkspace {
     grid-template-columns: 1fr;
+    padding-bottom: 84px;
   }
 
   .studioRail {
@@ -855,6 +1508,33 @@
   }
 
   .scrubberStepLabel {
+    display: none;
+  }
+
+  /* macOS Dock Mobile Responsiveness */
+  .macDockContainer {
+    bottom: max(10px, env(safe-area-inset-bottom, 10px));
+    max-width: calc(100vw - 16px);
+    padding: 4px 6px;
+    gap: 4px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .macDockContainer::-webkit-scrollbar {
+    display: none;
+  }
+
+  .dockItemBtn {
+    width: 38px;
+    height: 38px;
+    min-height: 44px;
+    min-width: 38px;
+    flex-shrink: 0;
+  }
+
+  .dockTooltip {
     display: none;
   }
 }

@@ -3,7 +3,7 @@ export interface TelemetryChip {
   label: string;
   value: string;
   level?: "good" | "warn" | "crit" | "blue" | "default";
-  iconName?: "clock" | "activity" | "cpu" | "database" | "server" | "layers" | "shield";
+  iconName?: "clock" | "activity" | "cpu" | "database" | "server" | "layers" | "shield" | "check" | "zap";
 }
 
 export interface StudioStep {
