@@ -6,7 +6,7 @@ interface NexusVietnamMap25dSimulatorProps {
   lang: Language;
 }
 
-export type HubCategory = "mega" | "provincial" | "spoke";
+export type HubCategory = "mega" | "provincial";
 export type RegionZone = "bac" | "trung" | "nam";
 
 export interface HubNode {
@@ -18,6 +18,7 @@ export interface HubNode {
   region: RegionZone;
   x: number;
   y: number;
+  labelPos: "left" | "right" | "top" | "bottom";
   areaM2: string;
   capacityH: string;
   docks: number;
@@ -35,7 +36,7 @@ export interface NetworkConnection {
   pathD: string;
 }
 
-// 22 Strategic Hubs across Vietnam: 3 Mega Hubs, 19 Provincial Sorting Hubs
+// 22 Strategic Hubs across Vietnam generously spaced on a 1040 x 760 canvas
 const VIETNAM_HUBS_EXPANDED: HubNode[] = [
   // ================= NORTHERN REGION (MIỀN BẮC) =================
   {
@@ -45,8 +46,9 @@ const VIETNAM_HUBS_EXPANDED: HubNode[] = [
     shortName: "HÀ NỘI (MEGA)",
     category: "mega",
     region: "bac",
-    x: 400,
+    x: 420,
     y: 110,
+    labelPos: "left",
     areaM2: "28,000 m²",
     capacityH: "75,000 kiện/h",
     docks: 52,
@@ -61,8 +63,9 @@ const VIETNAM_HUBS_EXPANDED: HubNode[] = [
     shortName: "Bắc Ninh",
     category: "provincial",
     region: "bac",
-    x: 430,
-    y: 85,
+    x: 460,
+    y: 65,
+    labelPos: "top",
     areaM2: "9,500 m²",
     capacityH: "22,000 kiện/h",
     docks: 18,
@@ -77,8 +80,9 @@ const VIETNAM_HUBS_EXPANDED: HubNode[] = [
     shortName: "Hải Phòng",
     category: "provincial",
     region: "bac",
-    x: 485,
-    y: 125,
+    x: 535,
+    y: 135,
+    labelPos: "right",
     areaM2: "11,000 m²",
     capacityH: "26,000 kiện/h",
     docks: 24,
@@ -93,8 +97,9 @@ const VIETNAM_HUBS_EXPANDED: HubNode[] = [
     shortName: "Quảng Ninh",
     category: "provincial",
     region: "bac",
-    x: 525,
-    y: 105,
+    x: 590,
+    y: 85,
+    labelPos: "right",
     areaM2: "6,500 m²",
     capacityH: "14,000 kiện/h",
     docks: 12,
@@ -110,7 +115,8 @@ const VIETNAM_HUBS_EXPANDED: HubNode[] = [
     category: "provincial",
     region: "bac",
     x: 395,
-    y: 175,
+    y: 185,
+    labelPos: "left",
     areaM2: "7,800 m²",
     capacityH: "18,000 kiện/h",
     docks: 16,
@@ -125,8 +131,9 @@ const VIETNAM_HUBS_EXPANDED: HubNode[] = [
     shortName: "Vinh",
     category: "provincial",
     region: "bac",
-    x: 415,
-    y: 220,
+    x: 430,
+    y: 245,
+    labelPos: "left",
     areaM2: "8,500 m²",
     capacityH: "19,000 kiện/h",
     docks: 18,
@@ -143,8 +150,9 @@ const VIETNAM_HUBS_EXPANDED: HubNode[] = [
     shortName: "Huế",
     category: "provincial",
     region: "trung",
-    x: 505,
-    y: 260,
+    x: 535,
+    y: 295,
+    labelPos: "left",
     areaM2: "6,200 m²",
     capacityH: "13,000 kiện/h",
     docks: 12,
@@ -159,8 +167,9 @@ const VIETNAM_HUBS_EXPANDED: HubNode[] = [
     shortName: "ĐÀ NẴNG (MEGA)",
     category: "mega",
     region: "trung",
-    x: 545,
-    y: 290,
+    x: 585,
+    y: 340,
+    labelPos: "right",
     areaM2: "18,000 m²",
     capacityH: "42,000 kiện/h",
     docks: 36,
@@ -175,8 +184,9 @@ const VIETNAM_HUBS_EXPANDED: HubNode[] = [
     shortName: "Quảng Ngãi",
     category: "provincial",
     region: "trung",
-    x: 585,
-    y: 330,
+    x: 640,
+    y: 385,
+    labelPos: "right",
     areaM2: "6,000 m²",
     capacityH: "12,000 kiện/h",
     docks: 12,
@@ -191,8 +201,9 @@ const VIETNAM_HUBS_EXPANDED: HubNode[] = [
     shortName: "Pleiku",
     category: "provincial",
     region: "trung",
-    x: 535,
-    y: 360,
+    x: 545,
+    y: 420,
+    labelPos: "left",
     areaM2: "5,800 m²",
     capacityH: "11,000 kiện/h",
     docks: 10,
@@ -207,8 +218,9 @@ const VIETNAM_HUBS_EXPANDED: HubNode[] = [
     shortName: "Quy Nhơn",
     category: "provincial",
     region: "trung",
-    x: 620,
-    y: 370,
+    x: 695,
+    y: 430,
+    labelPos: "right",
     areaM2: "7,500 m²",
     capacityH: "16,000 kiện/h",
     docks: 14,
@@ -223,8 +235,9 @@ const VIETNAM_HUBS_EXPANDED: HubNode[] = [
     shortName: "Buôn Ma Thuột",
     category: "provincial",
     region: "trung",
-    x: 550,
-    y: 415,
+    x: 580,
+    y: 485,
+    labelPos: "left",
     areaM2: "7,200 m²",
     capacityH: "15,000 kiện/h",
     docks: 14,
@@ -239,8 +252,9 @@ const VIETNAM_HUBS_EXPANDED: HubNode[] = [
     shortName: "Nha Trang",
     category: "provincial",
     region: "trung",
-    x: 635,
-    y: 420,
+    x: 720,
+    y: 490,
+    labelPos: "right",
     areaM2: "8,000 m²",
     capacityH: "17,000 kiện/h",
     docks: 16,
@@ -255,8 +269,9 @@ const VIETNAM_HUBS_EXPANDED: HubNode[] = [
     shortName: "Phan Thiết",
     category: "provincial",
     region: "trung",
-    x: 595,
-    y: 475,
+    x: 670,
+    y: 550,
+    labelPos: "right",
     areaM2: "5,500 m²",
     capacityH: "12,000 kiện/h",
     docks: 10,
@@ -273,8 +288,9 @@ const VIETNAM_HUBS_EXPANDED: HubNode[] = [
     shortName: "Bình Dương",
     category: "provincial",
     region: "nam",
-    x: 505,
-    y: 465,
+    x: 545,
+    y: 545,
+    labelPos: "left",
     areaM2: "22,000 m²",
     capacityH: "55,000 kiện/h",
     docks: 40,
@@ -289,8 +305,9 @@ const VIETNAM_HUBS_EXPANDED: HubNode[] = [
     shortName: "Biên Hòa",
     category: "provincial",
     region: "nam",
-    x: 550,
-    y: 480,
+    x: 615,
+    y: 565,
+    labelPos: "right",
     areaM2: "12,000 m²",
     capacityH: "28,000 kiện/h",
     docks: 22,
@@ -305,8 +322,9 @@ const VIETNAM_HUBS_EXPANDED: HubNode[] = [
     shortName: "TP.HCM (MEGA)",
     category: "mega",
     region: "nam",
-    x: 520,
-    y: 505,
+    x: 575,
+    y: 605,
+    labelPos: "left",
     areaM2: "38,000 m²",
     capacityH: "105,000 kiện/h",
     docks: 68,
@@ -321,8 +339,9 @@ const VIETNAM_HUBS_EXPANDED: HubNode[] = [
     shortName: "Vũng Tàu",
     category: "provincial",
     region: "nam",
-    x: 565,
-    y: 535,
+    x: 650,
+    y: 630,
+    labelPos: "right",
     areaM2: "6,000 m²",
     capacityH: "13,000 kiện/h",
     docks: 12,
@@ -337,8 +356,9 @@ const VIETNAM_HUBS_EXPANDED: HubNode[] = [
     shortName: "Long An",
     category: "provincial",
     region: "nam",
-    x: 480,
-    y: 530,
+    x: 515,
+    y: 630,
+    labelPos: "left",
     areaM2: "8,500 m²",
     capacityH: "20,000 kiện/h",
     docks: 16,
@@ -353,8 +373,9 @@ const VIETNAM_HUBS_EXPANDED: HubNode[] = [
     shortName: "Tiền Giang",
     category: "provincial",
     region: "nam",
-    x: 465,
-    y: 555,
+    x: 490,
+    y: 660,
+    labelPos: "left",
     areaM2: "6,800 m²",
     capacityH: "15,000 kiện/h",
     docks: 14,
@@ -369,8 +390,9 @@ const VIETNAM_HUBS_EXPANDED: HubNode[] = [
     shortName: "Cần Thơ",
     category: "provincial",
     region: "nam",
-    x: 435,
-    y: 580,
+    x: 450,
+    y: 690,
+    labelPos: "left",
     areaM2: "12,500 m²",
     capacityH: "28,000 kiện/h",
     docks: 24,
@@ -385,8 +407,9 @@ const VIETNAM_HUBS_EXPANDED: HubNode[] = [
     shortName: "Cà Mau",
     category: "provincial",
     region: "nam",
-    x: 405,
-    y: 625,
+    x: 410,
+    y: 730,
+    labelPos: "left",
     areaM2: "5,000 m²",
     capacityH: "9,500 kiện/h",
     docks: 10,
@@ -396,53 +419,52 @@ const VIETNAM_HUBS_EXPANDED: HubNode[] = [
   },
 ];
 
-// Rich Spiderweb Network Connections with Directional Arrows
+// Generous, clearly routed connections with Directional Arrow markers
 const NETWORK_CONNECTIONS: NetworkConnection[] = [
-  // --- National Air Cargo Arteries (Express Flight) ---
-  { id: "air-han-dad", from: "hub-han", to: "hub-dad", type: "air", label: "Express Hàng Không HAN-DAD (1.5h)", pathD: "M 400 110 Q 510 190 545 290" },
-  { id: "air-dad-sgn", from: "hub-dad", to: "hub-sgn", type: "air", label: "Express Hàng Không DAD-SGN (1.5h)", pathD: "M 545 290 Q 580 390 520 505" },
-  { id: "air-han-sgn", from: "hub-han", to: "hub-sgn", type: "air", label: "Express Hàng Không HAN-SGN (2h)", pathD: "M 400 110 Q 610 280 520 505" },
+  // --- National Air Cargo Express Arteries ---
+  { id: "air-han-dad", from: "hub-han", to: "hub-dad", type: "air", label: "Express Air HAN-DAD", pathD: "M 420 110 Q 540 210 585 340" },
+  { id: "air-dad-sgn", from: "hub-dad", to: "hub-sgn", type: "air", label: "Express Air DAD-SGN", pathD: "M 585 340 Q 640 460 575 605" },
+  { id: "air-han-sgn", from: "hub-han", to: "hub-sgn", type: "air", label: "Express Air HAN-SGN", pathD: "M 420 110 Q 690 320 575 605" },
 
   // --- Northern Spiderweb Lines ---
-  { id: "feeder-han-bnh", from: "hub-han", to: "hub-bnh", type: "feeder", label: "Tuyến KCN Bắc Ninh", pathD: "M 400 110 L 430 85" },
-  { id: "feeder-bnh-qnh", from: "hub-bnh", to: "hub-qnh", type: "feeder", label: "Trục Bắc Ninh - Hạ Long", pathD: "M 430 85 L 525 105" },
-  { id: "feeder-han-hph", from: "hub-han", to: "hub-hph", type: "trunk", label: "Cao Tốc Hà Nội - Hải Phòng", pathD: "M 400 110 L 485 125" },
-  { id: "feeder-hph-qnh", from: "hub-hph", to: "hub-qnh", type: "feeder", label: "Cảng Hải Phòng - Quảng Ninh", pathD: "M 485 125 L 525 105" },
-  { id: "feeder-han-tha", from: "hub-han", to: "hub-tha", type: "trunk", label: "Cao Tốc Bắc - Nam (Ninh Bình - Thanh Hóa)", pathD: "M 400 110 L 395 175" },
-  { id: "feeder-tha-vii", from: "hub-tha", to: "hub-vii", type: "trunk", label: "Trục Thanh Hóa - Nghệ An", pathD: "M 395 175 L 415 220" },
+  { id: "feeder-han-bnh", from: "hub-han", to: "hub-bnh", type: "feeder", label: "Hà Nội -> Bắc Ninh", pathD: "M 420 110 L 460 65" },
+  { id: "feeder-bnh-qnh", from: "hub-bnh", to: "hub-qnh", type: "feeder", label: "Bắc Ninh -> Quảng Ninh", pathD: "M 460 65 L 590 85" },
+  { id: "feeder-han-hph", from: "hub-han", to: "hub-hph", type: "trunk", label: "Cao Tốc Hà Nội - Hải Phòng", pathD: "M 420 110 L 535 135" },
+  { id: "feeder-hph-qnh", from: "hub-hph", to: "hub-qnh", type: "feeder", label: "Hải Phòng -> Quảng Ninh", pathD: "M 535 135 L 590 85" },
+  { id: "feeder-han-tha", from: "hub-han", to: "hub-tha", type: "trunk", label: "Cao Tốc Hà Nội - Thanh Hóa", pathD: "M 420 110 L 395 185" },
+  { id: "feeder-tha-vii", from: "hub-tha", to: "hub-vii", type: "trunk", label: "Thanh Hóa -> Vinh", pathD: "M 395 185 L 430 245" },
 
   // --- Central & Highlands Spiderweb Lines ---
-  { id: "feeder-vii-hue", from: "hub-vii", to: "hub-hue", type: "trunk", label: "Trục Nghệ An - Hà Tĩnh - Huế", pathD: "M 415 220 L 505 260" },
-  { id: "feeder-hue-dad", from: "hub-hue", to: "hub-dad", type: "trunk", label: "Hầm Hải Vân (Huế - Đà Nẵng)", pathD: "M 505 260 L 545 290" },
-  { id: "feeder-dad-qng", from: "hub-dad", to: "hub-qng", type: "trunk", label: "Cao Tốc Đà Nẵng - Quảng Ngãi", pathD: "M 545 290 L 585 330" },
-  { id: "feeder-qng-qnh", from: "hub-qng", to: "hub-qnh-bd", type: "trunk", label: "Trục Quảng Ngãi - Quy Nhơn", pathD: "M 585 330 L 620 370" },
-  { id: "feeder-qnh-plk", from: "hub-qnh-bd", to: "hub-plk", type: "highland", label: "QL19 Quy Nhơn - Pleiku", pathD: "M 620 370 L 535 360" },
-  { id: "feeder-plk-bmt", from: "hub-plk", to: "hub-bmt", type: "highland", label: "Trục Tây Nguyên Pleiku - BMT", pathD: "M 535 360 L 550 415" },
-  { id: "feeder-bmt-nha", from: "hub-bmt", to: "hub-nha", type: "highland", label: "Đèo Phượng Hoàng (BMT - Nha Trang)", pathD: "M 550 415 L 635 420" },
-  { id: "feeder-qnh-nha", from: "hub-qnh-bd", to: "hub-nha", type: "trunk", label: "QL1A Bình Định - Phú Yên - Nha Trang", pathD: "M 620 370 L 635 420" },
-  { id: "feeder-nha-pth", from: "hub-nha", to: "hub-pth", type: "trunk", label: "Cao Tốc Nha Trang - Phan Thiết", pathD: "M 635 420 L 595 475" },
-  { id: "feeder-bmt-sgn", from: "hub-bmt", to: "hub-sgn", type: "highland", label: "QL14 Buôn Ma Thuột - TP.HCM", pathD: "M 550 415 L 520 505" },
+  { id: "feeder-vii-hue", from: "hub-vii", to: "hub-hue", type: "trunk", label: "Vinh -> Huế", pathD: "M 430 245 L 535 295" },
+  { id: "feeder-hue-dad", from: "hub-hue", to: "hub-dad", type: "trunk", label: "Hầm Hải Vân (Huế -> Đà Nẵng)", pathD: "M 535 295 L 585 340" },
+  { id: "feeder-dad-qng", from: "hub-dad", to: "hub-qng", type: "trunk", label: "Đà Nẵng -> Quảng Ngãi", pathD: "M 585 340 L 640 385" },
+  { id: "feeder-qng-qnh", from: "hub-qng", to: "hub-qnh-bd", type: "trunk", label: "Quảng Ngãi -> Quy Nhơn", pathD: "M 640 385 L 695 430" },
+  { id: "feeder-qnh-plk", from: "hub-qnh-bd", to: "hub-plk", type: "highland", label: "QL19 Quy Nhơn -> Pleiku", pathD: "M 695 430 L 545 420" },
+  { id: "feeder-plk-bmt", from: "hub-plk", to: "hub-bmt", type: "highland", label: "Pleiku -> Buôn Ma Thuột", pathD: "M 545 420 L 580 485" },
+  { id: "feeder-bmt-nha", from: "hub-bmt", to: "hub-nha", type: "highland", label: "Đèo Phượng Hoàng -> Nha Trang", pathD: "M 580 485 L 720 490" },
+  { id: "feeder-qnh-nha", from: "hub-qnh-bd", to: "hub-nha", type: "trunk", label: "Quy Nhơn -> Nha Trang", pathD: "M 695 430 L 720 490" },
+  { id: "feeder-nha-pth", from: "hub-nha", to: "hub-pth", type: "trunk", label: "Nha Trang -> Phan Thiết", pathD: "M 720 490 L 670 550" },
+  { id: "feeder-bmt-sgn", from: "hub-bmt", to: "hub-sgn", type: "highland", label: "QL14 Buôn Ma Thuột -> TP.HCM", pathD: "M 580 485 L 575 605" },
 
   // --- Southern & Mekong Spiderweb Lines ---
-  { id: "feeder-pth-bho", from: "hub-pth", to: "hub-bho", type: "trunk", label: "Cao Tốc Phan Thiết - Dầu Giây", pathD: "M 595 475 L 550 480" },
-  { id: "feeder-bdg-sgn", from: "hub-bdg", to: "hub-sgn", type: "trunk", label: "Đại Lộ Bình Dương - TP.HCM", pathD: "M 505 465 L 520 505" },
-  { id: "feeder-bho-sgn", from: "hub-bho", to: "hub-sgn", type: "trunk", label: "Xa Lộ Hà Nội (Đồng Nai - TP.HCM)", pathD: "M 550 480 L 520 505" },
-  { id: "feeder-bho-vtu", from: "hub-bho", to: "hub-vtu", type: "feeder", label: "QL51 Biên Hòa - Vũng Tàu", pathD: "M 550 480 L 565 535" },
-  { id: "feeder-sgn-vtu", from: "hub-sgn", to: "hub-vtu", type: "feeder", label: "Cao Tốc TP.HCM - Long Thành - Vũng Tàu", pathD: "M 520 505 L 565 535" },
-  { id: "feeder-sgn-lan", from: "hub-sgn", to: "hub-lan", type: "trunk", label: "Cao Tốc Trung Lương (TP.HCM - Long An)", pathD: "M 520 505 L 480 530" },
-  { id: "feeder-lan-tgg", from: "hub-lan", to: "hub-tgg", type: "trunk", label: "Trục Long An - Tiền Giang", pathD: "M 480 530 L 465 555" },
-  { id: "feeder-tgg-vca", from: "hub-tgg", to: "hub-vca", type: "trunk", label: "Cầu Mỹ Thuận - Cần Thơ", pathD: "M 465 555 L 435 580" },
-  { id: "feeder-vca-cmu", from: "hub-vca", to: "hub-cmu", type: "feeder", label: "Trục Quản Lộ Phụng Hiệp - Cà Mau", pathD: "M 435 580 L 405 625" },
+  { id: "feeder-pth-bho", from: "hub-pth", to: "hub-bho", type: "trunk", label: "Phan Thiết -> Biên Hòa", pathD: "M 670 550 L 615 565" },
+  { id: "feeder-bdg-sgn", from: "hub-bdg", to: "hub-sgn", type: "trunk", label: "Bình Dương -> TP.HCM", pathD: "M 545 545 L 575 605" },
+  { id: "feeder-bho-sgn", from: "hub-bho", to: "hub-sgn", type: "trunk", label: "Biên Hòa -> TP.HCM", pathD: "M 615 565 L 575 605" },
+  { id: "feeder-bho-vtu", from: "hub-bho", to: "hub-vtu", type: "feeder", label: "Biên Hòa -> Vũng Tàu", pathD: "M 615 565 L 650 630" },
+  { id: "feeder-sgn-vtu", from: "hub-sgn", to: "hub-vtu", type: "feeder", label: "TP.HCM -> Vũng Tàu", pathD: "M 575 605 L 650 630" },
+  { id: "feeder-sgn-lan", from: "hub-sgn", to: "hub-lan", type: "trunk", label: "TP.HCM -> Long An", pathD: "M 575 605 L 515 630" },
+  { id: "feeder-lan-tgg", from: "hub-lan", to: "hub-tgg", type: "trunk", label: "Long An -> Tiền Giang", pathD: "M 515 630 L 490 660" },
+  { id: "feeder-tgg-vca", from: "hub-tgg", to: "hub-vca", type: "trunk", label: "Tiền Giang -> Cần Thơ", pathD: "M 490 660 L 450 690" },
+  { id: "feeder-vca-cmu", from: "hub-vca", to: "hub-cmu", type: "feeder", label: "Cần Thơ -> Cà Mau", pathD: "M 450 690 L 410 730" },
 ];
 
 export function NexusVietnamMap25dSimulator({ lang }: NexusVietnamMap25dSimulatorProps) {
   const [isPlaying, setIsPlaying] = useState(true);
   const [activeHubId, setActiveHubId] = useState<string>("hub-sgn");
-  const [filterMode, setFilterMode] = useState<"all" | "mega" | "linehaul" | "air">("all");
+  const [filterMode, setFilterMode] = useState<"all" | "linehaul" | "air">("all");
 
   const selectedHub = VIETNAM_HUBS_EXPANDED.find((h) => h.id === activeHubId) || VIETNAM_HUBS_EXPANDED[16];
 
-  // Filter connections based on active mode
   const filteredConnections = NETWORK_CONNECTIONS.filter((conn) => {
     if (filterMode === "air") return conn.type === "air";
     if (filterMode === "linehaul") return conn.type === "trunk" || conn.type === "air";
@@ -452,18 +474,18 @@ export function NexusVietnamMap25dSimulator({ lang }: NexusVietnamMap25dSimulato
   return (
     <div
       style={{
-        borderRadius: "12px",
-        background: "radial-gradient(ellipse at 50% 15%, #0b1329 0%, #030712 100%)",
-        border: "1.5px solid #1e293b",
-        color: "#f8fafc",
+        borderRadius: "14px",
+        background: "#ffffff",
+        border: "1.5px solid #cbd5e1",
+        color: "#0f172a",
         padding: "20px",
-        boxShadow: "0 10px 35px rgba(0, 0, 0, 0.5)",
+        boxShadow: "0 8px 30px rgba(15, 23, 42, 0.08)",
         display: "flex",
         flexDirection: "column",
         gap: "16px",
       }}
     >
-      {/* 1. Top Control Bar */}
+      {/* 1. Top Control Bar (Clean Light Theme) */}
       <div
         style={{
           display: "flex",
@@ -471,7 +493,7 @@ export function NexusVietnamMap25dSimulator({ lang }: NexusVietnamMap25dSimulato
           alignItems: "center",
           flexWrap: "wrap",
           gap: "12px",
-          borderBottom: "1px solid rgba(148, 163, 184, 0.15)",
+          borderBottom: "1.5px solid #e2e8f0",
           paddingBottom: "14px",
         }}
       >
@@ -482,41 +504,41 @@ export function NexusVietnamMap25dSimulator({ lang }: NexusVietnamMap25dSimulato
                 fontFamily: "var(--studio-font-mono)",
                 fontSize: "11px",
                 fontWeight: 850,
-                color: "#38bdf8",
+                color: "#0284c7",
                 letterSpacing: "0.06em",
                 textTransform: "uppercase",
               }}
             >
-              2.5D SPIDERWEB LOGISTICS TOPOLOGY · VIETNAM MESH GRID
+              2.5D BLUEPRINT TOPOLOGY · HIGH-CONTRAST MESH
             </span>
             <span
               style={{
                 display: "inline-flex",
                 alignItems: "center",
                 gap: "5px",
-                fontSize: "10px",
+                fontSize: "10.5px",
                 fontWeight: 800,
-                color: "#4ade80",
-                background: "rgba(34, 197, 94, 0.15)",
-                border: "1px solid rgba(34, 197, 94, 0.35)",
-                padding: "2px 7px",
-                borderRadius: "4px",
+                color: "#15803d",
+                background: "#dcfce7",
+                border: "1px solid #86efac",
+                padding: "2px 8px",
+                borderRadius: "5px",
               }}
             >
-              <Radio size={10} className="pulse-dot" /> 22 HUBS ONLINE
+              <Radio size={11} className="pulse-dot" /> 22 HUBS ONLINE
             </span>
           </div>
-          <h3 style={{ margin: "4px 0 0 0", fontSize: "16.5px", color: "#ffffff", fontWeight: 750 }}>
+          <h3 style={{ margin: "4px 0 0 0", fontSize: "17px", color: "#0f172a", fontWeight: 800 }}>
             {lang === "vi"
               ? "Mạng Nhện Điều Phối Bưu Kiện Toàn Quốc: 3 Mega Hubs & 19 Hub Tỉnh Kèm Mũi Tên Chỉ Hướng"
               : "National Mesh Topology: 3 Mega Hubs, 19 Provincial Centers & Directional Routing"}
           </h3>
         </div>
 
-        {/* View Filters & Animation Controls */}
+        {/* View Filters & Controls */}
         <div style={{ display: "flex", alignItems: "center", gap: "8px", flexWrap: "wrap" }}>
           {/* Mode Tabs */}
-          <div style={{ display: "flex", gap: "3px", background: "rgba(15, 23, 42, 0.7)", padding: "3px", borderRadius: "6px", border: "1px solid #334155" }}>
+          <div style={{ display: "flex", gap: "4px", background: "#f1f5f9", padding: "4px", borderRadius: "8px", border: "1px solid #cbd5e1" }}>
             {[
               { id: "all", label: lang === "vi" ? "🕸️ Mạng Nhện Toàn Bộ" : "🕸️ Full Spiderweb" },
               { id: "linehaul", label: lang === "vi" ? "🚛 Trục Bộ QL1A" : "🚛 Highway Trunk" },
@@ -529,13 +551,14 @@ export function NexusVietnamMap25dSimulator({ lang }: NexusVietnamMap25dSimulato
                 style={{
                   border: "none",
                   background: filterMode === tab.id ? "#0284c7" : "transparent",
-                  color: filterMode === tab.id ? "#ffffff" : "#94a3b8",
-                  padding: "4px 10px",
-                  borderRadius: "4px",
+                  color: filterMode === tab.id ? "#ffffff" : "#475569",
+                  padding: "5px 12px",
+                  borderRadius: "6px",
                   fontSize: "11px",
                   fontWeight: 750,
                   cursor: "pointer",
                   transition: "all 0.15s ease",
+                  boxShadow: filterMode === tab.id ? "0 2px 4px rgba(2, 132, 199, 0.25)" : "none",
                 }}
               >
                 {tab.label}
@@ -550,17 +573,17 @@ export function NexusVietnamMap25dSimulator({ lang }: NexusVietnamMap25dSimulato
               display: "inline-flex",
               alignItems: "center",
               gap: "5px",
-              background: isPlaying ? "rgba(239, 68, 68, 0.15)" : "rgba(34, 197, 94, 0.15)",
-              color: isPlaying ? "#f87171" : "#4ade80",
-              border: `1px solid ${isPlaying ? "rgba(239, 68, 68, 0.3)" : "rgba(34, 197, 94, 0.3)"}`,
+              background: isPlaying ? "#fef2f2" : "#f0fdf4",
+              color: isPlaying ? "#dc2626" : "#16a34a",
+              border: `1.5px solid ${isPlaying ? "#fecaca" : "#bbf7d0"}`,
               padding: "6px 12px",
               borderRadius: "6px",
               fontSize: "11px",
-              fontWeight: 750,
+              fontWeight: 800,
               cursor: "pointer",
             }}
           >
-            {isPlaying ? <Pause size={12} /> : <Play size={12} />}
+            {isPlaying ? <Pause size={13} /> : <Play size={13} />}
             <span>{isPlaying ? (lang === "vi" ? "Tạm dừng" : "Pause") : (lang === "vi" ? "Chạy tiếp" : "Play")}</span>
           </button>
 
@@ -573,9 +596,9 @@ export function NexusVietnamMap25dSimulator({ lang }: NexusVietnamMap25dSimulato
             style={{
               display: "inline-flex",
               alignItems: "center",
-              background: "rgba(148, 163, 184, 0.1)",
-              color: "#cbd5e1",
-              border: "1px solid #334155",
+              background: "#ffffff",
+              color: "#334155",
+              border: "1.5px solid #cbd5e1",
               padding: "6px 10px",
               borderRadius: "6px",
               fontSize: "11px",
@@ -583,66 +606,70 @@ export function NexusVietnamMap25dSimulator({ lang }: NexusVietnamMap25dSimulato
             }}
             title="Reset view"
           >
-            <RotateCcw size={12} />
+            <RotateCcw size={13} />
           </button>
         </div>
       </div>
 
-      {/* 2. Main 2.5D SVG Canvas with Full Spiderweb */}
+      {/* 2. Main 2.5D SVG Canvas with Spacious Spacing & Bright Theme */}
       <div
         style={{
           width: "100%",
           position: "relative",
-          background: "#050914",
-          borderRadius: "8px",
+          background: "linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%)",
+          borderRadius: "10px",
           overflow: "hidden",
-          border: "1.5px solid rgba(56, 189, 248, 0.2)",
+          border: "1.5px solid #cbd5e1",
+          boxShadow: "inset 0 1px 3px rgba(15, 23, 42, 0.05)",
         }}
       >
         <svg
-          viewBox="0 0 960 660"
+          viewBox="0 0 1040 780"
           style={{ width: "100%", height: "auto", display: "block" }}
         >
           <defs>
-            {/* Gradients */}
-            <linearGradient id="vnMapBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#0f172a" stopOpacity="0.85" />
-              <stop offset="100%" stopColor="#020617" stopOpacity="0.95" />
+            {/* Soft Landmass Gradient (Light Blueprint) */}
+            <linearGradient id="vnMapLandGradLight" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#e0f2fe" stopOpacity="0.85" />
+              <stop offset="50%" stopColor="#f0f9ff" stopOpacity="0.95" />
+              <stop offset="100%" stopColor="#e2e8f0" stopOpacity="0.9" />
             </linearGradient>
 
-            <linearGradient id="megaHubTop" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#38bdf8" />
-              <stop offset="100%" stopColor="#0284c7" />
+            {/* Mega Hub Gradients (Deep Royal Blue) */}
+            <linearGradient id="megaHubTopLight" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#3b82f6" />
+              <stop offset="100%" stopColor="#1d4ed8" />
             </linearGradient>
-            <linearGradient id="megaHubSide" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#0369a1" />
-              <stop offset="100%" stopColor="#075985" />
+            <linearGradient id="megaHubSideLight" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#1e40af" />
+              <stop offset="100%" stopColor="#1e3a8a" />
             </linearGradient>
 
-            <linearGradient id="provincialTop" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#34d399" />
+            {/* Provincial Hub Gradients (Emerald Green) */}
+            <linearGradient id="provincialTopLight" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#10b981" />
               <stop offset="100%" stopColor="#059669" />
             </linearGradient>
-            <linearGradient id="provincialSide" x1="0%" y1="0%" x2="100%" y2="100%">
+            <linearGradient id="provincialSideLight" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#047857" />
-              <stop offset="100%" stopColor="#065f46" />
+              <stop offset="100%" stopColor="#064e3b" />
             </linearGradient>
 
-            {/* Directional Arrow Markers */}
+            {/* High-Contrast Directional Arrow Markers */}
             <marker
-              id="arrowCyan"
+              id="arrowTrunkBlue"
               viewBox="0 0 10 10"
               refX="6"
               refY="5"
-              markerWidth="5"
-              markerHeight="5"
+              markerWidth="5.5"
+              markerHeight="5.5"
               orient="auto-start-reverse"
             >
-              <path d="M 0 1 L 10 5 L 0 9 z" fill="#38bdf8" />
+              <path d="M 0 1.5 L 9 5 L 0 8.5 z" fill="#0284c7" />
             </marker>
 
             <marker
-              id="arrowGreen"
+              id="arrowFeederGreen"
               viewBox="0 0 10 10"
               refX="6"
               refY="5"
@@ -650,7 +677,7 @@ export function NexusVietnamMap25dSimulator({ lang }: NexusVietnamMap25dSimulato
               markerHeight="5"
               orient="auto-start-reverse"
             >
-              <path d="M 0 1 L 10 5 L 0 9 z" fill="#34d399" />
+              <path d="M 0 1.5 L 9 5 L 0 8.5 z" fill="#059669" />
             </marker>
 
             <marker
@@ -658,15 +685,15 @@ export function NexusVietnamMap25dSimulator({ lang }: NexusVietnamMap25dSimulato
               viewBox="0 0 10 10"
               refX="6"
               refY="5"
-              markerWidth="5"
-              markerHeight="5"
+              markerWidth="5.5"
+              markerHeight="5.5"
               orient="auto-start-reverse"
             >
-              <path d="M 0 1 L 10 5 L 0 9 z" fill="#f472b6" />
+              <path d="M 0 1.5 L 9 5 L 0 8.5 z" fill="#db2777" />
             </marker>
 
             <marker
-              id="arrowHighland"
+              id="arrowHighlandAmber"
               viewBox="0 0 10 10"
               refX="6"
               refY="5"
@@ -674,118 +701,107 @@ export function NexusVietnamMap25dSimulator({ lang }: NexusVietnamMap25dSimulato
               markerHeight="5"
               orient="auto-start-reverse"
             >
-              <path d="M 0 1 L 10 5 L 0 9 z" fill="#facc15" />
+              <path d="M 0 1.5 L 9 5 L 0 8.5 z" fill="#d97706" />
             </marker>
 
-            {/* Glowing Filters */}
-            <filter id="hubGlowEffect" x="-30%" y="-30%" width="160%" height="160%">
-              <feGaussianBlur stdDeviation="3.5" result="blur" />
-              <feMerge>
-                <feMergeNode in="blur" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
-            </filter>
-            <filter id="meshLineGlow" x="-20%" y="-20%" width="140%" height="140%">
-              <feGaussianBlur stdDeviation="1.5" result="blur" />
-              <feMerge>
-                <feMergeNode in="blur" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
+            {/* Drop Shadow Filter for Hubs */}
+            <filter id="hubShadowLight" x="-25%" y="-25%" width="150%" height="150%">
+              <feDropShadow dx="0" dy="3" stdDeviation="3" floodColor="#0f172a" floodOpacity="0.25" />
             </filter>
           </defs>
 
-          {/* Isometric Background Grid Pattern */}
-          <g stroke="rgba(51, 65, 85, 0.2)" strokeWidth="0.8" strokeDasharray="3 3">
-            {Array.from({ length: 17 }).map((_, i) => (
-              <line key={`vn-gx-${i}`} x1={i * 60} y1="0" x2={i * 60} y2="660" />
+          {/* Blueprint Grid Lines (Soft Contrast) */}
+          <g stroke="rgba(148, 163, 184, 0.28)" strokeWidth="0.9" strokeDasharray="4 4">
+            {Array.from({ length: 18 }).map((_, i) => (
+              <line key={`light-gx-${i}`} x1={i * 60} y1="0" x2={i * 60} y2="780" />
             ))}
-            {Array.from({ length: 12 }).map((_, i) => (
-              <line key={`vn-gy-${i}`} x1="0" y1={i * 55} x2="960" y2={i * 55} />
+            {Array.from({ length: 14 }).map((_, i) => (
+              <line key={`light-gy-${i}`} x1="0" y1={i * 58} x2="1040" y2={i * 58} />
             ))}
           </g>
 
-          {/* S-shaped Stylized Vietnam Geographic Contour */}
+          {/* S-Shaped Vietnam Geographic Landmass (Spacious & Clean) */}
           <path
-            d="M 320 40 
-               C 390 30, 480 50, 520 90
-               C 560 120, 520 160, 470 200
-               C 440 220, 490 250, 530 270
-               C 590 290, 640 330, 650 380
-               C 650 430, 610 470, 570 510
-               C 520 550, 450 600, 390 635
-               C 360 620, 390 570, 420 540
-               C 460 510, 510 470, 510 420
-               C 510 370, 450 320, 400 270
-               C 350 220, 340 160, 310 100
+            d="M 330 35 
+               C 420 25, 520 45, 600 85
+               C 650 120, 590 170, 500 220
+               C 460 250, 520 280, 570 310
+               C 650 340, 750 390, 770 470
+               C 770 540, 700 590, 650 635
+               C 580 680, 480 745, 390 760
+               C 360 735, 400 680, 440 645
+               C 490 610, 540 565, 540 500
+               C 540 435, 480 375, 420 315
+               C 360 255, 350 185, 310 115
                Z"
-            fill="url(#vnMapBgGrad)"
-            stroke="rgba(56, 189, 248, 0.28)"
-            strokeWidth="2"
+            fill="url(#vnMapLandGradLight)"
+            stroke="#93c5fd"
+            strokeWidth="2.5"
           />
 
-          {/* Watermark Labels */}
+          {/* East Sea Watermark Labels */}
           <text
-            x="740"
-            y="310"
+            x="810"
+            y="330"
             fontFamily="var(--studio-font-mono)"
-            fontSize="14"
+            fontSize="14.5"
             fontWeight="900"
-            fill="rgba(56, 189, 248, 0.16)"
+            fill="rgba(14, 116, 144, 0.22)"
             letterSpacing="0.25em"
           >
             BIỂN ĐÔNG (EAST SEA)
           </text>
           <text
-            x="740"
-            y="335"
+            x="810"
+            y="355"
             fontFamily="var(--studio-font-mono)"
-            fontSize="10.5"
-            fontWeight="700"
-            fill="rgba(56, 189, 248, 0.12)"
+            fontSize="11"
+            fontWeight="750"
+            fill="rgba(14, 116, 144, 0.18)"
           >
             Quần Đảo Hoàng Sa & Trường Sa (Việt Nam)
           </text>
 
           {/* 3. DENSE SPIDERWEB MESH NETWORK CONNECTIONS WITH DIRECTIONAL ARROWS */}
-          <g id="spiderwebConnections">
+          <g id="spiderwebConnectionsLight">
             {filteredConnections.map((conn) => {
               const isAir = conn.type === "air";
               const isHighland = conn.type === "highland";
               const isTrunk = conn.type === "trunk";
 
-              const strokeColor = isAir ? "#ec4899" : isHighland ? "#eab308" : isTrunk ? "#0284c7" : "#059669";
+              const strokeColor = isAir ? "#db2777" : isHighland ? "#d97706" : isTrunk ? "#0284c7" : "#059669";
               const arrowMarker = isAir
                 ? "url(#arrowAirPink)"
                 : isHighland
-                ? "url(#arrowHighland)"
+                ? "url(#arrowHighlandAmber)"
                 : isTrunk
-                ? "url(#arrowCyan)"
-                : "url(#arrowGreen)";
+                ? "url(#arrowTrunkBlue)"
+                : "url(#arrowFeederGreen)";
 
               return (
                 <g key={conn.id}>
-                  {/* Connection Path with Arrow */}
+                  {/* Connection Line */}
                   <path
                     d={conn.pathD}
                     fill="none"
                     stroke={strokeColor}
-                    strokeWidth={isAir ? "2.5" : isTrunk ? "2.2" : "1.6"}
-                    strokeDasharray={isAir ? "5 4" : isHighland ? "4 3" : undefined}
+                    strokeWidth={isAir ? "2.6" : isTrunk ? "2.4" : "1.8"}
+                    strokeDasharray={isAir ? "6 4" : isHighland ? "5 3" : undefined}
                     markerEnd={arrowMarker}
-                    opacity="0.82"
-                    filter="url(#meshLineGlow)"
+                    opacity="0.88"
                   />
 
-                  {/* Animated Moving Freight Packet along connection */}
+                  {/* Animated Freight Packet moving along path */}
                   {isPlaying && (
                     <circle
-                      r={isAir ? "4.5" : isTrunk ? "4" : "3"}
-                      fill={isAir ? "#f472b6" : isHighland ? "#fde047" : isTrunk ? "#38bdf8" : "#4ade80"}
-                      filter="url(#hubGlowEffect)"
+                      r={isAir ? "5" : isTrunk ? "4.5" : "3.5"}
+                      fill={isAir ? "#f43f5e" : isHighland ? "#f59e0b" : isTrunk ? "#0284c7" : "#10b981"}
+                      stroke="#ffffff"
+                      strokeWidth="1.2"
                     >
                       <animateMotion
                         path={conn.pathD}
-                        dur={isAir ? "3.2s" : isTrunk ? "4.8s" : "6.2s"}
+                        dur={isAir ? "3.2s" : isTrunk ? "4.6s" : "6s"}
                         repeatCount="indefinite"
                       />
                     </circle>
@@ -795,12 +811,35 @@ export function NexusVietnamMap25dSimulator({ lang }: NexusVietnamMap25dSimulato
             })}
           </g>
 
-          {/* 4. 2.5D ISOMETRIC HUBS (MEGA & PROVINCIAL) */}
+          {/* 4. 2.5D ISOMETRIC HUBS (SPACIOUS & HIGH CONTRAST) */}
           {VIETNAM_HUBS_EXPANDED.map((hub) => {
             const isSelected = hub.id === activeHubId;
             const isMega = hub.category === "mega";
-            const size = isMega ? 22 : 14;
-            const height = isMega ? 18 : 10;
+            const size = isMega ? 24 : 15;
+            const height = isMega ? 20 : 12;
+
+            // Compute label coordinates based on labelPos
+            let labelX = hub.x;
+            let labelY = hub.y;
+            let textAnchor: "start" | "end" | "middle" = "start";
+
+            if (hub.labelPos === "left") {
+              labelX = hub.x - size - 8;
+              labelY = hub.y - height * 0.5;
+              textAnchor = "end";
+            } else if (hub.labelPos === "right") {
+              labelX = hub.x + size + 8;
+              labelY = hub.y - height * 0.5;
+              textAnchor = "start";
+            } else if (hub.labelPos === "top") {
+              labelX = hub.x;
+              labelY = hub.y - height * 2 - 8;
+              textAnchor = "middle";
+            } else {
+              labelX = hub.x;
+              labelY = hub.y + 22;
+              textAnchor = "middle";
+            }
 
             return (
               <g
@@ -809,80 +848,80 @@ export function NexusVietnamMap25dSimulator({ lang }: NexusVietnamMap25dSimulato
                 onClick={() => setActiveHubId(hub.id)}
                 style={{ cursor: "pointer" }}
               >
-                {/* Selection Pulse Ring */}
+                {/* Selection Halo */}
                 {isSelected && (
                   <ellipse
                     cx="0"
                     cy="0"
-                    rx={size * 2}
-                    ry={size * 1.1}
+                    rx={size * 2.1}
+                    ry={size * 1.15}
                     fill="none"
-                    stroke={isMega ? "#38bdf8" : "#34d399"}
-                    strokeWidth="2.2"
+                    stroke={isMega ? "#2563eb" : "#059669"}
+                    strokeWidth="2.5"
                     strokeDasharray="4 3"
                     className="pulse-dot"
                   />
                 )}
 
                 {/* Base Shadow */}
-                <ellipse cx="0" cy="5" rx={size * 1.2} ry={size * 0.6} fill="rgba(0, 0, 0, 0.6)" />
+                <ellipse cx="0" cy="5" rx={size * 1.25} ry={size * 0.65} fill="rgba(15, 23, 42, 0.22)" />
 
                 {/* Left Prism Face */}
                 <polygon
                   points={`0,0 -${size},-${size * 0.5} -${size},-${size * 0.5 + height} 0,-${height}`}
-                  fill={isMega ? "url(#megaHubSide)" : "url(#provincialSide)"}
-                  stroke={isSelected ? "#ffffff" : "rgba(148, 163, 184, 0.4)"}
+                  fill={isMega ? "url(#megaHubSideLight)" : "url(#provincialSideLight)"}
+                  stroke={isSelected ? "#ffffff" : "rgba(255, 255, 255, 0.6)"}
                   strokeWidth="0.8"
                 />
 
                 {/* Right Prism Face */}
                 <polygon
                   points={`0,0 ${size},-${size * 0.5} ${size},-${size * 0.5 + height} 0,-${height}`}
-                  fill={isMega ? "url(#megaHubSide)" : "url(#provincialSide)"}
-                  filter="brightness(0.8)"
-                  stroke={isSelected ? "#ffffff" : "rgba(148, 163, 184, 0.4)"}
+                  fill={isMega ? "url(#megaHubSideLight)" : "url(#provincialSideLight)"}
+                  filter="brightness(0.85)"
+                  stroke={isSelected ? "#ffffff" : "rgba(255, 255, 255, 0.6)"}
                   strokeWidth="0.8"
                 />
 
                 {/* Top Isometric Diamond */}
                 <polygon
                   points={`0,-${height * 2} ${size},-${size * 0.5 + height} 0,-${height} -${size},-${size * 0.5 + height}`}
-                  fill={isMega ? "url(#megaHubTop)" : "url(#provincialTop)"}
-                  stroke={isSelected ? "#ffffff" : "rgba(255, 255, 255, 0.8)"}
-                  strokeWidth={isSelected ? "2" : "1"}
-                  filter={isMega ? "url(#hubGlowEffect)" : undefined}
+                  fill={isMega ? "url(#megaHubTopLight)" : "url(#provincialTopLight)"}
+                  stroke="#ffffff"
+                  strokeWidth={isSelected ? "2.5" : "1.2"}
+                  filter="url(#hubShadowLight)"
                 />
 
-                {/* Hub Center LED Pin */}
+                {/* Center LED Dot */}
                 <circle
                   cx="0"
                   cy={-(size * 0.5 + height * 0.5)}
-                  r={isMega ? "3.5" : "2"}
+                  r={isMega ? "3.8" : "2.2"}
                   fill="#ffffff"
                 />
 
-                {/* Hub Label */}
+                {/* High-Contrast Legible Label */}
                 <text
-                  x={hub.x > 500 ? size + 6 : -size - 6}
-                  y={-height + 2}
-                  textAnchor={hub.x > 500 ? "start" : "end"}
-                  fontFamily="var(--studio-font-mono)"
-                  fontSize={isMega ? "11.5" : "9.5"}
-                  fontWeight={isMega ? "900" : "750"}
-                  fill={isSelected ? "#ffffff" : isMega ? "#38bdf8" : "#cbd5e1"}
+                  x={labelX - hub.x}
+                  y={labelY - hub.y}
+                  textAnchor={textAnchor}
+                  fontFamily="var(--studio-font-sans, system-ui)"
+                  fontSize={isMega ? "12" : "10"}
+                  fontWeight={isMega ? "900" : "800"}
+                  fill={isSelected ? "#1d4ed8" : isMega ? "#0f172a" : "#1e293b"}
                 >
                   {hub.shortName}
                 </text>
 
-                {/* Capacity badge */}
+                {/* Capacity Tag */}
                 <text
-                  x={hub.x > 500 ? size + 6 : -size - 6}
-                  y={-height + 13}
-                  textAnchor={hub.x > 500 ? "start" : "end"}
-                  fontFamily="var(--studio-font-mono)"
-                  fontSize="8"
-                  fontWeight="600"
-                  fill={isMega ? "#7dd3fc" : "#86efac"}
+                  x={labelX - hub.x}
+                  y={labelY - hub.y + 12}
+                  textAnchor={textAnchor}
+                  fontFamily="var(--studio-font-mono, monospace)"
+                  fontSize="8.5"
+                  fontWeight="700"
+                  fill={isMega ? "#2563eb" : "#059669"}
                 >
                   {hub.capacityH}
                 </text>
@@ -892,16 +931,17 @@ export function NexusVietnamMap25dSimulator({ lang }: NexusVietnamMap25dSimulato
         </svg>
       </div>
 
-      {/* 3. Deep Hub Inspector Card */}
+      {/* 3. Deep Hub Inspector Card (Clean White Theme) */}
       <div
         style={{
-          padding: "16px 20px",
-          borderRadius: "8px",
-          background: "rgba(15, 23, 42, 0.9)",
-          border: `1.5px solid ${selectedHub.category === "mega" ? "#0284c7" : "#059669"}`,
+          padding: "18px 20px",
+          borderRadius: "10px",
+          background: "#ffffff",
+          border: `1.5px solid ${selectedHub.category === "mega" ? "#3b82f6" : "#10b981"}`,
           display: "flex",
           flexDirection: "column",
           gap: "10px",
+          boxShadow: "0 4px 15px rgba(15, 23, 42, 0.05)",
         }}
       >
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "8px" }}>
@@ -911,44 +951,44 @@ export function NexusVietnamMap25dSimulator({ lang }: NexusVietnamMap25dSimulato
                 fontFamily: "var(--studio-font-mono)",
                 fontSize: "11px",
                 fontWeight: 850,
-                color: selectedHub.category === "mega" ? "#38bdf8" : "#34d399",
-                background: selectedHub.category === "mega" ? "rgba(2, 132, 199, 0.25)" : "rgba(5, 150, 105, 0.25)",
-                padding: "3px 8px",
+                color: selectedHub.category === "mega" ? "#1d4ed8" : "#065f46",
+                background: selectedHub.category === "mega" ? "#eff6ff" : "#f0fdf4",
+                padding: "3px 9px",
                 borderRadius: "5px",
-                border: `1px solid ${selectedHub.category === "mega" ? "#0284c7" : "#059669"}`,
+                border: `1px solid ${selectedHub.category === "mega" ? "#bfdbfe" : "#bbf7d0"}`,
               }}
             >
               {selectedHub.category === "mega" ? "NATIONAL MEGA SORTATION HUB" : "PROVINCIAL SATELLITE HUB"}
             </span>
-            <strong style={{ fontSize: "14.5px", color: "#ffffff" }}>
+            <strong style={{ fontSize: "15px", color: "#0f172a" }}>
               {lang === "vi" ? selectedHub.nameVi : selectedHub.nameEn}
             </strong>
           </div>
 
           <div style={{ display: "flex", gap: "8px" }}>
-            <span style={{ fontSize: "11.5px", fontFamily: "var(--studio-font-mono)", color: "#cbd5e1" }}>
-              Cửa Dock xuất/nhập: <strong style={{ color: "#38bdf8" }}>{selectedHub.docks} Docks</strong>
+            <span style={{ fontSize: "12px", fontFamily: "var(--studio-font-mono)", color: "#475569" }}>
+              Cửa Dock xuất/nhập: <strong style={{ color: "#0284c7" }}>{selectedHub.docks} Docks</strong>
             </span>
           </div>
         </div>
 
-        {/* Detailed Metrics */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "8px" }}>
-          <div style={{ background: "rgba(30, 41, 59, 0.6)", padding: "8px 12px", borderRadius: "6px", border: "1px solid #334155" }}>
-            <span style={{ fontSize: "10px", color: "#94a3b8", display: "block" }}>DIỆN TÍCH MẶT SÀN KHO</span>
-            <strong style={{ fontSize: "13px", color: "#f8fafc", fontFamily: "var(--studio-font-mono)" }}>{selectedHub.areaM2}</strong>
+        {/* Metric Badges */}
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(190px, 1fr))", gap: "10px" }}>
+          <div style={{ background: "#f8fafc", padding: "10px 14px", borderRadius: "8px", border: "1px solid #e2e8f0" }}>
+            <span style={{ fontSize: "10.5px", color: "#64748b", display: "block", fontWeight: 700 }}>DIỆN TÍCH MẶT SÀN KHO</span>
+            <strong style={{ fontSize: "14px", color: "#0f172a", fontFamily: "var(--studio-font-mono)" }}>{selectedHub.areaM2}</strong>
           </div>
-          <div style={{ background: "rgba(30, 41, 59, 0.6)", padding: "8px 12px", borderRadius: "6px", border: "1px solid #334155" }}>
-            <span style={{ fontSize: "10px", color: "#94a3b8", display: "block" }}>CÔNG SUẤT CHIA CHỌN</span>
-            <strong style={{ fontSize: "13px", color: "#38bdf8", fontFamily: "var(--studio-font-mono)" }}>{selectedHub.capacityH}</strong>
+          <div style={{ background: "#f8fafc", padding: "10px 14px", borderRadius: "8px", border: "1px solid #e2e8f0" }}>
+            <span style={{ fontSize: "10.5px", color: "#64748b", display: "block", fontWeight: 700 }}>CÔNG SUẤT CHIA CHỌN</span>
+            <strong style={{ fontSize: "14px", color: "#0284c7", fontFamily: "var(--studio-font-mono)" }}>{selectedHub.capacityH}</strong>
           </div>
-          <div style={{ background: "rgba(30, 41, 59, 0.6)", padding: "8px 12px", borderRadius: "6px", border: "1px solid #334155" }}>
-            <span style={{ fontSize: "10px", color: "#94a3b8", display: "block" }}>TIÊU CHUẨN SLA KẾT NỐI</span>
-            <strong style={{ fontSize: "13px", color: "#4ade80", fontFamily: "var(--studio-font-mono)" }}>{selectedHub.slaTransit}</strong>
+          <div style={{ background: "#f8fafc", padding: "10px 14px", borderRadius: "8px", border: "1px solid #e2e8f0" }}>
+            <span style={{ fontSize: "10.5px", color: "#64748b", display: "block", fontWeight: 700 }}>TIÊU CHUẨN SLA KẾT NỐI</span>
+            <strong style={{ fontSize: "14px", color: "#16a34a", fontFamily: "var(--studio-font-mono)" }}>{selectedHub.slaTransit}</strong>
           </div>
         </div>
 
-        <p style={{ margin: 0, fontSize: "12.5px", color: "#cbd5e1", lineHeight: 1.55 }}>
+        <p style={{ margin: 0, fontSize: "13px", color: "#334155", lineHeight: 1.6 }}>
           {lang === "vi" ? selectedHub.descriptionVi : selectedHub.descriptionEn}
         </p>
       </div>
@@ -961,35 +1001,32 @@ export function NexusVietnamMap25dSimulator({ lang }: NexusVietnamMap25dSimulato
           alignItems: "center",
           flexWrap: "wrap",
           gap: "10px",
-          fontSize: "11px",
-          color: "#94a3b8",
-          borderTop: "1px solid rgba(148, 163, 184, 0.15)",
+          fontSize: "11.5px",
+          color: "#475569",
+          borderTop: "1.5px solid #e2e8f0",
           paddingTop: "12px",
         }}
       >
-        <div style={{ display: "flex", gap: "16px", flexWrap: "wrap", alignItems: "center" }}>
-          <span style={{ display: "inline-flex", alignItems: "center", gap: "5px" }}>
-            <span style={{ width: "10px", height: "10px", background: "#38bdf8", borderRadius: "2px" }} />
-            3 Mega Hubs (Hà Nội, Đà Nẵng, TP.HCM)
+        <div style={{ display: "flex", gap: "18px", flexWrap: "wrap", alignItems: "center" }}>
+          <span style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
+            <span style={{ width: "12px", height: "12px", background: "#2563eb", borderRadius: "3px" }} />
+            <strong style={{ color: "#0f172a" }}>3 Mega Hubs</strong> (Hà Nội, Đà Nẵng, TP.HCM)
           </span>
-          <span style={{ display: "inline-flex", alignItems: "center", gap: "5px" }}>
-            <span style={{ width: "9px", height: "9px", background: "#34d399", borderRadius: "2px" }} />
-            19 Hub Tỉnh (Provincial Hubs)
+          <span style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
+            <span style={{ width: "10px", height: "10px", background: "#10b981", borderRadius: "3px" }} />
+            <strong style={{ color: "#0f172a" }}>19 Hub Tỉnh</strong> (Provincial Hubs)
           </span>
-          <span style={{ display: "inline-flex", alignItems: "center", gap: "5px", color: "#38bdf8" }}>
-            <Truck size={13} color="#0284c7" />
-            Tuyến Trục QL1A (Có Mũi Tên Hướng Tuyến)
+          <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", color: "#0284c7" }}>
+            <Truck size={14} color="#0284c7" />
+            Trục Bộ QL1A (Có Mũi Tên Chỉ Hướng)
           </span>
-          <span style={{ display: "inline-flex", alignItems: "center", gap: "5px", color: "#f472b6" }}>
-            <Compass size={13} color="#ec4899" />
+          <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", color: "#db2777" }}>
+            <Compass size={14} color="#db2777" />
             Express Hàng Không (Máy Bay 1.5h - 2h)
-          </span>
-          <span style={{ display: "inline-flex", alignItems: "center", gap: "5px", color: "#fde047" }}>
-            Trục Đèo Tây Nguyên (QL14, QL19)
           </span>
         </div>
 
-        <span style={{ fontFamily: "var(--studio-font-mono)", color: "#38bdf8", fontWeight: 750 }}>
+        <span style={{ fontFamily: "var(--studio-font-mono)", color: "#0284c7", fontWeight: 800 }}>
           MẠNG LƯỚI PHỦ SÓNG 100% 63 TỈNH/THÀNH
         </span>
       </div>
