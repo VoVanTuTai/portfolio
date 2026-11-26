@@ -117,8 +117,8 @@ export function HeroSection({ lang, t }: HeroSectionProps) {
           <div className={`${styles.heroProofChip} ${styles.highlightGreen}`}>
             <Sparkles size={18} />
             <div>
-              <strong>{lang === "vi" ? "Sẵn sàng nhận việc" : "Available Full-Time"}</strong>
-              <span>{lang === "vi" ? "Full-time tại TP.HCM" : "Immediate in HCM City"}</span>
+              <strong>Digityze Asia</strong>
+              <span>Project Manager</span>
             </div>
           </div>
         </div>

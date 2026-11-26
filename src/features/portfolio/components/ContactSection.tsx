@@ -138,8 +138,8 @@ export function ContactSection({ lang, t }: ContactSectionProps) {
           <strong>Vo Van Tu Tai — Bachelor of Engineering in Information Systems</strong>
           <span style={{ fontSize: "12px", color: "var(--muted)" }}>
             {lang === "vi"
-              ? "Đại học Công nghiệp TP.HCM (IUH) · GPA 3.26/4.0 (Giỏi) · Sẵn sàng làm việc Full-time"
-              : "Industrial University of Ho Chi Minh City · GPA 3.26/4.0 (Distinction) · Available Immediately"}
+              ? "Project Manager @ Digityze Asia · Kỹ sư Hệ thống Thông tin (IUH)"
+              : "Project Manager @ Digityze Asia · Information Systems Engineer (IUH)"}
           </span>
         </div>
         <span>

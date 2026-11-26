@@ -49,23 +49,20 @@ export function PortfolioTopbar({ lang, t, onLangChange, navigate }: PortfolioTo
             onClick={(e) => (navigate ? navigate(e, "/studio") : undefined)}
             className={styles.navHighlightPm}
             style={{
-              background: "linear-gradient(135deg, rgba(2, 132, 199, 0.12), rgba(37, 99, 235, 0.18))",
-              borderColor: "rgba(2, 132, 199, 0.45)",
-              color: "#0284c7",
+              background: "linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(2, 132, 199, 0.15))",
+              borderColor: "rgba(37, 99, 235, 0.35)",
+              color: "#2563eb",
+              fontWeight: 800,
             }}
-            title="Studio Học tập Tương tác (Designed to Scale style)"
+            title="Interactive Systems Studio (Designed to Scale style)"
           >
             <Sparkles size={13} aria-hidden="true" />
             <span>Studio 3 Cột</span>
           </a>
           <a href="#projects">{t.nav.projects}</a>
-          <a href="#project-management" className={styles.navHighlightPm}>
-            <Sparkles size={13} aria-hidden="true" />
+          <a href="#project-management">
             <span>{t.nav.pmFramework}</span>
           </a>
-          <a href="#academic-foundation">{lang === "vi" ? "Nền tảng Kỹ sư" : "Foundation"}</a>
-          <a href="#academic-theses">{lang === "vi" ? "Chuyên đề" : "Theses"}</a>
-          <a href="#skills">{t.nav.skills}</a>
           <a href="#experience">{lang === "vi" ? "Kinh nghiệm" : "Experience"}</a>
           <a href="#contact">{t.nav.contact}</a>
         </nav>

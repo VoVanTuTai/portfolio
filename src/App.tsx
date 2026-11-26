@@ -28,7 +28,7 @@ export function App() {
       document.title = "Systems Studio — Vo Van Tu Tai | Interactive Engineering Course";
       return;
     }
-    document.title = pageTitles[pathname] ?? "Vo Van Tu Tai Portfolio";
+    document.title = pageTitles[pathname] ?? "Hồ Sơ — Võ Văn Tú Tài";
   }, [pathname]);
 
   const navigate: NavigateHandler = (event, path) => {

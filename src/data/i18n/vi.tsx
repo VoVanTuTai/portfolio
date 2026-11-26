@@ -11,7 +11,7 @@ export const portfolioDataVi: PortfolioLocaleData = {
     contact: "Liên hệ",
   },
   hero: {
-    profileMeta: "TP. Hồ Chí Minh, Việt Nam · Kỹ sư Hệ thống Thông tin (IUH · Sẵn sàng làm việc)",
+    profileMeta: "TP. Hồ Chí Minh, Việt Nam · Project Manager @ Digityze Asia · Kỹ sư Hệ thống Thông tin (IUH)",
     eyebrow: "Portfolio & Góc chia sẻ nghề BA",
     heading: "Cầu nối giữa bài toán kinh doanh và giải pháp kỹ thuật",
     lede: (
