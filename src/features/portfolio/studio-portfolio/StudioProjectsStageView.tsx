@@ -201,9 +201,9 @@ export function StudioProjectsStageView({
                 <div style={{ padding: "14px", borderRadius: "8px", background: "#fff7ed", border: "1px solid #fed7aa" }}>
                   <strong style={{ color: "#9a3412", fontSize: "13px" }}>➔ Phân Kỳ Tiếp Theo (Out-of-Scope)</strong>
                   <ul style={{ margin: "6px 0 0 0", paddingLeft: "18px", fontSize: "12px", color: "#7c2d12", lineHeight: 1.6 }}>
-                    <li>Tích hợp thiết bị bay không người lái (Drone delivery)</li>
-                    <li>Thanh toán tiền điện tử Cryptocurrency</li>
-                    <li>Mạng lưới vận chuyển đa quốc gia xuyên biên giới</li>
+                    <li>Thuật toán tối ưu xếp hàng lên thùng xe tải (3D Load Planning)</li>
+                    <li>Cân đo thể tích tự động trên băng chuyền (Hệ thống DWS)</li>
+                    <li>Vận chuyển container liên vận đường sắt Bắc - Nam</li>
                   </ul>
                 </div>
               </div>
@@ -216,10 +216,10 @@ export function StudioProjectsStageView({
               <NexusVietnamMap25dSimulator lang={lang} />
               <div style={{ padding: "18px 20px", borderRadius: "10px", background: "#ffffff", border: "1.5px solid #d8e6f5" }}>
                 <h4 style={{ margin: "0 0 8px 0", fontSize: "14px", color: "#0f172a" }}>
-                  Nguyên Lý Vận Hành Trục Chính Linehaul & Quy Chuẩn Phân Loại Bưu Kiện
+                  Mô Hình Vận Tải Hub-and-Spoke Đường Bộ & Tuyến Xe Tải Linehaul
                 </h4>
                 <p style={{ fontSize: "12.5px", color: "#475569", lineHeight: 1.6, margin: 0 }}>
-                  Mạng lưới logistics của Nexus Express được xây dựng theo mô hình <strong>Hub-and-Spoke</strong> tối ưu hóa chi phí vận chuyển. Các bưu kiện thu gom tại các bưu cục địa phương (Spokes) được gom lại và chuyển về 3 Mega Hubs (Hà Nội, Đà Nẵng, TP.HCM). Tại đây, hệ thống băng chuyền Cross-belt Sorter tự động chia chọn với công suất lên đến 95.000 kiện/giờ, đóng seal container vận chuyển trục (Linehaul) bằng xe tải 15 tấn hoặc đường bay chuyên dụng, giúp duy trì SLA toàn quốc dưới 24 giờ.
+                  Mạng lưới phân loại của Nexus Express vận hành theo mô hình <strong>Hub-and-Spoke</strong> đường bộ. Bưu kiện từ các bưu cục thu gom (Spokes) được gom về 3 Hub Tổng (Hà Nội, Đà Nẵng, TP.HCM). Tại Hub Tổng, hệ thống băng chuyền tự động phân luồng theo mã bưu chính, đóng bao kẹp chì niêm phong (seal) và xếp lên xe tải thùng kín 15 - 30 tấn chạy tuyến Linehaul trên trục QL1A và các tuyến cao tốc. Thời gian vận chuyển trục Bắc - Nam đạt mốc 36h - 48h (xe chạy luân phiên 2 tài xế), trong khi các tuyến nhánh Feeder liên tỉnh hoàn thành trong 12h - 24h.
                 </p>
               </div>
             </div>
@@ -231,10 +231,10 @@ export function StudioProjectsStageView({
               <NexusOrderLifecycle25dSimulator lang={lang} />
               <div style={{ padding: "18px 20px", borderRadius: "10px", background: "#ffffff", border: "1.5px solid #d8e6f5" }}>
                 <h4 style={{ margin: "0 0 8px 0", fontSize: "14px", color: "#0f172a" }}>
-                  Tính Xác Định (Determinism) Của Máy Trạng Thái FSM & Cơ Chế Khóa
+                  Kiểm Soát Chuyển Trạng Thái Đơn Bằng Máy Trạng Thái FSM
                 </h4>
                 <p style={{ fontSize: "12.5px", color: "#475569", lineHeight: 1.6, margin: 0 }}>
-                  Trạng thái đơn hàng không bao giờ được phép cập nhật tự do bằng các câu lệnh `UPDATE` đơn giản. Mọi sự kiện chuyển trạng thái đều phải kích hoạt qua <strong>Camunda BPMN 2.0 State Machine</strong>. Nếu bưu kiện đang ở trạng thái `ORDER_CREATED`, hệ thống tuyệt đối từ chối lệnh `HUB_OUTBOUND` nếu chưa từng đi qua bước `PICKED_UP` và `HUB_INBOUND`. Cơ chế này loại bỏ 100% tình trạng "nhảy cóc" trạng thái và đảm bảo kiểm toán truy vết nguồn gốc.
+                  Trạng thái đơn hàng không cập nhật trực tiếp bằng các câu lệnh `UPDATE` đơn giản. Mọi sự kiện chuyển trạng thái đều phải kích hoạt qua <strong>máy trạng thái Camunda BPMN 2.0</strong>. Bưu kiện đang ở trạng thái `ORDER_CREATED` sẽ bị từ chối chuyển sang `HUB_OUTBOUND` nếu chưa từng ghi nhận `PICKED_UP` và `HUB_INBOUND`. Cơ chế này loại bỏ tình trạng nhảy cóc trạng thái và đảm bảo nhật ký kiểm toán rõ ràng.
                 </p>
               </div>
             </div>
@@ -246,10 +246,10 @@ export function StudioProjectsStageView({
               <NexusExceptionRto25dSimulator lang={lang} />
               <div style={{ padding: "18px 20px", borderRadius: "10px", background: "#ffffff", border: "1.5px solid #d8e6f5" }}>
                 <h4 style={{ margin: "0 0 8px 0", fontSize: "14px", color: "#0f172a" }}>
-                  Quản Trị Rủi Ro Ngược Chiều (Reverse Logistics) & Bảo Vệ Dòng Tiền Shop
+                  Quy Trình Xử Lý Đơn Giao Thất Bại & Hoàn Hàng (RTO)
                 </h4>
                 <p style={{ fontSize: "12.5px", color: "#475569", lineHeight: 1.6, margin: 0 }}>
-                  Thất thoát trong logistics không nằm ở các đơn giao thành công mà tập trung 80% ở các ca hoàn hàng (RTO) và khiếu nại bồi thường. Nexus Express thiết lập hàng rào kiểm soát đa lớp: Đối chiếu tọa độ GPS thực tế của bưu tá khi bấm báo giao không thành công, lưu kho đệm 48h tạo cơ hội Shop cứu đơn và tự động hóa bồi hoàn 100% trong 24h đối với sự cố rơi vỡ bao bì được biên bản đồng kiểm xác nhận.
+                  Thất thoát trong logistics giao hàng tập trung nhiều ở khâu chuyển hoàn (RTO) và khiếu nại hàng vỡ hỏng. Nexus Express kiểm soát bằng 3 quy tắc: đối chiếu tọa độ GPS của shipper khi bấm báo giao không thành công, lưu kho đệm 48h tại bưu cục phát để người gửi có thời gian liên hệ cứu đơn, và tự động xử lý biên bản bồi thường trong 24h nếu có xác nhận hư hại bao bì khi đồng kiểm.
                 </p>
               </div>
             </div>
@@ -268,10 +268,10 @@ export function StudioProjectsStageView({
               <NexusAiRag25dSimulator lang={lang} />
               <div style={{ padding: "18px 20px", borderRadius: "10px", background: "#ffffff", border: "1.5px solid #d8e6f5" }}>
                 <h4 style={{ margin: "0 0 8px 0", fontSize: "14px", color: "#0f172a" }}>
-                  Tại Sao Logistics Bắt Buộc Phải Dùng Hybrid RAG Kết Hợp Realtime Tool Calling?
+                  Cơ Chế Phân Loại Câu Hỏi Cho Chatbot Hỗ Trợ Khách Hàng
                 </h4>
                 <p style={{ fontSize: "12.5px", color: "#475569", lineHeight: 1.6, margin: 0 }}>
-                  Mô hình LLM thuần túy hoặc Vector RAG đơn thuần không thể trả lời chính xác câu hỏi "Đơn hàng của tôi đang ở đâu?", bởi vì vị trí xe tải và trạng thái đơn hàng thay đổi từng giây trong cơ sở dữ liệu. Nexus Express giải quyết bằng <strong>Semantic Router</strong>: Câu hỏi về chính sách được định tuyến sang Vector Search (PgVector), trong khi câu hỏi tra cứu mã vận đơn được chuyển thành lệnh <strong>SQL Tool Calling</strong> đọc trực tiếp từ PostgreSQL Read-Replica, sau đó mới tổng hợp câu trả lời tự nhiên cho người dùng kèm link xác thực.
+                  Vị trí xe tải và trạng thái đơn hàng thay đổi liên tục trong cơ sở dữ liệu nên không thể dùng tìm kiếm vector tĩnh để tra cứu vị trí bưu kiện. Hệ thống sử dụng <strong>Semantic Router</strong> để phân loại: câu hỏi tra cứu theo mã vận đơn được chuyển thành lệnh <strong>SQL Tool Calling</strong> đọc trực tiếp từ PostgreSQL để lấy trạng thái mới nhất; còn các câu hỏi về chính sách bồi thường hay quy định hàng cấm gửi sẽ tra cứu qua kho dữ liệu quy định (Vector Search).
                 </p>
               </div>
             </div>
@@ -297,7 +297,7 @@ export function StudioProjectsStageView({
 
               <div style={{ padding: "16px", borderRadius: "8px", background: "#f8fafc", border: "1px solid #e2e8f0" }}>
                 <strong style={{ fontSize: "13px", color: "#0f172a", display: "block", marginBottom: "6px" }}>
-                  Bằng Chứng Kiểm Toán & Triển Khai Thực Tế:
+                  Hệ Thống Đang Vận Hành Thực Tế (Live Demo):
                 </strong>
                 <p style={{ margin: "0 0 10px 0", fontSize: "12.5px", color: "#475569", lineHeight: 1.55 }}>
                   Hệ thống đang chạy trực tiếp trên môi trường Production tại tên miền <strong>https://tracking.nexus-ex.site</strong>. Toàn bộ mã nguồn backend, frontend và tài liệu đặc tả Postman đều được quản lý công khai trên GitHub của tác giả.

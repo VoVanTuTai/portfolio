@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Compass, Pause, Play, Radio, RotateCcw, Truck } from "lucide-react";
+import { MapPin, Pause, Play, Radio, RotateCcw, Truck } from "lucide-react";
 import type { Language } from "@/types";
 
 interface NexusVietnamMap25dSimulatorProps {
@@ -31,7 +31,7 @@ export interface NetworkConnection {
   id: string;
   from: string;
   to: string;
-  type: "trunk" | "feeder" | "air" | "highland";
+  type: "trunk" | "feeder" | "highland";
   label: string;
   pathD: string;
 }
@@ -312,8 +312,8 @@ const VIETNAM_HUBS_EXPANDED: HubNode[] = [
     capacityH: "28,000 kiện/h",
     docks: 22,
     slaTransit: "Kết nối TP.HCM 1h",
-    descriptionVi: "Cửa ngõ logistics vùng Đông Nam Bộ đón đầu cảng hàng không quốc tế Long Thành và cụm cảng Cái Mép.",
-    descriptionEn: "Southeastern gateway positioning for Long Thanh Airport and Cai Mep deepwater container terminals.",
+    descriptionVi: "Cửa ngõ logistics vùng Đông Nam Bộ kết nối các khu công nghiệp Biên Hòa, Nhơn Trạch và cụm cảng Cái Mép.",
+    descriptionEn: "Southeastern logistics gateway connecting Bien Hoa, Nhon Trach industrial clusters and Cai Mep port.",
   },
   {
     id: "hub-sgn",
@@ -421,12 +421,11 @@ const VIETNAM_HUBS_EXPANDED: HubNode[] = [
 
 // Generous, clearly routed connections with Directional Arrow markers
 const NETWORK_CONNECTIONS: NetworkConnection[] = [
-  // --- National Air Cargo Express Arteries ---
-  { id: "air-han-dad", from: "hub-han", to: "hub-dad", type: "air", label: "Express Air HAN-DAD", pathD: "M 420 110 Q 540 210 585 340" },
-  { id: "air-dad-sgn", from: "hub-dad", to: "hub-sgn", type: "air", label: "Express Air DAD-SGN", pathD: "M 585 340 Q 640 460 575 605" },
-  { id: "air-han-sgn", from: "hub-han", to: "hub-sgn", type: "air", label: "Express Air HAN-SGN", pathD: "M 420 110 Q 690 320 575 605" },
+  // --- National Linehaul Express Corridors (Direct Mega-Hub Connections) ---
+  { id: "trunk-han-dad", from: "hub-han", to: "hub-dad", type: "trunk", label: "Tuyến Xe Tải Trục Hà Nội - Đà Nẵng (14h-16h)", pathD: "M 420 110 Q 490 220 585 340" },
+  { id: "trunk-dad-sgn", from: "hub-dad", to: "hub-sgn", type: "trunk", label: "Tuyến Xe Tải Trục Đà Nẵng - TP.HCM (18h-20h)", pathD: "M 585 340 Q 610 470 575 605" },
 
-  // --- Northern Spiderweb Lines ---
+  // --- Northern Regional & Highway Lines ---
   { id: "feeder-han-bnh", from: "hub-han", to: "hub-bnh", type: "feeder", label: "Hà Nội -> Bắc Ninh", pathD: "M 420 110 L 460 65" },
   { id: "feeder-bnh-qnh", from: "hub-bnh", to: "hub-qnh", type: "feeder", label: "Bắc Ninh -> Quảng Ninh", pathD: "M 460 65 L 590 85" },
   { id: "feeder-han-hph", from: "hub-han", to: "hub-hph", type: "trunk", label: "Cao Tốc Hà Nội - Hải Phòng", pathD: "M 420 110 L 535 135" },
@@ -434,7 +433,7 @@ const NETWORK_CONNECTIONS: NetworkConnection[] = [
   { id: "feeder-han-tha", from: "hub-han", to: "hub-tha", type: "trunk", label: "Cao Tốc Hà Nội - Thanh Hóa", pathD: "M 420 110 L 395 185" },
   { id: "feeder-tha-vii", from: "hub-tha", to: "hub-vii", type: "trunk", label: "Thanh Hóa -> Vinh", pathD: "M 395 185 L 430 245" },
 
-  // --- Central & Highlands Spiderweb Lines ---
+  // --- Central & Highlands Regional Lines ---
   { id: "feeder-vii-hue", from: "hub-vii", to: "hub-hue", type: "trunk", label: "Vinh -> Huế", pathD: "M 430 245 L 535 295" },
   { id: "feeder-hue-dad", from: "hub-hue", to: "hub-dad", type: "trunk", label: "Hầm Hải Vân (Huế -> Đà Nẵng)", pathD: "M 535 295 L 585 340" },
   { id: "feeder-dad-qng", from: "hub-dad", to: "hub-qng", type: "trunk", label: "Đà Nẵng -> Quảng Ngãi", pathD: "M 585 340 L 640 385" },
@@ -446,7 +445,7 @@ const NETWORK_CONNECTIONS: NetworkConnection[] = [
   { id: "feeder-nha-pth", from: "hub-nha", to: "hub-pth", type: "trunk", label: "Nha Trang -> Phan Thiết", pathD: "M 720 490 L 670 550" },
   { id: "feeder-bmt-sgn", from: "hub-bmt", to: "hub-sgn", type: "highland", label: "QL14 Buôn Ma Thuột -> TP.HCM", pathD: "M 580 485 L 575 605" },
 
-  // --- Southern & Mekong Spiderweb Lines ---
+  // --- Southern & Mekong Regional Lines ---
   { id: "feeder-pth-bho", from: "hub-pth", to: "hub-bho", type: "trunk", label: "Phan Thiết -> Biên Hòa", pathD: "M 670 550 L 615 565" },
   { id: "feeder-bdg-sgn", from: "hub-bdg", to: "hub-sgn", type: "trunk", label: "Bình Dương -> TP.HCM", pathD: "M 545 545 L 575 605" },
   { id: "feeder-bho-sgn", from: "hub-bho", to: "hub-sgn", type: "trunk", label: "Biên Hòa -> TP.HCM", pathD: "M 615 565 L 575 605" },
@@ -461,13 +460,14 @@ const NETWORK_CONNECTIONS: NetworkConnection[] = [
 export function NexusVietnamMap25dSimulator({ lang }: NexusVietnamMap25dSimulatorProps) {
   const [isPlaying, setIsPlaying] = useState(true);
   const [activeHubId, setActiveHubId] = useState<string>("hub-sgn");
-  const [filterMode, setFilterMode] = useState<"all" | "linehaul" | "air">("all");
+  const [filterMode, setFilterMode] = useState<"all" | "linehaul" | "feeder" | "highland">("all");
 
   const selectedHub = VIETNAM_HUBS_EXPANDED.find((h) => h.id === activeHubId) || VIETNAM_HUBS_EXPANDED[16];
 
   const filteredConnections = NETWORK_CONNECTIONS.filter((conn) => {
-    if (filterMode === "air") return conn.type === "air";
-    if (filterMode === "linehaul") return conn.type === "trunk" || conn.type === "air";
+    if (filterMode === "linehaul") return conn.type === "trunk";
+    if (filterMode === "feeder") return conn.type === "feeder";
+    if (filterMode === "highland") return conn.type === "highland";
     return true;
   });
 
@@ -509,7 +509,7 @@ export function NexusVietnamMap25dSimulator({ lang }: NexusVietnamMap25dSimulato
                 textTransform: "uppercase",
               }}
             >
-              2.5D BLUEPRINT TOPOLOGY · HIGH-CONTRAST MESH
+              {lang === "vi" ? "VẬN TẢI ĐƯỜNG BỘ · LINEHAUL & FEEDER" : "ROAD FREIGHT · LINEHAUL & FEEDER"}
             </span>
             <span
               style={{
@@ -525,13 +525,13 @@ export function NexusVietnamMap25dSimulator({ lang }: NexusVietnamMap25dSimulato
                 borderRadius: "5px",
               }}
             >
-              <Radio size={11} className="pulse-dot" /> 22 HUBS ONLINE
+              <Radio size={11} className="pulse-dot" /> 22 HUB HOẠT ĐỘNG
             </span>
           </div>
-          <h3 style={{ margin: "4px 0 0 0", fontSize: "17px", color: "#0f172a", fontWeight: 800 }}>
+          <h3 style={{ margin: "4px 0 0 0", fontSize: "16px", color: "#0f172a", fontWeight: 800 }}>
             {lang === "vi"
-              ? "Mạng Nhện Điều Phối Bưu Kiện Toàn Quốc: 3 Mega Hubs & 19 Hub Tỉnh Kèm Mũi Tên Chỉ Hướng"
-              : "National Mesh Topology: 3 Mega Hubs, 19 Provincial Centers & Directional Routing"}
+              ? "Mạng Lưới Tuyến Xe Tải: 3 Hub Tổng & 19 Hub Tỉnh Vệ Tinh"
+              : "Road Freight Network: 3 Mega Hubs & 19 Regional Hubs"}
           </h3>
         </div>
 
@@ -540,9 +540,10 @@ export function NexusVietnamMap25dSimulator({ lang }: NexusVietnamMap25dSimulato
           {/* Mode Tabs */}
           <div style={{ display: "flex", gap: "4px", background: "#f1f5f9", padding: "4px", borderRadius: "8px", border: "1px solid #cbd5e1" }}>
             {[
-              { id: "all", label: lang === "vi" ? "🕸️ Mạng Nhện Toàn Bộ" : "🕸️ Full Spiderweb" },
-              { id: "linehaul", label: lang === "vi" ? "🚛 Trục Bộ QL1A" : "🚛 Highway Trunk" },
-              { id: "air", label: lang === "vi" ? "✈️ Express Hàng Không" : "✈️ Air Cargo" },
+              { id: "all", label: lang === "vi" ? "Toàn Bộ Tuyến" : "All Routes" },
+              { id: "linehaul", label: lang === "vi" ? "🚛 Xe Tải Trục (QL1A)" : "🚛 Linehaul" },
+              { id: "feeder", label: lang === "vi" ? "📦 Trung Chuyển (Tỉnh)" : "📦 Feeder" },
+              { id: "highland", label: lang === "vi" ? "⛰️ Tây Nguyên" : "⛰️ Highland" },
             ].map((tab) => (
               <button
                 key={tab.id}
@@ -681,18 +682,6 @@ export function NexusVietnamMap25dSimulator({ lang }: NexusVietnamMap25dSimulato
             </marker>
 
             <marker
-              id="arrowAirPink"
-              viewBox="0 0 10 10"
-              refX="6"
-              refY="5"
-              markerWidth="5.5"
-              markerHeight="5.5"
-              orient="auto-start-reverse"
-            >
-              <path d="M 0 1.5 L 9 5 L 0 8.5 z" fill="#db2777" />
-            </marker>
-
-            <marker
               id="arrowHighlandAmber"
               viewBox="0 0 10 10"
               refX="6"
@@ -762,17 +751,14 @@ export function NexusVietnamMap25dSimulator({ lang }: NexusVietnamMap25dSimulato
             Quần Đảo Hoàng Sa & Trường Sa (Việt Nam)
           </text>
 
-          {/* 3. DENSE SPIDERWEB MESH NETWORK CONNECTIONS WITH DIRECTIONAL ARROWS */}
-          <g id="spiderwebConnectionsLight">
+          {/* 3. ROAD FREIGHT CONNECTIONS WITH DIRECTIONAL ARROWS */}
+          <g id="roadFreightConnectionsLight">
             {filteredConnections.map((conn) => {
-              const isAir = conn.type === "air";
               const isHighland = conn.type === "highland";
               const isTrunk = conn.type === "trunk";
 
-              const strokeColor = isAir ? "#db2777" : isHighland ? "#d97706" : isTrunk ? "#0284c7" : "#059669";
-              const arrowMarker = isAir
-                ? "url(#arrowAirPink)"
-                : isHighland
+              const strokeColor = isHighland ? "#d97706" : isTrunk ? "#0284c7" : "#059669";
+              const arrowMarker = isHighland
                 ? "url(#arrowHighlandAmber)"
                 : isTrunk
                 ? "url(#arrowTrunkBlue)"
@@ -785,8 +771,8 @@ export function NexusVietnamMap25dSimulator({ lang }: NexusVietnamMap25dSimulato
                     d={conn.pathD}
                     fill="none"
                     stroke={strokeColor}
-                    strokeWidth={isAir ? "2.6" : isTrunk ? "2.4" : "1.8"}
-                    strokeDasharray={isAir ? "6 4" : isHighland ? "5 3" : undefined}
+                    strokeWidth={isTrunk ? "2.4" : "1.8"}
+                    strokeDasharray={isHighland ? "5 3" : undefined}
                     markerEnd={arrowMarker}
                     opacity="0.88"
                   />
@@ -794,14 +780,14 @@ export function NexusVietnamMap25dSimulator({ lang }: NexusVietnamMap25dSimulato
                   {/* Animated Freight Packet moving along path */}
                   {isPlaying && (
                     <circle
-                      r={isAir ? "5" : isTrunk ? "4.5" : "3.5"}
-                      fill={isAir ? "#f43f5e" : isHighland ? "#f59e0b" : isTrunk ? "#0284c7" : "#10b981"}
+                      r={isTrunk ? "4.5" : "3.5"}
+                      fill={isHighland ? "#f59e0b" : isTrunk ? "#0284c7" : "#10b981"}
                       stroke="#ffffff"
                       strokeWidth="1.2"
                     >
                       <animateMotion
                         path={conn.pathD}
-                        dur={isAir ? "3.2s" : isTrunk ? "4.6s" : "6s"}
+                        dur={isTrunk ? "4.8s" : "6.2s"}
                         repeatCount="indefinite"
                       />
                     </circle>
@@ -1007,27 +993,31 @@ export function NexusVietnamMap25dSimulator({ lang }: NexusVietnamMap25dSimulato
           paddingTop: "12px",
         }}
       >
-        <div style={{ display: "flex", gap: "18px", flexWrap: "wrap", alignItems: "center" }}>
+        <div style={{ display: "flex", gap: "16px", flexWrap: "wrap", alignItems: "center" }}>
           <span style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
             <span style={{ width: "12px", height: "12px", background: "#2563eb", borderRadius: "3px" }} />
-            <strong style={{ color: "#0f172a" }}>3 Mega Hubs</strong> (Hà Nội, Đà Nẵng, TP.HCM)
+            <strong style={{ color: "#0f172a" }}>3 Hub Tổng</strong> (Hà Nội, Đà Nẵng, TP.HCM)
           </span>
           <span style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
             <span style={{ width: "10px", height: "10px", background: "#10b981", borderRadius: "3px" }} />
-            <strong style={{ color: "#0f172a" }}>19 Hub Tỉnh</strong> (Provincial Hubs)
+            <strong style={{ color: "#0f172a" }}>19 Hub Tỉnh</strong> (Vệ tinh)
           </span>
           <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", color: "#0284c7" }}>
             <Truck size={14} color="#0284c7" />
-            Trục Bộ QL1A (Có Mũi Tên Chỉ Hướng)
+            Trục QL1A (Xe tải 15T-30T)
           </span>
-          <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", color: "#db2777" }}>
-            <Compass size={14} color="#db2777" />
-            Express Hàng Không (Máy Bay 1.5h - 2h)
+          <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", color: "#059669" }}>
+            <MapPin size={14} color="#059669" />
+            Tuyến Feeder (Xe tải 3.5T-8T)
+          </span>
+          <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", color: "#d97706" }}>
+            <span style={{ width: "8px", height: "8px", background: "#d97706", borderRadius: "50%" }} />
+            Tây Nguyên (QL14/QL19)
           </span>
         </div>
 
-        <span style={{ fontFamily: "var(--studio-font-mono)", color: "#0284c7", fontWeight: 800 }}>
-          MẠNG LƯỚI PHỦ SÓNG 100% 63 TỈNH/THÀNH
+        <span style={{ fontFamily: "var(--studio-font-mono)", color: "#0284c7", fontWeight: 750, fontSize: "11px" }}>
+          VẬN TẢI ĐƯỜNG BỘ PHỦ SÓNG 63 TỈNH THÀNH
         </span>
       </div>
     </div>
