@@ -11,7 +11,7 @@ export const portfolioDataEn: PortfolioLocaleData = {
     contact: "Contact",
   },
   hero: {
-    profileMeta: "Ho Chi Minh City, Vietnam · Information Systems Engineer (IUH · Available Full-time)",
+    profileMeta: "Ho Chi Minh City, Vietnam · Project Manager @ Digityze Asia · Information Systems Engineer (IUH)",
     eyebrow: "IT Business Analyst Portfolio",
     heading: "Bridging Business Needs with Engineering Execution",
     lede: (
