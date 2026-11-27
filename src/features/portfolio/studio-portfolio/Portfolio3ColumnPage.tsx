@@ -5,6 +5,7 @@ import {
   portfolioTreeFolders,
   type PortfolioItem,
 } from "@/data/portfolio-tree.data";
+import type { TheoryConcept } from "@/data/theory-concepts.data";
 import { sampleConceptsData } from "@/features/knowledge/studio/studio-sample-data";
 import { StudioSearchModal } from "@/features/knowledge/studio/StudioSearchModal";
 import { Portfolio3ColumnTopbar } from "./Portfolio3ColumnTopbar";
@@ -57,6 +58,7 @@ export function Portfolio3ColumnPage({ navigate: _navigate }: Portfolio3ColumnPa
   });
 
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
+  const [selectedConcept, setSelectedConcept] = useState<TheoryConcept | null>(null);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -86,6 +88,7 @@ export function Portfolio3ColumnPage({ navigate: _navigate }: Portfolio3ColumnPa
   const handleSelectItem = (slug: string) => {
     setActiveItemSlug(slug);
     setCurrentStepIndex(0);
+    setSelectedConcept(null);
     if (typeof window !== "undefined") {
       window.location.hash = slug;
     }
@@ -213,6 +216,7 @@ export function Portfolio3ColumnPage({ navigate: _navigate }: Portfolio3ColumnPa
           onStepChange={setCurrentStepIndex}
           onSelectItem={handleSelectItem}
           onShowToast={showToast}
+          onSelectConcept={setSelectedConcept}
         />
 
         {/* Right Column: Step Inspector & Guide Rail */}
@@ -222,6 +226,9 @@ export function Portfolio3ColumnPage({ navigate: _navigate }: Portfolio3ColumnPa
           currentStepIndex={currentStepIndex}
           onNextStep={handleNextStep}
           onPrevStep={handlePrevStep}
+          selectedConcept={selectedConcept}
+          onClearConcept={() => setSelectedConcept(null)}
+          onSelectConcept={setSelectedConcept}
         />
       </div>
 
