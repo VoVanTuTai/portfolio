@@ -88,7 +88,7 @@ export function Portfolio3ColumnSidebar({
       const hasActive = folder.items.some(
         (item) => item.slug === activeItemSlug || item.children?.some((c) => c.slug === activeItemSlug)
       );
-      init[folder.id] = hasActive || folder.code === "01" || folder.code === "02";
+      init[folder.id] = hasActive || folder.code === "00" || folder.code === "01" || folder.code === "02";
     }
     return init;
   });
@@ -147,8 +147,13 @@ export function Portfolio3ColumnSidebar({
         }}
         aria-label="Portfolio File Explorer"
       >
-        {/* 1. Candidate Avatar Profile Hero Card (Tích hợp Folder Hồ Sơ tại chỗ Avatar) */}
-        <div className={styles.sidebarProfileCard}>
+        {/* 1. Candidate Avatar Profile Hero Card (Click để xem Hồ Sơ) */}
+        <div
+          className={styles.sidebarProfileCard}
+          onClick={() => onSelectItem("ho-so-nang-luc")}
+          style={{ cursor: "pointer" }}
+          title={lang === "vi" ? "Xem Hồ Sơ Năng Lực" : "View Candidate Profile"}
+        >
           <div className={styles.sidebarProfileHead}>
             <div className={styles.sidebarAvatarWrap}>
               <img

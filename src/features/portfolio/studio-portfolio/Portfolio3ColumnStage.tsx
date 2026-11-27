@@ -10,6 +10,7 @@ import { StudioProjectsStageView } from "@/features/portfolio/studio-portfolio/S
 import { StudioSkillsStageView } from "@/features/portfolio/studio-portfolio/StudioSkillsStageView";
 import { StudioBaStageView } from "@/features/portfolio/studio-portfolio/StudioBaStageView";
 import { StudioDevStageView } from "@/features/portfolio/studio-portfolio/StudioDevStageView";
+import { StudioProfileStageView } from "@/features/portfolio/studio-portfolio/StudioProfileStageView";
 import { ProjectManagementSection } from "@/features/project-management/ProjectManagementSection";
 import { StudioSimulationCanvas } from "@/features/knowledge/studio/StudioSimulationCanvas";
 import { allStudioLessons } from "@/features/knowledge/studio/studio-sample-data";
@@ -120,8 +121,17 @@ export function Portfolio3ColumnStage({
 
       {/* 2. Interactive Stage Center Viewport */}
       <section className={styles.interactiveCanvasCard} style={{ padding: "20px" }}>
+        {/* VIEW 00: Candidate Profile Dossier & Official ATS Resumes */}
+        {(item.moduleCode === "profile" || item.slug === "ho-so-nang-luc" || item.slug === "tai-cv-pdf") && (
+          <StudioProfileStageView
+            item={item}
+            lang={lang}
+            onSelectItem={onSelectItem}
+          />
+        )}
+
         {/* VIEW 01: Featured Projects Studio Showcase (Nexus Express, Cab Dispatch, Tourist Accommodation) */}
-        {(item.moduleCode === "01" || item.id.startsWith("item-nexus") || item.id.startsWith("item-cab") || item.id.startsWith("item-tourist") || item.slug === "ho-so-nang-luc" || item.slug === "tai-cv-pdf") && (
+        {(item.moduleCode === "01" || item.id.startsWith("item-nexus") || item.id.startsWith("item-cab") || item.id.startsWith("item-tourist")) && item.moduleCode !== "profile" && item.slug !== "ho-so-nang-luc" && item.slug !== "tai-cv-pdf" && (
           <StudioProjectsStageView
             item={item}
             lang={lang}
