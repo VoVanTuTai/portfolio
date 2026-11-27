@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { MapPin, Pause, Play, RotateCcw, Truck } from "lucide-react";
 import type { Language } from "@/types";
+import type { TheoryConcept } from "@/data/theory-concepts.data";
 
 interface NexusVietnamMap25dSimulatorProps {
   lang: Language;
+  onSelectConcept?: (concept: TheoryConcept) => void;
 }
 
 export type HubCategory = "mega" | "provincial";
@@ -457,7 +459,7 @@ const NETWORK_CONNECTIONS: NetworkConnection[] = [
   { id: "feeder-vca-cmu", from: "hub-vca", to: "hub-cmu", type: "feeder", label: "Cần Thơ -> Cà Mau", pathD: "M 450 690 L 410 730" },
 ];
 
-export function NexusVietnamMap25dSimulator({ lang }: NexusVietnamMap25dSimulatorProps) {
+export function NexusVietnamMap25dSimulator({ lang, onSelectConcept }: NexusVietnamMap25dSimulatorProps) {
   const [isPlaying, setIsPlaying] = useState(true);
   const [activeHubId, setActiveHubId] = useState<string>("hub-sgn");
   const [filterMode, setFilterMode] = useState<"all" | "linehaul" | "feeder" | "highland">("all");
@@ -833,7 +835,48 @@ export function NexusVietnamMap25dSimulator({ lang }: NexusVietnamMap25dSimulato
               <g
                 key={hub.id}
                 transform={`translate(${hub.x}, ${hub.y})`}
-                onClick={() => setActiveHubId(hub.id)}
+                onClick={() => {
+                  setActiveHubId(hub.id);
+                  onSelectConcept?.({
+                    id: `concept-hub-${hub.id}`,
+                    badge: {
+                      vi: hub.category === "mega" ? "HUB TỔNG QUỐC GIA" : "HUB TỈNH VỆ TINH",
+                      en: hub.category === "mega" ? "MEGA NATIONAL HUB" : "PROVINCIAL SPOKE",
+                    },
+                    category: { vi: "Mô Hình Hub-and-Spoke", en: "Hub-and-Spoke Topology" },
+                    academicStandard: "Operations Research (OR) · Campbell & O'Kelly (1998) Hub Location Theory",
+                    title: {
+                      vi: `${hub.nameVi} · Năng Lực ${hub.capacityH}`,
+                      en: `${hub.nameEn} · Capacity ${hub.capacityH}`,
+                    },
+                    lead: {
+                      vi: `Đầu mối trung chuyển diện tích ${hub.areaM2} với ${hub.docks} cửa xuất nhập hàng (loading docks), cam kết SLA: ${hub.slaTransit}.`,
+                      en: `Consolidation hub spanning ${hub.areaM2} with ${hub.docks} cross-dock doors, committed SLA: ${hub.slaTransit}.`,
+                    },
+                    body: {
+                      vi: `${hub.descriptionVi}\n\nTheo lý thuyết Hub-and-Spoke, trạm bưu cục này giữ vai trò ${hub.category === "mega" ? "nút trung tâm bậc 1 (Primary Consolidation Node)" : "trạm thu gom vệ tinh bậc 2 (Secondary Feeder Spoke)"}. Toàn bộ luồng bưu kiện được kiểm đếm, quét mã vạch và gom lô theo định dạng Master Bag để chất đầy các chuyến xe tải trục Linehaul. Điều này đảm bảo tính kinh tế theo quy mô (Economies of Scale), triệt tiêu chi phí xe chạy rỗng và tối ưu hóa thời gian quay vòng phương tiện.`,
+                      en: `${hub.descriptionEn}\n\nUnder Hub-and-Spoke network design, this outpost functions as a ${hub.category === "mega" ? "Primary Consolidation Node" : "Secondary Feeder Spoke"}. Consignments are scanned, cross-docked, and aggregated into sealed Master Bags for heavy linehaul haulage, maximizing load factors and minimizing empty mileage.`,
+                    },
+                    formulaOrCode: `// Thông số kỹ thuật trạm ${hub.shortName}:
+Diện tích sàn: ${hub.areaM2}
+Năng lực thông lượng: ${hub.capacityH}
+Số cửa xuất nhập bến (Docks): ${hub.docks} cửa
+Cam kết chuyển phát (SLA): ${hub.slaTransit}
+Cấp độ mạng lưới: ${hub.category === "mega" ? "Mega Sortation Tier-1" : "Regional Feeder Tier-2"}`,
+                    keyTakeaways: {
+                      vi: [
+                        `Cửa xuất nhập (Dock Doors): ${hub.docks} cửa phục vụ xe tải 15T - 30T ra vào liên tục.`,
+                        `Công suất chia chọn tự động: ${hub.capacityH} với hệ thống băng chuyền Cross-belt Sorter.`,
+                        `Tuân thủ nghiêm ngặt giờ cắt ca (Cut-off Time) để bảo toàn SLA toàn trình.`,
+                      ],
+                      en: [
+                        `Loading Docks: ${hub.docks} dock bays operating high-velocity truck turnaround.`,
+                        `Throughput Capacity: ${hub.capacityH} driven by automated cross-belt sorters.`,
+                        `Strict enforcement of dispatch cut-off times safeguarding national SLA commitments.`,
+                      ],
+                    },
+                  });
+                }}
                 style={{ cursor: "pointer" }}
               >
                 {/* Selection Halo */}

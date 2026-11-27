@@ -1,9 +1,14 @@
 import { useState } from "react";
 import { Pause, Play, RotateCcw } from "lucide-react";
 import type { Language } from "@/types";
+import {
+  ACADEMIC_THEORY_CONCEPTS,
+  type TheoryConcept,
+} from "@/data/theory-concepts.data";
 
 interface BaErd25dSimulatorProps {
   lang: Language;
+  onSelectConcept?: (concept: TheoryConcept) => void;
 }
 
 interface TableDetail {
@@ -55,7 +60,7 @@ const ERD_TABLES: Record<string, TableDetail> = {
   },
 };
 
-export function BaErd25dSimulator({ lang }: BaErd25dSimulatorProps) {
+export function BaErd25dSimulator({ lang, onSelectConcept }: BaErd25dSimulatorProps) {
   const [isPlaying, setIsPlaying] = useState(true);
   const [selectedTableId, setSelectedTableId] = useState<string>("parcels");
 
@@ -229,7 +234,14 @@ export function BaErd25dSimulator({ lang }: BaErd25dSimulatorProps) {
           )}
 
           {/* TABLE 1: PARCELS (WEST) */}
-          <g transform="translate(130, 180)" onClick={() => setSelectedTableId("parcels")} style={{ cursor: "pointer" }}>
+          <g
+            transform="translate(130, 180)"
+            onClick={() => {
+              setSelectedTableId("parcels");
+              onSelectConcept?.(ACADEMIC_THEORY_CONCEPTS["concept-3nf-normalization"]);
+            }}
+            style={{ cursor: "pointer" }}
+          >
             <polygon points="0,-28 60,0 0,28 -60,0" fill={selectedTableId === "parcels" ? "#eff6ff" : "#ffffff"} stroke="#2563eb" strokeWidth={selectedTableId === "parcels" ? 2.5 : 1.8} filter="url(#erdShadow)" />
             <polygon points="-60,0 0,28 0,48 -60,20" fill="#dbeafe" stroke="#2563eb" strokeWidth="1.5" />
             <polygon points="0,28 60,0 60,20 0,48" fill="#bfdbfe" stroke="#2563eb" strokeWidth="1.5" />
@@ -238,7 +250,14 @@ export function BaErd25dSimulator({ lang }: BaErd25dSimulatorProps) {
           </g>
 
           {/* TABLE 2: HUBS (NORTH) */}
-          <g transform="translate(380, 80)" onClick={() => setSelectedTableId("hubs")} style={{ cursor: "pointer" }}>
+          <g
+            transform="translate(380, 80)"
+            onClick={() => {
+              setSelectedTableId("hubs");
+              onSelectConcept?.(ACADEMIC_THEORY_CONCEPTS["concept-3nf-normalization"]);
+            }}
+            style={{ cursor: "pointer" }}
+          >
             <polygon points="0,-28 60,0 0,28 -60,0" fill={selectedTableId === "hubs" ? "#eff6ff" : "#ffffff"} stroke="#1d4ed8" strokeWidth={selectedTableId === "hubs" ? 2.5 : 1.8} filter="url(#erdShadow)" />
             <polygon points="-60,0 0,28 0,48 -60,20" fill="#dbeafe" stroke="#1d4ed8" strokeWidth="1.5" />
             <polygon points="0,28 60,0 60,20 0,48" fill="#bfdbfe" stroke="#1d4ed8" strokeWidth="1.5" />
@@ -247,7 +266,14 @@ export function BaErd25dSimulator({ lang }: BaErd25dSimulatorProps) {
           </g>
 
           {/* TABLE 3: SCAN_EVENTS (EAST) */}
-          <g transform="translate(630, 160)" onClick={() => setSelectedTableId("scanEvents")} style={{ cursor: "pointer" }}>
+          <g
+            transform="translate(630, 160)"
+            onClick={() => {
+              setSelectedTableId("scanEvents");
+              onSelectConcept?.(ACADEMIC_THEORY_CONCEPTS["concept-3nf-normalization"]);
+            }}
+            style={{ cursor: "pointer" }}
+          >
             <polygon points="0,-28 60,0 0,28 -60,0" fill={selectedTableId === "scanEvents" ? "#f0fdf4" : "#ffffff"} stroke="#059669" strokeWidth={selectedTableId === "scanEvents" ? 2.5 : 1.8} filter="url(#erdShadow)" />
             <polygon points="-60,0 0,28 0,48 -60,20" fill="#d1fae5" stroke="#059669" strokeWidth="1.5" />
             <polygon points="0,28 60,0 60,20 0,48" fill="#a7f3d0" stroke="#059669" strokeWidth="1.5" />
@@ -256,7 +282,14 @@ export function BaErd25dSimulator({ lang }: BaErd25dSimulatorProps) {
           </g>
 
           {/* TABLE 4: COD_RECONCILIATIONS (SOUTH) */}
-          <g transform="translate(380, 275)" onClick={() => setSelectedTableId("codReconcile")} style={{ cursor: "pointer" }}>
+          <g
+            transform="translate(380, 275)"
+            onClick={() => {
+              setSelectedTableId("codReconcile");
+              onSelectConcept?.(ACADEMIC_THEORY_CONCEPTS["concept-3nf-normalization"]);
+            }}
+            style={{ cursor: "pointer" }}
+          >
             <polygon points="0,-28 60,0 0,28 -60,0" fill={selectedTableId === "codReconcile" ? "#fef3c7" : "#ffffff"} stroke="#d97706" strokeWidth={selectedTableId === "codReconcile" ? 2.5 : 1.8} filter="url(#erdShadow)" />
             <polygon points="-60,0 0,28 0,48 -60,20" fill="#fef3c7" stroke="#d97706" strokeWidth="1.5" />
             <polygon points="0,28 60,0 60,20 0,48" fill="#fde68a" stroke="#d97706" strokeWidth="1.5" />

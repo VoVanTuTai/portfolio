@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { CheckCircle2, Pause, Play, RotateCcw } from "lucide-react";
 import type { Language } from "@/types";
+import type { TheoryConcept } from "@/data/theory-concepts.data";
 
 interface NexusOrderLifecycle25dSimulatorProps {
   lang: Language;
+  onSelectConcept?: (concept: TheoryConcept) => void;
 }
 
 interface StepDetail {
@@ -122,7 +124,7 @@ const LIFECYCLE_STEPS: StepDetail[] = [
   },
 ];
 
-export function NexusOrderLifecycle25dSimulator({ lang }: NexusOrderLifecycle25dSimulatorProps) {
+export function NexusOrderLifecycle25dSimulator({ lang, onSelectConcept }: NexusOrderLifecycle25dSimulatorProps) {
   const [isPlaying, setIsPlaying] = useState(true);
   const [activeStepIndex, setActiveStepIndex] = useState<number>(3); // Default at linehaul
 
@@ -303,7 +305,47 @@ export function NexusOrderLifecycle25dSimulator({ lang }: NexusOrderLifecycle25d
               <g
                 key={step.code}
                 transform={`translate(${step.x}, ${step.y})`}
-                onClick={() => setActiveStepIndex(idx)}
+                onClick={() => {
+                  setActiveStepIndex(idx);
+                  onSelectConcept?.({
+                    id: `concept-fsm-${step.code}`,
+                    badge: { vi: "TRẠNG THÁI FSM", en: "FSM STATE" },
+                    category: { vi: "Deterministic Finite Automata", en: "Deterministic Finite Automata" },
+                    academicStandard: "OMG BPMN 2.0 (ISO/IEC 19510) · Section 10 Process Execution & Hopcroft DFA",
+                    title: {
+                      vi: `${step.name} (Mã: ${step.code})`,
+                      en: `${step.nameEn} (Code: ${step.code})`,
+                    },
+                    lead: {
+                      vi: `Tác nhân chịu trách nhiệm: ${step.actor} · Giới hạn SLA kỹ thuật: ${step.slaLimit}`,
+                      en: `Responsible Actor: ${step.actor} · SLA Constraint: ${step.slaLimit}`,
+                    },
+                    body: {
+                      vi: `${step.descriptionVi}\n\nTrong mô hình máy trạng thái Camunda BPMN 2.0, sự kiện này được kích hoạt qua "${step.camundaEvent}". Trạng thái bưu kiện chỉ được phép chuyển sang bước này nếu đã thỏa mãn các điều kiện tiên quyết từ bước trước. Thao tác được nguyên tử hóa bằng câu lệnh SQL Mutation có khóa Idempotency, lưu nhật ký kiểm toán không thể xóa sửa vào bảng parcel_events.`,
+                      en: `${step.descriptionEn}\n\nWithin Camunda BPMN 2.0 orchestration, this step is triggered via "${step.camundaEvent}". Status progression is permitted only if predecessor invariants hold true. Changes are atomic and logged immutably into parcel_events.`,
+                    },
+                    formulaOrCode: `// Camunda Event Trigger:
+${step.camundaEvent}
+
+// Atomic SQL Mutation:
+${step.sqlMutation}
+
+// SLA Timeout Boundary:
+PT_${step.slaLimit.replace(/\s+/g, '_')}`,
+                    keyTakeaways: {
+                      vi: [
+                        `Tác nhân thực thi: ${step.actor}`,
+                        `Sự kiện điều phối: ${step.camundaEvent}`,
+                        `Ràng buộc SLA tối đa: ${step.slaLimit}`,
+                      ],
+                      en: [
+                        `Executing Actor: ${step.actor}`,
+                        `Camunda Event: ${step.camundaEvent}`,
+                        `SLA Time Bound: ${step.slaLimit}`,
+                      ],
+                    },
+                  });
+                }}
                 style={{ cursor: "pointer" }}
               >
                 {/* Selection Halo */}

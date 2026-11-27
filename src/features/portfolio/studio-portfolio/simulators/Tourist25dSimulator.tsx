@@ -1,9 +1,14 @@
 import { useState, useEffect } from "react";
 import { AlertTriangle, Clock, Pause, Play, RotateCcw } from "lucide-react";
 import type { Language } from "@/types";
+import {
+  ACADEMIC_THEORY_CONCEPTS,
+  type TheoryConcept,
+} from "@/data/theory-concepts.data";
 
 interface Tourist25dSimulatorProps {
   lang: Language;
+  onSelectConcept?: (concept: TheoryConcept) => void;
 }
 
 interface NodeDetail {
@@ -64,7 +69,7 @@ const TOURIST_NODES: Record<string, NodeDetail> = {
   },
 };
 
-export function Tourist25dSimulator({ lang }: Tourist25dSimulatorProps) {
+export function Tourist25dSimulator({ lang, onSelectConcept }: Tourist25dSimulatorProps) {
   const [isPlaying, setIsPlaying] = useState(true);
   const [selectedNodeId, setSelectedNodeId] = useState<string>("rowLock");
   const [holdCountdown, setHoldCountdown] = useState<number>(892);
@@ -326,7 +331,14 @@ export function Tourist25dSimulator({ lang }: Tourist25dSimulatorProps) {
           )}
 
           {/* NODE 1: OTA INGRESS CHANNELS */}
-          <g transform="translate(100, 180)" onClick={() => setSelectedNodeId("otaIngress")} style={{ cursor: "pointer" }}>
+          <g
+            transform="translate(100, 180)"
+            onClick={() => {
+              setSelectedNodeId("otaIngress");
+              onSelectConcept?.(ACADEMIC_THEORY_CONCEPTS["concept-idempotency-key"]);
+            }}
+            style={{ cursor: "pointer" }}
+          >
             <polygon points="0,-22 42,0 0,22 -42,0" fill={selectedNodeId === "otaIngress" ? "#f0fdf4" : "#ffffff"} stroke="#16a34a" strokeWidth="2" filter="url(#tourShadow)" />
             <polygon points="-42,0 0,22 0,38 -42,16" fill="url(#tourSideLeft)" stroke="#16a34a" strokeWidth="1.5" />
             <polygon points="0,22 42,0 42,16 0,38" fill="url(#tourSideRight)" stroke="#16a34a" strokeWidth="1.5" />
@@ -335,7 +347,52 @@ export function Tourist25dSimulator({ lang }: Tourist25dSimulatorProps) {
           </g>
 
           {/* NODE 2: POSTGRESQL ROW LOCK */}
-          <g transform="translate(340, 95)" onClick={() => setSelectedNodeId("rowLock")} style={{ cursor: "pointer" }}>
+          <g
+            transform="translate(340, 95)"
+            onClick={() => {
+              setSelectedNodeId("rowLock");
+              onSelectConcept?.({
+                id: "concept-row-level-lock",
+                badge: { vi: "KHÓA HÀNG CƠ SỞ DỮ LIỆU", en: "DATABASE ROW LOCK" },
+                category: { vi: "ACID Concurrency Control", en: "ACID Concurrency Control" },
+                academicStandard: "Gray & Reuter (1993) Transaction Processing · ISO/IEC 9075 SQL Serializable",
+                title: {
+                  vi: "Khóa Hàng Độc Quyền SELECT FOR UPDATE & Chống Overbooking",
+                  en: "SELECT FOR UPDATE NOWAIT & Overbooking Elimination",
+                },
+                lead: {
+                  vi: "Ngăn chặn hiện tượng hai giao dịch cùng đọc và sửa đổi trạng thái một phòng khách sạn tại cùng một thời điểm.",
+                  en: "Preventing concurrent transactions from mutating the same hotel room inventory simultaneously.",
+                },
+                body: {
+                  vi: "Trong các chuỗi khách sạn đa chi nhánh, bài toán Overbooking nảy sinh khi khách A và khách B cùng xem phòng Suite duy nhất. Khi khách A tiến hành bước thanh toán, câu lệnh `SELECT * FROM room_calendar WHERE room_id = $1 AND date = $2 FOR UPDATE NOWAIT` được kích hoạt. \n\nCơ sở dữ liệu PostgreSQL cấp phát khóa ghi độc quyền (Exclusive Write Lock) trên đúng dòng dữ liệu của phòng đó. Nếu khách B ấn đặt cùng lúc, câu lệnh của khách B gặp `NOWAIT` lập tức nhận phản hồi 409 Conflict mà không phải chờ treo kết nối. Phòng được bảo lưu trong 15 phút, giải phóng tự động nếu khách không nạp tiền.",
+                  en: "In multi-branch hotel platforms, overbooking occurs when multiple guests attempt checkout for a singular room. Initiating checkout executes `SELECT * FROM room_calendar WHERE room_id = $1 AND date = $2 FOR UPDATE NOWAIT`. \n\nPostgreSQL locks the exact row record exclusively. Rival checkout requests fail fast with 409 Conflict instead of holding hanging thread pools. Inventory is held for a 15-minute lease, auto-expiring cleanly.",
+                },
+                formulaOrCode: `// Lệnh khóa phòng độc quyền trong Transaction:
+BEGIN TRANSACTION ISOLATION LEVEL REPEATABLE READ;
+SELECT room_id, status FROM room_inventory 
+WHERE room_id = :roomId AND date = :targetDate 
+FOR UPDATE NOWAIT;
+
+UPDATE room_inventory SET status = 'HELD', hold_expires_at = NOW() + INTERVAL '15 MIN'
+WHERE room_id = :roomId AND date = :targetDate;
+COMMIT;`,
+                keyTakeaways: {
+                  vi: [
+                    "Loại bỏ 100% tình trạng bán trùng phòng (Zero Overbooking) vào dịp lễ Tết cao điểm.",
+                    "NOWAIT giúp từ chối tức thì (< 5ms) không làm nghẽn hàng đợi kết nối của database.",
+                    "Thời gian giữ phòng 15 phút đủ để người dùng nhập mã thẻ/OTP mà không sợ mất phòng.",
+                  ],
+                  en: [
+                    "100% elimination of double-booked rooms during high-occupancy holiday peaks.",
+                    "NOWAIT short-circuits in < 5ms, preserving pool capacity against connection starvation.",
+                    "15-minute lease grants guests ample checkout time without hoarding inventory indefinitely.",
+                  ],
+                },
+              });
+            }}
+            style={{ cursor: "pointer" }}
+          >
             <polygon points="0,-24 48,0 0,24 -48,0" fill={selectedNodeId === "rowLock" ? "#f0fdf4" : "#ffffff"} stroke="#15803d" strokeWidth="2" filter="url(#tourShadow)" />
             <polygon points="-48,0 0,24 0,42 -48,18" fill="#dcfce7" stroke="#15803d" strokeWidth="1.5" />
             <polygon points="0,24 48,0 48,18 0,42" fill="#bbf7d0" stroke="#15803d" strokeWidth="1.5" />
@@ -344,7 +401,14 @@ export function Tourist25dSimulator({ lang }: Tourist25dSimulatorProps) {
           </g>
 
           {/* NODE 3: 15-MINUTE HOLD CACHE */}
-          <g transform="translate(580, 100)" onClick={() => setSelectedNodeId("holdTimer")} style={{ cursor: "pointer" }}>
+          <g
+            transform="translate(580, 100)"
+            onClick={() => {
+              setSelectedNodeId("holdTimer");
+              onSelectConcept?.(ACADEMIC_THEORY_CONCEPTS["concept-idempotency-key"]);
+            }}
+            style={{ cursor: "pointer" }}
+          >
             <polygon points="0,-24 46,0 0,24 -46,0" fill={selectedNodeId === "holdTimer" ? "#eff6ff" : "#ffffff"} stroke="#0284c7" strokeWidth="2" filter="url(#tourShadow)" />
             <polygon points="-46,0 0,24 0,42 -46,18" fill="#e0f2fe" stroke="#0284c7" strokeWidth="1.5" />
             <polygon points="0,24 46,0 46,18 0,42" fill="#bae6fd" stroke="#0284c7" strokeWidth="1.5" />
@@ -353,7 +417,14 @@ export function Tourist25dSimulator({ lang }: Tourist25dSimulatorProps) {
           </g>
 
           {/* NODE 4: PAYMENT WEBHOOK GATEWAY */}
-          <g transform="translate(520, 240)" onClick={() => setSelectedNodeId("paymentWebhook")} style={{ cursor: "pointer" }}>
+          <g
+            transform="translate(520, 240)"
+            onClick={() => {
+              setSelectedNodeId("paymentWebhook");
+              onSelectConcept?.(ACADEMIC_THEORY_CONCEPTS["concept-idempotency-key"]);
+            }}
+            style={{ cursor: "pointer" }}
+          >
             <polygon points="0,-22 44,0 0,22 -44,0" fill={selectedNodeId === "paymentWebhook" ? "#faf5ff" : "#ffffff"} stroke="#7c3aed" strokeWidth="2" filter="url(#tourShadow)" />
             <polygon points="-44,0 0,22 0,38 -44,16" fill="#ede9fe" stroke="#7c3aed" strokeWidth="1.5" />
             <polygon points="0,22 44,0 44,16 0,38" fill="#ddd6fe" stroke="#7c3aed" strokeWidth="1.5" />
@@ -362,7 +433,14 @@ export function Tourist25dSimulator({ lang }: Tourist25dSimulatorProps) {
           </g>
 
           {/* NODE 5: CALENDAR MATRIX SYNC */}
-          <g transform="translate(340, 260)" onClick={() => setSelectedNodeId("calendarSync")} style={{ cursor: "pointer" }}>
+          <g
+            transform="translate(340, 260)"
+            onClick={() => {
+              setSelectedNodeId("calendarSync");
+              onSelectConcept?.(ACADEMIC_THEORY_CONCEPTS["concept-3nf-normalization"]);
+            }}
+            style={{ cursor: "pointer" }}
+          >
             <polygon points="0,-24 46,0 0,24 -46,0" fill={selectedNodeId === "calendarSync" ? "#f0fdf4" : "#ffffff"} stroke="#16a34a" strokeWidth="2" filter="url(#tourShadow)" />
             <polygon points="-46,0 0,24 0,42 -46,18" fill="#dcfce7" stroke="#16a34a" strokeWidth="1.5" />
             <polygon points="0,24 46,0 46,18 0,42" fill="#bbf7d0" stroke="#16a34a" strokeWidth="1.5" />

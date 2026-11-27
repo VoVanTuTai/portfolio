@@ -1,9 +1,14 @@
 import { useState } from "react";
 import { Bot, Pause, Play, RotateCcw, Sparkles } from "lucide-react";
 import type { Language } from "@/types";
+import {
+  ACADEMIC_THEORY_CONCEPTS,
+  type TheoryConcept,
+} from "@/data/theory-concepts.data";
 
 interface NexusAiRag25dSimulatorProps {
   lang: Language;
+  onSelectConcept?: (concept: TheoryConcept) => void;
 }
 
 type QueryType = "tracking" | "policy" | "cod";
@@ -58,7 +63,7 @@ const QUERY_CASES: Record<QueryType, QueryCase> = {
   },
 };
 
-export function NexusAiRag25dSimulator({ lang }: NexusAiRag25dSimulatorProps) {
+export function NexusAiRag25dSimulator({ lang, onSelectConcept }: NexusAiRag25dSimulatorProps) {
   const [isPlaying, setIsPlaying] = useState(true);
   const [activeQuery, setActiveQuery] = useState<QueryType>("tracking");
 
@@ -140,7 +145,10 @@ export function NexusAiRag25dSimulator({ lang }: NexusAiRag25dSimulatorProps) {
               <button
                 key={q.id}
                 type="button"
-                onClick={() => setActiveQuery(q.id as QueryType)}
+                onClick={() => {
+                  setActiveQuery(q.id as QueryType);
+                  onSelectConcept?.(ACADEMIC_THEORY_CONCEPTS["concept-rag-semantic-router"]);
+                }}
                 style={{
                   border: "none",
                   background: activeQuery === q.id ? "#8b5cf6" : "transparent",
