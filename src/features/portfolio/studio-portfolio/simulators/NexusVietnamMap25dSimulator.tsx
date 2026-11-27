@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { MapPin, Pause, Play, Radio, RotateCcw, Truck } from "lucide-react";
+import { MapPin, Pause, Play, RotateCcw, Truck } from "lucide-react";
 import type { Language } from "@/types";
 
 interface NexusVietnamMap25dSimulatorProps {
@@ -515,9 +515,9 @@ export function NexusVietnamMap25dSimulator({ lang }: NexusVietnamMap25dSimulato
               style={{
                 display: "inline-flex",
                 alignItems: "center",
-                gap: "5px",
+                gap: "6px",
                 fontSize: "10.5px",
-                fontWeight: 800,
+                fontWeight: 750,
                 color: "#15803d",
                 background: "#dcfce7",
                 border: "1px solid #86efac",
@@ -525,10 +525,11 @@ export function NexusVietnamMap25dSimulator({ lang }: NexusVietnamMap25dSimulato
                 borderRadius: "5px",
               }}
             >
-              <Radio size={11} className="pulse-dot" /> 22 HUB HOẠT ĐỘNG
+              <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#16a34a", display: "inline-block" }} />
+              22 HUB HOẠT ĐỘNG
             </span>
           </div>
-          <h3 style={{ margin: "4px 0 0 0", fontSize: "16px", color: "#0f172a", fontWeight: 800 }}>
+          <h3 style={{ margin: "4px 0 0 0", fontSize: "16px", color: "#0f172a", fontWeight: 700, fontFamily: "var(--studio-font-display)" }}>
             {lang === "vi"
               ? "Mạng Lưới Tuyến Xe Tải: 3 Hub Tổng & 19 Hub Tỉnh Vệ Tinh"
               : "Road Freight Network: 3 Mega Hubs & 19 Regional Hubs"}
@@ -541,9 +542,9 @@ export function NexusVietnamMap25dSimulator({ lang }: NexusVietnamMap25dSimulato
           <div style={{ display: "flex", gap: "4px", background: "#f1f5f9", padding: "4px", borderRadius: "8px", border: "1px solid #cbd5e1" }}>
             {[
               { id: "all", label: lang === "vi" ? "Toàn Bộ Tuyến" : "All Routes" },
-              { id: "linehaul", label: lang === "vi" ? "🚛 Xe Tải Trục (QL1A)" : "🚛 Linehaul" },
-              { id: "feeder", label: lang === "vi" ? "📦 Trung Chuyển (Tỉnh)" : "📦 Feeder" },
-              { id: "highland", label: lang === "vi" ? "⛰️ Tây Nguyên" : "⛰️ Highland" },
+              { id: "linehaul", label: lang === "vi" ? "Trục QL1A (15T-30T)" : "Linehaul Trunk" },
+              { id: "feeder", label: lang === "vi" ? "Trung Chuyển Tỉnh" : "Regional Feeder" },
+              { id: "highland", label: lang === "vi" ? "Tây Nguyên (QL14)" : "Highland Routes" },
             ].map((tab) => (
               <button
                 key={tab.id}
@@ -556,7 +557,8 @@ export function NexusVietnamMap25dSimulator({ lang }: NexusVietnamMap25dSimulato
                   padding: "5px 12px",
                   borderRadius: "6px",
                   fontSize: "11px",
-                  fontWeight: 750,
+                  fontWeight: 700,
+                  fontFamily: "var(--studio-font-sans)",
                   cursor: "pointer",
                   transition: "all 0.15s ease",
                   boxShadow: filterMode === tab.id ? "0 2px 4px rgba(2, 132, 199, 0.25)" : "none",

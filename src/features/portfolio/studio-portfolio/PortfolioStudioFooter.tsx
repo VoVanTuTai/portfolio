@@ -88,8 +88,8 @@ export const PortfolioStudioFooter = memo(function PortfolioStudioFooter({
           <div className={styles.dockTooltip}>
             {copiedKey === "phone"
               ? lang === "vi"
-                ? "✓ Đã sao chép số!"
-                : "✓ Copied phone!"
+                ? "Đã sao chép số!"
+                : "Copied phone!"
               : "(+84) 869 500 573 · " +
                 (lang === "vi" ? "Chép số" : "Click to copy")}
           </div>
@@ -113,8 +113,8 @@ export const PortfolioStudioFooter = memo(function PortfolioStudioFooter({
           <div className={styles.dockTooltip}>
             {copiedKey === "email"
               ? lang === "vi"
-                ? "✓ Đã sao chép email!"
-                : "✓ Copied email!"
+                ? "Đã sao chép email!"
+                : "Copied email!"
               : "tutaivovan@gmail.com · " +
                 (lang === "vi" ? "Chép email" : "Click to copy")}
           </div>

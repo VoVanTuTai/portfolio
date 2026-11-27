@@ -55,8 +55,8 @@ const NEXUS_NODES: Record<string, NodeDetail> = {
     role: "PROCESS ORCHESTRATION",
     protocol: "BPMN 2.0 State Machine · Camunda Zeebe",
     sla: "Chính xác 100% · Không nhảy cóc trạng thái",
-    description: "Bộ điều phối quy trình vòng đời bưu kiện 7 bước: ORDER_CREATED ➔ PICKED_UP ➔ HUB_ARRIVED ➔ IN_TRANSIT ➔ OUT_FOR_DELIVERY ➔ DELIVERED ➔ COD_RECONCILED. Bảo đảm luân chuyển trạng thái tuân thủ luật nghiệp vụ logistics.",
-    descriptionEn: "Enforces deterministic 7-step parcel state transitions: ORDER_CREATED ➔ PICKED_UP ➔ HUB_ARRIVED ➔ IN_TRANSIT ➔ OUT_FOR_DELIVERY ➔ DELIVERED ➔ COD_RECONCILED without state skips.",
+    description: "Bộ điều phối quy trình vòng đời bưu kiện 7 bước: ORDER_CREATED -> PICKED_UP -> HUB_ARRIVED -> IN_TRANSIT -> OUT_FOR_DELIVERY -> DELIVERED -> COD_RECONCILED. Bảo đảm luân chuyển trạng thái tuân thủ luật nghiệp vụ logistics.",
+    descriptionEn: "Enforces deterministic 7-step parcel state transitions: ORDER_CREATED -> PICKED_UP -> HUB_ARRIVED -> IN_TRANSIT -> OUT_FOR_DELIVERY -> DELIVERED -> COD_RECONCILED without state skips.",
   },
   postgres: {
     id: "postgres",

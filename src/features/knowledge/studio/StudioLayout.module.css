@@ -65,10 +65,10 @@
 }
 
 .brandName {
-  font-family: var(--studio-font-sans);
+  font-family: var(--studio-font-display, var(--studio-font-sans));
   font-size: 15px;
-  font-weight: 850;
-  letter-spacing: -0.02em;
+  font-weight: 750;
+  letter-spacing: -0.01em;
   color: var(--studio-ink);
   line-height: 1.2;
 }
@@ -624,10 +624,10 @@
 
 .lessonHeading {
   margin: 0;
-  font-family: var(--studio-font-sans);
+  font-family: var(--studio-font-display, var(--studio-font-sans));
   font-size: clamp(24px, 2.8vw, 34px);
-  font-weight: 850;
-  letter-spacing: -0.03em;
+  font-weight: 750;
+  letter-spacing: -0.02em;
   color: var(--studio-ink);
   line-height: 1.2;
 }

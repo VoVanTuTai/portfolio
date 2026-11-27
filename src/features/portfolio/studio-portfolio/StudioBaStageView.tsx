@@ -530,11 +530,11 @@ export function StudioBaStageView({
                 <div style={{ display: "flex", flexDirection: "column", gap: "8px", fontSize: "12.5px" }}>
                   <div style={{ padding: "10px 14px", background: "#f0f9ff", borderRadius: "6px", borderLeft: "4px solid #0284c7" }}>
                     <strong>3a. Mã QR bị mờ hoặc rách không quét được:</strong><br />
-                    Tài xế chuyển sang chế độ nhập tay số vận đơn `NX-88992` ➔ Hệ thống yêu cầu chụp ảnh xác thực tình trạng bưu kiện rách bao bì trước khi cho phép nhập kho.
+                    Tài xế chuyển sang chế độ nhập tay số vận đơn `NX-88992` -&gt; Hệ thống yêu cầu chụp ảnh xác thực tình trạng bưu kiện rách bao bì trước khi cho phép nhập kho.
                   </div>
                   <div style={{ padding: "10px 14px", background: "#f0f9ff", borderRadius: "6px", borderLeft: "4px solid #0284c7" }}>
                     <strong>4a. Bưu kiện được giao sang nhầm trạm trung chuyển (Wrong Hub):</strong><br />
-                    Hệ thống kiểm tra tọa độ trạm ➔ Phát hiện sai tuyến ➔ Bật cảnh báo màu cam và tự động đề xuất luồng điều hướng chuyển tiếp (Re-route Transfer).
+                    Hệ thống kiểm tra tọa độ trạm -&gt; Phát hiện sai tuyến -&gt; Bật cảnh báo màu cam và tự động đề xuất luồng điều hướng chuyển tiếp (Re-route Transfer).
                   </div>
                 </div>
               )}
@@ -543,11 +543,11 @@ export function StudioBaStageView({
                 <div style={{ display: "flex", flexDirection: "column", gap: "8px", fontSize: "12.5px" }}>
                   <div style={{ padding: "10px 14px", background: "#fef2f2", borderRadius: "6px", borderLeft: "4px solid #dc2626" }}>
                     <strong>4b. Quét trùng mã bưu kiện 2 lần liên tiếp (Duplicate Scan Request):</strong><br />
-                    Redis Lock phát hiện `Idempotency-Key` trùng trong 60 giây ➔ API Gateway ngắt xử lý, không ghi thêm dòng mới vào DB ➔ Trả về mã lỗi 409 Conflict hoặc kết quả đã lưu trữ từ cache kèm thông báo "Đơn hàng này vừa được quét thành công cách đây 2 giây".
+                    Redis Lock phát hiện `Idempotency-Key` trùng trong 60 giây -&gt; API Gateway ngắt xử lý, không ghi thêm dòng mới vào DB -&gt; Trả về mã lỗi 409 Conflict hoặc kết quả đã lưu trữ từ cache kèm thông báo "Đơn hàng này vừa được quét thành công cách đây 2 giây".
                   </div>
                   <div style={{ padding: "10px 14px", background: "#fef2f2", borderRadius: "6px", borderLeft: "4px solid #dc2626" }}>
                     <strong>5b. Mất kết nối mạng 4G khi đang ở kho tầng hầm (Offline Mode):</strong><br />
-                    Ứng dụng lưu tạm sự kiện quét vào SQLite Offline Queue nội bộ thiết bị ➔ Khi có mạng Internet trở lại, Service Worker tự động đồng bộ tuần tự lên máy chủ.
+                    Ứng dụng lưu tạm sự kiện quét vào SQLite Offline Queue nội bộ thiết bị -&gt; Khi có mạng Internet trở lại, Service Worker tự động đồng bộ tuần tự lên máy chủ.
                   </div>
                 </div>
               )}

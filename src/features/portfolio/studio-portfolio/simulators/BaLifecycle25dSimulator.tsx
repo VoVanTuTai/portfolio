@@ -41,7 +41,7 @@ const LIFECYCLE_STEPS: StepInfo[] = [
     descVi: "Mô hình hóa nghiệp vụ tương lai bằng chuẩn BPMN 2.0, vẽ Activity Swimlanes phân luồng trách nhiệm và thiết kế CSDL 3NF triệt tiêu dị thường.",
     descEn: "Designs future To-Be workflows via BPMN 2.0, draws Activity Swimlanes across roles, and architects 3NF database entities.",
     checklist: [
-      "Sơ đồ Activity Swimlanes 4 làn: Tài xế ➔ App ➔ Gateway ➔ DB",
+      "Sơ đồ Activity Swimlanes 4 làn: Tài xế -> App -> Gateway -> DB",
       "Máy trạng thái hữu hạn (FSM) bảo đảm không có trạng thái mồ côi",
       "Thiết kế CSDL quan hệ 3NF triệt tiêu dư thừa dữ liệu",
     ],

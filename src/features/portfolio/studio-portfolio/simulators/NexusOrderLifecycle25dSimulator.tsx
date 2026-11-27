@@ -71,7 +71,7 @@ const LIFECYCLE_STEPS: StepDetail[] = [
     actor: "Xe Tải Thùng Kín (Linehaul 15T - 30T)",
     camundaEvent: "IntermediateCatchEvent: linehaul_dispatched",
     sqlMutation: "UPDATE linehaul_trips SET status = 'IN_TRANSIT', departure_time = NOW() WHERE trip_id = $1;",
-    slaLimit: "Hà Nội ➔ TP.HCM: 36h - 48h đường bộ",
+    slaLimit: "Hà Nội -> TP.HCM: 36h - 48h đường bộ",
     descriptionVi: "Xe tải thùng kín 15 - 30 tấn vận chuyển các bao tải bưu kiện đã kẹp chì niêm phong (seal) chạy đêm trên trục QL1A và cao tốc Bắc - Nam, kết nối 3 Hub Tổng với định vị GPS liên tục.",
     descriptionEn: "15-30 ton closed-box Linehaul trucks transporting tamper-sealed parcel bags along primary highway corridors with GPS tracking.",
     color: "#a78bfa",

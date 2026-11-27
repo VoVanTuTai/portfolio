@@ -315,7 +315,7 @@ export function NexusExceptionRto25dSimulator({ lang }: NexusExceptionRto25dSimu
                   Chuyển Hoàn RTO
                 </text>
                 <text x="0" y="12" textAnchor="middle" fontFamily="var(--studio-font-mono)" fontSize="8.5" fontWeight="700" fill="#fca5a5">
-                  Lưu kho 48h ➔ Về Shop
+                  Lưu kho 48h {"->"} Về Shop
                 </text>
               </g>
 

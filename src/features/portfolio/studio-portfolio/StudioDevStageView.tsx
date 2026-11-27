@@ -160,10 +160,10 @@ export function StudioDevStageView({ lang, activeItemSlug }: StudioDevStageViewP
               <GitPullRequest size={18} />
             </div>
             <div>
-              <h4 style={{ margin: "0 0 4px 0", fontSize: "14px", fontWeight: 800, color: "#1e3a8a" }}>
+              <h4 style={{ margin: "0 0 4px 0", fontSize: "14px", fontWeight: 800, color: "#1e3a8a", fontFamily: "var(--studio-font-display)" }}>
                 {lang === "vi"
-                  ? "💡 Triết Lý Git Teamwork: Tại Sao Phải Tuân Thủ Quy Trình Chuẩn?"
-                  : "💡 Engineering Philosophy: Why Strict Git Conventions Matter"}
+                  ? "Triết Lý Git Teamwork: Lý Do Tuân Thủ Quy Trình Chuẩn"
+                  : "Engineering Philosophy: Why Strict Git Conventions Matter"}
               </h4>
               <p style={{ margin: 0, fontSize: "13px", color: "#1e40af", lineHeight: 1.6 }}>
                 {lang === "vi"
@@ -368,7 +368,7 @@ export function StudioDevStageView({ lang, activeItemSlug }: StudioDevStageViewP
                     <span style={{ color: "#2563eb" }}>feat</span>(<span style={{ color: "#059669" }}>tracking</span>): implement real-time webhook listener for hub status updates
                   </div>
                   <p style={{ margin: 0, fontSize: "12.5px", color: "#475569", lineHeight: 1.6 }}>
-                    <strong>Ý nghĩa & Lý do:</strong> Dùng khi thêm một tính năng mới ảnh hưởng trực tiếp đến người dùng hoặc luồng nghiệp vụ. Khi tạo release tự động (CI/CD), commit này sẽ tăng minor version (<code style={{ color: "#2563eb" }}>v1.1.0 ➔ v1.2.0</code>).
+                    <strong>Ý nghĩa & Lý do:</strong> Dùng khi thêm một tính năng mới ảnh hưởng trực tiếp đến người dùng hoặc luồng nghiệp vụ. Khi tạo release tự động (CI/CD), commit này sẽ tăng minor version (<code style={{ color: "#2563eb" }}>v1.1.0 -&gt; v1.2.0</code>).
                   </p>
                 </>
               )}
@@ -378,7 +378,7 @@ export function StudioDevStageView({ lang, activeItemSlug }: StudioDevStageViewP
                     <span style={{ color: "#dc2626" }}>fix</span>(<span style={{ color: "#059669" }}>cod-recon</span>): prevent duplicate ledger credit via distributed lock key
                   </div>
                   <p style={{ margin: 0, fontSize: "12.5px", color: "#475569", lineHeight: 1.6 }}>
-                    <strong>Ý nghĩa & Lý do:</strong> Dùng khi vá lỗi nghiệp vụ hoặc kỹ thuật. Commit này giúp tăng patch version (<code style={{ color: "#dc2626" }}>v1.2.0 ➔ v1.2.1</code>) và tự động gắn link đến Issue Tracker / Jira Ticket.
+                    <strong>Ý nghĩa & Lý do:</strong> Dùng khi vá lỗi nghiệp vụ hoặc kỹ thuật. Commit này giúp tăng patch version (<code style={{ color: "#dc2626" }}>v1.2.0 -&gt; v1.2.1</code>) và tự động gắn link đến Issue Tracker / Jira Ticket.
                   </p>
                 </>
               )}
@@ -525,10 +525,10 @@ export function StudioDevStageView({ lang, activeItemSlug }: StudioDevStageViewP
               <ShieldCheck size={18} />
             </div>
             <div>
-              <h4 style={{ margin: "0 0 4px 0", fontSize: "14px", fontWeight: 800, color: "#166534" }}>
+              <h4 style={{ margin: "0 0 4px 0", fontSize: "14px", fontWeight: 800, color: "#166534", fontFamily: "var(--studio-font-display)" }}>
                 {lang === "vi"
-                  ? "🛡️ Tư Duy An Toàn & Bảo Mật Web Đa Lớp (Defense in Depth)"
-                  : "🛡️ Defense-in-Depth Security Mindset"}
+                  ? "Tư Duy An Toàn & Bảo Mật Web Đa Lớp (Defense in Depth)"
+                  : "Defense-in-Depth Security Mindset"}
               </h4>
               <p style={{ margin: 0, fontSize: "13px", color: "#15803d", lineHeight: 1.6 }}>
                 {lang === "vi"
@@ -731,10 +731,10 @@ export function StudioDevStageView({ lang, activeItemSlug }: StudioDevStageViewP
               <BookOpen size={18} />
             </div>
             <div>
-              <h4 style={{ margin: "0 0 4px 0", fontSize: "14px", fontWeight: 800, color: "#1e3a8a" }}>
+              <h4 style={{ margin: "0 0 4px 0", fontSize: "14px", fontWeight: 800, color: "#1e3a8a", fontFamily: "var(--studio-font-display)" }}>
                 {lang === "vi"
-                  ? "🎓 Nền Tảng Đào Tạo Kỹ Sư Hệ Thống Thông Tin — ĐH Công Nghiệp TP.HCM (IUH)"
-                  : "🎓 Information Systems Engineering Curriculum — IUH Honors"}
+                  ? "Nền Tảng Đào Tạo Kỹ Sư Hệ Thống Thông Tin — ĐH Công Nghiệp TP.HCM (IUH)"
+                  : "Information Systems Engineering Curriculum — IUH Honors"}
               </h4>
               <p style={{ margin: 0, fontSize: "13px", color: "#1e40af", lineHeight: 1.6 }}>
                 {lang === "vi"
@@ -768,22 +768,22 @@ export function StudioDevStageView({ lang, activeItemSlug }: StudioDevStageViewP
                 <Folder size={15} />
                 <span>LARAVEL / PHP MVC STANDARD DIRECTORY TREE</span>
               </div>
-              <div style={{ lineHeight: 1.8, color: "#cbd5e1" }}>
-                <div>📁 <span style={{ color: "#38bdf8" }}>app/</span></div>
-                <div style={{ paddingLeft: "16px" }}>📁 <span style={{ color: "#fbbf24" }}>Http/Controllers/</span> <span style={{ color: "#64748b" }}>// Xử lý request & logic điều phối</span></div>
-                <div style={{ paddingLeft: "32px" }}>📄 OrderController.php</div>
-                <div style={{ paddingLeft: "32px" }}>📄 AuthController.php</div>
-                <div style={{ paddingLeft: "16px" }}>📁 <span style={{ color: "#a855f7" }}>Http/Middleware/</span> <span style={{ color: "#64748b" }}>// Check Auth, Roles, CORS</span></div>
-                <div style={{ paddingLeft: "16px" }}>📁 <span style={{ color: "#34d399" }}>Models/</span> <span style={{ color: "#64748b" }}>// Eloquent ORM & Quan hệ DB</span></div>
-                <div style={{ paddingLeft: "32px" }}>📄 Order.php <span style={{ color: "#64748b" }}>// hasMany(OrderItem)</span></div>
-                <div style={{ paddingLeft: "32px" }}>📄 User.php</div>
-                <div>📁 <span style={{ color: "#f43f5e" }}>database/</span></div>
-                <div style={{ paddingLeft: "16px" }}>📁 migrations/ <span style={{ color: "#64748b" }}>// Version control cấu trúc bảng</span></div>
-                <div style={{ paddingLeft: "16px" }}>📁 seeders/ <span style={{ color: "#64748b" }}>// Dữ liệu mẫu kiểm thử</span></div>
-                <div>📁 <span style={{ color: "#38bdf8" }}>resources/views/</span> <span style={{ color: "#64748b" }}>// Blade Templates giao diện</span></div>
-                <div>📁 <span style={{ color: "#fbbf24" }}>routes/</span></div>
-                <div style={{ paddingLeft: "16px" }}>📄 web.php <span style={{ color: "#64748b" }}>// Web sessions</span></div>
-                <div style={{ paddingLeft: "16px" }}>📄 api.php <span style={{ color: "#64748b" }}>// RESTful stateless routes</span></div>
+              <div style={{ lineHeight: 1.8, color: "#cbd5e1", fontFamily: "var(--studio-font-mono)" }}>
+                <div><span style={{ color: "#38bdf8" }}>app/</span></div>
+                <div style={{ paddingLeft: "16px" }}>├── <span style={{ color: "#fbbf24" }}>Http/Controllers/</span> <span style={{ color: "#64748b" }}>// Xử lý request &amp; logic điều phối</span></div>
+                <div style={{ paddingLeft: "32px" }}>│   ├── OrderController.php</div>
+                <div style={{ paddingLeft: "32px" }}>│   └── AuthController.php</div>
+                <div style={{ paddingLeft: "16px" }}>├── <span style={{ color: "#a855f7" }}>Http/Middleware/</span> <span style={{ color: "#64748b" }}>// Check Auth, Roles, CORS</span></div>
+                <div style={{ paddingLeft: "16px" }}>└── <span style={{ color: "#34d399" }}>Models/</span> <span style={{ color: "#64748b" }}>// Eloquent ORM &amp; Quan hệ DB</span></div>
+                <div style={{ paddingLeft: "32px" }}>    ├── Order.php <span style={{ color: "#64748b" }}>// hasMany(OrderItem)</span></div>
+                <div style={{ paddingLeft: "32px" }}>    └── User.php</div>
+                <div><span style={{ color: "#f43f5e" }}>database/</span></div>
+                <div style={{ paddingLeft: "16px" }}>├── migrations/ <span style={{ color: "#64748b" }}>// Version control cấu trúc bảng</span></div>
+                <div style={{ paddingLeft: "16px" }}>└── seeders/ <span style={{ color: "#64748b" }}>// Dữ liệu mẫu kiểm thử</span></div>
+                <div><span style={{ color: "#38bdf8" }}>resources/views/</span> <span style={{ color: "#64748b" }}>// Blade Templates giao diện</span></div>
+                <div><span style={{ color: "#fbbf24" }}>routes/</span></div>
+                <div style={{ paddingLeft: "16px" }}>├── web.php <span style={{ color: "#64748b" }}>// Web sessions</span></div>
+                <div style={{ paddingLeft: "16px" }}>└── api.php <span style={{ color: "#64748b" }}>// RESTful stateless routes</span></div>
               </div>
             </div>
 
@@ -889,14 +889,14 @@ export function StudioDevStageView({ lang, activeItemSlug }: StudioDevStageViewP
                   <Folder size={16} color="#0284c7" />
                   <strong style={{ fontSize: "14px", color: "#0f172a" }}>Cấu Trúc Thư Mục Feature-Based (Scalable)</strong>
                 </div>
-                <div style={{ background: "#0f172a", padding: "12px", borderRadius: "8px", color: "#cbd5e1", fontSize: "11.5px", fontFamily: "monospace", lineHeight: 1.7 }}>
-                  <div>📁 src/</div>
-                  <div style={{ paddingLeft: "14px" }}>📁 components/ <span style={{ color: "#64748b" }}>// UI nguyên tử dùng chung (Button, Modal)</span></div>
-                  <div style={{ paddingLeft: "14px" }}>📁 features/ <span style={{ color: "#38bdf8" }}>// Chia theo từng nghiệp vụ độc lập</span></div>
-                  <div style={{ paddingLeft: "28px" }}>📁 auth/ (components, hooks, authApi.ts)</div>
-                  <div style={{ paddingLeft: "28px" }}>📁 orders/ (components, OrderCard, useOrders)</div>
-                  <div style={{ paddingLeft: "14px" }}>📁 services/ <span style={{ color: "#34d399" }}>// Axios instance, token interceptor</span></div>
-                  <div style={{ paddingLeft: "14px" }}>📁 stores/ <span style={{ color: "#fbbf24" }}>// Zustand / Redux Toolkit global state</span></div>
+                <div style={{ background: "#0f172a", padding: "12px", borderRadius: "8px", color: "#cbd5e1", fontSize: "11.5px", fontFamily: "var(--studio-font-mono)", lineHeight: 1.7 }}>
+                  <div>src/</div>
+                  <div style={{ paddingLeft: "14px" }}>├── components/ <span style={{ color: "#64748b" }}>// UI nguyên tử dùng chung (Button, Modal)</span></div>
+                  <div style={{ paddingLeft: "14px" }}>├── features/ <span style={{ color: "#38bdf8" }}>// Chia theo từng nghiệp vụ độc lập</span></div>
+                  <div style={{ paddingLeft: "28px" }}>│   ├── auth/ (components, hooks, authApi.ts)</div>
+                  <div style={{ paddingLeft: "28px" }}>│   └── orders/ (components, OrderCard, useOrders)</div>
+                  <div style={{ paddingLeft: "14px" }}>├── services/ <span style={{ color: "#34d399" }}>// Axios instance, token interceptor</span></div>
+                  <div style={{ paddingLeft: "14px" }}>└── stores/ <span style={{ color: "#fbbf24" }}>// Zustand / Redux Toolkit global state</span></div>
                 </div>
               </div>
             </div>

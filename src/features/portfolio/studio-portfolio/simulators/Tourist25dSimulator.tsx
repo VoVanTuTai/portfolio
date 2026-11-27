@@ -224,7 +224,7 @@ export function Tourist25dSimulator({ lang }: Tourist25dSimulatorProps) {
           />
           <strong style={{ color: "#0f172a" }}>
             {isSimulateConcurrent
-              ? "CHỐNG OVERBOOKING: Booking.com giữ phòng 101 (Khóa Row Lock) ➔ Yêu cầu từ Agoda bị từ chối an toàn"
+              ? "CHỐNG OVERBOOKING: Booking.com giữ phòng 101 (Khóa Row Lock) -> Yêu cầu từ Agoda bị từ chối an toàn"
               : "ĐỒNG BỘ BÌNH THƯỜNG: Đã chốt phòng và đồng bộ Calendar Matrix sang toàn bộ 4 kênh OTA"}
           </strong>
         </div>
