@@ -12,7 +12,9 @@ const DatabasePage = lazy(() => import("@/features/knowledge/DatabasePage"));
 const DataModelingPage = lazy(() => import("@/features/knowledge/DataModelingPage"));
 const BackendApiPage = lazy(() => import("@/features/knowledge/BackendApiPage"));
 const BusinessAnalysisPage = lazy(() => import("@/features/knowledge/BusinessAnalysisPage"));
-const StudioPage = lazy(() => import("@/features/knowledge/studio/StudioPage"));
+const Portfolio3ColumnPage = lazy(
+  () => import("@/features/portfolio/studio-portfolio/Portfolio3ColumnPage"),
+);
 
 export function App() {
   const [pathname, setPathname] = useState(window.location.pathname);
@@ -41,7 +43,7 @@ export function App() {
 
   const renderPage = () => {
     if (pathname === "/studio" || pathname.startsWith("/studio/")) {
-      return <StudioPage navigate={navigate} />;
+      return <Portfolio3ColumnPage navigate={navigate} />;
     }
     if (pathname === "/knowledge") return <KnowledgeHubPage navigate={navigate} />;
     if (pathname === "/knowledge/programming-languages") {

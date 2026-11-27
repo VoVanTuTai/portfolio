@@ -69,9 +69,34 @@ export function HeroSection({ lang, t }: HeroSectionProps) {
             <ExternalLink size={15} />
             <span>
               {lang === "vi"
-                ? "Xem Live Demo: Nexus Express OMS ↗"
-                : "Live Demo: Nexus Express OMS ↗"}
+                ? "Live Demo: Nexus Express ↗"
+                : "Live Demo: Nexus Express ↗"}
             </span>
+          </a>
+          <a
+            href="/studio"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "6px",
+              padding: "9px 15px",
+              borderRadius: "8px",
+              background: "linear-gradient(135deg, #1d4ed8, #0284c7)",
+              color: "#ffffff",
+              fontWeight: 800,
+              fontSize: "13px",
+              textDecoration: "none",
+              border: "1px solid #0284c7",
+              boxShadow: "0 2px 6px rgba(2, 132, 199, 0.25)",
+            }}
+            title={
+              lang === "vi"
+                ? "Mở Xưởng Kiến Trúc 3 Cột (Mô Hình 2.5D & Soi Lý Thuyết)"
+                : "Open Systems Studio 2.5D"
+            }
+          >
+            <Sparkles size={15} />
+            <span>{lang === "vi" ? "Xưởng Studio 3 Cột 2.5D ↗" : "Systems Studio 2.5D ↗"}</span>
           </a>
           <a
             href={
