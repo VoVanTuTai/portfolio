@@ -1,6 +1,7 @@
 import { ExternalLink, Github } from "lucide-react";
 import type { Language } from "@/types";
 import type { PortfolioItem } from "@/data/portfolio-tree.data";
+import type { TheoryConcept } from "@/data/theory-concepts.data";
 import { NexusVietnamMap25dSimulator } from "@/features/portfolio/studio-portfolio/simulators/NexusVietnamMap25dSimulator";
 import { NexusOrderLifecycle25dSimulator } from "@/features/portfolio/studio-portfolio/simulators/NexusOrderLifecycle25dSimulator";
 import { NexusExceptionRto25dSimulator } from "@/features/portfolio/studio-portfolio/simulators/NexusExceptionRto25dSimulator";
@@ -13,6 +14,7 @@ interface StudioProjectsStageViewProps {
   item: PortfolioItem;
   lang: Language;
   onSelectItem?: (slug: string) => void;
+  onSelectConcept?: (concept: TheoryConcept) => void;
 }
 
 type ProjectSubSection = "overview" | "modeling" | "results";
@@ -20,6 +22,7 @@ type ProjectSubSection = "overview" | "modeling" | "results";
 export function StudioProjectsStageView({
   item,
   lang,
+  onSelectConcept,
 }: StudioProjectsStageViewProps) {
   const isNexus = item.slug.startsWith("nexus") || item.id.includes("nexus");
   const isCab = item.slug.startsWith("cab") || item.id.includes("cab");
@@ -214,7 +217,7 @@ export function StudioProjectsStageView({
           {/* SUB-SECTION 1.2: BẢN ĐỒ VIỆT NAM & MẠNG LƯỚI HUB 2.5D */}
           {nexusSection === "map-hubs" && (
             <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
-              <NexusVietnamMap25dSimulator lang={lang} />
+              <NexusVietnamMap25dSimulator lang={lang} onSelectConcept={onSelectConcept} />
               <div style={{ padding: "18px 20px", borderRadius: "10px", background: "#ffffff", border: "1.5px solid #d8e6f5" }}>
                 <h4 style={{ margin: "0 0 8px 0", fontSize: "14px", color: "#0f172a" }}>
                   Mô Hình Vận Tải Hub-and-Spoke Đường Bộ & Tuyến Xe Tải Linehaul
@@ -229,7 +232,7 @@ export function StudioProjectsStageView({
           {/* SUB-SECTION 1.3: VÒNG ĐỜI ĐƠN HÀNG FSM 2.5D */}
           {nexusSection === "lifecycle" && (
             <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
-              <NexusOrderLifecycle25dSimulator lang={lang} />
+              <NexusOrderLifecycle25dSimulator lang={lang} onSelectConcept={onSelectConcept} />
               <div style={{ padding: "18px 20px", borderRadius: "10px", background: "#ffffff", border: "1.5px solid #d8e6f5" }}>
                 <h4 style={{ margin: "0 0 8px 0", fontSize: "14px", color: "#0f172a" }}>
                   Kiểm Soát Chuyển Trạng Thái Đơn Bằng Máy Trạng Thái FSM
@@ -244,7 +247,7 @@ export function StudioProjectsStageView({
           {/* SUB-SECTION 1.4: NGOẠI LỆ & HOÀN HÀNG 2.5D */}
           {nexusSection === "exceptions" && (
             <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
-              <NexusExceptionRto25dSimulator lang={lang} />
+              <NexusExceptionRto25dSimulator lang={lang} onSelectConcept={onSelectConcept} />
               <div style={{ padding: "18px 20px", borderRadius: "10px", background: "#ffffff", border: "1.5px solid #d8e6f5" }}>
                 <h4 style={{ margin: "0 0 8px 0", fontSize: "14px", color: "#0f172a" }}>
                   Quy Trình Xử Lý Đơn Giao Thất Bại & Hoàn Hàng (RTO)
@@ -259,14 +262,14 @@ export function StudioProjectsStageView({
           {/* SUB-SECTION 1.5: KIẾN TRÚC PHÂN TÁN 4 TẦNG 2.5D */}
           {nexusSection === "architecture" && (
             <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
-              <Nexus25dSimulator lang={lang} />
+              <Nexus25dSimulator lang={lang} onSelectConcept={onSelectConcept} />
             </div>
           )}
 
           {/* SUB-SECTION 1.6: AI CHATBOT RAG 2.5D */}
           {nexusSection === "ai-rag" && (
             <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
-              <NexusAiRag25dSimulator lang={lang} />
+              <NexusAiRag25dSimulator lang={lang} onSelectConcept={onSelectConcept} />
               <div style={{ padding: "18px 20px", borderRadius: "10px", background: "#ffffff", border: "1.5px solid #d8e6f5" }}>
                 <h4 style={{ margin: "0 0 8px 0", fontSize: "14px", color: "#0f172a" }}>
                   Cơ Chế Phân Loại Câu Hỏi Cho Chatbot Hỗ Trợ Khách Hàng
@@ -340,7 +343,7 @@ export function StudioProjectsStageView({
 
           {subSection === "modeling" && (
             <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
-              <Cab25dSimulator lang={lang} />
+              <Cab25dSimulator lang={lang} onSelectConcept={onSelectConcept} />
             </div>
           )}
 
@@ -389,7 +392,7 @@ export function StudioProjectsStageView({
 
           {subSection === "modeling" && (
             <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
-              <Tourist25dSimulator lang={lang} />
+              <Tourist25dSimulator lang={lang} onSelectConcept={onSelectConcept} />
             </div>
           )}
 

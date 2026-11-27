@@ -1,9 +1,14 @@
 import { useState } from "react";
 import { Activity, AlertTriangle, Pause, Play, RotateCcw } from "lucide-react";
 import type { Language } from "@/types";
+import {
+  ACADEMIC_THEORY_CONCEPTS,
+  type TheoryConcept,
+} from "@/data/theory-concepts.data";
 
 interface Nexus25dSimulatorProps {
   lang: Language;
+  onSelectConcept?: (concept: TheoryConcept) => void;
 }
 
 interface NodeDetail {
@@ -80,7 +85,7 @@ const NEXUS_NODES: Record<string, NodeDetail> = {
   },
 };
 
-export function Nexus25dSimulator({ lang }: Nexus25dSimulatorProps) {
+export function Nexus25dSimulator({ lang, onSelectConcept }: Nexus25dSimulatorProps) {
   const [isPlaying, setIsPlaying] = useState(true);
   const [rps, setRps] = useState(1200);
   const [isChaosActive, setIsChaosActive] = useState(false);
@@ -350,7 +355,10 @@ export function Nexus25dSimulator({ lang }: Nexus25dSimulatorProps) {
               ================================================================ */}
           <g
             transform="translate(100, 180)"
-            onClick={() => setSelectedNodeId("courier")}
+            onClick={() => {
+              setSelectedNodeId("courier");
+              onSelectConcept?.(ACADEMIC_THEORY_CONCEPTS["concept-haversine-geofencing"]);
+            }}
             style={{ cursor: "pointer" }}
           >
             <polygon
@@ -375,7 +383,10 @@ export function Nexus25dSimulator({ lang }: Nexus25dSimulatorProps) {
               ================================================================ */}
           <g
             transform="translate(270, 115)"
-            onClick={() => setSelectedNodeId("gateway")}
+            onClick={() => {
+              setSelectedNodeId("gateway");
+              onSelectConcept?.(ACADEMIC_THEORY_CONCEPTS["concept-idempotency-key"]);
+            }}
             style={{ cursor: "pointer" }}
           >
             <polygon
@@ -400,7 +411,10 @@ export function Nexus25dSimulator({ lang }: Nexus25dSimulatorProps) {
               ================================================================ */}
           <g
             transform="translate(430, 80)"
-            onClick={() => setSelectedNodeId("redis")}
+            onClick={() => {
+              setSelectedNodeId("redis");
+              onSelectConcept?.(ACADEMIC_THEORY_CONCEPTS["concept-idempotency-key"]);
+            }}
             style={{ cursor: "pointer" }}
           >
             <polygon
@@ -425,7 +439,10 @@ export function Nexus25dSimulator({ lang }: Nexus25dSimulatorProps) {
               ================================================================ */}
           <g
             transform="translate(580, 130)"
-            onClick={() => setSelectedNodeId("camunda")}
+            onClick={() => {
+              setSelectedNodeId("camunda");
+              onSelectConcept?.(ACADEMIC_THEORY_CONCEPTS["concept-camunda-bpmn"]);
+            }}
             style={{ cursor: "pointer" }}
           >
             <polygon
@@ -450,7 +467,10 @@ export function Nexus25dSimulator({ lang }: Nexus25dSimulatorProps) {
               ================================================================ */}
           <g
             transform="translate(430, 260)"
-            onClick={() => setSelectedNodeId("postgres")}
+            onClick={() => {
+              setSelectedNodeId("postgres");
+              onSelectConcept?.(ACADEMIC_THEORY_CONCEPTS["concept-3nf-normalization"]);
+            }}
             style={{ cursor: "pointer" }}
           >
             <polygon

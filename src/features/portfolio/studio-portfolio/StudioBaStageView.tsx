@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import type { Language } from "@/types";
 import type { PortfolioItem } from "@/data/portfolio-tree.data";
+import type { TheoryConcept } from "@/data/theory-concepts.data";
 import { BaLifecycle25dSimulator } from "@/features/portfolio/studio-portfolio/simulators/BaLifecycle25dSimulator";
 import { BaActivity25dSimulator } from "@/features/portfolio/studio-portfolio/simulators/BaActivity25dSimulator";
 import { BaDdd25dSimulator } from "@/features/portfolio/studio-portfolio/simulators/BaDdd25dSimulator";
@@ -20,6 +21,7 @@ interface StudioBaStageViewProps {
   item: PortfolioItem;
   lang: Language;
   onSelectItem?: (slug: string) => void;
+  onSelectConcept?: (concept: TheoryConcept) => void;
 }
 
 type BaSubTab = "lifecycle" | "elicitation" | "backlog" | "diagrams";
@@ -28,6 +30,7 @@ type DiagramType = "activity" | "usecase-diagram" | "usecase-spec" | "sequence" 
 export function StudioBaStageView({
   item,
   lang,
+  onSelectConcept,
 }: StudioBaStageViewProps) {
   const getActiveTab = (): BaSubTab => {
     if (item.slug === "ba-elicitation") return "elicitation";
@@ -757,7 +760,7 @@ export function StudioBaStageView({
           {/* DIAGRAM 6: ERD & DATA DICTIONARY 3NF 2.5D */}
           {activeDiagram === "erd-3nf" && (
             <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
-              <BaErd25dSimulator lang={lang} />
+              <BaErd25dSimulator lang={lang} onSelectConcept={onSelectConcept} />
             </div>
           )}
         </div>

@@ -1,9 +1,14 @@
 import { useState } from "react";
 import { AlertTriangle, Pause, Play, RotateCcw } from "lucide-react";
 import type { Language } from "@/types";
+import {
+  ACADEMIC_THEORY_CONCEPTS,
+  type TheoryConcept,
+} from "@/data/theory-concepts.data";
 
 interface NexusExceptionRto25dSimulatorProps {
   lang: Language;
+  onSelectConcept?: (concept: TheoryConcept) => void;
 }
 
 type ExceptionScenario = "retry" | "rto" | "damage";
@@ -60,7 +65,7 @@ const SCENARIOS: Record<ExceptionScenario, ScenarioDetail> = {
   },
 };
 
-export function NexusExceptionRto25dSimulator({ lang }: NexusExceptionRto25dSimulatorProps) {
+export function NexusExceptionRto25dSimulator({ lang, onSelectConcept }: NexusExceptionRto25dSimulatorProps) {
   const [isPlaying, setIsPlaying] = useState(true);
   const [activeScenario, setActiveScenario] = useState<ExceptionScenario>("retry");
 
@@ -124,7 +129,50 @@ export function NexusExceptionRto25dSimulator({ lang }: NexusExceptionRto25dSimu
               <button
                 key={tab.id}
                 type="button"
-                onClick={() => setActiveScenario(tab.id as ExceptionScenario)}
+                onClick={() => {
+                  const targetId = tab.id as ExceptionScenario;
+                  setActiveScenario(targetId);
+                  if (targetId === "retry") {
+                    onSelectConcept?.(ACADEMIC_THEORY_CONCEPTS["concept-haversine-geofencing"]);
+                  } else if (targetId === "rto") {
+                    onSelectConcept?.(ACADEMIC_THEORY_CONCEPTS["concept-rto-buffer"]);
+                  } else {
+                    onSelectConcept?.({
+                      id: "concept-damage-indemnity",
+                      badge: { vi: "GIAO DỊCH BÙ TRỪ SAGA", en: "SAGA COMPENSATION" },
+                      category: { vi: "Distributed Transactions", en: "Distributed Transactions" },
+                      academicStandard: "Garcia-Molina & Salem (1987) Sagas · Microservice Compensation Pattern",
+                      title: {
+                        vi: "Giao Thức Bồi Thường Hàng Hỏng Bằng Saga Compensating Transactions",
+                        en: "Damaged Parcel Compensation via Saga Compensating Transactions",
+                      },
+                      lead: {
+                        vi: "Tự động kích hoạt chuỗi giao dịch bù trừ (Compensating Actions) khi bưu phẩm gặp sự cố vật lý.",
+                        en: "Automated trigger of compensating transactions when consignments sustain physical transit damage.",
+                      },
+                      body: {
+                        vi: "Khi shipper và người nhận lập biên bản đồng kiểm xác nhận kiện hàng bị rách bao bì, hỏng đồ bên trong, quy trình Saga phân tán kích hoạt 3 bước bù trừ nguyên tử: \n1. Hoàn trả tiền hàng tạm giữ từ tài khoản thanh toán trung gian về ví điện tử của người mua. \n2. Cập nhật trạng thái bưu kiện thành DAMAGED_INDEMNITY và khóa quyền truy thu COD đối với bưu tá. \n3. Xuất hồ sơ giám định hiện trường đính kèm ảnh chụp gửi thẳng tới cổng API của công ty bảo hiểm để quyết toán bồi hoàn trong 24 giờ.",
+                        en: "Upon joint inspection verifying package damage, a distributed Saga orchestrates 3 atomic compensating steps: \n1. Immediate escrow refund to buyer wallet. \n2. Mutates parcel state to DAMAGED_INDEMNITY and releases driver COD liability. \n3. Dispatches insurance claim manifests with geo-tagged photos to underwriting APIs for 24h settlement.",
+                      },
+                      formulaOrCode: `// Saga Orchestration Sequence:
+Saga.step("RefundBuyerEscrow").invoke(walletService.refund).withCompensation(walletService.rollback)
+    .step("ReleaseDriverLiability").invoke(driverLedger.cancelCod)
+    .step("FileInsuranceClaim").invoke(insuranceService.submitDamageReport);`,
+                      keyTakeaways: {
+                        vi: [
+                          "Thời gian bồi hoàn cho người tiêu dùng rút ngắn từ 14 ngày xuống < 24 giờ.",
+                          "Ghi nhận ảnh chụp hiện trạng kèm tọa độ GPS chống gian lận bồi thường bảo hiểm.",
+                          "Giao dịch bù trừ bảo đảm số dư kế toán tài chính luôn khớp tuyệt đối.",
+                        ],
+                        en: [
+                          "Customer indemnity cycle compressed from 14 days down to < 24 hours.",
+                          "Geo-tagged damage photos eliminate fraudulent insurance claim rings.",
+                          "Compensating actions preserve double-entry ledger balance integrity.",
+                        ],
+                      },
+                    });
+                  }
+                }}
                 style={{
                   border: "none",
                   background: activeScenario === tab.id ? scenario.color : "transparent",

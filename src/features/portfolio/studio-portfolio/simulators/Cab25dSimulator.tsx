@@ -1,9 +1,14 @@
 import { useState } from "react";
 import { Compass, Pause, Play, RotateCcw, Users2 } from "lucide-react";
 import type { Language } from "@/types";
+import {
+  ACADEMIC_THEORY_CONCEPTS,
+  type TheoryConcept,
+} from "@/data/theory-concepts.data";
 
 interface Cab25dSimulatorProps {
   lang: Language;
+  onSelectConcept?: (concept: TheoryConcept) => void;
 }
 
 interface NodeDetail {
@@ -64,7 +69,7 @@ const CAB_NODES: Record<string, NodeDetail> = {
   },
 };
 
-export function Cab25dSimulator({ lang }: Cab25dSimulatorProps) {
+export function Cab25dSimulator({ lang, onSelectConcept }: Cab25dSimulatorProps) {
   const [isPlaying, setIsPlaying] = useState(true);
   const [radiusKm, setRadiusKm] = useState(3.5);
   const [isContention, setIsContention] = useState(true);
@@ -321,7 +326,14 @@ export function Cab25dSimulator({ lang }: Cab25dSimulatorProps) {
           )}
 
           {/* NODE 1: RIDER APP */}
-          <g transform="translate(100, 180)" onClick={() => setSelectedNodeId("rider")} style={{ cursor: "pointer" }}>
+          <g
+            transform="translate(100, 180)"
+            onClick={() => {
+              setSelectedNodeId("rider");
+              onSelectConcept?.(ACADEMIC_THEORY_CONCEPTS["concept-haversine-geofencing"]);
+            }}
+            style={{ cursor: "pointer" }}
+          >
             <polygon points="0,-22 42,0 0,22 -42,0" fill={selectedNodeId === "rider" ? "#eff6ff" : "#ffffff"} stroke="#0284c7" strokeWidth="2" filter="url(#cabShadow)" />
             <polygon points="-42,0 0,22 0,38 -42,16" fill="url(#cabSideLeft)" stroke="#0284c7" strokeWidth="1.5" />
             <polygon points="0,22 42,0 42,16 0,38" fill="url(#cabSideRight)" stroke="#0284c7" strokeWidth="1.5" />
@@ -330,7 +342,14 @@ export function Cab25dSimulator({ lang }: Cab25dSimulatorProps) {
           </g>
 
           {/* NODE 2: HAVERSINE ENGINE */}
-          <g transform="translate(290, 110)" onClick={() => setSelectedNodeId("haversine")} style={{ cursor: "pointer" }}>
+          <g
+            transform="translate(290, 110)"
+            onClick={() => {
+              setSelectedNodeId("haversine");
+              onSelectConcept?.(ACADEMIC_THEORY_CONCEPTS["concept-haversine-geofencing"]);
+            }}
+            style={{ cursor: "pointer" }}
+          >
             <polygon points="0,-24 46,0 0,24 -46,0" fill={selectedNodeId === "haversine" ? "#faf5ff" : "#ffffff"} stroke="#7c3aed" strokeWidth="2" filter="url(#cabShadow)" />
             <polygon points="-46,0 0,24 0,42 -46,18" fill="#ede9fe" stroke="#7c3aed" strokeWidth="1.5" />
             <polygon points="0,24 46,0 46,18 0,42" fill="#ddd6fe" stroke="#7c3aed" strokeWidth="1.5" />
@@ -339,7 +358,14 @@ export function Cab25dSimulator({ lang }: Cab25dSimulatorProps) {
           </g>
 
           {/* NODE 3: SOCKET.IO FLEET BROADCAST */}
-          <g transform="translate(560, 95)" onClick={() => setSelectedNodeId("socketCluster")} style={{ cursor: "pointer" }}>
+          <g
+            transform="translate(560, 95)"
+            onClick={() => {
+              setSelectedNodeId("socketCluster");
+              onSelectConcept?.(ACADEMIC_THEORY_CONCEPTS["concept-idempotency-key"]);
+            }}
+            style={{ cursor: "pointer" }}
+          >
             <polygon points="0,-24 48,0 0,24 -48,0" fill={selectedNodeId === "socketCluster" ? "#f0fdf4" : "#ffffff"} stroke="#059669" strokeWidth="2" filter="url(#cabShadow)" />
             <polygon points="-48,0 0,24 0,42 -48,18" fill="#d1fae5" stroke="#059669" strokeWidth="1.5" />
             <polygon points="0,24 48,0 48,18 0,42" fill="#a7f3d0" stroke="#059669" strokeWidth="1.5" />
@@ -348,7 +374,14 @@ export function Cab25dSimulator({ lang }: Cab25dSimulatorProps) {
           </g>
 
           {/* NODE 4: REDIS DISTRIBUTED LOCK */}
-          <g transform="translate(420, 260)" onClick={() => setSelectedNodeId("redisLock")} style={{ cursor: "pointer" }}>
+          <g
+            transform="translate(420, 260)"
+            onClick={() => {
+              setSelectedNodeId("redisLock");
+              onSelectConcept?.(ACADEMIC_THEORY_CONCEPTS["concept-idempotency-key"]);
+            }}
+            style={{ cursor: "pointer" }}
+          >
             <polygon points="0,-24 48,0 0,24 -48,0" fill={selectedNodeId === "redisLock" ? "#fef3c7" : "#ffffff"} stroke="#d97706" strokeWidth="2" filter="url(#cabShadow)" />
             <polygon points="-48,0 0,24 0,42 -48,18" fill="#fef3c7" stroke="#d97706" strokeWidth="1.5" />
             <polygon points="0,24 48,0 48,18 0,42" fill="#fde68a" stroke="#d97706" strokeWidth="1.5" />
@@ -357,7 +390,14 @@ export function Cab25dSimulator({ lang }: Cab25dSimulatorProps) {
           </g>
 
           {/* NODE 5: TRIP ACTIVE & DISPATCH STATE */}
-          <g transform="translate(200, 280)" onClick={() => setSelectedNodeId("rideActive")} style={{ cursor: "pointer" }}>
+          <g
+            transform="translate(200, 280)"
+            onClick={() => {
+              setSelectedNodeId("rideActive");
+              onSelectConcept?.(ACADEMIC_THEORY_CONCEPTS["concept-3nf-normalization"]);
+            }}
+            style={{ cursor: "pointer" }}
+          >
             <polygon points="0,-22 44,0 0,22 -44,0" fill={selectedNodeId === "rideActive" ? "#fff7ed" : "#ffffff"} stroke="#ea580c" strokeWidth="2" filter="url(#cabShadow)" />
             <polygon points="-44,0 0,22 0,38 -44,16" fill="#ffedd5" stroke="#ea580c" strokeWidth="1.5" />
             <polygon points="0,22 44,0 44,16 0,38" fill="#fed7aa" stroke="#ea580c" strokeWidth="1.5" />

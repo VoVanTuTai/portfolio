@@ -13,6 +13,7 @@ import { StudioDevStageView } from "@/features/portfolio/studio-portfolio/Studio
 import { ProjectManagementSection } from "@/features/project-management/ProjectManagementSection";
 import { StudioSimulationCanvas } from "@/features/knowledge/studio/StudioSimulationCanvas";
 import { allStudioLessons } from "@/features/knowledge/studio/studio-sample-data";
+import type { TheoryConcept } from "@/data/theory-concepts.data";
 import styles from "@/features/knowledge/studio/StudioLayout.module.css";
 
 interface Portfolio3ColumnStageProps {
@@ -22,6 +23,7 @@ interface Portfolio3ColumnStageProps {
   onStepChange?: (index: number) => void;
   onSelectItem?: (slug: string) => void;
   onShowToast?: (title: string, content: string) => void;
+  onSelectConcept?: (concept: TheoryConcept) => void;
 }
 
 export function Portfolio3ColumnStage({
@@ -30,6 +32,7 @@ export function Portfolio3ColumnStage({
   currentStepIndex = 0,
   onSelectItem,
   onShowToast: _onShowToast,
+  onSelectConcept,
 }: Portfolio3ColumnStageProps) {
   const [isPlaying, setIsPlaying] = useState(true);
 
@@ -123,6 +126,7 @@ export function Portfolio3ColumnStage({
             item={item}
             lang={lang}
             onSelectItem={onSelectItem}
+            onSelectConcept={onSelectConcept}
           />
         )}
 
@@ -141,6 +145,7 @@ export function Portfolio3ColumnStage({
             item={item}
             lang={lang}
             onSelectItem={onSelectItem}
+            onSelectConcept={onSelectConcept}
           />
         )}
 
