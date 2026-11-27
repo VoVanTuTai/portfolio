@@ -21,7 +21,7 @@ interface Portfolio3ColumnPageProps {
   navigate?: NavigateHandler;
 }
 
-export function Portfolio3ColumnPage({ navigate: _navigate }: Portfolio3ColumnPageProps) {
+export function Portfolio3ColumnPage({ navigate }: Portfolio3ColumnPageProps) {
   // 1. Language State
   const [lang, setLang] = useState<Language>(() => {
     if (typeof window !== "undefined") {
@@ -179,7 +179,8 @@ export function Portfolio3ColumnPage({ navigate: _navigate }: Portfolio3ColumnPa
             window.open(url, "_blank");
           }
         }}
-        onSelectProfile={() => handleSelectItem("nexus-overview")}
+        onSelectProfile={() => handleSelectItem("ho-so-nang-luc")}
+        navigate={navigate}
       />
 
       {/* 2. Workspace 3-Column Grid */}
@@ -237,7 +238,7 @@ export function Portfolio3ColumnPage({ navigate: _navigate }: Portfolio3ColumnPa
         lang={lang}
         onShowToast={showToast}
         onOpenSearch={() => setIsSearchOpen(true)}
-        onSelectProfile={() => handleSelectItem("nexus-overview")}
+        onSelectProfile={() => handleSelectItem("ho-so-nang-luc")}
       />
 
       {/* 4. Floating System Toast Notification */}
@@ -264,3 +265,5 @@ export function Portfolio3ColumnPage({ navigate: _navigate }: Portfolio3ColumnPa
     </div>
   );
 }
+
+export default Portfolio3ColumnPage;

@@ -1,5 +1,5 @@
-import { FileText, Menu, Search } from "lucide-react";
-import type { Language } from "@/types";
+import { ArrowLeft, FileText, Menu, Search } from "lucide-react";
+import type { Language, NavigateHandler } from "@/types";
 import type { PortfolioItem } from "@/data/portfolio-tree.data";
 import { BrandAvatar } from "@/components/BrandAvatar";
 import styles from "@/features/knowledge/studio/StudioLayout.module.css";
@@ -13,6 +13,7 @@ interface Portfolio3ColumnTopbarProps {
   isSidebarOpen: boolean;
   onSelectCv?: () => void;
   onSelectProfile?: () => void;
+  navigate?: NavigateHandler;
 }
 
 export function Portfolio3ColumnTopbar({
@@ -24,6 +25,7 @@ export function Portfolio3ColumnTopbar({
   isSidebarOpen,
   onSelectCv,
   onSelectProfile,
+  navigate,
 }: Portfolio3ColumnTopbarProps) {
   return (
     <header className={styles.studioTopbar} aria-label="Portfolio Studio Topbar">
@@ -106,6 +108,37 @@ export function Portfolio3ColumnTopbar({
             </span>
           </div>
         </button>
+
+        {/* Back to Candidate Portfolio Button */}
+        <a
+          href="/"
+          onClick={(e) => {
+            if (navigate) {
+              navigate(e, "/");
+            }
+          }}
+          title={lang === "vi" ? "Quay về trang Hồ Sơ Cá Nhân & CV" : "Return to Candidate Portfolio & CV"}
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "5px",
+            padding: "5px 10px",
+            borderRadius: "7px",
+            background: "#eff6ff",
+            color: "#1d4ed8",
+            fontSize: "11.5px",
+            fontWeight: 800,
+            textDecoration: "none",
+            border: "1px solid #bfdbfe",
+            cursor: "pointer",
+            transition: "all 140ms ease",
+            marginLeft: "6px",
+            boxShadow: "0 1px 2px rgba(37, 99, 235, 0.08)",
+          }}
+        >
+          <ArrowLeft size={13} />
+          <span>{lang === "vi" ? "Hồ Sơ & CV" : "Portfolio & CV"}</span>
+        </a>
       </div>
 
       {/* Middle Breadcrumb Indicator */}
