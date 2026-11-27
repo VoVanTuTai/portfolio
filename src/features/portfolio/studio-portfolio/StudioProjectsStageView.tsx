@@ -1,4 +1,4 @@
-import { ExternalLink, Github, Radio } from "lucide-react";
+import { ExternalLink, Github } from "lucide-react";
 import type { Language } from "@/types";
 import type { PortfolioItem } from "@/data/portfolio-tree.data";
 import { NexusVietnamMap25dSimulator } from "@/features/portfolio/studio-portfolio/simulators/NexusVietnamMap25dSimulator";
@@ -72,24 +72,25 @@ export function StudioProjectsStageView({
                   style={{
                     display: "inline-flex",
                     alignItems: "center",
-                    gap: "4px",
+                    gap: "6px",
                     padding: "3px 8px",
                     borderRadius: "5px",
                     background: "#dcfce7",
                     color: "#15803d",
                     fontSize: "10.5px",
-                    fontWeight: 800,
+                    fontWeight: 750,
                     fontFamily: "var(--font-mono, monospace)",
                     border: "1px solid #86efac",
                   }}
                 >
-                  <Radio size={11} className="pulse-dot" /> PRODUCTION LIVE
+                  <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#16a34a", display: "inline-block" }} />
+                  PRODUCTION LIVE
                 </span>
                 <span style={{ fontFamily: "var(--font-mono, monospace)", fontSize: "10.5px", fontWeight: 750, color: "#1e40af" }}>
                   tracking.nexus-ex.site
                 </span>
               </div>
-              <strong style={{ fontSize: "15px", color: "#0f172a" }}>
+              <strong style={{ fontSize: "15px", color: "#0f172a", fontFamily: "var(--studio-font-display)" }}>
                 Nexus Express — Hệ Thống Quản Lý Vận Đơn & Tra Cứu Bưu Kiện Phân Tán
               </strong>
             </div>
@@ -170,7 +171,7 @@ export function StudioProjectsStageView({
                       <tr style={{ borderBottom: "1px solid #e2e8f0" }}>
                         <td style={{ padding: "8px 12px", fontWeight: 700 }}>Xử lý quét trùng lặp</td>
                         <td style={{ padding: "8px 12px", color: "#dc2626" }}>Lỗi ghi đè, trùng đơn 3.2%</td>
-                        <td style={{ padding: "8px 12px", color: "#16a34a", fontWeight: 700 }}>Khóa Idempotency Redis ➔ Trùng 0.00%</td>
+                        <td style={{ padding: "8px 12px", color: "#16a34a", fontWeight: 700 }}>Khóa Idempotency Redis: Trùng 0.00%</td>
                       </tr>
                       <tr style={{ borderBottom: "1px solid #e2e8f0" }}>
                         <td style={{ padding: "8px 12px", fontWeight: 700 }}>Độ trễ phản hồi UI</td>
@@ -190,7 +191,7 @@ export function StudioProjectsStageView({
               {/* Scope Matrix */}
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "12px" }}>
                 <div style={{ padding: "14px", borderRadius: "8px", background: "#f0fdf4", border: "1px solid #bbf7d0" }}>
-                  <strong style={{ color: "#166534", fontSize: "13px" }}>✓ Phạm Vi Đã Triển Khai (In-Scope)</strong>
+                  <strong style={{ color: "#166534", fontSize: "13px", fontFamily: "var(--studio-font-display)" }}>Phạm Vi Đã Triển Khai (In-Scope)</strong>
                   <ul style={{ margin: "6px 0 0 0", paddingLeft: "18px", fontSize: "12px", color: "#1e3a8a", lineHeight: 1.6 }}>
                     <li>API Gateway có Idempotency Key 24h</li>
                     <li>Máy trạng thái Camunda BPMN 2.0 (7 bước)</li>
@@ -199,7 +200,7 @@ export function StudioProjectsStageView({
                   </ul>
                 </div>
                 <div style={{ padding: "14px", borderRadius: "8px", background: "#fff7ed", border: "1px solid #fed7aa" }}>
-                  <strong style={{ color: "#9a3412", fontSize: "13px" }}>➔ Phân Kỳ Tiếp Theo (Out-of-Scope)</strong>
+                  <strong style={{ color: "#9a3412", fontSize: "13px", fontFamily: "var(--studio-font-display)" }}>Phân Kỳ Tiếp Theo (Out-of-Scope)</strong>
                   <ul style={{ margin: "6px 0 0 0", paddingLeft: "18px", fontSize: "12px", color: "#7c2d12", lineHeight: 1.6 }}>
                     <li>Thuật toán tối ưu xếp hàng lên thùng xe tải (3D Load Planning)</li>
                     <li>Cân đo thể tích tự động trên băng chuyền (Hệ thống DWS)</li>
@@ -304,7 +305,7 @@ export function StudioProjectsStageView({
                 </p>
                 <div style={{ display: "flex", gap: "8px" }}>
                   <a href="https://tracking.nexus-ex.site/" target="_blank" rel="noreferrer" style={{ fontSize: "12px", color: "#2563eb", fontWeight: 750, textDecoration: "none" }}>
-                    👉 Mở Demo Trực Tiếp: tracking.nexus-ex.site ↗
+                    Mở Bản Demo Trực Tiếp: tracking.nexus-ex.site ↗
                   </a>
                 </div>
               </div>

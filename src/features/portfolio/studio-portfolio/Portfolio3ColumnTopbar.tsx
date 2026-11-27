@@ -83,10 +83,10 @@ export function Portfolio3ColumnTopbar({
             <span
               className={styles.brandName}
               style={{
-                fontFamily: "var(--studio-font-sans)",
+                fontFamily: "var(--studio-font-display, var(--studio-font-sans))",
                 fontSize: "14.5px",
-                fontWeight: 850,
-                letterSpacing: "-0.02em",
+                fontWeight: 750,
+                letterSpacing: "-0.01em",
                 color: "#0f172a",
               }}
             >
@@ -123,10 +123,10 @@ export function Portfolio3ColumnTopbar({
         <span style={{ color: "#94a3b8" }}>/</span>
         <span
           style={{
-            fontFamily: "var(--studio-font-sans)",
+            fontFamily: "var(--studio-font-display, var(--studio-font-sans))",
             fontSize: "12.5px",
             color: "#0f172a",
-            fontWeight: 800,
+            fontWeight: 750,
             letterSpacing: "-0.01em",
           }}
         >

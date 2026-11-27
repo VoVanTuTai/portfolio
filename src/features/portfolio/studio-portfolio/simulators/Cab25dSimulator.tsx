@@ -223,7 +223,7 @@ export function Cab25dSimulator({ lang }: Cab25dSimulatorProps) {
           />
           <strong style={{ color: "#0f172a" }}>
             {isContention
-              ? "THỰC NGHIỆM RACE CONDITION: Tài xế A nhận trước 5ms (Khóa OK) ➔ Tài xế B nhận mã HTTP 409 Conflict"
+              ? "THỰC NGHIỆM RACE CONDITION: Tài xế A nhận trước 5ms (Khóa OK) -> Tài xế B nhận mã HTTP 409 Conflict"
               : "ĐIỀU PHỐI TIÊU CHUẨN: Khớp lệnh Haversine & gán tài xế tối ưu trong 2.1 giây"}
           </strong>
         </div>
@@ -231,7 +231,7 @@ export function Cab25dSimulator({ lang }: Cab25dSimulatorProps) {
         <div style={{ display: "flex", gap: "16px" }}>
           <span>THỜI GIAN KHỚP: <strong style={{ color: "#0284c7" }}>&lt; 2.5s</strong></span>
           <span>XUNG ĐỘT: <strong style={{ color: "#16a34a" }}>0 Cuốc</strong></span>
-          <span>ĐÁNH GIÁ: <strong style={{ color: "#16a34a" }}>4.9 / 5.0 ★</strong></span>
+          <span>ĐÁNH GIÁ: <strong style={{ color: "#16a34a" }}>4.9 / 5.0</strong></span>
         </div>
       </div>
 

@@ -645,8 +645,8 @@ export const portfolioTreeFolders: PortfolioFolder[] = [
           en: "End-to-End BA Lifecycle",
         },
         subtitle: {
-          vi: "Vòng đời 5 bước chuẩn BABOK: Khảo sát ➔ Phân tích ➔ Đặc tả ➔ Nghiệm thu UAT ➔ Chuyển giao.",
-          en: "5-stage BABOK lifecycle: Elicitation ➔ Analysis ➔ Specification ➔ UAT Gate ➔ Handover.",
+          vi: "Vòng đời 5 bước chuẩn BABOK: Khảo sát -> Phân tích -> Đặc tả -> Nghiệm thu UAT -> Chuyển giao.",
+          en: "5-stage BABOK lifecycle: Elicitation -> Analysis -> Specification -> UAT Gate -> Handover.",
         },
         time: "10m",
         level: { vi: "Thực chiến", en: "Hands-on" },
@@ -694,7 +694,7 @@ export const portfolioTreeFolders: PortfolioFolder[] = [
         telemetry: [
           { label: { vi: "PHƯƠNG PHÁP", en: "METHOD" }, value: "Workshop JAD / 1-on-1", status: "good" },
           { label: { vi: "MA TRẬN TRÁCH NHIỆM", en: "GOVERNANCE" }, value: "RACI Model", status: "good" },
-          { label: { vi: "PHÂN TÍCH GAP", en: "ANALYSIS" }, value: "As-Is ➔ To-Be", status: "good" },
+          { label: { vi: "PHÂN TÍCH GAP", en: "ANALYSIS" }, value: "As-Is -> To-Be", status: "good" },
           { label: { vi: "XUNG ĐỘT", en: "CONFLICT" }, value: "Resolved", status: "good" },
         ],
         steps: [
@@ -850,8 +850,8 @@ export const portfolioTreeFolders: PortfolioFolder[] = [
               en: "2.4.3 Sequence Diagram REST API",
             },
             subtitle: {
-              vi: "Trình tự bắt tay kỹ thuật: Client Ingestion ➔ Gateway (Idempotency) ➔ Redis Lock ➔ PostgreSQL 3NF.",
-              en: "Technical handshake: Client Ingestion ➔ Gateway (Idempotency) ➔ Redis Lock ➔ PostgreSQL 3NF.",
+              vi: "Trình tự bắt tay kỹ thuật: Client Ingestion -> Gateway (Idempotency) -> Redis Lock -> PostgreSQL 3NF.",
+              en: "Technical handshake: Client Ingestion -> Gateway (Idempotency) -> Redis Lock -> PostgreSQL 3NF.",
             },
             time: "6m",
             level: { vi: "Kỹ thuật API", en: "REST Sequence" },

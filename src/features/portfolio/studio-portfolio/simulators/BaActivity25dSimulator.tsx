@@ -128,8 +128,8 @@ export function BaActivity25dSimulator({ lang }: BaActivity25dSimulatorProps) {
           />
           <strong style={{ color: "#0f172a" }}>
             {isDuplicate
-              ? "NGOẠI LỆ 4B: Redis phát hiện Idempotency-Key trùng ➔ Chặn đứng ghi đè, trả về 409 Conflict"
-              : "LUỒNG CHÍNH 1.0: Quét mã QR ➔ Khóa Redis OK ➔ Máy trạng thái Camunda cập nhật ➔ Ghi nhận DB"}
+              ? "NGOẠI LỆ 4B: Redis phát hiện Idempotency-Key trùng -> Chặn đứng ghi đè, trả về 409 Conflict"
+              : "LUỒNG CHÍNH 1.0: Quét mã QR -> Khóa Redis OK -> Máy trạng thái Camunda cập nhật -> Ghi nhận DB"}
           </strong>
         </div>
 
@@ -225,7 +225,7 @@ export function BaActivity25dSimulator({ lang }: BaActivity25dSimulatorProps) {
             <g transform="translate(620, 170)">
               <rect x="-65" y="-18" width="130" height="36" rx="6" fill="#f0fdf4" stroke="#16a34a" strokeWidth="1.6" filter="url(#actShadow)" />
               <text x="0" y="-1" textAnchor="middle" fontFamily="var(--studio-font-mono)" fontSize="8.5" fontWeight="850" fill="#14532d">
-                Camunda ➔ HUB_ARRIVED
+                Camunda {"->"} HUB_ARRIVED
               </text>
               <text x="0" y="11" textAnchor="middle" fontFamily="var(--studio-font-mono)" fontSize="7.5" fontWeight="750" fill="#15803d">
                 Ghi Log & Update 3NF
